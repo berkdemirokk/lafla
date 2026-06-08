@@ -490,21 +490,35 @@ export default function Today() {
             {state.displayName ? `, ${state.displayName}` : ""}
           </Text>
         </View>
-        {streak > 0 ? (
-          <Animated.View
-            style={[styles.streakChip, streakStyle]}
-            accessibilityRole="text"
-            accessibilityLabel={`${streak} günlük seri`}
+        <View style={styles.topBarRight}>
+          <Pressable
+            onPress={() => router.push("/leaderboard" as never)}
+            style={({ pressed }) => [
+              styles.leaderboardBtn,
+              pressed && styles.pressed,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Liderlik Tablosunu Aç"
+            hitSlop={8}
           >
-            <Text
-              style={styles.streakChipText}
-              accessibilityElementsHidden
-              importantForAccessibility="no"
+            <Icon name="trophy" size={20} color={tokens.brand.tertiary} />
+          </Pressable>
+          {streak > 0 ? (
+            <Animated.View
+              style={[styles.streakChip, streakStyle]}
+              accessibilityRole="text"
+              accessibilityLabel={`${streak} günlük seri`}
             >
-              🔥 {streak}
-            </Text>
-          </Animated.View>
-        ) : null}
+              <Text
+                style={styles.streakChipText}
+                accessibilityElementsHidden
+                importantForAccessibility="no"
+              >
+                🔥 {streak}
+              </Text>
+            </Animated.View>
+          ) : null}
+        </View>
       </View>
 
       <Animated.ScrollView
@@ -1000,6 +1014,20 @@ const styles = StyleSheet.create({
     paddingBottom: 14,
   },
   topBarLeft: { flex: 1, marginRight: 8 },
+  topBarRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  leaderboardBtn: {
+    padding: 6,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outline,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   greeting: {
     fontSize: 22,
     fontWeight: tokens.weight.black,

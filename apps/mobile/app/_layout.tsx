@@ -184,6 +184,7 @@ export default function RootLayout() {
           <Stack.Screen name="home" />
           <Stack.Screen name="scenario/[id]" />
           <Stack.Screen name="freechat" />
+          <Stack.Screen name="leaderboard" />
           <Stack.Screen name="review" />
           <Stack.Screen name="placement" />
           <Stack.Screen name="paywall" />

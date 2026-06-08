@@ -493,6 +493,12 @@ export default function ProfileScreen() {
         <Text style={styles.sectionLabel}>İLERLEME</Text>
         <View style={styles.accountCard}>
           <AccountRow
+            icon="trophy"
+            label="Liderlik tablosu"
+            onPress={() => router.push("/leaderboard" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
             icon="history"
             label="Geçmiş sahneler"
             onPress={() => router.push("/history" as never)}

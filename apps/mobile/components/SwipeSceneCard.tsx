@@ -36,6 +36,7 @@ import {
   type PanResponderGestureState,
 } from "react-native";
 import * as Haptics from "expo-haptics";
+import { LinearGradient } from "expo-linear-gradient";
 
 import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
@@ -419,7 +420,12 @@ function SwipeSceneCardImpl({
           />
         ) : (
           /* BUG-7 FIX: gradient fallback when image fails to load (offline) */
-          <View style={[StyleSheet.absoluteFillObject, { backgroundColor: accent.fill, opacity: 0.8 }]} />
+          <LinearGradient
+            colors={[tokens.bg.surfaceContainer, accent.fill, tokens.bg.app]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={StyleSheet.absoluteFillObject}
+          />
         )}
 
         {/* Animated Gradient Overlay replacing the static black overlay */}

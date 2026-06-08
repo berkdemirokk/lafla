@@ -32,10 +32,9 @@ import { tokens } from "../theme";
 import { Button } from "../components/Button";
 import {
   FREE_CHAT_FREE_TURN_LIMIT,
-  pickFollowup,
   pickPromptOfDay,
-  type FollowupPattern,
 } from "../data/free-chat-prompts";
+import { chatComplete } from "../lib/llm-router";
 import {
   detectMistakes,
   getPattern,
@@ -115,11 +114,13 @@ export default function FreechatScreen() {
 
   const limitHit = !premium && userTurnCount >= FREE_CHAT_FREE_TURN_LIMIT;
 
-  const sendUserTurn = () => {
-    const text = input.trim();
-    if (!text || limitHit) return;
+  const [loading, setLoading] = useState(false);
 
-    // 1) detectMistakes — Switch-2 inline error UI reuse
+  const sendUserTurn = async () => {
+    const text = input.trim();
+    if (!text || limitHit || loading) return;
+
+    // 1) detectMistakes — Switch-2 inline error UI reuse (Contrastive Coaching)
     const hits = detectMistakes(text);
     let mistakeInline: ChatLine["mistake"];
     if (hits.length > 0) {
@@ -137,17 +138,14 @@ export default function FreechatScreen() {
       }
     }
 
-    // 2) classify reply -> followup
-    const fu: FollowupPattern | null = pickFollowup(text, prompt);
+    // Append user message immediately
+    const userLine: ChatLine = {
+      speaker: "user",
+      text,
+      mistake: mistakeInline,
+    };
 
-    setLines((prev) => [
-      ...prev,
-      {
-        speaker: "user",
-        text,
-        mistake: mistakeInline,
-      },
-    ]);
+    setLines((prev) => [...prev, userLine]);
     setInput("");
     void Haptics.selectionAsync().catch(() => {});
 
@@ -157,13 +155,9 @@ export default function FreechatScreen() {
     const newTurnCount = userTurnCount + 1;
     setUserTurnCount(newTurnCount);
 
-    // 3) NPC follow-up after a short delay (feels less robotic)
-    setTimeout(() => {
-      const npc_text = fu?.npc_reply ?? prompt.default_followup;
-      const hint_tr = fu?.hint_tr ?? prompt.default_hint_tr;
-
-      // 4) Paywall gate at limit
-      if (!premium && newTurnCount >= FREE_CHAT_FREE_TURN_LIMIT) {
+    // 2) Paywall gate at limit (Check BEFORE calling LLM to save quota)
+    if (!premium && newTurnCount >= FREE_CHAT_FREE_TURN_LIMIT) {
+      setTimeout(() => {
         setLines((prev) => [
           ...prev,
           {
@@ -173,18 +167,78 @@ export default function FreechatScreen() {
           },
         ]);
         setPaywallGate(true);
-        return;
-      }
+      }, 500);
+      return;
+    }
 
-      setLines((prev) => [
-        ...prev,
-        {
-          speaker: "npc",
-          text: npc_text,
-          hint_tr,
-        },
-      ]);
-    }, 650);
+    // 3) NPC Response - Trigger real LLM
+    setLoading(true);
+    
+    // Add temporary typing indicator
+    setLines((prev) => [
+      ...prev,
+      {
+        speaker: "npc",
+        text: "typing...",
+      },
+    ]);
+
+    try {
+      // Map previous chat history to Message format
+      const history = lines
+        .filter((l) => l.text !== "typing...")
+        .map((l) => ({
+          role: l.speaker === "user" ? "user" : "assistant",
+          content: l.text,
+        } as const));
+
+      // Add the new user message to the history
+      history.push({ role: "user", content: text });
+
+      const systemPrompt = `You are roleplaying a conversation scenario. The scenario opener was: "${prompt.npc_opener}".
+You must play your role as a helpful and friendly native English speaker.
+Respond in short, conversational English (strictly 1 to 2 sentences maximum) suitable for language learners.
+Do NOT write any Turkish translations. Respond in English only.`;
+
+      const aiReply = await chatComplete(history, {
+        system: systemPrompt,
+        maxTokens: 128,
+      });
+
+      setLines((prev) => {
+        const updated = [...prev];
+        if (updated.length > 0 && updated[updated.length - 1].text === "typing...") {
+          updated.pop();
+        }
+        return [
+          ...updated,
+          {
+            speaker: "npc",
+            text: aiReply,
+            hint_tr: "Akıcı şekilde cevap verin.",
+          },
+        ];
+      });
+    } catch (err) {
+      console.warn("[Freechat] LLM router failed, falling back to static prompt:", err);
+      // Fallback to static prompt if offline/error
+      setLines((prev) => {
+        const updated = [...prev];
+        if (updated.length > 0 && updated[updated.length - 1].text === "typing...") {
+          updated.pop();
+        }
+        return [
+          ...updated,
+          {
+            speaker: "npc",
+            text: prompt.default_followup,
+            hint_tr: prompt.default_hint_tr,
+          },
+        ];
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handlePaywall = () => {
@@ -263,20 +317,20 @@ export default function FreechatScreen() {
               style={styles.input}
               value={input}
               onChangeText={setInput}
-              placeholder="Yaz..."
+              placeholder={loading ? "Cevaplanıyor..." : "Yaz..."}
               placeholderTextColor={tokens.text.tertiary}
               autoCapitalize="sentences"
               autoCorrect
               returnKeyType="send"
               onSubmitEditing={sendUserTurn}
-              editable={!limitHit}
+              editable={!limitHit && !loading}
             />
             <Pressable
               onPress={sendUserTurn}
-              disabled={!input.trim() || limitHit}
+              disabled={!input.trim() || limitHit || loading}
               style={({ pressed }) => [
                 styles.sendBtn,
-                (!input.trim() || limitHit) && styles.sendBtnDisabled,
+                (!input.trim() || limitHit || loading) && styles.sendBtnDisabled,
                 pressed && styles.sendBtnPressed,
               ]}
               accessibilityRole="button"

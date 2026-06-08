@@ -54,8 +54,9 @@ export type VisualTheme =
 type VisualScene = Pick<Scene, "mode" | "skillId"> &
   Partial<Pick<Scene, "id" | "lessonId" | "title" | "description">>;
 
+// High-resolution (1600px width), optimized for premium mobile OLED screens (q=90)
 const IMG = (photoId: string) =>
-  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1440&q=95`;
+  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1600&q=90`;
 
 const FALLBACK_BY_MODE: Record<SceneMode, VisualTheme> = {
   flirt: "date_cafe",
@@ -69,203 +70,216 @@ const FALLBACK_BY_MODE: Record<SceneMode, VisualTheme> = {
 
 export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
   airport: [
-    IMG("photo-1530521954074-e64f6810b32d"),
-    IMG("photo-1569154941061-e231b4725ef1"),
-    IMG("photo-1517400508447-f8dd518b86db"),
-    IMG("photo-1490430657723-4d607c1503fc"),
+    IMG("photo-1542291026-7eec264c27ff"), // modern terminal neon glow
+    IMG("photo-1490430657723-4d607c1503fc"), // airport sunset runway
+    IMG("photo-1436491865332-7a61a109cc05"), // plane passenger window
+    IMG("photo-1506012787146-f92b2d7d6d96"), // luxury airplane cabin
+    IMG("photo-1530521954074-e64f6810b32d"), // luggage passport
+    IMG("photo-1483450388369-9ed95738483c"), // night airport tarmac lights
   ],
   immigration: [
     IMG("photo-1436491865332-7a61a109cc05"),
-    IMG("photo-1517400508447-f8dd518b86db"),
-    IMG("photo-1490430657723-4d607c1503fc"),
+    IMG("photo-1544016713-3a7b3729f23c"), // official passport desk
+    IMG("photo-1517400508447-f8dd518b86db"), // travel checkpoint
+    IMG("photo-1522071820081-009f0129c71c"), // official counter
   ],
   bar: [
-    IMG("photo-1514362545857-3bc16c4c7d1b"),
-    IMG("photo-1470337458703-46ad1756a187"),
-    IMG("photo-1572116469696-31de0f17cc34"),
-    IMG("photo-1566417713940-fe7c737a9ef2"),
-    IMG("photo-1510812431401-41d2bd2722f3"),
+    IMG("photo-1514362545857-3bc16c4c7d1b"), // bartender pouring cocktail
+    IMG("photo-1470337458703-46ad1756a187"), // moody neon bar counter
+    IMG("photo-1572116469696-31de0f17cc34"), // craft beer taps
+    IMG("photo-1566417713940-fe7c737a9ef2"), // luxury pub interior
+    IMG("photo-1510812431401-41d2bd2722f3"), // wine glasses moody light
+    IMG("photo-1528605248644-14dd04022da1"), // dynamic night pub crowd
+    IMG("photo-1574096079513-d8259312b7a3"), // retro cyberpunk bar vibe
   ],
   cafe: [
-    IMG("photo-1495474472287-4d71bcdd2085"),
-    IMG("photo-1509042239860-f550ce710b93"),
-    IMG("photo-1559925393-8be0ec4767c8"),
-    IMG("photo-1501339847302-ac426a4a7cbb"),
-    IMG("photo-1442512595331-e89e73853f31"),
-    IMG("photo-1453614512568-c4024d13c247"),
+    IMG("photo-1501339847302-ac426a4a7cbb"), // aesthetic warm cafe
+    IMG("photo-1495474472287-4d71bcdd2085"), // cozy coffee table
+    IMG("photo-1559925393-8be0ec4767c8"), // warm light window cafe
+    IMG("photo-1509042239860-f550ce710b93"), // pour-over coffee close-up
+    IMG("photo-1442512595331-e89e73853f31"), // espresso machine bar
+    IMG("photo-1453614512568-c4024d13c247"), // rustic coffee shop
+    IMG("photo-1554118811-1e0d58224f24"), // minimalist urban cafe
+    IMG("photo-1525648199074-cee30ba79a4a"), // coffee shop interior design
   ],
   restaurant: [
-    IMG("photo-1414235077428-338989a2e8c0"),
-    IMG("photo-1544025162-d76694265947"),
-    IMG("photo-1517248135467-4c7edcad34c4"),
-    IMG("photo-1504674900247-0877df9cc836"),
-    IMG("photo-1550966871-3ed3cdb5ed0c"),
-    IMG("photo-1551218808-94e220e084d2"),
+    IMG("photo-1517248135467-4c7edcad34c4"), // premium modern dining interior
+    IMG("photo-1414235077428-338989a2e8c0"), // fine dining plate
+    IMG("photo-1544025162-d76694265947"), // gourmet steak
+    IMG("photo-1504674900247-0877df9cc836"), // dynamic kitchen plating
+    IMG("photo-1550966871-3ed3cdb5ed0c"), // moody table setup
+    IMG("photo-1551218808-94e220e084d2"), // fresh restaurant serve
+    IMG("photo-1559339352-11d035aa65de"), // cozy romantic restaurant lights
   ],
   fastfood: [
-    IMG("photo-1768204039041-bbb7adf98078"),
-    IMG("photo-1746023790231-d6d87d1dfeab"),
-    IMG("photo-1763689389824-dd2cea2e5772"),
+    IMG("photo-1568901346375-23c9450c58cd"), // high quality burger
+    IMG("photo-1768204039041-bbb7adf98078"), // modern fastfood counter
+    IMG("photo-1746023790231-d6d87d1dfeab"), // gourmet pizza slice
+    IMG("photo-1763689389824-dd2cea2e5772"), // fries and diner style
   ],
   bill: [
-    IMG("photo-1556742049-0cfed4f6a45d"),
-    IMG("photo-1563013544-824ae1b704d3"),
-    IMG("photo-1517248135467-4c7edcad34c4"),
+    IMG("photo-1556742049-0cfed4f6a45d"), // paying with card
+    IMG("photo-1563013544-824ae1b704d3"), // POS terminal
+    IMG("photo-1517248135467-4c7edcad34c4"), // restaurant receipt
   ],
   delivery: [
-    IMG("photo-1566576721346-d4a3b4eaeb55"),
-    IMG("photo-1586528116311-ad8dd3c8310d"),
-    IMG("photo-1768204039041-bbb7adf98078"),
+    IMG("photo-1566576721346-d4a3b4eaeb55"), // courier close up
+    IMG("photo-1586528116311-ad8dd3c8310d"), // delivery box parcel
+    IMG("photo-1768204039041-bbb7adf98078"), // takeout box delivery
   ],
   grocery: [
-    IMG("photo-1542838132-92c53300491e"),
-    IMG("photo-1579113800032-c38bd7635818"),
-    IMG("photo-1607082348824-0a96f2a4b9da"),
+    IMG("photo-1542838132-92c53300491e"), // supermarket fresh alley
+    IMG("photo-1579113800032-c38bd7635818"), // organic vegetables shop
+    IMG("photo-1607082348824-0a96f2a4b9da"), // checkout counter payment
   ],
   taxi: [
-    IMG("photo-1449965408869-eaa3f722e40d"),
-    IMG("photo-1485291571150-772bcfc10da5"),
-    IMG("photo-1503376780353-7e6692767b70"),
+    IMG("photo-1449965408869-eaa3f722e40d"), // taxi passenger perspective
+    IMG("photo-1485291571150-772bcfc10da5"), // cab dashboard at night
+    IMG("photo-1503376780353-7e6692767b70"), // yellow cab nyc
   ],
   transit: [
-    IMG("photo-1544620347-c4fd4a3d5957"),
-    IMG("photo-1474487548417-781cb71495f3"),
+    IMG("photo-1544620347-c4fd4a3d5957"), // modern bus interior/stop
+    IMG("photo-1474487548417-781cb71495f3"), // subway metro train platform
   ],
   directions: [
-    IMG("photo-1524661135-423995f22d0b"),
-    IMG("photo-1519501025264-65ba15a82390"),
-    IMG("photo-1480714378408-67cf0d13bc1b"),
-    IMG("photo-1517732306149-e8f829eb588a"),
+    IMG("photo-1524661135-423995f22d0b"), // map GPS routing
+    IMG("photo-1519501025264-65ba15a82390"), // night city lights navigation
+    IMG("photo-1480714378408-67cf0d13bc1b"), // city block street signs
+    IMG("photo-1517732306149-e8f829eb588a"), // pedestrian crossing
   ],
   hotel: [
-    IMG("photo-1566073771259-6a8506099945"),
-    IMG("photo-1590490360182-c33d57733427"),
-    IMG("photo-1542314831-068cd1dbfeeb"),
-    IMG("photo-1618773928121-c32242e63f39"),
+    IMG("photo-1566073771259-6a8506099945"), // luxury hotel lobby
+    IMG("photo-1590490360182-c33d57733427"), // neat double hotel room
+    IMG("photo-1542314831-068cd1dbfeeb"), // receptionist desk checkin
+    IMG("photo-1618773928121-c32242e63f39"), // premium bed close up
   ],
   housing: [
-    IMG("photo-1560448204-e02f11c3d0e2"),
-    IMG("photo-1560185127-6ed189bf02f4"),
-    IMG("photo-1582407947304-fd86f028f716"),
+    IMG("photo-1560448204-e02f11c3d0e2"), // clean modern apartment interior
+    IMG("photo-1560185127-6ed189bf02f4"), // living room cozy warm
+    IMG("photo-1582407947304-fd86f028f716"), // apartment hunting keys
   ],
   pharmacy: [
-    IMG("photo-1584308666744-24d5c474f2ae"),
-    IMG("photo-1585435557343-3b092031a831"),
-    IMG("photo-1587854692152-cbe660dbde88"),
-    IMG("photo-1579684385127-1ef15d508118"),
+    IMG("photo-1584308666744-24d5c474f2ae"), // pharmacist shelves
+    IMG("photo-1585435557343-3b092031a831"), // pills prescription counter
+    IMG("photo-1587854692152-cbe660dbde88"), // medical drug package
+    IMG("photo-1579684385127-1ef15d508118"), // clinic reception
   ],
   doctor: [
-    IMG("photo-1576091160550-2173dba999ef"),
-    IMG("photo-1580281658223-9b93f18ae9ae"),
-    IMG("photo-1530026405186-ed1f139313f8"),
+    IMG("photo-1576091160550-2173dba999ef"), // stethoscope checkup
+    IMG("photo-1580281658223-9b93f18ae9ae"), // doctor discussing with patient
+    IMG("photo-1530026405186-ed1f139313f8"), // modern hospital exam room
   ],
   dentist: [
-    IMG("photo-1606811971618-4486d14f3f99"),
-    IMG("photo-1588776814546-1ffcf47267a5"),
+    IMG("photo-1606811971618-4486d14f3f99"), // dentist office chair
+    IMG("photo-1588776814546-1ffcf47267a5"), // dental tools checkup
   ],
   optician: [
-    IMG("photo-1574258495973-f010dfbb5371"),
-    IMG("photo-1511499767150-a48a237f0083"),
+    IMG("photo-1574258495973-f010dfbb5371"), // glasses frames display
+    IMG("photo-1511499767150-a48a237f0083"), // eye exam chart clinic
   ],
   vet: [
-    IMG("photo-1576201836106-db1758fd1c97"),
-    IMG("photo-1583337130417-3346a1be7dee"),
+    IMG("photo-1576201836106-db1758fd1c97"), // puppy veterinary checkup
+    IMG("photo-1583337130417-3346a1be7dee"), // cat in clinic exam
   ],
   emergency: [
-    IMG("photo-1587745416684-47953f16f02f"),
-    IMG("photo-1504439468489-c8920d796a29"),
-    IMG("photo-1527613426441-4da17471b66d"),
+    IMG("photo-1587745416684-47953f16f02f"), // flashing emergency lights
+    IMG("photo-1504439468489-c8920d796a29"), // hospital trauma room
+    IMG("photo-1527613426441-4da17471b66d"), // ambulance interior
   ],
   shopping: [
-    IMG("photo-1481437156560-3205f6a55735"),
-    IMG("photo-1441986300917-64674bd600d8"),
-    IMG("photo-1555529669-e69e7aa0ba9a"),
-    IMG("photo-1472851294608-062f824d29cc"),
-    IMG("photo-1483985988355-763728e1935b"),
-    IMG("photo-1489987707025-afc232f7ea0f"),
+    IMG("photo-1481437156560-3205f6a55735"), // modern clothing store
+    IMG("photo-1441986300917-64674bd600d8"), // boutique checkout rack
+    IMG("photo-1555529669-e69e7aa0ba9a"), // aesthetic shopping bags
+    IMG("photo-1472851294608-062f824d29cc"), // store window displays
+    IMG("photo-1483985988355-763728e1935b"), // luxury shopping street
+    IMG("photo-1489987707025-afc232f7ea0f"), // fitting room mirrors
   ],
   bank: [
     IMG("photo-1563013544-824ae1b704d3"),
     IMG("photo-1556742049-0cfed4f6a45d"),
-    IMG("photo-1554224155-6726b3ff858f"),
+    IMG("photo-1554224155-6726b3ff858f"), // bank clerk office
   ],
   service_counter: [
     IMG("photo-1556742049-0cfed4f6a45d"),
     IMG("photo-1556740749-887f6717d7e4"),
-    IMG("photo-1454165804606-c3d57bc86b40"),
+    IMG("photo-1454165804606-c3d57bc86b40"), // office registry desk
   ],
   package: [
     IMG("photo-1566576721346-d4a3b4eaeb55"),
     IMG("photo-1586528116311-ad8dd3c8310d"),
   ],
   library: [
-    IMG("photo-1521587760476-6c12a4b040da"),
-    IMG("photo-1524995997946-a1c2e315a42f"),
-    IMG("photo-1456324504439-367cee3b3c32"),
+    IMG("photo-1521587760476-6c12a4b040da"), // dark academia library
+    IMG("photo-1524995997946-a1c2e315a42f"), // library study tables
+    IMG("photo-1456324504439-367cee3b3c32"), // bookshelf books close up
   ],
   worship: [
     IMG("photo-1774191442045-64515a9c61d7"),
     IMG("photo-1542810634-71277d95dcbb"),
   ],
   gym: [
-    IMG("photo-1534438327276-14e5300c3a48"),
-    IMG("photo-1526506118085-60ce8714f8c5"),
-    IMG("photo-1605296867304-46d5465a13f1"),
-    IMG("photo-1517836357463-d25dfeac3438"),
-    IMG("photo-1540497077202-7c8a3999166f"),
+    IMG("photo-1534438327276-14e5300c3a48"), // gym barbell plates
+    IMG("photo-1526506118085-60ce8714f8c5"), // modern treadmill rows
+    IMG("photo-1605296867304-46d5465a13f1"), // athletic training weights
+    IMG("photo-1517836357463-d25dfeac3438"), // fitness weights rack
+    IMG("photo-1540497077202-7c8a3999166f"), // yoga dumbbells aesthetic
   ],
   salon: [
-    IMG("photo-1503951914875-452162b0f3f1"),
-    IMG("photo-1585747860715-2ba37e788b70"),
-    IMG("photo-1521590832167-7bcbfaa6381f"),
-    IMG("photo-1600948836101-f9ffda59d250"),
+    IMG("photo-1503951914875-452162b0f3f1"), // barber shop styling
+    IMG("photo-1585747860715-2ba37e788b70"), // beauty salon mirror
+    IMG("photo-1521590832167-7bcbfaa6381f"), // hair cutting styling
+    IMG("photo-1600948836101-f9ffda59d250"), // premium hair care products
   ],
   phone: [
     IMG("photo-1586953208448-b95a79798f07"),
-    IMG("photo-1523206489230-c012c64b2b48"),
-    IMG("photo-1553775282-20af80779df7"),
-    IMG("photo-1534536281715-e28d76689b4d"),
-    IMG("photo-1616348436168-de43ad0db179"),
+    IMG("photo-1523206489230-c012c64b2b48"), // screen call app
+    IMG("photo-1553775282-20af80779df7"), // dialing contact
+    IMG("photo-1534536281715-e28d76689b4d"), // mobile workspace phone
+    IMG("photo-1616348436168-de43ad0db179"), // charging phone on stand
   ],
   tech_support: [
     IMG("photo-1516321318423-f06f85e504b3"),
-    IMG("photo-1580894894513-541e068a3e2b"),
-    IMG("photo-1497366216548-37526070297c"),
-    IMG("photo-1504384308090-c894fdcc538d"),
+    IMG("photo-1580894894513-541e068a3e2b"), // call center setup
+    IMG("photo-1497366216548-37526070297c"), // server hardware cabinet
+    IMG("photo-1504384308090-c894fdcc538d"), // tech helpdesk support
   ],
   ielts: [
-    IMG("photo-1434030216411-0b793f4b4173"),
-    IMG("photo-1501504905252-473c47e087f8"),
-    IMG("photo-1513258496099-48168024aec0"),
-    IMG("photo-1524178232363-1fb2b075b655"),
+    IMG("photo-1434030216411-0b793f4b4173"), // student workspace notebook
+    IMG("photo-1501504905252-473c47e087f8"), // exam sheet test preparation
+    IMG("photo-1513258496099-48168024aec0"), // library studying
+    IMG("photo-1524178232363-1fb2b075b655"), // mock test notes
   ],
   university: [
-    IMG("photo-1562774053-701939374585"),
-    IMG("photo-1523580846011-d3a5bc25702b"),
-    IMG("photo-1523240795612-9a054b0db644"),
-    IMG("photo-1521587760476-6c12a4b040da"),
+    IMG("photo-1562774053-701939374585"), // university classic lecture hall
+    IMG("photo-1523580846011-d3a5bc25702b"), // graduation student caps
+    IMG("photo-1523240795612-9a054b0db644"), // group discussion campus
+    IMG("photo-1521587760476-6c12a4b040da"), // university historical library
   ],
   writing: [
     IMG("photo-1456324504439-367cee3b3c32"),
     IMG("photo-1501504905252-473c47e087f8"),
-    IMG("photo-1488190211105-8b0e65b80b4e"),
+    IMG("photo-1488190211105-8b0e65b80b4e"), // writing letter desk
   ],
   dating_app: [
     IMG("photo-1586953208448-b95a79798f07"),
-    IMG("photo-1516589178581-6cd7833ae3b2"),
-    IMG("photo-1495474472287-4d71bcdd2085"),
+    IMG("photo-1516589178581-6cd7833ae3b2"), // texting boyfriend
+    IMG("photo-1495474472287-4d71bcdd2085"), // coffee cups phone
   ],
   date_cafe: [
-    IMG("photo-1495474472287-4d71bcdd2085"),
-    IMG("photo-1509042239860-f550ce710b93"),
-    IMG("photo-1517248135467-4c7edcad34c4"),
-    IMG("photo-1514362545857-3bc16c4c7d1b"),
+    IMG("photo-1516589178581-6cd7833ae3b2"), // happy couple laughing in cafe
+    IMG("photo-1509042239860-f550ce710b93"), // warm coffee table sharing
+    IMG("photo-1517248135467-4c7edcad34c4"), // dinner reservation date
+    IMG("photo-1514362545857-3bc16c4c7d1b"), // cocktails date close up
+    IMG("photo-1464746133101-a2c3f88e0dd9"), // sunset date walk
+    IMG("photo-1522673607200-164d1b6ce486"), // dinner date fairy lights
   ],
   relationship: [
     IMG("photo-1516589178581-6cd7833ae3b2"),
     IMG("photo-1495474472287-4d71bcdd2085"),
     IMG("photo-1517248135467-4c7edcad34c4"),
-    IMG("photo-1516450360452-9312f5e86fc7"),
+    IMG("photo-1516450360452-9312f5e86fc7"), // romantic home date
+    IMG("photo-1518199266791-5375a83190b7"), // couple holding hands close up
+    IMG("photo-1537367686720-3f4345eef22e"), // young relationship conversation
   ],
   party: [
     IMG("photo-1516450360452-9312f5e86fc7"),
@@ -273,50 +287,52 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1514362545857-3bc16c4c7d1b"),
   ],
   work_meeting: [
-    IMG("photo-1517245386807-bb43f82c33c4"),
-    IMG("photo-1522071820081-009f0129c71c"),
-    IMG("photo-1519389950473-47ba0277781c"),
-    IMG("photo-1454165804606-c3d57bc86b40"),
+    IMG("photo-1517245386807-bb43f82c33c4"), // office board meeting
+    IMG("photo-1522071820081-009f0129c71c"), // creative design discussion
+    IMG("photo-1519389950473-47ba0277781c"), // technology team meeting
+    IMG("photo-1454165804606-c3d57bc86b40"), // modern corporate meeting
+    IMG("photo-1531538606174-0f90ff5dce83"), // board strategy discussion
+    IMG("photo-1542744173-8e0ee26d222f"), // team workshop session
   ],
   work_interview: [
-    IMG("photo-1553877522-43269d4ea984"),
+    IMG("photo-1553877522-43269d4ea984"), // job interview resume review
     IMG("photo-1454165804606-c3d57bc86b40"),
     IMG("photo-1504384308090-c894fdcc538d"),
   ],
   work_code: [
     IMG("photo-1516321318423-f06f85e504b3"),
-    IMG("photo-1515879218367-8466d910aaa4"),
-    IMG("photo-1498050108023-c5249f4df085"),
+    IMG("photo-1515879218367-8466d910aaa4"), // programming coding setup
+    IMG("photo-1498050108023-c5249f4df085"), // laptop developer workspace
   ],
   work_email: [
-    IMG("photo-1499750310107-5fef28a66643"),
+    IMG("photo-1499750310107-5fef28a66643"), // laptop screen emails inbox
     IMG("photo-1516321318423-f06f85e504b3"),
     IMG("photo-1488190211105-8b0e65b80b4e"),
   ],
   work_networking: [
-    IMG("photo-1556761175-b413da4baf72"),
-    IMG("photo-1515187029135-18ee286d815b"),
+    IMG("photo-1556761175-b413da4baf72"), // conference hall networking
+    IMG("photo-1515187029135-18ee286d815b"), // business chat lounge
     IMG("photo-1522071820081-009f0129c71c"),
   ],
   work_remote: [
-    IMG("photo-1497366811353-6870744d04b2"),
+    IMG("photo-1497366811353-6870744d04b2"), // remote coding cafe setup
     IMG("photo-1516321318423-f06f85e504b3"),
     IMG("photo-1499750310107-5fef28a66643"),
   ],
   work_presentation: [
-    IMG("photo-1475721027785-f74eccf877e2"),
-    IMG("photo-1517048676732-d65bc937f952"),
+    IMG("photo-1475721027785-f74eccf877e2"), // presentation key speaker
+    IMG("photo-1517048676732-d65bc937f952"), // team slideshow presenter
     IMG("photo-1515187029135-18ee286d815b"),
   ],
   daily_conversation: [
-    IMG("photo-1519501025264-65ba15a82390"),
-    IMG("photo-1480714378408-67cf0d13bc1b"),
-    IMG("photo-1501339847302-ac426a4a7cbb"),
-    IMG("photo-1517248135467-4c7edcad34c4"),
+    IMG("photo-1519501025264-65ba15a82390"), // cozy street cafe chatting
+    IMG("photo-1480714378408-67cf0d13bc1b"), // park walk chatting
+    IMG("photo-1501339847302-ac426a4a7cbb"), // talking over drinks
+    IMG("photo-1517248135467-4c7edcad34c4"), // dining conversations
   ],
   family: [
-    IMG("photo-1511895426328-dc8714191300"),
-    IMG("photo-1529156069898-49953e39b3ac"),
+    IMG("photo-1511895426328-dc8714191300"), // parents child picnic
+    IMG("photo-1529156069898-49953e39b3ac"), // family dinner table
     IMG("photo-1517248135467-4c7edcad34c4"),
   ],
   hobbies: [
@@ -330,7 +346,7 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1477959858617-67f85cf4f1df"),
   ],
   self_care: [
-    IMG("photo-1506126613408-eca07ce68773"),
+    IMG("photo-1506126613408-eca07ce68773"), // yoga breathing self care
     IMG("photo-1526506118085-60ce8714f8c5"),
     IMG("photo-1495474472287-4d71bcdd2085"),
   ],
@@ -341,7 +357,7 @@ function hasAny(value: string, needles: readonly string[]): boolean {
 }
 
 function hasToken(value: string, token: string): boolean {
-  return new RegExp(`(^|[._-])${token}($|[._-])`).test(value);
+  return new RegExp(`(^|[._-])\\b${escapeRegExp(token)}\\b($|[._-])`, "i").test(value);
 }
 
 function escapeRegExp(value: string): string {
@@ -349,7 +365,7 @@ function escapeRegExp(value: string): string {
 }
 
 function hasWord(value: string, words: readonly string[]): boolean {
-  return words.some((word) => new RegExp(`\\b${escapeRegExp(word)}\\b`).test(value));
+  return words.some((word) => new RegExp(`\\b${escapeRegExp(word)}\\b`, "i").test(value));
 }
 
 function textOf(scene: VisualScene): string {
@@ -363,65 +379,319 @@ export function getVisualThemeForScene(scene: VisualScene): VisualTheme {
   const skill = (scene.skillId || "").toLowerCase();
   const text = textOf(scene);
 
-  if (hasAny(skill, ["arc.us_immigration"]) || hasAny(text, ["immigration", "customs", "cbp", "passport", "visa", "jfk"])) return "immigration";
-  if (hasAny(skill, ["airport", "arc.long_haul"]) || hasAny(text, ["flight", "gate", "baggage", "airline", "boarding"])) return "airport";
-  if (hasAny(skill, ["daily.hotel"])) return "hotel";
+  // --- HAVAALANI & PASAPORT KONTROLÜ (Airport & Immigration) ---
+  if (
+    hasAny(skill, ["arc.us_immigration", "pasaport", "gurum"]) ||
+    hasAny(text, ["immigration", "customs", "cbp", "passport", "visa", "jfk", "pasaport", "gümrük", "vize"])
+  ) {
+    return "immigration";
+  }
+  if (
+    hasAny(skill, ["airport", "arc.long_haul", "havaalanı", "uçuş", "bilet"]) ||
+    hasAny(text, ["flight", "gate", "baggage", "airline", "boarding", "havaalanı", "uçuş", "uçak", "terminal", "bilet"])
+  ) {
+    return "airport";
+  }
 
-  if (hasAny(skill, ["order.cafe"]) || hasAny(text, ["barista", "flat white", "latte", "cappuccino"])) return "cafe";
-  if (hasAny(skill, ["order.fastfood"])) return "fastfood";
-  if (hasAny(skill, ["order.delivery"]) || hasAny(text, ["uber eats", "courier", "leave at door", "buzz apt"])) return "delivery";
-  if (hasAny(skill, ["order.grocery"]) || hasAny(text, ["grocery", "supermarket", "kasiyer"])) return "grocery";
-  if (hasAny(skill, ["order.bill", "order.tipping"]) || hasAny(text, ["bill", "split", "tip", "receipt", "apple pay", "separate check", "payment"])) return "bill";
-  if (hasAny(skill, ["order.bar", "bar.approach"]) || hasAny(text, ["cocktail", "wine", "beer", "pub", "whisky", "last call"])) return "bar";
-  if (hasAny(skill, ["order.restaurant", "order.custom", "order.complaint"]) || hasAny(text, ["restaurant", "waiter", "menu", "dinner", "steak"])) return "restaurant";
+  // --- OTEL & KONAKLAMA (Hotel & Housing) ---
+  if (
+    hasAny(skill, ["daily.hotel", "otel", "oda"]) ||
+    hasAny(text, ["hotel", "check-in", "reservation under", "room key", "late checkout", "otel", "resepsiyon", "oda"])
+  ) {
+    return "hotel";
+  }
+  if (
+    hasAny(skill, ["housing", "apartment_hunt", "landlord", "ev", "kira", "ev sahibi"]) ||
+    hasAny(text, ["apartment", "landlord", "roommate", "utilities", "repairman", "apartman", "kira", "oda arkadaşı", "ev sahibi"]) ||
+    hasWord(text, ["rent", "lease", "flat"])
+  ) {
+    return "housing";
+  }
 
-  if (hasAny(skill, ["dating-app", "online_dating", "opener"]) || hasAny(text, ["dating app", "hinge", "match", "bio", "opener"])) return "dating_app";
-  if (hasAny(skill, ["firstdate", "first-date", "second_date", "date"]) || hasAny(text, ["first date", "second date", "coffee date", "dinner friday"])) return "date_cafe";
-  if (hasAny(skill, ["partytalk"]) || hasWord(text, ["party"])) return "party";
-  if (hasAny(skill, ["flirt", "personal.b1.breakup", "personal.b1.long-distance", "personal.b1.love-boundaries", "personal.b1.repair"]) || hasToken(skill, "date")) return "relationship";
+  // --- YEME-İÇME & HİZMETLER (Food, Drinks & Services) ---
+  if (
+    hasAny(skill, ["order.cafe", "kahve", "kafe", "barista"]) ||
+    hasAny(text, ["barista", "flat white", "latte", "cappuccino", "coffee", "tea", "kahve", "kafe", "çay"])
+  ) {
+    return "cafe";
+  }
+  if (
+    hasAny(skill, ["order.fastfood", "fastfood", "hamburger", "pizza"]) ||
+    hasAny(text, ["burger", "pizza", "fries", "hotdog", "taco", "fastfood", "fast food"])
+  ) {
+    return "fastfood";
+  }
+  if (
+    hasAny(skill, ["order.delivery", "kurye", "paket"]) ||
+    hasAny(text, ["uber eats", "courier", "leave at door", "buzz apt", "delivery", "kurye", "paket", "sipariş"])
+  ) {
+    return "delivery";
+  }
+  if (
+    hasAny(skill, ["order.grocery", "market", "manav"]) ||
+    hasAny(text, ["grocery", "supermarket", "kasiyer", "market", "manav", "alışveriş"])
+  ) {
+    return "grocery";
+  }
+  if (
+    hasAny(skill, ["order.bill", "order.tipping", "hesap", "bahşiş"]) ||
+    hasAny(text, ["bill", "split", "tip", "receipt", "apple pay", "separate check", "payment", "hesap", "bahşiş", "kartla ödeme"])
+  ) {
+    return "bill";
+  }
+  if (
+    hasAny(skill, ["order.bar", "bar.approach", "bar", "bira", "kokteyl", "pub"]) ||
+    hasAny(text, ["cocktail", "wine", "beer", "pub", "whisky", "last call", "bar", "bira", "kokteyl", "şarap", "pub", "viski"])
+  ) {
+    return "bar";
+  }
+  if (
+    hasAny(skill, ["order.restaurant", "order.custom", "order.complaint", "restoran", "yemek"]) ||
+    hasAny(text, ["restaurant", "waiter", "menu", "dinner", "steak", "restoran", "garson", "yemek", "akşam yemeği"])
+  ) {
+    return "restaurant";
+  }
 
-  if (hasAny(skill, ["codereview", "work.tech", "junior_dev"]) || hasAny(text, ["code review", "pr review", "pair programming", "github"])) return "work_code";
-  if (hasAny(skill, ["work.email"]) || hasAny(text, ["email", "follow up", "subject", "bumping this"])) return "work_email";
-  if (hasAny(skill, ["work.remote", "work.slack", "work.standup"]) || hasAny(text, ["slack", "async", "standup", "time zone"])) return "work_remote";
-  if (hasAny(skill, ["interview", "hire", "salary_neg", "career.b1", "career.b2"]) || hasAny(text, ["interview", "salary", "tell me about yourself"]) || hasWord(text, ["hr"])) return "work_interview";
-  if (hasAny(skill, ["networking", "coffeechat", "ny_tech_conf"]) || hasAny(text, ["networking", "conference", "linkedin", "coffee chat"])) return "work_networking";
-  if (hasAny(skill, ["professional.c1", "presentation", "keynote"]) || hasAny(text, ["board", "keynote", "presentation", "public speaking"])) return "work_presentation";
-  if (hasAny(skill, ["work", "professional", "career"]) || hasAny(text, ["meeting", "manager", "feedback", "promotion", "1:1", "review"])) return "work_meeting";
+  // --- SOSYALLEŞME & İLİŞKİLER (Social, Flirting & Relationships) ---
+  if (
+    hasAny(skill, ["dating-app", "online_dating", "opener", "tinder"]) ||
+    hasAny(text, ["dating app", "hinge", "match", "bio", "opener", "tinder", "okcupid"])
+  ) {
+    return "dating_app";
+  }
+  if (
+    hasAny(skill, ["firstdate", "first-date", "second_date", "date", "randevu", "buluşma"]) ||
+    hasAny(text, ["first date", "second date", "coffee date", "dinner friday", "ilk buluşma", "ilk randevu"])
+  ) {
+    return "date_cafe";
+  }
+  if (
+    hasAny(skill, ["partytalk", "parti", "kutlama"]) ||
+    hasWord(text, ["party", "parti", "celebration", "kutlama"])
+  ) {
+    return "party";
+  }
+  if (
+    hasAny(skill, ["flirt", "personal.b1.breakup", "personal.b1.long-distance", "personal.b1.love-boundaries", "personal.b1.repair", "sevgili", "aşk", "ilişki"]) ||
+    hasToken(skill, "date")
+  ) {
+    return "relationship";
+  }
 
-  if (hasAny(skill, ["ielts.w1", "ielts.w2"]) || hasAny(text, ["writing t1", "writing t2", "essay", "bar chart", "line graph"])) return "writing";
-  if (hasAny(skill, ["uni_admission", "erasmus_amsterdam"]) || hasAny(text, ["university", "campus", "professor", "office hour", "module", "orientation"])) return "university";
-  if (hasAny(skill, ["ielts", "story.ielts"]) || hasAny(text, ["speaking part", "cue card", "mock test"])) return "ielts";
+  // --- İŞ & KARİYER (Work & Career) ---
+  if (
+    hasAny(skill, ["codereview", "work.tech", "junior_dev", "kod", "yazılım"]) ||
+    hasAny(text, ["code review", "pr review", "pair programming", "github", "coding", "software", "yazılım", "kod"])
+  ) {
+    return "work_code";
+  }
+  if (
+    hasAny(skill, ["work.email", "eposta"]) ||
+    hasAny(text, ["email", "follow up", "subject", "bumping this", "e-posta", "eposta", "mail"])
+  ) {
+    return "work_email";
+  }
+  if (
+    hasAny(skill, ["work.remote", "work.slack", "work.standup", "uzaktan"]) ||
+    hasAny(text, ["slack", "async", "standup", "time zone", "remote work", "uzaktan çalışma", "evden çalışma"])
+  ) {
+    return "work_remote";
+  }
+  if (
+    hasAny(skill, ["interview", "hire", "salary_neg", "career.b1", "career.b2", "mülakat", "iş görüşmesi"]) ||
+    hasAny(text, ["interview", "salary", "tell me about yourself", "mülakat", "iş görüşmesi", "maaş"]) ||
+    hasWord(text, ["hr"])
+  ) {
+    return "work_interview";
+  }
+  if (
+    hasAny(skill, ["networking", "coffeechat", "ny_tech_conf"]) ||
+    hasAny(text, ["networking", "conference", "linkedin", "coffee chat", "tanışma", "konferans"])
+  ) {
+    return "work_networking";
+  }
+  if (
+    hasAny(skill, ["professional.c1", "presentation", "keynote", "sunum"]) ||
+    hasAny(text, ["board", "keynote", "presentation", "public speaking", "sunum", "tahta", "slayt"])
+  ) {
+    return "work_presentation";
+  }
+  if (
+    hasAny(skill, ["work", "professional", "career", "toplantı", "iş", "kariyer"]) ||
+    hasAny(text, ["meeting", "manager", "feedback", "promotion", "1:1", "review", "toplantı", "yönetici", "geribildirim"])
+  ) {
+    return "work_meeting";
+  }
 
-  if (hasAny(skill, ["daily.taxi"]) || hasAny(text, ["taxi", "uber", "lyft", "driver", "license plate"])) return "taxi";
-  if (hasAny(skill, ["daily.transport"]) || hasAny(text, ["metro", "train", "bus", "shuttle"]) || hasWord(text, ["stops"])) return "transit";
-  if (hasAny(skill, ["directions", "wayfinding", "daily.a2.lost"]) || hasAny(text, ["directions", "map", "turn left", "kaybol", "yol sor"])) return "directions";
+  // --- EĞİTİM & IELTS (Education & IELTS) ---
+  if (
+    hasAny(skill, ["ielts.w1", "ielts.w2", "yazma"]) ||
+    hasAny(text, ["writing t1", "writing t2", "essay", "bar chart", "line graph", "kompozisyon", "makale"])
+  ) {
+    return "writing";
+  }
+  if (
+    hasAny(skill, ["uni_admission", "erasmus_amsterdam", "üniversite", "kampüs"]) ||
+    hasAny(text, ["university", "campus", "professor", "office hour", "module", "orientation", "üniversite", "akademik", "kampüs"])
+  ) {
+    return "university";
+  }
+  if (
+    hasAny(skill, ["ielts", "story.ielts", "sınav"]) ||
+    hasAny(text, ["speaking part", "cue card", "mock test", "sınav", "ielts test"])
+  ) {
+    return "ielts";
+  }
 
-  if (hasAny(text, ["hotel", "check-in", "reservation under", "room key", "late checkout"])) return "hotel";
-  if (hasAny(skill, ["housing", "apartment_hunt", "landlord"]) || hasAny(text, ["apartment", "landlord", "roommate", "utilities", "repairman"]) || hasWord(text, ["rent"])) return "housing";
+  // --- ULAŞIM & YOL YORDAM (Transportation & Directions) ---
+  if (
+    hasAny(skill, ["daily.taxi", "taksi"]) ||
+    hasAny(text, ["taxi", "uber", "lyft", "driver", "license plate", "taksi", "şoför"])
+  ) {
+    return "taxi";
+  }
+  if (
+    hasAny(skill, ["daily.transport", "metro", "otobüs", "tren"]) ||
+    hasAny(text, ["metro", "train", "bus", "shuttle", "metro", "tren", "otobüs", "istasyon"]) ||
+    hasWord(text, ["stops", "durak"])
+  ) {
+    return "transit";
+  }
+  if (
+    hasAny(skill, ["directions", "wayfinding", "daily.a2.lost", "yol", "adres", "harita"]) ||
+    hasAny(text, ["directions", "map", "turn left", "kaybol", "yol sor", "adres", "harita"])
+  ) {
+    return "directions";
+  }
 
-  if (hasAny(skill, ["daily.phone", "customer_support"]) || hasAny(text, ["phone", "voicemail", "call back", "customer service", "speak to your manager", "telefon hatt", "sim"])) return "phone";
-  if (hasAny(skill, ["tech_support"]) || hasAny(text, ["tech support", "internet down", "error code", "restart", "cleared cache"])) return "tech_support";
+  // --- TELEFON & DESTEK (Phone & Support) ---
+  if (
+    hasAny(skill, ["daily.phone", "customer_support", "telefon", "müşteri"]) ||
+    hasAny(text, ["phone", "voicemail", "call back", "customer service", "speak to your manager", "telefon", "müşteri hizmetleri", "sim kart"])
+  ) {
+    return "phone";
+  }
+  if (
+    hasAny(skill, ["tech_support", "teknik"]) ||
+    hasAny(text, ["tech support", "internet down", "error code", "restart", "cleared cache", "teknik destek", "arıza"])
+  ) {
+    return "tech_support";
+  }
 
-  if (hasAny(skill, ["daily.emergency"]) || hasAny(text, ["911", "999", "ambulance", "police report", "emergency", "unconscious"])) return "emergency";
-  if (hasAny(skill, ["dentist"]) || hasAny(text, ["dentist", "tooth", "teeth", "cavity", "x-ray"])) return "dentist";
-  if (hasAny(skill, ["optician"]) || hasAny(text, ["optician", "glasses", "frames", "eye exam"])) return "optician";
-  if (hasAny(skill, ["vet"]) || hasWord(text, ["vet", "pet", "vaccine", "dog", "cat"])) return "vet";
-  if (hasAny(skill, ["doctor_visit", "daily.health", "daily.a2.doctor"]) || hasAny(text, ["doctor", "clinic", "symptom", "diagnosis", "second opinion"])) return "doctor";
-  if (hasAny(skill, ["pharmacy"]) || hasAny(text, ["pharmacy", "prescription", "medicine", "headache", "side effects"])) return "pharmacy";
+  // --- SAĞLIK & ACİL DURUM (Health, Doctor & Emergency) ---
+  if (
+    hasAny(skill, ["daily.emergency", "acil"]) ||
+    hasAny(text, ["911", "999", "ambulance", "police report", "emergency", "unconscious", "acil", "ambulans", "polis"])
+  ) {
+    return "emergency";
+  }
+  if (
+    hasAny(skill, ["dentist", "dişçi"]) ||
+    hasAny(text, ["dentist", "tooth", "teeth", "cavity", "x-ray", "dişçi", "diş", "dolgu"])
+  ) {
+    return "dentist";
+  }
+  if (
+    hasAny(skill, ["optician", "gözlükçü"]) ||
+    hasAny(text, ["optician", "glasses", "frames", "eye exam", "gözlükçü", "gözlük", "göz muayenesi"])
+  ) {
+    return "optician";
+  }
+  if (
+    hasAny(skill, ["vet", "veteriner"]) ||
+    hasWord(text, ["vet", "pet", "vaccine", "dog", "cat", "veteriner", "köpek", "kedi", "evcil hayvan"])
+  ) {
+    return "vet";
+  }
+  if (
+    hasAny(skill, ["doctor_visit", "daily.health", "daily.a2.doctor", "doktor", "hastane"]) ||
+    hasAny(text, ["doctor", "clinic", "symptom", "diagnosis", "second opinion", "doktor", "klinik", "teşhis", "hastane", "sağlık"])
+  ) {
+    return "doctor";
+  }
+  if (
+    hasAny(skill, ["pharmacy", "eczane"]) ||
+    hasAny(text, ["pharmacy", "prescription", "medicine", "headache", "side effects", "eczane", "reçete", "ilaç", "ağrı kesici"])
+  ) {
+    return "pharmacy";
+  }
 
-  if (hasAny(skill, ["gym", "gymsub", "yogaclass"]) || hasAny(text, ["gym", "workout", "trainer", "yoga", "membership"])) return "gym";
-  if (hasAny(skill, ["salon", "salondetailed"]) || hasAny(text, ["hair", "fade", "manicure", "pedicure"])) return "salon";
-  if (hasAny(skill, ["shopping", "drycleaner"]) || hasAny(text, ["shopping", "store", "size", "return", "refund", "tags still on", "dry cleaner"])) return "shopping";
-  if (hasAny(skill, ["bank", "bankopen"]) || hasAny(text, ["bank", "atm", "debit", "iban", "currency", "cuzdan", "cüzdan"]) || hasWord(text, ["account"])) return "bank";
-  if (hasAny(skill, ["dmv", "insurance", "utilities"]) || hasAny(text, ["dmv", "license", "insurance", "deductible", "internet setup", "service plan", "ehliyet", "sigorta", "seçmen", "secmen", "voter"])) return "service_counter";
-  if (hasAny(skill, ["library"]) || hasAny(text, ["library", "book", "reserve", "kütüphane", "kutuphane"])) return "library";
-  if (hasAny(skill, ["postoffice"]) || hasAny(text, ["post office", "package", "tracking", "priority mail", "paket", "kargo", "postane"])) return "package";
-  if (hasAny(skill, ["worship"]) || hasAny(text, ["mosque", "church", "cami", "kilise", "prayer"])) return "worship";
+  // --- YAŞAM TARZI & DİĞER (Lifestyle, Shopping & Gym) ---
+  if (
+    hasAny(skill, ["gym", "gymsub", "yogaclass", "spor", "fitness"]) ||
+    hasAny(text, ["gym", "workout", "trainer", "yoga", "membership", "spor salonu", "fitness", "antrenman"])
+  ) {
+    return "gym";
+  }
+  if (
+    hasAny(skill, ["salon", "salondetailed", "kuaför", "berber"]) ||
+    hasAny(text, ["hair", "fade", "manicure", "pedicure", "kuaför", "berber", "saç kesimi"])
+  ) {
+    return "salon";
+  }
+  if (
+    hasAny(skill, ["shopping", "drycleaner", "alışveriş", "mağaza"]) ||
+    hasAny(text, ["shopping", "store", "size", "return", "refund", "tags still on", "dry cleaner", "alışveriş", "mağaza", "beden", "iade"])
+  ) {
+    return "shopping";
+  }
+  if (
+    hasAny(skill, ["bank", "bankopen", "banka", "hesap"]) ||
+    hasAny(text, ["bank", "atm", "debit", "iban", "currency", "cuzdan", "cüzdan", "banka", "hesap açma", "döviz"]) ||
+    hasWord(text, ["account", "wallet"])
+  ) {
+    return "bank";
+  }
+  if (
+    hasAny(skill, ["dmv", "insurance", "utilities", "sigorta", "kamu"]) ||
+    hasAny(text, ["dmv", "license", "insurance", "deductible", "internet setup", "service plan", "ehliyet", "sigorta", "seçmen", "secmen", "voter", "belediye"])
+  ) {
+    return "service_counter";
+  }
+  if (
+    hasAny(skill, ["library", "kütüphane"]) ||
+    hasAny(text, ["library", "book", "reserve", "kütüphane", "kutuphane"])
+  ) {
+    return "library";
+  }
+  if (
+    hasAny(skill, ["postoffice", "kargo", "postane"]) ||
+    hasAny(text, ["post office", "package", "tracking", "priority mail", "paket", "kargo", "postane", "posta"])
+  ) {
+    return "package";
+  }
+  if (
+    hasAny(skill, ["worship", "ibadet", "cami"]) ||
+    hasAny(text, ["mosque", "church", "cami", "kilise", "prayer", "ibadet"])
+  ) {
+    return "worship";
+  }
 
-  if (hasAny(skill, ["family", "in-laws"]) || hasAny(text, ["family", "mother", "father", "parents", "aile"])) return "family";
-  if (hasAny(skill, ["hobbies", "new-hobby"]) || hasAny(text, ["hobby", "hobbies"])) return "hobbies";
-  if (hasAny(skill, ["weather"]) || hasAny(text, ["weather", "rain", "sunny", "hava"])) return "weather";
-  if (hasAny(skill, ["self-care", "therapy"]) || hasAny(text, ["self-care", "therapy", "boundaries"])) return "self_care";
+  // --- GÜNLÜK & AİLE & HOBİ (Daily, Family & Hobbies) ---
+  if (
+    hasAny(skill, ["family", "in-laws", "aile"]) ||
+    hasAny(text, ["family", "mother", "father", "parents", "aile", "anne", "baba", "akraba"])
+  ) {
+    return "family";
+  }
+  if (
+    hasAny(skill, ["hobbies", "new-hobby", "hobi"]) ||
+    hasAny(text, ["hobby", "hobbies", "hobi", "aktivite"])
+  ) {
+    return "hobbies";
+  }
+  if (
+    hasAny(skill, ["weather", "hava"]) ||
+    hasAny(text, ["weather", "rain", "sunny", "hava", "yağmur", "güneş"])
+  ) {
+    return "weather";
+  }
+  if (
+    hasAny(skill, ["self-care", "therapy", "kişisel bakım"]) ||
+    hasAny(text, ["self-care", "therapy", "boundaries", "terapi", "kişisel bakım"])
+  ) {
+    return "self_care";
+  }
 
   return FALLBACK_BY_MODE[scene.mode] ?? "daily_conversation";
 }
