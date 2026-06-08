@@ -63,6 +63,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Deploy Supabase migrations
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: |
+          supabase db push --project-ref "dljlqmzjfewevoxibdlh" --include-all
+
       - name: Write App Store Connect API key
         run: |
           API_KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
@@ -87,6 +98,13 @@ jobs:
           EXPO_PUBLIC_POSTHOG_KEY: ${{ secrets.EXPO_PUBLIC_POSTHOG_KEY }}
           EXPO_PUBLIC_POSTHOG_HOST: ${{ secrets.EXPO_PUBLIC_POSTHOG_HOST }}
           EXPO_PUBLIC_TTS_ENDPOINT: ${{ secrets.EXPO_PUBLIC_TTS_ENDPOINT }}
+          # LLM Router API Keys for production chat
+          EXPO_PUBLIC_GROQ_KEY: ${{ secrets.EXPO_PUBLIC_GROQ_KEY }}
+          EXPO_PUBLIC_CEREBRAS_KEY: ${{ secrets.EXPO_PUBLIC_CEREBRAS_KEY }}
+          EXPO_PUBLIC_GEMINI_KEY: ${{ secrets.EXPO_PUBLIC_GEMINI_KEY }}
+          EXPO_PUBLIC_OPENROUTER_KEY: ${{ secrets.EXPO_PUBLIC_OPENROUTER_KEY }}
+          EXPO_PUBLIC_CLOUDFLARE_KEY: ${{ secrets.EXPO_PUBLIC_CLOUDFLARE_KEY }}
+          EXPO_PUBLIC_CLOUDFLARE_ACCOUNT: ${{ secrets.EXPO_PUBLIC_CLOUDFLARE_ACCOUNT }}
           # Sourcemap upload için — runtime'a değmez, sadece sentry-cli kullanır.
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
