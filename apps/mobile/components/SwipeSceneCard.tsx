@@ -35,8 +35,11 @@ import {
   type GestureResponderEvent,
   type PanResponderGestureState,
 } from "react-native";
+import { Image as ExpoImage } from "expo-image";
 import * as Haptics from "expo-haptics";
 import { LinearGradient } from "expo-linear-gradient";
+
+const AnimatedExpoImage = Animated.createAnimatedComponent(ExpoImage);
 
 import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
@@ -403,8 +406,9 @@ function SwipeSceneCardImpl({
       >
         {/* Full background live image with overlay & top inner glow highlight */}
         {!imgFailed ? (
-          <Animated.Image
+          <AnimatedExpoImage
             source={{ uri: getDeterministicImage(scene) }}
+            cachePolicy="disk"
             style={[
               StyleSheet.absoluteFillObject,
               {
@@ -415,7 +419,7 @@ function SwipeSceneCardImpl({
                 ],
               },
             ]}
-            resizeMode="cover"
+            contentFit="cover"
             onError={() => setImgFailed(true)}
           />
         ) : (

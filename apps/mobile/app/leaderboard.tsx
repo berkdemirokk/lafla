@@ -42,12 +42,9 @@ export default function LeaderboardScreen() {
         setCurrentUserId(user.id);
       }
 
-      // 2) Get top 50 users sorted by total_xp
+      // 2) Get top 50 users sorted by total_xp (RPC bypasses RLS)
       const { data: profiles, error } = await supabase
-        .from("profiles")
-        .select("id, display_name, total_xp, current_streak")
-        .order("total_xp", { ascending: false })
-        .limit(50);
+        .rpc('get_leaderboard', { row_limit: 50 });
 
       if (error) throw error;
       

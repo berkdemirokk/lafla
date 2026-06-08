@@ -478,6 +478,7 @@ export async function requestPermission(): Promise<boolean> {
         Notifications.IosAuthorizationStatus.PROVISIONAL
     ) {
       await AsyncStorage.setItem(K_NOTIFY_PROMPTED, "true").catch(() => {});
+      void registerPushToken();
       return true;
     }
     const result = await Notifications.requestPermissionsAsync({
@@ -488,6 +489,9 @@ export async function requestPermission(): Promise<boolean> {
       },
     });
     await AsyncStorage.setItem(K_NOTIFY_PROMPTED, "true").catch(() => {});
+    if (result.status === "granted") {
+      void registerPushToken();
+    }
     return result.status === "granted";
   } catch {
     return false;
@@ -524,5 +528,32 @@ export async function hasBeenPrompted(): Promise<boolean> {
     return v === "true";
   } catch {
     return false;
+  }
+}
+
+/**
+ * Register the device's Expo push token with Supabase so the backend
+ * can send server-side push notifications for re-engagement.
+ */
+export async function registerPushToken(): Promise<void> {
+  try {
+    const { status } = await Notifications.getPermissionsAsync();
+    if (status !== 'granted') return;
+
+    const tokenData = await Notifications.getExpoPushTokenAsync();
+    const token = tokenData.data;
+    if (!token) return;
+
+    // Dynamic import to avoid circular deps
+    const { supabase } = require('./supabase') as typeof import('./supabase');
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    await supabase.from('push_tokens').upsert(
+      { user_id: user.id, token, platform: Platform.OS, updated_at: new Date().toISOString() },
+      { onConflict: 'user_id,token' }
+    );
+  } catch {
+    // Push token registration is best-effort — never crash the app
   }
 }
