@@ -44,6 +44,9 @@ import { trackEvent } from "../lib/analytics";
 import { speak } from "../lib/tts";
 import { isPremium, subscribePremiumChange } from "../lib/iap";
 import { useSession } from "../lib/useSession";
+import { checkUserInput, checkMayaOutput } from "../lib/safety-filter";
+import { buildCoachSystemPrompt } from "../lib/coach";
+import CrisisModal from "../components/CrisisModal";
 
 interface ChatLine {
   speaker: "npc" | "user";
@@ -71,6 +74,7 @@ export default function FreechatScreen() {
   const [userTurnCount, setUserTurnCount] = useState(0);
   const [paywallGate, setPaywallGate] = useState(false);
   const [premium, setPremium] = useState(false);
+  const [crisisModalVisible, setCrisisModalVisible] = useState(false);
   const scrollRef = useRef<ScrollView | null>(null);
 
   // Sahne açılışında analytics + premium check (kullanıcı premium'sa
@@ -155,6 +159,23 @@ export default function FreechatScreen() {
     const newTurnCount = userTurnCount + 1;
     setUserTurnCount(newTurnCount);
 
+    // Layer 2 Pre-Check: check user input for safety/moderation
+    const safetyCheck = checkUserInput(text);
+    if (!safetyCheck.ok) {
+      if (safetyCheck.shouldEscalate) {
+        setCrisisModalVisible(true);
+      }
+      setLines((prev) => [
+        ...prev,
+        {
+          speaker: "npc",
+          text: safetyCheck.suggestedResponse_tr || "Lütfen kelimelerinize dikkat edin.",
+          hint_tr: "Moderasyon uyarısı.",
+        },
+      ]);
+      return;
+    }
+
     // 2) Paywall gate at limit (Check BEFORE calling LLM to save quota)
     if (!premium && newTurnCount >= FREE_CHAT_FREE_TURN_LIMIT) {
       setTimeout(() => {
@@ -195,15 +216,35 @@ export default function FreechatScreen() {
       // Add the new user message to the history
       history.push({ role: "user", content: text });
 
-      const systemPrompt = `You are roleplaying a conversation scenario. The scenario opener was: "${prompt.npc_opener}".
-You must play your role as a helpful and friendly native English speaker.
-Respond in short, conversational English (strictly 1 to 2 sentences maximum) suitable for language learners.
-Do NOT write any Turkish translations. Respond in English only.`;
+      const systemPrompt = buildCoachSystemPrompt(prompt.npc_opener);
 
       const aiReply = await chatComplete(history, {
         system: systemPrompt,
         maxTokens: 128,
       });
+
+      // Layer 2 Post-Check: check Maya's output
+      const replySafety = checkMayaOutput(aiReply);
+      if (!replySafety.ok) {
+        if (replySafety.shouldEscalate) {
+          setCrisisModalVisible(true);
+        }
+        setLines((prev) => {
+          const updated = [...prev];
+          if (updated.length > 0 && updated[updated.length - 1].text === "typing...") {
+            updated.pop();
+          }
+          return [
+            ...updated,
+            {
+              speaker: "npc",
+              text: replySafety.suggestedResponse_tr || "Lütfen kelimelerinize dikkat edin.",
+              hint_tr: "Moderasyon uyarısı.",
+            },
+          ];
+        });
+        return;
+      }
 
       setLines((prev) => {
         const updated = [...prev];
@@ -341,6 +382,12 @@ Do NOT write any Turkish translations. Respond in English only.`;
           </View>
         )}
       </KeyboardAvoidingView>
+
+      {/* Layer 3 Crisis Modal Escalation */}
+      <CrisisModal
+        visible={crisisModalVisible}
+        onClose={() => setCrisisModalVisible(false)}
+      />
     </SafeAreaView>
   );
 }
