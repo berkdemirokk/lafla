@@ -28,9 +28,7 @@ const USER_BOUND_KEYS = [
   K_DISPLAY_NAME,
   K_INTERESTS,
 ];
-const SECURE_STORE_USER_KEYS = [
-  "lafla.apple.credentials.v1",
-];
+const SECURE_STORE_USER_KEYS = ["lafla.apple.credentials.v1"];
 
 export type Profile = {
   id: string;
@@ -44,6 +42,11 @@ export type Profile = {
   longest_streak: number;
   last_lesson_at: string | null;
 };
+
+type EditableProfileFields = Pick<
+  Profile,
+  "display_name" | "interests" | "onboarding_completed_at"
+>;
 
 async function cacheProfileLocally(profile: Profile | null): Promise<void> {
   if (!profile) return;
@@ -80,7 +83,10 @@ export async function signUpWithEmail(email: string, password: string) {
 }
 
 export async function signInWithEmail(email: string, password: string) {
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
   if (error) throw error;
   // 2026-05-26 — Cross-user data leak fix: önceki kullanıcının displayName +
   // interests'i de temizle. Server profile authoritative; today/profile ilk
@@ -123,7 +129,9 @@ export async function sendPasswordReset(email: string) {
 }
 
 export async function getCurrentProfile(): Promise<Profile | null> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return null;
   const { data, error } = await supabase
     .from("profiles")
@@ -139,8 +147,10 @@ export async function getCurrentProfile(): Promise<Profile | null> {
   return profile;
 }
 
-export async function updateProfile(updates: Partial<Profile>) {
-  const { data: { user } } = await supabase.auth.getUser();
+export async function updateProfile(updates: Partial<EditableProfileFields>) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) throw new Error("Not authenticated");
   const { data, error } = await supabase
     .from("profiles")
@@ -156,7 +166,9 @@ export async function completeOnboarding(
   interests: string[],
   displayName?: string,
 ) {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return null; // anonymous mode — local-only
   const trimmedName = displayName?.trim();
   return updateProfile({

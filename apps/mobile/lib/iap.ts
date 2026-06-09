@@ -29,6 +29,7 @@ import Constants from "expo-constants";
 import { captureException, captureMessage } from "./sentry";
 import { isObject, parseSafe } from "./json-safe";
 import { isRewardedPremiumActive } from "./rewarded";
+import { isSupabaseConfigured, supabase } from "./supabase";
 
 // ------------------------------------------------------------
 // Types — stable contract with callers.
@@ -63,6 +64,7 @@ type MockState = {
 let _purchases: any = null;
 let _initialized = false;
 let _initFailed = false;
+let _initPromise: Promise<boolean> | null = null;
 
 function loadSdk(): // eslint-disable-next-line @typescript-eslint/no-explicit-any
 any | null {
@@ -89,44 +91,41 @@ function getApiKey(): string | null {
 
 async function initIfNeeded(): Promise<boolean> {
   if (_initialized) return _purchases !== null;
-  _initialized = true;
+  if (_initPromise) return _initPromise;
 
-  const Purchases = loadSdk();
-  if (!Purchases) return false;
+  _initPromise = (async () => {
+    const Purchases = loadSdk();
+    if (!Purchases) return false;
 
-  const key = getApiKey();
-  if (!key) {
-    if (__DEV__) {
-      // eslint-disable-next-line no-console
-      console.debug("[Lafla iap] No RevenueCat key — falling back to mock");
-    } else {
-      // 2026-05-25 (B-PAY-12) — Production'da key olmadan başlatma silent
-      // free tier'a düşmek demek; aylarca fark edilmez. Sentry'e P1 sinyal.
-      captureMessage(
-        "iap.no_revenuecat_key_in_production",
-        "warning",
-      );
+    const key = getApiKey();
+    if (!key) {
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.debug("[Lafla iap] No RevenueCat key — falling back to mock");
+      } else {
+        captureMessage("iap.no_revenuecat_key_in_production", "warning");
+      }
+      return false;
     }
-    _initFailed = true;
-    _purchases = null;
-    return false;
-  }
+
+    try {
+      await Purchases.configure({ apiKey: key });
+      _initialized = true;
+      return true;
+    } catch (err) {
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.warn("[Lafla iap] configure() failed:", err);
+      }
+      captureException(err, { source: "iap.initIfNeeded" });
+      return false;
+    }
+  })();
 
   try {
-    await Purchases.configure({ apiKey: key });
-    return true;
-  } catch (err) {
-    if (__DEV__) {
-      // eslint-disable-next-line no-console
-      console.warn("[Lafla iap] configure() failed:", err);
-    }
-    // A misconfigured RevenueCat SDK silently demotes every user to the
-    // mock plan — surface this so we can see it in prod instead of
-    // discovering it via "why is nobody paying?".
-    captureException(err, { source: "iap.initIfNeeded" });
-    _initFailed = true;
-    _purchases = null;
-    return false;
+    return await _initPromise;
+  } finally {
+    _initPromise = null;
   }
 }
 
@@ -153,6 +152,16 @@ export function notifyPremiumChange(): void {
     } catch {
       // bir listener çökerse diğerleri etkilenmesin
     }
+  }
+}
+
+export async function syncRevenueCatSubscription(): Promise<void> {
+  if (!isSupabaseConfigured) return;
+  const { error } = await supabase.functions.invoke("revenuecat-sync", {
+    method: "POST",
+  });
+  if (error) {
+    captureException(error, { source: "iap.syncRevenueCatSubscription" });
   }
 }
 
@@ -328,6 +337,7 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
       customerInfo?.entitlements?.active?.[PREMIUM_ENTITLEMENT],
     );
     if (active) {
+      await syncRevenueCatSubscription();
       // 2026-05-25 (B-PAY-3) — UI'a haber ver, AdBanner/scenario/freechat
       // mount'unu beklemeden refresh etsin.
       notifyPremiumChange();
@@ -386,6 +396,7 @@ export async function restorePurchasesDetailed(): Promise<RestoreResult> {
   try {
     const info = await _purchases.restorePurchases();
     const active = Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    await syncRevenueCatSubscription();
     if (active) notifyPremiumChange();
     return { ok: true, active };
   } catch (err: unknown) {
@@ -405,6 +416,7 @@ export async function setUserId(userId: string | null): Promise<void> {
   try {
     if (userId) {
       await _purchases.logIn(userId);
+      await syncRevenueCatSubscription();
     } else {
       await _purchases.logOut();
     }

@@ -14,6 +14,9 @@
 //   EXPO_PUBLIC_POSTHOG_KEY    — PostHog public write key
 //   EXPO_PUBLIC_POSTHOG_HOST   — opsiyonel, default app.json'dan gelir
 //   EXPO_PUBLIC_TTS_ENDPOINT   — opsiyonel TTS proxy URL
+//   EXPO_PUBLIC_SUPABASE_URL   — Supabase project URL (frontend, publish edilebilir)
+//   EXPO_PUBLIC_SUPABASE_ANON_KEY — Supabase anon key (frontend, publish edilebilir)
+//   EXPO_PUBLIC_REVENUECAT_IOS_KEY — RevenueCat public iOS SDK key
 //   SENTRY_AUTH_TOKEN          — sadece build/sourcemap upload; runtime'a değmez
 
 import type { ConfigContext, ExpoConfig } from "expo/config";
@@ -33,20 +36,32 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     extra: {
       ...baseExtra,
       sentryDsn:
-        process.env.EXPO_PUBLIC_SENTRY_DSN ??
-        (baseExtra.sentryDsn as string | undefined) ??
+        process.env.EXPO_PUBLIC_SENTRY_DSN ||
+        (baseExtra.sentryDsn as string | undefined) ||
         "",
       posthogKey:
-        process.env.EXPO_PUBLIC_POSTHOG_KEY ??
-        (baseExtra.posthogKey as string | undefined) ??
+        process.env.EXPO_PUBLIC_POSTHOG_KEY ||
+        (baseExtra.posthogKey as string | undefined) ||
         "",
       posthogHost:
-        process.env.EXPO_PUBLIC_POSTHOG_HOST ??
-        (baseExtra.posthogHost as string | undefined) ??
+        process.env.EXPO_PUBLIC_POSTHOG_HOST ||
+        (baseExtra.posthogHost as string | undefined) ||
         "https://eu.i.posthog.com",
       ttsEndpoint:
-        process.env.EXPO_PUBLIC_TTS_ENDPOINT ??
-        (baseExtra.ttsEndpoint as string | undefined) ??
+        process.env.EXPO_PUBLIC_TTS_ENDPOINT ||
+        (baseExtra.ttsEndpoint as string | undefined) ||
+        "",
+      supabaseUrl:
+        process.env.EXPO_PUBLIC_SUPABASE_URL ||
+        (baseExtra.supabaseUrl as string | undefined) ||
+        "",
+      supabaseAnonKey:
+        process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ||
+        (baseExtra.supabaseAnonKey as string | undefined) ||
+        "",
+      revenuecatIosKey:
+        process.env.EXPO_PUBLIC_REVENUECAT_IOS_KEY ||
+        (baseExtra.revenuecatIosKey as string | undefined) ||
         "",
     },
   };

@@ -30,20 +30,20 @@ import * as Haptics from "expo-haptics";
 
 import { tokens } from "../theme";
 import { Button } from "../components/Button";
+import { CrisisModal } from "../components/CrisisModal";
 import {
   FREE_CHAT_FREE_TURN_LIMIT,
   pickPromptOfDay,
 } from "../data/free-chat-prompts";
-import { chatComplete } from "../lib/llm-router";
-import {
-  detectMistakes,
-  getPattern,
-} from "../lib/mistake-patterns";
+import { chatCompleteDetailed } from "../lib/llm-router";
+import { detectMistakes, getPattern } from "../lib/mistake-patterns";
 import { recordUserText } from "../lib/mistake-tracker";
 import { trackEvent } from "../lib/analytics";
+import { checkMayaOutput, checkUserInput } from "../lib/safety-filter";
 import { speak } from "../lib/tts";
 import { isPremium, subscribePremiumChange } from "../lib/iap";
 import { useSession } from "../lib/useSession";
+import { supabase } from "../lib/supabase";
 
 interface ChatLine {
   speaker: "npc" | "user";
@@ -58,6 +58,7 @@ interface ChatLine {
 
 export default function FreechatScreen() {
   const router = useRouter();
+  const { session, loading: sessionLoading } = useSession();
 
   const prompt = useMemo(() => pickPromptOfDay(), []);
   const [lines, setLines] = useState<ChatLine[]>(() => [
@@ -69,8 +70,8 @@ export default function FreechatScreen() {
   ]);
   const [input, setInput] = useState("");
   const [userTurnCount, setUserTurnCount] = useState(0);
-  const [paywallGate, setPaywallGate] = useState(false);
   const [premium, setPremium] = useState(false);
+  const [crisisModalVisible, setCrisisModalVisible] = useState(false);
   const scrollRef = useRef<ScrollView | null>(null);
 
   // Sahne açılışında analytics + premium check (kullanıcı premium'sa
@@ -79,6 +80,8 @@ export default function FreechatScreen() {
   // 2026-05-25 (B-PAY-3) — subscribePremiumChange ile purchase/rewarded
   // grant sonrası refresh; aksi halde turn limit eski cache'le tetiklenir.
   useEffect(() => {
+    if (sessionLoading || !session) return;
+
     void trackEvent("freechat_opened", { prompt_id: prompt.id }).catch(
       () => {},
     );
@@ -86,6 +89,17 @@ export default function FreechatScreen() {
     const refresh = async () => {
       const isPrem = await isPremium().catch(() => false);
       if (!cancelled) setPremium(isPrem);
+
+      // Fetch daily turn count from server to sync state
+      try {
+        const { data: serverTurns, error } =
+          await supabase.rpc("get_freechat_usage");
+        if (!error && serverTurns != null && !cancelled) {
+          setUserTurnCount(serverTurns);
+        }
+      } catch (err) {
+        console.warn("[Freechat] Failed to fetch server turn count:", err);
+      }
     };
     refresh();
     const unsub = subscribePremiumChange(refresh);
@@ -93,12 +107,11 @@ export default function FreechatScreen() {
       cancelled = true;
       unsub();
     };
-  }, [prompt.id]);
+  }, [prompt.id, session, sessionLoading]);
 
   // 2026-05-25 (B-PAY-13) — Anonim user freechat'e ulaşırsa paywall'a
   // gönder; RC user ID yok → satın alma yapsa bile entitlement attribute
   // edilmez. Sign-in zorunlu.
-  const { session, loading: sessionLoading } = useSession();
   useEffect(() => {
     if (sessionLoading) return;
     if (!session) router.replace("/auth" as never);
@@ -119,6 +132,32 @@ export default function FreechatScreen() {
   const sendUserTurn = async () => {
     const text = input.trim();
     if (!text || limitHit || loading) return;
+
+    const inputSafety = checkUserInput(text);
+    if (!inputSafety.ok) {
+      setInput("");
+      void Haptics.selectionAsync().catch(() => {});
+      if (inputSafety.shouldEscalate) {
+        setCrisisModalVisible(true);
+      }
+      void trackEvent("freechat_safety_blocked", {
+        prompt_id: prompt.id,
+        reason: inputSafety.reason ?? "unknown",
+        stage: "input",
+        escalated: Boolean(inputSafety.shouldEscalate),
+      }).catch(() => {});
+      setLines((prev) => [
+        ...prev,
+        {
+          speaker: "npc",
+          text:
+            inputSafety.suggestedResponse_tr ??
+            "Bu konu Lafla pratiği için uygun değil. İngilizce çalışmaya başka bir güvenli konuyla devam edelim.",
+          hint_tr: "Güvenli bir İngilizce pratiği konusu seçelim.",
+        },
+      ]);
+      return;
+    }
 
     // 1) detectMistakes — Switch-2 inline error UI reuse (Contrastive Coaching)
     const hits = detectMistakes(text);
@@ -152,28 +191,9 @@ export default function FreechatScreen() {
     // mistake tracker (best-effort)
     recordUserText(text).catch(() => {});
 
-    const newTurnCount = userTurnCount + 1;
-    setUserTurnCount(newTurnCount);
-
-    // 2) Paywall gate at limit (Check BEFORE calling LLM to save quota)
-    if (!premium && newTurnCount >= FREE_CHAT_FREE_TURN_LIMIT) {
-      setTimeout(() => {
-        setLines((prev) => [
-          ...prev,
-          {
-            speaker: "npc",
-            text: "(...)",
-            hint_tr: "Devam etmek için Lafla Pro gerekli — uzunluk sınırı yok.",
-          },
-        ]);
-        setPaywallGate(true);
-      }, 500);
-      return;
-    }
-
-    // 3) NPC Response - Trigger real LLM
+    // 2) NPC Response - Trigger real LLM
     setLoading(true);
-    
+
     // Add temporary typing indicator
     setLines((prev) => [
       ...prev,
@@ -187,44 +207,79 @@ export default function FreechatScreen() {
       // Map previous chat history to Message format
       const history = lines
         .filter((l) => l.text !== "typing...")
-        .map((l) => ({
-          role: l.speaker === "user" ? "user" : "assistant",
-          content: l.text,
-        } as const));
+        .map(
+          (l) =>
+            ({
+              role: l.speaker === "user" ? "user" : "assistant",
+              content: l.text,
+            }) as const,
+        )
+        .slice(-14);
 
       // Add the new user message to the history
       history.push({ role: "user", content: text });
 
-      const systemPrompt = `You are roleplaying a conversation scenario. The scenario opener was: "${prompt.npc_opener}".
-You must play your role as a helpful and friendly native English speaker.
-Respond in short, conversational English (strictly 1 to 2 sentences maximum) suitable for language learners.
-Do NOT write any Turkish translations. Respond in English only.`;
-
-      const aiReply = await chatComplete(history, {
-        system: systemPrompt,
+      const completion = await chatCompleteDetailed(history, {
+        promptId: prompt.id,
         maxTokens: 128,
       });
+      const aiReply = completion.text;
+      setUserTurnCount(completion.currentTurns ?? userTurnCount + 1);
+      const outputSafety = checkMayaOutput(aiReply);
+      if (!outputSafety.ok) {
+        if (outputSafety.shouldEscalate) {
+          setCrisisModalVisible(true);
+        }
+        void trackEvent("freechat_safety_blocked", {
+          prompt_id: prompt.id,
+          reason: outputSafety.reason ?? "unknown",
+          stage: "output",
+          escalated: Boolean(outputSafety.shouldEscalate),
+        }).catch(() => {});
+      }
 
       setLines((prev) => {
         const updated = [...prev];
-        if (updated.length > 0 && updated[updated.length - 1].text === "typing...") {
+        if (
+          updated.length > 0 &&
+          updated[updated.length - 1].text === "typing..."
+        ) {
           updated.pop();
         }
         return [
           ...updated,
           {
             speaker: "npc",
-            text: aiReply,
-            hint_tr: "Akıcı şekilde cevap verin.",
+            text: outputSafety.ok
+              ? aiReply
+              : (outputSafety.suggestedResponse_tr ??
+                "Bu konu Lafla pratiği için uygun değil. İngilizce çalışmaya başka bir güvenli konuyla devam edelim."),
+            hint_tr: outputSafety.ok
+              ? "Akıcı şekilde cevap verin."
+              : "Konuyu güvenli bir pratik alanına taşıyalım.",
           },
         ];
       });
     } catch (err) {
-      console.warn("[Freechat] LLM router failed, falling back to static prompt:", err);
+      console.warn(
+        "[Freechat] LLM router failed, falling back to static prompt:",
+        err,
+      );
+      try {
+        const { data: serverTurns } = await supabase.rpc("get_freechat_usage");
+        if (typeof serverTurns === "number") {
+          setUserTurnCount(serverTurns);
+        }
+      } catch {
+        // The provider error remains the primary failure.
+      }
       // Fallback to static prompt if offline/error
       setLines((prev) => {
         const updated = [...prev];
-        if (updated.length > 0 && updated[updated.length - 1].text === "typing...") {
+        if (
+          updated.length > 0 &&
+          updated[updated.length - 1].text === "typing..."
+        ) {
           updated.pop();
         }
         return [
@@ -300,7 +355,7 @@ Do NOT write any Turkish translations. Respond in English only.`;
         </ScrollView>
 
         {/* Paywall gate OR input */}
-        {paywallGate ? (
+        {!premium && userTurnCount >= FREE_CHAT_FREE_TURN_LIMIT ? (
           <View style={styles.paywallBox}>
             <Text style={styles.paywallTitle}>Sohbet devam etmek istiyor</Text>
             <Text style={styles.paywallSub}>
@@ -330,7 +385,8 @@ Do NOT write any Turkish translations. Respond in English only.`;
               disabled={!input.trim() || limitHit || loading}
               style={({ pressed }) => [
                 styles.sendBtn,
-                (!input.trim() || limitHit || loading) && styles.sendBtnDisabled,
+                (!input.trim() || limitHit || loading) &&
+                  styles.sendBtnDisabled,
                 pressed && styles.sendBtnPressed,
               ]}
               accessibilityRole="button"
@@ -341,6 +397,10 @@ Do NOT write any Turkish translations. Respond in English only.`;
           </View>
         )}
       </KeyboardAvoidingView>
+      <CrisisModal
+        visible={crisisModalVisible}
+        onClose={() => setCrisisModalVisible(false)}
+      />
     </SafeAreaView>
   );
 }
@@ -385,7 +445,9 @@ function ChatLineView({ line }: { line: ChatLine }) {
           <Text style={bubbleStyles.mistakeCorrect}>
             ✓ {line.mistake.correct_example}
           </Text>
-          <Text style={bubbleStyles.mistakeReason}>{line.mistake.reason_tr}</Text>
+          <Text style={bubbleStyles.mistakeReason}>
+            {line.mistake.reason_tr}
+          </Text>
         </View>
       )}
 

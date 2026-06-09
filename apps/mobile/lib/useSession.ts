@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
-import { setUserId } from "./analytics";
+import { setUserId as setAnalyticsUserId } from "./analytics";
+import { setUserId as setRevenueCatUserId } from "./iap";
 import { supabase, isSupabaseConfigured } from "./supabase";
 import { setUser as setSentryUser } from "./sentry";
 
@@ -21,6 +22,14 @@ function syncSentryUser(s: Session | null): void {
   }
 }
 
+async function syncExternalUserIds(s: Session | null): Promise<void> {
+  const userId = s?.user?.id ?? null;
+  await Promise.all([
+    setAnalyticsUserId(userId).catch(() => {}),
+    setRevenueCatUserId(userId).catch(() => {}),
+  ]);
+}
+
 export function useSession(): SessionState {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
@@ -31,19 +40,21 @@ export function useSession(): SessionState {
       return;
     }
 
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(async ({ data }) => {
       const s = data.session ?? null;
       setSession(s);
       syncSentryUser(s);
-      void setUserId(s?.user?.id ?? null).catch(() => {});
+      await syncExternalUserIds(s);
       setLoading(false);
     });
 
-    const { data: subscription } = supabase.auth.onAuthStateChange((_event, newSession) => {
-      setSession(newSession);
-      syncSentryUser(newSession);
-      void setUserId(newSession?.user?.id ?? null).catch(() => {});
-    });
+    const { data: subscription } = supabase.auth.onAuthStateChange(
+      (_event, newSession) => {
+        setSession(newSession);
+        syncSentryUser(newSession);
+        void syncExternalUserIds(newSession);
+      },
+    );
 
     return () => {
       subscription.subscription.unsubscribe();
