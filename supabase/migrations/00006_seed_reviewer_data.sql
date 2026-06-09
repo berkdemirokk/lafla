@@ -26,7 +26,8 @@ BEGIN
   LIMIT 1;
 
   IF reviewer_id IS NULL THEN
-    RAISE EXCEPTION 'Reviewer user not found: apple_reviewer_2026_05@lafla.app — create via Supabase Dashboard first';
+    RAISE NOTICE 'Reviewer user not found. Skipping optional demo-data seed.';
+    RETURN;
   END IF;
 
   RAISE NOTICE 'Seeding reviewer % with lived-in demo data', reviewer_id;
