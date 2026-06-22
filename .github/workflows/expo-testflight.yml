@@ -135,10 +135,15 @@ jobs:
             echo "::error::SUPABASE_DB_PASSWORD secret is missing"
             exit 1
           fi
-          supabase db push \
+          supabase link \
             --project-ref "$PROJECT_REF" \
+            --password "$SUPABASE_DB_PASSWORD" \
+            --yes
+          supabase db push \
+            --linked \
             --include-all \
-            --password "$SUPABASE_DB_PASSWORD"
+            --password "$SUPABASE_DB_PASSWORD" \
+            --yes
 
       - name: Deploy Supabase Edge Functions
         shell: bash

@@ -82,7 +82,8 @@ jobs:
         if: ${{ inputs.migrations == true || inputs.all == true }}
         run: |
           echo "=== Migrations ==="
-          supabase db push --project-ref "$PROJECT_REF" --include-all --password "$SUPABASE_DB_PASSWORD" || {
+          supabase link --project-ref "$PROJECT_REF" --password "$SUPABASE_DB_PASSWORD" --yes
+          supabase db push --linked --include-all --password "$SUPABASE_DB_PASSWORD" --yes || {
             echo "::error::Migration push failed"
             exit 1
           }
