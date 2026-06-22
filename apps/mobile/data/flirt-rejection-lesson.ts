@@ -95,6 +95,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
             "(wanted to|need to) (be (honest|upfront|fair))",
             "(it'?s not|it isn'?t) (about you|anything about you|you)",
           ],
+          model_answers: ["Wanted to be honest — not feeling that romantic spark."],
           hint_tr:
             "Yumusak ac: 'Wanted to be honest — not feeling that romantic spark.'",
         },
@@ -112,6 +113,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
             "(no hard feelings|hope no hard feelings|hope it'?s okay)",
             "(take care|all the best)",
           ],
+          model_answers: ["Thank you for being chill. You're great — wish you the best."],
           hint_tr:
             "Kapat: 'Thank you for being chill. You're great — wish you the best.'",
         },
@@ -130,6 +132,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
             "(just (a |the )(feeling|vibe|chemistry|connection)) (wasn'?t there|i couldn'?t force)",
             "(appreciate (you|asking)|thanks for asking)",
           ],
+          model_answers: ["Honestly, more of a feeling — nothing about you. Just chemistry wasn't quite there."],
           hint_tr:
             "Empati + dürüst sebep (suçlamadan). 'Honestly, more of a feeling — nothing about you. Just chemistry wasn't quite there.'",
         },
@@ -448,6 +451,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
             "(better |i'?d rather )?(know now|know than wonder|hear it)",
             "(i'?ll take it|fair enough|that'?s fair)",
           ],
+          model_answers: ["Appreciate you saying it directly — respect that."],
           hint_tr:
             "Olgun ac: 'Appreciate you saying it directly — respect that.'",
         },
@@ -465,6 +469,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
             "(genuinely|honestly) (great|nice) (meeting|talking to) you",
             "(if anything changes|if you ever change your mind) (you )(know)",
           ],
+          model_answers: ["Genuinely great meeting you — take care."],
           hint_tr:
             "Kapat: 'Genuinely great meeting you — take care.'",
         },
@@ -482,6 +487,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
             "(takes one to know one|right back at you)",
             "(thanks for|appreciate) (the (lift|kindness|message))",
           ],
+          model_answers: ["That means a lot, honestly. Right back at you."],
           hint_tr:
             "Sıcak kabul: 'That means a lot, honestly. Right back at you.' İltifatı kabul et, drama yapma.",
         },
@@ -865,6 +871,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
             "(if (this isn'?t|its not) the right (time|moment))",
             "(give you an out|easy out|easy way out)",
           ],
+          model_answers: ["No pressure — if this isn't the right time, totally get it."],
           hint_tr:
             "Cikis yolu sun: 'No pressure — if this isn't the right time, totally get it.'",
         },
@@ -883,6 +890,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
             "(no worries|all good)",
             "(take care|all the best)",
           ],
+          model_answers: ["Thanks for being real — wish you the best."],
           hint_tr:
             "Olgun kapat: 'Thanks for being real — wish you the best.'",
         },
@@ -901,6 +909,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
             "(no need to (apologize|feel bad)|all good on my end)",
             "(door'?s open (for friendship)|always open for a hi)",
           ],
+          model_answers: ["Honestly, it's okay — harder than it looks. Appreciate you coming back to say it. Door's open if life calms down."],
           hint_tr:
             "Empati + sağlıklı sınır: 'Honestly, it's okay — harder than it looks. Appreciate you coming back to say it. Door's open if life calms down.'",
         },
@@ -1282,6 +1291,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
             "(it'?s |things are )?(new|early|fresh) (but|and) (going well|good)",
             "(thank you|thanks) (though|anyway|for understanding)",
           ],
+          model_answers: ["Thank you, that's sweet — but I just started seeing someone."],
           hint_tr:
             "Yumusak ac: 'Thank you, that's sweet — but I just started seeing someone.'",
         },
@@ -1299,6 +1309,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
             "(no hard feelings|all good|all the best)",
             "(take care|stay great|good luck out there)",
           ],
+          model_answers: ["Thanks for being chill — wish you the best out there."],
           hint_tr:
             "Kapat: 'Thanks for being chill — wish you the best out there.'",
         },
@@ -1317,6 +1328,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
             "(appreciate the (thought|interest)|that'?s kind)(,)? but",
             "(wish you (well|the best) (out there|finding someone))",
           ],
+          model_answers: ["Honestly, I plan to stay invested in this — not really the move to leave that door open. Wish you well out there."],
           hint_tr:
             "Sağlıklı sınır: 'Honestly, I plan to stay invested in this — not really the move to leave that door open. Wish you well out there.'",
         },
@@ -1659,6 +1671,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
             "(it'?s|that'?s) (not (the right )?(fit|match|connection)) (for me|here)",
             "(respectfully (decline|pass)|gonna (pass|decline))",
           ],
+          model_answers: ["Appreciate the message, but I don't think we're a match."],
           hint_tr:
             "Yumusak ac: 'Appreciate the message, but I don't think we're a match.'",
         },
@@ -1676,6 +1689,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
             "(take care|all the best|good luck out there)",
             "(genuinely|really) (appreciate|respect) (you|that)",
           ],
+          model_answers: ["Thanks for understanding — wish you the best."],
           hint_tr:
             "Kapat: 'Thanks for understanding — wish you the best.'",
         },
@@ -1694,6 +1708,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
             "(taking care of (myself|me)|focused on (myself|my own thing)) (right now|these days)",
             "(thanks (again|for the kindness))",
           ],
+          model_answers: ["Appreciate the offer, but don't think I'll be changing my mind. Hope you find the right fit out there."],
           hint_tr:
             "Sağlıklı sınır + sıcaklık: 'Appreciate the offer, but don't think I'll be changing my mind. Hope you find the right fit out there.'",
         },
@@ -2036,6 +2051,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
             "(no (need to |hard )?explain|don'?t (need to|gotta) explain)",
             "(rather (know|hear it) (now|than wonder))",
           ],
+          model_answers: ["All good — thanks for being honest with me."],
           hint_tr:
             "Olgun ac: 'All good — thanks for being honest with me.'",
         },
@@ -2053,6 +2069,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
             "(stay (great|cool|awesome))",
             "(no hard feelings|nothing but (good vibes|respect))",
           ],
+          model_answers: ["Genuinely nice chatting — take care!"],
           hint_tr:
             "Kapat: 'Genuinely nice chatting — take care!'",
         },
@@ -2071,6 +2088,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
             "(not in a place|not ready)( for that)? right now",
             "(take care|wishing you well|truly)",
           ],
+          model_answers: ["Appreciate that — probably best if we give each other a clean slate. Truly wishing you well."],
           hint_tr:
             "Saygılı sınır: 'Appreciate that — probably best if we give each other a clean slate. Truly wishing you well.' Net + sıcak çıkış.",
         },
@@ -2413,6 +2431,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
             "(not (going|gonna)) (change my mind|reconsider)",
             "(i'?ve been clear|i've made (it|my position) clear)",
           ],
+          model_answers: ["I've said no — please respect that. The answer isn't going to change."],
           hint_tr:
             "Net + saygili: 'I've said no — please respect that. The answer isn't going to change.'",
         },
@@ -2431,6 +2450,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
             "(going to (step|move) away|ending (this|the conversation) now)",
             "(i (wish you|hope you) well|take care of yourself)",
           ],
+          model_answers: ["My answer stands — please stop asking. Wish you well."],
           hint_tr:
             "Sinirini netlestir: 'My answer stands — please stop asking. Wish you well.'",
         },
@@ -2449,6 +2469,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
             "(going to (block|step away)|ending this here)",
             "(take care|wish you the best)",
           ],
+          model_answers: ["My decision is mine — no isn't up for debate. Wishing you well, ending this here."],
           hint_tr:
             "Kararlı + sakin sınır: 'My decision is mine — no isn't up for debate. Wishing you well, ending this here.' Tartışmaya GİRME.",
         },

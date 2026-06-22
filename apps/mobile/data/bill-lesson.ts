@@ -102,6 +102,7 @@ export const billLesson_4_1: BundledLesson = {
             "i don'?t (recognize|remember ordering) this",
             "what is (this|the) (charge|item) for",
           ],
+          model_answers: ["Could you explain this item?"],
           hint_tr:
             "Sorgula: 'Could you explain this item?' veya 'I think there's a mistake.'",
         },
@@ -119,6 +120,7 @@ export const billLesson_4_1: BundledLesson = {
             "(could|can) (you|i) (remove|take off) (the )?service charge",
             "(we'?re|i'?m) only (\\d+|four|five|three)",
           ],
+          model_answers: ["We're only 4, could you remove it?"],
           hint_tr:
             "Anlaştıysan: 'Got it, thanks.' İtiraz edersen: 'We're only 4, could you remove it?'",
         },
@@ -137,6 +139,7 @@ export const billLesson_4_1: BundledLesson = {
             "(could|can) you (also |) ?check the (tax|tip|drinks)",
             "the rest is fine",
           ],
+          model_answers: ["Could you also check the drinks?"],
           hint_tr:
             "Devam: 'No, the rest looks fine'. İkinci kalem varsa: 'Could you also check the drinks?'",
         },
@@ -155,6 +158,7 @@ export const billLesson_4_1: BundledLesson = {
             "(could|can) we split (it|the bill) (evenly|by item)",
             "(it'?s |all )?on me",
           ],
+          model_answers: ["All on one card, please"],
           hint_tr:
             "Bölüşme: 'Let's split it evenly' veya 'All on one card, please'. ABD'de hesap bölmek (split) çok normal.",
         },
@@ -172,6 +176,7 @@ export const billLesson_4_1: BundledLesson = {
             "(perfect|great|awesome)(,)? thanks",
             "(no worries|no problem)",
           ],
+          model_answers: ["Thanks, no rush"],
           hint_tr:
             "Yumuşak kapat: 'Thanks, no rush' veya 'Perfect, thank you'.",
         },
@@ -631,6 +636,7 @@ export const billLesson_4_2: BundledLesson = {
             "(fifty[- ]fifty|50[- /]50|down the middle|evenly|half and half)",
             "i('ll just|just want to) pay for (what i|mine)",
           ],
+          model_answers: ["Could we split it?"],
           hint_tr:
             "Bölme: 'Could we split it?' veya 'Separate checks, please.'",
         },
@@ -649,6 +655,7 @@ export const billLesson_4_2: BundledLesson = {
             "(per|by) item",
             "(separate|individual) checks",
           ],
+          model_answers: ["Evenly"],
           hint_tr:
             "Yöntem: 'Evenly' veya 'By what each of us ordered'.",
         },
@@ -1109,6 +1116,7 @@ export const billLesson_4_3: BundledLesson = {
             "tap to pay",
             "contactless",
           ],
+          model_answers: ["Do you take Apple Pay?"],
           hint_tr:
             "Ödeme: 'Card, please', 'Cash', 'Do you take Apple Pay?'",
         },
@@ -1125,6 +1133,7 @@ export const billLesson_4_3: BundledLesson = {
             "tap to pay",
             "(thanks|got it)",
           ],
+          model_answers: ["I'll tap"],
           hint_tr:
             "Yöntem: 'I'll tap', 'Insert', 'Swipe'. Modern kartlar genelde tap.",
         },
@@ -1141,6 +1150,7 @@ export const billLesson_4_3: BundledLesson = {
             "(no thanks|no thank you|no, that'?s fine|i'?m good)",
             "(email|text)( it)?( please)?",
           ],
+          model_answers: ["Could you email it?"],
           hint_tr:
             "Fiş: 'Yes, please' veya 'No thanks'. E-mail isteyebilirsin: 'Could you email it?'",
         },
@@ -1600,6 +1610,7 @@ export const billLesson_4_4: BundledLesson = {
             "(even split|even|evenly)( please)?",
             "(how much |what'?s )(it )?per person",
           ],
+          model_answers: ["Could we split it evenly?"],
           hint_tr:
             "Eşit böl: 'Could we split it evenly?' veya 'Split it four ways.'",
         },
@@ -1617,6 +1628,7 @@ export const billLesson_4_4: BundledLesson = {
             "(does that|that) (include|cover) (the )?tip",
             "(should we|do we) add tip",
           ],
+          model_answers: ["Does that include tip?"],
           hint_tr:
             "Onayla: 'Sounds good' veya bahşişi sor: 'Does that include tip?'",
         },
@@ -2047,6 +2059,7 @@ export const billLesson_4_5: BundledLesson = {
             "(i'?d|i would) (rather|prefer to) pay for (mine|what i had)",
             "(can we |let'?s )(just )?separate (checks|it)",
           ],
+          model_answers: ["Actually, mine was just the salad — could we do itemized?"],
           hint_tr:
             "Kibarca farklılaş: 'Actually, mine was just the salad — could we do itemized?'",
         },
@@ -2064,6 +2077,7 @@ export const billLesson_4_5: BundledLesson = {
             "i'?ll (venmo|cashapp|zelle|send) you( my (share|part))?",
             "thanks for understanding",
           ],
+          model_answers: ["Just the salad and a water."],
           hint_tr:
             "Detay: 'Just the salad and a water.' veya Venmo teklif: 'I'll Venmo you my share.'",
         },
@@ -2494,6 +2508,7 @@ export const billLesson_4_6: BundledLesson = {
             "i'?ll (get|cover) (the )?next (one|round|time)",
             "what'?s your (venmo|handle|cashapp|zelle)",
           ],
+          model_answers: ["I owe you one — next round's on me."],
           hint_tr:
             "İsrar et veya kabul et: 'Let me Venmo you' veya 'I owe you one — next round's on me.'",
         },
@@ -2513,6 +2528,7 @@ export const billLesson_4_6: BundledLesson = {
             "thanks( so much| a lot)?( again)?",
             "i (really )?appreciate it",
           ],
+          model_answers: ["Sounds good — next one's on me."],
           hint_tr:
             "Kabul: 'Deal!' veya 'Sounds good — next one's on me.'",
         },
@@ -2945,6 +2961,7 @@ export const billLesson_4_7: BundledLesson = {
             "(group|easier) (split|to split) (evenly|is easier)",
             "(let'?s|we'?ll) (just )?(do|go with) (an )?even split",
           ],
+          model_answers: ["Could we get separate checks?"],
           hint_tr:
             "Karar: 'Group split is easier' veya 'Could we get separate checks?'",
         },
@@ -2963,6 +2980,7 @@ export const billLesson_4_7: BundledLesson = {
             "i'?ll (cover|put it on|charge) (it )?(all )?(to|on) (my|one) card",
             "(some will|a few of us will) (venmo|pay (me|cash))",
           ],
+          model_answers: ["One card — everyone'll Venmo me."],
           hint_tr:
             "Kart planı: 'Could you run these three separately?' veya 'One card — everyone'll Venmo me.'",
         },

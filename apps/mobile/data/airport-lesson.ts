@@ -101,6 +101,7 @@ export const airportLesson_44_1: BundledLesson = {
             "(to (istanbul|london|new york|paris|frankfurt|dubai))",
             "(here('s| is)|here you go) (my )?(passport|ticket|boarding pass)",
           ],
+          model_answers: ["Hi, checking in for TK0001 to Istanbul. Here's my passport."],
           hint_tr:
             "Net aç: 'Hi, checking in for TK0001 to Istanbul. Here's my passport.'",
         },
@@ -117,6 +118,7 @@ export const airportLesson_44_1: BundledLesson = {
             "(plus|and) (a |one )?carry[- ]?on",
             "(no(thing)? to check|just (a )?carry[- ]?on)",
           ],
+          model_answers: ["One bag to check, and a carry-on."],
           hint_tr:
             "Sayı + 'to check' + carry-on: 'One bag to check, and a carry-on.'",
         },
@@ -133,6 +135,7 @@ export const airportLesson_44_1: BundledLesson = {
             "(everything('s| is) under 100\\s?ml)",
             "(i don't think so)",
           ],
+          model_answers: ["No liquids — just my laptop and charger."],
           hint_tr:
             "Net cevap: 'No liquids — just my laptop and charger.' veya 'All liquids under 100ml.'",
         },
@@ -149,6 +152,7 @@ export const airportLesson_44_1: BundledLesson = {
             "(i('d| would) (prefer|like)) (a|an) (aisle|window)",
             "(any (aisle|window) (seat )?available)",
           ],
+          model_answers: ["Could I get a window seat?"],
           hint_tr: "Net: 'Aisle, please.' veya 'Could I get a window seat?'",
         },
         {
@@ -167,6 +171,7 @@ export const airportLesson_44_1: BundledLesson = {
             "(can you give me a (sec|second|moment)) to rearrange",
             "(no problem)(,)? (i'?ll )?(repack|sort it out)",
           ],
+          model_answers: ["Let me move some items to my carry-on"],
           hint_tr:
             "Aşım ücreti veya tekrar düzenleme: 'How much is the fee?' veya 'Let me move some items to my carry-on'. Türk: 'overweight' = bagaj sınırını aşma; ekstra ücret = excess fee. Sayısal sınır 23 kg standart ekonomide.",
         },
@@ -185,6 +190,7 @@ export const airportLesson_44_1: BundledLesson = {
             "(could you put|please add) (a )?fragile (sticker|tag)",
             "(there'?s a (gift|glass|frame))(,)? (just to be safe)?",
           ],
+          model_answers: ["Yes, could you mark it fragile? There's a gift inside"],
           hint_tr:
             "Kırılır eşya bildirimi: 'Yes, could you mark it fragile? There's a gift inside' veya 'No, nothing fragile, all in carry-on'. Türk: 'kırılır' = fragile; valizinde varsa mutlaka söyle, etiketleterek sigortaya alıyorlar.",
         },
@@ -203,6 +209,7 @@ export const airportLesson_44_1: BundledLesson = {
             "(can i have a paper (one |copy ))?(as backup|too)",
             "(paper )?(would be (great|helpful|nice))(,)? (just in case)?",
           ],
+          model_answers: ["Paper, please — just in case"],
           hint_tr:
             "Biniş kartı tercih: 'Paper, please — just in case' veya 'My phone is fine, thanks'. Türk: bazı havalimanlarında telefon çalışmazsa diye paper backup güvenli. 'Mobile boarding pass' = telefon biniş kartı.",
         },
@@ -670,6 +677,7 @@ export const airportLesson_44_2: BundledLesson = {
             "(everything('s| is) (in the tray|out))",
             "(quick heads[- ]?up|just so you know|fyi)",
           ],
+          model_answers: ["Sure — quick heads-up, I have a metal implant in my knee."],
           hint_tr:
             "Onayla + uyarı: 'Sure — quick heads-up, I have a metal implant in my knee.'",
         },
@@ -686,6 +694,7 @@ export const airportLesson_44_2: BundledLesson = {
             "(all in the (clear|ziploc) bag)",
             "(i think (it('s| is)|they('re| are)) all under)",
           ],
+          model_answers: ["No, everything's under 100ml in the clear bag."],
           hint_tr:
             "Net: 'No, everything's under 100ml in the clear bag.'",
         },
@@ -702,6 +711,7 @@ export const airportLesson_44_2: BundledLesson = {
             "(my (knee|hip|shoulder) might (set it off|trigger))",
             "(should i (mention|tell you))",
           ],
+          model_answers: ["Okay — just a reminder, my knee might set it off."],
           hint_tr:
             "Hatırlatma: 'Okay — just a reminder, my knee might set it off.'",
         },
@@ -720,6 +730,7 @@ export const airportLesson_44_2: BundledLesson = {
             "(any way )?(we can avoid|to skip) the pat-?down",
             "(it'?s )?(my )?(jeans button|metal piece in my pants)",
           ],
+          model_answers: ["No problem — probably my belt buckle"],
           hint_tr:
             "Ek tarama kabul: 'No problem — probably my belt buckle' veya 'Sure, go ahead'. Türk: 'üst arama' = pat-down; ABD'de TSA görevlisi profesyonel ama sınırlı dokunma yapar. 'No touch!' kesinlikle deme.",
         },
@@ -738,6 +749,7 @@ export const airportLesson_44_2: BundledLesson = {
             "(thanks )(again|for the help)",
             "(all (good|set|sorted))",
           ],
+          model_answers: ["Yes, grabbing them now, thanks"],
           hint_tr:
             "Eşyaları topla: 'Yes, grabbing them now, thanks' veya 'Let me collect everything'. Türk: 'eşyalarımı alıyorum' = 'grabbing my stuff' (modern). 'Tray' = plastik tabak; tüm metal/elektronik bunun içinde.",
         },
@@ -756,6 +768,7 @@ export const airportLesson_44_2: BundledLesson = {
             "(let me check (my phone|the app))",
             "(if you could )(please|that would help)",
           ],
+          model_answers: ["Could you check? I forgot"],
           hint_tr:
             "Kapı netleştir: 'Gate B23, I think — but I'll check the screen' veya 'Could you check? I forgot'. Türk: 'kapı' = gate (havaalanı için). 'Boarding gate' = biniş kapısı.",
         },
@@ -1233,6 +1246,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(i (need to|would like to) file (a|the)) (lost|delayed|missing)[- ]?(baggage |bag )?(report|form|pir)",
             "(flight (tk|ba|aa|dl|ua|lh|af)?\\s?\\d+)",
           ],
+          model_answers: ["My bag didn't make it on flight TK0001 — I need to file a report."],
           hint_tr:
             "Net aç: 'My bag didn't make it on flight TK0001 — I need to file a report.'",
         },
@@ -1249,6 +1263,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(let me (find|grab) (it|the tag))",
             "(\\w+\\d+)",
           ],
+          model_answers: ["Yes, it's on my boarding pass."],
           hint_tr:
             "Etiket genelde biniş kartına yapışıktır: 'Yes, it's on my boarding pass.'",
         },
@@ -1265,6 +1280,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(when (will|do you think) (it|the bag) (arrive|be delivered))",
             "(do you (cover|reimburse)) (essentials|toiletries)",
           ],
+          model_answers: ["Deliver to my hotel — and do you cover essentials?"],
           hint_tr:
             "Otel adresini ver + soru: 'Deliver to my hotel — and do you cover essentials?'",
         },
@@ -1282,6 +1298,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(i('ll| will) keep (the |my )?receipts)",
             "(am i entitled to (any )?compensation)",
           ],
+          model_answers: ["Thanks — how long does it usually take?"],
           hint_tr:
             "Onayla + son soru: 'Thanks — how long does it usually take?'",
         },
@@ -1301,6 +1318,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(my (laptop|camera|prescription medication) (is|are) in there)",
             "(there'?s a (small|big) (label|sticker|crack) on (the front|side))",
           ],
+          model_answers: ["It's a black Samsonite, medium, with a yellow ribbon on the handle"],
           hint_tr:
             "Tanıma detayı: 'It's a black Samsonite, medium, with a yellow ribbon on the handle' veya 'Mostly clothes, but my prescription is in the side pocket'. Türk: 'Samsonite' yaygın marka; 'yellow ribbon' kişisel işaret. Spesifiklik tanımayı hızlandırır.",
         },
@@ -1320,6 +1338,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(some (gold|silver|expensive) (jewelry|items))",
             "(could you (mark|flag) it|please prioritize)",
           ],
+          model_answers: ["Yes — laptop and prescription meds, please prioritize"],
           hint_tr:
             "Değerli/kırılır bildirim: 'Yes — laptop and prescription meds, please prioritize' veya 'Nothing valuable, just clothes'. Türk: 'değerli eşya' valize asla koyma temel kural ama bazen kaçınılmaz; pharmacy varsa flag et.",
         },
@@ -1339,6 +1358,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(i fly on(ward)? to .{0,20} (tomorrow|in two days))",
             "(here for (work|vacation|family))",
           ],
+          model_answers: ["Final destination — staying at the Hilton for five days"],
           hint_tr:
             "Rota netleştir: 'Final destination — staying at the Hilton for five days' veya 'Layover, I fly onward to Istanbul tomorrow'. Türk: 'aktarma' = layover/connecting; 'son durak' = final destination.",
         },
@@ -1358,6 +1378,7 @@ export const airportLesson_44_3: BundledLesson = {
             "(my phone (number|is) is .{0,20})",
             "(sms (would be )?(great|preferred))",
           ],
+          model_answers: ["SMS works better, I check it more"],
           hint_tr:
             "İletişim tercih: 'Both, please — just in case' veya 'SMS works better, I check it more'. Türk: 'mesaj' = text/SMS; 'mail' = email. ABD'de SMS standart, AB'de WhatsApp da kullanılır.",
         },
@@ -1833,6 +1854,7 @@ export const airportLesson_44_4: BundledLesson = {
             "(could you (rebook|put) me on (the next|another) flight)",
             "(can i get a refund)",
           ],
+          model_answers: ["Hi — my flight TK0001 was canceled. What are my options?"],
           hint_tr:
             "Sakin aç: 'Hi — my flight TK0001 was canceled. What are my options?'",
         },
@@ -1851,6 +1873,7 @@ export const airportLesson_44_4: BundledLesson = {
             "(actually (a )?refund (would be )?better)",
             "(anything (sooner|earlier) tonight)",
           ],
+          model_answers: ["Rebook me on the 8am, please."],
           hint_tr:
             "Net tercih: 'Rebook me on the 8am, please.' veya 'Refund, please — too late tonight.'",
         },
@@ -1869,6 +1892,7 @@ export const airportLesson_44_4: BundledLesson = {
             "(what time should i be back (here|at the airport))",
             "(anything else i (need to|should) (know|do))",
           ],
+          model_answers: ["Perfect — where do I pick up the vouchers, and what time should I be back?"],
           hint_tr:
             "Detay topla: 'Perfect — where do I pick up the vouchers, and what time should I be back?'",
         },
@@ -2353,6 +2377,7 @@ export const airportLesson_44_5: BundledLesson = {
             "(could you tell me (the |how much )?(charge|fee))",
             "(can i (move|shift|put) (some|a few) (things|items) (into|in) (my )?(carry[- ]?on|hand luggage))",
           ],
+          model_answers: ["I see — how much is the overweight charge?"],
           hint_tr:
             "Onayla + ücreti sor: 'I see — how much is the overweight charge?'",
         },
@@ -2371,6 +2396,7 @@ export const airportLesson_44_5: BundledLesson = {
             "(actually,? i('ll| will) just pay (the |it|the charge))",
             "(let me (open|check) (my|the) bag)",
           ],
+          model_answers: ["Actually, I'll just pay it."],
           hint_tr:
             "Tercih yap: 'Let me try to move a few things into my carry-on first.' veya 'Actually, I'll just pay it.'",
         },
@@ -2389,6 +2415,7 @@ export const airportLesson_44_5: BundledLesson = {
             "(how('s| is) the weight now)",
             "(i('ve| have) moved (a few|some) (things|items))",
           ],
+          model_answers: ["Okay, ready to reweigh — could you check it again?"],
           hint_tr:
             "Hazırsın işareti: 'Okay, ready to reweigh — could you check it again?'",
         },
@@ -2831,6 +2858,7 @@ export const airportLesson_44_6: BundledLesson = {
             "(has the gate (changed|moved))",
             "(for (flight )?(tk|ba|aa|dl|ua|lh|af)?\\s?\\d+)",
           ],
+          model_answers: ["Excuse me — could you help me? My boarding pass says B23 for TK0001, but I can't find it."],
           hint_tr:
             "Saygılı aç: 'Excuse me — could you help me? My boarding pass says B23 for TK0001, but I can't find it.'",
         },
@@ -2849,6 +2877,7 @@ export const airportLesson_44_6: BundledLesson = {
             "(am i (going to|gonna) make it)",
             "(could you point me in the right direction)",
           ],
+          model_answers: ["Got it — where do I catch the shuttle, and how long does it take?"],
           hint_tr:
             "Detay sor: 'Got it — where do I catch the shuttle, and how long does it take?'",
         },
@@ -2867,6 +2896,7 @@ export const airportLesson_44_6: BundledLesson = {
             "(orange signs — got it)",
             "(lower level,? right)",
           ],
+          model_answers: ["Thanks — orange signs to the lower level, got it."],
           hint_tr:
             "Doğrula + teşekkür: 'Thanks — orange signs to the lower level, got it.'",
         },
@@ -3308,6 +3338,7 @@ export const airportLesson_44_7: BundledLesson = {
             "(what are my options)",
             "(can you (rebook|put) me on (the next|another) flight)",
           ],
+          model_answers: ["Hi — I just missed my connection because the inbound was delayed. What are my options?"],
           hint_tr:
             "Sakin + sebep + talep: 'Hi — I just missed my connection because the inbound was delayed. What are my options?'",
         },
@@ -3325,6 +3356,7 @@ export const airportLesson_44_7: BundledLesson = {
             "(my reference (is|number is) [a-z0-9]+)",
             "(the (8am|10am|evening|morning) flight to \\w+)",
           ],
+          model_answers: ["I was on the 6pm flight to Istanbul. Here's my boarding pass."],
           hint_tr:
             "Bilgi ver: 'I was on the 6pm flight to Istanbul. Here's my boarding pass.'",
         },
@@ -3338,11 +3370,12 @@ export const airportLesson_44_7: BundledLesson = {
           acceptable_patterns: [
             "(that (works|would be great)|thank you)",
             "(yes please|please do)",
-            "(could you (also|please) (book|arrange)) (the )?(hotel|meal voucher|transit hotel))",
+            "(could you (also|please) (book|arrange)) (the )?(hotel|meal voucher|transit hotel)",
             "(is there anything (earlier|sooner|tonight))",
             "(how do i get to the (hotel|transit hotel))",
             "(what time should i be back (here|at the gate))",
           ],
+          model_answers: ["That would be great, thank you — and how do I get to the hotel?"],
           hint_tr:
             "Kabul + soru: 'That would be great, thank you — and how do I get to the hotel?'",
         },
@@ -3360,6 +3393,7 @@ export const airportLesson_44_7: BundledLesson = {
             "(will my (bag|suitcase|luggage) (be transferred|go through))",
             "(door 6,? right)",
           ],
+          model_answers: ["Thanks so much — will my bag be transferred automatically?"],
           hint_tr:
             "Teşekkür + son detay: 'Thanks so much — will my bag be transferred automatically?'",
         },
@@ -3807,6 +3841,7 @@ export const airportLesson_44_8: BundledLesson = {
             "(just (a |for )?(holiday|vacation|tourist trip))",
             "(visiting (new york|the city|family|a friend))",
           ],
+          model_answers: ["Here you go. Tourism — just a holiday."],
           hint_tr:
             "Kısa + net: 'Here you go. Tourism — just a holiday.'",
         },
@@ -3823,6 +3858,7 @@ export const airportLesson_44_8: BundledLesson = {
             "(i('ll| will) be (here|staying)) (for )?\\d+ (days|nights)",
             "(my return flight is on \\w+)",
           ],
+          model_answers: ["Just a week — return flight is on the 24th."],
           hint_tr:
             "Net süre: '10 days' veya 'Just a week — return flight is on the 24th.'",
         },
@@ -3839,6 +3875,7 @@ export const airportLesson_44_8: BundledLesson = {
             "(here('s| is) (my |the )?(address|hotel (booking|confirmation)|reservation))",
             "(an airbnb in \\w+)",
           ],
+          model_answers: ["At the Hilton in Midtown — here's my reservation."],
           hint_tr:
             "Adres hazır: 'At the Hilton in Midtown — here's my reservation.'",
         },
@@ -3855,6 +3892,7 @@ export const airportLesson_44_8: BundledLesson = {
             "(let me (pull it up|find it|show you))",
             "(my return is on \\w+ \\d+)",
           ],
+          model_answers: ["Yes, here's my return ticket — flight back on the 27th."],
           hint_tr:
             "Belge çıkar: 'Yes, here's my return ticket — flight back on the 27th.'",
         },
@@ -3872,6 +3910,7 @@ export const airportLesson_44_8: BundledLesson = {
             "(only (under|less than|within) the limit)",
             "(no cash over (ten thousand|10000|10k))",
           ],
+          model_answers: ["No, nothing to declare."],
           hint_tr:
             "Net cevap: 'No, nothing to declare.' Sadece kişisel eşya varsa.",
         },

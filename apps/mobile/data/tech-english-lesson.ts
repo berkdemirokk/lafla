@@ -58,6 +58,7 @@ export const techEnglishLesson_1: BundledLesson = {
             "(could you|would you mind|when you (have|get) a sec)",
             "(take a look|look at|review|eyes on) (my )?(pr|pull request|mr)",
           ],
+          model_answers: ["Hey — could you take a look at my PR when you have a sec?"],
           hint_tr:
             "Açılış: 'Hey — could you take a look at my PR when you have a sec?' Türk yazılımcı 'PR' der → 'pull request' da denir.",
         },
@@ -72,6 +73,7 @@ export const techEnglishLesson_1: BundledLesson = {
             "(\\d+ lines?|change|fix|update|refactor)",
             "(fixes|adds|updates|refactors) (the )?(auth|api|login|checkout|search)",
           ],
+          model_answers: ["Small fix, ~80 lines, updates the login flow."],
           hint_tr:
             "Pre-summary: 'Small fix, ~80 lines, updates the login flow.' Boyut + amaç. Türkçe'deki 'küçük bir şey' yerine somut sayı.",
         },
@@ -86,6 +88,7 @@ export const techEnglishLesson_1: BundledLesson = {
             "(token|session|state|race condition|edge case)",
             "(unit tests cover|tested locally|integration tested|covered)",
           ],
+          model_answers: ["Main risk is the token refresh edge case — unit tests cover happy path."],
           hint_tr:
             "Risk alani: 'Main risk is the token refresh edge case — unit tests cover happy path.' Reviewer odaklanir.",
         },
@@ -100,6 +103,7 @@ export const techEnglishLesson_1: BundledLesson = {
             "(hoping (to|for)|aiming for|ideally) (merge )?(by|before)",
             "(eod|end of day|tomorrow|friday|this week|next week)",
           ],
+          model_answers: ["Not urgent, but hoping to merge by EOD Friday."],
           hint_tr:
             "Net urgency: 'Not urgent, but hoping to merge by EOD Friday.' Türkçe 'acele değil ama' = 'not urgent, but...'.",
         },
@@ -113,6 +117,7 @@ export const techEnglishLesson_1: BundledLesson = {
             "(thanks|appreciate it|cheers|much appreciated)",
             "(will do|will ping|sounds good|perfect)",
           ],
+          model_answers: ["Cheers — will ping if it slips."],
           hint_tr:
             "Kapanış: 'Thanks, appreciate it!' veya 'Cheers — will ping if it slips.' Türk yazılımcı 'sağol' yerine 'thanks' çok iyi.",
         },
@@ -399,6 +404,7 @@ export const techEnglishLesson_2: BundledLesson = {
             "(maybe|could we|what about) (extract|pull out|move)",
             "(the )?(try-?catch|error handling|validation) (into|to) (a )?(helper|utility|function)",
           ],
+          model_answers: ["Quick nit: maybe extract the try-catch into a helper?"],
           hint_tr:
             "Quick nit acılışı: 'Quick nit: maybe extract the try-catch into a helper?' Soru formati = davet.",
         },
@@ -413,6 +419,7 @@ export const techEnglishLesson_2: BundledLesson = {
             "(since|because) (they'?re|it'?s) (basically|essentially|the same)",
             "(dry|don'?t repeat (yourself)?|reduce duplication)",
           ],
+          model_answers: ["Both — they're basically the same pattern, would DRY it up nicely."],
           hint_tr:
             "Aciklama: 'Both — they're basically the same pattern, would DRY it up nicely.'",
         },
@@ -427,6 +434,7 @@ export const techEnglishLesson_2: BundledLesson = {
             "(non-?blocking|nit|not blocking|not a blocker)",
             "(happy to (defer|follow up)|fine to (ship|merge) (first|as is))",
           ],
+          model_answers: ["Your call — it's a nit, non-blocking. Fine to ship and follow up."],
           hint_tr:
             "Esnek: 'Your call — it's a nit, non-blocking. Fine to ship and follow up.' Türk yazılımcı 'sana kalmış' = 'your call'.",
         },
@@ -441,6 +449,7 @@ export const techEnglishLesson_2: BundledLesson = {
             "(also|one more thing|while you'?re (here|at it))",
             "(consider|wondering|what about) (adding|naming|renaming)",
           ],
+          model_answers: ["Sounds good. Also — while you're at it, consider naming the helper `safeParse`."],
           hint_tr:
             "Ikinci yorum: 'Sounds good. Also — while you're at it, consider naming the helper `safeParse`.'",
         },
@@ -455,6 +464,7 @@ export const techEnglishLesson_2: BundledLesson = {
             "(rest looks (great|good|clean)|lgtm|looking good)",
             "(will (re-?review|take another look)|ping me)",
           ],
+          model_answers: ["No rush. Rest looks great — ping me when ready for re-review."],
           hint_tr:
             "Kapanış: 'No rush. Rest looks great — ping me when ready for re-review.'",
         },
@@ -656,6 +666,7 @@ export const techEnglishLesson_3: BundledLesson = {
             "(pushed|pushing|adding) (a )?(fix|update|handler)",
             "(addressing (it )?now|on it|sorted)",
           ],
+          model_answers: ["Good catch — pushing a fix now."],
           hint_tr:
             "Kabul: 'Good catch — pushing a fix now.' Türk yazılımcı'nın 'tamam, fixliyorum' karşılığı.",
         },
@@ -671,6 +682,7 @@ export const techEnglishLesson_3: BundledLesson = {
             "(can|i can|will|let me) (split|extract|pull (it|that) out)",
             "(in (a )?follow-?up|in this pr|now)",
           ],
+          model_answers: ["Fair point — hadn't thought of it that way. Let me split it in a follow-up."],
           hint_tr:
             "Yumusak kabul: 'Fair point — hadn't thought of it that way. Let me split it in a follow-up.'",
         },
@@ -686,6 +698,7 @@ export const techEnglishLesson_3: BundledLesson = {
             "(reason(ing)?|rationale|thinking) (is |here )?",
             "(fixed delay|simpler|p99|product)",
           ],
+          model_answers: ["Pushing back gently on this — fixed delays are simpler given our p99 is already low. Left a longer note inline."],
           hint_tr:
             "Saglikli karsi cikis: 'Pushing back gently on this — fixed delays are simpler given our p99 is already low. Left a longer note inline.'",
         },
@@ -701,6 +714,7 @@ export const techEnglishLesson_3: BundledLesson = {
             "(thundering herd|herd effect|spike)",
             "(switching to|making it|going with) (exponential|backoff)",
           ],
+          model_answers: ["That's a fair point — hadn't considered thundering herd. Switching to exponential."],
           hint_tr:
             "Reviewer iyi sebep verdi = kabul et: 'That's a fair point — hadn't considered thundering herd. Switching to exponential.'",
         },
@@ -715,6 +729,7 @@ export const techEnglishLesson_3: BundledLesson = {
             "(appreciate|thanks for|grateful for) (the )?(review|feedback|catches|thoroughness)",
             "(pushing|will push|update incoming) (in a (sec|few)|shortly|now)",
           ],
+          model_answers: ["Appreciate the thorough review — pushing in a few."],
           hint_tr:
             "Sukran: 'Appreciate the thorough review — pushing in a few.' Türk yazılımcı için 'eyvallah' yerine 'appreciate it'.",
         },
@@ -916,6 +931,7 @@ export const techEnglishLesson_4: BundledLesson = {
             "(\\d+|two|three|five|eight) (story )?points?",
             "(pretty (well-?)?scoped|clear|straightforward|small)",
           ],
+          model_answers: ["I'd put it at 3 — pretty well-scoped, just adding hooks."],
           hint_tr:
             "Net tahmin: 'I'd put it at 3 — pretty well-scoped, just adding hooks.' Türk yazılımcı '3 verdim' = '3 points'.",
         },
@@ -931,6 +947,7 @@ export const techEnglishLesson_4: BundledLesson = {
             "(spike|investigate|do (some )?discovery|research)",
             "(before (committing|estimating)|first)",
           ],
+          model_answers: ["Too many unknowns — I'd want to spike it first before committing to points."],
           hint_tr:
             "Risk: 'Too many unknowns — I'd want to spike it first before committing to points.' Spike = research ticket.",
         },
@@ -947,6 +964,7 @@ export const techEnglishLesson_4: BundledLesson = {
             "(this sprint|now|first)",
             "(come back|circle back|re-?estimate) (next sprint|after)",
           ],
+          model_answers: ["Yeah, spike it this sprint and re-estimate next planning."],
           hint_tr:
             "Kabul + plan: 'Yeah, spike it this sprint and re-estimate next planning.'",
         },
@@ -962,6 +980,7 @@ export const techEnglishLesson_4: BundledLesson = {
             "(split|break (it )?down|carve up|chunk)",
             "(into (smaller|separate) (tickets|stories|tasks))",
           ],
+          model_answers: ["That's too big — sounds like an epic. Want to split it into smaller tickets?"],
           hint_tr:
             "Buyuk ticket: 'That's too big — sounds like an epic. Want to split it into smaller tickets?'",
         },
@@ -978,6 +997,7 @@ export const techEnglishLesson_4: BundledLesson = {
             "(\\d+|two|three|five) (points?)?",
             "(filters (smaller|simpler|easier)|export (medium|small))",
           ],
+          model_answers: ["Yeah works. Charts probably 5, filters 3, export 2 — depends on format support."],
           hint_tr:
             "Detayli estimation: 'Yeah works. Charts probably 5, filters 3, export 2 — depends on format support.'",
         },
@@ -993,6 +1013,7 @@ export const techEnglishLesson_4: BundledLesson = {
             "(one more thing|quick note|fyi)",
             "(blocked|depend(s|ent) on|need(s)? input from)",
           ],
+          model_answers: ["Cool. Quick FYI — charts depend on the design system update from the design team."],
           hint_tr:
             "Bonus: 'Cool. Quick FYI — charts depend on the design system update from the design team.' Dependency uyarisi.",
         },
@@ -1194,6 +1215,7 @@ export const techEnglishLesson_5: BundledLesson = {
             "(merged|shipped|landed|deployed|pushed) (the )?(\\w+|pr|fix|feature)",
             "(also|on top of that|plus) (started|kicked off|began)",
           ],
+          model_answers: ["Yesterday I merged the user-profile PR. Also started on the checkout refactor."],
           hint_tr:
             "Yesterday: 'Yesterday I merged the user-profile PR. Also started on the checkout refactor.' Türk yazılımcı 'merge ettim' = 'I merged' veya 'I landed'.",
         },
@@ -1209,6 +1231,7 @@ export const techEnglishLesson_5: BundledLesson = {
             "(the (checkout|api|frontend|auth) (refactor|migration|fix))",
             "(if (time|i (have time))|after that|hopefully)",
           ],
+          model_answers: ["Today I'm finishing the checkout refactor. If time, picking up the analytics ticket."],
           hint_tr:
             "Today: 'Today I'm finishing the checkout refactor. If time, picking up the analytics ticket.'",
         },
@@ -1223,6 +1246,7 @@ export const techEnglishLesson_5: BundledLesson = {
             "(the )?(auth|api|platform|design|backend) (service|team|team's (sign-?off|review))",
             "(pinged|reached out (to|via)|dm'?ed)",
           ],
+          model_answers: ["Blocked on the auth service team — pinged them yesterday, no reply yet."],
           hint_tr:
             "Blocker: 'Blocked on the auth service team — pinged them yesterday, no reply yet.' Türk yazılımcı 'takıldım' = 'stuck on'.",
         },
@@ -1238,6 +1262,7 @@ export const techEnglishLesson_5: BundledLesson = {
             "(by (eod|tomorrow|friday)|otherwise)",
             "(no|not yet|let me try (one more time|once more))",
           ],
+          model_answers: ["Yeah, if it's easy — would help if we can unblock by EOD."],
           hint_tr:
             "Karar: 'Yeah, if it's easy — would help if we can unblock by EOD.' Veya: 'Not yet, let me try once more.'",
         },
@@ -1253,6 +1278,7 @@ export const techEnglishLesson_5: BundledLesson = {
             "(looking into|investigating|will dig in)",
             "(after|later|once i (finish|wrap))",
           ],
+          model_answers: ["Also on the radar — the flaky test in checkout-spec. Will dig in after the refactor."],
           hint_tr:
             "Radar: 'Also on the radar — the flaky test in checkout-spec. Will dig in after the refactor.' 'On the radar' = takip ediyorum.",
         },
@@ -1456,6 +1482,7 @@ export const techEnglishLesson_6: BundledLesson = {
             "(in|on|across) (checkout|payments|api|the (\\w+) service)",
             "(started|kicked off|spiked) (\\d+ min(utes)?|just now|a few min)",
           ],
+          model_answers: ["We're seeing 5xx errors in checkout, started ~10 min ago. Error rate at ~12%."],
           hint_tr:
             "Durum: 'We're seeing 5xx errors in checkout, started ~10 min ago. Error rate at ~12%.'",
         },
@@ -1470,6 +1497,7 @@ export const techEnglishLesson_6: BundledLesson = {
             "(suspect|looks like|might be|seems to (correlate|line up))",
             "(payments-svc|auth-svc|the (new|latest) release|merge)",
           ],
+          model_answers: ["Last deploy went out 15 min ago — suspect the payments-svc bump."],
           hint_tr:
             "Hipotez: 'Last deploy went out 15 min ago — suspect the payments-svc bump.' Türk yazılımcı 'deploy ettim' = 'we deployed'.",
         },
@@ -1485,6 +1513,7 @@ export const techEnglishLesson_6: BundledLesson = {
             "(roughly|about|around) (\\d+%|\\d+k)",
             "(revenue|orders) (loss|dropping|down)",
           ],
+          model_answers: ["Customer-facing — checkout's failing for ~15% of users. Revenue risk ~$5k/min."],
           hint_tr:
             "Impact: 'Customer-facing — checkout's failing for ~15% of users. Revenue risk ~$5k/min.'",
         },
@@ -1500,6 +1529,7 @@ export const techEnglishLesson_6: BundledLesson = {
             "(can|let me|i'?ll) (kick (it )?off|trigger|start)",
             "(roll forward|cherry-pick|hot ?fix) (would|will) take",
           ],
+          model_answers: ["Rolling back — fastest path. Roll forward fix would take ~30 min, rollback is 5."],
           hint_tr:
             "Karar: 'Rolling back — fastest path. Roll forward fix would take ~30 min, rollback is 5.'",
         },
@@ -1514,6 +1544,7 @@ export const techEnglishLesson_6: BundledLesson = {
             "(eta|in (about|roughly) \\d+ min)",
             "(update (every|in) \\d+ min|posting updates|here)",
           ],
+          model_answers: ["On it — triggering rollback now, ETA 5 min to full revert. Will post status here."],
           hint_tr:
             "Aksiyon: 'On it — triggering rollback now, ETA 5 min to full revert. Will post status here.'",
         },
@@ -1529,6 +1560,7 @@ export const techEnglishLesson_6: BundledLesson = {
             "(after (mitigation|things (settle|cool down)))",
             "(draft (the )?post-?mortem|root cause)",
           ],
+          model_answers: ["Will do — after mitigation I'll draft the post-mortem."],
           hint_tr:
             "Kapanış: 'Will do — after mitigation I'll draft the post-mortem.' Blameless = kimseyi suclamamak.",
         },
@@ -1732,6 +1764,7 @@ export const techEnglishLesson_7: BundledLesson = {
             "(triggered|caused|introduced) (a )?(regression|race condition|bug|memory leak)",
             "(checkout|payments|api) (started failing|errored|broke)",
           ],
+          model_answers: ["At 14:32, we deployed v2.4 of payments-svc. The deploy introduced a race condition that broke checkout for ~15% of users."],
           hint_tr:
             "Timeline: 'At 14:32, we deployed v2.4 of payments-svc. The deploy introduced a race condition that broke checkout for ~15% of users.'",
         },
@@ -1746,6 +1779,7 @@ export const techEnglishLesson_7: BundledLesson = {
             "(race condition|null pointer|memory leak|missing (check|migration)|edge case)",
             "(in (the )?(\\w+)|when (\\w+ )?(\\w+))",
           ],
+          model_answers: ["The root cause was a race condition in cache invalidation — when two requests hit the cache simultaneously, one would read stale data."],
           hint_tr:
             "Root cause: 'The root cause was a race condition in cache invalidation — when two requests hit the cache simultaneously, one would read stale data.'",
         },
@@ -1761,6 +1795,7 @@ export const techEnglishLesson_7: BundledLesson = {
             "(only (surfaces|triggers)|specific conditions|production load)",
             "(no blame|systemic|process gap)",
           ],
+          model_answers: ["Honestly, hard to catch in review — only surfaces under production load. This is a systemic gap, not a reviewer miss."],
           hint_tr:
             "Blameless: 'Honestly, hard to catch in review — only surfaces under production load. This is a systemic gap, not a reviewer miss.' Kimseyi suclama.",
         },
@@ -1777,6 +1812,7 @@ export const techEnglishLesson_7: BundledLesson = {
             "(add (an? )?alert|tighten (the )?slo|monitor|dashboard)",
             "(on (the )?5xx (rate|spikes)|error rate|p99)",
           ],
+          model_answers: ["Yeah, action item — add a stricter alert on 5xx rate spikes, page after 2 min instead of 5."],
           hint_tr:
             "Action item: 'Yeah, action item — add a stricter alert on 5xx rate spikes, page after 2 min instead of 5.'",
         },
@@ -1792,6 +1828,7 @@ export const techEnglishLesson_7: BundledLesson = {
             "(simulate(s|d) (the )?race condition|concurrent (requests|load))",
             "(ci pipeline|pre-deploy|gate)",
           ],
+          model_answers: ["Second action — add a load test that simulates concurrent requests to the cache, gate in CI."],
           hint_tr:
             "Prevention: 'Second action — add a load test that simulates concurrent requests to the cache, gate in CI.'",
         },
@@ -1807,6 +1844,7 @@ export const techEnglishLesson_7: BundledLesson = {
             "(in (the )?eng (channel|all)|to the team)",
             "(after|once) (we )?(finalize|wrap up|polish)",
           ],
+          model_answers: ["Will do — sharing in #eng-all once we finalize the action items."],
           hint_tr:
             "Kapanış: 'Will do — sharing in #eng-all once we finalize the action items.'",
         },
@@ -2009,6 +2047,7 @@ export const techEnglishLesson_8: BundledLesson = {
             "(queue-?based|async|message queue|event-?driven) (approach|architecture)",
             "(decouples|isolat(es|ion)|resilience|backpressure)",
           ],
+          model_answers: ["I'd argue for a queue-based approach — decouples the two services and gives us backpressure for free."],
           hint_tr:
             "Pozisyon: 'I'd argue for a queue-based approach — decouples the two services and gives us backpressure for free.'",
         },
@@ -2024,6 +2063,7 @@ export const techEnglishLesson_8: BundledLesson = {
             "(but|however|that said|on the (other hand|flip side))",
             "(sqs|kafka|sns|managed service|reduces|minimizes) (ops|maintenance|toil)",
           ],
+          model_answers: ["Fair point — but using SQS as a managed service reduces the ops burden significantly."],
           hint_tr:
             "Karsi argümen: 'Fair point — but using SQS as a managed service reduces the ops burden significantly.'",
         },
@@ -2040,6 +2080,7 @@ export const techEnglishLesson_8: BundledLesson = {
             "(acceptable|tolerable|fine|doesn'?t need (strong|strict))",
             "(retries|idempotency|guarantees)",
           ],
+          model_answers: ["For this use case, eventual consistency is acceptable — inventory updates can lag by 1-2 seconds without user impact."],
           hint_tr:
             "Trade-off: 'For this use case, eventual consistency is acceptable — inventory updates can lag by 1-2 seconds without user impact.'",
         },
@@ -2056,6 +2097,7 @@ export const techEnglishLesson_8: BundledLesson = {
             "(at order time|upfront|optimistic (lock|reserve))",
             "(reconcile|reconciliation|background job)",
           ],
+          model_answers: ["Good question — we'd soft-reserve inventory at order time, then reconcile via the queue. Prevents oversell."],
           hint_tr:
             "Detayli cevap: 'Good question — we'd soft-reserve inventory at order time, then reconcile via the queue. Prevents oversell.'",
         },
@@ -2072,6 +2114,7 @@ export const techEnglishLesson_8: BundledLesson = {
             "(dual-?write|shadow (mode|traffic)|canary)",
             "(rollback|fallback|safety net)",
           ],
+          model_answers: ["Phased — start with dual-write, shadow mode for a week, then cut over with a flag we can rollback on."],
           hint_tr:
             "Migration: 'Phased — start with dual-write, shadow mode for a week, then cut over with a flag we can rollback on.'",
         },
@@ -2088,6 +2131,7 @@ export const techEnglishLesson_8: BundledLesson = {
             "(by (eod|end of week|friday)|tomorrow|this week)",
             "(circulate|share|loop in)",
           ],
+          model_answers: ["Will do — RFC by EOW. Will loop in the platform team for review."],
           hint_tr:
             "Aksiyon: 'Will do — RFC by EOW. Will loop in the platform team for review.' Türk yazılımcı 'yazarim' = 'will write up' / 'will draft'.",
         },
@@ -2290,6 +2334,7 @@ export const techEnglishLesson_9: BundledLesson = {
             "(input|array|target) (assumptions|constraints|edge cases)",
             "(sorted|duplicates|negative|empty|size|length)",
           ],
+          model_answers: ["Let me clarify — is the array sorted? Can it have duplicates? Negatives allowed?"],
           hint_tr:
             "Clarify ilk: 'Let me clarify — is the array sorted? Can it have duplicates? Negatives allowed?' Interviewer'a sinyal = sistematik düşünüyorum.",
         },
@@ -2307,6 +2352,7 @@ export const techEnglishLesson_9: BundledLesson = {
             "(hash map|dictionary|set|seen)",
             "(o\\(n\\)|linear|one pass)",
           ],
+          model_answers: ["Brute force is nested loop, O(n²). To optimize: use a hash map of value to index, single pass — O(n)."],
           hint_tr:
             "Iki yaklaşim: 'Brute force is nested loop, O(n²). To optimize: use a hash map of value to index, single pass — O(n).' Türk yazılımcı 'iki yaklaşim soyleyim' = 'two approaches'.",
         },
@@ -2323,6 +2369,7 @@ export const techEnglishLesson_9: BundledLesson = {
             "(check if|look up) (target minus|complement|the difference)",
             "(in the (map|hash|dict)|seen before)",
           ],
+          model_answers: ["Iterating through the array. For each number, I check if target minus current is already in the map. If yes, return both indices."],
           hint_tr:
             "Sesli kod: 'Iterating through the array. For each number, I check if target minus current is already in the map. If yes, return both indices.'",
         },
@@ -2339,6 +2386,7 @@ export const techEnglishLesson_9: BundledLesson = {
             "(space|space complexity|memory)",
             "(o\\(n\\)|hash map|worst case)",
           ],
+          model_answers: ["Time O(n) — single pass. Space O(n) — hash map in the worst case stores all elements."],
           hint_tr:
             "Complexity: 'Time O(n) — single pass. Space O(n) — hash map in the worst case stores all elements.'",
         },
@@ -2354,6 +2402,7 @@ export const techEnglishLesson_9: BundledLesson = {
             "(empty array|single element|null|no solution)",
             "(same (element|index) twice|duplicates)",
           ],
+          model_answers: ["Empty array — return empty. Single element — no solution. Duplicates work because we check before insert."],
           hint_tr:
             "Edge cases: 'Empty array — return empty. Single element — no solution. Duplicates work because we check before insert.'",
         },
@@ -2370,6 +2419,7 @@ export const techEnglishLesson_9: BundledLesson = {
             "(map-?reduce|partition|sort|two-pointer)",
             "(if (sorted|sorting (is )?allowed))",
           ],
+          model_answers: ["Interesting — would stream and chunk it, or if sorting allowed, use two-pointer with external sort. Trade-off: more time, less memory."],
           hint_tr:
             "Scale: 'Interesting — would stream and chunk it, or if sorting allowed, use two-pointer with external sort. Trade-off: more time, less memory.'",
         },
@@ -2567,6 +2617,7 @@ export const techEnglishLesson_10: BundledLesson = {
             "(tdd|test-?driven|write the test first)",
             "(here|for this|on this one)",
           ],
+          model_answers: ["Shall we try TDD here? Write the failing test first?"],
           hint_tr:
             "TDD önerisi: 'Shall we try TDD here? Write the failing test first?'",
         },
@@ -2582,6 +2633,7 @@ export const techEnglishLesson_10: BundledLesson = {
             "(switch (in|after) \\d+ (min|minutes)|swap (in|every|after))",
             "(or i can drive|either works)",
           ],
+          model_answers: ["You drive first — I'll navigate. Switch every 20 min?"],
           hint_tr:
             "Rol: 'You drive first — I'll navigate. Switch every 20 min?' Türk yazılımcı 'sen yaz, ben yönlendireyim'.",
         },
@@ -2598,6 +2650,7 @@ export const techEnglishLesson_10: BundledLesson = {
             "(valid email|happy path|basic case)",
             "(then|after that|next)",
           ],
+          model_answers: ["Yeah — let's start with the simplest case. Valid email returns it lowercased."],
           hint_tr:
             "Test yazimi: 'Yeah — let's start with the simplest case. Valid email returns it lowercased.'",
         },
@@ -2613,6 +2666,7 @@ export const techEnglishLesson_10: BundledLesson = {
             "(just|simply) (lowercase|return|to(lowercase|lowercase()))",
             "(green|passing|now it passes)",
           ],
+          model_answers: ["Now make it pass — just return `email.toLowerCase()`. Green!"],
           hint_tr:
             "Implementation: 'Now make it pass — just return `email.toLowerCase()`. Green!' Red-green-refactor.",
         },
@@ -2628,6 +2682,7 @@ export const techEnglishLesson_10: BundledLesson = {
             "(invalid|missing @|empty string|null)",
             "(should (throw|return null|return false|reject))",
           ],
+          model_answers: ["Add a test — invalid email throws. Missing @ symbol should throw a ValidationError."],
           hint_tr:
             "Sonraki test: 'Add a test — invalid email throws. Missing @ symbol should throw a ValidationError.'",
         },
@@ -2644,6 +2699,7 @@ export const techEnglishLesson_10: BundledLesson = {
             "(consumer|caller|api) (handles|catches)",
             "(null|nullable) (silent|hides|ambiguous)",
           ],
+          model_answers: ["Throwing is cleaner — null hides the error. Let the caller decide how to handle it."],
           hint_tr:
             "Karar: 'Throwing is cleaner — null hides the error. Let the caller decide how to handle it.'",
         },
@@ -2659,6 +2715,7 @@ export const techEnglishLesson_10: BundledLesson = {
             "(my turn|i'?ll drive|taking the keys)",
             "(what'?s next|edge case|where were we)",
           ],
+          model_answers: ["Yeah, let's switch — I'll drive. What's the next edge case?"],
           hint_tr:
             "Switch: 'Yeah, let's switch — I'll drive. What's the next edge case?'",
         },
@@ -2856,6 +2913,7 @@ export const techEnglishLesson_11: BundledLesson = {
             "(tech debt|technical debt|code health|the (\\w+) module)",
             "(piling up|growing|getting (worse|out of hand))",
           ],
+          model_answers: ["Wanted to chat about tech debt — it's piling up in the payments module."],
           hint_tr:
             "Acılış: 'Wanted to chat about tech debt — it's piling up in the payments module.' Belirli sayar.",
         },
@@ -2872,6 +2930,7 @@ export const techEnglishLesson_11: BundledLesson = {
             "(slowing us down|2x|three times|every change|takes longer)",
             "(velocity|throughput|feature delivery)",
           ],
+          model_answers: ["Totally hear you — but the debt is slowing us down. Every feature in payments takes 2-3x longer than it should."],
           hint_tr:
             "Empati + counter: 'Totally hear you — but the debt is slowing us down. Every feature in payments takes 2-3x longer than it should.'",
         },
@@ -2888,6 +2947,7 @@ export const techEnglishLesson_11: BundledLesson = {
             "(\\d+ ?(percent|%)|three (out of|of) (five|every))",
             "(slipped|over (estimate|estimation)|rolled over)",
           ],
+          model_answers: ["Yes — last quarter, 60% of payments tickets slipped sprints. Average 1.5x estimate."],
           hint_tr:
             "Veri: 'Yes — last quarter, 60% of payments tickets slipped sprints. Average 1.5x estimate.'",
         },
@@ -2905,6 +2965,7 @@ export const techEnglishLesson_11: BundledLesson = {
             "(after (that|which)|on the other side)",
             "(velocity (jumps|increases)|faster|easier|safer)",
           ],
+          model_answers: ["One focused sprint to refactor payments. On the other side, our velocity in that area jumps 30-40%."],
           hint_tr:
             "Net ask: 'One focused sprint to refactor payments. On the other side, our velocity in that area jumps 30-40%.' Net ROI.",
         },
@@ -2921,6 +2982,7 @@ export const techEnglishLesson_11: BundledLesson = {
             "(by (\\d+ weeks?|a sprint)|even more)",
             "(safer bet|net win|pays off)",
           ],
+          model_answers: ["If we don't pay this down, feature X slips by 2 weeks anyway. Refactor first is the safer bet."],
           hint_tr:
             "Reframe: 'If we don't pay this down, feature X slips by 2 weeks anyway. Refactor first is the safer bet.'",
         },
@@ -2937,6 +2999,7 @@ export const techEnglishLesson_11: BundledLesson = {
             "(numbers|metrics|roi)",
             "(by (eod|end of week|tomorrow)|this week)",
           ],
+          model_answers: ["Absolutely — will write it up by EOD with numbers and ROI projection."],
           hint_tr:
             "Kapanış: 'Absolutely — will write it up by EOD with numbers and ROI projection.'",
         },
@@ -2952,6 +3015,7 @@ export const techEnglishLesson_11: BundledLesson = {
             "(having my back|support|advocating)",
             "(send (it |the doc )?over (by|in a few)|will share)",
           ],
+          model_answers: ["Thanks for having my back — sending the doc by tomorrow."],
           hint_tr:
             "Sukran: 'Thanks for having my back — sending the doc by tomorrow.'",
         },
@@ -3150,6 +3214,7 @@ export const techEnglishLesson_12: BundledLesson = {
             "(happy to|will|will gladly) (iterate|adjust|update)",
             "(based on (your )?feedback|whichever (way|direction))",
           ],
+          model_answers: ["Thanks for the review — first-time contributor here, happy to iterate."],
           hint_tr:
             "Saygili acılış: 'Thanks for the review — first-time contributor here, happy to iterate.'",
         },
@@ -3166,6 +3231,7 @@ export const techEnglishLesson_12: BundledLesson = {
             "(parse and validate|just (those|the two))",
             "(remove|drop|hide) (the (rest|others|internal))",
           ],
+          model_answers: ["Absolutely — scoping down to just parse and validate. Removing the rest."],
           hint_tr:
             "Aksiyon: 'Absolutely — scoping down to just parse and validate. Removing the rest.'",
         },
@@ -3182,6 +3248,7 @@ export const techEnglishLesson_12: BundledLesson = {
             "(invalid input|malformed|edge cases)",
             "(will (push|do) (in|in a)|by (tomorrow|eod))",
           ],
+          model_answers: ["Yes — will add tests for invalid input and malformed strings. Pushing tomorrow."],
           hint_tr:
             "Plan: 'Yes — will add tests for invalid input and malformed strings. Pushing tomorrow.'",
         },
@@ -3198,6 +3265,7 @@ export const techEnglishLesson_12: BundledLesson = {
             "(will (update|rewrite|squash)|fixing now)",
             "(conventional commits|format|reread (the guide))",
           ],
+          model_answers: ["Ah, missed that — will squash and rewrite to match the conventional commit format."],
           hint_tr:
             "Hata kabul: 'Ah, missed that — will squash and rewrite to match the conventional commit format.'",
         },
@@ -3213,6 +3281,7 @@ export const techEnglishLesson_12: BundledLesson = {
             "(learning (a lot|so much)|good (feedback|process))",
             "(will ping|will tag|pinging) (when ready|on the next push)",
           ],
+          model_answers: ["Thanks — really helpful feedback, learning a lot. Will tag you on the next push."],
           hint_tr:
             "Sukran: 'Thanks — really helpful feedback, learning a lot. Will tag you on the next push.'",
         },
@@ -3228,6 +3297,7 @@ export const techEnglishLesson_12: BundledLesson = {
             "(excited to|looking forward to|hope to)",
             "(contribute more|keep contributing|stick around)",
           ],
+          model_answers: ["Thanks, that means a lot — excited to contribute more."],
           hint_tr:
             "Kapanış: 'Thanks, that means a lot — excited to contribute more.'",
         },
@@ -3426,6 +3496,7 @@ export const techEnglishLesson_13: BundledLesson = {
             "(dual-?write|shadow (mode|traffic)|two-phase)",
             "(reconciliation|verification|sanity check)",
           ],
+          model_answers: ["Great question — we did dual-write for two weeks, then reconciliation jobs verified consistency before cutover."],
           hint_tr:
             "Bilinen soru: 'Great question — we did dual-write for two weeks, then reconciliation jobs verified consistency before cutover.'",
         },
@@ -3442,6 +3513,7 @@ export const techEnglishLesson_13: BundledLesson = {
             "(off the top of (my )?head|right now)",
             "(happy to|will|let me) (follow up offline|share (after|by email)|dig (it )?out)",
           ],
+          model_answers: ["Honestly — don't have the exact number off the top of my head. Happy to follow up offline."],
           hint_tr:
             "Bilmiyorsan: 'Honestly — don't have the exact number off the top of my head. Happy to follow up offline.' Türk yazılımcı kacinmak yerine kabul + offline.",
         },
@@ -3458,6 +3530,7 @@ export const techEnglishLesson_13: BundledLesson = {
             "(after the (talk|session)|at the (booth|break))",
             "(twitter|email|github)",
           ],
+          model_answers: ["Absolutely — find me at the break, or DM me on Twitter."],
           hint_tr:
             "Plan: 'Absolutely — find me at the break, or DM me on Twitter.'",
         },
@@ -3475,6 +3548,7 @@ export const techEnglishLesson_13: BundledLesson = {
             "(but|however|the reason we (went|chose))",
             "(team (autonomy|independence)|deploy (independently|frequency))",
           ],
+          model_answers: ["Fair challenge — for many teams monolith works. In our case, with 6 product teams shipping daily, the autonomy paid off."],
           hint_tr:
             "Agresif soruya net cevap: 'Fair challenge — for many teams monolith works. In our case, with 6 product teams shipping daily, the autonomy paid off.' Defansif olma.",
         },
@@ -3491,6 +3565,7 @@ export const techEnglishLesson_13: BundledLesson = {
             "(net (positive|win)|in (the end|hindsight)|worth it for)",
             "(specific (metric|number|data)|deploys per week)",
           ],
+          model_answers: ["Complexity did go up — no silver bullet. But our deploys per week went from 5 to 60. For us, net positive."],
           hint_tr:
             "Honest answer: 'Complexity did go up — no silver bullet. But our deploys per week went from 5 to 60. For us, net positive.'",
         },
@@ -3507,6 +3582,7 @@ export const techEnglishLesson_13: BundledLesson = {
             "(in hindsight|looking back|if i could (redo|start over))",
             "(start with|invest in) (tooling|observability|platform)",
           ],
+          model_answers: ["Honestly — mostly yes, but I'd invest in observability tooling on day one. We bolted it on later, painful."],
           hint_tr:
             "Reflektif: 'Honestly — mostly yes, but I'd invest in observability tooling on day one. We bolted it on later, painful.'",
         },
@@ -3522,6 +3598,7 @@ export const techEnglishLesson_13: BundledLesson = {
             "(good questions|great session|making me think)",
             "(see you (at the booth|around|after))",
           ],
+          model_answers: ["Thanks for the sharp questions — see you at the booth."],
           hint_tr:
             "Kapanış: 'Thanks for the sharp questions — see you at the booth.'",
         },
@@ -3720,6 +3797,7 @@ export const techEnglishLesson_14: BundledLesson = {
             "(want(ed)? to (discuss|talk through|circle back on)|few thoughts on)",
             "(the (numbers|comp|package))",
           ],
+          model_answers: ["Thanks for the offer — really excited about the role. Wanted to talk through the comp."],
           hint_tr:
             "Acılış kabul + counter sinyali: 'Thanks for the offer — really excited about the role. Wanted to talk through the comp.'",
         },
@@ -3736,6 +3814,7 @@ export const techEnglishLesson_14: BundledLesson = {
             "(closer to|in the range of|targeting)",
             "(\\$?\\d+k|160|150|hundred (fifty|sixty))",
           ],
+          model_answers: ["Based on market research for senior eng roles in Berlin, comp is closer to $160k base."],
           hint_tr:
             "Veri ile counter: 'Based on market research for senior eng roles in Berlin, comp is closer to $160k base.' Türk yazılımcı 'piyasa fiyati' = 'market rate'.",
         },
@@ -3752,6 +3831,7 @@ export const techEnglishLesson_14: BundledLesson = {
             "(open to|happy to|could we) (mix|blend|structure)",
             "(equity|sign-?on|bonus|signing)",
           ],
+          model_answers: ["Totally get it. If base is tight, could we look at equity or a sign-on bonus instead?"],
           hint_tr:
             "Alternatif: 'Totally get it. If base is tight, could we look at equity or a sign-on bonus instead?'",
         },
@@ -3769,6 +3849,7 @@ export const techEnglishLesson_14: BundledLesson = {
             "(sign-?on|signing bonus) (of )?\\$?\\d+k",
             "(or|alternatively|option b)",
           ],
+          model_answers: ["Option A: $150k base + 0.15% equity. Option B: $145k + 0.2% + $15k sign-on. Either works."],
           hint_tr:
             "Iki seçenek: 'Option A: $150k base + 0.15% equity. Option B: $145k + 0.2% + $15k sign-on. Either works.'",
         },
@@ -3786,6 +3867,7 @@ export const techEnglishLesson_14: BundledLesson = {
             "(but|though|would (love|prefer) to)",
             "(make (this|it) work|land here|join you)",
           ],
+          model_answers: ["I do — competing offer in the $160k range. But I'd love to make this work, the team is a better fit."],
           hint_tr:
             "Leverage: 'I do — competing offer in the $160k range. But I'd love to make this work, the team is a better fit.'",
         },
@@ -3801,6 +3883,7 @@ export const techEnglishLesson_14: BundledLesson = {
             "(no rush|grateful for|appreciate)",
             "(working through (it|this)|advocating)",
           ],
+          model_answers: ["Of course — appreciate you advocating internally. Talk tomorrow."],
           hint_tr:
             "Saygili bekleme: 'Of course — appreciate you advocating internally. Talk tomorrow.'",
         },
@@ -3817,6 +3900,7 @@ export const techEnglishLesson_14: BundledLesson = {
             "(could (push|stretch)|some flexibility)",
             "(ideal start|earliest)",
           ],
+          model_answers: ["Four weeks notice — ideal start would be June 20, some flexibility."],
           hint_tr:
             "Start: 'Four weeks notice — ideal start would be June 20, some flexibility.'",
         },
@@ -4015,6 +4099,7 @@ export const techEnglishLesson_15: BundledLesson = {
             "(\\w+|the (\\w+) (pr|feature|fix|refactor))",
             "(also|on top of that|plus)",
           ],
+          model_answers: ["Yesterday — merged the search-pagination PR. Also reviewed 2 PRs from the platform team."],
           hint_tr:
             "Yesterday: 'Yesterday — merged the search-pagination PR. Also reviewed 2 PRs from the platform team.'",
         },
@@ -4026,6 +4111,7 @@ export const techEnglishLesson_15: BundledLesson = {
             "(the (\\w+) (refactor|migration|feature|investigation))",
             "(goal|aiming|hoping to (finish|wrap|land))",
           ],
+          model_answers: ["Today — picking up the search-relevance investigation. Goal: produce findings doc by EOD."],
           hint_tr:
             "Today: 'Today — picking up the search-relevance investigation. Goal: produce findings doc by EOD.'",
         },
@@ -4038,6 +4124,7 @@ export const techEnglishLesson_15: BundledLesson = {
             "(heads up|fyi|on the radar)",
             "(ci (flaky|broken)|flaky tests|pipeline (slow|red))",
           ],
+          model_answers: ["No blockers — but heads up, CI flaky on main. Retrying."],
           hint_tr:
             "Blockers: 'No blockers — but heads up, CI flaky on main. Retrying.' Veya: 'Blocked on design review for the auth UI.'",
         },
@@ -4054,6 +4141,7 @@ export const techEnglishLesson_15: BundledLesson = {
             "(integration suite|checkout-spec)",
             "(if it gets (worse|bad)|let me|will) (flag|page|tag) (platform|devx)",
           ],
+          model_answers: ["Roughly 3 of 10 runs failing — known offender in the integration suite. If it gets worse, I'll tag #platform."],
           hint_tr:
             "Detay: 'Roughly 3 of 10 runs failing — known offender in the integration suite. If it gets worse, I'll tag #platform.'",
         },
@@ -4070,6 +4158,7 @@ export const techEnglishLesson_15: BundledLesson = {
             "(the (investigation|current task)|i wrap (this )?up)",
             "(by (\\d+ ?(pm|am)|eod|lunch))",
           ],
+          model_answers: ["Will do — reviewing right after the search investigation. By 3 PM your time."],
           hint_tr:
             "Onay: 'Will do — reviewing right after the search investigation. By 3 PM your time.'",
         },
@@ -4085,6 +4174,7 @@ export const techEnglishLesson_15: BundledLesson = {
             "(after (lunch|standup|my current))",
             "(if (no one|nobody else) (grabs|takes) it)",
           ],
+          model_answers: ["Can pick it up after lunch if no one else grabs it."],
           hint_tr:
             "Yardim: 'Can pick it up after lunch if no one else grabs it.'",
         },
@@ -4099,6 +4189,7 @@ export const techEnglishLesson_15: BundledLesson = {
             "(thanks|cheers|you too|same to you)",
             "(catch (you|up|everyone) (tomorrow|in standup))",
           ],
+          model_answers: ["Cheers — catch you tomorrow."],
           hint_tr:
             "Kapanış: 'Cheers — catch you tomorrow.' Async ekipte yazili kapanış kisa.",
         },

@@ -102,6 +102,7 @@ export const flirtDeep_1: BundledLesson = {
             "(was hoping you'?d say|finally — was waiting)",
             "(saving me the awkward ask|saved me the trouble)",
           ],
+          model_answers: ["Honestly was about to suggest the same"],
           hint_tr: "Onayla + momentum: 'Honestly was about to suggest the same' veya 'Reading my mind.'",
         },
         {
@@ -118,6 +119,7 @@ export const flirtDeep_1: BundledLesson = {
             "(dinner feels |dinner sounds )?(too) (much|formal) for (a |the )first time",
             "(coffee is my go.?to|coffee'?s my move)",
           ],
+          model_answers: ["How about coffee — low-key, easier to escape if it's weird, haha."],
           hint_tr: "Dusuk bahis oner: 'How about coffee — low-key, easier to escape if it's weird, haha.'",
         },
         {
@@ -134,6 +136,7 @@ export const flirtDeep_1: BundledLesson = {
             "(as long as you don'?t |unless you )order it in (latin|french)",
             "(takes one to know one|i'?m worse honestly)",
           ],
+          model_answers: ["Allowed — as long as you don't order it in Latin."],
           hint_tr: "Sakaya gir: 'Allowed — as long as you don't order it in Latin.'",
         },
         {
@@ -150,6 +153,7 @@ export const flirtDeep_1: BundledLesson = {
             "(perfect |sounds )?(let'?s lock it in|let'?s do it)",
             "(works for me|i'?m in|sold)",
           ],
+          model_answers: ["Walked past it, never been in. Let's try it."],
           hint_tr: "Bilmiyor numarasi yapma — durust: 'Walked past it, never been in. Let's try it.'",
         },
         {
@@ -166,6 +170,7 @@ export const flirtDeep_1: BundledLesson = {
             "(deal|done|consider it scheduled)",
             "(adding it to my calendar|in the calendar)",
           ],
+          model_answers: ["Saturday at 3 works. Locking it in."],
           hint_tr: "Net onay: 'Saturday at 3 works. Locking it in.'",
         },
         {
@@ -393,6 +398,7 @@ export const flirtDeep_2: BundledLesson = {
             "(i'?m so sorry |sorry )— (i can'?t make it|i can'?t do today)",
             "(genuinely the worst timing|worst possible timing)",
           ],
+          model_answers: ["Hey — this is awful, but something came up with work."],
           hint_tr: "Acik baslama: 'Hey — this is awful, but something came up with work.'",
         },
         {
@@ -409,6 +415,7 @@ export const flirtDeep_2: BundledLesson = {
             "(annoying but |stressful but )?(nothing dramatic|nothing major)",
             "(i'?ll spare you|long story but) the details",
           ],
+          model_answers: ["Nothing serious, just a work emergency."],
           hint_tr: "Detay ver ama drama yapma: 'Nothing serious, just a work emergency.'",
         },
         {
@@ -425,6 +432,7 @@ export const flirtDeep_2: BundledLesson = {
             "(i owe you |first round'?s on me) (a coffee|next time)",
             "(seriously |genuinely )(want to make this up to you|making it up to you)",
           ],
+          model_answers: ["Yes please — was actually looking forward. Wednesday work?"],
           hint_tr: "Niyetini goster: 'Yes please — was actually looking forward. Wednesday work?'",
         },
         {
@@ -441,6 +449,7 @@ export const flirtDeep_2: BundledLesson = {
             "(consider it |it'?s )?(rescheduled|in the calendar)",
             "(first round on me |coffee'?s on me )(wednesday|this time)",
           ],
+          model_answers: ["Perfect — Wednesday at 3, same place. Thank you for being chill about this."],
           hint_tr: "Net + minnet: 'Perfect — Wednesday at 3, same place. Thank you for being chill about this.'",
         },
         {
@@ -665,6 +674,7 @@ export const flirtDeep_3: BundledLesson = {
             "(let me make it up to you|making it up to you) — (when'?s good|free this week)",
             "(round two|take two) on the coffee plan",
           ],
+          model_answers: ["Hey — circling back about our coffee. Free this week?"],
           hint_tr: "Sen baslat: 'Hey — circling back about our coffee. Free this week?'",
         },
         {
@@ -681,6 +691,7 @@ export const flirtDeep_3: BundledLesson = {
             "(i'?m flexible|whenever works) — (what'?s good|your call)",
             "(any chance |would )(thursday|friday|saturday) (works|work)",
           ],
+          model_answers: ["Thursday afternoon? Same plan, just new day."],
           hint_tr: "Yeni gun oner: 'Thursday afternoon? Same plan, just new day.'",
         },
         {
@@ -697,6 +708,7 @@ export const flirtDeep_3: BundledLesson = {
             "(no flaking this time|promise — i'?ll be there)",
             "(consider it |officially )(rescheduled|locked in)",
           ],
+          model_answers: ["Thursday at 4 — locked in. No flaking this time."],
           hint_tr: "Net onay + soz: 'Thursday at 4 — locked in. No flaking this time.'",
         },
         {
@@ -713,6 +725,7 @@ export const flirtDeep_3: BundledLesson = {
             "(thanks for |grateful for )?(being patient|being chill)",
             "(round two — let'?s go|here we go)",
           ],
+          model_answers: ["See you Thursday — looking forward to round two."],
           hint_tr: "Kapanis: 'See you Thursday — looking forward to round two.'",
         },
         {
@@ -941,6 +954,7 @@ export const flirtDeep_4: BundledLesson = {
             "(meeting someone at 3|expecting someone)",
             "(two please |for two )— (running early|i'?m early)",
           ],
+          model_answers: ["I'm waiting on someone — got here a bit early. Table for two please."],
           hint_tr: "Acikla: 'I'm waiting on someone — got here a bit early. Table for two please.'",
         },
         {
@@ -957,6 +971,7 @@ export const flirtDeep_4: BundledLesson = {
             "(do you |do you have )?(have one|anything) (in the corner|tucked away)",
             "(quieter |corner )?(if you have one|please)",
           ],
+          model_answers: ["Somewhere quieter, please — easier to talk."],
           hint_tr: "Sec: 'Somewhere quieter, please — easier to talk.'",
         },
         {
@@ -973,6 +988,7 @@ export const flirtDeep_4: BundledLesson = {
             "(i'?ll order |we'?ll order )(when they (arrive|get here))",
             "(no thanks — |just |i'?ll just )(have water)",
           ],
+          model_answers: ["Just water for now — I'll order when they get here."],
           hint_tr: "Cikolata bekleme: 'Just water for now — I'll order when they get here.'",
         },
         {
@@ -989,6 +1005,7 @@ export const flirtDeep_4: BundledLesson = {
             "(you'?re a |what a )(lifesaver|legend)",
             "(thanks |much appreciated )",
           ],
+          model_answers: ["Thanks so much — appreciate it."],
           hint_tr: "Tesekkur: 'Thanks so much — appreciate it.'",
         },
         {
@@ -1227,6 +1244,7 @@ export const flirtDeep_5: BundledLesson = {
             "(i'?d feel weird |it'?d feel weird )not (covering|getting it) — (turkish thing|how i was raised)",
             "(let me |allow me to )(get it|cover this)",
           ],
+          model_answers: ["Honestly, let me get this one. Next round's on you."],
           hint_tr: "Turk yetisi: 'Honestly, let me get this one. Next round's on you.'",
         },
         {
@@ -1243,6 +1261,7 @@ export const flirtDeep_5: BundledLesson = {
             "(my mom would |my grandma would )(disown me|kill me) if i didn'?t",
             "(it'?s genuine |it'?s sincere )— (not a thing|no expectations)",
           ],
+          model_answers: ["It's a Turkish thing — but if it makes you uncomfortable we can split."],
           hint_tr: "Aciklama + alternatif: 'It's a Turkish thing — but if it makes you uncomfortable we can split.'",
         },
         {
@@ -1259,6 +1278,7 @@ export const flirtDeep_5: BundledLesson = {
             "(setting a precedent |that'?s a precedent )(i'?m happy with|i can live with)",
             "(perfect — |i'?ll hold you to that)",
           ],
+          model_answers: ["Deal — next time's on you. Officially noted."],
           hint_tr: "Kabul + ileri: 'Deal — next time's on you. Officially noted.'",
         },
         {
@@ -1275,6 +1295,7 @@ export const flirtDeep_5: BundledLesson = {
             "(let'?s actually |maybe we )(make it dinner|do dinner)",
             "(open to suggestions|i'?ll trust your taste)",
           ],
+          model_answers: ["Let's try somewhere new — maybe dinner this time?"],
           hint_tr: "Sonraki adim: 'Let's try somewhere new — maybe dinner this time?'",
         },
         {
@@ -1503,6 +1524,7 @@ export const flirtDeep_6: BundledLesson = {
             "(this was |today was )(genuinely fun|the highlight of my week)",
             "(definitely |hundred percent )(want to do this again)",
           ],
+          model_answers: ["Same here — had a really good time. Way better than I expected."],
           hint_tr: "Karsilik: 'Same here — had a really good time. Way better than I expected.'",
         },
         {
@@ -1519,6 +1541,7 @@ export const flirtDeep_6: BundledLesson = {
             "(actually before i go |hold on a second )",
             "(let me ask you something|wait one sec)",
           ],
+          model_answers: ["Metro's that way — but actually, before I go..."],
           hint_tr: "Yon ver veya durdur: 'Metro's that way — but actually, before I go...'",
         },
         {
@@ -1535,6 +1558,7 @@ export const flirtDeep_6: BundledLesson = {
             "(this might be |okay this is )(forward|bold) but",
             "(would you |would it be )(weird|okay) if i (leaned in|kissed you)",
           ],
+          model_answers: ["Would it be weird if I kissed you?"],
           hint_tr: "Net + saygili: 'Can I kiss you?' veya 'Would it be weird if I kissed you?'",
         },
         {
@@ -1551,6 +1575,7 @@ export const flirtDeep_6: BundledLesson = {
             "(come here|come closer)",
             "(been the longest |the longest )(coffee of my life|two hours)",
           ],
+          model_answers: ["Thank god — was starting to overthink it."],
           hint_tr: "Rahatla + an: 'Thank god — was starting to overthink it.'",
         },
         {
@@ -1775,6 +1800,7 @@ export const flirtDeep_7: BundledLesson = {
             "(hope your |how'?s your )(morning|day) (going|treating you)",
             "(not playing it cool |i'?m bad at playing cool )— (had fun|had a great time)",
           ],
+          model_answers: ["Morning — not playing it cool, yesterday was actually really fun."],
           hint_tr: "Sen baslat: 'Morning — not playing it cool, yesterday was actually really fun.'",
         },
         {
@@ -1791,6 +1817,7 @@ export const flirtDeep_7: BundledLesson = {
             "(so we'?re doing this again |round two then\\?)",
             "(perfect |that'?s a relief )",
           ],
+          model_answers: ["Good — was wondering if I misread. So round two?"],
           hint_tr: "Onaylanma: 'Good — was wondering if I misread. So round two?'",
         },
         {
@@ -1807,6 +1834,7 @@ export const flirtDeep_7: BundledLesson = {
             "(let me think |give me a day )and (i'?ll send options|i'?ll text)",
             "(absolutely — |totally )(this week|next week)",
           ],
+          model_answers: ["Dead serious. Thursday or Friday?"],
           hint_tr: "Net onay: 'Dead serious. Thursday or Friday?'",
         },
         {
@@ -1823,6 +1851,7 @@ export const flirtDeep_7: BundledLesson = {
             "(trusting me with the choice|big responsibility)",
             "(consider it |officially )(on me|my mission)",
           ],
+          model_answers: ["Challenge accepted. Any allergies I should know about?"],
           hint_tr: "Kabul + sor: 'Challenge accepted. Any allergies I should know about?'",
         },
         {
@@ -2061,6 +2090,7 @@ export const flirtDeep_8: BundledLesson = {
             "(holiday week — |big holiday this week — )(makes it harder)",
             "(actually a bit |kind of feeling )homesick (tonight|today)",
           ],
+          model_answers: ["Sorry — kind of homesick. It's Bayram this week."],
           hint_tr: "Durust: 'Sorry — kind of homesick. It's Bayram this week.'",
         },
         {
@@ -2077,6 +2107,7 @@ export const flirtDeep_8: BundledLesson = {
             "(kids get |children get )(money|gifts) — (it'?s a whole thing|big tradition)",
             "(food everywhere |non.?stop eating )(for four days|the whole week)",
           ],
+          model_answers: ["It's basically our Christmas — three days of family, food, kids get money."],
           hint_tr: "Anlat: 'It's basically our Christmas — three days of family, food, kids get money.'",
         },
         {
@@ -2093,6 +2124,7 @@ export const flirtDeep_8: BundledLesson = {
             "(this year |this time )i'?m (trying to |going to )(make it more special|do something)",
             "(it'?s not the same |never the same )(without family|abroad)",
           ],
+          model_answers: ["I video call family. There's a Turkish group here that does dinner."],
           hint_tr: "Aciklama: 'I video call family. There's a Turkish group here that does dinner.'",
         },
         {
@@ -2109,6 +2141,7 @@ export const flirtDeep_8: BundledLesson = {
             "(absolutely |hundred percent )— (i'?ll text you details|when'?s next sunday)",
             "(my friends would |the group would )(adore you|love that)",
           ],
+          model_answers: ["That's really sweet — yes, you'd be in the deep end though."],
           hint_tr: "Davet kabul: 'That's really sweet — yes, you'd be in the deep end though.'",
         },
         {
@@ -2337,6 +2370,7 @@ export const flirtDeep_9: BundledLesson = {
             "(give me one sec |let me deal with this)",
             "(turkish friend group thing |my friends do this )",
           ],
+          model_answers: ["I swear no — he literally just showed up. Give me one sec."],
           hint_tr: "Soruyu cevapla: 'I swear no — he literally just showed up. Give me one sec.'",
         },
         {
@@ -2353,6 +2387,7 @@ export const flirtDeep_9: BundledLesson = {
             "(this is your call|remember you asked for this)",
             "(welcome to the |entering the )(turkish friend zone|chaos)",
           ],
+          model_answers: ["You sure? Consider yourself warned."],
           hint_tr: "Onayla + uyar: 'You sure? Consider yourself warned.'",
         },
         {
@@ -2369,6 +2404,7 @@ export const flirtDeep_9: BundledLesson = {
             "(she invited you |she wanted to meet you )— (don'?t make me regret it)",
             "(\\w+) (this is emre|this is the chaos friend i mentioned)",
           ],
+          model_answers: ["Emre — meet [name]. Best behavior please."],
           hint_tr: "Tanit: 'Emre — meet [name]. Best behavior please.'",
         },
         {
@@ -2385,6 +2421,7 @@ export const flirtDeep_9: BundledLesson = {
             "(thank you for the |i need a witness |finally an ally )",
             "(rules — one bite then leave|new rule for next time)",
           ],
+          model_answers: ["Classic Emre — those are MY fries."],
           hint_tr: "Sakaya gir: 'Classic Emre — those are MY fries.'",
         },
         {
@@ -2613,6 +2650,7 @@ export const flirtDeep_10: BundledLesson = {
             "(you look |you actually look )(like your photos|exactly like i imagined)",
             "(i was nervous |kind of nervous )(walking over here|the whole way)",
           ],
+          model_answers: ["Hi — this is genuinely weirder than I expected. Hug or handshake?"],
           hint_tr: "Tansiyonu tan: 'Hi — this is genuinely weirder than I expected. Hug or handshake?'",
         },
         {
@@ -2629,6 +2667,7 @@ export const flirtDeep_10: BundledLesson = {
             "(welcome to |this is )(the actual me|the in.?person experience)",
             "(at least i didn'?t |i hope i didn'?t )(catfish you)",
           ],
+          model_answers: ["Rude but allowed. Photos lie about height."],
           hint_tr: "Sakaya cevap: 'Rude but allowed. Photos lie about height.'",
         },
         {
@@ -2645,6 +2684,7 @@ export const flirtDeep_10: BundledLesson = {
             "(okay let'?s do this |alright let'?s commit )",
             "(coffee will fix |coffee will calm )(the nerves)",
           ],
+          model_answers: ["Yes please — I need coffee for the nerves."],
           hint_tr: "Cabuk hareket: 'Yes please — I need coffee for the nerves.'",
         },
         {
@@ -2661,6 +2701,7 @@ export const flirtDeep_10: BundledLesson = {
             "(this is going |it'?s going )(easier than i thought|smoothly)",
             "(check back in an hour |ask me again later )",
           ],
+          model_answers: ["Better than I imagined — was preparing for disaster mode."],
           hint_tr: "Durust: 'Better than I imagined — was preparing for disaster mode.'",
         },
         {
@@ -2893,6 +2934,7 @@ export const flirtDeep_11: BundledLesson = {
             "(no pressure |zero pressure )(to explain|to share more)",
             "(i'?m here |here for you )— (whatever you need|either way)",
           ],
+          model_answers: ["Not dramatic at all. Do you want to talk about it or just vent?"],
           hint_tr: "Onay + alan: 'Not dramatic at all. Do you want to talk about it or just vent?'",
         },
         {
@@ -2909,6 +2951,7 @@ export const flirtDeep_11: BundledLesson = {
             "(i hear you |that makes sense )— (and you'?re not alone in feeling that)",
             "(when you said |the dropping the ball thing )— (i'?ve been there)",
           ],
+          model_answers: ["Burnout feels exactly like that. I hear you."],
           hint_tr: "Karsila + dogrulama: 'Burnout feels exactly like that. I hear you.'",
         },
         {
@@ -2925,6 +2968,7 @@ export const flirtDeep_11: BundledLesson = {
             "(can i be |going to be )(honest with you|real for a sec)",
             "(actually — |i had a moment today where i )",
           ],
+          model_answers: ["Don't apologize. Since we're opening up — can I be honest with you?"],
           hint_tr: "Karsi paylasim: 'Don't apologize. Since we're opening up — can I be honest with you?'",
         },
         {
@@ -2941,6 +2985,7 @@ export const flirtDeep_11: BundledLesson = {
             "(i don'?t open up like this |not used to opening up )often",
             "(weird to say out loud |strange admitting this )(but here we are)",
           ],
+          model_answers: ["Been homesick today. You're the first person I've said this to here."],
           hint_tr: "Derinlik: 'Been homesick today. You're the first person I've said this to here.'",
         },
         {
@@ -3169,6 +3214,7 @@ export const flirtDeep_12: BundledLesson = {
             "(ended |we ended )(a year before i moved here|two years ago)",
             "(can i be |going to be )(honest about it|real)",
           ],
+          model_answers: ["Yeah, you can ask. It was four years — ended before I moved."],
           hint_tr: "Acik baslama: 'Yeah, you can ask. It was four years — ended before I moved.'",
         },
         {
@@ -3185,6 +3231,7 @@ export const flirtDeep_12: BundledLesson = {
             "(no drama |no cheating )— (just timing|just life)",
             "(by the end |toward the end )(we were more roommates|like friends)",
           ],
+          model_answers: ["We grew apart — different paths. No drama."],
           hint_tr: "Sebep ver, drama yok: 'We grew apart — different paths. No drama.'",
         },
         {
@@ -3201,6 +3248,7 @@ export const flirtDeep_12: BundledLesson = {
             "(she'?s |she has )(her life|moved on) — (good for her)",
             "(no contact for |it'?s been )(months|a year)",
           ],
+          model_answers: ["Not anymore. We tried being friends — didn't work."],
           hint_tr: "Net: 'Not anymore. We tried being friends — didn't work.'",
         },
         {
@@ -3217,6 +3265,7 @@ export const flirtDeep_12: BundledLesson = {
             "(thinking about her |she crosses my mind )(rarely now|barely)",
             "(she'?s |it'?s )(part of my story|in the past)",
           ],
+          model_answers: ["Honestly yes — did the work. Wouldn't be here if I wasn't."],
           hint_tr: "Durustluk: 'Honestly yes — did the work. Wouldn't be here if I wasn't.'",
         },
         {
@@ -3455,6 +3504,7 @@ export const flirtDeep_13: BundledLesson = {
             "(close in the sense |close to the point )(that boundaries are weird|of overinvolvement)",
             "(yes — |honestly yes — )(in the turkish way)",
           ],
+          model_answers: ["Very close-knit — it's a Turkish thing. We talk every day."],
           hint_tr: "Yapilanma anlat: 'Very close-knit — it's a Turkish thing. We talk every day.'",
         },
         {
@@ -3471,6 +3521,7 @@ export const flirtDeep_13: BundledLesson = {
             "(every family gathering is |it'?s like )(thirty people|chaos)",
             "(i lose count of |genuinely can'?t count )(my cousins)",
           ],
+          model_answers: ["Two siblings, uncountable cousins. Cousins are like siblings in Turkey."],
           hint_tr: "Buyuklugu anlat: 'Two siblings, uncountable cousins. Cousins are like siblings in Turkey.'",
         },
         {
@@ -3487,6 +3538,7 @@ export const flirtDeep_13: BundledLesson = {
             "(my mom cries |she cries )(every time we hang up)",
             "(supportive |they support me )(but it'?s complicated)",
           ],
+          model_answers: ["Mom yes, dad took longer. Classic Turkish — proud out loud, worried in private."],
           hint_tr: "Karma cevap: 'Mom yes, dad took longer. Classic Turkish — proud out loud, worried in private.'",
         },
         {
@@ -3503,6 +3555,7 @@ export const flirtDeep_13: BundledLesson = {
             "(my sister |i told my sister )— (she'?s the family spy)",
             "(when do you |is it weird if )(want me to tell them|i tell them soon)",
           ],
+          model_answers: ["My mom suspects — she always does. Turkish moms have a sixth sense."],
           hint_tr: "Aile bilgi durumu: 'My mom suspects — she always does. Turkish moms have a sixth sense.'",
         },
         {
@@ -3741,6 +3794,7 @@ export const flirtDeep_14: BundledLesson = {
             "(somewhere between |it'?s somewhere between )(believer and non.?practicing)",
             "(it'?s a |the answer is )(layered|complicated)",
           ],
+          model_answers: ["Not sensitive — complicated though. I was raised Muslim."],
           hint_tr: "Acik baslama: 'Not sensitive — complicated though. I was raised Muslim.'",
         },
         {
@@ -3757,6 +3811,7 @@ export const flirtDeep_14: BundledLesson = {
             "(it shows up |comes back )(around holidays|when family'?s around)",
             "(my mom would say |for my mom )(i'?m muslim — she'?d say i'?m lazy about it)",
           ],
+          model_answers: ["I don't pray daily. I fast sometimes. Mostly cultural."],
           hint_tr: "Pratik anlatim: 'I don't pray daily. I fast sometimes. Mostly cultural.'",
         },
         {
@@ -3773,6 +3828,7 @@ export const flirtDeep_14: BundledLesson = {
             "(we'?re |this is )(more compatible than you'?d think)",
             "(been there |i'?ve had this conversation )before — (it'?s fine)",
           ],
+          model_answers: ["Genuinely no. Matters more how we treat each other."],
           hint_tr: "Saygiyla yatistir: 'Genuinely no. Matters more how we treat each other.'",
         },
         {
@@ -3789,6 +3845,7 @@ export const flirtDeep_14: BundledLesson = {
             "(it'?s complicated |it'?d be complicated )if (we got serious|talked marriage)",
             "(honest answer |to be honest )— (yes a little |maybe with my dad)",
           ],
+          model_answers: ["Dad might struggle. Mom would care more about you as a person."],
           hint_tr: "Durustce: 'Dad might struggle. Mom would care more about you as a person.'",
         },
         {
@@ -4017,6 +4074,7 @@ export const flirtDeep_15: BundledLesson = {
             "(i don'?t fully agree |i actually see it differently )— (can we talk about it)",
             "(maybe we don'?t see |we might not see )(eye to eye on this)",
           ],
+          model_answers: ["Can I push back a little? It's more complicated as someone who's been on the other side."],
           hint_tr: "Esnek itiraz: 'Can I push back a little? It's more complicated as someone who's been on the other side.'",
         },
         {
@@ -4033,6 +4091,7 @@ export const flirtDeep_15: BundledLesson = {
             "(integration matters too |both sides have a point )",
             "(the truth is |reality is )somewhere between (both extremes)",
           ],
+          model_answers: ["My view's in the middle. Integration matters too, having been a visa person."],
           hint_tr: "Kendi gorusunu anlat: 'My view's in the middle. Integration matters too, having been a visa person.'",
         },
         {
@@ -4049,6 +4108,7 @@ export const flirtDeep_15: BundledLesson = {
             "(i appreciate that |i respect that )(you care about this)",
             "(this is the |these are the )(conversations i wanted to have with you)",
           ],
+          model_answers: ["Fair — we might land differently. I respect that you care about this."],
           hint_tr: "Kabul + saygi: 'Fair — we might land differently. I respect that you care about this.'",
         },
         {
@@ -4065,6 +4125,7 @@ export const flirtDeep_15: BundledLesson = {
             "(i'?d be more worried |scarier if we agreed on everything )",
             "(please don'?t walk on |you don'?t need to tiptoe around )(eggshells with me)",
           ],
+          model_answers: ["Totally okay — it's good we can talk about hard stuff."],
           hint_tr: "Rahatlat: 'Totally okay — it's good we can talk about hard stuff.'",
         },
         {
@@ -4293,6 +4354,7 @@ export const flirtDeep_16: BundledLesson = {
             "(what time is it |how late is it )",
             "(i think i drooled |did i snore )",
           ],
+          model_answers: ["Surprisingly well — your bed is dangerously comfy."],
           hint_tr: "Yumusak baslama: 'Surprisingly well — your bed is dangerously comfy.'",
         },
         {
@@ -4309,6 +4371,7 @@ export const flirtDeep_16: BundledLesson = {
             "(fair warning |full disclosure )— (i'?m turkish — i have opinions about coffee)",
             "(you'?re my |you'?ve become my )(favorite host already)",
           ],
+          model_answers: ["Yes please. Fair warning — I'm Turkish, I have opinions about coffee."],
           hint_tr: "Kabul + saka: 'Yes please. Fair warning — I'm Turkish, I have opinions about coffee.'",
         },
         {
@@ -4325,6 +4388,7 @@ export const flirtDeep_16: BundledLesson = {
             "(just don'?t put |as long as you don'?t put )(milk in turkish coffee|sugar in it)",
             "(your bar is |my standards now )(very low|on the floor)",
           ],
+          model_answers: ["Don't worry — my standards dropped in Europe long ago."],
           hint_tr: "Sakaya gir: 'Don't worry — my standards dropped in Europe long ago.'",
         },
         {
@@ -4341,6 +4405,7 @@ export const flirtDeep_16: BundledLesson = {
             "(turkish breakfast standards |if you knew turkish breakfast )(you would not offer)",
             "(toast is perfect |toast works )",
           ],
+          model_answers: ["Toast works — don't go to any trouble. I can help."],
           hint_tr: "Mutevazi kabul: 'Toast works — don't go to any trouble. I can help.'",
         },
         {
@@ -4569,6 +4634,7 @@ export const flirtDeep_17: BundledLesson = {
             "(cansu is the chill |cansu'?s the )(one|safe one)",
             "(by midnight |give it an hour )(you'?ll feel like family)",
           ],
+          model_answers: ["Quick rundown — Emre is loud, Deniz will interview you, Cansu's safe."],
           hint_tr: "Brief ver: 'Quick rundown — Emre is loud, Deniz will interview you, Cansu's safe.'",
         },
         {
@@ -4585,6 +4651,7 @@ export const flirtDeep_17: BundledLesson = {
             "(if they start switching |if turkish starts )(i'?ll translate|just hit me)",
             "(no homework |zero homework )required",
           ],
+          model_answers: ["Everyone speaks English. Just learn merhaba — hello."],
           hint_tr: "Rahatlat: 'Everyone speaks English. Just learn merhaba — hello.'",
         },
         {
@@ -4601,6 +4668,7 @@ export const flirtDeep_17: BundledLesson = {
             "(no one'?s actually arguing |everyone'?s having fun )(despite how it sounds)",
             "(get used to it |give it time )",
           ],
+          model_answers: ["Yes — loudness is cultural. This is actually quiet for us."],
           hint_tr: "Kabul: 'Yes — loudness is cultural. This is actually quiet for us.'",
         },
         {
@@ -4617,6 +4685,7 @@ export const flirtDeep_17: BundledLesson = {
             "(he means well |it'?s well.?meaning )(but boundaries don'?t exist)",
             "(i'?ll yell at him |i'?m having a word )(later)",
           ],
+          model_answers: ["Oh god — classic Emre. Welcome to the Turkish friend interview."],
           hint_tr: "Tepki + kanal: 'Oh god — classic Emre. Welcome to the Turkish friend interview.'",
         },
         {
@@ -4841,6 +4910,7 @@ export const flirtDeep_18: BundledLesson = {
             "(i want to apologize |i owe you )(for how i said|for how i reacted)",
             "(this might sound |feels a bit )awkward but (we should talk)",
           ],
+          model_answers: ["Hey — can we talk about earlier? Don't want to leave things hanging."],
           hint_tr: "Sen ac: 'Hey — can we talk about earlier? Don't want to leave things hanging.'",
         },
         {
@@ -4857,6 +4927,7 @@ export const flirtDeep_18: BundledLesson = {
             "(you didn'?t deserve |that wasn'?t fair )(that energy)",
             "(can i try again |let me restart )(now that i'?ve cooled down)",
           ],
+          model_answers: ["I shouldn't have snapped — my tone was off. You didn't deserve that."],
           hint_tr: "Sorumluluk al: 'I shouldn't have snapped — my tone was off. You didn't deserve that.'",
         },
         {
@@ -4873,6 +4944,7 @@ export const flirtDeep_18: BundledLesson = {
             "(promise we'?ll |we should always )(do this — circle back)",
             "(this is what i want |this is the kind of partnership i want )",
           ],
+          model_answers: ["Appreciate that. Both of us were off — let's call it even."],
           hint_tr: "Karsila: 'Appreciate that. Both of us were off — let's call it even.'",
         },
         {
@@ -4889,6 +4961,7 @@ export const flirtDeep_18: BundledLesson = {
             "(non.?negotiable |required )",
             "(hug yes |hugs always )",
           ],
+          model_answers: ["Yes — come here. Always."],
           hint_tr: "Kabul: 'Yes — come here. Always.'",
         },
         {
@@ -5117,6 +5190,7 @@ export const flirtDeep_19: BundledLesson = {
             "(no long flights |under two hours )",
             "(throw out three |give me three )(options)",
           ],
+          model_answers: ["Porto or Valencia? Budget, short flight, sunny."],
           hint_tr: "Oneri ver: 'Porto or Valencia? Budget, short flight, sunny.'",
         },
         {
@@ -5133,6 +5207,7 @@ export const flirtDeep_19: BundledLesson = {
             "(student budget |grad student means )(modest|tight)",
             "(let'?s split everything |i prefer to split )(down the middle)",
           ],
+          model_answers: ["Comfortable around 300 total. Let's split everything down the middle."],
           hint_tr: "Net butce: 'Comfortable around 300 total. Let's split everything down the middle.'",
         },
         {
@@ -5149,6 +5224,7 @@ export const flirtDeep_19: BundledLesson = {
             "(we should book |let'?s book )(in next two days|by friday)",
             "(should i look at |any neighborhood preferences )",
           ],
+          model_answers: ["Deal — send me flights before you book. I'll find airbnbs."],
           hint_tr: "Onayla + son detay: 'Deal — send me flights before you book. I'll find airbnbs.'",
         },
         {
@@ -5165,6 +5241,7 @@ export const flirtDeep_19: BundledLesson = {
             "(this is the |love a pre.?trip disclosure )",
             "(consider |consider this )(my warning too — i take up the whole bed)",
           ],
+          model_answers: ["Noted. Equal disclosure — I take up the whole bed."],
           hint_tr: "Sakaya gir: 'Noted. Equal disclosure — I take up the whole bed.'",
         },
         {
@@ -5389,6 +5466,7 @@ export const flirtDeep_20: BundledLesson = {
             "(give me clues |drop hints )",
             "(i need intel |i'?m gathering intel)",
           ],
+          model_answers: ["Your birthday's in two weeks — what's your vibe? Big party or low-key?"],
           hint_tr: "Aciklikla sor: 'Your birthday's in two weeks — what's your vibe? Big party or low-key?'",
         },
         {
@@ -5405,6 +5483,7 @@ export const flirtDeep_20: BundledLesson = {
             "(give me the |what would a perfect )(low.?key night )(look like)",
             "(what makes it special |what would feel right )",
           ],
+          model_answers: ["Noted — no flash mob. What would a perfect low-key night look like?"],
           hint_tr: "Onayla + derinlestir: 'Noted — no flash mob. What would a perfect low-key night look like?'",
         },
         {
@@ -5421,6 +5500,7 @@ export const flirtDeep_20: BundledLesson = {
             "(perfect — |that'?s the easiest planning)",
             "(let me handle this |you'?ve given me everything i need)",
           ],
+          model_answers: ["Can I plan it? Any food vibes you want?"],
           hint_tr: "Yetki al: 'Can I plan it? Any food vibes you want?'",
         },
         {
@@ -5437,6 +5517,7 @@ export const flirtDeep_20: BundledLesson = {
             "(zero pressure |you'?ll like it)",
             "(this is now |officially )(my mission)",
           ],
+          model_answers: ["Scope locked — small surprise, Italian. Mission accepted."],
           hint_tr: "Kabul: 'Scope locked — small surprise, Italian. Mission accepted.'",
         },
         {
@@ -5675,6 +5756,7 @@ export const flirtDeep_21: BundledLesson = {
             "(no pressure either way |genuine curiosity )",
             "(been wondering if |i was curious if )we should talk about it",
           ],
+          model_answers: ["Can I ask something? Wanted to know where we stand. No pressure."],
           hint_tr: "Sen ac: 'Can I ask something? Wanted to know where we stand. No pressure.'",
         },
         {
@@ -5691,6 +5773,7 @@ export const flirtDeep_21: BundledLesson = {
             "(this feels |it feels )(real to me|like more than casual)",
             "(my answer is |where i land is )yes — (if you'?re open to it)",
           ],
+          model_answers: ["My read is this is real. I'd like to be exclusive — if you're open."],
           hint_tr: "Net pozisyon: 'My read is this is real. I'd like to be exclusive — if you're open.'",
         },
         {
@@ -5707,6 +5790,7 @@ export const flirtDeep_21: BundledLesson = {
             "(no |i need to hear )awkward (apps to delete|app deletion ceremony)",
             "(welcome to the team |let'?s celebrate)",
           ],
+          model_answers: ["Officially us. Can I say girlfriend out loud now?"],
           hint_tr: "Kabul: 'Officially us. Can I say girlfriend out loud now?'",
         },
         {
@@ -5723,6 +5807,7 @@ export const flirtDeep_21: BundledLesson = {
             "(commitment ritual |relationship ritual )",
             "(let'?s do this |on three )",
           ],
+          model_answers: ["Yes — let's ceremonialize this. On three."],
           hint_tr: "Devam: 'Yes — let's ceremonialize this. On three.'",
         },
         {
@@ -5947,6 +6032,7 @@ export const flirtDeep_22: BundledLesson = {
             "(small wave is enough |you just wave )",
             "(she'?s been |my mom'?s been )(asking about you|wanting to see you)",
           ],
+          model_answers: ["Come here — my mom wants to say hi. Don't panic, just hello."],
           hint_tr: "Davet: 'Come here — my mom wants to say hi. Don't panic, just hello.'",
         },
         {
@@ -5963,6 +6049,7 @@ export const flirtDeep_22: BundledLesson = {
             "(her english is |she'?s shy about )(better than she admits|her english)",
             "(low stakes |no exam )",
           ],
+          model_answers: ["Just merhaba and wave. She speaks some English. I'll translate."],
           hint_tr: "Brief: 'Just merhaba and wave. She speaks some English. I'll translate.'",
         },
         {
@@ -5979,6 +6066,7 @@ export const flirtDeep_22: BundledLesson = {
             "(don'?t scare her off |be on best behavior )",
             "(she'?s smiling |look at that smile )",
           ],
+          model_answers: ["Annem — this is [name]. She's been dying to meet you."],
           hint_tr: "Tanitma: 'Annem — this is [name]. She's been dying to meet you.'",
         },
         {
@@ -5995,6 +6083,7 @@ export const flirtDeep_22: BundledLesson = {
             "(she'?s welcoming you |that means she likes you )",
             "(only mothers ask |only turkish moms ask )(things like that)",
           ],
+          model_answers: ["Classic Turkish mom — she asked if you eat enough."],
           hint_tr: "Ceviri + baglam: 'Classic Turkish mom — she asked if you eat enough.'",
         },
         {
@@ -6223,6 +6312,7 @@ export const flirtDeep_23: BundledLesson = {
             "(promise you won'?t |don'?t freak out when i say this )",
             "(hold on |give me a sec )— (i need to say this right)",
           ],
+          model_answers: ["I want to tell you something — don't freak out."],
           hint_tr: "Gerilim yarat: 'I want to tell you something — don't freak out.'",
         },
         {
@@ -6239,6 +6329,7 @@ export const flirtDeep_23: BundledLesson = {
             "(no expectations |you don'?t have to say it back )— (just true)",
             "(i love you and i wanted you to know|that'?s the sentence)",
           ],
+          model_answers: ["I love you. No expectations — just true."],
           hint_tr: "Net soyle: 'I love you. No expectations — just true.'",
         },
         {
@@ -6255,6 +6346,7 @@ export const flirtDeep_23: BundledLesson = {
             "(rehearsed it |i thought about saying it on like four occasions )",
             "(thank god |relief )",
           ],
+          model_answers: ["Internally screaming — I practiced this in the shower."],
           hint_tr: "Sahici reaksiyon: 'Internally screaming — I practiced this in the shower.'",
         },
         {
@@ -6271,6 +6363,7 @@ export const flirtDeep_23: BundledLesson = {
             "(let'?s just |let'?s be quiet for a minute )",
             "(coming over |on my way )",
           ],
+          model_answers: ["Can we sit with that for a second? Don't go anywhere."],
           hint_tr: "Romantik kalis: 'Can we sit with that for a second? Don't go anywhere.'",
         },
         {
@@ -6495,6 +6588,7 @@ export const flirtDeep_24: BundledLesson = {
             "(not asking |this isn'?t a proposal )(for plans|in writing)",
             "(this is the |these are the )(open conversations i want)",
           ],
+          model_answers: ["Can we talk about the long term? No panic — just curiosity."],
           hint_tr: "Aciklamayla ac: 'Can we talk about the long term? No panic — just curiosity.'",
         },
         {
@@ -6511,6 +6605,7 @@ export const flirtDeep_24: BundledLesson = {
             "(no major change |nothing immediate ) — (just future.?proofing)",
             "(i love |i love what we have ) (and want to be honest)",
           ],
+          model_answers: ["My visa expires in eighteen months — you're in my planning."],
           hint_tr: "Sebep ver: 'My visa expires in eighteen months — you're in my planning.'",
         },
         {
@@ -6527,6 +6622,7 @@ export const flirtDeep_24: BundledLesson = {
             "(or are we figuring out |we'?ll figure out where together)",
             "(i don'?t need an answer |we don'?t have to solve it today )",
           ],
+          model_answers: ["Same. Would you ever consider moving if needed?"],
           hint_tr: "Karsila + sor: 'Same. Would you ever consider moving if needed?'",
         },
         {
@@ -6543,6 +6639,7 @@ export const flirtDeep_24: BundledLesson = {
             "(thank you for |grateful for )(taking this seriously)",
             "(this is the |these are the )(conversations i wanted)",
           ],
+          model_answers: ["Exactly the answer I wanted. Let's revisit this every six months."],
           hint_tr: "Onayla: 'Exactly the answer I wanted. Let's revisit this every six months.'",
         },
         {
@@ -6767,6 +6864,7 @@ export const flirtDeep_25: BundledLesson = {
             "(let'?s set up |should we set up ) a system",
             "(we should figure out |i don'?t want resentment )",
           ],
+          model_answers: ["We should talk about money — not a big deal, just want to be fair."],
           hint_tr: "Sen ac: 'We should talk about money — not a big deal, just want to be fair.'",
         },
         {
@@ -6783,6 +6881,7 @@ export const flirtDeep_25: BundledLesson = {
             "(my preference |i like ) (alternating with no math)",
             "(what feels |what works )fairer to you",
           ],
+          model_answers: ["Alternating with no math, or splitwise — what feels fairer?"],
           hint_tr: "Secenek sun: 'Alternating with no math, or splitwise — what feels fairer?'",
         },
         {
@@ -6799,6 +6898,7 @@ export const flirtDeep_25: BundledLesson = {
             "(let'?s check in |we'?ll review )(monthly|every month or two)",
             "(it'?s also okay |sometimes one of us will pay more )(because of income difference)",
           ],
+          model_answers: ["Trust me to speak up. We'll check in monthly."],
           hint_tr: "Soz ver: 'Trust me to speak up. We'll check in monthly.'",
         },
         {
@@ -6815,6 +6915,7 @@ export const flirtDeep_25: BundledLesson = {
             "(big stuff is itemized |big stuff splits exactly )",
             "(makes sense |that'?s the right rule )",
           ],
+          model_answers: ["Big stuff splits 50/50. Daily stuff alternates."],
           hint_tr: "Net kural: 'Big stuff splits 50/50. Daily stuff alternates.'",
         },
         {
@@ -7049,6 +7150,7 @@ export const flirtDeep_26: BundledLesson = {
             "(separate places |two leases ) (feels wasteful)",
             "(have you thought |i'?ve been thinking )about (it)",
           ],
+          model_answers: ["I have a permanent toothbrush here. Should we consider moving in?"],
           hint_tr: "Sen ac: 'I have a permanent toothbrush here. Should we consider moving in?'",
         },
         {
@@ -7065,6 +7167,7 @@ export const flirtDeep_26: BundledLesson = {
             "(can we |should we ) (set conditions|set ground rules)",
             "(i don'?t want to |if either of us has doubts) (rush this)",
           ],
+          model_answers: ["Genuinely ready, but let's set conditions. It's the real stress test."],
           hint_tr: "Durust: 'Genuinely ready, but let's set conditions. It's the real stress test.'",
         },
         {
@@ -7081,6 +7184,7 @@ export const flirtDeep_26: BundledLesson = {
             "(can we afford it |the budget side )",
             "(the stuff that breaks |the stuff that destroys couples ) (when ignored)",
           ],
+          model_answers: ["Chores, sleep schedules, what we do when one of us needs space."],
           hint_tr: "Detay sun: 'Chores, sleep schedules, what we do when one of us needs space.'",
         },
         {
@@ -7097,6 +7201,7 @@ export const flirtDeep_26: BundledLesson = {
             "(i'?ll bring wine |i'?ll do snacks )",
             "(turning logistics into |let'?s make this fun )",
           ],
+          model_answers: ["Love that — we'll do the weird checklist date with wine."],
           hint_tr: "Kabul: 'Love that — we'll do the weird checklist date with wine.'",
         },
         {
@@ -7321,6 +7426,7 @@ export const flirtDeep_27: BundledLesson = {
             "(i shouldn'?t have |should not have )(brought your mom |said that |yelled)",
             "(can i sit with you |may i come sit)",
           ],
+          model_answers: ["I was out of line. No excuse — no buts."],
           hint_tr: "Net ozur: 'I was out of line. No excuse — no buts.'",
         },
         {
@@ -7337,6 +7443,7 @@ export const flirtDeep_27: BundledLesson = {
             "(and i weaponized it |and i threw it back at you )",
             "(i hear that |you have every right to be hurt)",
           ],
+          model_answers: ["You're hurt because I used what you told me privately against you."],
           hint_tr: "Anla + tekrarla: 'You're hurt because I used what you told me privately against you.'",
         },
         {
@@ -7353,6 +7460,7 @@ export const flirtDeep_27: BundledLesson = {
             "(i need to |i'?m going to ) (do better)",
             "(thank you for |grateful you'?re ) (telling me|articulating it)",
           ],
+          model_answers: ["So sorry — it will not happen again. Zero excuses."],
           hint_tr: "Sahici: 'So sorry — it will not happen again. Zero excuses.'",
         },
         {
@@ -7369,6 +7477,7 @@ export const flirtDeep_27: BundledLesson = {
             "(i'?ll cook |let me make )(dinner if it helps)",
             "(thank you for |grateful you'?re still ) (talking to me)",
           ],
+          model_answers: ["Take whatever time you need. I'm here when you're ready."],
           hint_tr: "Alan ver: 'Take whatever time you need. I'm here when you're ready.'",
         },
         {
@@ -7593,6 +7702,7 @@ export const flirtDeep_28: BundledLesson = {
             "(just want to |i need to ) (name it instead of stewing)",
             "(this is more |this is about me )(my insecurity than you)",
           ],
+          model_answers: ["Can I bring up something small? I saw your ex texted you."],
           hint_tr: "Aciklamali baslama: 'Can I bring up something small? I saw your ex texted you.'",
         },
         {
@@ -7609,6 +7719,7 @@ export const flirtDeep_28: BundledLesson = {
             "(but i wanted to |so i wanted to ) (say it instead of bottle it)",
             "(can you tell me |would you mind telling me ) (when she reaches out)",
           ],
+          model_answers: ["A little. Trust isn't the issue — just felt off. Can you tell me when she reaches?"],
           hint_tr: "Durust + olcumlu: 'A little. Trust isn't the issue — just felt off. Can you tell me when she reaches?'",
         },
         {
@@ -7625,6 +7736,7 @@ export const flirtDeep_28: BundledLesson = {
             "(this is how |this is how good couples handle it )",
             "(i feel better just |saying it out loud helps )",
           ],
+          model_answers: ["Understandable — transparency makes me not spiral."],
           hint_tr: "Karsila: 'Understandable — transparency makes me not spiral.'",
         },
         {
@@ -7641,6 +7753,7 @@ export const flirtDeep_28: BundledLesson = {
             "(only need |what i needed was ) (the heads up next time)",
             "(thank you though |that meant a lot)",
           ],
+          model_answers: ["No — your word is enough. Just heads up next time."],
           hint_tr: "Olgun ret: 'No — your word is enough. Just heads up next time.'",
         },
         {
@@ -7869,6 +7982,7 @@ export const flirtDeep_29: BundledLesson = {
             "(how are you feeling |where do you land ) ((about it )?yourself)",
             "(it'?s a |i'?ve been thinking about this )big question (and i want to be honest)",
           ],
+          model_answers: ["Eventually yes — definitely down the line, not now."],
           hint_tr: "Net ama esnek: 'Eventually yes — definitely down the line, not now.'",
         },
         {
@@ -7885,6 +7999,7 @@ export const flirtDeep_29: BundledLesson = {
             "(if it ends up just one |one is fine if that'?s what happens )",
             "(what'?s your number |what'?s your ideal )",
           ],
+          model_answers: ["Two ideally — growing up with siblings shaped me."],
           hint_tr: "Sayi ver: 'Two ideally — growing up with siblings shaped me.'",
         },
         {
@@ -7901,6 +8016,7 @@ export const flirtDeep_29: BundledLesson = {
             "(life moves |life happens )(— we revisit)",
             "(directional yes |as a target yes )",
           ],
+          model_answers: ["Roughly yes — career settles first. We revisit."],
           hint_tr: "Esnek zaman: 'Roughly yes — career settles first. We revisit.'",
         },
         {
@@ -7917,6 +8033,7 @@ export const flirtDeep_29: BundledLesson = {
             "(part time turkey |split arrangement )",
             "(let'?s not lock |we don'?t need to lock that yet )",
           ],
+          model_answers: ["Somewhere we both choose — grandparents access matters. We don't need to lock that yet."],
           hint_tr: "Esnek: 'Somewhere we both choose — grandparents access matters. We don't need to lock that yet.'",
         },
         {
@@ -8141,6 +8258,7 @@ export const flirtDeep_30: BundledLesson = {
             "(excited and terrified |it'?s career.?defining and complicated )",
             "(let'?s talk |we need to talk )(it through)",
           ],
+          model_answers: ["I need to tell you something. I got the Berlin job. Career-defining and complicated."],
           hint_tr: "Acik baslama: 'I need to tell you something. I got the Berlin job. Career-defining and complicated.'",
         },
         {
@@ -8157,6 +8275,7 @@ export const flirtDeep_30: BundledLesson = {
             "(be honest |give me the honest version )",
             "(i need to know |i need to hear how you feel)",
           ],
+          model_answers: ["I don't want to choose between you and the job. What's your immediate reaction?"],
           hint_tr: "Empati + sor: 'I don't want to choose between you and the job. What's your immediate reaction?'",
         },
         {
@@ -8173,6 +8292,7 @@ export const flirtDeep_30: BundledLesson = {
             "(how do we |what would long distance ) (make this work)",
             "(it'?s not |you'?re not asking me ) (to choose between job and you)",
           ],
+          model_answers: ["Of course you stay — your mom is priority. Let's talk long distance."],
           hint_tr: "Olgun: 'Of course you stay — your mom is priority. Let's talk long distance.'",
         },
         {
@@ -8189,6 +8309,7 @@ export const flirtDeep_30: BundledLesson = {
             "(non.?negotiable |unbreakable )(weekly call)",
             "(let'?s write down |we should write the rules down )",
           ],
+          model_answers: ["Fair — eighteen months, then reassess. Alternate weekends."],
           hint_tr: "Net + plan: 'Fair — eighteen months, then reassess. Alternate weekends.'",
         },
         {
@@ -8417,6 +8538,7 @@ export const flirtDeep_31: BundledLesson = {
             "(i need to understand |i deserve to understand )(what i saw)",
             "(my heart is pounding |my hands are shaking )(but i need to ask)",
           ],
+          model_answers: ["I need to talk to you about something serious. I saw a message."],
           hint_tr: "Net girisim: 'I need to talk to you about something serious. I saw a message.'",
         },
         {
@@ -8433,6 +8555,7 @@ export const flirtDeep_31: BundledLesson = {
             "(can you tell me |tell me what it is ) (in your own words)",
             "(this is your chance |the next thing you say matters )",
           ],
+          model_answers: ["Tell me what it is in your own words. This is your chance."],
           hint_tr: "Cevre yapma: 'Tell me what it is in your own words. This is your chance.'",
         },
         {
@@ -8449,6 +8572,7 @@ export const flirtDeep_31: BundledLesson = {
             "(i need the |give me the ) full picture (now)",
             "(my trust is |what'?s broken is ) (the lying not the kiss)",
           ],
+          model_answers: ["Emotional is still emotional. How long has this been going on?"],
           hint_tr: "Hassasiyet: 'Emotional is still emotional. How long has this been going on?'",
         },
         {
@@ -8465,6 +8589,7 @@ export const flirtDeep_31: BundledLesson = {
             "(i need space |give me a few days )",
             "(i can'?t |i won'?t ) (do this conversation tonight)",
           ],
+          model_answers: ["I need to leave. Don't follow me. I can't do this conversation tonight."],
           hint_tr: "Sinir koy: 'I need to leave. Don't follow me. I can't do this conversation tonight.'",
         },
         {
@@ -8693,6 +8818,7 @@ export const flirtDeep_32: BundledLesson = {
             "(let me look at you |give me one more second )",
             "(i love you |seni seviyorum )(more than this airport scene allows)",
           ],
+          model_answers: ["It's not goodbye. Six months — see you soon."],
           hint_tr: "Cerceveyi rahatlat: 'It's not goodbye. Six months — see you soon.'",
         },
         {
@@ -8709,6 +8835,7 @@ export const flirtDeep_32: BundledLesson = {
             "(you'?ll get tired of |you'?ll get sick of me )",
             "(the rule is |the system is ) (no disappearing)",
           ],
+          model_answers: ["Hand on heart — morning text every day, Sunday calls."],
           hint_tr: "Soz: 'Hand on heart — morning text every day, Sunday calls.'",
         },
         {
@@ -8725,6 +8852,7 @@ export const flirtDeep_32: BundledLesson = {
             "(we knew this |we agreed on this for a reason )",
             "(you'?re |you'?re still ) (worth the distance)",
           ],
+          model_answers: ["I hate it too — if I feel it all I won't get on the plane."],
           hint_tr: "Karsila duygusal: 'I hate it too — if I feel it all I won't get on the plane.'",
         },
         {
@@ -8741,6 +8869,7 @@ export const flirtDeep_32: BundledLesson = {
             "(see you soon |yakinda )",
             "(i love you |love you )",
           ],
+          model_answers: ["Going. Text the moment we land. Love you."],
           hint_tr: "Kisa kapanis: 'Going. Text the moment we land. Love you.'",
         },
         {
@@ -8965,6 +9094,7 @@ export const flirtDeep_33: BundledLesson = {
             "(i'?ve been struggling |something has been heavy )(for a while)",
             "(can you sit |can we sit ) (and just listen for a minute)",
           ],
+          model_answers: ["I've been in a hard place about us. I don't have a decision — just a feeling."],
           hint_tr: "Ciddi ton: 'I've been in a hard place about us. I don't have a decision — just a feeling.'",
         },
         {
@@ -8981,6 +9111,7 @@ export const flirtDeep_33: BundledLesson = {
             "(i'?m not sure |i don'?t know if ) (i can keep going)",
             "(i wanted to be |i thought it was fairer to be ) (honest now)",
           ],
+          model_answers: ["Something's been off for months. I'm not sure I'm in love anymore."],
           hint_tr: "Durust: 'Something's been off for months. I'm not sure I'm in love anymore.'",
         },
         {
@@ -8997,6 +9128,7 @@ export const flirtDeep_33: BundledLesson = {
             "(i wanted to give us |i owe us both ) (a real chance)",
             "(i didn'?t walk in |i didn'?t come in here ) (with my mind made up)",
           ],
+          model_answers: ["Genuinely I don't know. I didn't want to decide alone."],
           hint_tr: "Esnek: 'Genuinely I don't know. I didn't want to decide alone.'",
         },
         {
@@ -9013,6 +9145,7 @@ export const flirtDeep_33: BundledLesson = {
             "(thank you for |grateful you'?re ) (not running)",
             "(this isn'?t |we may or may not save it — ) (but we tried)",
           ],
+          model_answers: ["Yes — let's give ourselves eight sessions. Thank you for not running."],
           hint_tr: "Kabul: 'Yes — let's give ourselves eight sessions. Thank you for not running.'",
         },
         {
@@ -9237,6 +9370,7 @@ export const flirtDeep_34: BundledLesson = {
             "(i didn'?t come |i'?m not here ) (to negotiate)",
             "(this is the |i need to be ) (most honest version of me right now)",
           ],
+          model_answers: ["I need to end this. I love you but love isn't enough here."],
           hint_tr: "Net + saygili: 'I need to end this. I love you but love isn't enough here.'",
         },
         {
@@ -9253,6 +9387,7 @@ export const flirtDeep_34: BundledLesson = {
             "(this is the kindest |the kindest thing i can do )(now)",
             "(my answer is |the answer is ) (no, gently)",
           ],
+          model_answers: ["I've been sure for months. The kindest thing now is to be honest."],
           hint_tr: "Net sinir: 'I've been sure for months. The kindest thing now is to be honest.'",
         },
         {
@@ -9269,6 +9404,7 @@ export const flirtDeep_34: BundledLesson = {
             "(i'?d tell you |i would tell you ) if (it was)",
             "(it'?s simpler |it'?s actually sadder than that )",
           ],
+          model_answers: ["No one else. This is about us."],
           hint_tr: "Durust: 'No one else. This is about us.'",
         },
         {
@@ -9285,6 +9421,7 @@ export const flirtDeep_34: BundledLesson = {
             "(no taking |nothing'?s taken ) (in anger)",
             "(we can sort logistics |the logistics can wait )(later)",
           ],
+          model_answers: ["I'll stay with a friend tonight. Move out in two weeks. We'll sort logistics later."],
           hint_tr: "Lojistik net: 'I'll stay with a friend tonight. Move out in two weeks. We'll sort logistics later.'",
         },
         {
@@ -9301,6 +9438,7 @@ export const flirtDeep_34: BundledLesson = {
             "(take care |please take care )(of yourself)",
             "(if you need |when you need ) (anything, i'?m reachable)",
           ],
+          model_answers: ["Okay — going now. I loved you genuinely. Take care."],
           hint_tr: "Saygili cikis: 'Okay — going now. I loved you genuinely. Take care.'",
         },
         {
@@ -9529,6 +9667,7 @@ export const flirtDeep_35: BundledLesson = {
             "(can you |would you )(come over|just talk to me)",
             "(i didn'?t know |you were the only person ) (who to call)",
           ],
+          model_answers: ["We broke up. I'm falling apart a bit. Can you come over?"],
           hint_tr: "Direkt: 'We broke up. I'm falling apart a bit. Can you come over?'",
         },
         {
@@ -9545,6 +9684,7 @@ export const flirtDeep_35: BundledLesson = {
             "(everything feels |i feel )(weirdly fine|too quiet)",
             "(don'?t rush |don'?t speed )— (i'?m okay until you get here)",
           ],
+          model_answers: ["Alone. Haven't cried yet — everything feels weirdly quiet."],
           hint_tr: "Durum: 'Alone. Haven't cried yet — everything feels weirdly quiet.'",
         },
         {
@@ -9561,6 +9701,7 @@ export const flirtDeep_35: BundledLesson = {
             "(maybe some |something simple ) — (bread|soup)",
             "(don'?t worry |whatever you bring is fine )",
           ],
+          model_answers: ["Honestly don't remember. Bring something simple."],
           hint_tr: "Durust: 'Honestly don't remember. Bring something simple.'",
         },
         {
@@ -9577,6 +9718,7 @@ export const flirtDeep_35: BundledLesson = {
             "(thank you for |i don'?t deserve how fast )(coming over)",
             "(can we just |let'?s just )(watch something stupid)",
           ],
+          model_answers: ["It was the right thing but it's terrible. Thank you for coming."],
           hint_tr: "Acik paylasim: 'It was the right thing but it's terrible. Thank you for coming.'",
         },
         {
@@ -9805,6 +9947,7 @@ export const flirtDeep_36: BundledLesson = {
             "(what did you |what made you ) (want to meet)",
             "(let'?s start with |you go first )",
           ],
+          model_answers: ["I'm here for closure, not reopening. Let's keep this clean."],
           hint_tr: "Sinir net: 'I'm here for closure, not reopening. Let's keep this clean.'",
         },
         {
@@ -9821,6 +9964,7 @@ export const flirtDeep_36: BundledLesson = {
             "(but i hear you |but i accept it )",
             "(what specifically |what part )(do you mean)",
           ],
+          model_answers: ["I appreciate that. It took months to be ready to hear it."],
           hint_tr: "Acik kabul: 'I appreciate that. It took months to be ready to hear it.'",
         },
         {
@@ -9837,6 +9981,7 @@ export const flirtDeep_36: BundledLesson = {
             "(i'?m past it |i'?ve moved past it )(— but it shaped how i date now)",
             "(thank you for naming |grateful you named ) (the actual thing)",
           ],
+          model_answers: ["The dragging hurt most. I'd have respected clean honesty."],
           hint_tr: "Onayla: 'The dragging hurt most. I'd have respected clean honesty.'",
         },
         {
@@ -9853,6 +9998,7 @@ export const flirtDeep_36: BundledLesson = {
             "(this isn'?t |i don'?t want this )(to become a check.?in)",
             "(let'?s leave |let'?s end ) (it where it is)",
           ],
+          model_answers: ["Crosses the line for what this is. Let's keep it focused."],
           hint_tr: "Sinir koy: 'Crosses the line for what this is. Let's keep it focused.'",
         },
         {
@@ -10081,6 +10227,7 @@ export const flirtDeep_37: BundledLesson = {
             "(i think |my read is ) (she dipped)",
             "(haven'?t even seen |she'?s not even reading )(my last message)",
           ],
+          model_answers: ["Officially ghosted. Fourteen days, radio silence."],
           hint_tr: "Durust: 'Officially ghosted. Fourteen days, radio silence.'",
         },
         {
@@ -10097,6 +10244,7 @@ export const flirtDeep_37: BundledLesson = {
             "(i thought we were |it felt mutual )(having a real thing)",
             "(it'?s the |hardest part is the )(disrespect|lack of basic decency)",
           ],
+          model_answers: ["More annoyed than hurt. Hardest part is the disrespect."],
           hint_tr: "Sahici: 'More annoyed than hurt. Hardest part is the disrespect.'",
         },
         {
@@ -10113,6 +10261,7 @@ export const flirtDeep_37: BundledLesson = {
             "(no |won'?t do it ) — (her silence is the answer)",
             "(i decided |the new rule is ) (her silence is her message)",
           ],
+          model_answers: ["Every day — but no. Her silence is her message."],
           hint_tr: "Olgun: 'Every day — but no. Her silence is her message.'",
         },
         {
@@ -10129,6 +10278,7 @@ export const flirtDeep_37: BundledLesson = {
             "(reminding myself |the reminder that ) (it'?s not about me)",
             "(brunch with you |these brunches )(help honestly)",
           ],
+          model_answers: ["Gym, calling mom. Reminding myself it's not about me."],
           hint_tr: "Self-care: 'Gym, calling mom. Reminding myself it's not about me.'",
         },
         {
@@ -10357,6 +10507,7 @@ export const flirtDeep_38: BundledLesson = {
             "(i should have |the honest thing would have been to )(been honest at the time)",
             "(can i write |let me write ) (the longer message you deserve)",
           ],
+          model_answers: ["You deserve an explanation. No excuses but I'll give you the real reason."],
           hint_tr: "Sorumluluk: 'You deserve an explanation. No excuses but I'll give you the real reason.'",
         },
         {
@@ -10373,6 +10524,7 @@ export const flirtDeep_38: BundledLesson = {
             "(i panicked |i ran when i should have communicated )",
             "(the right thing was |what i should have done was )(told you i needed time)",
           ],
+          model_answers: ["I panicked when I should have communicated. It wasn't about you."],
           hint_tr: "Durust: 'I panicked when I should have communicated. It wasn't about you.'",
         },
         {
@@ -10389,6 +10541,7 @@ export const flirtDeep_38: BundledLesson = {
             "(not avoiding hard conversations |facing the hard ones ) (is the new rule)",
             "(you reaching back |you taking the brave step )(forced me to be braver)",
           ],
+          model_answers: ["You reaching out forced me to be braver. You deserve a response."],
           hint_tr: "Olgun: 'You reaching out forced me to be braver. You deserve a response.'",
         },
         {
@@ -10405,6 +10558,7 @@ export const flirtDeep_38: BundledLesson = {
             "(thank you for |you gave me a chance to ) (be a better person than i was)",
             "(take care |seriously — take care )",
           ],
+          model_answers: ["Understood. Thank you for giving me a chance to be better. Take care."],
           hint_tr: "Kapanis: 'Understood. Thank you for giving me a chance to be better. Take care.'",
         },
         {
@@ -10629,6 +10783,7 @@ export const flirtDeep_39: BundledLesson = {
             "(this is the |this is your one ) (chance to be honest)",
             "(my voice is |i'?m calm now but ) (calm because i need it to be)",
           ],
+          model_answers: ["Sit down. I know about [name]. Don't lie to me anymore."],
           hint_tr: "Kontrollu giris: 'Sit down. I know about [name]. Don't lie to me anymore.'",
         },
         {
@@ -10645,6 +10800,7 @@ export const flirtDeep_39: BundledLesson = {
             "(short enough |new enough )(that i'?m not in calm mode i'?m in survival mode)",
             "(answer my questions |i'?m asking the questions tonight)",
           ],
+          model_answers: ["Three hours. I'm asking the questions tonight."],
           hint_tr: "Cevap + kontrol: 'Three hours. I'm asking the questions tonight.'",
         },
         {
@@ -10661,6 +10817,7 @@ export const flirtDeep_39: BundledLesson = {
             "(i'?m not deciding |i'?m not making decisions ) tonight",
             "(this is information |i'?m collecting information tonight — that'?s all )",
           ],
+          model_answers: ["Honesty is non-negotiable. I'm not deciding anything tonight."],
           hint_tr: "Sinir net: 'Honesty is non-negotiable. I'm not deciding anything tonight.'",
         },
         {
@@ -10677,6 +10834,7 @@ export const flirtDeep_39: BundledLesson = {
             "(do not |do not show up unannounced )",
             "(when i'?m ready |i'?ll reach out when i'?m ready )",
           ],
+          model_answers: ["Leave the flat tonight. No texts for 48 hours. I'll reach out."],
           hint_tr: "Net ihtiyac: 'Leave the flat tonight. No texts for 48 hours. I'll reach out.'",
         },
         {
@@ -10693,6 +10851,7 @@ export const flirtDeep_39: BundledLesson = {
             "(close the door |please close the door behind you )",
             "(now |go now )",
           ],
+          model_answers: ["Just go. Take what you need. Close the door behind you."],
           hint_tr: "Kapanis: 'Just go. Take what you need. Close the door behind you.'",
         },
         {
@@ -10921,6 +11080,7 @@ export const flirtDeep_40: BundledLesson = {
             "(let'?s say |let'?s be honest ) it out loud",
             "(do you want to |should i start )",
           ],
+          model_answers: ["Yeah — this has been coming. Grateful we're doing this together."],
           hint_tr: "Acik kabul: 'Yeah — this has been coming. Grateful we're doing this together.'",
         },
         {
@@ -10937,6 +11097,7 @@ export const flirtDeep_40: BundledLesson = {
             "(we became roommates |it'?s been roommate energy ) (for months)",
             "(this is the |this is the kindest version of an ending )",
           ],
+          model_answers: ["You're right. We did love each other. It became roommate energy."],
           hint_tr: "Onayla: 'You're right. We did love each other. It became roommate energy.'",
         },
         {
@@ -10953,6 +11114,7 @@ export const flirtDeep_40: BundledLesson = {
             "(i'?ll take |you take ) (the flat — i'?ll move)",
             "(let'?s set |should we set ) (a moveout date now)",
           ],
+          model_answers: ["Thirty days to find places. No fights over things."],
           hint_tr: "Lojistik: 'Thirty days to find places. No fights over things.'",
         },
         {
@@ -10969,6 +11131,7 @@ export const flirtDeep_40: BundledLesson = {
             "(in a year |a year from now ) (let'?s check in)",
             "(i want you in |i want us in each other'?s lives — long term )",
           ],
+          model_answers: ["Eventually yes. Six months distance first. Check in in a year."],
           hint_tr: "Net + esnek: 'Eventually yes. Six months distance first. Check in in a year.'",
         },
         {
@@ -11201,6 +11364,7 @@ export const flirtDeep_41: BundledLesson = {
             "(want to be |i want to actually be ready) (not just bored)",
             "(maybe in |i think in ) (a month or two)",
           ],
+          model_answers: ["Crossed my mind. Some days ready, some days panic."],
           hint_tr: "Karma cevap: 'Crossed my mind. Some days ready, some days panic.'",
         },
         {
@@ -11217,6 +11381,7 @@ export const flirtDeep_41: BundledLesson = {
             "(my therapist says |the rule i set ) (don'?t date for loneliness)",
             "(i'?ll know |i'?ll feel it )(when it'?s right)",
           ],
+          model_answers: ["When I can think of my ex without flinching. When it's curiosity, not loneliness."],
           hint_tr: "Olgun: 'When I can think of my ex without flinching. When it's curiosity, not loneliness.'",
         },
         {
@@ -11233,6 +11398,7 @@ export const flirtDeep_41: BundledLesson = {
             "(i'?d rather meet someone |honestly i'?d prefer to meet someone )(through people)",
             "(apps feel like |the app energy is ) (a job interview)",
           ],
+          model_answers: ["Downloaded one — deleted within a day. Too soon."],
           hint_tr: "Durust: 'Downloaded one — deleted within a day. Too soon.'",
         },
         {
@@ -11249,6 +11415,7 @@ export const flirtDeep_41: BundledLesson = {
             "(can'?t hurt to |it can'?t hurt )(have you in my corner)",
             "(i appreciate |grateful you'?re looking out )",
           ],
+          model_answers: ["Soft yes — no urgency. Just keep your ears open."],
           hint_tr: "Yumusak evet: 'Soft yes — no urgency. Just keep your ears open.'",
         },
         {
@@ -11473,6 +11640,7 @@ export const flirtDeep_42: BundledLesson = {
             "(everyone looks |the bios are )(the same)",
             "(send help |emotional support please )",
           ],
+          model_answers: ["I caved — re-downloaded dating app. Immediately regretting."],
           hint_tr: "Sen baslat: 'I caved — re-downloaded dating app. Immediately regretting.'",
         },
         {
@@ -11489,6 +11657,7 @@ export const flirtDeep_42: BundledLesson = {
             "(swiping feels like |it feels like ) (algorithmic shopping)",
             "(part of me wants |i wonder if i should ) (to delete it again)",
           ],
+          model_answers: ["Everyone has the same six photos. Feels like algorithmic shopping."],
           hint_tr: "Acik dert: 'Everyone has the same six photos. Feels like algorithmic shopping.'",
         },
         {
@@ -11505,6 +11674,7 @@ export const flirtDeep_42: BundledLesson = {
             "(i need a |my brain needs a ) (cleanse)",
             "(noted |rule one accepted )",
           ],
+          model_answers: ["Easier said than done. Catch me when I do it."],
           hint_tr: "Kabul: 'Easier said than done. Catch me when I do it.'",
         },
         {
@@ -11521,6 +11691,7 @@ export const flirtDeep_42: BundledLesson = {
             "(no doom swiping |zero doom swiping )",
             "(this is good |i need this kind of structure )",
           ],
+          model_answers: ["Fair — timer set. No doom swiping."],
           hint_tr: "Onayla: 'Fair — timer set. No doom swiping.'",
         },
         {
@@ -11749,6 +11920,7 @@ export const flirtDeep_43: BundledLesson = {
             "(this is technically |fair to say this is my first proper )(date since)",
             "(not bringing |i'?m not bringing baggage )(— promise)",
           ],
+          model_answers: ["Ended four months ago. Did the work first. This is technically my first date since."],
           hint_tr: "Acik: 'Ended four months ago. Did the work first. This is technically my first date since.'",
         },
         {
@@ -11765,6 +11937,7 @@ export const flirtDeep_43: BundledLesson = {
             "(fair warning |full disclosure ) — (i'?m out of practice)",
             "(you'?re here |you'?re here because i'?m genuinely interested )",
           ],
+          model_answers: ["Not a rebound. Did the work. Out of practice — fair warning."],
           hint_tr: "Net + dustun: 'Not a rebound. Did the work. Out of practice — fair warning.'",
         },
         {
@@ -11781,6 +11954,7 @@ export const flirtDeep_43: BundledLesson = {
             "(bear with me |patience appreciated )",
             "(i'?m a bit |genuinely a bit ) (nervous)",
           ],
+          model_answers: ["My flirting muscles are rusty. Patience appreciated."],
           hint_tr: "Sakaya gir: 'My flirting muscles are rusty. Patience appreciated.'",
         },
         {
@@ -11797,6 +11971,7 @@ export const flirtDeep_43: BundledLesson = {
             "(it'?s |it'?s working so far )",
             "(can i ask |let me turn the question — )(what'?s your dating story)",
           ],
+          model_answers: ["No pretending — new rule. What's your dating story?"],
           hint_tr: "Onayla + cevir: 'No pretending — new rule. What's your dating story?'",
         },
         {
@@ -12025,6 +12200,7 @@ export const flirtDeep_44: BundledLesson = {
             "(can we |should we ) (write the rules down)",
             "(i need this |my mental health needs this ) (clear)",
           ],
+          model_answers: ["Casual only works if we set rules. Mental health needs clarity."],
           hint_tr: "Acik: 'Casual only works if we set rules. Mental health needs clarity.'",
         },
         {
@@ -12041,6 +12217,7 @@ export const flirtDeep_44: BundledLesson = {
             "(either can end this |either of us can end it )(at any time without explanation)",
             "(no shared friend group |we don'?t mix friend groups )",
           ],
+          model_answers: ["No overnight by default. Monthly check-ins. Either can end it."],
           hint_tr: "Net kural: 'No overnight by default. Monthly check-ins. Either can end it.'",
         },
         {
@@ -12057,6 +12234,7 @@ export const flirtDeep_44: BundledLesson = {
             "(let'?s |i want to negotiate this fully )",
             "(rules go both ways |both lists matter equally )",
           ],
+          model_answers: ["Appreciate that. What's on your list?"],
           hint_tr: "Karsila + sor: 'Appreciate that. What's on your list?'",
         },
         {
@@ -12073,6 +12251,7 @@ export const flirtDeep_44: BundledLesson = {
             "(we have a real |this is a real adult agreement )",
             "(should we |let'?s shake on it )",
           ],
+          model_answers: ["Agreed. No ghosting is highest rule for me too. We have a real adult agreement."],
           hint_tr: "Kabul: 'Agreed. No ghosting is highest rule for me too. We have a real adult agreement.'",
         },
         {
@@ -12301,6 +12480,7 @@ export const flirtDeep_45: BundledLesson = {
             "(she'?s family at |she'?s like family at this point )",
             "(i understand why |i get why ) (you might be uncomfortable)",
           ],
+          model_answers: ["Fully platonic for years. She's family at this point."],
           hint_tr: "Aciklama: 'Fully platonic for years. She's family at this point.'",
         },
         {
@@ -12317,6 +12497,7 @@ export const flirtDeep_45: BundledLesson = {
             "(i won'?t |i wouldn'?t see her alone )(if you'?d rather not)",
             "(let'?s find what |we can find what works for us )",
           ],
+          model_answers: ["Fair worry. Would meeting her help? I won't see her alone if you'd rather."],
           hint_tr: "Esnek: 'Fair worry. Would meeting her help? I won't see her alone if you'd rather.'",
         },
         {
@@ -12333,6 +12514,7 @@ export const flirtDeep_45: BundledLesson = {
             "(it'?s not a |she'?s not so important that ) (this is at risk)",
             "(let'?s think about |we can figure out what feels right ) (together)",
           ],
+          model_answers: ["Genuinely yes. This relationship matters more."],
           hint_tr: "Net: 'Genuinely yes. This relationship matters more.'",
         },
         {
@@ -12349,6 +12531,7 @@ export const flirtDeep_45: BundledLesson = {
             "(can we |let'?s revisit in a week )",
             "(thank you for |thank you for talking to me about it )",
           ],
+          model_answers: ["Asking is healthy. Take your time. Revisit in a week."],
           hint_tr: "Rahatlat: 'Asking is healthy. Take your time. Revisit in a week.'",
         },
         {
@@ -12572,11 +12755,12 @@ export const flirtDeep_46: BundledLesson = {
           acceptable_patterns: [
             "(hey |well — )(this is a name i wasn'?t expecting )",
             "(wild |okay genuinely surprised )",
-            "(which |which place |i'?m guessing ))",
+            "(which |which place |i'?m guessing )",
             "(seven years |how long has it been — )(too long)",
             "(thanks for the |kind of you to remember )",
             "(what'?s new |how have you been )",
           ],
+          model_answers: ["Wild — this is a name I wasn't expecting. How have you been?"],
           hint_tr: "Saskinlik + acilim: 'Wild — this is a name I wasn't expecting. How have you been?'",
         },
         {
@@ -12593,6 +12777,7 @@ export const flirtDeep_46: BundledLesson = {
             "(it shaped me |that summer shaped how i see things )",
             "(weird how |strange how memory works )",
           ],
+          model_answers: ["Me too. Good one. Let's not mythologize — we were young."],
           hint_tr: "Saglikli: 'Me too. Good one. Let's not mythologize — we were young.'",
         },
         {
@@ -12609,6 +12794,7 @@ export const flirtDeep_46: BundledLesson = {
             "(let me know |if your intention is friendly i'?m in )",
             "(let'?s name |let'?s be honest about the meeting first )",
           ],
+          model_answers: ["Coffee could be nice — friendly, with my eyes open. Let's name intentions."],
           hint_tr: "Net sinir: 'Coffee could be nice — friendly, with my eyes open. Let's name intentions.'",
         },
         {
@@ -12625,6 +12811,7 @@ export const flirtDeep_46: BundledLesson = {
             "(i'?m in a |i'?m in a healthy place — )(let'?s not undo that)",
             "(send the spot |pick the cafe )",
           ],
+          model_answers: ["One-hour coffee, daytime only. Healthy place — let's not undo that."],
           hint_tr: "Olgun + sinir: 'One-hour coffee, daytime only. Healthy place — let's not undo that.'",
         },
         {
@@ -12853,6 +13040,7 @@ export const flirtDeep_47: BundledLesson = {
             "(say hi |i'?ll say hi once and move on )",
             "(no avoiding |i'?m not going to avoid him )",
           ],
+          model_answers: ["I'm okay. Plan is to stay civil. Say hi once and move on."],
           hint_tr: "Olgun: 'I'm okay. Plan is to stay civil. Say hi once and move on.'",
         },
         {
@@ -12869,6 +13057,7 @@ export const flirtDeep_47: BundledLesson = {
             "(my code word |i'?ll touch my ear if i need rescue )",
             "(thank you |grateful for the assist )",
           ],
+          model_answers: ["Yes — but not obvious. If you see me cornered, swoop in."],
           hint_tr: "Strateji: 'Yes — but not obvious. If you see me cornered, swoop in.'",
         },
         {
@@ -12885,6 +13074,7 @@ export const flirtDeep_47: BundledLesson = {
             "(i can do this |we can do this )",
             "(two hours and we'?re out |give it two hours then we leave )",
           ],
+          model_answers: ["Act like a normal party. Two hours and we leave."],
           hint_tr: "Plan kapanis: 'Act like a normal party. Two hours and we leave.'",
         },
         {
@@ -12901,6 +13091,7 @@ export const flirtDeep_47: BundledLesson = {
             "(white wine |whatever you have )",
             "(thanks |you'?re the best ally )",
           ],
+          model_answers: ["Yes — small one. Need to stay sharp."],
           hint_tr: "Soft kabul: 'Yes — small one. Need to stay sharp.'",
         },
         {
@@ -13125,6 +13316,7 @@ export const flirtDeep_48: BundledLesson = {
             "(none of this is |this isn'?t about ) (your fault)",
             "(you deserve |you deserve to know )(the truth from me)",
           ],
+          model_answers: ["I have to be honest. I don't think I was ready. This was a rebound."],
           hint_tr: "Acik girisim: 'I have to be honest. I don't think I was ready. This was a rebound.'",
         },
         {
@@ -13141,6 +13333,7 @@ export const flirtDeep_48: BundledLesson = {
             "(i wanted to tell you |this is me trying to be honest before we get deeper )",
             "(i respect you too much |i'?ve grown to care about you enough ) (to keep faking it)",
           ],
+          model_answers: ["You deserve a real choice. Wouldn't be fair to continue."],
           hint_tr: "Sebep: 'You deserve a real choice. Wouldn't be fair to continue.'",
         },
         {
@@ -13157,6 +13350,7 @@ export const flirtDeep_48: BundledLesson = {
             "(you weren'?t |you weren'?t the wrong person )(— it was the wrong time)",
             "(i should have |the mistake was mine — i should have waited )",
           ],
+          model_answers: ["Genuinely liked you. Heart wasn't fully available. Wrong time, not wrong person."],
           hint_tr: "Net + durust: 'Genuinely liked you. Heart wasn't fully available. Wrong time, not wrong person.'",
         },
         {
@@ -13173,6 +13367,7 @@ export const flirtDeep_48: BundledLesson = {
             "(i hope |i wish you the best — genuinely )",
             "(thank you for |thank you for the months )",
           ],
+          model_answers: ["Understood. Ball is in your court. Wish you the best."],
           hint_tr: "Saygili cikis: 'Understood. Ball is in your court. Wish you the best.'",
         },
         {
@@ -13401,6 +13596,7 @@ export const flirtDeep_49: BundledLesson = {
             "(after my last relationship |after my breakup ) (i committed to therapy)",
             "(would recommend |genuinely would recommend ) to everyone",
           ],
+          model_answers: ["Honest answer — therapy. Been in it about a year. Best thing I ever did."],
           hint_tr: "Acik: 'Honest answer — therapy. Been in it about a year. Best thing I ever did.'",
         },
         {
@@ -13417,6 +13613,7 @@ export const flirtDeep_49: BundledLesson = {
             "(my mom is |my sister is ) (the supporter)",
             "(i don'?t hide it |i talk about it on purpose to normalize )",
           ],
+          model_answers: ["Older generation doesn't love it. My generation mostly open."],
           hint_tr: "Kulturel baglam: 'Older generation doesn't love it. My generation mostly open.'",
         },
         {
@@ -13433,6 +13630,7 @@ export const flirtDeep_49: BundledLesson = {
             "(are you in |have you been in therapy )",
             "(would love to hear |what does your work look like )",
           ],
+          model_answers: ["Not weird at all. Healthy is attractive. Have you been in therapy?"],
           hint_tr: "Karsi soru: 'Not weird at all. Healthy is attractive. Have you been in therapy?'",
         },
         {
@@ -13449,6 +13647,7 @@ export const flirtDeep_49: BundledLesson = {
             "(my therapist will |my therapist will be thrilled )",
             "(now i'?m more interested |you'?re more interesting by the minute )",
           ],
+          model_answers: ["Refreshing. Saves months of dancing around things."],
           hint_tr: "Olumlu: 'Refreshing. Saves months of dancing around things.'",
         },
         {
@@ -13687,6 +13886,7 @@ export const flirtDeep_50: BundledLesson = {
             "(i think i'?m |i'?m falling for you )",
             "(this is weird |it'?s weird ) (to say out loud)",
           ],
+          model_answers: ["Just realized — I'm falling for you. Didn't see this coming."],
           hint_tr: "Itiraf: 'Just realized — I'm falling for you. Didn't see this coming.'",
         },
         {
@@ -13703,6 +13903,7 @@ export const flirtDeep_50: BundledLesson = {
             "(it'?s not |you'?re not a replacement )",
             "(this is its own |it'?s its own thing)",
           ],
+          model_answers: ["Expected to feel more guarded. You make it easy. It's its own thing."],
           hint_tr: "Detay: 'Expected to feel more guarded. You make it easy. It's its own thing.'",
         },
         {
@@ -13719,6 +13920,7 @@ export const flirtDeep_50: BundledLesson = {
             "(this is the moment |i think this is the moment we both name it )",
             "(no pressure |no pressure to match my pace )",
           ],
+          model_answers: ["Grateful you waited. Can I hear it back?"],
           hint_tr: "Davet: 'Grateful you waited. Can I hear it back?'",
         },
         {
@@ -13735,6 +13937,7 @@ export const flirtDeep_50: BundledLesson = {
             "(let'?s |let'?s not say the bigger word yet — just sit here )",
             "(this is enough |this moment is enough for tonight )",
           ],
+          model_answers: ["You carried it for both of us. Let's sit here — this is enough for tonight."],
           hint_tr: "Olgun an: 'You carried it for both of us. Let's sit here — this is enough for tonight.'",
         },
         {

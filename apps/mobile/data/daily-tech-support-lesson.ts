@@ -233,6 +233,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
             "(modem|router) (lights?|is|shows)",
             "(red|blinking|off|not on)",
           ],
+          model_answers: ["Hi, my internet has been down since 9am. Modem lights are red."],
           hint_tr:
             "Net: 'Hi, my internet has been down since 9am. Modem lights are red.'",
         },
@@ -251,6 +252,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
             "(ever since|after|started (with|after)) (the update|reboot|last night)",
             "(no signal|won'?t connect)",
           ],
+          model_answers: ["It says E-404. Started after last night's update."],
           hint_tr:
             "Error code varsa hemen ver: 'It says E-404. Started after last night's update.'",
         },
@@ -701,6 +703,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
             "(no luck|didn'?t (work|help)|no change)",
             "(what'?s next|anything else)",
           ],
+          model_answers: ["Already rebooted twice — unplugged 30 seconds each. Still no signal."],
           hint_tr:
             "Yaptigini soyle: 'Already rebooted twice — unplugged 30 seconds each. Still no signal.'",
         },
@@ -719,6 +722,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
             "(no change|still (same|broken|no luck))",
             "(what (else|now)|next step|where to from here)",
           ],
+          model_answers: ["Yes — cleared cache, reinstalled the app. No change."],
           hint_tr:
             "Liste seklinde: 'Yes — cleared cache, reinstalled the app. No change.'",
         },
@@ -1177,6 +1181,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
             "(would|could) you (escalate|bump this up)",
             "(higher-?level|next tier|someone who can)",
           ],
+          model_answers: ["I understand. Could we escalate this to your supervisor?"],
           hint_tr:
             "Saygili: 'I understand. Could we escalate this to your supervisor?'",
         },
@@ -1195,6 +1200,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
             "(\\w+-?\\d+|\\d{4,})",
             "(no resolution|still (broken|no fix|same))",
           ],
+          model_answers: ["Sure — tried reboot twice, cleared cache, error code E-404. No resolution."],
           hint_tr:
             "Ozet ver: 'Sure — tried reboot twice, cleared cache, error code E-404. No resolution.'",
         },
@@ -1653,6 +1659,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
             "(loading|fast|connected)",
             "(thanks|appreciate (it|that))",
           ],
+          model_answers: ["Let me test it real quick — one sec. Yes, it's working now."],
           hint_tr:
             "Hemen test: 'Let me test it real quick — one sec. Yes, it's working now.'",
         },
@@ -1671,6 +1678,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
             "(will (the )?refund|when (will|does)) (show up|hit|go through|process)",
             "(get something in writing|email confirmation)",
           ],
+          model_answers: ["Could I get a ticket number? And when can I expect the refund?"],
           hint_tr:
             "Iki sey iste: ticket number + refund timeline. 'Could I get a ticket number? And when can I expect the refund?'",
         },
@@ -2130,6 +2138,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
             "(no signal|no connection|completely out|nothing)",
             "(line is dead|cable light is off)",
           ],
+          model_answers: ["Hi, my internet's been down since this morning — modem's blinking red."],
           hint_tr:
             "Net + zaman + gozlem: 'Hi, my internet's been down since this morning — modem's blinking red.'",
         },
@@ -2148,6 +2157,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
             "(still|same) (blinking|flashing) red",
             "(no luck)",
           ],
+          model_answers: ["Already tried — unplugged for two minutes, still blinking red. No change."],
           hint_tr:
             "Spesifik kanit: 'Already tried — unplugged for two minutes, still blinking red. No change.'",
         },
@@ -2166,6 +2176,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
             "(any outages|outage in (my|the) area|known issues)",
             "(thanks|thank you|appreciate (it|that))",
           ],
+          model_answers: ["Sure, I'll hold. Could you also check if there's an outage in my area?"],
           hint_tr:
             "Onay + ek soru: 'Sure, I'll hold. Could you also check if there's an outage in my area?'",
         },
@@ -2578,6 +2589,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
             "(not (coming|reaching|arriving)|won'?t come)",
             "(my phone|my number|my device)",
           ],
+          model_answers: ["Hi, I'm locked out of my account — the two-factor code isn't reaching my phone."],
           hint_tr:
             "Sorun + sebep: 'Hi, I'm locked out of my account — the two-factor code isn't reaching my phone.'",
         },
@@ -2596,6 +2608,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
             "(nothing|none of them|not a single one|still nothing)",
             "(showed up|came through|arrived)",
           ],
+          model_answers: ["Already requested five new codes — none came through. Checked spam too."],
           hint_tr:
             "Spesifik kanit: 'Already requested five new codes — none came through. Checked spam too.'",
         },
@@ -2614,6 +2627,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
             "(could you|can you) (also )?(update|change|fix)",
             "(my phone number|the number on file)",
           ],
+          model_answers: ["Security questions would be great. Could we also update the phone number on file?"],
           hint_tr:
             "Onay + ek istek: 'Security questions would be great. Could we also update the phone number on file?'",
         },
@@ -3029,6 +3043,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
             "(on (my|this month'?s|june|may|april) (bill|statement))",
             "(could you (walk me through|explain|clarify))",
           ],
+          model_answers: ["Hi, I see a charge of $47.99 on my bill that I don't recognize."],
           hint_tr:
             "Spesifik: 'Hi, I see a charge of $47.99 on my bill that I don't recognize.'",
         },
@@ -3047,6 +3062,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
             "(reference|transaction) (is|number)",
             "(\\d{4,}|\\w+-?\\d+)",
           ],
+          model_answers: ["Yes — it's dated June 12. Transaction reference is TX-44102."],
           hint_tr:
             "Net tarih + referans: 'Yes — it's dated June 12. Transaction reference is TX-44102.'",
         },
@@ -3065,6 +3081,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
             "(if (this )?wasn'?t (disclosed|mentioned)|since i wasn'?t informed)",
             "(yes|please|that would (help|work|be great))",
           ],
+          model_answers: ["Could you walk me through what it covers? I wasn't told about a setup fee — could we waive it?"],
           hint_tr:
             "Acıklama + iade isteği: 'Could you walk me through what it covers? I wasn't told about a setup fee — could we waive it?'",
         },
@@ -3480,6 +3497,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
             "(too (pricey|expensive)|more than i (need|use)|cheaper option)",
             "(what (are )?my options|tell me about)",
           ],
+          model_answers: ["Hi, I'd like to switch plans — my current one's more than I need."],
           hint_tr:
             "Niyet + sebep: 'Hi, I'd like to switch plans — my current one's more than I need.'",
         },
@@ -3498,6 +3516,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
             "(is there (a|any)) (annual discount|promo|deal|first-?time)",
             "(any (offers|discounts) for (loyal|long-time))",
           ],
+          model_answers: ["What's the difference between Standard and Basic? And is there any loyalty discount?"],
           hint_tr:
             "Karsilastirma + indirim sor: 'What's the difference between Standard and Basic? And is there any loyalty discount?'",
         },
@@ -3516,6 +3535,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
             "(could|can) (you|i) (get|have) (a confirmation|something in writing|an email)",
             "(could|can) we (also )?(prorate|adjust this month'?s bill)",
           ],
+          model_answers: ["I'll go with Standard at the discount. When does it kick in? Could I get a confirmation email?"],
           hint_tr:
             "Karar + onay: 'I'll go with Standard at the discount. When does it kick in? Could I get a confirmation email?'",
         },

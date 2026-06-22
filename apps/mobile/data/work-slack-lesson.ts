@@ -94,6 +94,7 @@ export const workSlackLesson_9_1: BundledLesson = {
             "(excited|happy|stoked|looking forward) (to (be here|meet|work))",
             "(hit me up|dm me|reach out)",
           ],
+          model_answers: ["Hey all — Berk here, new on frontend. Excited to meet you!"],
           hint_tr:
             "Klasik intro: 'Hey all — Berk here, new on frontend. Excited to meet you!'",
         },
@@ -111,6 +112,7 @@ export const workSlackLesson_9_1: BundledLesson = {
             "(working|on a) (utc|cet|gmt) (time|hours|schedule)",
             "(would love to|happy to) (chat|grab a virtual coffee|connect)",
           ],
+          model_answers: ["Thanks! Based in Istanbul, working CET. You?"],
           hint_tr:
             "Cevap ver + soru sor: 'Thanks! Based in Istanbul, working CET. You?'",
         },
@@ -129,6 +131,7 @@ export const workSlackLesson_9_1: BundledLesson = {
             "(would love to|happy to) (pair|shadow|sit in on)",
             "(open to (anything|whatever)|wherever the team needs)",
           ],
+          model_answers: ["Mostly frontend, but happy to dig wherever the team needs me."],
           hint_tr:
             "Bir-iki ilgi alanı + açıklık: 'Mostly frontend, but happy to dig wherever the team needs me.'",
         },
@@ -581,6 +584,7 @@ export const workSlackLesson_9_2: BundledLesson = {
             "(working on|stuck on|debugging) (the (auth|api|deploy))",
             "(can'?t figure out|getting an error|not sure how)",
           ],
+          model_answers: ["Hey — quick Q about auth tokens. No rush!"],
           hint_tr:
             "Direkt + nazik: 'Hey — quick Q about auth tokens. No rush!'",
         },
@@ -599,6 +603,7 @@ export const workSlackLesson_9_2: BundledLesson = {
             "(wondering|thinking|hoping) (if you|that you'?d know)",
             "(want me to|should i) (huddle|jump on a call|share screen)",
           ],
+          model_answers: ["Thanks! Token refresh throws 401 — tried docs, no luck."],
           hint_tr:
             "Spesifik sor: 'Thanks! Token refresh throws 401 — tried docs, no luck.'",
         },
@@ -616,6 +621,7 @@ export const workSlackLesson_9_2: BundledLesson = {
             "(share (my )?screen|screen share) (when (we|you) jump|once we'?re on)",
             "(ready when you are|standing by|jumping in now)",
           ],
+          model_answers: ["Yep — logs and stack trace ready. Will share screen when we hop on."],
           hint_tr:
             "Hazırlık sinyali: 'Yep — logs and stack trace ready. Will share screen when we hop on.'",
         },
@@ -940,8 +946,9 @@ export const workSlackLesson_9_3: BundledLesson = {
             "(working on|starting|continuing)",
             "(no blockers|none|nothing|all clear|blocked on)",
           ],
+          model_answers: ["Yesterday I shipped auth. Today I am starting payments. No blockers."],
           hint_tr:
-            "Y: shipped X | T: starting Y | B: none.",
+            "Y/T/B formatı. Örnek: 'Yesterday I shipped auth. Today I am starting payments. No blockers.'",
         },
         {
           speaker: "npc",
@@ -958,6 +965,7 @@ export const workSlackLesson_9_3: BundledLesson = {
             "(let me know|tag me|happy to discuss)",
             "(will (update|ping|circle back)|i'?ll keep you posted)",
           ],
+          model_answers: ["On track if design review comes back today. Will keep you posted."],
           hint_tr:
             "Net cevap: 'On track if design review comes back today. Will keep you posted.'",
         },
@@ -975,6 +983,7 @@ export const workSlackLesson_9_3: BundledLesson = {
             "(by (noon|lunch|eod|end of day))",
             "(let me know|tag me) (if (anyone'?s|you'?re) missing)",
           ],
+          model_answers: ["Yep — tagging design in the thread now, will link the Figma too."],
           hint_tr:
             "Onay + zaman: 'Yep — tagging design in the thread now, will link the Figma too.'",
         },
@@ -1300,6 +1309,7 @@ export const workSlackLesson_9_4: BundledLesson = {
             "(stand by|standby|one sec|hold on)",
             "(will|gonna) (circle back|reply|drop notes) (in thread|below)",
           ],
+          model_answers: ["Taking this to a thread — long answer coming."],
           hint_tr:
             "Ana kanali kirletme: 'Taking this to a thread — long answer coming.'",
         },
@@ -1317,6 +1327,7 @@ export const workSlackLesson_9_4: BundledLesson = {
             "(tldr|tl;dr|short version) (in thread|below)",
             "(let me know|tag me) (if (you need|more details))",
           ],
+          model_answers: ["NP — full breakdown in thread. TLDR there too."],
           hint_tr:
             "Devam: 'NP — full breakdown in thread. TLDR there too.'",
         },
@@ -1335,6 +1346,7 @@ export const workSlackLesson_9_4: BundledLesson = {
             "(they'?ll want|going to need) (the (steps|repro|env))",
             "(no need|not yet|probably not) (until (we|i) (confirm|repro))",
           ],
+          model_answers: ["Good call — tagging QA in the thread once I write up the repro steps."],
           hint_tr:
             "Karar + aksiyon: 'Good call — tagging QA in the thread once I write up the repro steps.'",
         },
@@ -1658,6 +1670,7 @@ export const workSlackLesson_9_5: BundledLesson = {
             "(working on|starting|continuing|kicking off|picking up)",
             "(none|no blockers|all clear|nothing|n/a|clear)",
           ],
+          model_answers: ["Y: shipped X. T: starting Y. B: none."],
           hint_tr:
             "Format: 'Y: shipped X. T: starting Y. B: none.' Üç satir, scannable.",
         },
@@ -1676,6 +1689,7 @@ export const workSlackLesson_9_5: BundledLesson = {
             "(might|may) (need to|have to) (push|deprioritize|shift)",
             "(let me know|tag me|ping me) (if (priorities|things) shift)",
           ],
+          model_answers: ["On it — will squeeze in before EOD. Tagging you when done."],
           hint_tr:
             "Net cevap: 'On it — will squeeze in before EOD. Tagging you when done.'",
         },
@@ -1694,6 +1708,7 @@ export const workSlackLesson_9_5: BundledLesson = {
             "(will (flag|update|surface) (in (\\#)?(standup|the channel)|in writing))",
             "(no surprises|nothing the pm doesn'?t already know)",
           ],
+          model_answers: ["One risk — QA cycle still pending. Have a fallback if it slips. Will flag in standup."],
           hint_tr:
             "Risk netleştir: 'One risk — QA cycle still pending. Have a fallback if it slips. Will flag in standup.'",
         },
@@ -1974,12 +1989,13 @@ export const workSlackLesson_9_6: BundledLesson = {
           acceptable_patterns: [
             "(hey|hi) (mike|sarah|name)",
             "(quick (heads up|note|one)|wanted to (flag|let you know))",
-            "(taking|planning to take|out) (thursday|friday|next (week|tuesday)) (and|through))?",
+            "(taking|planning to take|out) (thursday|friday|next (week|tuesday)) (and|through)?",
             "(ooo|out of office|off|pto) (on|next week|those days)",
             "(personal (stuff|matter|reason)|family (thing|matter))",
             "(handed off|prepped|covered|delegated) (to|with) ",
             "(any concerns|anything blocking|let me know)",
           ],
+          model_answers: ["Hey Mike — heads up, OOO Thu-Fri next week (personal). Anything blocking?"],
           hint_tr:
             "Net + saygili: 'Hey Mike — heads up, OOO Thu-Fri next week (personal). Anything blocking?'",
         },
@@ -1998,6 +2014,7 @@ export const workSlackLesson_9_6: BundledLesson = {
             "(slack on mute|signed out|ooo on slack) (otherwise|but)",
             "(no fires|nothing urgent|all under control)",
           ],
+          model_answers: ["Rachel covering the deploy. Text for true emergencies only."],
           hint_tr:
             "Hand-off + acil iletisim: 'Rachel covering the deploy. Text for true emergencies only.'",
         },
@@ -2016,6 +2033,7 @@ export const workSlackLesson_9_6: BundledLesson = {
             "(auto-?responder|out of office reply) (on|set up|enabled)",
             "(back monday|return monday)",
           ],
+          model_answers: ["Yep — setting status now, calendar blocked too. Back Monday."],
           hint_tr:
             "Onay: 'Yep — setting status now, calendar blocked too. Back Monday.'",
         },
@@ -2302,6 +2320,7 @@ export const workSlackLesson_9_7: BundledLesson = {
             "(tldr|tl;dr|short version)",
             "(no action needed|need eyes|need help|low priority)",
           ],
+          model_answers: ["FYI: caught a prod bug. Full details in thread 👇"],
           hint_tr:
             "Headline + thread isareti: 'FYI: caught a prod bug. Full details in thread 👇'",
         },
@@ -2319,6 +2338,7 @@ export const workSlackLesson_9_7: BundledLesson = {
             "(happy to (huddle|hop on|jump on a call))",
             "(no rush|whenever) (on (reading|replying))",
           ],
+          model_answers: ["NP — TLDR up top. Happy to huddle if it's faster."],
           hint_tr:
             "Devam: 'NP — TLDR up top. Happy to huddle if it's faster.'",
         },
@@ -2337,6 +2357,7 @@ export const workSlackLesson_9_7: BundledLesson = {
             "(would (recommend|lean toward)|leaning toward) (hotfix|next deploy)",
             "(repro is (clean|consistent)|happy to draft (a fix|the patch))",
           ],
+          model_answers: ["Low impact — edge case only. Fine to wait for next deploy. Happy to draft the fix though."],
           hint_tr:
             "Triage: 'Low impact — edge case only. Fine to wait for next deploy. Happy to draft the fix though.'",
         },
@@ -2623,6 +2644,7 @@ export const workSlackLesson_9_8: BundledLesson = {
             "(can we|could we) (discuss|huddle|talk through|jump on a call)",
             "(taking this to (a thread|dm)|in thread)",
           ],
+          model_answers: ["Hey — quick flag before we lock this. Concerned about scope."],
           hint_tr:
             "Pasif 👍 yerine yazili itiraz: 'Hey — quick flag before we lock this. Concerned about scope.'",
         },
@@ -2641,6 +2663,7 @@ export const workSlackLesson_9_8: BundledLesson = {
             "(happy to (write up|share|jump on))",
             "(thread|huddle|1:1) (to (go deeper|dig in|cover))",
           ],
+          model_answers: ["Design review still pending — no buffer if it slips. Could we add a week?"],
           hint_tr:
             "Spesifik risk: 'Design review still pending — no buffer if it slips. Could we add a week?'",
         },
@@ -2658,6 +2681,7 @@ export const workSlackLesson_9_8: BundledLesson = {
             "(before (we |the )?huddle|by (2|the call|then))",
             "(includes|with) (mitigations|fallback (options|plans)|de-?scope (ideas|options))",
           ],
+          model_answers: ["On it — three bullets in the thread before the huddle, with mitigations."],
           hint_tr:
             "Yazılı sahiplenme: 'On it — three bullets in the thread before the huddle, with mitigations.'",
         },

@@ -224,6 +224,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
             "(\\d+ nights?|until \\w+)",
             "(early check-in)",
           ],
+          model_answers: ["Hi, checking in — reservation under Yilmaz, two nights."],
           hint_tr:
             "Net: 'Hi, checking in — reservation under Yilmaz, two nights.'",
         },
@@ -241,6 +242,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
             "(wifi password|breakfast (hours|time)|gym (hours|location))",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Here you go. Any chance high floor + quiet?"],
           hint_tr:
             "Ekstra istek: 'Here you go. Any chance high floor + quiet?'",
         },
@@ -693,6 +695,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
             "(ac|hot water|wifi|tv|outlet)",
             "(could you|would you mind) (send|fix|swap)",
           ],
+          model_answers: ["Hi, this is room 405 — key card stopped working and AC's broken."],
           hint_tr:
             "Spesifik: 'Hi, this is room 405 — key card stopped working and AC's broken.'",
         },
@@ -711,6 +714,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
             "(thanks for|grateful for) (the (urgency|response))",
             "(no rush|in your time)",
           ],
+          model_answers: ["Thanks. If not fixable, could we switch rooms?"],
           hint_tr:
             "Plan B: 'Thanks. If not fixable, could we switch rooms?'",
         },
@@ -1166,6 +1170,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
             "(2pm|3pm|later)",
             "(flight isn'?t until)",
           ],
+          model_answers: ["Hi, checking out — room 405. Any chance of late checkout till 2?"],
           hint_tr:
             "Net ac: 'Hi, checking out — room 405. Any chance of late checkout till 2?'",
         },
@@ -1184,6 +1189,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
             "(receipt|copy of the bill|email a copy)",
             "(thanks|appreciate (it|everything))",
           ],
+          model_answers: ["Perfect. Could I leave bags after? And email me the receipt."],
           hint_tr:
             "Tam paket: 'Perfect. Could I leave bags after? And email me the receipt.'",
         },
@@ -1639,6 +1645,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
             "(flight (just|finally) landed|been (up|traveling) all night|long flight)",
             "(\\w+)",
           ],
+          model_answers: ["Hi, checking in under Yilmaz. Any chance of early check-in? Flight just landed."],
           hint_tr:
             "Aç + sebep: 'Hi, checking in under Yilmaz. Any chance of early check-in? Flight just landed.'",
         },
@@ -1656,6 +1663,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
             "(in the meantime|while we wait|until then|until (the )?room'?s ready)",
             "(grab (coffee|breakfast)|walk around|see (the )?city)",
           ],
+          model_answers: ["No worries — happy to wait. Could I leave my bags while we grab coffee?"],
           hint_tr:
             "Plan B: 'No worries — happy to wait. Could I leave my bags while we grab coffee?'",
         },
@@ -1671,6 +1679,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
             "(thank(s| you) (so much)?|really appreciate (it|that))",
             "(see you (at|around) (noon|then|later)|catch you later)",
           ],
+          model_answers: ["Perfect, thanks so much — see you around noon!"],
           hint_tr:
             "Kapat: 'Perfect, thanks so much — see you around noon!'",
         },
@@ -2082,6 +2091,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
             "(loud|noisy) (near|by) (the )?elevator",
             "(would it be possible|any chance|could we) (to (switch|change) rooms|get another room)",
           ],
+          model_answers: ["Hi, this is room 312 — AC isn't working and it's loud by the elevator. Would it be possible to switch rooms?"],
           hint_tr:
             "Spesifik + cozum: 'Hi, this is room 312 — AC isn't working and it's loud by the elevator. Would it be possible to switch rooms?'",
         },
@@ -2099,6 +2109,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
             "(king bed|same bed type|two beds)",
             "(no preference|whatever (works|you have)|surprise me)",
           ],
+          model_answers: ["Higher floor if possible, away from elevator. Same bed type would be great."],
           hint_tr:
             "Tercih net soyle: 'Higher floor if possible, away from elevator. Same bed type would be great.'",
         },
@@ -2115,6 +2126,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
             "(we'?ll be (ready|packed) in (\\d+|a few) (minutes?|min))",
             "(thank(s| you) (so much)?|appreciate (it|the (quick )?fix))",
           ],
+          model_answers: ["Perfect, yes please — we'll be ready in 10. Thanks for the quick fix!"],
           hint_tr:
             "Kapat: 'Perfect, yes please — we'll be ready in 10. Thanks for the quick fix!'",
         },
@@ -2524,6 +2536,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
             "(flight (isn'?t|is) (until|at) \\d+|don'?t fly out (until|till) \\d+)",
             "(\\w+)",
           ],
+          model_answers: ["Hi! Any chance of late checkout? Flight isn't until 5."],
           hint_tr:
             "Aç + sebep: 'Hi! Any chance of late checkout? Flight isn't until 5.'",
         },
@@ -2541,6 +2554,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
             "(anything good for|any (recs?|recommendations?) for|where do you (eat|go) for) (lunch|brunch|food)",
             "(nearby|around here|close by|walking distance)",
           ],
+          model_answers: ["2pm works, thanks! While I'm here — anything good for lunch nearby?"],
           hint_tr:
             "Zinciri uzat: '2pm works, thanks! While I'm here — anything good for lunch nearby?'",
         },
@@ -2558,6 +2572,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
             "(busy (now|at lunch)|crowded)",
             "(thank(s| you) (so much)?|appreciate (it|the tip))",
           ],
+          model_answers: ["Joe's sounds great! Walking distance? Need a reservation?"],
           hint_tr:
             "Detay sor: 'Joe's sounds great! Walking distance? Need a reservation?'",
         },
@@ -2968,6 +2983,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
             "(us a table|a table for (\\d+|two|us)|reservation)",
             "(tonight|this evening|at \\d+|around \\d+)",
           ],
+          model_answers: ["Hi, hoping you could help — could you book us a table for tonight around 8?"],
           hint_tr:
             "Aç: 'Hi, hoping you could help — could you book us a table for tonight around 8?'",
         },
@@ -2985,6 +3001,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
             "(walking distance|nearby|close by)",
             "(\\w+)",
           ],
+          model_answers: ["Open to suggestions — something mid-range, walking distance ideal."],
           hint_tr:
             "Tercih ver: 'Open to suggestions — something mid-range, walking distance ideal.'",
         },
@@ -3003,6 +3020,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
             "(factoring in traffic|with traffic|including traffic)",
             "(tip(ping)?|how much (to|do (i|we)) tip)",
           ],
+          model_answers: ["Perfect — what time should I leave? Also any tips on tipping the staff here?"],
           hint_tr:
             "Zincir: 'Perfect — what time should I leave? Also any tips on tipping the staff here?'",
         },

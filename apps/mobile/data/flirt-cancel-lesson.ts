@@ -97,6 +97,7 @@ export const flirtCancelLesson_5_1: BundledLesson = {
             "(i feel|feeling) (terrible|awful|so bad)",
             "(no )(at all|hard feelings)?(if you'?d rather)?",
           ],
+          model_answers: ["Hey, so sorry — something came up. Can we reschedule?"],
           hint_tr:
             "Aç: 'Hey, so sorry — something came up. Can we reschedule?'",
         },
@@ -114,6 +115,7 @@ export const flirtCancelLesson_5_1: BundledLesson = {
             "(rest of the week|the weekend) is (open|free)",
             "(let me|i'?ll) (look at|check) my (schedule|calendar)",
           ],
+          model_answers: ["Thank you for being so understanding — Thursday or Friday work?"],
           hint_tr:
             "Devam: 'Thank you for being so understanding — Thursday or Friday work?'",
         },
@@ -432,6 +434,7 @@ export const flirtCancelLesson_5_2: BundledLesson = {
             "(let'?s |should we )?(lock|pin) (down|in) (a |the )?(new time|day)",
             "(owe you|i owe you) (the first round|coffee|something)",
           ],
+          model_answers: ["Sorry again about last week. Free this week?"],
           hint_tr:
             "Yeniden plan: 'Sorry again about last week. Free this week?'",
         },
@@ -449,6 +452,7 @@ export const flirtCancelLesson_5_2: BundledLesson = {
             "(let'?s |i'?ll )(pick|name) (a day|the time)",
             "(same plan|same place|or somewhere new)",
           ],
+          model_answers: ["Friday — let's try something new this time."],
           hint_tr:
             "Bağla: 'Thursday at 7 — same plan?' veya 'Friday — let's try something new this time.'",
         },
@@ -832,6 +836,7 @@ export const flirtCancelLesson_5_3: BundledLesson = {
             "(thousand|so many) apologies",
             "(can'?t make it|can'?t come) (tonight|today)",
           ],
+          model_answers: ["Just got an emergency call — so sorry, I have to bail tonight."],
           hint_tr:
             "Aç: 'Just got an emergency call — so sorry, I have to bail tonight.'",
         },
@@ -850,6 +855,7 @@ export const flirtCancelLesson_5_3: BundledLesson = {
             "(i'?ll|i will) (make it up|make this up) (to you)",
             "(really appreciate|so grateful for) (your )(patience|kindness)",
           ],
+          model_answers: ["Thanks for asking — family stuff, will be okay. I'll make this up to you."],
           hint_tr:
             "Reasuring: 'Thanks for asking — family stuff, will be okay. I'll make this up to you.'",
         },
@@ -1231,6 +1237,7 @@ export const flirtCancelLesson_5_4: BundledLesson = {
             "(can we|could we|any chance) (push|move|bump) (it )?to (friday|saturday|sunday|next week)",
             "(friday|saturday) (instead|work for you|any good)",
           ],
+          model_answers: ["So sorry — something came up at work. Can we push to Friday?"],
           hint_tr:
             "Aç: 'So sorry — something came up at work. Can we push to Friday?'",
         },
@@ -1248,6 +1255,7 @@ export const flirtCancelLesson_5_4: BundledLesson = {
             "(promise|i swear) (i'?ll|i will) (be there|make it|show up)",
             "(rest of friday|all of friday|friday evening) is open",
           ],
+          model_answers: ["Thanks for being flexible — 7pm Friday? Same place?"],
           hint_tr:
             "Bağla: 'Thanks for being flexible — 7pm Friday? Same place?'",
         },
@@ -1601,6 +1609,7 @@ export const flirtCancelLesson_5_5: BundledLesson = {
             "(would|could) (saturday|sunday|next week) (work|be okay)",
             "(can we|could we) (do|move it to) (saturday|sunday)",
           ],
+          model_answers: ["Hey, not feeling great today — would Saturday work?"],
           hint_tr:
             "Aç: 'Hey, not feeling great today — would Saturday work?'",
         },
@@ -1618,6 +1627,7 @@ export const flirtCancelLesson_5_5: BundledLesson = {
             "(can'?t wait|looking forward) (to|for) saturday",
             "(no worries|all good|nothing) — just (need to|gotta) sleep",
           ],
+          model_answers: ["Thanks for asking — just need rest, I'll be good by Saturday."],
           hint_tr:
             "Reasuring: 'Thanks for asking — just need rest, I'll be good by Saturday.'",
         },
@@ -1976,6 +1986,7 @@ export const flirtCancelLesson_5_6: BundledLesson = {
             "(not (gonna|going to) be|won'?t be) (great|good) company",
             "(brain is|head is) (a bit )?(fried|all over the place|elsewhere)",
           ],
+          model_answers: ["Honestly not in the right headspace tonight — rain check?"],
           hint_tr:
             "Aç dürüstçe: 'Honestly not in the right headspace tonight — rain check?'",
         },
@@ -1993,6 +2004,7 @@ export const flirtCancelLesson_5_6: BundledLesson = {
             "(let me|i'?ll) (text you|circle back) (in a day|when i'?m better)",
             "(really|genuinely) appreciate (you|that)",
           ],
+          model_answers: ["Thanks for getting it — Saturday could work. I'll text you tomorrow to lock it in."],
           hint_tr:
             "Devam: 'Thanks for getting it — Saturday could work. I'll text you tomorrow to lock it in.'",
         },
@@ -2354,6 +2366,7 @@ export const flirtCancelLesson_5_7: BundledLesson = {
             "(we'?ll|let'?s) (figure (something|it) out|sort (something|it) out|find (another time|a new day))",
             "(hit me up|text me|let me know) (when you'?re|when things are) (free|settled|good)",
           ],
+          model_answers: ["No worries at all — take care! We'll figure something out when you're free."],
           hint_tr:
             "Cevap: 'No worries at all — take care! We'll figure something out when you're free.'",
         },
@@ -2372,6 +2385,7 @@ export const flirtCancelLesson_5_7: BundledLesson = {
             "(no rush|no pressure|take your time)",
             "(rain check|round 2|next time)",
           ],
+          model_answers: ["Of course — life happens. No rush, hit me up next week!"],
           hint_tr:
             "Bağla: 'Of course — life happens. No rush, hit me up next week!'",
         },

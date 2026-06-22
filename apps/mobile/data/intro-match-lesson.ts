@@ -90,6 +90,7 @@ export const introMatchLesson_0_1: BundledLesson = {
             "just (working|studying|watching|reading)",
             "having (a )?coffee",
           ],
+          model_answers: ["Just chilling, you?"],
           hint_tr:
             "Kısa + günlük. 'Just chilling, you?' veya 'Not much, you?' işe yarar. 'I am fine' yazma — robot gibi gelir.",
         },
@@ -108,12 +109,29 @@ export const introMatchLesson_0_1: BundledLesson = {
             "depends on (the )?(route|grade|wall)",
             "honestly( not)? (that )?bad",
           ],
+          model_answers: ["You should try it sometime"],
           hint_tr:
             "dating app'da konuşma davete döndürülür. 'You should try it sometime' veya 'I can show you' — 2 mesajda buluşma teklifi açar. 'Yes it is hard' bitirir konuşmayı.",
         },
         {
           speaker: "npc",
           message: "okay i'm sold. saturday?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(saturday|sat) (works|is good|sounds good)",
+            "(yes|yeah|sure|perfect)(,)? saturday",
+            "i'?m (free|available) (on )?saturday",
+            "let'?s do saturday",
+          ],
+          model_answers: ["Saturday works for me."],
+          hint_tr:
+            "Planı netleştir: 'Saturday works for me.' veya 'Perfect, let's do Saturday.'",
+        },
+        {
+          speaker: "npc",
+          message: "perfect — saturday it is. i'll text you the details :) ",
         },
       ],
     },

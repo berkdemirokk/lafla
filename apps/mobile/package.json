@@ -15,7 +15,10 @@
     "submit:android": "eas submit --platform android",
     "asc:sync": "tsx scripts/asc-sync.ts",
     "asc:sync:apply": "tsx scripts/asc-sync.ts -- --apply",
-    "test": "jest"
+    "test": "jest",
+    "qa:content": "tsx scripts/audit-roleplay-content.ts",
+    "qa:linguist": "tsx scripts/generate-linguist-review.ts",
+    "qa:linguist:check": "tsx scripts/generate-linguist-review.ts --check"
   },
   "dependencies": {
     "@babel/runtime": "^7.25.0",

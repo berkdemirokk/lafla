@@ -4,7 +4,7 @@
 >
 > **2026-05-23 — v0.9.0 update (Faz 1-3 sonrası):**
 > - Mod sayısı 6 → 7 (IELTS Speaking Part 1/2/3 simülatörü geri eklendi)
-> - Sahne sayısı ~480 → **935** (daily 268, work 259, flirt 141, order 93, airport 89, ielts 44, bar 41)
+> - Sahne sayısı **971**; içerik A1–C2 aralığında denetlendi.
 > - 2 yeni mod eklendi: **Phoneme Drill** (fonem-bazlı telaffuz) + **Listen & Transcribe** (dinleme + yazım)
 > - Yıllık plan **₺999/yıl** geri eklendi (Trend Researcher audit'i sonrası — Duolingo Super eşdeğeri annual tier)
 > - v0.9.0: **LLM-siz smart conversation** — NPC bridge phrases (mini-Markov), adaptif force-show hint, 5sn idle glow
@@ -39,7 +39,7 @@
 |---|---|---|---|
 | **A (recommended)** | `Donma. Konuş. Türkçe ipuçlu.` | 28 | Anti-pain hook + Türk-first differentiator. Emotional anchor — the cold-discovery user with zero brand context understands "ben de donuyorum" in 0.4 saniye. |
 | B | `Flört · İş · IELTS · Bar` | 24 | Pure mode-list (4 prominent + iceberg). Solid search index for "ielts" + "flört" exact-match, but emotional hook is stronger. Use as A/B variant after launch. |
-| C | `7 mod · 935 sahne · A1–C1` | 26 | Proof-of-scope. Use after we hit ranking traction; weak as a cold-discovery subtitle but high credibility with returning visitors. |
+| C | `7 mod · 971 sahne · A1–C2` | 26 | Proof-of-scope. Use after we hit ranking traction; weak as a cold-discovery subtitle but high credibility with returning visitors. |
 
 > **Decision:** Ship Option A — anti-pain emotional hook beats keyword stuffing when the moat is regional-language correction. 2026-05-23 v0.9.0 update: IELTS modu kodda geri olduğu için Option B artık dürüst, ama A hala converts better in cold discovery (anchor on regret, not feature list).
 
@@ -97,7 +97,7 @@ Her sahne 60 saniyenin altında. Telefonun kasarsa kasasın — Lafla beklemiyor
 ✨ NE BULURSUN
 
 🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking
-🎬 935 gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası
+🎬 971 gerçek sahne — A1 başlangıçtan C2 ileri seviyeye CEFR haritası
 🎙️ Phoneme Drill — Türk kulağı için zor sesleri (th, æ, v/w) targetli alıştırmalar
 🎧 Dinleme + yazım modu — sessiz ortamda da pratik yap
 🇹🇷 Türkçeye özel hata yakalama — article eksik, "I am go" hatası, "make picture" tuzakları
@@ -108,7 +108,7 @@ Her sahne 60 saniyenin altında. Telefonun kasarsa kasasın — Lafla beklemiyor
 
 🤔 BU UYGULAMA NEDİR?
 
-Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — 935 gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Hiçbir cevabın internete gönderilmiyor.
+Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — 971 gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Cevapların Lafla sunucularına gönderilmez; sesli giriş iOS konuşma tanıma sistemi tarafından işlenebilir.
 
 🚀 NEDEN LAFLA?
 
@@ -124,7 +124,7 @@ Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açık
 
 💎 LAFLA PRO ÜYELİK
 
-Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
+Tüm 971 sahneye erişim, sınırsız tekrar, yönlendirmeli telaffuz pratiği, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
 
 📋 Fiyat: ₺99/ay veya ₺999/yıl (yıllık planda %16 tasarruf)
 🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin
@@ -150,7 +150,7 @@ Every scene runs under 60 seconds. Real moments, real corrections, sub-3-second 
 ✨ WHAT YOU GET
 
 🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking
-🎬 935 real scenarios — CEFR-mapped from A1 to C1
+🎬 971 real scenarios — CEFR-mapped from A1 to C2
 🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse (th, æ, v/w)
 🎧 Listen & Transcribe — practice in silent environments too
 🇹🇷 Turkish-tailored error feedback — dropped articles, "I am go" mistakes, "make picture" traps
@@ -161,7 +161,7 @@ Every scene runs under 60 seconds. Real moments, real corrections, sub-3-second 
 
 🤔 WHAT IS THIS?
 
-Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — 935 real scenarios, all pre-authored, zero runtime AI hallucination. Nothing you type or say leaves your device.
+Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — 971 real scenarios, all pre-authored, zero runtime AI hallucination. Answers are not sent to Lafla servers; voice input may be processed by iOS Speech Recognition.
 
 🚀 WHY LAFLA?
 
@@ -177,7 +177,7 @@ Every scene targets these specific traps. Every correction is explained in Turki
 
 💎 LAFLA PRO MEMBERSHIP
 
-All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.
+All 971 scenes unlocked, unlimited replays, guided pronunciation practice, IELTS Band estimate, personal weakness report, advanced progress dashboard.
 
 📋 Pricing: ₺99/month or ₺999/year (16% savings on annual)
 🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions
@@ -248,7 +248,7 @@ speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation
 
 ---
 
-## 6. What's New (release notes) — v1.0.0 (built on v0.9.0)
+## 6. What's New (release notes) — v1.0.3
 
 > **TR (primary):**
 
@@ -256,7 +256,7 @@ speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation
 Lafla — ilk sürüm. Konuş, çalış.
 
 🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS
-🎬 935 oynanabilir sahne — A1'den C1'e CEFR ile haritalı
+🎬 971 oynanabilir sahne — A1'den C2'ye CEFR ile haritalı
 🎙️ Phoneme Drill — Türk kulağı için zor sesleri targetli alıştır
 🎧 Dinle + yaz modu — sessiz ortamda da pratik
 🇹🇷 Türkçeye özel hata geri bildirimi (article, doğrudan çeviri tuzakları)
@@ -276,7 +276,7 @@ Geri bildirim: berkkdemirok@gmail.com
 Lafla — first launch. Speak. Work.
 
 🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS
-🎬 935 scenarios playable at launch — CEFR-mapped A1 to C1
+🎬 971 scenarios playable at launch — CEFR-mapped A1 to C2
 🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse
 🎧 Listen & Transcribe — practice in silent environments
 🇹🇷 Turkish-tailored error feedback (articles, direct-translation traps)
@@ -300,7 +300,7 @@ Feedback: berkkdemirok@gmail.com
 
 - **Show:** Lafla wordmark + app icon centered on the dark gradient. Subtle neon-pink underline glow under the wordmark. Small caption strip beneath: 7 mode chips (Flört / İş / Bar / Havaalanı / Günlük / Sipariş / IELTS) wrapping on two rows.
 - **Headline overlay (TR):** `Donmadan İngilizce.`
-- **Sub:** `7 mod · 935 sahne · CEFR A1–C1`
+- **Sub:** `7 mod · 971 sahne · CEFR A1–C2`
 - **Why first:** The first 1–3 screenshots auto-play in App Store search. Frame 1 answers "what is this" in under a second.
 
 ### Screenshot 2 — Differentiator (Modes Feed)
@@ -337,7 +337,7 @@ Feedback: berkkdemirok@gmail.com
 ### Screenshot 6 — Pricing / Value
 
 - **Show:** Lafla Pro paywall surface. Hero: `Lafla Pro — Tüm sahneler` with a glowing border. Segmented toggle (Aylık / Yıllık) at the top with **Yıllık** preselected. Price row: `₺999 / yıl` (with `%16 indirim` pill). Below: four feature rows with checkmark icons:
-  - `✓ 935 sahnenin tamamı`
+  - `✓ 971 sahnenin tamamı`
   - `✓ Sınırsız tekrar ve telaffuz analizi`
   - `✓ IELTS Band tahmini + kişisel zayıflık raporu`
   - `✓ Erken erişim — yeni modlar`
@@ -355,7 +355,7 @@ Feedback: berkkdemirok@gmail.com
 ### Türkçe (recommended for launch)
 
 ```
-Lafla geldi. 7 mod, 935 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçe ipuçlu hata feedback. Flörtten mülakata, donma. Konuş.
+Lafla geldi. 7 mod, 971 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçe ipuçlu hata feedback. Flörtten mülakata, donma. Konuş.
 ```
 
 *(160 / 170 characters)*
@@ -363,7 +363,7 @@ Lafla geldi. 7 mod, 935 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşm
 ### English
 
 ```
-Lafla just launched. 7 modes, 935 scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.
+Lafla just launched. 7 modes, 971 scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.
 ```
 
 *(152 / 170 characters)*
@@ -420,7 +420,7 @@ Voice Journal (/voice-journal): users can record up to 2-minute audio entries; s
 
 Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → immediate deletion via Supabase edge function. No 30-day grace.
 
-No runtime LLM. All NPC dialogue and feedback is pre-authored TypeScript; runtime "smart conversation" uses a deterministic mini-Markov model for bridge phrases (lib/npc-bridge.ts), not an external API. Voice Journal audio never leaves the device.
+The 971 guided scenarios are pre-authored and scored on-device. The separate optional Free Chat screen uses an AI reply service and transmits recent conversation text as disclosed in the privacy policy. Voice Journal audio remains local.
 
 Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: berkkdemirok@gmail.com (Istanbul business hours, <4h response).
 ```
@@ -460,7 +460,7 @@ The single most "Apple Editorial"-friendly hook we have:
 
 Secondary hooks to pitch in the Featured submission form:
 
-- **"No runtime LLM, ever."** — Genuinely rare in 2026's app market; data flywheel architecture is a story.
+- **"Guided scenarios are pre-authored and locally scored."** — Reliable, fast feedback without presenting generated dialogue as authored lesson content.
 - **"6 modes including Flört and Bar"** — Mood-driven category framing the Apple editors will not have seen elsewhere.
 - **"Sub-3-second feedback loop"** — Speed as a feature, defensible because we pre-generate everything.
 

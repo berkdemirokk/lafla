@@ -1,7 +1,7 @@
 # App Store Submission — Final Checklist
 
-> **Last updated:** 2026-05-26 (v1.0.0 submission audit sonrası)
-> **Status:** Kod tarafı production-ready. v1.0.0 build 19 EAS'a yüklenmek üzere. Aşağıdaki manuel adımlar tamamlanınca "Submit for Review" basabilirsin.
+> **Last updated:** 2026-06-22 (v1.0.3 TestFlight readiness audit)
+> **Status:** Kod tarafı doğrulandı. EAS remote iOS build numarası 97; yeni production build auto-increment ile sıradaki numarayı alacak. Aşağıdaki manuel adımlar tamamlanınca gönderim yapılabilir.
 >
 > **2026-05-26 audit sonrası değişen kritik alanlar:**
 > - Privacy policy (`docs/privacy.html`) AdMob disclosure ile güncellendi — eski "no third-party ad SDKs" iddiası kaldırıldı. ATT bölümü gerçek SDK davranışına hizalandı.
@@ -15,7 +15,7 @@
 >
 > **v0.9.0 sonrası değişen alanlar (öncelikle güncelle):**
 > - Mod sayısı 6 → **7** (IELTS Speaking geri eklendi)
-> - Sahne sayısı ~480 → **935** (daily 268, work 259, flirt 141, order 93, airport 89, ielts 44, bar 41)
+> - Sahne sayısı **971**; içerik denetimi tüm rol yapma turlarını kapsar.
 > - 2 yeni side-rail mod: Phoneme Drill + Listen Mode
 > - Yıllık IAP **₺999/yıl** geri eklendi — Submission'a alın (eskiden cancelled deniyordu, artık prod paywall'da live)
 > - Smart conversation, NPC bridge phrases, Voice Journal — description body'de bahset
@@ -125,11 +125,13 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 ## B. Pre-Submission Smoke Test (FİZİKSEL CİHAZ)
 
 > macOS olmadığı için Windows'tan yapılamaz. **Bir Apple Beta tester (sen + 1 arkadaş yeter)** TestFlight üzerinden cihaza yükleyip:
+>
+> **Kanıt kaydı:** Tüm cihaz, mikrofon, erişilebilirlik, IAP, Free Chat ve silme senaryolarını `docs/TESTFLIGHT_ACCEPTANCE_v1.0.3.md` içinde tarih, cihaz, build ve ekran kaydıyla işaretle. Dil kalitesi örneklemesi `docs/LINGUIST_REVIEW_v1.0.3.csv` dosyasında tamamlanmadan App Review gönderimi yapma.
 
 - [ ] **Fresh install:** Daha önce hiç Lafla açmamış cihazda
 - [ ] **Splash 300ms** — donmaz, geçişler smooth
 - [ ] **Auth ekranı** — Apple Sign-In butonu görünür
-- [ ] **Onboarding 4 adım** — welcome → interests (6 chip, en az 2 zorla) → name → cefr → bitince ATT prompt
+- [ ] **Onboarding 2 adım** — interests (tek seçim yeterli, atlanabilir) → cefr → kişiselleştirilmiş ilk pratik → bitince ATT prompt
 - [ ] **Home feed** — TikTok-style swipe, sahneler 7 mod arasından geliyor (Flört · İş · Bar · Havaalanı · Günlük · Sipariş · IELTS)
 - [ ] **Bir sahne aç** — SETUP → DRILL → SCENE → VERDICT akar
 - [ ] **Mikrofon izni** — voice exercise'da prompt çıkıyor mu
@@ -210,6 +212,6 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 | Apple Team ID | `44B88YK392` |
 | EAS Project ID | `a7b18723-d431-481b-92cd-18a4c1104171` |
 | Mod count | **7** (Flört · İş · Bar · Havaalanı · Günlük · Sipariş · IELTS) |
-| Scene count | **935** |
+| Scene count | **971** |
 | Side-rail modes | Phoneme Drill, Listen & Transcribe, Voice Journal |
 | Faz 1-3 test plan | `docs/TESTFLIGHT_v0.9.md` |

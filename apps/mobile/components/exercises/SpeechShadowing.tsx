@@ -7,12 +7,13 @@
 // 4. Auto-advance after a 1s beat.
 //
 // Speech recognition is loaded defensively — if the native module is
-// missing (Expo Go, simulator, or just not installed yet) we mark the
-// phrase as skipped with score 100 so the lesson still flows.
+// missing (Expo Go, simulator, or just not installed yet) the phrase is
+// unassessed; skipped attempts never inflate the score.
 
 import { useEffect, useRef, useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { tokens } from "../../theme";
+import { summarizePronunciationAttempts } from "../../lib/pronunciation-session";
 import { speak, stop as stopSpeak } from "../../lib/tts";
 import {
   isAvailable as srIsAvailable,
@@ -90,30 +91,24 @@ export function SpeechShadowing({
   };
 
   const finishExercise = (finalResults: PhraseResult[]) => {
-    const avg =
-      finalResults.length === 0
-        ? 0
-        : Math.round(
-            finalResults.reduce((s, r) => s + r.score, 0) /
-              finalResults.length,
-          );
-    const skippedAll = finalResults.every((r) => r.skipped);
+    const summary = summarizePronunciationAttempts(finalResults);
     // 2026-05-23 — CEFR fix v2: SADECE pronunciation-history'e yaz.
     // Eski recordCefrProgress çağrısı kaldırıldı — scene verdict zaten
     // bu egzersizin skorunu averaged scene score üzerinden CEFR'a feed
     // ediyor. Çift yazma = level 2-3× hızlı yükseliyordu (audit teyit).
     // Skipped session (STT yok) credit verilmez.
-    if (!skippedAll && avg > 0) {
-      void pushPronScore(avg, "speech_shadowing").catch(() => {});
+    if (summary.evaluatedCount > 0 && summary.score > 0) {
+      void pushPronScore(summary.score, "speech_shadowing").catch(() => {});
     }
     onComplete({
       exercise_id: "speech_shadowing",
       exercise_type: "speech_shadowing",
-      correct: avg >= 60,
-      score: avg,
-      feedback: skippedAll
-        ? "Konuşma tanıma kullanılamadı — atlandı."
-        : `${finalResults.length} cümle tekrar ettin · ortalama ${avg}/100.`,
+      correct: summary.correct,
+      score: summary.score,
+      feedback:
+        summary.evaluatedCount === 0
+          ? "Konuşma tanıma kullanılamadı — puan verilmeden atlandı."
+          : `${summary.evaluatedCount} cümle değerlendirildi · ortalama ${summary.score}/100${summary.skippedCount > 0 ? ` · ${summary.skippedCount} tur atlandı` : ""}.`,
     });
   };
 
@@ -140,7 +135,7 @@ export function SpeechShadowing({
     if (gradedRef.current) return;
     gradedRef.current = true;
 
-    let score = 100;
+    let score = 0;
     if (!skipped && current) {
       const g = gradePronunciation(current, heardRef.current);
       score = g.score;
@@ -356,7 +351,12 @@ export function SpeechShadowing({
       <View style={styles.spacer} />
 
       <View style={styles.footer}>
-        <Pressable style={styles.skipBtn} onPress={onSkipAll}>
+        <Pressable
+          style={styles.skipBtn}
+          onPress={onSkipAll}
+          accessibilityRole="button"
+          accessibilityLabel="Gölgeleme alıştırmasını atla"
+        >
           <Text style={styles.skipLabel}>Atla</Text>
         </Pressable>
       </View>

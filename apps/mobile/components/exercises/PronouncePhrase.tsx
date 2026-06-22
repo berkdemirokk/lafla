@@ -38,6 +38,7 @@ import {
   type PronunciationBand,
   type PhonemeAnalysisResult,
 } from "../../lib/pronunciation-grader";
+import { unavailablePronunciationResult } from "../../lib/pronunciation-session";
 import { pushPronScore } from "../../lib/pronunciation-history";
 import { PhonemeFeedback } from "../PhonemeFeedback";
 
@@ -189,26 +190,13 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
     }
 
     if (!sr) {
-      // Graceful degrade — skip pronunciation for this exercise.
-      onComplete({
-        exercise_id: "pronounce_phrase",
-        exercise_type: "pronounce_phrase",
-        correct: true,
-        score: 100,
-        feedback: "Telaffuz atlandı (cihaz desteklemiyor).",
-      });
+      onComplete(unavailablePronunciationResult("pronounce_phrase"));
       return;
     }
 
     const available = await sr.isAvailable().catch(() => false);
     if (!available) {
-      onComplete({
-        exercise_id: "pronounce_phrase",
-        exercise_type: "pronounce_phrase",
-        correct: true,
-        score: 100,
-        feedback: "Telaffuz atlandı (cihaz desteklemiyor).",
-      });
+      onComplete(unavailablePronunciationResult("pronounce_phrase"));
       return;
     }
 

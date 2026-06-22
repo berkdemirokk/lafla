@@ -94,6 +94,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(crazy (crowd|night|vibe))",
             "(first time (in|here|at this place))",
           ],
+          model_answers: ["Quick question — that looks good. What are you drinking?"],
           hint_tr:
             "Cevre-bazli ac: 'Quick question — that looks good. What are you drinking?'",
         },
@@ -112,6 +113,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(how is it|worth the smoke|how strong)",
             "(any (other|favorite) (drinks|recs))",
           ],
+          model_answers: ["Oh nice — usually a gin person but might try. Worth it?"],
           hint_tr:
             "Devam: 'Oh nice — usually a gin person but might try. Worth it?'",
         },
@@ -131,6 +133,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(actually )?(hometown|new in town)(,)? (still exploring)",
             "(it'?s on my list|been meaning to come)",
           ],
+          model_answers: ["No, first time — my friend recommended it"],
           hint_tr:
             "Yer ilişkisi: 'No, first time — my friend recommended it' veya 'Kind of a regular, come once a month'. Türk öğrenci 'evet'/'hayır' kuru bırakır; bir cümle daha ekle (sebep, sıklık, kaynak).",
         },
@@ -150,6 +153,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(just (out|in town))(,)? (figured i'?d explore)",
             "(no real plan)(,)? (just (here|out for a bit))",
           ],
+          model_answers: ["Yeah, just unwinding — long week"],
           hint_tr:
             "Tonight neden? 'Yeah, just unwinding — long week' veya 'Meeting a friend, waiting for them now'. Türk: 'Kafa dağıtmak için' = 'to unwind / to decompress' (modern).",
         },
@@ -169,6 +173,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(might (try|check) (somewhere new|a new spot))",
             "(low-key (weekend|plans)|low key)",
           ],
+          model_answers: ["Just rolling with it — maybe brunch Sunday"],
           hint_tr:
             "Hafta sonu paylaş: 'Just rolling with it — maybe brunch Sunday' veya 'Open to suggestions, honestly'. Türk: 'kafama göre takılıyorum' = 'playing it by ear / rolling with it' (modern).",
         },
@@ -621,6 +626,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(just a (friendly|kind) gesture)",
             "(if (you'?d rather not|that'?s weird))",
           ],
+          model_answers: ["Hey, can I grab you another? No strings — just friendly."],
           hint_tr:
             "Saygili: 'Hey, can I grab you another? No strings — just friendly.'",
         },
@@ -639,6 +645,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(what was that|that was)",
             "(more chat|hang|stick around)",
           ],
+          model_answers: ["Of course! Same drink or something else? Cheers!"],
           hint_tr:
             "Bag kur: 'Of course! Same drink or something else? Cheers!'",
         },
@@ -658,6 +665,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(the (silent|tricky) part is) .{0,20}",
             "(rhymes with )?.{0,20}",
           ],
+          model_answers: ["It's Berk — rhymes with"],
           hint_tr:
             "İsmini öğret: 'It's Berk — rhymes with 'work'. The 'B' is hard' veya 'Sounds like 'bear-k', basically'. Türk: 'Berk' = İngilizce'de zor; rhyme veya phonetic spelling kullan. Türk isimleri Batı'da zorlu — heceleme + rhyme en hızlı.",
         },
@@ -677,6 +685,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(freelance )?(\\w+)( for a few years)?",
             "(short answer)(,)? .{0,40}",
           ],
+          model_answers: ["I'm a software engineer — building a language app right now"],
           hint_tr:
             "Mesleğini paylaş: 'I'm a software engineer — building a language app right now' veya 'In tech, leading payments'. Türk: 'mühendis' = engineer; spesifik ekle (software / mechanical / electrical).",
         },
@@ -696,6 +705,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(came from (a )?(different|other) (field|background))",
             "(love it (so far|honestly|now))",
           ],
+          model_answers: ["Recent pivot from finance, love it"],
           hint_tr:
             "Kariyer arkı: 'Five years in — started as a junior, now lead' veya 'Recent pivot from finance, love it'. Türk öğrenci 'X yıldır' = 'for X years' direkt çevirir; doğal 'I've been doing it for X years' (present perfect).",
         },
@@ -1148,6 +1158,7 @@ export const barApproachLesson_24_3: BundledLesson = {
             "(i'?m berk|been chatting with sarah)",
             "(working on (\\w+)|been working on)",
           ],
+          model_answers: ["Hey, mind if I jump in? How do you know Sarah?"],
           hint_tr:
             "Saygili katil: 'Hey, mind if I jump in? How do you know Sarah?'",
         },
@@ -1166,6 +1177,7 @@ export const barApproachLesson_24_3: BundledLesson = {
             "(how was|how were they) (the team|the project)",
             "(any (good|funny|wild) (stories|memories))",
           ],
+          model_answers: ["College friends — we go way back. What did you do at Acme?"],
           hint_tr:
             "Devam: 'College friends — we go way back. What did you do at Acme?'",
         },
@@ -1618,6 +1630,7 @@ export const barApproachLesson_24_4: BundledLesson = {
             "(i'?ll have|i'?ll take|let me get) (an? )?",
             "(only if|just) (next round'?s on me|i get the next)",
           ],
+          model_answers: ["Sure, I'd love one — but the next round's on me."],
           hint_tr:
             "Kabul + karşılık niyeti: 'Sure, I'd love one — but the next round's on me.'",
         },
@@ -1633,6 +1646,7 @@ export const barApproachLesson_24_4: BundledLesson = {
             "(surprise me|barista'?s choice|bartender'?s pick)",
             "(just )?(a beer|something light|nothing too strong)",
           ],
+          model_answers: ["whatever you're having"],
           hint_tr:
             "Spesifik içki söyle veya 'whatever you're having'.",
         },
@@ -1649,6 +1663,7 @@ export const barApproachLesson_24_4: BundledLesson = {
             "(buddy|friend|coworker) (brought me|recommended)",
             "(stumbled in|just walked by|saw the sign)",
           ],
+          model_answers: ["Yeah, first time — a friend recommended it."],
           hint_tr:
             "Kısa cevap + sohbet açıklama hint: 'Yeah, first time — a friend recommended it.'",
         },
@@ -1774,11 +1789,12 @@ export const barApproachLesson_24_5: BundledLesson = {
           acceptable_patterns: [
             "(hey|hi|excuse me)",
             "(this seat (taken|free)|anyone (sitting|using) (here|this))",
-            "(mind if (i|i'?d)) (grab|take|sit))?",
+            "(mind if (i|i'?d)) (grab|take|sit)?",
             "(place is (packed|wild|busy)|crazy crowd)",
             "(what are you (drinking|having))",
             "(looks (good|solid|interesting))",
           ],
+          model_answers: ["Hey, this seat taken? Place is packed tonight."],
           hint_tr:
             "Acilis: 'Hey, this seat taken? Place is packed tonight.'",
         },
@@ -1797,6 +1813,7 @@ export const barApproachLesson_24_5: BundledLesson = {
             "(cool|nice|awesome) (vibe|spot|place)",
             "(stuck around|hanging|solo tonight)",
           ],
+          model_answers: ["First time here — any drink recs?"],
           hint_tr:
             "Devam: 'First time here — any drink recs?' veya 'What are you having? Looks good.'",
         },
@@ -2205,12 +2222,13 @@ export const barApproachLesson_24_6: BundledLesson = {
           speaker: "user",
           acceptable_patterns: [
             "(hey|hi|hey guys|hey all)",
-            "(mind if (i|i'?d)) (join|jump in|crash))?",
+            "(mind if (i|i'?d)) (join|jump in|crash)?",
             "(room for one more|space for me)",
             "(looked like (fun|a blast|a good time))",
             "(what were you (guys|all) (talking|laughing|chatting) about)",
             "(what'?s (the )?(convo|topic|story))",
           ],
+          model_answers: ["Hey guys, mind if I join? Looked like fun."],
           hint_tr:
             "Saygili katilim: 'Hey guys, mind if I join? Looked like fun.'",
         },
@@ -2229,6 +2247,7 @@ export const barApproachLesson_24_6: BundledLesson = {
             "(can'?t (top|beat) that|hard act to follow)",
             "(set me up|hit me|fill me in)",
           ],
+          model_answers: ["Oh no — that's gold. Whose was the worst?"],
           hint_tr:
             "Devam: 'Oh no — that's gold. Whose was the worst?'",
         },
@@ -2642,6 +2661,7 @@ export const barApproachLesson_24_7: BundledLesson = {
             "(great (meeting|chatting with) you|so glad we talked)",
             "(don'?t (be a stranger|disappear)|stick around)",
           ],
+          model_answers: ["Cool chatting! Gonna grab another — catch you in a bit."],
           hint_tr:
             "Sicak exit: 'Cool chatting! Gonna grab another — catch you in a bit.'",
         },
@@ -2660,6 +2680,7 @@ export const barApproachLesson_24_7: BundledLesson = {
             "(cheers|peace|alright)",
             "(don'?t (let me|wanna) keep you)",
           ],
+          model_answers: ["For sure — enjoy the rest of your night. Cheers!"],
           hint_tr:
             "Kapanis: 'For sure — enjoy the rest of your night. Cheers!'",
         },
@@ -3073,6 +3094,7 @@ export const barApproachLesson_24_8: BundledLesson = {
             "(no (pressure|worries|stress)|totally cool if not)",
             "(whatever'?s (easier|cool|fine))",
           ],
+          model_answers: ["This was fun — wanna swap Instas? No pressure."],
           hint_tr:
             "Saygili istek: 'This was fun — wanna swap Instas? No pressure.'",
         },
@@ -3091,6 +3113,7 @@ export const barApproachLesson_24_8: BundledLesson = {
             "(talk soon|chat soon|catch you online)",
             "(have a good (rest of (the )?night|one))",
           ],
+          model_answers: ["Cool, mine's berk.eng. I'll shoot you a DM. Have a good rest of the night!"],
           hint_tr:
             "Onayla: 'Cool, mine's berk.eng. I'll shoot you a DM. Have a good rest of the night!'",
         },

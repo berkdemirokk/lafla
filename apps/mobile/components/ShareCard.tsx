@@ -19,7 +19,7 @@ import {
 import { tokens } from "../theme";
 
 export interface ShareCardProps {
-  score: number;
+  assessment: string;
   cefrLevel: string | null;
   cefrProgress: number;
   sceneTitle: string;
@@ -55,7 +55,7 @@ const MODE_LABEL: Record<string, string> = {
  * çıktı 1080×1920'e yakın olur.
  */
 export const ShareCard = forwardRef<View, ShareCardProps>(function ShareCard(
-  { score, cefrLevel, cefrProgress, sceneTitle, sceneMode, userName, style },
+  { assessment, cefrLevel, cefrProgress, sceneTitle, sceneMode, userName, style },
   ref,
 ) {
   const emoji = MODE_EMOJI[sceneMode] ?? "🎯";
@@ -77,8 +77,7 @@ export const ShareCard = forwardRef<View, ShareCardProps>(function ShareCard(
       {/* Hero — büyük skor + CEFR */}
       <View style={styles.hero}>
         <Text style={styles.heroEmoji}>{emoji}</Text>
-        <Text style={styles.scoreNum}>{score}</Text>
-        <Text style={styles.scoreOf}>/ 100</Text>
+        <Text style={styles.assessment}>{assessment}</Text>
         <View style={styles.cefrPill}>
           <Text style={styles.cefrText}>{cefrDisplay}</Text>
         </View>
@@ -147,22 +146,17 @@ const styles = StyleSheet.create({
     fontSize: 56,
     marginBottom: 8,
   },
-  scoreNum: {
-    fontSize: 96,
+  assessment: {
+    fontSize: 32,
     fontWeight: tokens.weight.black,
     color: tokens.brand.primary,
-    letterSpacing: -4,
+    letterSpacing: -1,
     fontFamily: tokens.font.display,
-    lineHeight: 96,
+    lineHeight: 38,
+    textAlign: "center",
     textShadowColor: tokens.brand.primary,
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 18,
-  },
-  scoreOf: {
-    fontSize: 18,
-    color: tokens.text.tertiary,
-    fontWeight: tokens.weight.bold,
-    marginTop: -8,
   },
   cefrPill: {
     marginTop: 14,

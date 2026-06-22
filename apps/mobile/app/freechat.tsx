@@ -1,16 +1,13 @@
 // Freechat — switch-trigger #4 (2026-05-20).
 //
-// Lafla'nın "sıfır LLM" konumlandırması rakipler için moat; ama kullanıcı
-// "günümü anlatmak istiyorum" derse karşılığı yoktu. Free chat hybrid bu
-// boşluğu deterministic, regex-tabanlı bir state machine ile kapatır:
+// Rehberli senaryolardan ayrı, isteğe bağlı AI destekli serbest sohbet:
 //   1. Günün prompt'u (pickPromptOfDay) NPC opener olarak gelir
 //   2. Kullanıcı serbest text yazar
-//   3. pickFollowup() pattern matcher cevabı sınıflandırır, NPC reply gönderir
+//   3. Güvenli Edge Function üzerinden kısa bir AI yanıtı alınır
 //   4. Switch-2 inline error UI burada da çalışır (Türkçe hata ipucu)
 //   5. 5. user turn sonra paywall ("Lafla Pro ile uzunluk sınırı yok")
 //
-// Latency: 0 LLM, <5ms per turn. iMessage tarzı bubble UI; RoleplayChat'in
-// daha minimal versiyonu (skor chip yok — bu "akıcılık testi" değil sohbet).
+// Hata/zaman aşımında statik takip sorusuna düşer; kullanıcı sohbeti sürdürebilir.
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -72,6 +69,7 @@ export default function FreechatScreen() {
   const [userTurnCount, setUserTurnCount] = useState(0);
   const [premium, setPremium] = useState(false);
   const [crisisModalVisible, setCrisisModalVisible] = useState(false);
+  const [serviceNotice, setServiceNotice] = useState<string | null>(null);
   const scrollRef = useRef<ScrollView | null>(null);
 
   // Sahne açılışında analytics + premium check (kullanıcı premium'sa
@@ -132,6 +130,7 @@ export default function FreechatScreen() {
   const sendUserTurn = async () => {
     const text = input.trim();
     if (!text || limitHit || loading) return;
+    setServiceNotice(null);
 
     const inputSafety = checkUserInput(text);
     if (!inputSafety.ok) {
@@ -224,6 +223,7 @@ export default function FreechatScreen() {
         maxTokens: 128,
       });
       const aiReply = completion.text;
+      setServiceNotice(null);
       setUserTurnCount(completion.currentTurns ?? userTurnCount + 1);
       const outputSafety = checkMayaOutput(aiReply);
       if (!outputSafety.ok) {
@@ -264,6 +264,9 @@ export default function FreechatScreen() {
       console.warn(
         "[Freechat] LLM router failed, falling back to static prompt:",
         err,
+      );
+      setServiceNotice(
+        "Canlı yanıt gecikti. Sohbeti hazır takip sorusuyla sürdürüyoruz.",
       );
       try {
         const { data: serverTurns } = await supabase.rpc("get_freechat_usage");
@@ -354,6 +357,12 @@ export default function FreechatScreen() {
           ))}
         </ScrollView>
 
+        {serviceNotice ? (
+          <Text style={styles.serviceNotice} accessibilityLiveRegion="polite">
+            {serviceNotice}
+          </Text>
+        ) : null}
+
         {/* Paywall gate OR input */}
         {!premium && userTurnCount >= FREE_CHAT_FREE_TURN_LIMIT ? (
           <View style={styles.paywallBox}>
@@ -379,6 +388,8 @@ export default function FreechatScreen() {
               returnKeyType="send"
               onSubmitEditing={sendUserTurn}
               editable={!limitHit && !loading}
+              accessibilityLabel="Serbest sohbet mesajı"
+              accessibilityHint="İngilizce mesajını yaz"
             />
             <Pressable
               onPress={sendUserTurn}
@@ -391,6 +402,10 @@ export default function FreechatScreen() {
               ]}
               accessibilityRole="button"
               accessibilityLabel="Gönder"
+              accessibilityState={{
+                disabled: !input.trim() || limitHit || loading,
+                busy: loading,
+              }}
             >
               <Text style={styles.sendText}>↑</Text>
             </Pressable>
@@ -421,6 +436,9 @@ function ChatLineView({ line }: { line: ChatLine }) {
     >
       <Pressable
         onPress={() => speak(line.text)}
+        accessibilityRole="button"
+        accessibilityLabel={`${isUser ? "Sen" : "Sohbet partneri"}: ${line.text}`}
+        accessibilityHint="Mesajı sesli dinler"
         style={[
           bubbleStyles.bubble,
           isUser ? bubbleStyles.bubbleUser : bubbleStyles.bubbleNpc,
@@ -495,6 +513,13 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.bold,
     color: tokens.text.tertiary,
     letterSpacing: 0.5,
+  },
+  serviceNotice: {
+    marginHorizontal: 16,
+    marginBottom: 8,
+    color: tokens.semantic.warning,
+    fontSize: 12,
+    lineHeight: 17,
   },
 
   chatContent: {

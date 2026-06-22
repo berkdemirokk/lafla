@@ -225,6 +225,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(any chance|by any chance)",
             "(would (work|fit|do))",
           ],
+          model_answers: ["Hi — do you have this shirt in a medium?"],
           hint_tr:
             "Net soru: 'Hi — do you have this shirt in a medium?'",
         },
@@ -243,6 +244,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(when (the )?next (shipment|delivery) (comes in|expected))",
             "(other stores in the area)",
           ],
+          model_answers: ["Thanks! If not — any other branches stock it?"],
           hint_tr:
             "Tesekkur + plan B: 'Thanks! If not — any other branches stock it?'",
         },
@@ -262,6 +264,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(yeah )?grab it (please|thanks)",
             "(could you also bring|while you'?re at it) (a small|a large) too",
           ],
+          model_answers: ["Yes please — could I try it on?"],
           hint_tr:
             "Onay veya alternatif: 'Yes please — could I try it on?' veya 'While you're at it, a small too?'. Türk: 'denerim' = 'I'll try it on' (mağaza için sabit kalıp). 'Denemek' = try ama 'try on' = giysi denemek.",
         },
@@ -281,6 +284,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(while i'?m here)(,)? .{0,40}",
             "(any (new arrivals|fall collection))",
           ],
+          model_answers: ["Yes, looking for jeans too, any in size 32?"],
           hint_tr:
             "Ek alışveriş veya kapat: 'Yes, looking for jeans too, any in size 32?' veya 'No, just this for now, thanks'. Türk öğrenci 'indirim' = 'discount' direkt çevirir; 'sale' veya 'deals' daha doğal.",
         },
@@ -300,6 +304,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(20 percent off )?(awesome|amazing|nice)",
             "(do i need a code|is there a coupon)",
           ],
+          model_answers: ["Oh perfect — does it stack with other offers?"],
           hint_tr:
             "Sale haberi: 'Oh perfect — does it stack with other offers?' veya 'Great, I'll check the denim wall'. Türk: 'kapışırım' = direkt çevirisi yok; 'I'll grab some' modern karşılık.",
         },
@@ -744,6 +749,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
             "(in the (shoulders|chest|waist|legs))",
             "(size up|size down|one (size )?(larger|smaller))",
           ],
+          model_answers: ["Excuse me — this shirt is tight in the shoulders. Size up?"],
           hint_tr:
             "Spesifik: 'Excuse me — this shirt is tight in the shoulders. Size up?'",
         },
@@ -761,6 +767,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
             "(any (other (colors|prints))) (in (my )?size)",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Same color, thanks. Does this brand run small?"],
           hint_tr:
             "Devam: 'Same color, thanks. Does this brand run small?'",
         },
@@ -1213,6 +1220,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
             "(have (the )?receipt|tags (are )?still on)",
             "(unworn|new|never used)",
           ],
+          model_answers: ["Hi, I'd like to return this shirt. Receipt's here, tags still on."],
           hint_tr:
             "Net: 'Hi, I'd like to return this shirt. Receipt's here, tags still on.'",
         },
@@ -1231,6 +1239,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
             "(could i get|how would i get) (a refund|store credit)",
             "(to my (original )?card)",
           ],
+          model_answers: ["Didn't fit. Refund to my original card if possible."],
           hint_tr:
             "Sebep + refund: 'Didn't fit. Refund to my original card if possible.'",
         },
@@ -1681,6 +1690,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
             "(this (\\w+) is (\\$\\d+|cheaper) (online|at \\w+))",
             "(promo code)",
           ],
+          model_answers: ["Quick question — any student discount available?"],
           hint_tr:
             "Saygili: 'Quick question — any student discount available?'",
         },
@@ -1699,6 +1709,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
             "(let'?s do it|sounds great)",
             "(no thanks|i'?ll pass on the app)",
           ],
+          model_answers: ["Not yet — happy to sign up if it's quick. Let's do it."],
           hint_tr:
             "Karar ver: 'Not yet — happy to sign up if it's quick. Let's do it.'",
         },
@@ -2151,6 +2162,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
             "(bought it (yesterday|last week))",
             "(in (a )?(medium|large|size up|bigger size))",
           ],
+          model_answers: ["Hi, I'd like to exchange this shirt — it runs a bit small. Do you have it in a medium?"],
           hint_tr:
             "Net acilis: 'Hi, I'd like to exchange this shirt — it runs a bit small. Do you have it in a medium?'",
         },
@@ -2169,6 +2181,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
             "(took it home (and )?tried it on)",
             "(only tried (it )?on (once|at home))",
           ],
+          model_answers: ["Yes — receipt's here, tags still on. Only tried it on at home."],
           hint_tr:
             "Onayla: 'Yes — receipt's here, tags still on. Only tried it on at home.'",
         },
@@ -2581,6 +2594,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
             "(don'?t have (the )?receipt|no receipt|without (a |the )?receipt)",
             "(tags (are )?still (on|attached)|unworn|brand new)",
           ],
+          model_answers: ["Hi — I'd like to return this. It was a gift, so I don't have the receipt, but tags are still on."],
           hint_tr:
             "Acik ol: 'Hi — I'd like to return this. It was a gift, so I don't have the receipt, but tags are still on.'",
         },
@@ -2599,6 +2613,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
             "(does it (expire|have a date))",
             "(thank you|appreciate it)",
           ],
+          model_answers: ["That works. Quick question — does the store credit expire?"],
           hint_tr:
             "Kabul + sor: 'That works. Quick question — does the store credit expire?'",
         },
@@ -3013,6 +3028,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
             "(\\d+% off|on sale)",
             "(could you (check|double-check|verify))",
           ],
+          model_answers: ["Sorry — I think the discount didn't apply. The shelf tag showed 40% off. Could you double-check?"],
           hint_tr:
             "Saygili: 'Sorry — I think the discount didn't apply. The shelf tag showed 40% off. Could you double-check?'",
         },
@@ -3031,6 +3047,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
             "(stocked under the (sale|discount) (sign|rack))",
             "(it (still has|is under) the sale tag)",
           ],
+          model_answers: ["Sure — it's by the wool sweaters. Any chance you'd still honor the tag price?"],
           hint_tr:
             "Gosterek + saygili pazarlik: 'Sure — it's by the wool sweaters. Any chance you'd still honor the tag price?'",
         },
@@ -3445,6 +3462,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
             "(where (would|can) i find)",
             "(polyester|rain jacket|raincoat|waterproof)",
           ],
+          model_answers: ["Excuse me — I'm looking for a polyester rain jacket. Do you carry those?"],
           hint_tr:
             "Acilis: 'Excuse me — I'm looking for a polyester rain jacket. Do you carry those?'",
         },
@@ -3463,6 +3481,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
             "(rain check)",
             "(any (other (colors|styles|brands))) (in (the )?store)",
           ],
+          model_answers: ["Thanks! Medium. Also — if they're out of stock, do you do rain checks?"],
           hint_tr:
             "Tesekkur + detay: 'Thanks! Medium. Also — if they're out of stock, do you do rain checks?'",
         },

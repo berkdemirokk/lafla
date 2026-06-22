@@ -101,6 +101,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
             "(in the next (week|couple of weeks|two weeks))",
             "(happy to|will) (share|send) (an agenda|some context|a few topics)",
           ],
+          model_answers: ["Hey — could we set up time to talk about my growth in the next couple of weeks? Happy to send an agenda."],
           hint_tr:
             "Sablon: 'Hey — could we set up time to talk about my growth in the next couple of weeks? Happy to send an agenda.'",
         },
@@ -119,6 +120,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
             "(send (over|you) (the agenda|a doc|some notes) (today|by (tomorrow|friday|eod)))",
             "(want your honest read|open to hearing)",
           ],
+          model_answers: ["Want to walk you through my Q3 impact and where I'd like to grow. Will send the agenda by EOD."],
           hint_tr:
             "Spesifik ol: 'Want to walk you through my Q3 impact and where I'd like to grow. Will send the agenda by EOD.'",
         },
@@ -136,6 +138,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
             "(open to|happy to) (hear (what'?s missing|where the bar is))",
             "(no homework needed|nothing required|just (the agenda|the doc))",
           ],
+          model_answers: ["Appreciate you asking — the levels rubric and the one-pager I'll send. No other homework needed."],
           hint_tr:
             "Hazırlık yönlendir: 'Appreciate you asking — the levels rubric and the one-pager I'll send. No other homework needed.'",
         },
@@ -563,6 +566,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
             "(taken on|stepped into|picked up) (senior(-?level)? scope|more scope|the scope of)",
             "(operating at|working at) (the next level|senior level)",
           ],
+          model_answers: ["Here's the impact I've had — led X (Y% lift), owned Z end-to-end. Operating at senior scope."],
           hint_tr:
             "Acilis: 'Here's the impact I've had — led X (Y% lift), owned Z end-to-end. Operating at senior scope.'",
         },
@@ -580,6 +584,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
             "(partnered (with|across) (design|product|data|infra))",
             "(established|wrote) (the (runbook|on-call (process|playbook)|standard))",
           ],
+          model_answers: ["Mentored two juniors, drove the on-call playbook adoption, partnered with infra on the migration."],
           hint_tr:
             "Cross-team etki: 'Mentored two juniors, drove the on-call playbook adoption, partnered with infra on the migration.'",
         },
@@ -598,6 +603,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
             "(realistic about|aware that) (calibration|the process|hr cycles)",
             "(if|once) (the case is strong|impact is visible)",
           ],
+          model_answers: ["Honestly, hoping for next cycle — but open to your read on timing. Want to be intentional, not push."],
           hint_tr:
             "Esnek + net: 'Honestly, hoping for next cycle — but open to your read on timing. Want to be intentional, not push.'",
         },
@@ -935,6 +941,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
             "(looking for|targeting|aiming for) (a (number|range)|the (upper|higher) end|\\d+k? ?-? ?\\d+k?)",
             "(what'?s the band|what does the band look like|where does the band) (for this (level|role))",
           ],
+          model_answers: ["Market data shows 175-195 for senior — I'm looking at the upper end. What's the band for this level?"],
           hint_tr:
             "Yapi: 'Market data shows 175-195 for senior — I'm looking at the upper end. What's the band for this level?'",
         },
@@ -953,6 +960,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
             "(equity|sign-on|bonus|title) (component|piece|adjustment)",
             "(what would it take|what's possible|where's the flex)",
           ],
+          model_answers: ["Appreciate that — given the impact, could we land closer to 187? Open to equity/bonus too."],
           hint_tr:
             "Karsi teklif: 'Appreciate that — given the impact, could we land closer to 187? Open to equity/bonus too.'",
         },
@@ -971,6 +979,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
             "(give me a sense|walk me through) (what'?s typical|what (the)? package looks like)",
             "(comfortable closing|would land) (if (the )?(total comp|tc) (gets to|hits))",
           ],
+          model_answers: ["Absolutely — equity works. Prefer base where possible, but happy to layer a sign-on to bridge."],
           hint_tr:
             "Esnek anchor: 'Absolutely — equity works. Prefer base where possible, but happy to layer a sign-on to bridge.'",
         },
@@ -1310,6 +1319,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
             "(let'?s (revisit|circle back|come back to (this|it))|want to set a follow-?up)",
             "(want to (document|write (this|it) down|put this in writing))",
           ],
+          model_answers: ["Understood — what would I need to demonstrate to revisit this in Q3? Want to document the criteria."],
           hint_tr:
             "Olgun acilis: 'Understood — what would I need to demonstrate to revisit this in Q3? Want to document the criteria.'",
         },
@@ -1328,6 +1338,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
             "(monthly check-?ins|biweekly progress|q1/q2 milestones)",
             "(if I hit (these|the criteria)|once these are in)",
           ],
+          model_answers: ["Clear. Will send you a doc by Friday with milestones — monthly check-ins, revisit Q3."],
           hint_tr:
             "Sahiplen: 'Clear. Will send you a doc by Friday with milestones — monthly check-ins, revisit Q3.'",
         },
@@ -1346,6 +1357,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
             "(write up|share|send) (a (one-?pager|status|update)) (before each check-?in)",
             "(course-?correct|adjust) (if (i'?m off|signals (slip|change)))",
           ],
+          model_answers: ["Good question — month-by-month milestones, with a one-pager before each check-in. Easy to course-correct."],
           hint_tr:
             "Somut izleme: 'Good question — month-by-month milestones, with a one-pager before each check-in. Easy to course-correct.'",
         },
@@ -1683,6 +1695,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
             "(in the next (couple of weeks|few weeks|two weeks)|sometime soon)",
             "(don'?t need to (dive in|get into it) (now|today)|happy to do it (next 1:1|when you have time))",
           ],
+          model_answers: ["One more thing — wanted to put it on your radar. Could we talk growth in the next couple of weeks? No need to dive in today."],
           hint_tr:
             "Yapi: 'One more thing — wanted to put it on your radar. Could we talk growth in the next couple of weeks? No need to dive in today.'",
         },
@@ -1701,6 +1714,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
             "(want to (be intentional|do this right|have it on paper)|map out the path)",
             "(send (a doc|some thoughts|the agenda) (ahead|beforehand|before we meet))",
           ],
+          model_answers: ["Been thinking about scope and trajectory — feel like the work's been beyond my current level. Want to map out the path. Will send a doc ahead."],
           hint_tr:
             "Genel yon ver, detay degil: 'Been thinking about scope and trajectory — feel like the work's been beyond my current level. Want to map out the path. Will send a doc ahead.'",
         },
@@ -1719,6 +1733,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
             "(no homework|nothing required|just (the doc|an open mind))",
             "(open to|happy to hear) (anything you'?d push back on)",
           ],
+          model_answers: ["Your honest read on the gap to the next level — that's the most useful thing."],
           hint_tr:
             "Hazırlık ver: 'Your honest read on the gap to the next level — that's the most useful thing.'",
         },
@@ -2012,6 +2027,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
             "(beyond (my (current )?scope|my (role|level)|the role)|outside (my )?scope)",
             "(took on|stepped into|picked up) (two|three|multiple) (projects|initiatives)",
           ],
+          model_answers: ["Last quarter I shipped X — that drove Y%. Plus I owned Z, which was beyond my current scope."],
           hint_tr:
             "Sablon: 'Last quarter I shipped X — that drove Y%. Plus I owned Z, which was beyond my current scope.'",
         },
@@ -2028,6 +2044,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
             "(unblocked|enabled|de-?risked) (the (\\w+ )?team)",
             "(set the (technical )?direction|drove (alignment|the strategy))",
           ],
+          model_answers: ["The incident response rebuild — typically owned by tech lead, but no one was. I set the direction, unblocked three teams."],
           hint_tr:
             "En guclu kart: 'The incident response rebuild — typically owned by tech lead, but no one was. I set the direction, unblocked three teams.'",
         },
@@ -2045,6 +2062,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
             "(copy-?paste(-)?friendly|easy to (pull|drop) into the (calibration|review))",
             "(structured by|organized by) (project|scope|impact)",
           ],
+          model_answers: ["Absolutely — brag doc ready, quantified per project. Copy-paste friendly, in your inbox by EOD."],
           hint_tr:
             "Yazılı destek: 'Absolutely — brag doc ready, quantified per project. Copy-paste friendly, in your inbox by EOD.'",
         },
@@ -2341,6 +2359,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
             "(and (the )?impact|plus what I'?ve (delivered|shipped|owned))",
             "(upper (half|end) of (the )?range|that'?s where I'?d like to land|that feels fair)",
           ],
+          model_answers: ["My target is 185, based on market rate at 175-195 and the impact I've delivered."],
           hint_tr:
             "Yapi: 'My target is 185, based on market rate at 175-195 and the impact I've delivered.' Once sayi, sonra gerekce.",
         },
@@ -2359,6 +2378,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
             "(beyond (my )?current scope|operating at senior|next-?level work)",
             "(makes 185 (a reasonable|the right) anchor|185 lands fairly)",
           ],
+          model_answers: ["Levels.fyi puts senior at 175-195. Plus I owned auth end-to-end + drove 22% lift. 185 lands in the right place."],
           hint_tr:
             "Veri ile destekle: 'Levels.fyi puts senior at 175-195. Plus I owned auth end-to-end + drove 22% lift. 185 lands in the right place.'",
         },
@@ -2377,6 +2397,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
             "(promotion (timing|path)|locked-?in (next cycle|review))",
             "(comfortable closing|happy to move forward) (if (total comp|tc|the package))",
           ],
+          model_answers: ["Equity refresh and a locked-in promotion path for next cycle — that would close the gap."],
           hint_tr:
             "Alternatif anchor: 'Equity refresh and a locked-in promotion path for next cycle — that would close the gap.'",
         },
@@ -2672,6 +2693,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
             "(that'?s where (the number|it) lands|that feels (fair|right)|that'?s the right anchor)",
             "(equity|sign-?on|bonus|title (bump)?) (component|piece|adjustment)",
           ],
+          model_answers: ["I appreciate the 175 — could we get closer to 185? Given the impact and market, that's where it lands. Open to equity/sign-on too."],
           hint_tr:
             "Yapi: 'I appreciate the 175 — could we get closer to 185? Given the impact and market, that's where it lands. Open to equity/sign-on too.'",
         },
@@ -2690,6 +2712,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
             "(let me think (on it )?(overnight|by tomorrow)|need to (sit with|sleep on) it)",
             "(landing at|getting to) (180|181|182)",
           ],
+          model_answers: ["Appreciate the flex — could we land at 181 plus the sign-on? Comfortable closing there."],
           hint_tr:
             "Karsi karsi: 'Appreciate the flex — could we land at 181 plus the sign-on? Comfortable closing there.' VEYA 'Let me sit with it overnight.'",
         },
@@ -2708,6 +2731,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
             "(committed to|will (have an answer|come back)) (within \\d+ hours|by (then|the deadline))",
             "(comfortable closing|leaning toward yes|will likely accept) (assuming|if)",
           ],
+          model_answers: ["Understood — let me sit with it overnight. I'll have an answer by EOD tomorrow."],
           hint_tr:
             "Zaman al + commit: 'Understood — let me sit with it overnight. I'll have an answer by EOD tomorrow.'",
         },

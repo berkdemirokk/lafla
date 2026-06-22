@@ -41,6 +41,7 @@ import { type CefrLevel } from "../lib/cefr-level";
 import { trackEvent } from "../lib/analytics";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
 import { getInterests } from "../lib/local-progress";
+import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
 import { PronouncePhrase } from "../components/exercises/PronouncePhrase";
 import { ListenAndTranscribe } from "../components/exercises/ListenAndTranscribe";
 import type { ExerciseResult } from "../lib/engine";
@@ -396,6 +397,7 @@ export default function PlacementScreen() {
     if (!finalLevel || saving) return;
     setSaving(true);
     hapticSuccess();
+    let selectedInterests: string[] = [];
 
     // 2026-05-23 — audit fix: K_PLACEMENT_STATE'i ÖNCE değil SONRA sil.
     // Önceki versiyon finalizeOnboarding'den ÖNCE remove ediyordu —
@@ -414,6 +416,7 @@ export default function PlacementScreen() {
         getInterests().catch(() => [] as string[]),
         AsyncStorage.getItem("lafla.displayName").catch(() => null),
       ]);
+      selectedInterests = interests;
       await finalizeOnboarding({
         level: finalLevel,
         interests,
@@ -433,14 +436,18 @@ export default function PlacementScreen() {
     // Finalize başarılı — şimdi atomik temizlik. Restore state'i sil.
     void AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});
 
-    // Intro Match zorunlu sahne (Switch-1) — placement sonrası da aynı kural
+    // Placement yolunda da ilk pratik seçilen bağlama göre belirlenir.
     const introDone = await AsyncStorage.getItem(
       "lafla.intro.match.completed",
     ).catch(() => null);
     if (introDone === "true") {
       router.replace("/today" as never);
     } else {
-      router.replace("/scenario/intro.match.0.1?intro=true" as never);
+      const scenarioId = pickOnboardingScenarioId(
+        selectedInterests,
+        finalLevel,
+      );
+      router.replace(`/scenario/${scenarioId}?intro=true` as never);
     }
   };
 

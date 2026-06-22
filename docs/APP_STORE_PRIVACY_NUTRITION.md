@@ -118,7 +118,7 @@
 - **Collected:** Yes (text answers in scenarios — translate / fill-blank / roleplay turns / IELTS responses)
 - **Linked to user:** Yes
 - **Used for tracking:** No
-- **Purposes:** App Functionality (pattern matcher needs the user's answer to score it; SRS needs answers to schedule reviews; mastery model needs response history). NOTE: scoring is fully on-device (`lib/engine.ts` + `lib/mistake-patterns.ts`). No runtime LLM call — user's text never leaves the device for evaluation. Aggregated mastery state syncs to Supabase for cross-device continuity.
+- **Purposes:** App Functionality. Guided-scenario scoring is fully on-device (`lib/engine.ts` + `lib/mistake-patterns.ts`); aggregated mastery state syncs to Supabase. In the separate optional Free Chat screen, recent conversation text is sent through the Supabase `llm-chat` Edge Function to an AI provider to generate a reply. Provider requests do not add the user's email or profile fields, but the conversation text itself is transmitted.
 
 ---
 
@@ -292,4 +292,4 @@
 | Apple adds new data type categories | Re-read Apple's docs, re-classify Lafla data |
 | Annual review | Walk through every section every 12 months |
 
-Last reviewed: 2026-05-26 (Lafla v1.0.0 submission — AdMob disclosure verified, all stale "Maya" runtime-LLM references removed, privacy policy at <https://berkdemirokk.github.io/lafla/privacy.html> updated to match).
+Last reviewed: 2026-06-22 (Lafla v1.0.3 — guided-scenario local scoring and optional Free Chat AI processing documented separately; live privacy policy verified).

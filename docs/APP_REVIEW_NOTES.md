@@ -11,7 +11,7 @@ Lafla gates content behind authentication. Demo credentials are provided through
 If credentials in App Store Connect are stale or missing, contact `berkkdemirok@gmail.com` and we will issue a fresh tester within one business day.
 
 The demo account is pre-seeded with:
-- Onboarding completed (Turkish UI, 4-step flow: welcome → interests → name → cefr)
+- Onboarding completed (Turkish UI, 2-step flow: interests → cefr → personalized first practice)
 - Sample completed scenarios across the **7 modes**: Flört (dating), İş (work), Bar, Havaalanı (airport), Günlük (daily), Sipariş (ordering), IELTS Speaking
 - A small streak history so the home feed looks lived-in
 - Two sample Voice Journal entries (so the reviewer can verify the mic + local storage flow without leaving the app)
@@ -74,9 +74,10 @@ Deletion is immediate (no soft-delete / 30-day grace).
 - **Tracking (ATT):** The app integrates AdMob for free-tier ads and PostHog for product analytics. The ATT permission prompt is presented at the end of onboarding, BEFORE AdMob initialization. PostHog is **not initialized** until ATT is resolved AND granted. AdMob initializes after ATT resolves and applies `requestNonPersonalizedAdsOnly: true` regardless of ATT outcome (defense-in-depth); when ATT is denied the SDK additionally cannot read the IDFA. SKAdNetwork identifiers are declared in `app.json` for iOS install attribution.
 - **AdMob ad placement:** Free tier sees a bottom-anchored adaptive banner on the home/today screens (not on auth/onboarding/paywall/scenario screens) and an interstitial after every 3rd completed scenario. Opt-in rewarded video grants 30 minutes of Pro. Lafla Pro subscribers see **zero ads** — `AdBanner` returns `null` and `onScenarioComplete` early-returns for entitled users. Children-directed flags are explicitly **false** (`tagForChildDirectedTreatment: false`, `tagForUnderAgeOfConsent: false`) because flirt + bar modes drive a 17+ age rating. `maxAdContentRating: T` keeps ad creatives Teen-or-tamer to match the rating.
 - **Sentry crash reporting** receives anonymous device/build metadata and crash stacks. No user email or profile fields are attached to events. Sentry breadcrumbs cover onboarding finalize, IAP purchase, voice journal recording, JSON parsing failures, scene-runtime crashes. The DSN is provisioned via EAS Secret `EXPO_PUBLIC_SENTRY_DSN`.
-- **No runtime LLM.** All NPC dialogue, scene content, and feedback strings are pre-authored TypeScript in `apps/mobile/data/*.ts`. The "smart conversation" feel uses a deterministic mini-Markov for NPC bridge phrases (`lib/npc-bridge.ts`) seeded by `hash(scenarioId + turnIdx)` — no network call. Pattern matching and scoring (`lib/engine.ts`) is on-device. The user's text or voice never leaves the device for scoring.
+- **Structured scenarios:** All dialogue, scene content, scoring, and feedback in the 971 guided scenarios are pre-authored and evaluated on-device. Their answers are not sent to Lafla servers; voice transcription is provided by the iOS Speech Recognition framework and may be processed according to the user's Apple/iOS settings.
+- **Optional Free Chat:** The separate Free Chat screen uses a runtime AI reply service. The recent conversation text is sent through the authenticated Supabase `llm-chat` Edge Function to a configured AI provider. Provider requests contain conversation content but no email or profile fields. Input/output safety filters run before content is displayed. This behavior is disclosed in the privacy policy and App Privacy answers.
 - **Voice Journal** audio is stored in `documentDirectory/voice-journal/` only. Never transmitted. Deleted on account deletion.
-- **Data collected:** Email + password (Supabase auth), purchase status (RevenueCat), anonymized usage events (PostHog, post-ATT consent only), ad serving data (AdMob, conditional on ATT for personalization; SKAdNetwork install attribution unconditional). The live privacy policy at <https://berkdemirokk.github.io/lafla/privacy.html> discloses AdMob explicitly. Full disclosure in `APP_STORE_PRIVACY_NUTRITION.md`.
+- **Data collected:** Email + password (Supabase auth), purchase status (RevenueCat), optional Free Chat text (AI reply generation), anonymized usage events (PostHog when configured and consented), and ad serving data (AdMob; SKAdNetwork attribution). The live privacy policy at <https://berkdemirokk.github.io/lafla/privacy.html> discloses these processors. Full disclosure in `APP_STORE_PRIVACY_NUTRITION.md`.
 
 ---
 
@@ -95,10 +96,10 @@ Deletion is immediate (no soft-delete / 30-day grace).
 | Ad SDK | AdMob (react-native-google-mobile-ads) — banner + interstitial, free tier only |
 | Privacy Manifest | Yes — `NSPrivacyAccessedAPITypes` declared for UserDefaults / FileTimestamp / SystemBootTime / DiskSpace; `NSPrivacyTrackingDomains` includes `eu.i.posthog.com` |
 | Content Modes | 7 — Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking |
-| Scene Count | 935 (CEFR-mapped A1–C1) |
+| Scene Count | 971 (CEFR-mapped A1–C2) |
 | Side-rail Modes | Phoneme Drill, Listen & Transcribe, Voice Journal |
 
-Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current shipping version: **v1.0.0** (build 19).
+Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current candidate version: **v1.0.3** (remote build number auto-increments from 97).
 
 ---
 
@@ -109,12 +110,12 @@ Version + build number are set by EAS Build at submission time; check the binary
 | 1.3 / 2.3.7 — Age rating vs. content | Flört + Bar + IELTS modes justify 12+/17+ rating; AdMob configured with `maxAdContentRating: T` and `tagForChildDirectedTreatment: false` to align ad content with the app's age rating |
 | 2.1 — App incomplete (auth wall) | Demo account provided via App Store Connect; Apple Sign-In is also supported as a non-credential path |
 | 3.1.1 — IAP not via Apple | All paid features gated through Apple IAP / RevenueCat; no alt payment links; subscription terms + Restore Purchases visible on the paywall |
-| 4.2 — Minimum functionality | 935 structured scenarios across 7 modes + 10 exercise types + on-device pattern matching + dedicated side-rail modes (Phoneme Drill, Listen & Transcribe, Voice Journal) = a structured language-learning product |
+| 4.2 — Minimum functionality | 971 structured scenarios across 7 modes + guided roleplay + on-device pattern matching + dedicated side-rail modes (Phoneme Drill, Listen & Transcribe, Voice Journal) = a structured language-learning product |
 | 4.5.4 — Push spam | Push scaffold in `lib/notifications.ts`; daily reminder is opt-in via Settings; no push without explicit user toggle |
 | 5.1.1(v) — Account deletion | In-app deletion via Settings → Hesabımı Sil → typed confirmation → immediate Supabase user delete (no soft-delete grace) |
 | 5.1.1 — Privacy | Privacy policy (<https://berkdemirokk.github.io/lafla/privacy.html>) and the App Privacy Nutrition Label both declare AdMob, PostHog, Sentry, RevenueCat, Supabase. Last reviewed 2026-05-26 to match the actual shipped SDKs. |
 | 5.1.2 — Data sharing | PostHog gated behind ATT grant; Sentry receives no PII (only opaque user id, set via `setUser({id})`); AdMob defaults to non-personalized via `requestNonPersonalizedAdsOnly: true` and additionally cannot read IDFA when ATT denied |
-| 5.6 — Developer code of conduct | All NPC dialogue is pre-authored; no runtime LLM; "Maya" AI coach was removed in the 2026-05-20 product cut and is not referenced anywhere in the shipping build |
+| 5.6 — Developer code of conduct | Guided scenarios are pre-authored and locally scored. Optional Free Chat is clearly separated, safety-filtered, and its AI processing is disclosed in the privacy policy and review notes. |
 
 ---
 

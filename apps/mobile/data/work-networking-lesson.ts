@@ -98,6 +98,7 @@ export const workNetworkingLesson_39_1: BundledLesson = {
             "(just (attending|here to listen)|here as (an attendee|a listener))",
             "(enjoying (it|the talks|the day) so far)",
           ],
+          model_answers: ["Hey — what brings you here? First time?"],
           hint_tr:
             "Doğal açılış: 'Hey — what brings you here? First time?' veya 'Are you presenting or just attending?'",
         },
@@ -116,6 +117,7 @@ export const workNetworkingLesson_39_1: BundledLesson = {
             "(any (talks|sessions) you('?ve|ve) (caught|been to|loved))",
             "(what about you|how about you|you here for anything specific)",
           ],
+          model_answers: ["Same here — came for the infra track. Any sessions you loved?"],
           hint_tr:
             "Kendinden konuş + soruyu geri çevir: 'Same here — came for the infra track. Any sessions you loved?'",
         },
@@ -134,6 +136,7 @@ export const workNetworkingLesson_39_1: BundledLesson = {
             "(what (do you|are you) working on)",
             "(would love to (chat more|hear about your))",
           ],
+          model_answers: ["Thanks — glad it landed. What are you working on these days?"],
           hint_tr:
             "İltifatı kabul et + topu geri ver: 'Thanks — glad it landed. What are you working on these days?'",
         },
@@ -153,6 +156,7 @@ export const workNetworkingLesson_39_1: BundledLesson = {
             "(any |what kind of )(roles|positions) (are you looking)",
             "(payments infra |stripe )?sounds (interesting|exciting)",
           ],
+          model_answers: ["I'm not actively looking, but always open to chat"],
           hint_tr:
             "Türk: 'tanıdık üzerinden iş' kültürü güçlü ama burada cold pitch'e cevap veriyorsun. 'I'm not actively looking, but always open to chat' sağlıklı sınır. Türk öğrenci 'çok ilgileniyorum' = 'very interested' direkt çevirisi yapay; 'open to hearing more' doğal.",
         },
@@ -172,6 +176,7 @@ export const workNetworkingLesson_39_1: BundledLesson = {
             "(autonomy|trust|ownership of (a |my )?(domain|area|stack))",
             "(comp matters but )(culture|the team|growth) (matters more)?",
           ],
+          model_answers: ["For me it'd be ownership of a real problem and a manager who trusts the team"],
           hint_tr:
             "Net olarak söyle: 'For me it'd be ownership of a real problem and a manager who trusts the team' veya 'A clear growth path matters more than comp'. Türk: 'maaş + ekip + büyüme' formülü; üçünü de ekle.",
         },
@@ -191,6 +196,7 @@ export const workNetworkingLesson_39_1: BundledLesson = {
             "(yes please|sounds good)(,)? (no pressure)?",
             "(adding you )?(now|on the spot)",
           ],
+          model_answers: ["Sure — adding you now"],
           hint_tr:
             "LinkedIn değişimi: 'Sure — adding you now' veya 'Yeah, let me grab your QR'. Türk: 'bağlantı kuralım' = 'let's connect'; LinkedIn jargonu. Türk öğrenci 'kart' (card) der ama Batı konferanslarında kart kullanımı azaldı, QR code standart oldu.",
         },
@@ -613,6 +619,7 @@ export const workNetworkingLesson_39_2: BundledLesson = {
             "(about \\w+ years? in|for the past \\w+ years|been there \\w+)",
             "(what about you|how about you|you\\?)",
           ],
+          model_answers: ["I'm a [role] at [company], working on [problem]. What about you?"],
           hint_tr:
             "Kalıp: 'I'm a [role] at [company], working on [problem]. What about you?'",
         },
@@ -630,6 +637,7 @@ export const workNetworkingLesson_39_2: BundledLesson = {
             "(it'?s less about \\w+ and more about)",
             "(what (about|sort of) (you|stuff) (work on|do))",
           ],
+          model_answers: ["Honestly, fraud edge cases. What about you?"],
           hint_tr:
             "Spesifik bir konuyu kısa anlat + topu geri çevir: 'Honestly, fraud edge cases. What about you?'",
         },
@@ -647,6 +655,7 @@ export const workNetworkingLesson_39_2: BundledLesson = {
             "(would love to (hear|see) (more|how))",
             "(designers (and engineers|are great|run the show))",
           ],
+          model_answers: ["Don't be — onboarding is half the product. Any tools you swear by?"],
           hint_tr:
             "Empati + spesifik soru: 'Don't be — onboarding is half the product. Any tools you swear by?'",
         },
@@ -975,6 +984,7 @@ export const workNetworkingLesson_39_3: BundledLesson = {
             "(on linkedin|via email|on twitter)",
             "(are you on linkedin|do you (have|use) linkedin)",
           ],
+          model_answers: ["This was great — mind if I connect with you on LinkedIn?"],
           hint_tr:
             "Doğal kapanış: 'This was great — mind if I connect with you on LinkedIn?'",
         },
@@ -993,6 +1003,7 @@ export const workNetworkingLesson_39_3: BundledLesson = {
             "(or i can send you the (link|request) (now|right now))",
             "(here'?s my (card|qr|profile))",
           ],
+          model_answers: ["It's Yilmaz — or easier if I send the request now?"],
           hint_tr:
             "Soyadını söyle veya isteği sen at: 'It's Yilmaz — or easier if I send the request now?'",
         },
@@ -1011,6 +1022,7 @@ export const workNetworkingLesson_39_3: BundledLesson = {
             "(definitely|will do|i will)",
             "(have a (good|great) (one|rest|day|evening))",
           ],
+          model_answers: ["Thanks — same here, happy to return the favor anytime."],
           hint_tr:
             "Karşılıklılık göster: 'Thanks — same here, happy to return the favor anytime.'",
         },
@@ -1339,6 +1351,7 @@ export const workNetworkingLesson_39_4: BundledLesson = {
             "(hi|hey|hello) [a-z]+",
             "(really )?(enjoyed|loved) (our (chat|conversation|convo)|the (chat|conversation))",
           ],
+          model_answers: ["Subject: Great meeting you at AI Summit / Hi Sarah — really enjoyed our chat on shipping fast."],
           hint_tr:
             "Subject + greeting + hatırlatma: 'Subject: Great meeting you at AI Summit / Hi Sarah — really enjoyed our chat on shipping fast.'",
         },
@@ -1356,6 +1369,7 @@ export const workNetworkingLesson_39_4: BundledLesson = {
             "(open to|happy to) (next week|whenever works)",
             "(any (chance|availability) (next week|this month))",
           ],
+          model_answers: ["You mentioned [topic] — would love 15 min next week to dig in."],
           hint_tr:
             "Hatırlatma + spesifik istek: 'You mentioned [topic] — would love 15 min next week to dig in.'",
         },
@@ -1373,6 +1387,7 @@ export const workNetworkingLesson_39_4: BundledLesson = {
             "(happy to send|will prep) (an agenda|some questions) (ahead)",
             "(whatever works (best|for you))",
           ],
+          model_answers: ["Mainly how you handle X. Happy to send 2-3 questions ahead."],
           hint_tr:
             "Net soru + agenda hazırlığı: 'Mainly how you handle X. Happy to send 2-3 questions ahead.'",
         },
@@ -1697,6 +1712,7 @@ export const workNetworkingLesson_39_5: BundledLesson = {
             "(long line|crazy line|crowded today)",
             "(enjoying (the|it) so far|how'?s it (going|been))",
           ],
+          model_answers: ["Hey — so what brings you to the conference?"],
           hint_tr:
             "Doğal açılış: 'Hey — so what brings you to the conference?' veya 'Crazy line — first time here?'",
         },
@@ -1714,6 +1730,7 @@ export const workNetworkingLesson_39_5: BundledLesson = {
             "(which talk did you (like|enjoy)|any (sessions|talks) stood out)",
             "(what kind of (startup|company)|what space are you in)",
           ],
+          model_answers: ["Second year here — mainly for the AI track. Which talk did you like so far?"],
           hint_tr:
             "Kendinden konuş + soruyu çevir: 'Second year here — mainly for the AI track. Which talk did you like so far?'",
         },
@@ -1731,6 +1748,7 @@ export const workNetworkingLesson_39_5: BundledLesson = {
             "(are you (trying|going) to (apply|use) any of it)",
             "(what (does|do) (\\w+) look like (at|for) (your|your team))",
           ],
+          model_answers: ["Same — loved the part on weekly demos. Trying to apply any of it at your startup?"],
           hint_tr:
             "Spesifik yorum + içeri çek: 'Same — loved the part on weekly demos. Trying to apply any of it at your startup?'",
         },
@@ -2030,6 +2048,7 @@ export const workNetworkingLesson_39_6: BundledLesson = {
             "(automate|build|ship|connect|reach|scale|track)",
             "(small businesses|smbs|merchants|teams|developers|hr leaders|startups)",
           ],
+          model_answers: ["I lead product at a SaaS — we help SMBs automate accounting."],
           hint_tr:
             "Tam formül: 'I lead [rol] at [şirket] — we help [hedef] [yaptıkları].' Örnek: 'I lead product at a SaaS — we help SMBs automate accounting.'",
         },
@@ -2047,6 +2066,7 @@ export const workNetworkingLesson_39_6: BundledLesson = {
             "(by (\\w+%)|by (half|\\d+x)|from \\w+ to \\w+)",
             "(does that (resonate|sound|land) (with you|familiar))",
           ],
+          model_answers: ["Honestly, small businesses spend 5 hours a week on manual entry. We cut that to 30 min."],
           hint_tr:
             "Spesifik pain + sayı: 'Honestly, small businesses spend 5 hours a week on manual entry. We cut that to 30 min.'",
         },
@@ -2064,6 +2084,7 @@ export const workNetworkingLesson_39_6: BundledLesson = {
             "(would love (your take|to hear how you (look|think)) (at|about))",
             "(happy to (share|send) more|i can send a quick deck)",
           ],
+          model_answers: ["Mostly inbound — 3x revenue YoY. Would love your take on what good looks like at our stage."],
           hint_tr:
             "Net büyüme metriği + soru: 'Mostly inbound — 3x revenue YoY. Would love your take on what good looks like at our stage.'",
         },
@@ -2357,6 +2378,7 @@ export const workNetworkingLesson_39_7: BundledLesson = {
             "(linkedin|email|or (both|either))",
             "(do you (have|carry) a (card|business card))",
           ],
+          model_answers: ["Should we stay in touch? What's the best way — LinkedIn or email?"],
           hint_tr:
             "Kibar opsiyonlu kapanış: 'Should we stay in touch? What's the best way — LinkedIn or email?'",
         },
@@ -2374,6 +2396,7 @@ export const workNetworkingLesson_39_7: BundledLesson = {
             "(i don'?t have (cards|one) on me|don'?t carry (cards|them))",
             "(i'?ll (linkedin you|shoot you a (linkedin request|message)) (tonight|today|when i'?m home))",
           ],
+          model_answers: ["I don't carry cards — I'll LinkedIn you tonight."],
           hint_tr:
             "Karşılık ver: 'Perfect — let me grab mine.' veya 'I don't carry cards — I'll LinkedIn you tonight.'",
         },
@@ -2392,6 +2415,7 @@ export const workNetworkingLesson_39_7: BundledLesson = {
             "(no rush|whenever (works|makes sense))",
             "(happy to (return the favor|do the same|reciprocate))",
           ],
+          model_answers: ["That'd be amazing — would love a warm intro to anyone working on B2B sales tools."],
           hint_tr:
             "Teklifi kaçırma — spesifik istek: 'That'd be amazing — would love a warm intro to anyone working on B2B sales tools.'",
         },
@@ -2684,6 +2708,7 @@ export const workNetworkingLesson_39_8: BundledLesson = {
             "(hope (our paths|we) cross again|hope to (see|run into) you)",
             "(dm.{0,3} (open|always open)|feel free to (ping|message))",
           ],
+          model_answers: ["Hey Sam — great chatting earlier. Loved your take on shipping fast. Hope our paths cross again — DM open anytime."],
           hint_tr:
             "Light follow-up: 'Hey Sam — great chatting earlier. Loved your take on shipping fast. Hope our paths cross again — DM open anytime.'",
         },
@@ -2702,6 +2727,7 @@ export const workNetworkingLesson_39_8: BundledLesson = {
             "(if you (ever|'?re curious about) (\\w+))",
             "(happy to (chat|share|jump on a call) (more|about))",
           ],
+          model_answers: ["Glad it resonated! Mostly heads down on a launch this week. You?"],
           hint_tr:
             "Kısa güncelleme + soruyu çevir: 'Glad it resonated! Mostly heads down on a launch this week. You?'",
         },
@@ -2720,6 +2746,7 @@ export const workNetworkingLesson_39_8: BundledLesson = {
             "(looking forward to (it|comparing notes))",
             "(let me know what (works|fits))",
           ],
+          model_answers: ["Absolutely — send me a few times next week, would love to compare notes."],
           hint_tr:
             "Karşılığını ver + concrete next step: 'Absolutely — send me a few times next week, would love to compare notes.'",
         },

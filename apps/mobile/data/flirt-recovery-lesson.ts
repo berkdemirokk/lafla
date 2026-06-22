@@ -95,6 +95,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
             "(can we|let'?s) (rewind|start over|reset)",
             "(forget|scratch) (that|what i said)",
           ],
+          model_answers: ["I think I misread that — my bad, no weirdness."],
           hint_tr:
             "Sahiplen: 'I think I misread that — my bad, no weirdness.'",
         },
@@ -112,6 +113,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
             "(let'?s |we can )(still hang out|still grab coffee)",
             "(thanks for|appreciate) (not making (it|me|things) (weird|awkward))",
           ],
+          model_answers: ["Friend works — thanks for not making it weird."],
           hint_tr:
             "Toparla: 'Friend works — thanks for not making it weird.'",
         },
@@ -130,6 +132,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
             "(your )?signals were (fine|chill|clear enough)",
             "(my own (read|wires|brain))",
           ],
+          model_answers: ["Honestly, no — that was on me. I read into a moment that wasn't there. Your signals were fine."],
           hint_tr:
             "Karşı tarafı rahatlatma: 'Honestly, no — that was on me. I read into a moment that wasn't there. Your signals were fine.'",
         },
@@ -451,6 +454,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
             "(drunk me|that was drunk me|drunk version of me)",
             "(please (delete|forget)|wipe (it|that) from your)",
           ],
+          model_answers: ["Okay, mortified — last night was too much wine. Sorry!"],
           hint_tr:
             "Espriyle ac: 'Okay, mortified — last night was too much wine. Sorry!'",
         },
@@ -468,6 +472,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
             "(let me|i should) (make it up|treat you)",
             "(coffee|drink|hangout) (on me|my treat)",
           ],
+          model_answers: ["Thanks for being chill — let me make it up with coffee?"],
           hint_tr:
             "Pivot: 'Thanks for being chill — let me make it up with coffee?'",
         },
@@ -486,6 +491,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
             "(let'?s (talk|see) in person|easier face to face)",
             "(let me earn it sober|sober me wants to)",
           ],
+          model_answers: ["Honestly some of it — sober me stands by the kind parts, skipping the 3am drama. Let me earn it in person."],
           hint_tr:
             "Olgun açıklık: 'Honestly some of it — sober me stands by the kind parts, skipping the 3am drama. Let me earn it in person.' Sahte değil, ölçülü.",
         },
@@ -869,6 +875,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
             "(hope you'?ve been|how have you been)( well|good)?",
             "(thinking of you|came across your profile|saw your story)",
           ],
+          model_answers: ["Hey stranger — life got crazy. How are you?"],
           hint_tr:
             "Hafif ac: 'Hey stranger — life got crazy. How are you?'",
         },
@@ -887,6 +894,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
             "(pick this back up|pick up where we left|start fresh)",
             "(if you'?re|are you) (still up for|open to) (it|hanging)",
           ],
+          model_answers: ["Thanks for asking — want to grab coffee + catch up?"],
           hint_tr:
             "Plan teklif et: 'Thanks for asking — want to grab coffee + catch up?'",
         },
@@ -905,6 +913,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
             "(if life flares up again|if things shift)( i)? (will|promise to) (.+)",
             "(no more vanishing|no more going dark)",
           ],
+          model_answers: ["Fair question — actually around now, the worst is over. If things shift again I'll tell you instead of going dark."],
           hint_tr:
             "Hesap verebilirlik + güven: 'Fair question — actually around now, the worst is over. If things shift again I'll tell you instead of going dark.'",
         },
@@ -1287,6 +1296,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
             "(please|kindly) (ignore|forget|delete) (everything|what|those|all of them)",
             "(let me try (this|that) again|fresh start)",
           ],
+          model_answers: ["Okay — mortified about last night. Can we pretend that didn't happen?"],
           hint_tr:
             "Ac: 'Okay — mortified about last night. Can we pretend that didn't happen?'",
         },
@@ -1303,6 +1313,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
             "(let me|i should) (make it up|redeem myself)",
             "(coffee|brunch|something) (sober|this time|on me)",
           ],
+          model_answers: ["Thanks for being cool — sober me is much chiller. Coffee this weekend?"],
           hint_tr:
             "Pivot: 'Thanks for being cool — sober me is much chiller. Coffee this weekend?'",
         },
@@ -1320,6 +1331,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
             "(no big declarations|skip the big speech)",
             "(.+)?(but yes|but truthfully)(.+)?",
           ],
+          model_answers: ["Honest answer — some truth, some volume. Sober me would still say I like you, just way quieter. Let me show it in person."],
           hint_tr:
             "Olgun + ölçülü dürüstlük: 'Honest answer — some truth, some volume. Sober me would still say I like you, just way quieter. Let me show it in person.'",
         },
@@ -1664,6 +1676,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
             "(no excuse|not making excuses|no pressure to respond)",
             "(sorry for|apologies for) (vanishing|going dark|the silence|disappearing)",
           ],
+          model_answers: ["Hey, owe you an explanation — got pulled into a tough month. No pressure to respond."],
           hint_tr:
             "Sahiplen: 'Hey, owe you an explanation — got pulled into a tough month. No pressure to respond.'",
         },
@@ -1680,6 +1693,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
             "(no expectations|totally understand if not|fully get if you'?re done)",
             "(coffee|grab a drink|hang) (low key|no pressure) (sometime|this week)",
           ],
+          model_answers: ["Getting there — thanks for asking. Open to a reset over coffee, no pressure?"],
           hint_tr:
             "Onerme: 'Getting there — thanks for asking. Open to a reset over coffee, no pressure?'",
         },
@@ -1697,6 +1711,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
             "(slow this|take this) (low key|step by step|gently)",
             "(want to earn|trying to earn|earning) (it|your trust)",
           ],
+          model_answers: ["Fair to ask — can't guarantee perfect, but if things get hard again I'll tell you instead of going dark. Want to earn the trust back slowly."],
           hint_tr:
             "Hesap verebilirlik + somut söz: 'Fair to ask — can't guarantee perfect, but if things get hard again I'll tell you instead of going dark. Want to earn the trust back slowly.'",
         },
@@ -2039,6 +2054,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
             "(landed weird|came out wrong|wires got crossed)",
             "(let me|can i) (try (this|that) again|start over)",
           ],
+          model_answers: ["Oh no, wrong chat — that wasn't meant for you, pretend you didn't see that!"],
           hint_tr:
             "Hizla: 'Oh no, wrong chat — that wasn't meant for you, pretend you didn't see that!'",
         },
@@ -2056,6 +2072,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
             "(let me try (this|that) again|fresh start)",
             "(coffee|drinks|hang) (might (help|fix this)|sounds (better|safer))",
           ],
+          model_answers: ["Busted — for the record it was good things. Let me try this again — coffee?"],
           hint_tr:
             "Esprili topla: 'Busted — for the record it was good things. Let me try this again — coffee?'",
         },
@@ -2073,6 +2090,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
             "(would rather (tell|show) you in person|easier face to face)",
             "(let it be|consider it) (a teaser|a preview)",
           ],
+          model_answers: ["Actually nice, swear I'm not covering — was saying you looked great. Would rather tell you the rest in person."],
           hint_tr:
             "Dürüst + sevimli: 'Actually nice, swear I'm not covering — was saying you looked great. Would rather tell you the rest in person.'",
         },
@@ -2417,6 +2435,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
             "(let me|can i) (try (this|that) again|reset|start over)",
             "(meant|going for) (a heart|something (sweet|nice|warm))",
           ],
+          model_answers: ["Wow that emoji landed weird — not the energy I meant. Let me try that again — meant the heart!"],
           hint_tr:
             "Ac: 'Wow that emoji landed weird — not the energy I meant. Let me try that again — meant the heart!'",
         },
@@ -2433,6 +2452,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
             "(actually wanted to say|what i meant was)",
             "(you (looked|sound) (great|amazing)|nice (pic|photo))",
           ],
+          model_answers: ["Thumbs betrayed me — sticking to words. What I meant was, you looked great in that pic."],
           hint_tr:
             "Yumusat: 'Thumbs betrayed me — sticking to words. What I meant was, you looked great in that pic.'",
         },
@@ -2450,6 +2470,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
             "(let'?s try this without emojis|words from here on)",
             "(easier face to face|easier in person)",
           ],
+          model_answers: ["Honestly — was going for a heart. Your photo made me smile, easier said in words than emojis."],
           hint_tr:
             "Sözle netleştir + sıcak: 'Honestly — was going for a heart. Your photo made me smile, easier said in words than emojis.'",
         },

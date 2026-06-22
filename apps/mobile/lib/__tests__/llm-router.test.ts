@@ -1,4 +1,8 @@
-import { chatComplete, chatCompleteDetailed } from "../llm-router";
+import {
+  chatComplete,
+  chatCompleteDetailed,
+  LLM_REQUEST_TIMEOUT_MS,
+} from "../llm-router";
 import { supabase } from "../supabase";
 
 // Mock supabase client functions
@@ -127,5 +131,22 @@ describe("llm-router tests", () => {
     expect(response).toBe("Direct response from Groq");
     expect(mockFetch).toHaveBeenCalledTimes(1);
     expect(supabase.functions.invoke).not.toHaveBeenCalled();
+  });
+
+  it("fails a hanging Edge Function request within the UI timeout", async () => {
+    jest.useFakeTimers();
+    const consoleError = jest.spyOn(console, "error").mockImplementation(() => {});
+    (global as any).__DEV__ = false;
+    const mockInvoke = supabase.functions.invoke as jest.Mock;
+    mockInvoke.mockReturnValue(new Promise(() => {}));
+
+    const completion = chatComplete([{ role: "user", content: "Hello" }]);
+    const rejection = expect(completion).rejects.toThrow(
+      "AI response timed out",
+    );
+    await jest.advanceTimersByTimeAsync(LLM_REQUEST_TIMEOUT_MS);
+    await rejection;
+    consoleError.mockRestore();
+    jest.useRealTimers();
   });
 });

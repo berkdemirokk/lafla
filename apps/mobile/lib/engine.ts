@@ -181,11 +181,23 @@ export interface BundledLesson {
   exercises: ReadonlyArray<Record<string, unknown>>;
 }
 
+export interface RoleplayMistake {
+  matched: string;
+  reason_tr: string;
+  correct_example: string;
+}
+
 export interface ExerciseResult {
   exercise_id: string;
   exercise_type: string;
   correct: boolean;
   score: number;
+  /** First-attempt performance, excluding points earned after a retry. */
+  mastery_score?: number;
+  /** Roleplay turns completed with immediate corrective support. */
+  assisted_turns?: number;
+  /** Mistakes detected in this completed roleplay, in encounter order. */
+  mistakes?: RoleplayMistake[];
   feedback?: string;
 }
 
@@ -338,8 +350,8 @@ export function evaluateWordOrder(
  *
  * Grading:
  *   - empty / single stray char       → 0
- *   - 1-2 English-ish words           → 30 (you attempted something)
- *   - 3+ English-ish words            → 60 (substantive attempt)
+ *   - 1-2 English-ish words           → 20 (short attempt, not correctness)
+ *   - 3+ English-ish words            → 50 (substantive attempt, not correctness)
  *   - full acceptable_pattern match   → 100
  *
  * Scene fluency banding (computeSceneFluency) still segments low/mid/high
@@ -386,6 +398,7 @@ function stripFillers(input: string): string {
 export function evaluateRoleplayTurn(
   patterns: string[],
   input: string,
+  modelAnswers: string[] = [],
 ): { matched: boolean; score: number } {
   const trimmed = input.trim();
   if (!trimmed) return { matched: false, score: 0 };
@@ -407,9 +420,38 @@ export function evaluateRoleplayTurn(
     }
   }
 
+  // Natural wording can be valid without matching a hand-authored regex.
+  // Compare only against explicit model answers from the lesson hint; this
+  // adds tolerance without declaring arbitrary long text correct.
+  if (modelAnswers.length > 0) {
+    const negation = /\b(no|not|never|don'?t|doesn'?t|didn'?t|can'?t|won'?t|isn'?t|aren'?t)\b/i;
+    const candidates =
+      stripped.length > 0 && stripped !== trimmed
+        ? [trimmed, stripped]
+        : [trimmed];
+
+    for (const candidate of candidates) {
+      const compatibleModels = modelAnswers.filter(
+        (model) => negation.test(model) === negation.test(candidate),
+      );
+      if (compatibleModels.length > 0) {
+        const modelMatch = matchPhrase({
+          user_text: candidate,
+          accepted_variants: compatibleModels,
+        });
+        if (modelMatch.matched) {
+          return { matched: true, score: 90 };
+        }
+      }
+    }
+  }
+
   const words = trimmed.split(/\s+/).filter((w) => w.length >= 2);
-  if (words.length >= 3) return { matched: false, score: 60 };
-  if (words.length >= 1) return { matched: false, score: 30 };
+  // Word count proves effort, not semantic correctness. Keep unmatched
+  // attempts below the success threshold so the UI can teach + retry instead
+  // of reporting a plausible-looking but false "60/100 correct" result.
+  if (words.length >= 3) return { matched: false, score: 50 };
+  if (words.length >= 1) return { matched: false, score: 20 };
 
   return { matched: false, score: 0 };
 }

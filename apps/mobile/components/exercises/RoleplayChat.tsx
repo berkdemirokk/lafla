@@ -25,11 +25,22 @@ import { speak, stop as stopTts } from "../../lib/tts";
 import {
   evaluateRoleplayTurn,
   type ExerciseResult,
+  type RoleplayMistake,
 } from "../../lib/engine";
 import { nameForNpc } from "../../lib/npc-names";
 import { maybePrependBridge } from "../../lib/npc-bridge";
 import { recordUserText } from "../../lib/mistake-tracker";
 import { detectMistakes, getPattern } from "../../lib/mistake-patterns";
+import type { RoleplayMode } from "../../lib/roleplay-progression";
+import {
+  averageRoleplayScores,
+  assessRoleplayScore,
+  roleplayAssessmentLabel,
+} from "../../lib/roleplay-assessment";
+import { trackEvent } from "../../lib/analytics";
+import { modelAnswersForTurn } from "../../lib/roleplay-model";
+import { buildRoleplayChoiceOptions } from "../../lib/roleplay-options";
+import { roleplayReaction } from "../../lib/roleplay-branching";
 import {
   isAvailable as isSttAvailable,
   startListening as startStt,
@@ -47,49 +58,15 @@ const K_TTS_MUTED = "lafla.tts.muted";
 const K_INPUT_MODE = "lafla.roleplay.inputMode";
 type InputMode = "voice" | "text";
 
-// NPC reaction prefixes — short ACKs prepended to the next NPC bubble so the
-// scene reacts to the user's score instead of plowing through the script.
-// Rotated deterministically by input hash so the same input always elicits
-// the same reaction (avoids the uncanny "different reaction on retry" feel).
-const REACTIONS_GOOD = ["Got it.", "Nice.", "Perfect."] as const;
-const REACTIONS_MID = ["Hmm, okay.", "I think I follow."] as const;
-// 2026-05-20 — low-score reactions made HONEST. Eski tek option "Sorry,
-// could you say that again?" + scripted NPC reply = "Sorry, sure thing!"
-// kullanıcıya cevabını anladığım yalanı söylüyordu. Şimdi off-topic
-// olduğunu açıkça belirtiyor; kullanıcı "Sahneyi bitir" butonuyla kaçabilir
-// veya sıradaki turn'e geçebilir (en kötü "biraz konudan saptık" intibası).
-const REACTIONS_LOW = [
-  "Hmm, that's a bit off-topic — let me try anyway.",
-  "Not sure I caught that. Moving on...",
-  "Okay, not quite what I asked but —",
-] as const;
-
-function hashStr(s: string): number {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
-  return Math.abs(h);
-}
-
-function pickReactionPrefix(score: number, userInput: string): string | null {
-  const trimmed = userInput.trim();
-  // score 0 (empty / garbage with no recognisable words) → don't tack a
-  // reaction onto the next line. The verdict / lack of progress already
-  // tells the story, and a "say that again" loop on empty input feels broken.
-  if (score === 0 || !trimmed) return null;
-  const h = hashStr(trimmed);
-  if (score >= 80) return REACTIONS_GOOD[h % REACTIONS_GOOD.length]!;
-  if (score >= 40) return REACTIONS_MID[h % REACTIONS_MID.length]!;
-  return REACTIONS_LOW[h % REACTIONS_LOW.length]!;
-}
-
 interface RoleplayTurn {
   speaker: "npc" | "user";
   message?: string;
   acceptable_patterns?: string[];
+  model_answers?: string[];
   hint_tr?: string;
 }
 
-export type RoleplayMode = "multi-choice" | "hinted" | "free";
+export type { RoleplayMode } from "../../lib/roleplay-progression";
 
 interface Props {
   scenarioDescription: string;
@@ -132,7 +109,6 @@ interface Props {
    * true ise:
    *   - TR hint asla gösterilmez (review davranışı gibi)
    *   - Min user response length: 8 char (kısa cevap rejected)
-   *   - Score multiplier × 0.85 — daha yüksek band gerek
    *   - "🔥 HARD MODE" badge gözükür
    * Free kullanıcı zaten hard mode toggle'a basamaz (paywall'a gider),
    * bu prop sadece premium'da true gelir.
@@ -149,21 +125,11 @@ interface ChatMessage {
   // tetiklediyse, bubble altına Türkçe açıklama baloncuğu rendere düşer.
   // Bubble bazlı — sahnede sıralı olarak göründüğü için kullanıcı hatasını
   // konuşma akışı içinde görür (verdict ekranına ertelemek yerine).
-  mistake?: {
-    /** Kullanıcı metninde patlayan substring (örn. "I am go"). Highlight için. */
-    matched: string;
-    /** Bir cümle Türkçe açıklama. */
-    reason_tr: string;
-    /** "I am going / I go" gibi doğru karşılık. */
-    correct_example: string;
-  };
+  mistake?: RoleplayMistake;
 }
 
-// Extract the example English sentence from hint_tr (text between single quotes)
-function extractExampleFromHint(hint?: string): string | null {
-  if (!hint) return null;
-  const match = hint.match(/['']([^'']+)['']/);
-  return match?.[1] ?? null;
+function extractExampleFromTurn(turn?: RoleplayTurn): string | null {
+  return turn ? modelAnswersForTurn(turn)[0] ?? null : null;
 }
 
 // Sanitize a display name for inline injection into NPC dialog. Strips
@@ -263,34 +229,6 @@ function avatarEmojiFor(role: string, setting: string): string {
   return "💬";
 }
 
-// Generic distractor pool — wrong but plausible responses
-const GENERIC_DISTRACTORS = [
-  "I don't understand.",
-  "Sorry, what?",
-  "Let me think about it.",
-  "Maybe later.",
-  "I'm not sure.",
-  "Can you repeat?",
-  "Hold on a sec.",
-  "Yeah, sounds good.",
-];
-
-function buildChoiceOptions(turn: RoleplayTurn): string[] {
-  const example = extractExampleFromHint(turn.hint_tr);
-  const correct = example ?? "(continue)";
-  // 2 random distractors from pool, deterministic by hint length
-  const seed = (turn.hint_tr ?? "").length;
-  const d1 = GENERIC_DISTRACTORS[seed % GENERIC_DISTRACTORS.length]!;
-  const d2 =
-    GENERIC_DISTRACTORS[(seed * 3 + 1) % GENERIC_DISTRACTORS.length]!;
-  const opts = [correct, d1, d2 === d1 ? GENERIC_DISTRACTORS[0]! : d2];
-  // Shuffle deterministically
-  return opts
-    .map((o, i) => ({ o, k: (i * 7 + seed) % 13 }))
-    .sort((a, b) => a.k - b.k)
-    .map((x) => x.o);
-}
-
 // CEFR level order — index used for delta comparison. Kept inline (vs a
 // shared util) so the component is self-contained for tests.
 const CEFR_ORDER = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
@@ -316,7 +254,7 @@ export function RoleplayChat({
   }, [sceneLevel, userLevel]);
   // Mode classification — keeps render branches readable.
   // Hard mode override — Premium kullanıcı toggle'lamışsa adaptMode
-  // "review" gibi davranır (no hint) + ek score multiplier + min length.
+  // "review" gibi davranır (no hint) + minimum response length.
   const adaptMode: "stretch" | "matched" | "review" = hardMode
     ? "review"
     : levelDelta < 0
@@ -335,7 +273,12 @@ export function RoleplayChat({
   const [shown, setShown] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [turnScores, setTurnScores] = useState<number[]>([]);
+  const [independentScores, setIndependentScores] = useState<number[]>([]);
+  const [assistedTurns, setAssistedTurns] = useState(0);
+  const [sceneMistakes, setSceneMistakes] = useState<RoleplayMistake[]>([]);
   const [finished, setFinished] = useState(false);
+  const [retryTurnIdx, setRetryTurnIdx] = useState<number | null>(null);
+  const [freeInputForTurn, setFreeInputForTurn] = useState(false);
   // 2026-05-23 — Faz 3 LLM-siz smart conversation:
   //
   // hintAttention: user cevabı vermeden 5sn geçtiyse hint box glow yapar.
@@ -368,6 +311,7 @@ export function RoleplayChat({
   const [inputMode, setInputMode] = useState<InputMode>("voice");
   const [recording, setRecording] = useState(false);
   const [interimText, setInterimText] = useState("");
+  const [voiceError, setVoiceError] = useState<string | null>(null);
   // 2026-05-26 (P0-4 fix) — interimText ref pattern. closeTimer 8500ms sonra
   // tetiklenirken `interimText` stale closure değeri okuyordu (boş string),
   // submit hiç çalışmıyordu. Ref state ile sync; closeTimer ref'i okur.
@@ -420,7 +364,9 @@ export function RoleplayChat({
     shadowRadius: 8 + hintAttention.value * 14,
   }));
   const [sttAvailable, setSttAvailable] = useState(false);
+  const [sttChecked, setSttChecked] = useState(false);
   const sttAbortRef = useRef<AbortController | null>(null);
+  const submissionLockedRef = useRef(false);
   // TTS mute toggle. Persisted to AsyncStorage so it carries across scenarios
   // and app restarts. We default to false (audio on) because hearing native
   // pronunciation is core to the product — users have to opt OUT, not in.
@@ -459,6 +405,7 @@ export function RoleplayChat({
       const avail = await isSttAvailable().catch(() => false);
       if (cancelled) return;
       setSttAvailable(avail);
+      setSttChecked(true);
       if (!avail) {
         setInputMode("text");
         // 2026-05-26 (P1-10 fix) — STT yokken stale "voice" preference'i
@@ -568,6 +515,10 @@ export function RoleplayChat({
     if (newShown.length > 0) {
       setShown((prev) => [...prev, ...newShown]);
       setTurnIdx(i);
+      // Most scripts end with an NPC closing line. Previously the cursor
+      // moved past the array but `finished` stayed false, leaving a disabled
+      // input and forcing users to hunt for an escape link.
+      if (i >= turns.length) setFinished(true);
       // The reaction (if any) has now been baked into the rendered text.
       // Clear it so the next NPC block doesn't re-use a stale prefix.
       if (pendingReaction) setPendingReaction(null);
@@ -609,13 +560,36 @@ export function RoleplayChat({
   const currentTurn = turns[turnIdx];
   const awaitingUserInput =
     !finished && currentTurn?.speaker === "user";
+  const choiceOptions = useMemo(
+    () =>
+      currentTurn
+        ? buildRoleplayChoiceOptions(currentTurn, turns)
+        : [],
+    [currentTurn, turns],
+  );
+
+  useEffect(() => {
+    setFreeInputForTurn(false);
+    setVoiceError(null);
+  }, [turnIdx]);
+
+  useEffect(() => {
+    // React Native press events and some speech recognizers can deliver the
+    // same action twice before the next render. Unlock only after the turn or
+    // retry state has visibly advanced.
+    submissionLockedRef.current = false;
+  }, [turnIdx, retryTurnIdx]);
 
   const finalScore = useMemo(() => {
-    if (turnScores.length === 0) return 0;
-    return Math.round(
-      turnScores.reduce((a, b) => a + b, 0) / turnScores.length,
-    );
+    return averageRoleplayScores(turnScores);
   }, [turnScores]);
+  const masteryScore = useMemo(
+    () => averageRoleplayScores(independentScores),
+    [independentScores],
+  );
+  const finalAssessmentLabel = roleplayAssessmentLabel(
+    assessRoleplayScore(finalScore),
+  );
 
   // Voice capture handlers. Owns the lifecycle of one listening window.
   // - startVoiceCapture: requests mic, starts STT, streams interim transcripts
@@ -625,6 +599,7 @@ export function RoleplayChat({
   //   than throwing the user's words away if they stop early).
   const startVoiceCapture = () => {
     if (!awaitingUserInput || recording) return;
+    setVoiceError(null);
     setInterimText("");
     interimTextRef.current = "";
     setRecording(true);
@@ -638,6 +613,7 @@ export function RoleplayChat({
       timeoutMs: 12000,
       signal: controller.signal,
       onResult: (text, isFinal) => {
+        if (sttAbortRef.current !== controller) return;
         // Interim and final updates use the same path. We display interim
         // text live; on isFinal we commit and auto-submit so the user
         // doesn't have to tap an extra button.
@@ -645,21 +621,44 @@ export function RoleplayChat({
         interimTextRef.current = text;
         if (isFinal && text.trim()) {
           finalText = text.trim();
+          // Final transcript is authoritative; submit immediately instead of
+          // making the learner wait for the 12.5s safety timeout.
+          setRecording(false);
+          setInput(finalText);
+          setInterimText("");
+          interimTextRef.current = "";
+          sttAbortRef.current = null;
+          void stopStt().catch(() => {});
+          submitUserTurnWith(finalText);
         }
       },
       onError: () => {
+        if (sttAbortRef.current !== controller) return;
         // Permission denied / not-available / mic error — fall back to text
         // mode for THIS turn (preference stays voice unless user explicitly
         // toggles). We avoid surfacing the raw error string; the empty
         // interim + recording=false visually conveys "didn't catch that."
         setRecording(false);
         setInterimText("");
+        setVoiceError("Seni duyamadım. Tekrar dene veya yazarak devam et.");
         sttAbortRef.current = null;
+        void trackEvent("roleplay_voice_failed", {
+          scenario_id: seed ?? "unknown",
+          reason: "recognition_error",
+          turn_index: turnIdx,
+        }).catch(() => {});
       },
     }).catch(() => {
+      if (sttAbortRef.current !== controller) return;
       setRecording(false);
       setInterimText("");
+      setVoiceError("Mikrofon başlatılamadı. Tekrar dene veya yazarak devam et.");
       sttAbortRef.current = null;
+      void trackEvent("roleplay_voice_failed", {
+        scenario_id: seed ?? "unknown",
+        reason: "start_failed",
+        turn_index: turnIdx,
+      }).catch(() => {});
     });
 
     // When the listening window closes (timeout or `end` event from the lib),
@@ -684,6 +683,13 @@ export function RoleplayChat({
         const trimmed = text.trim();
         setInput(trimmed);
         submitUserTurnWith(trimmed);
+      } else {
+        setVoiceError("Bir şey duyamadım. Tekrar dene veya yazarak devam et.");
+        void trackEvent("roleplay_voice_failed", {
+          scenario_id: seed ?? "unknown",
+          reason: "empty_timeout",
+          turn_index: turnIdx,
+        }).catch(() => {});
       }
       setInterimText("");
       interimTextRef.current = "";
@@ -711,6 +717,8 @@ export function RoleplayChat({
       setInput(trimmed);
       // 2026-05-26 (P0 audit fix) — text-as-arg pattern (closure'dan kurtul).
       submitUserTurnWith(trimmed);
+    } else {
+      setVoiceError("Bir şey duyamadım. Tekrar dene veya yazarak devam et.");
     }
   };
 
@@ -743,14 +751,16 @@ export function RoleplayChat({
       return;
     }
 
+    if (submissionLockedRef.current) return;
+    submissionLockedRef.current = true;
+
     const rawEval = evaluateRoleplayTurn(
       currentTurn.acceptable_patterns ?? [],
       input,
+      modelAnswersForTurn(currentTurn),
     );
-    // Hard mode score multiplier × 0.85 — band yükseltmek daha zor.
-    const evalResult = hardMode
-      ? { ...rawEval, score: Math.round(rawEval.score * 0.85) }
-      : rawEval;
+    // Difficulty changes available support, not semantic correctness.
+    const evalResult = rawEval;
 
     // 2026-05-20 — switch-trigger #2: inline error detection.
     // Kullanıcının mesajını mistake-patterns ile tara. İlk hit'i (en yüksek
@@ -772,6 +782,15 @@ export function RoleplayChat({
           reason_tr: top.pat!.reason_tr,
           correct_example: top.pat!.example_right,
         };
+        const detected = mistakeInline;
+        setSceneMistakes((previous) => {
+          const duplicate = previous.some(
+            (mistake) =>
+              mistake.reason_tr === detected.reason_tr &&
+              mistake.matched === detected.matched,
+          );
+          return duplicate ? previous : [...previous, detected].slice(0, 3);
+        });
       }
     }
 
@@ -784,7 +803,38 @@ export function RoleplayChat({
         mistake: mistakeInline,
       },
     ]);
+
+    // A correction only becomes learning when the user retrieves the phrase
+    // again. Keep the first low response on the same turn and allow one
+    // immediate repair attempt before the scripted conversation advances.
+    const firstAttempt = retryTurnIdx !== turnIdx;
+    if (firstAttempt) {
+      setIndependentScores((prev) => [...prev, evalResult.score]);
+    }
+    const shouldRetry = evalResult.score < 80 && firstAttempt;
+    if (shouldRetry) {
+      setRetryTurnIdx(turnIdx);
+      setInput("");
+      recordUserText(input).catch(() => {});
+      void trackEvent("roleplay_turn_retry_prompted", {
+        scenario_id: seed ?? "unknown",
+        turn_index: turnIdx,
+        assessment: assessRoleplayScore(evalResult.score),
+        input_mode: inputMode,
+      }).catch(() => {});
+      return;
+    }
+
+    if (!firstAttempt) setAssistedTurns((count) => count + 1);
+    setRetryTurnIdx(null);
     setTurnScores((prev) => [...prev, evalResult.score]);
+    void trackEvent("roleplay_turn_completed", {
+      scenario_id: seed ?? "unknown",
+      turn_index: turnIdx,
+      assessment: assessRoleplayScore(evalResult.score),
+      retried: retryTurnIdx === turnIdx,
+      input_mode: inputMode,
+    }).catch(() => {});
 
     // Queue the score-based reaction ACK for the NEXT NPC line. Skipped on
     // the final user turn — there's no next NPC bubble to attach to and the
@@ -792,7 +842,7 @@ export function RoleplayChat({
     const nextIdx = turnIdx + 1;
     const isLastTurn = nextIdx >= turns.length;
     if (!isLastTurn) {
-      const reaction = pickReactionPrefix(evalResult.score, input);
+      const reaction = roleplayReaction(evalResult.score, input);
       if (reaction) setPendingReaction(reaction);
     }
 
@@ -817,13 +867,16 @@ export function RoleplayChat({
   };
 
   const finalize = () => {
-    const correctCount = turnScores.filter((s) => s > 0).length;
+    const correctCount = turnScores.filter((s) => s >= 80).length;
     onComplete({
       exercise_id: "roleplay_chat",
       exercise_type: "roleplay_chat",
-      correct: finalScore >= 50,
+      correct: finalScore >= 80,
       score: finalScore,
-      feedback: `${correctCount}/${turnScores.length} tepki doğru.`,
+      mastery_score: masteryScore,
+      assisted_turns: assistedTurns,
+      mistakes: sceneMistakes,
+      feedback: `${correctCount}/${turnScores.length} hedefe uygun tepki.`,
     });
   };
 
@@ -880,7 +933,7 @@ export function RoleplayChat({
         {finished && (
           <View style={styles.finalScore}>
             <Text style={styles.finalScoreText}>
-              ✓ Roleplay tamamlandı · {finalScore}/100
+              {finalAssessmentLabel}
             </Text>
           </View>
         )}
@@ -900,7 +953,7 @@ export function RoleplayChat({
           {hardMode && (
             <View style={styles.hardModeBadge}>
               <Text style={styles.hardModeBadgeText}>
-                🔥 HARD MODE · NO HINT · ÇARPAN 0.85
+                🔥 HARD MODE · İPUÇSUZ · TAM CÜMLE
               </Text>
             </View>
           )}
@@ -916,6 +969,17 @@ export function RoleplayChat({
               <Text style={styles.reviewBadgeText}>
                 {sceneLevel} TEKRARI · SEN {userLevel} · İPUÇSUZ
               </Text>
+            </View>
+          )}
+
+          {retryTurnIdx === turnIdx && (
+            <View style={styles.retryBox}>
+              <Text style={styles.retryTitle}>Aynı turu bir kez daha dene</Text>
+              {extractExampleFromTurn(currentTurn) ? (
+                <Text style={styles.retryExample}>
+                  Örnek: “{extractExampleFromTurn(currentTurn)}”
+                </Text>
+              ) : null}
             </View>
           )}
 
@@ -938,7 +1002,8 @@ export function RoleplayChat({
               hintGlowStyle (Reanimated): 5sn idle → shadow opacity/radius pulse */}
           {!hardMode &&
             currentTurn?.hint_tr &&
-            (forceShowHint ||
+            (retryTurnIdx === turnIdx ||
+              forceShowHint ||
               adaptMode === "stretch" ||
               (adaptMode === "matched" && mode !== "free")) && (
             <Animated.View
@@ -966,20 +1031,43 @@ export function RoleplayChat({
             </Animated.View>
           )}
 
-          {/* 2026-05-21 CRITICAL FIX — voice mode multi-choice'tan ÖNCE
-              kontrol edilir. Önceden multi-choice (ilk deneme) kullanıcısı
-              voice butonunu HİÇ görmüyordu, sadece 3 buton. User dedi ki:
-              "konuşamıyorum yazma zorunlu hala". Sebep buydu.
-
-              Yeni öncelik:
-                1. inputMode voice + sttAvailable → 🎙️ Konuş (her zaman kazanır)
-                2. else multi-choice ilk deneme → 3 buton (training wheels)
-                3. else → klavye
-
-              Multi-choice "training wheels" yine var ama sadece voice modunda
-              olmayan veya STT'siz cihaz/Expo Go için. Voice = Lafla'nın
-              omurgası, default'ta görünmeli. */}
-          {inputMode === "voice" && sttAvailable ? (
+          {/* First encounter is recognition before production. The learner
+              can still bypass choices and answer with voice/text. */}
+          {mode === "multi-choice" &&
+          currentTurn &&
+          choiceOptions.length > 0 &&
+          !freeInputForTurn ? (
+            <View style={styles.choiceCol}>
+              {choiceOptions.map((opt, i) => (
+                <Pressable
+                  key={`${turnIdx}-${i}`}
+                  style={styles.choiceBtn}
+                  onPress={() => submitUserTurnWith(opt)}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${i + 1}. cevap seçeneği: ${opt}`}
+                >
+                  <Text style={styles.choiceText}>{opt}</Text>
+                </Pressable>
+              ))}
+              <Pressable
+                onPress={() => {
+                  setFreeInputForTurn(true);
+                  void trackEvent("roleplay_guidance_bypassed", {
+                    scenario_id: seed ?? "unknown",
+                    turn_index: turnIdx,
+                  }).catch(() => {});
+                }}
+                style={styles.inputModeToggle}
+                hitSlop={10}
+                accessibilityRole="button"
+                accessibilityLabel="Kendi cevabımı vereceğim"
+              >
+                <Text style={styles.inputModeToggleText}>
+                  {sttAvailable ? "🎙️ Kendim söyleyeceğim" : "⌨️ Kendim yazacağım"}
+                </Text>
+              </Pressable>
+            </View>
+          ) : inputMode === "voice" && sttAvailable ? (
             <View style={styles.voiceBar}>
               <Pressable
                 style={[
@@ -990,8 +1078,17 @@ export function RoleplayChat({
                 onPress={recording ? stopVoiceCapture : startVoiceCapture}
                 disabled={!awaitingUserInput}
                 accessibilityRole="button"
+                accessibilityState={{
+                  disabled: !awaitingUserInput,
+                  busy: recording,
+                }}
                 accessibilityLabel={
                   recording ? "Konuşmayı bitir" : "Konuşmaya başla"
+                }
+                accessibilityHint={
+                  recording
+                    ? "Kaydı bitirip duyulan cevabı gönderir"
+                    : "İngilizce cevabını dinlemeye başlar"
                 }
               >
                 <Text style={styles.micEmoji}>
@@ -1003,10 +1100,22 @@ export function RoleplayChat({
               </Pressable>
               {recording && interimText ? (
                 <View style={styles.interimBox}>
-                  <Text style={styles.interimText} numberOfLines={3}>
+                  <Text
+                    style={styles.interimText}
+                    numberOfLines={3}
+                    accessibilityLiveRegion="polite"
+                  >
                     {interimText}
                   </Text>
                 </View>
+              ) : null}
+              {voiceError ? (
+                <Text
+                  style={styles.voiceErrorText}
+                  accessibilityLiveRegion="assertive"
+                >
+                  {voiceError}
+                </Text>
               ) : null}
               <Pressable
                 onPress={toggleInputMode}
@@ -1020,59 +1129,20 @@ export function RoleplayChat({
                 </Text>
               </Pressable>
             </View>
-          ) : mode === "multi-choice" && currentTurn ? (
-            <View style={styles.choiceCol}>
-              {buildChoiceOptions(currentTurn).map((opt, i) => (
-                <Pressable
-                  key={`${turnIdx}-${i}`}
-                  style={styles.choiceBtn}
-                  onPress={() => {
-                    setInput(opt);
-                    setTimeout(() => {
-                      // Submit with the chosen option as input
-                      const fakeInput = opt;
-                      if (!currentTurn) return;
-                      const r = evaluateRoleplayTurn(
-                        currentTurn.acceptable_patterns ?? [],
-                        fakeInput,
-                      );
-                      setShown((prev) => [
-                        ...prev,
-                        {
-                          speaker: "user",
-                          message: fakeInput,
-                          score: r.score,
-                        },
-                      ]);
-                      setTurnScores((prev) => [...prev, r.score]);
-                      setInput("");
-                      const nextIdx = turnIdx + 1;
-                      const isLastTurn = nextIdx >= turns.length;
-                      // Mirror the free-mode path: queue a score-based ACK
-                      // for the next NPC line and (for sub-80 picks) capture
-                      // the mistake. Choice-mode users still benefit from
-                      // both signals.
-                      if (!isLastTurn) {
-                        const reaction = pickReactionPrefix(r.score, fakeInput);
-                        if (reaction) setPendingReaction(reaction);
-                      }
-                      if (r.score < 80) {
-                        recordUserText(fakeInput).catch(() => {});
-                      }
-                      if (isLastTurn) setFinished(true);
-                      else setTurnIdx(nextIdx);
-                    }, 50);
-                  }}
-                >
-                  <Text style={styles.choiceText}>{opt}</Text>
-                </Pressable>
-              ))}
-            </View>
           ) : (
             // Klavye fallback — voice unavailable VEYA kullanıcı text seçti
             // VEYA multi-choice değil. Hint pill voice'a geri dönüş için
             // sttAvailable koşuluyla render edilir.
             <View>
+              {sttChecked && !sttAvailable ? (
+                <Text
+                  style={styles.voiceErrorText}
+                  accessibilityLiveRegion="polite"
+                >
+                  Sesli giriş bu cihazda kullanılamıyor. Yazarak devam
+                  edebilirsin.
+                </Text>
+              ) : null}
               <View style={styles.inputRow}>
                 <TextInput
                   style={styles.input}
@@ -1228,16 +1298,14 @@ function ChatBubble({
             : isMid
               ? bubbleStyles.scoreTextMid
               : bubbleStyles.scoreTextMiss;
-          // Symbols: only the extremes get one. Mid-tier omits the symbol
-          // so the bare number reads as "neutral / partial" instead of
-          // pass/fail.
-          const symbol = isGood ? "✓ " : isMid ? "" : "✕ ";
+          const label = isGood
+            ? "✓ Hedefe uygun"
+            : isMid
+              ? "Yakın — tekrar et"
+              : "↻ Tekrar dene";
           return (
             <View style={[bubbleStyles.scoreChip, chipStyle]}>
-              <Text style={[bubbleStyles.scoreText, textStyle]}>
-                {symbol}
-                {score}/100
-              </Text>
+              <Text style={[bubbleStyles.scoreText, textStyle]}>{label}</Text>
             </View>
           );
         })()
@@ -1353,6 +1421,26 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0,
     shadowRadius: 8,
+  },
+  retryBox: {
+    backgroundColor: tokens.semantic.warningContainer,
+    borderWidth: 1,
+    borderColor: tokens.semantic.warning,
+    borderRadius: tokens.radius.base,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    gap: 3,
+    marginBottom: 4,
+  },
+  retryTitle: {
+    color: tokens.text.primary,
+    fontSize: 13,
+    fontWeight: tokens.weight.bold,
+  },
+  retryExample: {
+    color: tokens.text.secondary,
+    fontSize: 13,
+    lineHeight: 18,
   },
   // 2026-05-23 Faz 3: forceShowHint state'inde gösterilen küçük eyebrow.
   // "Sıkıştın mı? İpucu açıldı:" — pedagojik nudge, user'a hint'in NEDEN
@@ -1537,6 +1625,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: tokens.text.secondary,
     fontStyle: "italic",
+    textAlign: "center",
+  },
+  voiceErrorText: {
+    color: tokens.semantic.error,
+    fontSize: 12,
+    lineHeight: 17,
     textAlign: "center",
   },
   // Small pill below the input row to swap voice ↔ text. Low visual

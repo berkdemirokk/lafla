@@ -1,12 +1,9 @@
-// Lafla — Onboarding (4 adım, ~45 saniye, tamamen Türkçe, premium hareket).
+// Lafla — Onboarding (2 adım, tamamen Türkçe).
 //
-// Akış (2026-05-20 — track adımı söküldü):
-//   1. welcome    — Wordmark glow + tagline + "Başla"
-//   2. interests  — "Hangi sahneler senin için önemli?" → 6 chip, çoklu seçim,
-//                   en az 2 zorunlu → AsyncStorage `lafla.interests`
-//   3. name       — "Sana nasıl hitap edelim?" → opsiyonel, atlanabilir
-//                   → AsyncStorage `lafla.displayName`
-//   4. cefr       — "İngilizce seviyen?" → 6 kart (A1–C2) → setCefrLevel
+// Akış:
+//   1. interests  — "Hangi sahneler senin için önemli?" → çoklu seçim,
+//                   tek seçim yeterli → AsyncStorage `lafla.interests`
+//   2. cefr       — "İngilizce seviyen?" → 6 kart (A1–C2) → setCefrLevel
 //
 // 6 chip: Flört · İş · Bar · Havaalanı · Günlük · Sipariş. Her chip 1:1
 // SceneMode'a map'lenir (bkz. lib/interest-mapping.ts).
@@ -17,14 +14,13 @@
 //     onPressOut'ta spring ile 1.0'a döner.
 //   - ProgressDots aktif noktasının genişliği animasyonla artar (flex 1 → 2.4).
 //
-// "← Geri" üstte solda — welcome dışında. Bottom CTA: "Devam et" / "Başla" /
-// "Tamamla". Skip yalnız Name ve Interests'te görünür.
+// İlk adımda çıkış, ikinci adımda geri dönüş vardır.
 //
 // Akış bitince:
-//   - State diske yazılır (level, interests, displayName, onboarded=true).
+//   - State diske yazılır (level, interests, onboarded=true).
 //   - `onboarding_completed` analytics event'i atılır.
 //   - ATT izni istenir (value-after pattern); granted ise analytics re-init.
-//   - /home'a router.replace ile gidilir.
+//   - İlgi alanı ve seviyeye uygun ilk pratiğe gidilir.
 
 import { useEffect, useReducer, useRef, useState } from "react";
 import {
@@ -55,9 +51,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { requestAttOnce } from "../lib/att";
-import { FLAG_KEYS, getFeatureFlag } from "../lib/feature-flags";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
+import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
 import { parseSafe, isStringArray } from "../lib/json-safe";
 import {
   hapticImpact,
@@ -76,20 +72,11 @@ import { tokens } from "../theme";
 // TİPLER & SABİTLER
 // ============================================================
 
-// 2026-05-24 — "preview" adımı eklendi: welcome → preview → interests → name → cefr.
-// Önceki kullanıcı critique'i: "Lafla'nın ne yaptığını 4 setup ekranı sonra gör".
-// Şimdi 30 saniyelik static teaser (Match DM senaryosu + Türk hata + Lafla
-// correction reveal) ile value-first ilk izlenim. Lerna AI / Cal AI'ın
-// kullandığı kalıp.
+// Yeni kullanıcı yalnızca iki karar verir; ürün anlatımı ilk gerçek pratikte
+// yapılır. İsim ve tanıtım ekranları aktivasyonu geciktirmemeli.
 type OnboardingStep = "welcome" | "preview" | "interests" | "name" | "cefr";
 
-const STEP_ORDER: OnboardingStep[] = [
-  "welcome",
-  "preview",
-  "interests",
-  "name",
-  "cefr",
-];
+const STEP_ORDER: OnboardingStep[] = ["interests", "cefr"];
 
 // Persistence keys (yeni 4-adım akışı). Eski `lafla.user.name` anahtarı geçişte
 // temizlenir; yeni isim `lafla.displayName` altında tutulur. `lafla.track`
@@ -98,7 +85,7 @@ const STEP_ORDER: OnboardingStep[] = [
 const K_DISPLAY_NAME = "lafla.displayName";
 const K_LEGACY_NAME = "lafla.user.name";
 
-const MIN_INTERESTS = 2;
+const MIN_INTERESTS = 1;
 
 interface OnboardingState {
   step: OnboardingStep;
@@ -158,7 +145,7 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
 }
 
 const INITIAL: OnboardingState = {
-  step: "welcome",
+  step: "interests",
   interests: [],
   displayName: "",
 };
@@ -248,29 +235,7 @@ export default function Onboarding() {
   const [state, dispatch] = useReducer(reducer, INITIAL);
   const [saving, setSaving] = useState(false);
   const [restored, setRestored] = useState(false);
-  // 2026-05-24 — A/B: preview step on/off. PostHog feature flag
-  // `onboarding_preview_enabled` (default true). B variant → handleWelcomeStart
-  // doğrudan interests'e atlar, preview skip edilir. Variant analytics'te
-  // her step_completed event'iyle birlikte gönderilir.
-  const [previewEnabled, setPreviewEnabled] = useState<boolean>(true);
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const enabled = await getFeatureFlag(FLAG_KEYS.ONBOARDING_PREVIEW, true);
-      if (!cancelled) {
-        setPreviewEnabled(enabled);
-        // Variant'i ilk gördüğümüz anda track — funnel analytics tarafında
-        // her kullanıcının hangi variant'ta olduğu net.
-        void trackEvent("onboarding_variant_assigned", {
-          flag: FLAG_KEYS.ONBOARDING_PREVIEW,
-          variant: enabled ? "A_preview" : "B_no_preview",
-        }).catch(() => {});
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const previewEnabled = false;
 
   // Diskten son adımı geri yükle (kullanıcı uygulamayı yarıda kapattıysa).
   useEffect(() => {
@@ -287,7 +252,7 @@ export default function Onboarding() {
       const validStep =
         savedStep && (STEP_ORDER as string[]).includes(savedStep)
           ? (savedStep as OnboardingStep)
-          : "welcome";
+          : "interests";
       const savedInterests = parseSafe<string[]>(
         rawInterests,
         [],
@@ -463,26 +428,21 @@ export default function Onboarding() {
     hapticSuccess();
     setSaving(false);
 
-    // 2026-05-20 — switch-trigger #1: force-first scene.
-    // Onboarding biter bitmez kullanıcıyı doğrudan home feed'e koymak
-    // yerine zorunlu bir "Match DM" sahnesi gösteriyoruz. Amaç: kullanıcı
-    // ilk 90 saniyede "evet bu ben" momentini yaşasın. Daha önce intro
-    // tamamlandıysa (`lafla.intro.match.completed=true`) bu adım atlanır
-    // ve home feed normal akar.
+    // İlk pratik kullanıcının seçtiği bağlam ve seviyeye uyar. Flört seçmeyen
+    // bir kullanıcı artık zorunlu olarak dating-app roleplay'ine düşmez.
     const introDone = await AsyncStorage.getItem(
       "lafla.intro.match.completed",
     ).catch(() => null);
     if (introDone === "true") {
       router.replace("/today" as never);
     } else {
-      router.replace("/scenario/intro.match.0.1?intro=true" as never);
+      const scenarioId = pickOnboardingScenarioId(state.interests, lvl);
+      router.replace(`/scenario/${scenarioId}?intro=true` as never);
     }
   };
 
   // ---------- Render ----------
-  const showBack = state.step !== "welcome" && !saving;
-  // 2026-05-25 — Welcome adımında "Geri" yerine "← Çıkış" göster.
-  // Yanlışlıkla onboarding'e giren user auth/today'e dönebilsin.
+  const showBack = currentIndex > 0 && !saving;
   const handleWelcomeExit = () => {
     hapticSelection();
     router.replace("/auth" as never);
@@ -503,7 +463,7 @@ export default function Onboarding() {
           >
             <Text style={styles.headerBtnText}>← Geri</Text>
           </Pressable>
-        ) : state.step === "welcome" ? (
+        ) : currentIndex === 0 ? (
           <Pressable
             onPress={handleWelcomeExit}
             style={styles.headerBtn}
@@ -1165,7 +1125,7 @@ const previewStyles = StyleSheet.create({
 });
 
 // ============================================================
-// ADIM 2 — INTERESTS (6 chip, çoklu seçim, min 2)
+// ADIM 1 — INTERESTS (çoklu seçim, tek seçim yeterli)
 // ============================================================
 
 function InterestsStep({
@@ -1188,8 +1148,8 @@ function InterestsStep({
         <Text style={styles.stepHeader}>Hangi sahneler senin için önemli?</Text>
         <Text style={styles.stepSubtitle}>
           {remaining > 0
-            ? `En az ${MIN_INTERESTS} tane seç — istediğin kadar ekleyebilirsin.`
-            : `Harika — ${selected.length} sahne seçtin.`}
+            ? "Bir tane seçmen yeterli — istersen daha fazla ekleyebilirsin."
+            : `${selected.length} ilgi alanı seçtin.`}
         </Text>
 
         <View style={styles.chipGrid}>
@@ -1240,8 +1200,8 @@ function InterestsStep({
           disabled={!canContinue}
           accessibilityLabel={
             canContinue
-              ? "Devam et — ismini gir"
-              : `En az ${MIN_INTERESTS} ilgi alanı seç`
+              ? "Devam et — seviyeni seç"
+              : "Bir ilgi alanı seç"
           }
         />
       </View>

@@ -222,6 +222,7 @@ export const a2MicroLesson_borrow: BundledLesson = {
             "(do you have|i was wondering).{0,30}(sugar|flour|milk)",
             "borrow.{0,15}(sugar|flour|milk)",
           ],
+          model_answers: ["Sorry to bother you, could I borrow a cup of sugar?"],
           hint_tr:
             "'Sorry to bother you, could I borrow a cup of sugar?' kalıbını kullan.",
         },
@@ -237,6 +238,7 @@ export const a2MicroLesson_borrow: BundledLesson = {
             "either (one|is fine)",
             "white please",
           ],
+          model_answers: ["White, please"],
           hint_tr: "'White, please' veya 'Brown, please'. Kısa cevap yeterli.",
         },
         {
@@ -252,6 +254,7 @@ export const a2MicroLesson_borrow: BundledLesson = {
             "i('ll| will) (return|pay) (it|you) back",
             "appreciate it",
           ],
+          model_answers: ["Thanks so much, I'll bring it back tomorrow."],
           hint_tr:
             "Teşekkür et: 'Thanks so much, I'll bring it back tomorrow.'",
         },
@@ -602,6 +605,7 @@ export const a2MicroLesson_package: BundledLesson = {
             "yep( that('s| is) me)?",
             "that('s| is) right",
           ],
+          model_answers: ["Yes, that's me."],
           hint_tr: "Sen olduğunu onayla: 'Yes, that's me.'",
         },
         {
@@ -617,6 +621,7 @@ export const a2MicroLesson_package: BundledLesson = {
             "where do i sign",
             "(sure|yes)(,)? (no problem|of course)",
           ],
+          model_answers: ["Where do I sign?"],
           hint_tr: "'Sure' veya 'Where do I sign?' diye sorabilirsin.",
         },
         {
@@ -632,6 +637,7 @@ export const a2MicroLesson_package: BundledLesson = {
             "thanks(,)? you too",
             "have a (good|nice) (one|day)",
           ],
+          model_answers: ["Thanks, you too!"],
           hint_tr: "'Thanks, you too!' kısa ve doğal.",
         },
       ],
@@ -984,6 +990,7 @@ export const a2MicroLesson_halfday: BundledLesson = {
             "i wanted to ask",
             "i was wondering",
           ],
+          model_answers: ["Hey, do you have a minute? I wanted to ask something."],
           hint_tr:
             "'Hey, do you have a minute? I wanted to ask something.' ile başla.",
         },
@@ -1000,6 +1007,7 @@ export const a2MicroLesson_halfday: BundledLesson = {
             "i was hoping.{0,20}(half day|leave early)",
             "take.{0,10}(half day|friday afternoon) off",
           ],
+          model_answers: ["Could I take a half day on Friday?"],
           hint_tr:
             "Net iste: 'Could I take a half day on Friday?' veya 'Could I leave early on Friday?'",
         },
@@ -1016,6 +1024,7 @@ export const a2MicroLesson_halfday: BundledLesson = {
             "(doctor|dentist) appointment",
             "nothing urgent",
           ],
+          model_answers: ["I have a doctor's appointment"],
           hint_tr:
             "Kısa sebep: 'I have a doctor's appointment' veya 'Personal matter, nothing urgent.'",
         },
@@ -1031,6 +1040,7 @@ export const a2MicroLesson_halfday: BundledLesson = {
             "of course(,)? i will",
             "(thanks|thank you)(,)? i (will|'ll)",
           ],
+          model_answers: ["Thanks, I appreciate it."],
           hint_tr: "'Thanks, I appreciate it.' kısa ve profesyonel.",
         },
       ],
@@ -1377,6 +1387,7 @@ export const a2MicroLesson_invite: BundledLesson = {
             "(yeah|fine).{0,20}(busy|good)",
             "(how about|and) you",
           ],
+          model_answers: ["Pretty good, you?"],
           hint_tr:
             "Kısa hatır soru: 'Pretty good, you?' veya 'Busy, you?'",
         },
@@ -1393,6 +1404,7 @@ export const a2MicroLesson_invite: BundledLesson = {
             "are you (free|around).{0,15}(saturday|this weekend)",
             "how about (dinner|saturday)",
           ],
+          model_answers: ["Hey, do you want to come over for dinner on Saturday?"],
           hint_tr:
             "'Hey, do you want to come over for dinner on Saturday?' ile sor.",
         },
@@ -1408,6 +1420,7 @@ export const a2MicroLesson_invite: BundledLesson = {
             "(how about|maybe) (7|8|6)",
             "(any time after) (7|8|6)",
           ],
+          model_answers: ["Does 7 work?"],
           hint_tr:
             "Saat söyle: 'Around 7?' veya 'Does 7 work?' kibar ve net.",
         },
@@ -1423,6 +1436,7 @@ export const a2MicroLesson_invite: BundledLesson = {
             "(maybe )?(some )?wine",
             "no need(,)? i('ll| will|'ve got)",
           ],
+          model_answers: ["No, don't worry about it"],
           hint_tr:
             "'No, don't worry about it' veya 'Just bring yourself!' sıcak cevap.",
         },
@@ -1774,6 +1788,7 @@ export const a2MicroLesson_farewell: BundledLesson = {
             "it('s| has) been (a )?(great|wonderful|amazing)",
             "(thanks|thank you).{0,30}(everything|support)",
           ],
+          model_answers: ["Thanks so much — I'm going to miss everyone."],
           hint_tr:
             "'Thanks so much — I'm going to miss everyone.' duygusal ama profesyonel.",
         },
@@ -1790,6 +1805,7 @@ export const a2MicroLesson_farewell: BundledLesson = {
             "(moving to|relocating)",
             "(still )?figuring (it )?out",
           ],
+          model_answers: ["I'm starting a new job next month"],
           hint_tr:
             "Kısa plan: 'I'm starting a new job next month' veya 'Taking some time off.'",
         },
@@ -1806,6 +1822,7 @@ export const a2MicroLesson_farewell: BundledLesson = {
             "find me on (linkedin|instagram|whatsapp)",
             "i('ll| will) (send|drop) you (my number|a message)",
           ],
+          model_answers: ["Absolutely, let's stay in touch. Find me on LinkedIn."],
           hint_tr:
             "'Absolutely, let's stay in touch. Find me on LinkedIn.' net çıkış.",
         },
@@ -1822,6 +1839,7 @@ export const a2MicroLesson_farewell: BundledLesson = {
             "(you too|same to you)",
             "it('s| was) (a |been a )?pleasure",
           ],
+          model_answers: ["Thanks, take care!"],
           hint_tr: "'Thanks, take care!' samimi son.",
         },
       ],
@@ -2168,6 +2186,7 @@ export const a2MicroLesson_birthday: BundledLesson = {
             "happy birthday.{0,30}(small|something|for you)",
             "wishing you (a )?happy birthday",
           ],
+          model_answers: ["Happy birthday!"],
           hint_tr: "'Happy birthday!' ile gir, sıcak ses tonuyla.",
         },
         {
@@ -2183,6 +2202,7 @@ export const a2MicroLesson_birthday: BundledLesson = {
             "got you (something|a gift)",
             "thanks(,)? for (having me|inviting)",
           ],
+          model_answers: ["I got you something small. Hope you like it."],
           hint_tr: "'I got you something small. Hope you like it.'",
         },
         {
@@ -2198,6 +2218,7 @@ export const a2MicroLesson_birthday: BundledLesson = {
             "(don'?t mention it|no big deal)",
             "(you|you'?re) (deserve it|welcome)",
           ],
+          model_answers: ["Of course, hope you like it!"],
           hint_tr: "'Of course, hope you like it!' samimi.",
         },
         {
@@ -2547,6 +2568,7 @@ export const a2MicroLesson_condolences: BundledLesson = {
             "(i )?just wanted to (say|check)",
             "(thinking|been thinking) of you",
           ],
+          model_answers: ["I'm so sorry for your loss."],
           hint_tr: "'I'm so sorry for your loss.' kısa ve samimi.",
         },
         {
@@ -2562,6 +2584,7 @@ export const a2MicroLesson_condolences: BundledLesson = {
             "(i )?can'?t imagine",
             "(here|i'?m here) for you",
           ],
+          model_answers: ["Take all the time you need."],
           hint_tr: "'Take all the time you need.' destekleyici ses tonu.",
         },
         {
@@ -2577,6 +2600,7 @@ export const a2MicroLesson_condolences: BundledLesson = {
             "(reach out|call me) (any time|whenever)",
             "(don'?t hesitate|feel free).{0,20}(reach|call|message)",
           ],
+          model_answers: ["If you need anything, just let me know."],
           hint_tr: "'If you need anything, just let me know.'",
         },
         {
@@ -2926,6 +2950,7 @@ export const a2MicroLesson_promotion: BundledLesson = {
             "(huge|big|amazing) news",
             "i (just )?heard.{0,15}(congrats|amazing|so happy)",
           ],
+          model_answers: ["Yes, I heard — congrats!"],
           hint_tr: "'Yes, I heard — congrats!' kısa ve sıcak.",
         },
         {
@@ -2941,6 +2966,7 @@ export const a2MicroLesson_promotion: BundledLesson = {
             "you('?ve|'ll) (worked|do) (so |very )?(hard|great)",
             "(no one|nobody) deserves it more",
           ],
+          model_answers: ["You totally deserve it. You worked so hard."],
           hint_tr: "'You totally deserve it. You worked so hard.' içten kutla.",
         },
         {
@@ -2956,6 +2982,7 @@ export const a2MicroLesson_promotion: BundledLesson = {
             "let'?s (grab|get) (a )?(drink|coffee|lunch)",
             "(when|are you)( free)?( this week)? to celebrate",
           ],
+          model_answers: ["We should celebrate — drinks are on me!"],
           hint_tr:
             "'We should celebrate — drinks are on me!' jest yap.",
         },
@@ -3307,6 +3334,7 @@ export const a2MicroLesson_askstranger: BundledLesson = {
             "i('m| am) trying to (find|get to)",
             "(can you|could you) (show|help) me",
           ],
+          model_answers: ["Could you help me — I'm trying to find this address."],
           hint_tr:
             "'Could you help me — I'm trying to find this address.' kısa ve net.",
         },
@@ -3323,6 +3351,7 @@ export const a2MicroLesson_askstranger: BundledLesson = {
             "(it'?s|here'?s) (the )?address",
             "(yeah|yes)(,)? (here|this one)",
           ],
+          model_answers: ["Sure, here it is."],
           hint_tr:
             "'Sure, here it is.' telefonu uzat.",
         },
@@ -3340,6 +3369,7 @@ export const a2MicroLesson_askstranger: BundledLesson = {
             "got it",
             "(thanks|thank you).{0,20}(so much|a lot|appreciate)",
           ],
+          model_answers: ["Left at the lights, got it. Thanks!"],
           hint_tr:
             "Tekrarla ve teşekkür et: 'Left at the lights, got it. Thanks!'",
         },
@@ -3690,6 +3720,7 @@ export const a2MicroLesson_return: BundledLesson = {
             "(this|it) (isn'?t|is not|doesn'?t) (working|work)",
             "(i need|i want) (a )?refund",
           ],
+          model_answers: ["Hi, I'd like to return this — it's not working."],
           hint_tr:
             "'Hi, I'd like to return this — it's not working.' net açılış.",
         },
@@ -3706,6 +3737,7 @@ export const a2MicroLesson_return: BundledLesson = {
             "(i )?bought it (yesterday|two days ago|last week)",
             "(i )?paid by (card|credit card)",
           ],
+          model_answers: ["Yes, here you go."],
           hint_tr: "'Yes, here you go.' fişi uzat.",
         },
         {
@@ -3721,6 +3753,7 @@ export const a2MicroLesson_return: BundledLesson = {
             "refund(,)? please",
             "exchange(,)? please",
           ],
+          model_answers: ["A refund, please"],
           hint_tr: "'A refund, please' veya 'An exchange, please.'",
         },
         {
@@ -3734,6 +3767,7 @@ export const a2MicroLesson_return: BundledLesson = {
             "(appreciate|appreciated) it",
             "(thanks|thank you)(,)? (much|that'?s) appreciated",
           ],
+          model_answers: ["Thanks, I appreciate it."],
           hint_tr: "'Thanks, I appreciate it.'",
         },
       ],
@@ -4078,6 +4112,7 @@ export const a2MicroLesson_wifi: BundledLesson = {
             "(could|can) i get the wi-?fi (password)?",
             "what'?s the wi-?fi password",
           ],
+          model_answers: ["Sorry, do you have Wi-Fi here?"],
           hint_tr:
             "'Sorry, do you have Wi-Fi here?' veya 'Could I get the Wi-Fi password?'",
         },
@@ -4093,6 +4128,7 @@ export const a2MicroLesson_wifi: BundledLesson = {
             "(thanks|thank you)(,)? (i'?ll|will) (check|look)",
             "(oh )?(great|nice)(,)? thanks",
           ],
+          model_answers: ["Perfect, thanks!"],
           hint_tr: "'Perfect, thanks!'",
         },
         {
@@ -4107,6 +4143,7 @@ export const a2MicroLesson_wifi: BundledLesson = {
             "(sounds good|alright)(,)? thanks",
             "appreciate it",
           ],
+          model_answers: ["Will do, thanks!"],
           hint_tr: "'Will do, thanks!' kısa cevap.",
         },
       ],
@@ -4453,6 +4490,7 @@ export const a2MicroLesson_tipping: BundledLesson = {
             "(really )?(good|enjoyed|loved)",
             "(thanks|thank you).{0,20}(great|amazing|excellent)",
           ],
+          model_answers: ["Everything was great, thanks."],
           hint_tr:
             "Yemek hakkında kısa kompliman: 'Everything was great, thanks.'",
         },
@@ -4469,6 +4507,7 @@ export const a2MicroLesson_tipping: BundledLesson = {
             "(do i|should i) (need to|leave) (a )?tip",
             "how much (should i|do you) (tip|leave)",
           ],
+          model_answers: ["Is service included?"],
           hint_tr: "'Is service included?' veya 'Do I need to leave a tip?'",
         },
         {
@@ -4484,6 +4523,7 @@ export const a2MicroLesson_tipping: BundledLesson = {
             "okay(,)? thanks",
             "i'?ll (keep|round) (the )?change",
           ],
+          model_answers: ["Got it, thanks for letting me know."],
           hint_tr: "'Got it, thanks for letting me know.'",
         },
         {
@@ -4834,6 +4874,7 @@ export const a2MicroLesson_catchup: BundledLesson = {
             "(no way|so happy to see you)",
             "what (a |are )?(coincidence|surprise)",
           ],
+          model_answers: ["Oh my god, it's been ages! So good to see you."],
           hint_tr:
             "Şaşır + sıcak ol: 'Oh my god, it's been ages! So good to see you.'",
         },
@@ -4849,6 +4890,7 @@ export const a2MicroLesson_catchup: BundledLesson = {
             "(time flies|so long ago)",
             "(that|that one) (was )?(amazing|fun)",
           ],
+          model_answers: ["Yes, time flies!"],
           hint_tr: "'Yes, time flies!' veya 'Crazy, right?'",
         },
         {
@@ -4864,6 +4906,7 @@ export const a2MicroLesson_catchup: BundledLesson = {
             "(started|moved to|joined) (a )?new",
             "(how about|what about) you",
           ],
+          model_answers: ["Just working a lot. How about you?"],
           hint_tr:
             "Kısa cevap + soru: 'Just working a lot. How about you?'",
         },
@@ -4880,6 +4923,7 @@ export const a2MicroLesson_catchup: BundledLesson = {
             "i('d| would) love that",
             "(give|let me give) you my number",
           ],
+          model_answers: ["Absolutely — let's catch up soon!"],
           hint_tr: "'Absolutely — let's catch up soon!'",
         },
       ],
@@ -5224,6 +5268,7 @@ export const a2MicroLesson_weekend: BundledLesson = {
             "(not much|just )?(stayed in|went out|relaxed)",
             "(yours|how about you|what about you)",
           ],
+          model_answers: ["Pretty good — just relaxed."],
           hint_tr:
             "Kısa cevap: 'Pretty good — just relaxed.' veya 'Quiet, mostly stayed in.'",
         },
@@ -5240,6 +5285,7 @@ export const a2MicroLesson_weekend: BundledLesson = {
             "(saw|met) (some )?friends",
             "(yeah|yes).{0,15}(went|tried|visited)",
           ],
+          model_answers: ["Just stayed in and watched a movie."],
           hint_tr:
             "'Saw some friends on Saturday.' veya 'Just stayed in and watched a movie.'",
         },
@@ -5256,6 +5302,7 @@ export const a2MicroLesson_weekend: BundledLesson = {
             "(sounds )?(busy|fun|tiring|long)",
             "(whose|where was the) wedding",
           ],
+          model_answers: ["Oh nice! How was it?"],
           hint_tr: "İlgi göster: 'Oh nice! How was it?'",
         },
         {
@@ -5605,6 +5652,7 @@ export const a2MicroLesson_late: BundledLesson = {
             "so sorry (i'?m|for being) late",
             "(traffic|i got|i was) (was bad|held up|stuck)",
           ],
+          model_answers: ["Sorry I'm late — got held up in traffic."],
           hint_tr:
             "'Sorry I'm late — got held up in traffic.' kısa, net özür + sebep.",
         },
@@ -5621,6 +5669,7 @@ export const a2MicroLesson_late: BundledLesson = {
             "(where|what) (are we|did i miss)",
             "(thanks|thank you)(,)? (won'?t happen again)",
           ],
+          model_answers: ["Thanks. What did I miss?"],
           hint_tr: "'Thanks. What did I miss?' veya 'Appreciate it.'",
         },
         {
@@ -5635,6 +5684,7 @@ export const a2MicroLesson_late: BundledLesson = {
             "(thanks|thank you)(,)? (please )?(go ahead|continue)",
             "(go ahead|please continue)",
           ],
+          model_answers: ["Got it, go ahead."],
           hint_tr: "'Got it, go ahead.' toplantıya geri dön.",
         },
         {
@@ -6034,6 +6084,7 @@ export const a2MicroLesson_numbers: BundledLesson = {
             "(fifteen|fifty) (fifty|five|what)\\?",
             "(could you|can you) (repeat|say) (that|it) again",
           ],
+          model_answers: ["Sorry, did you say fifteen or fifty?"],
           hint_tr:
             "'Sorry, did you say fifteen or fifty?' kibarca tekrar iste.",
         },
@@ -6049,6 +6100,7 @@ export const a2MicroLesson_numbers: BundledLesson = {
             "(sure|alright|okay)",
             "fifteen fifty",
           ],
+          model_answers: ["Got it, thanks!"],
           hint_tr: "'Got it, thanks!' veya 'Here you go.' ile parayı uzat.",
         },
         {
@@ -6063,6 +6115,7 @@ export const a2MicroLesson_numbers: BundledLesson = {
             "five five five.{0,15}(one|two|three|four|five|six|seven|eight|nine)",
             "(zero|five|one|two|three|four|six|seven|eight|nine).{0,30}",
           ],
+          model_answers: ["Sure, it's five five five, one two three four."],
           hint_tr:
             "Numarayı tek tek söyle: 'Sure, it's five five five, one two three four.'",
         },
@@ -6428,6 +6481,7 @@ export const a2MicroLesson_daysmonths: BundledLesson = {
             "(it'?s |my birthday'?s )?on (the )?(first|second|third|fourth|fifth|tenth|fifteenth|twentieth|twenty-?fifth|thirtieth).{0,30}(of )?(january|february|march|april|may|june|july|august|september|october|november|december)",
             "(in |on )?(january|february|march|april|may|june|july|august|september|october|november|december)",
           ],
+          model_answers: ["On the tenth of May."],
           hint_tr:
             "'It's in May' veya 'On the tenth of May.' Aylarda 'in', tarihte 'on'.",
         },
@@ -6443,6 +6497,7 @@ export const a2MicroLesson_daysmonths: BundledLesson = {
             "how about (monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
             "(i'?m|am) (free|available) on (monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
           ],
+          model_answers: ["Sure, how about on Tuesday?"],
           hint_tr:
             "'Sure, how about on Tuesday?' veya 'I'm free on Friday.' Günde 'on' kullan.",
         },
@@ -6458,6 +6513,7 @@ export const a2MicroLesson_daysmonths: BundledLesson = {
             "(see you|catch you) (then|later)",
             "(can'?t wait|looking forward)",
           ],
+          model_answers: ["Great, see you on Tuesday!"],
           hint_tr: "'Great, see you on Tuesday!' net kapanış.",
         },
       ],
@@ -6818,6 +6874,7 @@ export const a2MicroLesson_time: BundledLesson = {
             "(could|can) you tell me the time",
             "what time is it",
           ],
+          model_answers: ["Excuse me, do you have the time?"],
           hint_tr:
             "'Excuse me, do you have the time?' veya 'What time is it?'",
         },
@@ -6833,6 +6890,7 @@ export const a2MicroLesson_time: BundledLesson = {
             "(thanks|thank you)(,)? (i appreciate it)?",
             "appreciate it",
           ],
+          model_answers: ["Oh great, thanks."],
           hint_tr: "'Thanks!' kısa cevap. Veya 'Oh great, thanks.'",
         },
         {
@@ -6847,6 +6905,7 @@ export const a2MicroLesson_time: BundledLesson = {
             "(at )?\\d(:\\d\\d)?",
             "(i think|maybe) (at )?(five|six|seven)",
           ],
+          model_answers: ["At quarter to five"],
           hint_tr:
             "'At quarter to five' veya 'At 4:45.' İki şekilde de söyleyebilirsin.",
         },
@@ -7214,6 +7273,7 @@ export const a2MicroLesson_descriptors: BundledLesson = {
             "(doesn'?t|does not) fit",
             "(i need|do you have) (a )?(bigger|smaller|larger) (size|one)",
           ],
+          model_answers: ["It's a bit tight."],
           hint_tr:
             "'It's too small' veya 'It's a bit tight.' Net problemi söyle.",
         },
@@ -7229,6 +7289,7 @@ export const a2MicroLesson_descriptors: BundledLesson = {
             "(do you have|got) (a |an )?(large|medium|extra large|xl|l|m)",
             "(can|could) i try (a )?(larger|bigger) (one|size)",
           ],
+          model_answers: ["Yes please, do you have a larger size?"],
           hint_tr:
             "'Yes please, do you have a larger size?' kibar ve net.",
         },
@@ -7244,6 +7305,7 @@ export const a2MicroLesson_descriptors: BundledLesson = {
             "(i'?ll|i will) (take|get) (it|this one)",
             "(this|it) (is )?(better|much better)",
           ],
+          model_answers: ["Much better, I'll take it."],
           hint_tr:
             "'This one's just right!' veya 'Much better, I'll take it.'",
         },

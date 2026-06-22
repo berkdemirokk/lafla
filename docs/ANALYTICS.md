@@ -22,6 +22,17 @@ Status: scaffold only — `posthog-react-native` is **not** installed yet. Calls
 
 ## Events
 
+### Roleplay learning loop
+
+| Event | Properties | Purpose |
+|---|---|---|
+| `roleplay_turn_retry_prompted` | `scenario_id`, `turn_index`, `assessment`, `input_mode` | Finds turns where learners need repair support. |
+| `roleplay_turn_completed` | `scenario_id`, `turn_index`, `assessment`, `retried`, `input_mode` | Measures supported completion and retry recovery. |
+| `roleplay_guidance_bypassed` | `scenario_id`, `turn_index` | Measures learners voluntarily choosing free production. |
+| `roleplay_voice_failed` | `scenario_id`, `turn_index`, `reason` | Tracks microphone/STT reliability without recording user text. |
+
+No roleplay event may include transcript, free-form answer text, or audio.
+
 ### `app_opened`
 
 Fired once per cold start, after navigation is ready.
@@ -91,13 +102,17 @@ Fired once per cold start, after navigation is ready.
 
 ```json
 {
-  "scenario_id": "scenario_airport_checkin",
-  "turns": 8,
-  "duration_ms": 312000,
-  "completion_reason": "user_finished",
-  "score": 0.78
+  "scenario_id": "airport.checkin.1.1",
+  "skill_id": "airport.checkin.1",
+  "mode": "airport",
+  "score": 90,
+  "mastery_score": 67,
+  "assisted_turns": 1
 }
 ```
+
+`score` is the post-correction task result shown to the learner;
+`mastery_score` is first-attempt performance used by SRS/CEFR progression.
 
 ### `quest_claimed`
 

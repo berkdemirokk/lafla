@@ -533,7 +533,7 @@ export function bandFor(userLevel: CefrLevel): CefrLevel[] {
 }
 
 /**
- * Setup vocab'ı user level'a göre sıralayıp cap 12 uygular.
+ * Setup vocab'ı user level'a göre sıralayıp üç hedef kalıpla sınırlar.
  *
  * Kurallar:
  *   - userLevel null (henüz seçilmemiş) → ilk 12 vocab (untouched)
@@ -552,7 +552,7 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
   setup: readonly T[],
   userLevel: CefrLevel | null,
 ): T[] {
-  if (!userLevel) return setup.slice(0, 12);
+  if (!userLevel) return setup.slice(0, 3);
 
   const acceptableBands = bandFor(userLevel);
   const exact = setup.filter((s) => s.cefr_band === userLevel);
@@ -567,5 +567,5 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
     (s) => s.cefr_band && !acceptableBands.includes(s.cefr_band),
   );
 
-  return [...exact, ...nearby, ...untagged, ...remaining].slice(0, 12);
+  return [...exact, ...nearby, ...untagged, ...remaining].slice(0, 3);
 }

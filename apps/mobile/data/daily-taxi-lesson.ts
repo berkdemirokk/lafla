@@ -228,6 +228,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(corner of|between) \\w+ and \\w+",
             "(the (hotel|airport|station))",
           ],
+          model_answers: ["Take me to JFK, please"],
           hint_tr:
             "Net adres veya landmark: 'Take me to JFK, please' veya '350 Fifth Avenue'.",
         },
@@ -244,6 +245,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(no preference|up to you)",
             "(through|via) (the )?(park|bridge|tunnel)",
           ],
+          model_answers: ["I'm running late — as fast as you can"],
           hint_tr:
             "'Fastest, please' veya 'I'm running late — as fast as you can'.",
         },
@@ -262,6 +264,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(do (we|i) have time to (stop|grab))",
             "(okay (let'?s )?go|let'?s do it)",
           ],
+          model_answers: ["Any chance it's faster?"],
           hint_tr:
             "Onayla: 'Sounds good, thanks' veya pazarlık: 'Any chance it's faster?'",
         },
@@ -280,6 +283,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(credit card|debit card)( please)?",
             "(card if (that'?s|thats) ok)",
           ],
+          model_answers: ["Apple Pay if you take it"],
           hint_tr:
             "Ödeme: 'Card, please' veya 'Apple Pay if you take it'. NYC taksilerde kart standart.",
         },
@@ -297,6 +301,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(thanks for letting me know|appreciate the heads[- ]up)",
             "(perfect|great)(,)? thanks",
           ],
+          model_answers: ["Thanks for the heads-up"],
           hint_tr:
             "Onayla: 'Got it, thanks' veya 'Thanks for the heads-up'.",
         },
@@ -739,6 +744,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
             "(can i (check|confirm|see) the (plate|license plate))",
             "(double[- ]check)",
           ],
+          model_answers: ["Hey, you here for Berk? Can I check the plate?"],
           hint_tr:
             "Güvenli aç: 'Hey, you here for Berk? Can I check the plate?'",
         },
@@ -756,6 +762,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
             "(estimated (time|arrival)|eta)",
             "(any way to (avoid|skip) (traffic|the bridge|the highway))",
           ],
+          model_answers: ["Perfect, that matches. How's the traffic looking?"],
           hint_tr:
             "Onayla + sor: 'Perfect, that matches. How's the traffic looking?'",
         },
@@ -1206,6 +1213,7 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
             "(i think we'?re going (a bit )?out of the way|going out of the way)",
             "(i'?d rather you followed the gps|mind following the gps)",
           ],
+          model_answers: ["Excuse me, I'd prefer if we stuck to the GPS route, please."],
           hint_tr:
             "GPS'te kalmayı tercih ettiğini kibarca belirt: 'Excuse me, I'd prefer if we stuck to the GPS route, please.'",
         },
@@ -1221,6 +1229,7 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
             "(i'?d still (prefer|rather) (if )?we (followed|stick to) the gps)",
             "(please (just )?follow the gps|could you please follow the gps anyway)",
           ],
+          model_answers: ["I understand, but I'm in a rush — could you please just follow the GPS anyway?"],
           hint_tr:
             "Şoförü anladığını belirt ama GPS'e sadık kalmasını iste: 'I understand, but I'm in a rush — could you please just follow the GPS anyway?'",
         },
@@ -1673,6 +1682,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
             "(let('s| us) (do|go with)) (card|cash)",
             "(by card|in cash)",
           ],
+          model_answers: ["Cash, here you go."],
           hint_tr:
             "Net cevap: 'Card, please' veya 'Cash, here you go.'",
         },
@@ -1689,6 +1699,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
             "i('ll| will) (do|add) (15|18|20)",
             "(round it up to|make it) \\$?\\d+",
           ],
+          model_answers: ["20 percent"],
           hint_tr:
             "Standart: '20 percent' veya 'Round it up to forty.'",
         },
@@ -1705,6 +1716,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
             "(email|text|paper) (one|receipt|copy)",
             "(no thanks|i('m| am) good|all set)",
           ],
+          model_answers: ["Yes, please"],
           hint_tr:
             "'Yes, please' veya 'Could you email me one?'",
         },
@@ -2158,6 +2170,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
             "(i('ll| will) (come around|walk over|head to the front))",
             "(give me (a sec|a minute|30 seconds))",
           ],
+          model_answers: ["I'm at the side entrance — I'll walk around."],
           hint_tr:
             "Yanlış kapı sorununu çöz: 'I'm at the side entrance — I'll walk around.'",
         },
@@ -2174,6 +2187,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
             "(by the (lamppost|sign|door|tree|bench))",
             "(rolling a (suitcase|bag))",
           ],
+          model_answers: ["Blue jacket, by the lamppost — I'll wave."],
           hint_tr:
             "Net kıyafet + jest: 'Blue jacket, by the lamppost — I'll wave.'",
         },
@@ -2585,6 +2599,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
             "(grab (an? )?(umbrella|water|snack|something)|pick up)",
             "(five minutes (tops|max)|won't be long|two minutes)",
           ],
+          model_answers: ["Any chance of a quick stop at pharmacy? Need an umbrella — two minutes tops."],
           hint_tr:
             "Kibar mola iste: 'Any chance of a quick stop at pharmacy? Need an umbrella — two minutes tops.'",
         },
@@ -2602,6 +2617,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
             "(at the (next |the )?corner|on \\d+(st|nd|rd|th) street|by the (subway|deli))",
             "(instead|change of plans|change my mind)",
           ],
+          model_answers: ["Totally fine. Actually, could you drop me at the corner instead?"],
           hint_tr:
             "Onayla + ek değişiklik: 'Totally fine. Actually, could you drop me at the corner instead?'",
         },
@@ -3018,6 +3034,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
             "(or is (it|this) a flat rate)",
             "(what('s| is) (the|a rough|an?) estimate)",
           ],
+          model_answers: ["JFK. Quick question — is the meter running, or flat rate?"],
           hint_tr:
             "Önce kontrol: 'JFK. Quick question — is the meter running, or flat rate?'",
         },
@@ -3035,6 +3052,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
             "(let('s| us) (do it|go|head out))",
             "(card okay|do you (take|accept) (card|credit))",
           ],
+          model_answers: ["Sounds fair. Plus tolls? And do you take card?"],
           hint_tr:
             "Onayla + son detay: 'Sounds fair. Plus tolls? And do you take card?'",
         },
@@ -3446,6 +3464,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
             "(crazy|wild|brutal|nuts) (traffic|out there|today)",
             "(been driving long|new to this)",
           ],
+          model_answers: ["How's your shift going? Crazy traffic today, huh?"],
           hint_tr:
             "Güvenli açılış: 'How's your shift going? Crazy traffic today, huh?'",
         },
@@ -3462,6 +3481,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
             "(first time in (\\w+|town)|love the city)",
             "(can('t| not) wait to (eat|get home|relax))",
           ],
+          model_answers: ["Long shift! I'm heading to dinner — first time in NYC."],
           hint_tr:
             "Empati + kendi planın: 'Long shift! I'm heading to dinner — first time in NYC.'",
         },
@@ -3479,6 +3499,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
             "(pizza|burgers|tacos|ramen|deli)",
             "(local (favorite|spot|place))",
           ],
+          model_answers: ["A few on my list. Any local favorites you'd recommend?"],
           hint_tr:
             "Soruyu geri çevir = doğal sohbet: 'A few on my list. Any local favorites you'd recommend?'",
         },

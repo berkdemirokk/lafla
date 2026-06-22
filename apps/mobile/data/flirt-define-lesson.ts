@@ -95,6 +95,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(where'?s your head|where are we) (at )?(on this|with this)",
             "(curious|just wondering) (about|where)",
           ],
+          model_answers: ["Hey, wanted to ask — where's your head at on us?"],
           hint_tr:
             "Yumusak giris: 'Hey, wanted to ask — where's your head at on us?'",
         },
@@ -112,6 +113,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(you'?re |you are )(the only one|the only person) (i'?m )?seeing",
             "(been|im) really into this",
           ],
+          model_answers: ["I want to stop seeing other people — you?"],
           hint_tr:
             "Pozisyon al: 'I want to stop seeing other people — you?'",
         },
@@ -131,6 +133,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(apps off|apps gone|off the apps)(,)? (sounds good|works for me)",
             "(no )?(more|need for) (tinder|bumble|hinge|apps)",
           ],
+          model_answers: ["Yes — deleting them tonight, together?"],
           hint_tr:
             "Plan netleştir: 'Yes — deleting them tonight, together?' Türk: 'apps' = uygulamalar (dating app, dating app vs). 'Delete tonight' = bu gece sil; sevimli ortak ritüel.",
         },
@@ -150,6 +153,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(time apart|space|me time) (still |sometimes )?(matters|is important)",
             "(no )?(games|ghosting|drama) (please|for me)",
           ],
+          model_answers: ["Nothing crazy, just no ghosting"],
           hint_tr:
             "Deal-breaker net: 'Honestly, communication is big for me — if something's off, just tell me' veya 'Nothing crazy, just no ghosting'. Türk: 'sınırım' = 'deal-breaker' (modern) veya 'red line' (resmi).",
         },
@@ -169,6 +173,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(just )?(the people )?(closest|important) (to us|first)",
             "(let'?s )?(wait|see) (a few weeks|how it goes)( first)?",
           ],
+          model_answers: ["Close friends yes, but no Instagram for a while"],
           hint_tr:
             "Public/private karar: 'Close friends yes, but no Instagram for a while' veya 'Let's soft launch in a few weeks'. Türk: 'soft launch' = sosyal medyada yarı-açık paylaşma; modern dating jargonu.",
         },
@@ -490,6 +495,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
             "(need (some |a little )?space|need my own pace)",
             "(hope (that'?s|it'?s|this is) okay|hope you understand)",
           ],
+          model_answers: ["Hey, I want to share — I think I'd like to take this slow."],
           hint_tr:
             "Acilis: 'Hey, I want to share — I think I'd like to take this slow.'",
         },
@@ -508,6 +514,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
             "(this is |that is )(what works|whats comfortable) for me",
             "(thank you|thanks)( so much)? for (asking|listening|understanding)",
           ],
+          model_answers: ["A few weeks more, hanging out twice a week, no sleepovers yet — that's what works."],
           hint_tr:
             "Detaylandir: 'A few weeks more, hanging out twice a week, no sleepovers yet — that's what works.'",
         },
@@ -525,6 +532,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
             "(love that|appreciate that|sounds healthy)(,)? .{0,40}",
             "(open communication|keeping it open) (matters|works for me)",
           ],
+          model_answers: ["Yes — let's revisit in two weeks. Open communication matters."],
           hint_tr:
             "Düzenli kontrol önerisini kabul et: 'Yes — let's revisit in two weeks. Open communication matters.' Sınır sabit değil, yaşayan bir anlaşma.",
         },
@@ -901,6 +909,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
             "(serious|real|long-?term) (relationship|thing|love)",
             "(want to|wanted to) (be upfront|put cards on the table|be real)",
           ],
+          model_answers: ["Wanted to be upfront — I'm looking for long-term. You?"],
           hint_tr:
             "Ac: 'Wanted to be upfront — I'm looking for long-term. You?'",
         },
@@ -918,6 +927,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
             "(want to|i want to|hope to) (build|grow|move forward)",
             "(glad we|happy we) (talked|are aligned|are on the same page)",
           ],
+          model_answers: ["Glad we're aligned — I see this going somewhere real."],
           hint_tr:
             "Devam: 'Glad we're aligned — I see this going somewhere real.'",
         },
@@ -935,6 +945,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
             "(day by day|no rush)(,)? but (.+) (feels real|is the direction)",
             "(want to (visit|meet) (your|my) (family|friends))",
           ],
+          model_answers: ["Honestly, I see us still building — same city, maybe a trip in spring. Day by day, but that's the direction."],
           hint_tr:
             "Somut zaman + niyet: 'Honestly, I see us still building — same city, maybe a trip in spring. Day by day, but that's the direction.' Türk öğrenci 'evlilik' atlama yapar; ölçülü ol.",
         },
@@ -1311,6 +1322,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
             "(it'?s not |this is not )(you|us)",
             "(it'?s |this is )(the pace|the speed|too much for me)",
           ],
+          model_answers: ["Hey, this is moving fast for me — need a breather."],
           hint_tr:
             "Empati ile baslat: 'Hey, this is moving fast for me — need a breather.'",
         },
@@ -1329,6 +1341,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
             "(no sleepovers|less plans) (for a bit|for now|just for a while)",
             "(it'?s not |this is not )(you|because of you) — (just|its just)? (me|my pace)",
           ],
+          model_answers: ["Maybe seeing each other once a week, fewer texts. It's not you, it's me."],
           hint_tr:
             "Spesifik ol: 'Maybe seeing each other once a week, fewer texts. It's not you, it's me.'",
         },
@@ -1351,6 +1364,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
             "(what about you|you too|same on your end)",
             "(honestly|truthfully) (just )?(you|us)",
           ],
+          model_answers: ["Just you — slowing down isn't about anyone else. What about you?"],
           hint_tr:
             "Dürüst cevap + soruyu iade et: 'Just you — slowing down isn't about anyone else. What about you?' Reciprocate = sağlıklı.",
         },
@@ -1726,6 +1740,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
             "(how are you feeling|how do you feel) about (us|this|where we are)",
             "(wanted to (ask|chat)|been thinking) about (us|this)",
           ],
+          model_answers: ["Hey, can I ask you something — no pressure — where do you see this going?"],
           hint_tr:
             "Acilis: 'Hey, can I ask you something — no pressure — where do you see this going?'",
         },
@@ -1743,6 +1758,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
             "(curious|wondering) (what|where) (you'?re )?thinking",
             "(want to hear|tell me) (your side|what you think)",
           ],
+          model_answers: ["Glad we're talking — what are your thoughts? I'm really into this."],
           hint_tr:
             "Devam: 'Glad we're talking — what are your thoughts? I'm really into this.'",
         },
@@ -1760,6 +1776,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
             "(you'?re the only|just one) (person|one) (i'?m (interested in|seeing))",
             "(what about you|how about you|same on your end)",
           ],
+          model_answers: ["Just you — been off the apps for a few weeks. What about you?"],
           hint_tr:
             "Dürüst + reciprocate: 'Just you — been off the apps for a few weeks. What about you?' Türk öğrenci kaçar; net cevap ver + soruyu iade et.",
         },
@@ -2098,6 +2115,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
             "(i'?d (like|love) |i want) to (focus on just (us|you)|be exclusive)",
             "(ready to|happy to) (stop|drop) (seeing|talking to) other (people|matches)",
           ],
+          model_answers: ["Hey, wanted to ask — are you seeing other people? Because I'd love to focus on just us."],
           hint_tr:
             "Ac: 'Hey, wanted to ask — are you seeing other people? Because I'd love to focus on just us.'",
         },
@@ -2115,6 +2133,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
             "(if you'?re |are you )?(in|ready|down|good with that)",
             "(no rush |take your time)? (think about it)",
           ],
+          model_answers: ["I'd love for us to be exclusive — delete the apps, focus on just us. Are you in?"],
           hint_tr:
             "Net ol: 'I'd love for us to be exclusive — delete the apps, focus on just us. Are you in?'",
         },
@@ -2132,6 +2151,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
             "(tell her|say) (we'?re )?(seeing each other|together|exclusive)",
             "(your call|whatever you'?re comfortable telling her)",
           ],
+          model_answers: ["Tell her we're exclusive — labels can wait, no rush."],
           hint_tr:
             "Label ya da intentional ambiguity + boundary. 'Tell her we're exclusive — labels can wait, no rush.' Türk öğrenci direkt 'boyfriend' der; karşı tarafın komforuna alan bırak.",
         },
@@ -2469,6 +2489,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
             "(call you|introduce you as) my (girlfriend|boyfriend|partner)",
             "(how does that sit|how do you feel|what do you think) (with you|about it)",
           ],
+          model_answers: ["Been thinking — comfortable being my girlfriend? I'd love that."],
           hint_tr:
             "Sicak baslat: 'Been thinking — comfortable being my girlfriend? I'd love that.'",
         },
@@ -2486,6 +2507,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
             "(want to |let'?s )(tell|share|introduce) (everyone|my (friends|family))",
             "(been hoping|been waiting) (for this|to hear that)",
           ],
+          model_answers: ["Yes — officially yours. So happy we're here."],
           hint_tr:
             "Onayla: 'Yes — officially yours. So happy we're here.'",
         },
@@ -2503,6 +2525,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
             "(same page|aligned) (on that|here)",
             "(want this )?(to be )?(serious|real)(,)? (.+)",
           ],
+          model_answers: ["Yes — apps are gone, just you. We're on the same page."],
           hint_tr:
             "Net teyit + boundary: 'Yes — apps are gone, just you. We're on the same page.' Belirsizlik bırakma; net çerçeveleme güven yaratır.",
         },
@@ -2840,6 +2863,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
             "(can we |let'?s )(keep flowing|not put labels|skip labels) (for now|just yet)",
             "(it'?s not |this is not )(about you|because of you)",
           ],
+          model_answers: ["I'm so enjoying this — can we keep flowing without labels for now?"],
           hint_tr:
             "Once duyguyu onayla: 'I'm so enjoying this — can we keep flowing without labels for now?'",
         },
@@ -2857,6 +2881,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
             "(love (being |what we have)|happy with us|into you) — (just|but) (no label|not yet)",
             "(promise|i promise|swear) (to (revisit|come back|talk again))",
           ],
+          model_answers: ["Not you at all — it's my own pace. Love being with you, just no label yet."],
           hint_tr:
             "Aciklayici ol: 'Not you at all — it's my own pace. Love being with you, just no label yet.'",
         },
@@ -2874,6 +2899,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
             "(if things shift|if either of us)(,)? (we'?ll )?(say|talk)",
             "(thank you|so grateful) for (being patient|getting it)",
           ],
+          model_answers: ["Yes — a month sounds fair. If things shift either way, we'll talk. Thanks for getting it."],
           hint_tr:
             "Somut zaman + saygı: 'Yes — a month sounds fair. If things shift either way, we'll talk. Thanks for getting it.' Sınır net + kapı açık.",
         },

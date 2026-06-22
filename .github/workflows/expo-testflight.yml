@@ -31,6 +31,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify release secrets
+        shell: bash
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          ASC_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
+          SENTRY_DSN: ${{ secrets.EXPO_PUBLIC_SENTRY_DSN }}
+          REVENUECAT_KEY: ${{ secrets.EXPO_PUBLIC_REVENUECAT_IOS_KEY }}
+          POSTHOG_KEY: ${{ secrets.EXPO_PUBLIC_POSTHOG_KEY }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          for name in EXPO_TOKEN APPLE_TEAM_ID ASC_KEY_ID ASC_ISSUER_ID ASC_PRIVATE_KEY SUPABASE_ACCESS_TOKEN SUPABASE_DB_PASSWORD SUPABASE_URL SUPABASE_KEY SENTRY_DSN REVENUECAT_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Required release secret is missing: $name"
+              exit 1
+            fi
+          done
+          [ -n "$POSTHOG_KEY" ] || echo "::warning::EXPO_PUBLIC_POSTHOG_KEY is missing; product analytics will be disabled"
+          [ -n "$SENTRY_AUTH_TOKEN" ] || echo "::warning::SENTRY_AUTH_TOKEN is missing; source-map upload is not verified"
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -75,6 +101,12 @@ jobs:
 
       - name: Run mobile tests
         run: pnpm --filter @lafla/mobile exec jest --runInBand
+
+      - name: Audit roleplay content
+        run: pnpm --filter @lafla/mobile qa:content
+
+      - name: Verify linguist review sample
+        run: pnpm --filter @lafla/mobile qa:linguist:check
 
       - name: Verify Expo dependencies
         run: pnpm dlx expo-doctor@latest apps/mobile

@@ -3,6 +3,28 @@ import { supabase } from "./supabase";
 import { buildCoachSystemPrompt } from "./coach";
 import { FREE_CHAT_PROMPTS } from "../data/free-chat-prompts";
 
+export const LLM_REQUEST_TIMEOUT_MS = 15_000;
+
+export async function withTimeout<T>(
+  promise: Promise<T>,
+  timeoutMs = LLM_REQUEST_TIMEOUT_MS,
+): Promise<T> {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<never>((_, reject) => {
+        timeoutId = setTimeout(
+          () => reject(new Error("AI response timed out")),
+          timeoutMs,
+        );
+      }),
+    ]);
+  } finally {
+    if (timeoutId) clearTimeout(timeoutId);
+  }
+}
+
 export interface Message {
   role: "system" | "user" | "assistant";
   content: string;
@@ -215,9 +237,11 @@ export async function chatCompleteDetailed(
 
   if (!isDevMode || !hasLocalKeys) {
     try {
-      const { data, error } = await supabase.functions.invoke("llm-chat", {
-        body: { messages, promptId: options.promptId || "" },
-      });
+      const { data, error } = await withTimeout(
+        supabase.functions.invoke("llm-chat", {
+          body: { messages, promptId: options.promptId || "" },
+        }),
+      );
       if (error) {
         throw new Error(`Edge function error: ${error.message}`);
       }

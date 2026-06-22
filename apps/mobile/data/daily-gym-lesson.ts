@@ -235,6 +235,7 @@ export const dailyGymLesson_35_1: BundledLesson = {
             "I('m| am) interested in (joining|a membership|signing up)",
             "(could|can) you tell me about (your )?(memberships?|prices?|rates?)",
           ],
+          model_answers: ["I'm interested in a membership."],
           hint_tr:
             "Tur iste veya üyelik bilgisi sor: 'Could I get a tour?' veya 'I'm interested in a membership.'",
         },
@@ -254,6 +255,7 @@ export const dailyGymLesson_35_1: BundledLesson = {
             "what.{0,15}(difference|cheaper|cost|price)",
             "(how much|what does it cost) (for|is) (the )?month.to.month",
           ],
+          model_answers: ["What's the difference in price?"],
           hint_tr:
             "Kontratsızı seç: 'Month-to-month, please.' veya fiyat sor: 'What's the difference in price?'",
         },
@@ -273,6 +275,7 @@ export const dailyGymLesson_35_1: BundledLesson = {
             "(is|do you have) a (free )?(trial|day pass)",
             "let('s| us) (do it|go)",
           ],
+          model_answers: ["Can I try a class first?"],
           hint_tr:
             "Onayla ('Sure, sounds good') veya deneme sor ('Can I try a class first?').",
         },
@@ -291,6 +294,7 @@ export const dailyGymLesson_35_1: BundledLesson = {
             "(no|nope)(,)? (just )?the (weight (room|floor)|cardio|gym)",
             "(open to|down for) (anything|whatever)",
           ],
+          model_answers: ["Can I see the class schedule?"],
           hint_tr:
             "Sınıf: 'I'd like to try yoga' veya 'Can I see the class schedule?'",
         },
@@ -309,6 +313,7 @@ export const dailyGymLesson_35_1: BundledLesson = {
             "(a mix|both)( really)?",
             "(honestly|truly) (no specific goal|nothing specific)",
           ],
+          model_answers: ["I want to build some strength"],
           hint_tr:
             "Hedef: 'Honestly, just staying active' veya 'I want to build some strength'.",
         },
@@ -327,6 +332,7 @@ export const dailyGymLesson_35_1: BundledLesson = {
             "(could|can) (i|you) (book|set up) (a session|the free one)",
             "(no|nope)(,)? (i'?m good|i'?ll figure it out)",
           ],
+          model_answers: ["Nice, I'd like to try that"],
           hint_tr:
             "Cevap: 'Nice, I'd like to try that' veya 'Maybe later, thanks'.",
         },
@@ -781,6 +787,7 @@ export const dailyGymLesson_35_2: BundledLesson = {
             "(build|gain|put on) (muscle|mass|size)",
             "(get|be) (stronger|fitter|healthier|leaner)",
           ],
+          model_answers: ["I want to build muscle / lose fat"],
           hint_tr:
             "Hedefini söyle: 'I want to bulk up', 'I'm trying to cut', 'I want to build muscle / lose fat'.",
         },
@@ -800,6 +807,7 @@ export const dailyGymLesson_35_2: BundledLesson = {
             "(I work out|I train) .{0,30}(at home|sometimes|occasionally)?",
             "I haven't lifted .{1,30}",
           ],
+          model_answers: ["I've been lifting for a year"],
           hint_tr:
             "Tecrüben: 'I'm new to lifting', 'I've been lifting for a year', 'I'm a beginner'.",
         },
@@ -818,6 +826,7 @@ export const dailyGymLesson_35_2: BundledLesson = {
             "let me know (if|what) .{1,40}",
             "(tell me|let me know) (if|when) (I('m| am)|something is) wrong",
           ],
+          model_answers: ["Let me know if I'm doing it wrong."],
           hint_tr:
             "Onayla ve form check iste: 'Sure, could you check my form?' veya 'Let me know if I'm doing it wrong.'",
         },
@@ -1283,6 +1292,7 @@ export const dailyGymLesson_35_3: BundledLesson = {
             "how many sets (do you have )?(left|to go)",
             "(are you )?almost (done|finished)",
           ],
+          model_answers: ["Are you using this?"],
           hint_tr:
             "Aleti kullanıp kullanmadığını sor: 'Are you using this?', 'How many sets left?', 'Mind if I work in?'",
         },
@@ -1301,6 +1311,7 @@ export const dailyGymLesson_35_3: BundledLesson = {
             "(no |that's )?(thanks?|alright)( I('ll| will) wait)?",
             "(could|can) you spot me",
           ],
+          model_answers: ["Sure, that'd be great"],
           hint_tr:
             "Kabul ('Sure, that'd be great') veya bekle ('I'll just wait, thanks').",
         },
@@ -1320,6 +1331,7 @@ export const dailyGymLesson_35_3: BundledLesson = {
             "(let('s| us))? (just )?(start|go) (with )?\\d+",
             "thanks(,? )?(I('ll| will))? do \\d+",
           ],
+          model_answers: ["I'm doing 135."],
           hint_tr:
             "Kaldıracağın kiloyu söyle: 'I'm doing 135.' veya 'I'll press 155.'",
         },
@@ -1779,6 +1791,7 @@ export const dailyGymLesson_35_4: BundledLesson = {
             "(what|when) (is|('s)) the next (spin|yoga|hiit|class)",
             "(do you have|is there) (a )?(yoga|spin|hiit)",
           ],
+          model_answers: ["Is there a yoga class today?"],
           hint_tr:
             "Ders sor: 'I'd like to take a spin class.' veya 'Is there a yoga class today?'",
         },
@@ -1798,6 +1811,7 @@ export const dailyGymLesson_35_4: BundledLesson = {
             "(I('ll| will))? (try|do|take) (the )?(spin|hiit|yoga|6|7)",
             "what.{0,15}(easier|gentler|less intense)",
           ],
+          model_answers: ["Is there a beginner option?"],
           hint_tr:
             "Başlangıç seçeneği iste: 'Is there a beginner option?' veya 'I'm pretty new to this.'",
         },
@@ -1816,6 +1830,7 @@ export const dailyGymLesson_35_4: BundledLesson = {
             "(do you have|where (are|is)) (the )?(towels?|lockers?|locker rooms?)",
             "how (do I|does the) locker (code|work)",
           ],
+          model_answers: ["Sounds great. Could I grab a towel?"],
           hint_tr:
             "Onayla ve devamını sor: 'Sounds great. Could I grab a towel?' veya 'How does the locker work?'",
         },
@@ -2278,6 +2293,7 @@ export const dailyGymLesson_35_5: BundledLesson = {
             "how many sets (do you have )?(left|to go)",
             "mind if I (work|jump) in",
           ],
+          model_answers: ["Are you using this?"],
           hint_tr:
             "Aleti kullanıyor mu sor: 'Are you using this?' veya 'How many sets left?'",
         },
@@ -2297,6 +2313,7 @@ export const dailyGymLesson_35_5: BundledLesson = {
             "(sounds|that sounds) (good|great)",
             "how long are your rest (periods|times|breaks)",
           ],
+          model_answers: ["I'll just wait, thanks"],
           hint_tr:
             "Kabul ('Sure, that'd be great') veya bekle ('I'll just wait, thanks').",
         },
@@ -2315,6 +2332,7 @@ export const dailyGymLesson_35_5: BundledLesson = {
             "(I('ll| will))? (just )?(use|do) (a )?(different|lighter|heavier) weight",
             "no problem(,? )?(take your time)?",
           ],
+          model_answers: ["Thanks! Mind if I adjust the weight?"],
           hint_tr:
             "Teşekkür et veya ayar değiştirmek hakkında sor: 'Thanks! Mind if I adjust the weight?'",
         },
@@ -2736,6 +2754,7 @@ export const dailyGymLesson_35_6: BundledLesson = {
             "(could|can) you (spot|watch) me on (this|my next|the next) set",
             "got me on (the |my )?(next |this )?set",
           ],
+          model_answers: ["Mind giving me a spot on this set?"],
           hint_tr:
             "Spotter iste: 'Could you spot me?' veya 'Mind giving me a spot on this set?'",
         },
@@ -2754,6 +2773,7 @@ export const dailyGymLesson_35_6: BundledLesson = {
             "(my )?last set (was|is) \\d+",
             "I('m| am) (trying|hoping) (to|for) (a )?(PR|personal record|new max)",
           ],
+          model_answers: ["I'm going for 200, trying for a PR."],
           hint_tr:
             "Kaldıracağın kiloyu söyle: 'I'm pressing 185' veya 'I'm going for 200, trying for a PR.'",
         },
@@ -2773,6 +2793,7 @@ export const dailyGymLesson_35_6: BundledLesson = {
             "(don't|do not) (touch|help) (unless|until) I (fail|get stuck)",
             "(only )?if I (call out|can't get it up|fail)",
           ],
+          model_answers: ["Going for 6 reps. Just a light touch if I get stuck."],
           hint_tr:
             "Rep sayısı + spot tarzı: 'Going for 6 reps. Just a light touch if I get stuck.'",
         },
@@ -3196,6 +3217,7 @@ export const dailyGymLesson_35_7: BundledLesson = {
             "(thanks?)(.{0,10})how does my form (look|seem)",
             "appreciate it(,? )?(any tips)?",
           ],
+          model_answers: ["Thanks! Any tips on my form?"],
           hint_tr:
             "Teşekkür et + form tüyosu iste: 'Thanks! Any tips on my form?' veya 'Does my depth look okay?'",
         },
@@ -3215,6 +3237,7 @@ export const dailyGymLesson_35_7: BundledLesson = {
             "(any|got any) (other|more) (tips|pointers)",
             "(I'll|let me) try (that|it) (now|next set)",
           ],
+          model_answers: ["Got it, I'll work on that. How often do you squat?"],
           hint_tr:
             "Tüyoyu kabul et veya devam et: 'Got it, I'll work on that. How often do you squat?'",
         },
@@ -3234,6 +3257,7 @@ export const dailyGymLesson_35_7: BundledLesson = {
             "(I('ll| will))? (try|give) (that|push.pull.legs|PPL) (a try|out|a shot)",
             "(how long have you been|when did you start) (lifting|training)",
           ],
+          model_answers: ["Nice, how many reps do you do?"],
           hint_tr:
             "Detay sor veya kendi programını paylaş: 'Nice, how many reps do you do?' veya 'Thanks, I'll try PPL.'",
         },
@@ -3656,6 +3680,7 @@ export const dailyGymLesson_35_8: BundledLesson = {
             "(I think )?(there('s| is) )?something (wrong|up) with my (keycard|card|membership)",
             "(could|can) you (help|check)(.{0,15})my (card|membership)",
           ],
+          model_answers: ["The turnstile won't let me in."],
           hint_tr:
             "Problemi anlat: 'My keycard isn't working' veya 'The turnstile won't let me in.'",
         },
@@ -3673,6 +3698,7 @@ export const dailyGymLesson_35_8: BundledLesson = {
             ".{2,30}(,? )?(my )?(phone|number) (is )?.{4,20}",
             "(yeah|sure|here(?:'s| is))? .{3,40}",
           ],
+          model_answers: ["Sure, my name is Mehmet Yilmaz"],
           hint_tr:
             "İsim veya telefon numaranı söyle: 'Sure, my name is Mehmet Yilmaz' veya 'It's 555-1234.'",
         },
@@ -3692,6 +3718,7 @@ export const dailyGymLesson_35_8: BundledLesson = {
             "(my )?(payment|card) (must have|might have) (failed|expired)",
             "(could|can) you (charge|run) (my card|the card) (again|now)",
           ],
+          model_answers: ["I didn't get one. Could I renew it now?"],
           hint_tr:
             "Email gelmediğini söyle ve yenile: 'I didn't get one. Could I renew it now?'",
         },
@@ -3711,6 +3738,7 @@ export const dailyGymLesson_35_8: BundledLesson = {
             "(the )?same (card|one) (is fine|works)",
             "(here('s| is))? (a |my )?new card",
           ],
+          model_answers: ["Let's use a new one — here it is."],
           hint_tr:
             "Aynı kart veya yeni kart seç: 'Same card, please' veya 'Let's use a new one — here it is.'",
         },

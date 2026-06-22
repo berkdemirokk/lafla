@@ -229,6 +229,7 @@ export const dailyBankLesson_30_1: BundledLesson = {
             "(i )?(entered|put in) (the )?wrong pin",
             "(could|can) (you|i) (help|get my card back)",
           ],
+          model_answers: ["Hi, the ATM ate my card — wrong PIN three times."],
           hint_tr:
             "Durumu açıkla: 'Hi, the ATM ate my card — wrong PIN three times.'",
         },
@@ -246,6 +247,7 @@ export const dailyBankLesson_30_1: BundledLesson = {
             "(how long (will|does) (it|this) take)",
             "(can i (still )?(withdraw|get) (some )?cash)",
           ],
+          model_answers: ["Here's my ID. Can I still withdraw cash today?"],
           hint_tr:
             "Kibar onay + ek soru: 'Here's my ID. Can I still withdraw cash today?'",
         },
@@ -263,6 +265,7 @@ export const dailyBankLesson_30_1: BundledLesson = {
             "(two hundred|three hundred|five hundred) (dollars|please)",
             "(when (will|does)) (the )?(new card|replacement) (arrive|come)",
           ],
+          model_answers: ["Could I withdraw two hundred dollars, please?"],
           hint_tr:
             "Para çekme miktarı söyle: 'Could I withdraw two hundred dollars, please?'",
         },
@@ -281,6 +284,7 @@ export const dailyBankLesson_30_1: BundledLesson = {
             "(small bills|smaller bills|big bills)( please)?",
             "(no preference|either is fine)",
           ],
+          model_answers: ["A mix, please"],
           hint_tr:
             "Banknot: 'A mix, please' veya 'Mostly twenties, thanks'.",
         },
@@ -299,6 +303,7 @@ export const dailyBankLesson_30_1: BundledLesson = {
             "(no|nope)(,)? (that'?s|thats) (it|all)",
             "(i'?m|i am) (also )?wondering about (the )?(exchange rate|conversion)",
           ],
+          model_answers: ["Actually, what's the exchange rate for TRY to USD today?"],
           hint_tr:
             "Türk öğrenci klasik sorusu: 'Actually, what's the exchange rate for TRY to USD today?' ABD bankalarında TRY → USD nadiren tutulur ama dene.",
         },
@@ -316,6 +321,7 @@ export const dailyBankLesson_30_1: BundledLesson = {
             "(perfect|sounds good)(,)? thank you",
             "(no worries|got it)(,)? thanks",
           ],
+          model_answers: ["Could you write down the address?"],
           hint_tr:
             "Teşekkür + devam: 'Thanks, that'd help a lot' veya 'Could you write down the address?'",
         },
@@ -768,6 +774,7 @@ export const dailyBankLesson_30_2: BundledLesson = {
             "(could i|can i) (open|set up) (a|an) account",
             "(new (customer|account))",
           ],
+          model_answers: ["Hi, I'd like to open a checking account."],
           hint_tr:
             "Net giriş: 'Hi, I'd like to open a checking account.'",
         },
@@ -786,6 +793,7 @@ export const dailyBankLesson_30_2: BundledLesson = {
             "(social security|ssn|tax id)",
             "(what (else )?(do (i|you) need|is required))",
           ],
+          model_answers: ["Checking, please. I have my passport and proof of address."],
           hint_tr:
             "Hesap tipi + belgeler: 'Checking, please. I have my passport and proof of address.'",
         },
@@ -803,6 +811,7 @@ export const dailyBankLesson_30_2: BundledLesson = {
             "(could i (also )?have) (a|an) (euro|usd|gbp) account",
             "(just dollars (is fine|for now))",
           ],
+          model_answers: ["Dollars only, please"],
           hint_tr:
             "Para birimi: 'Dollars only, please' veya 'Multi-currency, if possible'.",
         },
@@ -820,6 +829,7 @@ export const dailyBankLesson_30_2: BundledLesson = {
             "(no paper|skip the paper)",
             "(digital only|paperless)",
           ],
+          model_answers: ["Email statements only, please"],
           hint_tr:
             "Ekstre tercih: 'Email statements only, please' veya 'Paperless, please.'",
         },
@@ -1280,6 +1290,7 @@ export const dailyBankLesson_30_3: BundledLesson = {
             "(could i|can i) (send|wire) (money|funds)",
             "(international transfer)",
           ],
+          model_answers: ["Hi, I'd like to send a wire transfer to Turkey."],
           hint_tr:
             "Net: 'Hi, I'd like to send a wire transfer to Turkey.'",
         },
@@ -1298,6 +1309,7 @@ export const dailyBankLesson_30_3: BundledLesson = {
             "(it'?s spelled|spelled like (on|in) the passport)",
             "(let me (spell|read) it (out|for you))",
           ],
+          model_answers: ["Recipient's name is Ali Yilmaz, exactly as on his passport. IBAN is TR..."],
           hint_tr:
             "Detayları ver: 'Recipient's name is Ali Yilmaz, exactly as on his passport. IBAN is TR...'",
         },
@@ -1315,6 +1327,7 @@ export const dailyBankLesson_30_3: BundledLesson = {
             "(it'?s for|the purpose is)",
             "(send|make it) (in|as) (dollars|euros)",
           ],
+          model_answers: ["Five hundred USD — family support."],
           hint_tr:
             "Miktar + para birimi + amaç: 'Five hundred USD — family support.'",
         },
@@ -1333,6 +1346,7 @@ export const dailyBankLesson_30_3: BundledLesson = {
             "(is there a (cheaper|faster) option)",
             "(thank you|thanks|appreciate it)",
           ],
+          model_answers: ["Sounds good. Could I get a receipt by email?"],
           hint_tr:
             "Onay + makbuz: 'Sounds good. Could I get a receipt by email?'",
         },
@@ -1791,6 +1805,7 @@ export const dailyBankLesson_30_4: BundledLesson = {
             "(i need to (report|cancel|block)) (my card|a lost card)",
             "(could you|can you) (block|cancel|freeze) my card",
           ],
+          model_answers: ["Hi, I've lost my debit card — I need to block it."],
           hint_tr:
             "Net giriş: 'Hi, I've lost my debit card — I need to block it.'",
         },
@@ -1808,6 +1823,7 @@ export const dailyBankLesson_30_4: BundledLesson = {
             "(my (account|customer) number is)",
             "(would you like) (the last (four|4) digits|account number)",
           ],
+          model_answers: ["Of course. My name is Berk Yilmaz, date of birth July third, 1990."],
           hint_tr:
             "Kimlik onayı: 'Of course. My name is Berk Yilmaz, date of birth July third, 1990.'",
         },
@@ -1826,6 +1842,7 @@ export const dailyBankLesson_30_4: BundledLesson = {
             "(that'?s (fraud|fraudulent|unauthorized))",
             "(i'd like to dispute (both|those|that charge))",
           ],
+          model_answers: ["I don't recognize either — I'd like to dispute both as fraud."],
           hint_tr:
             "İtiraz: 'I don't recognize either — I'd like to dispute both as fraud.'",
         },
@@ -1844,6 +1861,7 @@ export const dailyBankLesson_30_4: BundledLesson = {
             "(could you (overnight|expedite|rush) it)",
             "(send it to (my )?(home|address on file))",
           ],
+          model_answers: ["Yes please — any way to expedite the replacement?"],
           hint_tr:
             "Onay + hız: 'Yes please — any way to expedite the replacement?'",
         },
@@ -1861,6 +1879,7 @@ export const dailyBankLesson_30_4: BundledLesson = {
             "(could you (email|text) me )?(the confirmation|a reference number)",
             "(thank you|thanks|appreciate (it|the help))",
           ],
+          model_answers: ["Sounds good. Could you text me a reference number? Thanks!"],
           hint_tr:
             "Onay + referans: 'Sounds good. Could you text me a reference number? Thanks!'",
         },
@@ -2317,6 +2336,7 @@ export const dailyBankLesson_30_5: BundledLesson = {
             "(could i|can i) (open|set up) (a|an) (student )?account",
             "(new (account|customer))",
           ],
+          model_answers: ["Hi, I'd like to open a checking account — I'm an international student."],
           hint_tr:
             "Net giriş: 'Hi, I'd like to open a checking account — I'm an international student.'",
         },
@@ -2335,6 +2355,7 @@ export const dailyBankLesson_30_5: BundledLesson = {
             "(what (do i do|happens) (without|if i don'?t have) (an )?ssn)",
             "(proof of address|my dorm address|on-campus address)",
           ],
+          model_answers: ["I have my passport and I-20. I don't have an SSN yet — can I still open one?"],
           hint_tr:
             "Belge bilgisi + SSN sorusu: 'I have my passport and I-20. I don't have an SSN yet — can I still open one?'",
         },
@@ -2352,6 +2373,7 @@ export const dailyBankLesson_30_5: BundledLesson = {
             "(just to confirm|let me confirm)",
             "(would (you|that) (mind|need)) (the )?(zip|postal) code",
           ],
+          model_answers: ["My address is on-campus — 100 University Drive. Just to confirm, is that okay?"],
           hint_tr:
             "Adres ver + onay: 'My address is on-campus — 100 University Drive. Just to confirm, is that okay?'",
         },
@@ -2370,6 +2392,7 @@ export const dailyBankLesson_30_5: BundledLesson = {
             "(could you walk me through) (the )?(activation|next steps)",
             "(thank you|thanks)",
           ],
+          model_answers: ["Could you mail it? And could you walk me through how to activate it?"],
           hint_tr:
             "Tercih + soru: 'Could you mail it? And could you walk me through how to activate it?'",
         },
@@ -2789,6 +2812,7 @@ export const dailyBankLesson_30_6: BundledLesson = {
             "(could you|can you) (check|see|look) why (my )?card (got|was) declined",
             "(i'?m at (a |the )?(store|register|checkout) and my card)",
           ],
+          model_answers: ["Hi, my card just got declined at the grocery store — could you check why?"],
           hint_tr:
             "Net problem: 'Hi, my card just got declined at the grocery store — could you check why?'",
         },
@@ -2806,6 +2830,7 @@ export const dailyBankLesson_30_6: BundledLesson = {
             "(the (last four|card ending in)) ?\\d{4}",
             "(date of birth|dob) (is )?",
           ],
+          model_answers: ["Of course. My name is Berk Yilmaz, last four are 4521."],
           hint_tr:
             "Kibar onay + bilgi: 'Of course. My name is Berk Yilmaz, last four are 4521.'",
         },
@@ -2824,6 +2849,7 @@ export const dailyBankLesson_30_6: BundledLesson = {
             "(just to confirm)",
             "(that'?s (fraud|fraudulent|unauthorized))",
           ],
+          model_answers: ["No, that wasn't me — I'd like to dispute it."],
           hint_tr:
             "Onayla veya reddet: 'No, that wasn't me — I'd like to dispute it.' veya 'Yes, that was mine — sorry!'",
         },
@@ -2842,6 +2868,7 @@ export const dailyBankLesson_30_6: BundledLesson = {
             "(thank you|thanks|appreciate (the help|it))",
             "(no that'?s (all|it))",
           ],
+          model_answers: ["Sounds good. Could I get a reference number? Thanks!"],
           hint_tr:
             "Onay + makbuz: 'Sounds good. Could I get a reference number? Thanks!'",
         },
@@ -3259,6 +3286,7 @@ export const dailyBankLesson_30_7: BundledLesson = {
             "(could you|can you) help (me )?(get|retrieve) (it|my card) back",
             "(the atm (froze|broke|stopped))",
           ],
+          model_answers: ["Hi — the ATM outside just ate my card. It's stuck. Could you help?"],
           hint_tr:
             "Açıkça anlat: 'Hi — the ATM outside just ate my card. It's stuck. Could you help?'",
         },
@@ -3277,6 +3305,7 @@ export const dailyBankLesson_30_7: BundledLesson = {
             "(the screen (froze|went blank|stopped working))",
             "(just to confirm)",
           ],
+          model_answers: ["Yes, the one right outside. The screen froze just a few minutes ago."],
           hint_tr:
             "Lokasyon + detay: 'Yes, the one right outside. The screen froze just a few minutes ago.'",
         },
@@ -3295,6 +3324,7 @@ export const dailyBankLesson_30_7: BundledLesson = {
             "(my (id|passport|driver'?s license))",
             "(is there any way) (to )?(cancel|block|freeze) (it|the card) (right )?now",
           ],
+          model_answers: ["Of course, last four are 4521. Is there any way to block it right now just in case?"],
           hint_tr:
             "Kimlik + acil eylem: 'Of course, last four are 4521. Is there any way to block it right now just in case?'",
         },
@@ -3313,6 +3343,7 @@ export const dailyBankLesson_30_7: BundledLesson = {
             "(any fees for (expediting|rushing))",
             "(thank you|thanks|appreciate (it|the help))",
           ],
+          model_answers: ["Yes please. Any way to expedite the new card?"],
           hint_tr:
             "Onay + ek soru: 'Yes please. Any way to expedite the new card?'",
         },
@@ -3730,6 +3761,7 @@ export const dailyBankLesson_30_8: BundledLesson = {
             "(sending|wiring) (money|funds) (to|abroad|overseas|to turkey)",
             "(could i|can i) (send|wire) (money|funds) (abroad|internationally)",
           ],
+          model_answers: ["Hi, I need to send money abroad — to Turkey, around 2000 dollars."],
           hint_tr:
             "Net giriş: 'Hi, I need to send money abroad — to Turkey, around 2000 dollars.'",
         },
@@ -3748,6 +3780,7 @@ export const dailyBankLesson_30_8: BundledLesson = {
             "(i'?d like|i prefer) (wire|ach|the (faster|cheaper) (one|option))",
             "(just to confirm)",
           ],
+          model_answers: ["Could you walk me through the difference? How long does each take and what are the fees?"],
           hint_tr:
             "Soru sor: 'Could you walk me through the difference? How long does each take and what are the fees?'",
         },
@@ -3766,6 +3799,7 @@ export const dailyBankLesson_30_8: BundledLesson = {
             "(just to confirm|let me confirm) (the )?(total|all-in (cost|fee))",
             "(any (hidden|other|extra) fees)",
           ],
+          model_answers: ["Let's go with the wire. Just to confirm — total all-in cost, including FX?"],
           hint_tr:
             "Karar + onay: 'Let's go with the wire. Just to confirm — total all-in cost, including FX?'",
         },
@@ -3784,6 +3818,7 @@ export const dailyBankLesson_30_8: BundledLesson = {
             "(could you (read|repeat) (it|that) back)",
             "(let me (spell|give) (you|it to you))",
           ],
+          model_answers: ["Recipient is my mother — Ayse Yilmaz, spelled exactly as on her passport. Here's the IBAN."],
           hint_tr:
             "Alıcı bilgisi: 'Recipient is my mother — Ayse Yilmaz, spelled exactly as on her passport. Here's the IBAN.'",
         },

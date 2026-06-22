@@ -95,6 +95,7 @@ export const workCodereviewLesson_15_1: BundledLesson = {
             "(curious|happy to (pair|huddle|sync))",
             "(takes ownership|sole purpose|single responsibility)",
           ],
+          model_answers: ["nit: consider splitting this function — it handles parsing + validation."],
           hint_tr:
             "Yapici: 'nit: consider splitting this function — it handles parsing + validation.'",
         },
@@ -113,6 +114,7 @@ export const workCodereviewLesson_15_1: BundledLesson = {
             "(happy to|let me) (pair|huddle|do it)",
             "(let's (merge first|ship)|merge + follow-up)",
           ],
+          model_answers: ["Your call — happy to ship now + follow-up PR, or split here."],
           hint_tr:
             "Esnek: 'Your call — happy to ship now + follow-up PR, or split here.'",
         },
@@ -527,6 +529,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
             "(mind (another (look|pass)|taking another look)|please re-?review)",
             "(re-?review|second pass)",
           ],
+          model_answers: ["Good catch — pushed the fix. Mind another look?"],
           hint_tr:
             "Pozitif: 'Good catch — pushed the fix. Mind another look?'",
         },
@@ -545,6 +548,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
             "(can we (huddle|sync|jump on a call))",
             "(open to (hearing more|being wrong|the alternative))",
           ],
+          model_answers: ["Pushing back here — left context inline. Can we huddle if still concerned?"],
           hint_tr:
             "Karsi cikis: 'Pushing back here — left context inline. Can we huddle if still concerned?'",
         },
@@ -870,6 +874,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
             "(fixes|updates|adds) (the (auth|api|frontend))",
             "(merge by|land by|need by|hoping for)",
           ],
+          model_answers: ["Hey — small auth PR (100 lines). Hoping to merge by Friday."],
           hint_tr:
             "Net: 'Hey — small auth PR (100 lines). Hoping to merge by Friday.'",
         },
@@ -888,6 +893,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
             "(unit tests cover|integration tested|manually tested)",
             "(open to|happy to (pair|huddle|walk through))",
           ],
+          model_answers: ["Main risk: token refresh flow. Unit + integration tested."],
           hint_tr:
             "Yardim et: 'Main risk: token refresh flow. Unit + integration tested.'",
         },
@@ -1209,6 +1215,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
             "(rename|naming|variable name|could (be|use) (clearer|more descriptive))",
             "(totally optional|up to you|feel free to skip|your call)",
           ],
+          model_answers: ["Nit: could `tmp` be renamed to `parsedJson`? Up to you."],
           hint_tr:
             "Kucuk yorum: 'Nit: could `tmp` be renamed to `parsedJson`? Up to you.'",
         },
@@ -1225,6 +1232,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
             "(struggle|scale|break) (at|with|when)",
             "(happy to (defer|punt|table)|fine as is|not blocking the merge)",
           ],
+          model_answers: ["Non-blocking: this loop may slow down at 10k items — fine to defer."],
           hint_tr:
             "Gorus: 'Non-blocking: this loop may slow down at 10k items — fine to defer.'",
         },
@@ -1240,6 +1248,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
             "(sql|password|token|secret|api key) (injection|leak|exposure|in logs)",
             "(needs|must be|has to be) (fixed|patched|scrubbed|parameterized) (before|prior to) (merge|merging|landing)",
           ],
+          model_answers: ["Blocker: API token is logged in plaintext — needs scrubbing before merge."],
           hint_tr:
             "Blocker: 'Blocker: API token is logged in plaintext — needs scrubbing before merge.'",
         },
@@ -1530,6 +1539,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
             "(extract|pulling|splitting|breaking) (this|it|out) (into|up)",
             "(a (helper|utility|separate function))",
           ],
+          model_answers: ["This could be cleaner — wdyt about extracting the parsing into a helper?"],
           hint_tr:
             "Yumusak red: 'This could be cleaner — wdyt about extracting the parsing into a helper?'",
         },
@@ -1548,6 +1558,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
             "(will (struggle|thank|hate))",
             "(happy to (pair|huddle|sketch (it )?out)|can mock it up)",
           ],
+          model_answers: ["Works today, but future you will struggle to test it in isolation. Happy to pair on the extract."],
           hint_tr:
             "Sebebi: 'Works today, but future you will struggle to test it in isolation. Happy to pair on the extract.'",
         },
@@ -1839,6 +1850,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
             "(none|all|nothing) (blocking|critical|urgent)",
             "(feel free to|happy to (have you )?(address|tackle|tweak)) (later|whenever|in a follow-?up)",
           ],
+          model_answers: ["LGTM with a few thoughts — all non-blocking, feel free to address later."],
           hint_tr:
             "Pozitif onay: 'LGTM with a few thoughts — all non-blocking, feel free to address later.'",
         },
@@ -1856,6 +1868,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
             "(if you (have|find) (a moment|time|the bandwidth))",
             "(no rush|whenever (works|suits))",
           ],
+          model_answers: ["Your call — happy to ship now and follow up later, or tackle inline."],
           hint_tr:
             "Esnek: 'Your call — happy to ship now and follow up later, or tackle inline.'",
         },
@@ -2146,6 +2159,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
             "(done|fixed|addressed|updated|sorted)",
             "(in (the )?latest (commit|push)|just pushed)",
           ],
+          model_answers: ["Good catch — done in the latest commit."],
           hint_tr:
             "Hizli kabul: 'Good catch — done in the latest commit.'",
         },
@@ -2162,6 +2176,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
             "(reasoning|rationale|context|thinking) (inline|in the (comment|thread|pr description))",
             "(open to (a (huddle|chat|sync)|being wrong|hearing more)|happy to (huddle|sync))",
           ],
+          model_answers: ["Pushing back gently — reasoning inline. Open to a huddle if still concerned."],
           hint_tr:
             "Karsi cikis: 'Pushing back gently — reasoning inline. Open to a huddle if still concerned.'",
         },
@@ -2178,6 +2193,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
             "(updating now|on it|will push (in a sec|shortly|now))",
             "(thanks for (catching|flagging|the ping))",
           ],
+          model_answers: ["Good catch — hadn't considered that. Pushing a fix now."],
           hint_tr:
             "Senior'dan oneri = sukran + hareket: 'Good catch — hadn't considered that. Pushing a fix now.'",
         },

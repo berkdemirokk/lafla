@@ -63,6 +63,7 @@ import { DialogueGap } from "../../components/exercises/DialogueGap";
 import { ListenRespond } from "../../components/exercises/ListenRespond";
 import { ThinkingTrap } from "../../components/exercises/ThinkingTrap";
 import { RecallQuiz } from "../../components/exercises/RecallQuiz";
+import { MultipleChoice } from "../../components/exercises/MultipleChoice";
 import { AchievementToast } from "../../components/AchievementToast";
 import { StreakMilestoneModal } from "../../components/StreakMilestoneModal";
 import {
@@ -73,7 +74,6 @@ import {
 import { trackEvent } from "../../lib/analytics";
 import {
   getScenario,
-  computeSceneFluency,
   type Scenario,
   type SetupPhrase,
 } from "../../lib/scenario";
@@ -87,7 +87,7 @@ import {
 import { ShareCard } from "../../components/ShareCard";
 import { captureRef } from "react-native-view-shot";
 import * as Sharing from "expo-sharing";
-import { completeLesson, recordAttempt } from "../../lib/srs";
+import { completeLesson } from "../../lib/srs";
 import {
   getNextInPlan,
   incrementPlanProgress,
@@ -108,18 +108,26 @@ import { nameAndBucketForNpc } from "../../lib/npc-names";
 import type { SceneMode } from "../../data/scenes";
 import {
   bumpModeFluency,
-  getLessonState,
   getLocalProfile,
 } from "../../lib/local-progress";
-import type { RoleplayMode } from "../../components/exercises/RoleplayChat";
+import type { RoleplayMode } from "../../lib/roleplay-progression";
+import {
+  getRoleplayMode,
+  recordRoleplayMastery,
+} from "../../lib/roleplay-mastery";
 import { recordLessonCompletion } from "../../lib/daily-quests";
 import { checkUnlocksAfterLesson } from "../../lib/achievements";
 import { speak } from "../../lib/tts";
 import { hapticImpact, hapticSuccess } from "../../lib/feedback";
+import { markHomeTutorialSeen } from "../../lib/tutorial-state";
 import { allScenarios } from "../../lib/scenario";
 import { tokens } from "../../theme";
 import type { AchievementDef } from "../../lib/achievements";
-import type { ExerciseResult } from "../../lib/engine";
+import type { ExerciseResult, RoleplayMistake } from "../../lib/engine";
+import {
+  assessRoleplayScore,
+  roleplayAssessmentLabel,
+} from "../../lib/roleplay-assessment";
 
 // 2026-05-24 — Content expansion (Phase 1C, Agent C). 4 → 7 phase.
 // Yeni faz veri yoksa (eski lesson) getNextPhase() o fazı atlar; flow eskisi
@@ -226,9 +234,8 @@ export default function ScenarioScreen() {
   }>();
   const router = useRouter();
   const scenario = id ? getScenario(id) : null;
-  // 2026-05-20 switch-trigger #1: ?intro=true onboarding sonrası force-first
-  // sahneden gelir. VERDICT bittiğinde "Devam" home yerine paywall'a gider
-  // ve `lafla.intro.match.completed` true yazılır — bir daha tetiklenmez.
+  // ?intro=true onboarding sonrası ilk pratikten gelir. Tamamlanınca işaretlenir
+  // ve kullanıcı satış kesintisi olmadan Bugün ekranına döner.
   const isIntro = intro === "true";
   // 2026-05-25 (B-PAY-9) — Paywall'a tek seferlik navigation; quota guard
   // ile hard-mode click gibi paralel tetikleyicilerin duplicate router
@@ -352,11 +359,7 @@ export default function ScenarioScreen() {
   useEffect(() => {
     if (!scenario) return;
     (async () => {
-      const state = await getLessonState(scenario.id);
-      const attempts = state?.total_attempts ?? 0;
-      if (attempts >= 2) setRoleplayMode("free");
-      else if (attempts === 1) setRoleplayMode("hinted");
-      else setRoleplayMode("multi-choice");
+      setRoleplayMode(await getRoleplayMode(scenario.id));
     })();
     void trackEvent("scenario_started", {
       scenario_id: scenario.id,
@@ -434,12 +437,15 @@ export default function ScenarioScreen() {
       return;
     }
     savedRef.current = true;
-    const accuracy = sceneResult.score / 100;
+    const masteryScore = sceneResult.mastery_score ?? sceneResult.score;
+    const accuracy = masteryScore / 100;
     void trackEvent("scenario_completed", {
       scenario_id: scenario.id,
       skill_id: scenario.skill_id,
       mode: scenario.mode,
       score: sceneResult.score,
+      mastery_score: masteryScore,
+      assisted_turns: sceneResult.assisted_turns ?? 0,
     }).catch(() => {});
     // 2026-05-24 — Sahne tamamlandı: 6h "yarım kaldı" bildirimini iptal et,
     // dropoff zincirini (24h streak / 3d challenge / 7d gone) yeniden zamanla.
@@ -464,7 +470,7 @@ export default function ScenarioScreen() {
       // checkUnlocksAfterLesson is idempotent — already-earned achievements
       // are filtered out of the return set, so re-runs after retries are safe.
       const earned = await checkUnlocksAfterLesson(
-        sceneResult.score,
+        masteryScore,
         scenario.mode,
       ).catch(() => [] as AchievementDef[]);
       if (earned.length > 0) {
@@ -702,13 +708,10 @@ export default function ScenarioScreen() {
 
   const onSceneComplete = (result: ExerciseResult) => {
     setSceneResult(result);
-    recordAttempt({
-      exercise_id: `${scenario.id}.scene`,
-      lesson_id: scenario.id,
-      skill_id: scenario.skill_id,
-      exercise_type: "roleplay_chat",
-      is_correct: result.score >= 60,
-    }).catch(() => {});
+    void recordRoleplayMastery(
+      scenario.id,
+      result.mastery_score ?? result.score,
+    );
     // Daily plan progress — sadece bu sahne planın bir parçasıysa artar.
     // (getNextInPlan null değilse veya scenario.id planda son sahneyse de
     // sayılır; tek artırım, "Bugünün planı: 5 sahne · 20 dk" başlangıcının
@@ -870,7 +873,7 @@ export default function ScenarioScreen() {
                     {isPremiumState === false
                       ? "🔒 🔥 HARD MODE · Lafla Pro ile aç"
                       : hardMode
-                        ? "🔥 HARD MODE açık — no hint, ×0.85 puan"
+                        ? "🔥 HARD MODE açık — ipuçsuz, tam cümle"
                         : "🔥 Hard Mode dene · Premium"}
                   </Text>
                 </Pressable>
@@ -1025,14 +1028,15 @@ export default function ScenarioScreen() {
               onContinue={() => {
                 // Switch-trigger #1 — force-first intro scene biterse:
                 // 1) "completed" flag yaz (bir daha tetiklenmez)
-                // 2) Paywall'a yönlendir (kullanıcı ilk skoru ile Lafla Pro
-                //    teklifini görür — value-first, value-after pattern)
+                // 2) Bugün ekranına dön. İlk başarıdan hemen sonra satış
+                //    ekranı göstermek öğrenme ivmesini kesiyordu.
                 if (isIntro) {
                   void AsyncStorage.setItem(
                     "lafla.intro.match.completed",
                     "true",
                   ).catch(() => {});
-                  replaceRoute(router, "/paywall?from=intro");
+                  void markHomeTutorialSeen().catch(() => {});
+                  replaceRoute(router, "/today");
                   return;
                 }
                 // 2026-05-21 — Daily Plan auto-advance.
@@ -1147,6 +1151,16 @@ function DrillRenderer({
   onComplete: (r: ExerciseResult) => void;
 }) {
   switch (exercise.type) {
+    case "multiple_choice":
+      return (
+        <MultipleChoice
+          question={exercise.question}
+          options={exercise.options}
+          correctIndex={exercise.correct_index}
+          explanation={exercise.tr_explanation}
+          onComplete={onComplete}
+        />
+      );
     case "fill_blank":
       return (
         <FillBlank
@@ -1282,8 +1296,9 @@ function DrillRenderer({
       onComplete({
         exercise_id: exercise.type === "recap_quiz" ? "skipped" : `unknown_${exercise.type}`,
         exercise_type: exercise.type,
-        correct: true,
-        score: 100,
+        correct: false,
+        score: 0,
+        feedback: "Bu alıştırma bu sürümde desteklenmiyor.",
       });
       return null;
   }
@@ -1431,7 +1446,11 @@ function SetupView({
         ) : null}
       </View>
 
-      <Pressable onPress={replayAudio} accessibilityRole="button">
+      <Pressable
+        onPress={replayAudio}
+        accessibilityRole="button"
+        accessibilityLabel="Cümleyi tekrar dinle"
+      >
         <Animated.View style={[setupStyles.hero, heroStyle]}>
           <View style={setupStyles.wordRow}>
             <Text style={setupStyles.word}>{phrase.en}</Text>
@@ -1617,57 +1636,47 @@ function VerdictView({
   // captureRef + expo-sharing zincirine alınır.
   const shareCardRef = useRef<View>(null);
   const [sharing, setSharing] = useState(false);
-  const router = useRouter();
 
-  // 2026-05-21 — Premium gate: deep feedback. Free kullanıcı locked
-  // preview görür, premium gerçek hata listesi + alternatif öner.
-  const [premium, setPremium] = useState<boolean | null>(null);
-  const [topMistakes, setTopMistakes] = useState<
-    Array<{ matched: string; reason_tr: string; correct_example: string }>
-  >([]);
+  // Temel hata açıklaması öğrenmenin parçasıdır; abonelik özelliği değildir.
+  const [topMistakes, setTopMistakes] = useState<RoleplayMistake[]>(
+    sceneResult.mistakes ?? [],
+  );
   useEffect(() => {
+    if ((sceneResult.mistakes?.length ?? 0) > 0) {
+      setTopMistakes((sceneResult.mistakes ?? []).slice(0, 3));
+      return;
+    }
     (async () => {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const iap = require("../../lib/iap") as {
-        isPremium: () => Promise<boolean>;
+      const tracker = require("../../lib/mistake-tracker") as {
+        getTopMistakes: (n: number) => Promise<Array<{
+          patternId: string;
+          count: number;
+        }>>;
       };
-      const isP = await iap.isPremium().catch(() => false);
-      setPremium(isP);
-      if (isP) {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        const tracker = require("../../lib/mistake-tracker") as {
-          getTopMistakes: (n: number) => Promise<Array<{
-            patternId: string;
-            count: number;
-          }>>;
-        };
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        const patterns = require("../../lib/mistake-patterns") as {
-          getPattern: (id: string) => {
-            reason_tr: string;
-            example_right: string;
-            example_wrong?: string;
-          } | undefined;
-        };
-        const top = await tracker.getTopMistakes(3).catch(() => []);
-        const enriched = top
-          .map((m) => {
-            const pat = patterns.getPattern(m.patternId);
-            // 2026-05-25 (B-SCN-2) — example_wrong yoksa user'a regex string'i
-            // ("^i am\s+go") gösterme. Bu kaydı tamamen at, kalan top mistakes
-            // dolar dolmaz görünür.
-            if (!pat || !pat.example_wrong) return null;
-            return {
-              matched: pat.example_wrong,
-              reason_tr: pat.reason_tr,
-              correct_example: pat.example_right,
-            };
-          })
-          .filter((x): x is NonNullable<typeof x> => !!x);
-        setTopMistakes(enriched);
-      }
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const patterns = require("../../lib/mistake-patterns") as {
+        getPattern: (id: string) => {
+          reason_tr: string;
+          example_right: string;
+          example_wrong?: string;
+        } | undefined;
+      };
+      const top = await tracker.getTopMistakes(3).catch(() => []);
+      const enriched = top
+        .map((m) => {
+          const pat = patterns.getPattern(m.patternId);
+          if (!pat || !pat.example_wrong) return null;
+          return {
+            matched: pat.example_wrong,
+            reason_tr: pat.reason_tr,
+            correct_example: pat.example_right,
+          };
+        })
+        .filter((x): x is NonNullable<typeof x> => !!x);
+      setTopMistakes(enriched);
     })();
-  }, []);
+  }, [sceneResult.mistakes]);
   // 2026-05-21 — Daily Plan auto-advance countdown.
   // 2026-05-25 — 3s → 5s. Skor count-up (900ms) + CEFR delta animasyonu
   // (950+700ms) tamamlanmadan countdown başlıyordu → kullanıcı skoru
@@ -1686,59 +1695,28 @@ function VerdictView({
     const t = setTimeout(() => setAutoCountdown((n) => (n ?? 0) - 1), 1000);
     return () => clearTimeout(t);
   }, [autoCountdown, onContinue]);
-  const { band } = computeSceneFluency([sceneResult.score]);
-  // Verdict copy varies by band AND by whether we have a name to address
-  // the user with. The personalized variants change the leading clause to
-  // "Aferin {name}," (high) or "{name}," (mid/low) and keep the rest of
-  // the sentence identical. Falls back to the original generic copy when
-  // userName is empty so first-launch users still see something sensible.
+  const assessment = assessRoleplayScore(sceneResult.score);
+  const masteryAssessment = assessRoleplayScore(
+    sceneResult.mastery_score ?? sceneResult.score,
+  );
+  const assessmentLabel = roleplayAssessmentLabel(assessment);
   const verdictMsg = (() => {
-    if (userName) {
-      if (band === "high") {
-        return `Aferin ${userName}, bu sahneyi artık akıcı yürütüyorsun.`;
-      }
-      if (band === "mid") {
-        return `${userName}, sağlam başlangıç. Sahne ileride tekrar gelecek.`;
-      }
-      return `${userName}, bir tur daha kazandırır. Sahne yarın yine planda.`;
+    const prefix = userName ? `${userName}, ` : "";
+    if (assessment === "goal_met") {
+      return `${prefix}bu sahnenin hedef cümlelerini doğru kullandın.`;
     }
-    if (band === "high") return "Bu sahneyi artık akıcı yürütüyorsun.";
-    if (band === "mid")
-      return "Sağlam başlangıç. Sahne ileride tekrar gelecek.";
-    return "Bir tur daha kazandırır. Sahne yarın yine planda.";
+    if (assessment === "close") {
+      return `${prefix}anlamlı bir deneme yaptın; hedef kalıpları bir kez daha çalış.`;
+    }
+    return `${prefix}bu tur güvenilir biçimde değerlendirilemedi. İpuçlarıyla tekrar dene.`;
   })();
-
-  // Count-up animation — score climbs from 0 to its final value over ~900ms.
-  // setInterval on RAF-ish cadence keeps it readable without Reanimated; the
-  // verdict screen is short-lived enough that a plain interval is acceptable.
-  const [displayedScore, setDisplayedScore] = useState(0);
-  useEffect(() => {
-    const target = sceneResult.score;
-    if (target <= 0) {
-      setDisplayedScore(0);
-      return;
-    }
-    const steps = 40;
-    const stepMs = 22;
-    let i = 0;
-    const id = setInterval(() => {
-      i += 1;
-      // Ease-out curve so the climb decelerates as it approaches the target.
-      const t = Math.min(1, i / steps);
-      const eased = 1 - Math.pow(1 - t, 3);
-      const value = Math.round(target * eased);
-      setDisplayedScore(value);
-      if (i >= steps) clearInterval(id);
-    }, stepMs);
-    return () => clearInterval(id);
-  }, [sceneResult.score]);
 
   // "Level achieved" pulse on the score card once the count-up finishes.
   // Only triggers at score ≥ 75 so it stays a meaningful reward rather
   // than a default flourish that fires every verdict.
   const pulse = useSharedValue(1);
   useEffect(() => {
-    if (sceneResult.score < 75) return;
+    if (assessment !== "goal_met") return;
     // Wait for the count-up to finish (≈900ms) before pulsing so the
     // user reads the final number first.
     pulse.value = withDelay(
@@ -1751,7 +1729,7 @@ function VerdictView({
     return () => {
       cancelAnimation(pulse);
     };
-  }, [sceneResult.score, pulse]);
+  }, [assessment, pulse]);
 
   const pulseStyle = useAnimatedStyle(() => ({
     transform: [{ scale: pulse.value }],
@@ -1759,7 +1737,7 @@ function VerdictView({
 
   // Confetti is rare and rewarding — only at ≥90. We seed five emojis
   // with randomized horizontal offset, delay, drift, and final translateY.
-  const showConfetti = sceneResult.score >= 90;
+  const showConfetti = assessment === "goal_met";
 
   // 2026-05-20 — switch-trigger #3: CEFR delta animation.
   // recordCefrProgress sahne sonunda çağrılır → before/after döner.
@@ -1780,11 +1758,11 @@ function VerdictView({
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let intervalId: ReturnType<typeof setInterval> | null = null;
     (async () => {
-      // 2026-05-25 (B-SCN-19) — "Sahneyi bitir" ile 0 puanlı verdict'e ulaşan
-      // kullanıcı CEFR ilerlemesi alıyordu (PROGRESS_LOW 0.005). Min 30
-      // puan eşiği: gerçekten denemiş olmayanın CEFR'e katkısı olmasın.
-      if (sceneResult.score < 30) return;
-      const d = await recordCefrProgress(sceneResult.score).catch(() => null);
+      // Yalnızca hedef kalıpları gerçekten karşılandığında CEFR ilerlet.
+      if (masteryAssessment !== "goal_met") return;
+      const d = await recordCefrProgress(
+        sceneResult.mastery_score ?? sceneResult.score,
+      ).catch(() => null);
       if (cancelled || !d) return;
       setCefrDelta(d);
       // Animate from before → after over ~700ms starting after the score count-up
@@ -1813,7 +1791,7 @@ function VerdictView({
       if (timeoutId) clearTimeout(timeoutId);
       if (intervalId) clearInterval(intervalId);
     };
-  }, [sceneResult.score]);
+  }, [masteryAssessment, sceneResult.mastery_score, sceneResult.score]);
 
   return (
     <ScrollView contentContainerStyle={verdictStyles.content}>
@@ -1824,9 +1802,13 @@ function VerdictView({
         {/* 2026-05-23 premium: inner highlight, "iOS button bevel" tactile
             depth. Verdict en kritik psikolojik moment — premium feedback. */}
         <View style={verdictStyles.scoreCardHighlight} pointerEvents="none" />
-        <Text style={verdictStyles.scoreLabel}>Akıcılık</Text>
-        <Text style={verdictStyles.scoreNum}>{displayedScore}</Text>
-        <Text style={verdictStyles.scoreOf}>/ 100</Text>
+        <Text style={verdictStyles.scoreLabel}>GÖREV SONUCU</Text>
+        <Text
+          style={verdictStyles.scoreResult}
+          accessibilityLiveRegion="polite"
+        >
+          {assessmentLabel}
+        </Text>
       </Animated.View>
 
       {/* CEFR delta — switch-trigger #3.
@@ -1863,32 +1845,17 @@ function VerdictView({
         <Text style={verdictStyles.feedback}>{sceneResult.feedback}</Text>
       )}
 
-      {/* 2026-05-21 — Premium deep feedback. Free user'da locked preview,
-          premium user'da gerçek hata analizi + alternatif. */}
-      {premium === false && (
-        <Pressable
-          onPress={() =>
-            pushRoute(router, "/paywall?from=verdict-feedback")
-          }
-          style={({ pressed }) => [
-            verdictStyles.feedbackLocked,
-            pressed && { opacity: 0.85 },
-          ]}
-          accessibilityRole="button"
-          accessibilityLabel="Lafla Pro ile detaylı analiz"
-        >
-          <Text style={verdictStyles.feedbackLockedLabel}>
-            🔒 LAFLA PRO — DETAYLI ANALİZ
-          </Text>
-          <Text style={verdictStyles.feedbackLockedText}>
-            Hangi cümlede ne yanlıştı, doğrusu neydi — premium'da göreceksin.
-          </Text>
-        </Pressable>
+      {(sceneResult.assisted_turns ?? 0) > 0 && (
+        <Text style={verdictStyles.feedback}>
+          {sceneResult.assisted_turns} turu düzeltmeyle tamamladın. Kalıcı
+          ilerleme için bu kalıplar tekrar gününe eklendi.
+        </Text>
       )}
-      {premium === true && topMistakes.length > 0 && (
+
+      {topMistakes.length > 0 && (
         <View style={verdictStyles.feedbackPremium}>
           <Text style={verdictStyles.feedbackPremiumLabel}>
-            🔍 EN ÇOK TEKRARLAYAN HATAN
+            🔍 ÜZERİNDE ÇALIŞABİLECEĞİN HATA
           </Text>
           {topMistakes.map((m, i) => (
             <View key={i} style={verdictStyles.mistakeRow}>
@@ -1940,7 +1907,7 @@ function VerdictView({
             2026-05-25 — Skor >= 60 olmadıkça gösterme. Düşük skoru paylaş
             CTA'sı kullanıcıya başarısızlığı suratına sokuyordu. Sadece
             kullanıcı kendini iyi hissedeceği skor seviyesinde göster. */}
-        {sceneResult.score >= 60 && (
+        {assessment === "goal_met" && (
         <View style={verdictStyles.shareRow}>
           <Pressable
             onPress={async () => {
@@ -1963,7 +1930,7 @@ function VerdictView({
                 if (available) {
                   await Sharing.shareAsync(uri, {
                     mimeType: "image/png",
-                    dialogTitle: "Skoru paylaş",
+                    dialogTitle: "Başarıyı paylaş",
                   });
                   void trackEvent("share_score_completed", {
                     score: sceneResult.score,
@@ -1990,7 +1957,7 @@ function VerdictView({
             accessibilityLabel="Skoru sosyal medyada paylaş"
           >
             <Text style={verdictStyles.shareBtnText}>
-              {sharing ? "Hazırlanıyor..." : "📸 Skoru paylaş"}
+              {sharing ? "Hazırlanıyor..." : "📸 Başarıyı paylaş"}
             </Text>
           </Pressable>
 
@@ -2001,13 +1968,7 @@ function VerdictView({
           <Pressable
             onPress={async () => {
               const shareUrl = `https://berkdemirokk.github.io/lafla/?scene=${encodeURIComponent(scenarioIdForShare(scenario.title))}`;
-              const scoreLine =
-                sceneResult.score >= 75
-                  ? `${sceneResult.score}/100 aldım 💪`
-                  : sceneResult.score >= 50
-                    ? `${sceneResult.score}/100 — fena değil`
-                    : `Sen daha iyisini yaparsın 😄`;
-              const message = `Lafla'da bu sahneyi denedim, ${scoreLine} — sen de bak: ${shareUrl}`;
+              const message = `Lafla'da “${scenario.title.replace(/\n/g, " ")}" konuşma hedefini tamamladım 💪 Sen de dene: ${shareUrl}`;
               try {
                 await Share.share({
                   message,
@@ -2045,7 +2006,7 @@ function VerdictView({
       >
         <ShareCard
           ref={shareCardRef}
-          score={sceneResult.score}
+          assessment={assessmentLabel}
           cefrLevel={cefrDelta?.toLevel ?? null}
           cefrProgress={cefrDelta?.after ?? 0}
           sceneTitle={scenario.title}
@@ -2562,11 +2523,13 @@ const verdictStyles = StyleSheet.create({
     fontFamily: tokens.font.sans,
   },
   scoreCard: {
-    flexDirection: "row",
-    alignItems: "baseline",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: tokens.brand.secondary,
     paddingHorizontal: 36,
-    paddingVertical: 28,
+    paddingTop: 40,
+    paddingBottom: 24,
+    minHeight: 120,
     borderRadius: tokens.radius.lg,
     marginBottom: tokens.spacing.md,
     gap: 4,
@@ -2605,23 +2568,13 @@ const verdictStyles = StyleSheet.create({
     right: 0,
     textAlign: "center",
   },
-  // Score hero — verdict'in odak elemanı. Display font + glow text-shadow
-  // ile premium tactile depth. letterSpacing tightened for SG Bold.
-  scoreNum: {
-    fontSize: 64,
-    fontWeight: tokens.weight.black,
+  scoreResult: {
+    fontSize: 30,
     color: tokens.brand.primary,
-    letterSpacing: -1.6,
+    fontWeight: tokens.weight.black,
     fontFamily: tokens.font.display,
-    textShadowColor: tokens.brand.primary,
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 14,
-  },
-  scoreOf: {
-    fontSize: 22,
-    color: tokens.text.secondaryFixedDim,
-    fontWeight: tokens.weight.bold,
-    fontFamily: tokens.font.display,
+    textAlign: "center",
+    paddingHorizontal: 20,
   },
   // CEFR delta card (switch-trigger #3, 2026-05-20).
   // Skor count-up'tan sonra 950ms gecikme ile beliren mini kart.

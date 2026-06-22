@@ -241,6 +241,7 @@ export const personalB1Lesson_1: BundledLesson = {
             "(what got you into|how did you start|how long have you been)",
             "(have you been|how long).{0,20}(shooting|photographing|hiking)",
           ],
+          model_answers: ["Noticed your film shots — what got you into that?"],
           hint_tr:
             "Spesifik referans + açık soru. Örn: 'Noticed your film shots — what got you into that?'",
         },
@@ -258,8 +259,9 @@ export const personalB1Lesson_1: BundledLesson = {
             "(makes sense|i get that|i needed)",
             "(slower than)",
           ],
+          model_answers: ["That makes sense. I started photography last year, but I am still learning."],
           hint_tr:
-            "Onun cevabına gerçek bir karşılık. Kendi durumunu söyle — kısa, dürüst.",
+            "Gerçek bir karşılık ver. Örnek: 'That makes sense. I started photography last year, but I am still learning.'",
         },
         {
           speaker: "npc",
@@ -275,6 +277,7 @@ export const personalB1Lesson_1: BundledLesson = {
             "(little spot|tiny place|hole in the wall)",
             "(near|around|in) (kadikoy|cihangir|moda|karakoy|bebek)",
           ],
+          model_answers: ["There's a place in X — they roast their own."],
           hint_tr:
             "Spesifik bir yer + bir cümle gerekçe. 'There's a place in X — they roast their own.'",
         },
@@ -291,6 +294,7 @@ export const personalB1Lesson_1: BundledLesson = {
             "(it'?s a lot of|too many|always on)",
             "(makes sense why|why i need|why i picked up)",
           ],
+          model_answers: ["I work in X — it's nonstop, so I needed something slow."],
           hint_tr:
             "Mesleğini kısa söyle + niye yavaşlamak gerektiğini bağla. 'I work in X — it's nonstop, so I needed something slow.'",
         },
@@ -716,6 +720,7 @@ export const personalB1Lesson_2: BundledLesson = {
             "(work|run|hit the gym|see friends|cook|read)",
             "(what about you|how about you|you\\?)",
           ],
+          model_answers: ["What about you?"],
           hint_tr:
             "Hafta içi / hafta sonu özet ver, sonunda topu karşıya at. 'What about you?'",
         },
@@ -732,8 +737,9 @@ export const personalB1Lesson_2: BundledLesson = {
             "(reading|running|learning|writing|cooking|making)",
             "(it'?s the kind of thing|something about it|the reason)",
           ],
+          model_answers: ["Honestly, I have been getting into cooking lately because it helps me slow down."],
           hint_tr:
-            "Yüzeyel cevaptan kaç. Spesifik bir şey + niye seviyorsun.",
+            "Spesifik ol. Örnek: 'Honestly, I have been getting into cooking lately because it helps me slow down.'",
         },
         {
           speaker: "npc",
@@ -749,6 +755,7 @@ export const personalB1Lesson_2: BundledLesson = {
             "(short version is|the simple version)",
             "(what about you|how about you)",
           ],
+          model_answers: ["save that for next time"],
           hint_tr:
             "Ya kibarca ertele ('save that for next time') ya da çok kısa light versiyon ver + topu çevir.",
         },
@@ -765,6 +772,7 @@ export const personalB1Lesson_2: BundledLesson = {
             "(when i'?m|when i)",
             "(something about|there'?s something)",
           ],
+          model_answers: ["Probably on a long walk — no phone, no plan."],
           hint_tr:
             "Bir yer / bir an + kısa neden. 'Probably on a long walk — no phone, no plan.'",
         },
@@ -1189,6 +1197,7 @@ export const personalB1Lesson_3: BundledLesson = {
             "(in big cities|in istanbul|in my generation|in my circle)",
             "(a lot of us|many of us|most people i know)",
           ],
+          model_answers: ["Tea — yes, that's real. Living with parents — depends a lot on the city."],
           hint_tr:
             "Bir kısmını kabul et, ama nüansla. 'Tea — yes, that's real. Living with parents — depends a lot on the city.'",
         },
@@ -1206,6 +1215,7 @@ export const personalB1Lesson_3: BundledLesson = {
             "(work differently|career first|delay marriage)",
             "(very different from|nothing like|much more)",
           ],
+          model_answers: ["Most of my friends moved out at 22, live with flatmates..."],
           hint_tr:
             "Kuşağının nasıl değiştiğini somut anlat. 'Most of my friends moved out at 22, live with flatmates...'",
         },
@@ -1222,6 +1232,7 @@ export const personalB1Lesson_3: BundledLesson = {
             "(family|holidays|christmas|relationships|work-life|small talk)",
             "(how does that work where you'?re from|in your culture)",
           ],
+          model_answers: ["I've wondered how X works where you're from."],
           hint_tr:
             "Spesifik bir konu sor — turist klişesi değil. 'I've wondered how X works where you're from.'",
         },
@@ -1238,8 +1249,9 @@ export const personalB1Lesson_3: BundledLesson = {
             "(i'?ll bring|teach me|show me)",
             "(makes sense|i didn'?t know|wasn'?t expecting)",
           ],
+          model_answers: ["I'd love that. Let's do it over dinner next time."],
           hint_tr:
-            "Karşılık ver — somut bir plan veya küçük bir teklif.",
+            "Karşılık ver — somut bir plan veya küçük bir teklif. Örnek: “I'd love that. Let's do it over dinner next time.”",
         },
       ],
     },
@@ -1660,6 +1672,7 @@ export const personalB1Lesson_4: BundledLesson = {
             "(do you have a minute|got a sec)",
             "(nothing urgent|nothing bad|just want to share)",
           ],
+          model_answers: ["There's something on my mind — got a minute?"],
           hint_tr:
             "Düşük baskı giriş. 'There's something on my mind — got a minute?'",
         },
@@ -1675,8 +1688,9 @@ export const personalB1Lesson_4: BundledLesson = {
             "(a bit|kind of|sort of) (distant|disconnected|far apart)",
             "(i'?m not blaming|not your fault|just want to share)",
           ],
+          model_answers: ["I have been feeling a bit disconnected lately. I am not blaming you; I just want to share it."],
           hint_tr:
-            "İlk cümlede ne hissettiğini söyle + suçlama olmadığını netle.",
+            "His + suçlama olmadığını söyle. Örnek: 'I have been feeling a bit disconnected lately. I am not blaming you; I just want to share it.'",
         },
         {
           speaker: "npc",
@@ -1691,6 +1705,7 @@ export const personalB1Lesson_4: BundledLesson = {
             "(through dinner|over coffee|after work)",
             "(i felt|i was feeling) (invisible|alone|unheard|far from you)",
           ],
+          model_answers: ["I felt X"],
           hint_tr:
             "Spesifik bir an + 'I felt X' kalıbı. 'Always/never' yok.",
         },
@@ -1707,6 +1722,7 @@ export const personalB1Lesson_4: BundledLesson = {
             "(twenty minutes|even ten minutes|just dinner)",
             "(no screens|phone away|undivided)",
           ],
+          model_answers: ["What matters to me is dinner without phones."],
           hint_tr:
             "Net + somut talep. 'What matters to me is dinner without phones.' Mubitemli ama spesifik.",
         },
@@ -1723,8 +1739,9 @@ export const personalB1Lesson_4: BundledLesson = {
             "(i appreciate|means a lot|that helps)",
             "(let'?s try that|sounds good)",
           ],
+          model_answers: ["That's a good start. Maybe we can take a walk once a week."],
           hint_tr:
-            "Teşekkür et + belki bir ek küçük şey öner. Aşırı yükleme.",
+            "Teşekkür et + belki bir ek küçük şey öner. Aşırı yükleme. Örnek: “That's a good start. Maybe we can take a walk once a week.”",
         },
       ],
     },
@@ -2140,8 +2157,9 @@ export const personalB1Lesson_5: BundledLesson = {
             "(the trip was|it was) (fine|good|easy|smooth)",
             "(brought you|i brought) (a small|a little|something)",
           ],
+          model_answers: ["Thank you for having me. Maria has told me so much about you. I brought you something small."],
           hint_tr:
-            "Selam + teşekkür + Maria referansı + hediye. Üç cümle yeterli.",
+            "Üç kısa cümle yeterli. Örnek: 'Thank you for having me. Maria has told me so much about you. I brought you something small.'",
         },
         {
           speaker: "npc",
@@ -2156,8 +2174,9 @@ export const personalB1Lesson_5: BundledLesson = {
             "(same back home|we do that too|i'?m used to that)",
             "(help me out|please tell me) (if|when) (i'?m doing|i do)",
           ],
+          model_answers: ["Of course. We do that back home too; please tell me if I miss anything."],
           hint_tr:
-            "Kural küçük bir konfor noktası. Onayla, küçük bir bağ kur, yardım iste.",
+            "Onayla ve yardım iste. Örnek: 'Of course. We do that back home too; please tell me if I miss anything.'",
         },
         {
           speaker: "npc",
@@ -2172,6 +2191,7 @@ export const personalB1Lesson_5: BundledLesson = {
             "(thank you|cheers)",
             "(can i help|anything i can do|need a hand)",
           ],
+          model_answers: ["Yes please — anything I can help with?"],
           hint_tr:
             "Kabul et + yardım teklif et. 'Yes please — anything I can help with?'",
         },
@@ -2188,8 +2208,9 @@ export const personalB1Lesson_5: BundledLesson = {
             "(noisy|crowded|chaotic|alive|busy)",
             "(but i love|but it'?s home|i wouldn'?t change it)",
           ],
+          model_answers: ["I grew up in Istanbul. It's crowded and chaotic, but it's home."],
           hint_tr:
-            "Bir cümlede İstanbul'u canlandır. Klişe değil — kendi sözcüklerin.",
+            "Bir cümlede İstanbul'u canlandır. Klişe değil — kendi sözcüklerin. Örnek: “I grew up in Istanbul. It's crowded and chaotic, but it's home.”",
         },
         {
           speaker: "npc",
@@ -2609,8 +2630,9 @@ export const personalB1Lesson_6: BundledLesson = {
             "(but i'?m glad|but seeing you|good to see you)",
             "(walk me through|tell me about) your day",
           ],
+          model_answers: ["Honestly, yes. Today was a lot, but I am glad to see you. Tell me about your day."],
           hint_tr:
-            "Otantik cevap + topu çevir. Maske takma.",
+            "Dürüst cevap + soru. Örnek: 'Honestly, yes. Today was a lot, but I am glad to see you. Tell me about your day.'",
         },
         {
           speaker: "npc",
@@ -2625,8 +2647,9 @@ export const personalB1Lesson_6: BundledLesson = {
             "(running between|back to back|nonstop)",
             "(missed lunch|forgot to eat|barely sat down)",
           ],
+          model_answers: ["That is great; I am glad it went well. Mine was nonstop, and I even missed lunch."],
           hint_tr:
-            "Onun haberini selamla + senin günün spesifik bir detayını paylaş.",
+            "Önce onun haberini karşıla. Örnek: 'That is great; I am glad it went well. Mine was nonstop, and I even missed lunch.'",
         },
         {
           speaker: "npc",
@@ -2641,8 +2664,9 @@ export const personalB1Lesson_6: BundledLesson = {
             "(thursday|friday|saturday)",
             "(weekend i'?m|saturday i'?m|sunday i'?m)",
           ],
+          model_answers: ["I know, you are right. The rest of the week is busy, but I am free on Saturday."],
           hint_tr:
-            "Eleştiriyi kabul et (hafif) + haftanın geri kalanını anlat.",
+            "Kabul et + planı anlat. Örnek: 'I know, you are right. The rest of the week is busy, but I am free on Saturday.'",
         },
         {
           speaker: "npc",
@@ -2657,8 +2681,9 @@ export const personalB1Lesson_6: BundledLesson = {
             "(it'?s the small things|the little things|not the texting)",
             "(counting down|how many days|when'?s the next visit)",
           ],
+          model_answers: ["Same here. I miss the little things — I'm counting down to the next visit."],
           hint_tr:
-            "Aynı duyguyu doğrula + somut özlem + gelecek odaklı.",
+            "Aynı duyguyu doğrula + somut özlem + gelecek odaklı. Örnek: “Same here. I miss the little things — I'm counting down to the next visit.”",
         },
         {
           speaker: "npc",
@@ -2673,8 +2698,9 @@ export const personalB1Lesson_6: BundledLesson = {
             "(thought of you|made me smile|reminded me of you)",
             "(coffee|stranger|song|book|sky)",
           ],
+          model_answers: ["One nice thing happened at lunch: a song reminded me of you."],
           hint_tr:
-            "Küçük spesifik bir an + onunla bağlantı. Yapay değil — gerçek bir detay.",
+            "Küçük spesifik bir an + onunla bağlantı. Yapay değil — gerçek bir detay. Örnek: “One nice thing happened at lunch: a song reminded me of you.”",
         },
       ],
     },
@@ -3084,8 +3110,9 @@ export const personalB1Lesson_7: BundledLesson = {
             "(i'?ve been sitting with|i'?ve been thinking about)",
             "(no rush|whenever you'?re ready|when you'?re up for it)",
           ],
+          model_answers: ["Could we talk about last night? I have been thinking about it; no rush if you are not ready."],
           hint_tr:
-            "Düşük baskı davet + kendi düşündüğünü göster.",
+            "Baskısız davet kullan. Örnek: 'Could we talk about last night? I have been thinking about it; no rush if you are not ready.'",
         },
         {
           speaker: "npc",
@@ -3100,8 +3127,9 @@ export const personalB1Lesson_7: BundledLesson = {
             "(raised my voice|interrupted|got defensive|brought up)",
             "(that'?s on me|that one'?s on me)",
           ],
+          model_answers: ["I was wrong to interrupt you and get defensive. That is on me."],
           hint_tr:
-            "Kendi payınla başla. Spesifik bir davranış. Sahiplen.",
+            "Kendi payını sahiplen. Örnek: 'I was wrong to interrupt you and get defensive. That is on me.'",
         },
         {
           speaker: "npc",
@@ -3116,8 +3144,9 @@ export const personalB1Lesson_7: BundledLesson = {
             "(where it came from|what was going on for me)",
             "(stressed about|on edge from|caught off guard)",
           ],
+          model_answers: ["I hear you. I am not making excuses, but I was on edge from work."],
           hint_tr:
-            "Duyduğunu göster + (kısa) bağlam ver — mazeret olmadan.",
+            "Duyduğunu göster, mazeret üretme. Örnek: 'I hear you. I am not making excuses, but I was on edge from work.'",
         },
         {
           speaker: "npc",
@@ -3133,8 +3162,9 @@ export const personalB1Lesson_7: BundledLesson = {
             "(when (i|we) start feeling)",
             "(take a break|pause|come back when)",
           ],
+          model_answers: ["Thank you for saying that. Can we agree to pause when it gets heated?"],
           hint_tr:
-            "Onun sahiplenmesini al + ileri dönük bir küçük anlaşma öner.",
+            "Onun sahiplenmesini al + ileri dönük bir küçük anlaşma öner. Örnek: “Thank you for saying that. Can we agree to pause when it gets heated?”",
         },
         {
           speaker: "npc",
@@ -3149,8 +3179,9 @@ export const personalB1Lesson_7: BundledLesson = {
             "(thank you for|appreciate you)",
             "(coffee|breakfast|morning)",
           ],
+          model_answers: ["Deal. I'm glad we talked — coffee?"],
           hint_tr:
-            "Anlaşmayı kapat + duygusal kapanış + günlük hayata dön.",
+            "Anlaşmayı kapat + duygusal kapanış + günlük hayata dön. Örnek: “Deal. I'm glad we talked — coffee?”",
         },
       ],
     },
@@ -3567,6 +3598,7 @@ export const personalB1Lesson_8: BundledLesson = {
             "(every night is|i need|i'?d like)",
             "(a couple of|two|some) (nights|evenings) (to myself|alone|on my own)",
           ],
+          model_answers: ["That's sweet but every night is too much for me."],
           hint_tr:
             "Onu görmek istediğini söyle + sınırı net çiz. 'That's sweet but every night is too much for me.'",
         },
@@ -3584,8 +3616,9 @@ export const personalB1Lesson_8: BundledLesson = {
             "(loving you doesn'?t mean|being with you doesn'?t mean)",
             "(losing myself|disappearing|merging)",
           ],
+          model_answers: ["This is not about us. I recharge when I have some time alone."],
           hint_tr:
-            "İlişkiyle ilgili olmadığını netle + ihtiyacının ne olduğunu açıkla.",
+            "İhtiyacını açıkla. Örnek: 'This is not about us. I recharge when I have some time alone.'",
         },
         {
           speaker: "npc",
@@ -3600,6 +3633,7 @@ export const personalB1Lesson_8: BundledLesson = {
             "(and honestly|while we'?re here|since we'?re talking)",
             "(i love you|i'?m in love with you|i wanted to say)",
           ],
+          model_answers: ["seviyorum"],
           hint_tr:
             "Plan onayı + duygusal kapanış. Bu an iyi bir moment 'seviyorum' için.",
         },
@@ -3616,6 +3650,7 @@ export const personalB1Lesson_8: BundledLesson = {
             "(i'?m not just saying|not just because)",
             "(needed to say|wanted to tell you)",
           ],
+          model_answers: ["I'm not just saying it"],
           hint_tr:
             "Tekrarla, sahiplenilmiş. 'I'm not just saying it' kalıbı = otantiklik mührü.",
         },
@@ -4035,8 +4070,9 @@ export const personalB1Lesson_9: BundledLesson = {
             "(this isn'?t easy|hard to say|hard conversation)",
             "(i care about you|i respect you)",
           ],
+          model_answers: ["I have been thinking about this for a while. This is not easy to say, but we need to talk."],
           hint_tr:
-            "Giriş: ne kadar düşündüğün + yumuşatma ama net. Belirsizlik bırakma.",
+            "Yumuşak ama net gir. Örnek: 'I have been thinking about this for a while. This is not easy to say, but we need to talk.'",
         },
         {
           speaker: "npc",
@@ -4051,6 +4087,7 @@ export const personalB1Lesson_9: BundledLesson = {
             "(we'?re not (a good fit|aligned|right for each other))",
             "(this isn'?t (working|right))",
           ],
+          model_answers: ["I think we should end things."],
           hint_tr:
             "Çekirdek cümle. Tek tek kelimelerle, sapma yok. 'I think we should end things.'",
         },
@@ -4068,8 +4105,9 @@ export const personalB1Lesson_9: BundledLesson = {
             "(i'?ve thought about all the options|i'?ve considered it)",
             "(this is the right call|i'?m sure)",
           ],
+          model_answers: ["You did not do anything wrong. We are not a good fit, and I am sure this is the right call."],
           hint_tr:
-            "Suçlama yok + kapı açık değil. Düşündüğünü göster ama kararın net.",
+            "Suçlama yapmadan kararı netleştir. Örnek: 'You did not do anything wrong. We are not a good fit, and I am sure this is the right call.'",
         },
         {
           speaker: "npc",
@@ -4085,6 +4123,7 @@ export const personalB1Lesson_9: BundledLesson = {
             "(maybe one day|down the road|in the future)",
             "(not right now|not yet)",
           ],
+          model_answers: ["Maybe friends"],
           hint_tr:
             "Net 'hayır'. 'Maybe friends' kapanı kur ma — açık tut ama bugün yok.",
         },
@@ -4101,8 +4140,9 @@ export const personalB1Lesson_9: BundledLesson = {
             "(i meant what i said|i did care|i do care)",
             "(take care of yourself|i hope you'?re okay|be well)",
           ],
+          model_answers: ["Thank you for hearing me. I did care. Take care of yourself."],
           hint_tr:
-            "Duygusal kapanış + saygılı veda. Sahteci umut verme.",
+            "Duygusal kapanış + saygılı veda. Sahteci umut verme. Örnek: “Thank you for hearing me. I did care. Take care of yourself.”",
         },
       ],
     },
@@ -4529,8 +4569,9 @@ export const personalB1Lesson_10: BundledLesson = {
             "(thursday|the cancellation|the other night)",
             "(i owe you|i wanted to do this properly)",
           ],
+          model_answers: ["Thank you for letting me come. I have been thinking about Thursday, and I owe you a proper apology."],
           hint_tr:
-            "Saygılı giriş + niye geldiğini söyle.",
+            "Saygılı ve doğrudan ol. Örnek: 'Thank you for letting me come. I have been thinking about Thursday, and I owe you a proper apology.'",
         },
         {
           speaker: "npc",
@@ -4545,6 +4586,7 @@ export const personalB1Lesson_10: BundledLesson = {
             "(i'?m not trying to|i don'?t want to) (make excuses|dress it up)",
             "(taking full|i own|this one'?s on me)",
           ],
+          model_answers: ["If you felt..."],
           hint_tr:
             "Spesifik eylem + sahiplenme. 'If you felt...' tuzağına düşme.",
         },
@@ -4561,6 +4603,7 @@ export const personalB1Lesson_10: BundledLesson = {
             "(i wasn'?t thinking about|i didn'?t stop to think)",
             "(your day|your evening|how excited you were)",
           ],
+          model_answers: ["Landed"],
           hint_tr:
             "Onun gerçekliğini doğrula. 'Landed' kalıbı. Senin niyetin değil — onun deneyimi.",
         },
@@ -4577,8 +4620,9 @@ export const personalB1Lesson_10: BundledLesson = {
             "(should have told you|wish i'?d said)",
             "(instead of (hiding|disappearing|going cold))",
           ],
+          model_answers: ["The truth is, work spiraled and I panicked. I should have told you."],
           hint_tr:
-            "Gerçek sebep + ne yapman gerektiğini bil. Mazeret değil — bağlam + sorumluluk.",
+            "Gerçek sebep + ne yapman gerektiğini bil. Mazeret değil — bağlam + sorumluluk. Örnek: “The truth is, work spiraled and I panicked. I should have told you.”",
         },
         {
           speaker: "npc",
@@ -4594,8 +4638,9 @@ export const personalB1Lesson_10: BundledLesson = {
             "(i want to make this right|not smooth it over)",
             "(redo (the night|thursday)|take you out)",
           ],
+          model_answers: ["Here's what I'll do differently: I'll text before I disappear. I want to make this right."],
           hint_tr:
-            "Gelecek davranış + somut telafi. Sözle değil planla.",
+            "Gelecek davranış + somut telafi. Sözle değil planla. Örnek: “Here's what I'll do differently: I'll text before I disappear. I want to make this right.”",
         },
         {
           speaker: "npc",
@@ -4610,8 +4655,9 @@ export const personalB1Lesson_10: BundledLesson = {
             "(no rush|take your time|whenever you'?re ready)",
             "(i love you|i'?m glad i came)",
           ],
+          model_answers: ["Deal. Thank you for hearing me. Take your time."],
           hint_tr:
-            "Anlaşma + sabır + duygusal kapanış. Onun hızını saygıla.",
+            "Anlaşma + sabır + duygusal kapanış. Onun hızını saygıla. Örnek: “Deal. Thank you for hearing me. Take your time.”",
         },
       ],
     },
@@ -5036,6 +5082,7 @@ export const personalB1Lesson_11: BundledLesson = {
             "(nothing huge|nothing crazy|small one)",
             "(i'?m trying to|i'?d like to)",
           ],
+          model_answers: ["This year I want to + base"],
           hint_tr:
             "Klişeye girme — tek somut hedef. 'This year I want to + base'.",
         },
@@ -5052,6 +5099,7 @@ export const personalB1Lesson_11: BundledLesson = {
             "(three times|twice|once) a week",
             "(in small steps|slowly|nothing crazy|baby steps)",
           ],
+          model_answers: ["My goal is to X — Y times a week."],
           hint_tr:
             "Somut hedef + somut sıklık. 'My goal is to X — Y times a week.'",
         },
@@ -5068,6 +5116,7 @@ export const personalB1Lesson_11: BundledLesson = {
             "(small (steps|wins|things)|sustainable|stick with)",
             "(rather|i'?d rather) (do one thing|build slowly)",
           ],
+          model_answers: ["I'd rather do one thing well"],
           hint_tr:
             "Felsefeni özetle. 'Small steps' / 'I'd rather do one thing well'.",
         },
@@ -5084,6 +5133,7 @@ export const personalB1Lesson_11: BundledLesson = {
             "(burnout|low energy|out of shape|disconnected)",
             "(i want to feel|i want to be) (more|better|like myself)",
           ],
+          model_answers: ["I've been feeling X — I want to feel Y."],
           hint_tr:
             "Niyetinin 'why'ı = duygusal bağ. 'I've been feeling X — I want to feel Y.'",
         },
@@ -5526,6 +5576,7 @@ export const personalB1Lesson_12: BundledLesson = {
             "(saturday|the party|your birthday)",
             "(i feel awful|i'?m sorry|i hate doing this)",
           ],
+          model_answers: ["I can't make it"],
           hint_tr:
             "Yumuşak giriş + net mesaj. 'I can't make it' direkt ama nazik.",
         },
@@ -5542,8 +5593,9 @@ export const personalB1Lesson_12: BundledLesson = {
             "(this week|lately|the last few weeks)",
             "(i need (a quiet|me-time|to actually rest))",
           ],
+          model_answers: ["Honestly, I have been close to burnout this week, and I need a quiet night to rest."],
           hint_tr:
-            "Gerçek sebep — tükenmişlik. Drama değil, dürüst durum.",
+            "Gerçek sebebi söyle. Örnek: 'Honestly, I have been close to burnout this week, and I need a quiet night to rest.'",
         },
         {
           speaker: "npc",
@@ -5558,6 +5610,7 @@ export const personalB1Lesson_12: BundledLesson = {
             "(i'?m trying to set|setting (better )?boundaries)",
             "(protect (my energy|my peace|my time))",
           ],
+          model_answers: ["It's not about you"],
           hint_tr:
             "Duygusunu doğrula + kişiselleştirmemesini söyle. 'It's not about you' kalıbı.",
         },
@@ -5574,8 +5627,9 @@ export const personalB1Lesson_12: BundledLesson = {
             "(from (social|work|everything))",
             "(thank you for asking|means a lot)",
           ],
+          model_answers: ["I'm getting there. I'm taking a step back from work. Thank you for asking."],
           hint_tr:
-            "Dürüst durumunu söyle + ona teşekkür et. Açık kalp + sınır.",
+            "Dürüst durumunu söyle + ona teşekkür et. Açık kalp + sınır. Örnek: “I'm getting there. I'm taking a step back from work. Thank you for asking.”",
         },
         {
           speaker: "npc",
@@ -5590,8 +5644,9 @@ export const personalB1Lesson_12: BundledLesson = {
             "(have the best night|enjoy saturday|celebrate enough for me)",
             "(i love you|love you)",
           ],
+          model_answers: ["Deal. Thank you for understanding. Have the best night — I love you."],
           hint_tr:
-            "Anlaşma + sıcak kapanış. Suçluluk değil — sevgi.",
+            "Anlaşma + sıcak kapanış. Suçluluk değil — sevgi. Örnek: “Deal. Thank you for understanding. Have the best night — I love you.”",
         },
       ],
     },
@@ -6021,6 +6076,7 @@ export const personalB1Lesson_13: BundledLesson = {
             "(pottery|painting|climbing|cooking|guitar|knitting|running)",
             "(a few months ago|recently|this year)",
           ],
+          model_answers: ["I've gotten into / I've picked up + hobi"],
           hint_tr:
             "'I've gotten into / I've picked up + hobi'. Ne zaman başladığını ekle.",
         },
@@ -6037,6 +6093,7 @@ export const personalB1Lesson_13: BundledLesson = {
             "(something (off|not on) (a )?screen|something with my hands)",
             "(creative outlet|to switch off|away from work)",
           ],
+          model_answers: ["Needed something with my hands / off-screen"],
           hint_tr:
             "Niye başladığını söyle. 'Needed something with my hands / off-screen' kalıpları.",
         },
@@ -6053,6 +6110,7 @@ export const personalB1Lesson_13: BundledLesson = {
             "(it'?s not about|that'?s not the point)",
             "(just (enjoying|loving|doing) (it|the process))",
           ],
+          model_answers: ["I'm not in it to be good"],
           hint_tr:
             "Mütevazı ama net. 'I'm not in it to be good' = başarı için yapmıyorum.",
         },
@@ -6069,6 +6127,7 @@ export const personalB1Lesson_13: BundledLesson = {
             "(before i (could )?talk myself out|before overthinking)",
             "(low stakes|nothing fancy|small commitment)",
           ],
+          model_answers: ["before I could talk myself out of it"],
           hint_tr:
             "Somut ilk adımını paylaş. 'Sign up for a class' / 'before I could talk myself out of it'.",
         },
@@ -6085,6 +6144,7 @@ export const personalB1Lesson_13: BundledLesson = {
             "(small studio|nothing fancy|down in)",
             "(come along|come with me|join one)",
           ],
+          model_answers: ["Come along to a class"],
           hint_tr:
             "Olumlu paylaşım + onu davet et. 'Come along to a class' kalıbı.",
         },
@@ -6524,6 +6584,7 @@ export const personalB1Lesson_14: BundledLesson = {
             "(than (i was|six months ago|last year))",
             "(there'?s actually|i'?ve actually got)",
           ],
+          model_answers: ["Honestly, I'm in a better place than I was"],
           hint_tr:
             "Yüzeyel cevap verme — dürüst başla. 'Honestly, I'm in a better place than I was'.",
         },
@@ -6540,6 +6601,7 @@ export const personalB1Lesson_14: BundledLesson = {
             "(it'?s been (really |)helpful|it'?s helping)",
             "(working through|figuring out|making sense of)",
           ],
+          model_answers: ["I started seeing a therapist + ne zaman + nasıl gidiyor"],
           hint_tr:
             "Net açıkla. 'I started seeing a therapist + ne zaman + nasıl gidiyor'.",
         },
@@ -6556,6 +6618,7 @@ export const personalB1Lesson_14: BundledLesson = {
             "(admitting (i needed|to myself)|booking the (first|actual) session)",
             "(once i did|after that|once i started)",
           ],
+          model_answers: ["Admitting I needed it"],
           hint_tr:
             "Başlamanın zorluğunu paylaş. 'Admitting I needed it' / 'Booking the first session'.",
         },
@@ -6572,6 +6635,7 @@ export const personalB1Lesson_14: BundledLesson = {
             "(big stuff|some old patterns|things i couldn'?t see)",
             "(i'?m in a good place|i'?m okay)",
           ],
+          model_answers: ["I'd rather not get into the details, but thanks for asking"],
           hint_tr:
             "Sınır + sıcaklık. 'I'd rather not get into the details, but thanks for asking'.",
         },
@@ -6588,6 +6652,7 @@ export const personalB1Lesson_14: BundledLesson = {
             "(coming from you|hearing that)",
             "(i'?m glad i (told|said|shared))",
           ],
+          model_answers: ["That means a lot, genuinely"],
           hint_tr:
             "Sıcaklığı kabul et — geri çevirme. 'That means a lot, genuinely'.",
         },

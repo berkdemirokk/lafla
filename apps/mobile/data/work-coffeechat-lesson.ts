@@ -95,6 +95,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(career path|how you (got|navigated)|the (transition|switch))",
             "(happy to|will) (work around|fit your schedule|find a time)",
           ],
+          model_answers: ["Hi Sarah — saw your post on X. Would love to grab 15 min to pick your brain."],
           hint_tr:
             "Net acilis: 'Hi Sarah — saw your post on X. Would love to grab 15 min to pick your brain.'",
         },
@@ -113,6 +114,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(prep|prepare) (some questions|specific things) (ahead)",
             "(open to|happy to) (any structure|whatever works)",
           ],
+          model_answers: ["Curious about how you moved from IC to manager — will prep questions."],
           hint_tr:
             "Spesifik konu: 'Curious about how you moved from IC to manager — will prep questions.'",
         },
@@ -131,6 +133,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(not yet|not officially|kind of)",
             "(in (a )?senior (engineer|ic)|staff level)",
           ],
+          model_answers: ["Currently an IC, been engineering for 4 years"],
           hint_tr:
             "Mevcut rol: 'Currently an IC, been engineering for 4 years' veya 'Still exploring the path'.",
         },
@@ -149,6 +152,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(could you talk about|happy to focus on) (.+)",
             "(any |all )?(your experience|examples) (helpful|valuable)",
           ],
+          model_answers: ["Your current company would be great"],
           hint_tr:
             "Esnek ol: 'Whatever you're comfortable sharing' veya 'Your current company would be great'.",
         },
@@ -166,6 +170,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(perfect|great|sounds good)(,)? (thanks|thank you)",
             "(really )?(appreciate|grateful for) (this|your time)",
           ],
+          model_answers: ["Will do — sending a few slots by EOD. Really appreciate this!"],
           hint_tr:
             "Teşekkür + onay: 'Will do — sending a few slots by EOD. Really appreciate this!'",
         },
@@ -580,6 +585,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
             "(what do you wish|if you could go back)",
             "(skill (you think is|that'?s) underrated)",
           ],
+          model_answers: ["Thanks for the time — what's a non-obvious lesson from your IC-to-manager move?"],
           hint_tr:
             "Acilis + derin soru: 'Thanks for the time — what's a non-obvious lesson from your IC-to-manager move?'",
         },
@@ -597,6 +603,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
             "(how do you (balance|practice|stay))",
             "(any (book|resource|framework))",
           ],
+          model_answers: ["That resonates — what signal told you it was time to stop coding?"],
           hint_tr:
             "Derinlestir: 'That resonates — what signal told you it was time to stop coding?'",
         },
@@ -924,6 +931,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
             "(how can i (be helpful|return the favor))",
             "(anyone (i should|you'?d (suggest|recommend)))",
           ],
+          model_answers: ["This was so helpful — door open for follow-ups? Anyone you'd suggest next?"],
           hint_tr:
             "Saglikli kapat: 'This was so helpful — door open for follow-ups? Anyone you'd suggest next?'",
         },
@@ -942,6 +950,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
             "(let me know|whichever is easier)",
             "(grateful|really helpful)",
           ],
+          model_answers: ["Would you mind doing an intro? Or happy to reach out cold."],
           hint_tr:
             "Intro talep et: 'Would you mind doing an intro? Or happy to reach out cold.'",
         },
@@ -1267,6 +1276,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
             "(no (pressure|worries|stress)|totally fine|happy to skip) (if (not|timing))",
             "(pick your brain|learn from)",
           ],
+          model_answers: ["Hi Sarah — loved your post on X. Would you be open to 20 min over Zoom? No pressure if not."],
           hint_tr:
             "Sablon: 'Hi Sarah — loved your post on X. Would you be open to 20 min over Zoom? No pressure if not.'",
         },
@@ -1285,6 +1295,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
             "(prep|prepare|send) (specific questions|a few questions) (ahead|in advance|beforehand)",
             "(open to|happy with) (any (format|structure)|whatever works)",
           ],
+          model_answers: ["Curious about your move from IC to PM. Can prep questions ahead."],
           hint_tr:
             "Spesifik konu + 'sorulari onceden gondereyim': 'Curious about your move from IC to PM. Can prep questions ahead.'",
         },
@@ -1582,6 +1593,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
             "(payments|infra|api|platform|web|growth)",
             "(looking to|hoping to|curious about) (move|shift|transition) (into|to|toward)",
           ],
+          model_answers: ["Quick about me — I'm a [rol] working on [konu], looking to move into [hedef]."],
           hint_tr:
             "Sablon: 'Quick about me — I'm a [rol] working on [konu], looking to move into [hedef].'",
         },
@@ -1599,6 +1611,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
             "(prep|prepared) (a few questions|some specific things)",
             "(open to|happy with) (any (direction|structure))",
           ],
+          model_answers: ["Your path from backend to DX is exactly the move I'm considering — prepped a few questions."],
           hint_tr:
             "'Why this chat': 'Your path from backend to DX is exactly the move I'm considering — prepped a few questions.'",
         },
@@ -1884,6 +1897,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
             "(how did you (navigate|approach|handle|make)) (that|the call|the decision)",
             "(early on|at the (start|beginning)|in the (first|early) days)",
           ],
+          model_answers: ["How did you make the jump from backend to DX — what was the hardest call early on?"],
           hint_tr:
             "Spesifik soru: 'How did you make the jump from backend to DX — what was the hardest call early on?'",
         },
@@ -1902,6 +1916,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
             "(any (signal|sign|framework|lens))",
             "(how did you (decide|weigh) (when|that it was time))",
           ],
+          model_answers: ["That resonates — I'm facing a similar call. What would you do in my shoes?"],
           hint_tr:
             "Konuyu kendine bag: 'That resonates — I'm facing a similar call. What would you do in my shoes?'",
         },
@@ -1918,6 +1933,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
             "(let me sit with that|gonna chew on that|will think on that)",
             "(thanks for|appreciate) (the lens|the frame|that perspective)",
           ],
+          model_answers: ["That's such a helpful lens — gonna chew on that."],
           hint_tr:
             "Cevabi sahiplen: 'That's such a helpful lens — gonna chew on that.'",
         },
@@ -2203,6 +2219,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
             "(in my shoes|the lens|the framing|saying no|scope creep|that signal)",
             "(stuck with me|landed|will sit with that|chew on that|gonna think on)",
           ],
+          model_answers: ["Genuinely helpful — especially the in-my-shoes framing. That'll stick with me."],
           hint_tr:
             "Spesifik takdir: 'Genuinely helpful — especially the in-my-shoes framing. That'll stick with me.'",
         },
@@ -2219,6 +2236,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
             "(more questions come up|something comes up|i hit a wall|i'm at a fork)",
             "(also|and) (how can i|happy to|let me know if i can) (be helpful|return the favor)",
           ],
+          model_answers: ["Mind if I follow up if more comes up? And let me know if I can return the favor."],
           hint_tr:
             "Kapi + reciprocity: 'Mind if I follow up if more comes up? And let me know if I can return the favor.'",
         },
@@ -2234,6 +2252,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
             "(thanks again|once more|really)",
             "(have a (good|great)|take care|talk soon|catch you later)",
           ],
+          model_answers: ["Will do — thanks again. Take care."],
           hint_tr:
             "Cikis: 'Will do — thanks again. Take care.'",
         },

@@ -96,6 +96,7 @@ export const flirtDateLesson_4_1: BundledLesson = {
             "(should we|let'?s) (actually )?do this in person",
             "(free|down) for (a |) coffee (sometime|this week)",
           ],
+          model_answers: ["Want to grab coffee sometime this week?"],
           hint_tr:
             "Coffee teklif et: 'Want to grab coffee sometime this week?'",
         },
@@ -114,6 +115,7 @@ export const flirtDateLesson_4_1: BundledLesson = {
             "around (\\d+pm|\\d+ pm|seven|eight|nine)",
             "(any day|all week|weekend) (works|good)",
           ],
+          model_answers: ["Thursday around 7?"],
           hint_tr:
             "Gün öner: 'Thursday around 7?' veya 'Any day after work works'.",
         },
@@ -131,6 +133,7 @@ export const flirtDateLesson_4_1: BundledLesson = {
             "(open to|down for) (anything|wherever)",
             "(do you have|got any) suggestions",
           ],
+          model_answers: ["I know a great spot near downtown — text it to you?"],
           hint_tr:
             "Yer öner veya bırak: 'I know a great spot near downtown — text it to you?' veya 'You pick, I'm open.'",
         },
@@ -149,6 +152,7 @@ export const flirtDateLesson_4_1: BundledLesson = {
             "(somewhere in between|five minutes either way)",
             "(don'?t worry|i'?ll be there)",
           ],
+          model_answers: ["Honestly, I'm a clock person — five minutes early"],
           hint_tr:
             "Dakiklik: 'Honestly, I'm a clock person — five minutes early' veya 'Fair warning, sometimes a few minutes late'.",
         },
@@ -167,6 +171,7 @@ export const flirtDateLesson_4_1: BundledLesson = {
             "(i'?m bringing|i'?ll bring) (a |my )?(.+)",
             "(just )?bring (.+)",
           ],
+          model_answers: ["Fair warning, I ask too many questions"],
           hint_tr:
             "Hafif tanıtım: 'Fair warning, I ask too many questions' veya 'Nothing crazy, just bring your appetite'.",
         },
@@ -184,6 +189,7 @@ export const flirtDateLesson_4_1: BundledLesson = {
             "(perfect|sounds good|great)",
             "(thursday|7 pm) it is",
           ],
+          model_answers: ["Can't wait — see you Thursday!"],
           hint_tr:
             "Onayla: 'Can't wait — see you Thursday!' veya 'Sounds good, Thursday it is'.",
         },
@@ -508,6 +514,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
             "(round 2|next time|second round)",
             "(i'?d love to|i want to) take you to (dinner|that place)",
           ],
+          model_answers: ["Want to grab dinner Friday? Round 2 sounds nice."],
           hint_tr:
             "İkinci randevu: 'Want to grab dinner Friday? Round 2 sounds nice.'",
         },
@@ -526,6 +533,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
             "(you )?pick (what|the place|the cuisine)",
             "(i'?ll make|let me make) (a )?reservation",
           ],
+          model_answers: ["Yes — I know this little Italian place near downtown."],
           hint_tr:
             "Yer söyle: 'Yes — I know this little Italian place near downtown.'",
         },
@@ -545,6 +553,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
             "(i love|i'?m into) (their|the) (pasta|risotto|veggie) (options)?",
             "(let me know|tell me) (if you have|about) (anything|allergies)",
           ],
+          model_answers: ["I'm pescatarian too, no worries"],
           hint_tr:
             "Diyetine cevap: 'Noted — they have great veggie pasta' veya 'I'm pescatarian too, no worries'. Türk: 'vejetaryen' = vegetarian (kolay), ama 'esnek vejetaryen' = flexitarian (yeni kelime).",
         },
@@ -564,6 +573,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
             "(i'?m |i am )?(easy|good either way)( whatever you prefer)?",
             "(could )?(meet|come) (get|to) you (at|around)",
           ],
+          model_answers: ["Drinks first sounds great — that wine bar by the river?"],
           hint_tr:
             "Plan netleştir: 'Drinks first sounds great — that wine bar by the river?' veya 'Let's meet at the place, easier'. Türk: 'önce bir şey içelim' = 'drinks first' (kısa, modern).",
         },
@@ -583,6 +593,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
             "(probably )?(that i'?m|i'?m) .{0,50}",
             "(nothing scary|nothing serious)(,)? (just )?(that )?.{0,40}",
           ],
+          model_answers: ["Fair warning — I talk with my hands when food is good"],
           hint_tr:
             "Sevimli detay paylaş: 'Fair warning — I talk with my hands when food is good' veya 'Spoiler: I will absolutely order dessert'. Self-aware mizah çekici, defansif değil.",
         },
@@ -971,6 +982,7 @@ export const flirtDateLesson_4_3: BundledLesson = {
             "(forecast|weather) (looks|is) (great|nice|perfect) for",
             "(walk|hike|picnic|bike) (in|at|to) (the )?(park|trail|river)",
           ],
+          model_answers: ["Down for something different? There's a farmers market downtown Saturday."],
           hint_tr:
             "Activity öner: 'Down for something different? There's a farmers market downtown Saturday.'",
         },
@@ -989,6 +1001,7 @@ export const flirtDateLesson_4_3: BundledLesson = {
             "(should we|let'?s) (grab|get) (coffee|food) (first|after)",
             "(make a |we'?ll make a )morning of it",
           ],
+          model_answers: ["Saturday morning around 11? We can grab coffee after."],
           hint_tr:
             "Detay ver: 'Saturday morning around 11? We can grab coffee after.'",
         },
@@ -1380,6 +1393,7 @@ export const flirtDateLesson_4_4: BundledLesson = {
             "(skip|less of) the (texting|typing) (marathon|saga)",
             "(let'?s |maybe we should )just meet",
           ],
+          model_answers: ["We've been chatting a while — should we just meet?"],
           hint_tr:
             "Çevrimdışı geçişi: 'We've been chatting a while — should we just meet?'",
         },
@@ -1398,6 +1412,7 @@ export const flirtDateLesson_4_4: BundledLesson = {
             "(saturday|friday) (afternoon|evening|night|morning)",
             "(any |all )(day|night) (works|good|fine)",
           ],
+          model_answers: ["Pick a day this week — I'm pretty open."],
           hint_tr:
             "Esnek gün: 'Pick a day this week — I'm pretty open.'",
         },
@@ -1788,6 +1803,7 @@ export const flirtDateLesson_4_5: BundledLesson = {
             "what'?s (something|the last thing) (you'?ve been|that)",
             "(by the way|btw),? (i'?ve been|i'?m) (meaning to ask|curious)",
           ],
+          model_answers: ["Random question — what's the last thing that genuinely made you laugh?"],
           hint_tr:
             "Sessizliği kır: 'Random question — what's the last thing that genuinely made you laugh?' veya 'Plot twist, switching gears...'",
         },
@@ -1806,6 +1822,7 @@ export const flirtDateLesson_4_5: BundledLesson = {
             "(a )?(meme|video|tiktok|reel|reddit post)",
             "(i can'?t even|i can'?t remember) the last",
           ],
+          model_answers: ["Honestly mine was a meme my friend sent."],
           hint_tr:
             "Cevap ver + paylaş: 'Honestly mine was a meme my friend sent.' Spesifik = sohbet uzar.",
         },
@@ -1823,6 +1840,7 @@ export const flirtDateLesson_4_5: BundledLesson = {
             "(okay|alright) (next one|here'?s one)",
             "(unlimited supply|never running out)",
           ],
+          model_answers: ["Got a list actually — okay, next one..."],
           hint_tr:
             "Devamını gör: 'Got a list actually — okay, next one...' Momentum'u koru.",
         },
@@ -2163,6 +2181,7 @@ export const flirtDateLesson_4_6: BundledLesson = {
             "(honestly|genuinely),? (splitting|both) (works|is fine)",
             "(no )?pressure either way",
           ],
+          model_answers: ["Happy to split — whichever you prefer."],
           hint_tr:
             "Teklif: 'Let me get this one' VEYA 'Happy to split — whichever you prefer.'",
         },
@@ -2182,6 +2201,7 @@ export const flirtDateLesson_4_6: BundledLesson = {
             "(next time|round 2) (is on|i got) me",
             "(you )?(can|get to) (pick|choose) the next spot",
           ],
+          model_answers: ["Works for me — next round's on me though."],
           hint_tr:
             "Kabul et + ileriye bağ: 'Works for me — next round's on me though.' = saygı + 2. randevu sinyali.",
         },
@@ -2199,6 +2219,7 @@ export const flirtDateLesson_4_6: BundledLesson = {
             "(genuinely|honestly) (had a great time|enjoyed this)",
             "(saved by|thanks to) (honesty|being chill)",
           ],
+          model_answers: ["Likewise — being upfront makes everything easier."],
           hint_tr:
             "Olgun kapanış: 'Likewise — being upfront makes everything easier.'",
         },
@@ -2544,6 +2565,7 @@ export const flirtDateLesson_4_7: BundledLesson = {
             "(had a great|really enjoyed|loved) (time |tonight|the night)",
             "(sleep well|get some sleep)",
           ],
+          model_answers: ["Hey, just making sure you got home safe — tonight was honestly great. No rush on replying."],
           hint_tr:
             "Caring follow-up: 'Hey, just making sure you got home safe — tonight was honestly great. No rush on replying.'",
         },
@@ -2562,6 +2584,7 @@ export const flirtDateLesson_4_7: BundledLesson = {
             "(we'?ll )?(talk|chat|catch up) (tomorrow|in the morning|soon)",
             "(thanks for|appreciate) (a great|tonight)",
           ],
+          model_answers: ["Likewise — genuinely the best in ages. Sleep well, we'll talk tomorrow."],
           hint_tr:
             "Sıcak ama kısa: 'Likewise — genuinely the best in ages. Sleep well, we'll talk tomorrow.'",
         },
@@ -2579,6 +2602,7 @@ export const flirtDateLesson_4_7: BundledLesson = {
             "(consider it|consider this) (locked in|booked|on the calendar)",
             "(now go to sleep|sleep first)",
           ],
+          model_answers: ["Noted — round two is happening. I'll text tomorrow. Now go to sleep."],
           hint_tr:
             "Kapanış: 'Noted — round two is happening. I'll text tomorrow. Now go to sleep.' Hafif komuta + sıcaklık.",
         },
@@ -2924,6 +2948,7 @@ export const flirtDateLesson_4_8: BundledLesson = {
             "(already )?(looking forward|excited) for(?: |) (round two|next time)",
             "(don'?t |let'?s not )(lose|kill) (the )?momentum",
           ],
+          model_answers: ["Already thinking about round two — there's this Thai place I've been meaning to try. Free next week?"],
           hint_tr:
             "Momentum teklif: 'Already thinking about round two — there's this Thai place I've been meaning to try. Free next week?'",
         },
@@ -2943,6 +2968,7 @@ export const flirtDateLesson_4_8: BundledLesson = {
             "(does \\d+pm|around \\d+) (work|sound good)",
             "(i'?ll book|let me grab) (a )?(reservation|table)",
           ],
+          model_answers: ["The one on Bond Street — I'll book a table for Friday at 7?"],
           hint_tr:
             "Spesifik öner: 'The one on Bond Street — I'll book a table for Friday at 7?' Detay + plan.",
         },
@@ -2961,6 +2987,7 @@ export const flirtDateLesson_4_8: BundledLesson = {
             "(i'?ll see you|see you) (friday|then)",
             "(consider it|consider this) (booked|locked in)",
           ],
+          model_answers: ["Only when it's worth it. See you Friday."],
           hint_tr:
             "Sıcak kapanış: 'Only when it's worth it. See you Friday.' Hafif flört + kararlı bitiş.",
         },

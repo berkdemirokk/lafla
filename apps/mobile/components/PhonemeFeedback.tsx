@@ -38,7 +38,10 @@ export function PhonemeFeedback({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🎙️ Fonem analizi</Text>
+      <Text style={styles.title}>🎙️ Tahmini ses analizi</Text>
+      <Text style={styles.disclaimer}>
+        iOS'un duyduğu kelimelerden tahmin edilir; akustik fonem ölçümü değildir.
+      </Text>
 
       {/* Per-word IPA breakdown */}
       <View style={styles.wordsList}>
@@ -109,6 +112,11 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.bold,
     color: tokens.text.tertiary,
     letterSpacing: 1.2,
+  },
+  disclaimer: {
+    color: tokens.text.secondary,
+    fontSize: 11,
+    lineHeight: 16,
   },
 
   wordsList: {

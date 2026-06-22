@@ -224,6 +224,7 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
             "(collapsed|fell|fainted|passed out|unconscious|having (a (heart attack|seizure))|bleeding)",
             "(breathing|not breathing|breathing but)",
           ],
+          model_answers: ["911, emergency at 245 Park Ave — friend collapsed, breathing but unconscious."],
           hint_tr:
             "Hizli: '911, emergency at 245 Park Ave — friend collapsed, breathing but unconscious.'",
         },
@@ -242,6 +243,7 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
             "(should i|what (do i|should we) do)",
             "(stay (on the line|with him)|with him until they arrive)",
           ],
+          model_answers: ["Breathing but not responding. Should I move him?"],
           hint_tr:
             "Detay + soru: 'Breathing but not responding. Should I move him?'",
         },
@@ -689,6 +691,7 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
             "(at the|on the|near the) (\\w+)",
             "(about (an hour|two hours) ago)",
           ],
+          model_answers: ["Hi, I'd like to file a theft report. Phone stolen on subway, hour ago."],
           hint_tr:
             "Net: 'Hi, I'd like to file a theft report. Phone stolen on subway, hour ago.'",
         },
@@ -707,6 +710,7 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
             "(thanks|sorry not much (description|to go on))",
             "(case (number|reference)) (for insurance|to share)",
           ],
+          model_answers: ["Didn't catch them — too crowded. Need case number for insurance."],
           hint_tr:
             "Detay + ihtiyac: 'Didn't catch them — too crowded. Need case number for insurance.'",
         },
@@ -1156,6 +1160,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
             "(starbucks|cvs|store|pharmacy|station|hotel|bank)",
             "(person|man|woman|someone) (fell|collapsed|bleeding|hit|unconscious)",
           ],
+          model_answers: ["911, corner of 5th and Main, in front of CVS — man fell, head bleeding."],
           hint_tr:
             "Sıra: '911 + KÖSE + LANDMARK + DURUM.' Örn: '911, corner of 5th and Main, in front of CVS — man fell, head bleeding.'",
         },
@@ -1173,6 +1178,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
             "(can'?t tell|not sure|don'?t know which)",
             "(landmark|sign|store sign) (says|reads)",
           ],
+          model_answers: ["Near the bus stop, the sign says 14th Street."],
           hint_tr:
             "Kose net degilse landmark ver: 'Near the bus stop, the sign says 14th Street.'",
         },
@@ -1583,6 +1589,7 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
             "(started|began) (about|around)? (\\w+ (minutes|hour|hours) ago|suddenly)",
             "(getting worse|same|comes and goes)",
           ],
+          model_answers: ["Sharp chest pain, started about an hour ago."],
           hint_tr:
             "Sıra: 'I'm here for' + SEMPTOM + LOKASYON + NE ZAMAN. Örn: 'Sharp chest pain, started about an hour ago.'",
         },
@@ -1600,6 +1607,7 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
             "(allergic to|allergy to) (\\w+)",
             "(taking|on) (\\w+) (for (\\w+))?",
           ],
+          model_answers: ["About a seven. No allergies, no medications."],
           hint_tr:
             "Sayi + alerji + ilac. 'About a seven. No allergies, no medications.' Net + kisa.",
         },
@@ -2012,6 +2020,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
             "(visiting|in|on a (trip|visit) to|tourist in) (london|the (uk|us|usa)|\\w+)",
             "(need (an? )?(replacement|emergency (travel )?document)|how do i (get|apply for))",
           ],
+          model_answers: ["Hi, I lost my passport. I'm a Turkish citizen visiting London. How do I get an emergency travel document?"],
           hint_tr:
             "Sira: 'Hi, I lost my passport. I'm a Turkish citizen visiting London. How do I get an emergency travel document?'",
         },
@@ -2030,6 +2039,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
             "(what (do i|else|other) need|when can i come in)",
             "(how long does (it|the process) take)",
           ],
+          model_answers: ["Yes, filed this morning — case number CR-2026. Have my Turkish ID. When can I come in?"],
           hint_tr:
             "Detay + soru: 'Yes, filed this morning — case number CR-2026. Have my Turkish ID. When can I come in?'",
         },
@@ -2440,6 +2450,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
             "(at the|on the|near the|in the) (\\w+ )?(station|metro|subway|cafe|street|park)",
             "(\\w+ (minutes|hour|hours) ago|this (morning|afternoon|evening))",
           ],
+          model_answers: ["Hi, my bag was stolen at the subway twenty minutes ago. Could I file a report?"],
           hint_tr:
             "Açilis: 'Hi, my bag was stolen at the subway twenty minutes ago. Could I file a report?'",
         },
@@ -2457,6 +2468,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
             "(a few people around|some people|one (man|woman) (saw|might have))",
             "(could (you|i) get a|case number for insurance)",
           ],
+          model_answers: ["Wallet, passport, phone, about 50 pounds cash. Too crowded — no clear witnesses."],
           hint_tr:
             "Icerik + sahit: 'Wallet, passport, phone, about 50 pounds cash. Too crowded — no clear witnesses.'",
         },

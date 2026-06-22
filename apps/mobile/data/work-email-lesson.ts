@@ -94,6 +94,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(quick (ask|question|update)|short note)",
             "(would (love|appreciate)|could (you|i) get)",
           ],
+          model_answers: ["Hi Manager, wanted to share quick update + ask."],
           hint_tr:
             "Acilis: Subject + 'Hi Manager, wanted to share quick update + ask.'",
         },
@@ -112,6 +113,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(impact|to (hit|meet) (deadline|deliverable))",
             "(let me|can i) (send you|drop) (the proposal|details|the doc)",
           ],
+          model_answers: ["Working on Q4 launch — need extra eng for 2 weeks to hit deadline."],
           hint_tr:
             "Cumlede neyi neden istediginimi: 'Working on Q4 launch — need extra eng for 2 weeks to hit deadline.'",
         },
@@ -130,6 +132,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(launch would|we'?d have to) (slip|push back)",
             "(realistically )?(.+) (would slip|gets delayed)",
           ],
+          model_answers: ["We'd need to cut scope on the dashboard"],
           hint_tr:
             "Etki: 'We'd likely slip launch by two weeks' veya 'We'd need to cut scope on the dashboard'.",
         },
@@ -148,6 +151,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(if (we|i) can|i can) (rebalance|reshuffle)",
             "(everyone is)?( pretty )?(loaded|busy)",
           ],
+          model_answers: ["Team is already stretched thin"],
           hint_tr:
             "Bandwidth: 'Team is already stretched thin' veya 'No slack left this sprint'.",
         },
@@ -165,6 +169,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(sending|drafting) (it )?now",
             "(thanks|thank you) for (your time|the time|considering it)",
           ],
+          model_answers: ["Will do — sending it before EOD. Thanks!"],
           hint_tr:
             "Kapanış: 'Will do — sending it before EOD. Thanks!'",
         },
@@ -623,6 +628,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(in case (this|it) got (buried|lost|missed))",
             "(any update|where (we|things) stand|where you (landed|are))",
           ],
+          model_answers: ["Hi Sarah — checking in on my last note. Any update?"],
           hint_tr:
             "Klasik: 'Hi Sarah — checking in on my last note. Any update?'",
         },
@@ -640,6 +646,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(end of (week|day|monday)) (would (be )?great|works)",
             "(let me know|tag me) (if you need (anything|context))",
           ],
+          model_answers: ["No worries — happens to us all. End of week would be great if possible."],
           hint_tr:
             "Mac yap: 'No worries — happens to us all. End of week would be great if possible.'",
         },
@@ -659,6 +666,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(here you go|attached|linked) (above|below|here)",
             "(give me a sec)(,)? (sending now|just sharing)",
           ],
+          model_answers: ["Of course — linking the latest spec here"],
           hint_tr:
             "Link/dosya gönder: 'Of course — linking the latest spec here' veya 'Just re-sent, latest version'. Türk: 'tekrar gönderdim' = 'just re-sent'. 'Spec' = teknik şartname (kısaca).",
         },
@@ -678,6 +686,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(if it'?s not too much)(,)? .{0,40}",
             "(end of (week|day)) would (be )?(ideal|perfect|huge)",
           ],
+          model_answers: ["This is blocking the launch — end of week would be huge"],
           hint_tr:
             "Aciliyet sinyali: 'This is blocking the launch — end of week would be huge' veya 'No rush, whenever you can'. Türk: 'acil' direkt 'urgent' ama email'de overused; 'blocking me' daha net.",
         },
@@ -697,6 +706,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(also|one more thing)(,)? .{0,40}",
             "(no )?(other than that|otherwise)(,)? (we'?re good|all good)",
           ],
+          model_answers: ["While you're there, the Q3 numbers could use a look"],
           hint_tr:
             "Ek istek veya kapat: 'While you're there, the Q3 numbers could use a look' veya 'No, that's it — thanks!'. Türk: 'değdin değdiğine' = 'while you're there'; modern iş İngilizcesi.",
         },
@@ -1029,6 +1039,7 @@ export const workEmailLesson_11_3: BundledLesson = {
             "(here'?s (what happened|the context|the plan))",
             "(recovery plan|fix|eta) (below|attached|next)",
           ],
+          model_answers: ["Apologies for the slip — owning it. Recovery plan + ETA below."],
           hint_tr:
             "Ozur ile: 'Apologies for the slip — owning it. Recovery plan + ETA below.'",
         },
@@ -1047,6 +1058,7 @@ export const workEmailLesson_11_3: BundledLesson = {
             "(will (send|share|update)) (daily|every morning|mondays)",
             "(let me know if|happy to (jump on a call|sync))",
           ],
+          model_answers: ["Thursday EOD. Adding buffer + daily updates to prevent recurrence."],
           hint_tr:
             "Spesifik plan: 'Thursday EOD. Adding buffer + daily updates to prevent recurrence.'",
         },
@@ -1064,6 +1076,7 @@ export const workEmailLesson_11_3: BundledLesson = {
             "(if (something|anything) shifts|if i (need to|miss one))(,)? (i'?ll )?(flag (it )?early|let you know)",
             "(slack (.+)|drop (it )?in (slack|the channel))",
           ],
+          model_answers: ["First one tomorrow by 9am — daily after that. If something shifts I'll flag early."],
           hint_tr:
             "Realistic ETA + opt-out: 'First one tomorrow by 9am — daily after that. If something shifts I'll flag early.' Türk öğrenci 'as soon as possible' der; somut zaman ver + esneklik ekle.",
         },
@@ -1392,6 +1405,7 @@ export const workEmailLesson_11_4: BundledLesson = {
             "(thanks|cheers|best|all the best)",
             "(berk|name)",
           ],
+          model_answers: ["Let me know if questions — happy to chat. Cheers, Berk"],
           hint_tr:
             "Tipik kapanis: 'Let me know if questions — happy to chat. Cheers, Berk'",
         },
@@ -1408,6 +1422,7 @@ export const workEmailLesson_11_4: BundledLesson = {
             "(here(?! is)|standby|stand by) (if (you need|anything))",
             "(have a (great|good) (week|day|evening))",
           ],
+          model_answers: ["Perfect — appreciate the quick turnaround. Have a great week!"],
           hint_tr:
             "Sonra: 'Perfect — appreciate the quick turnaround. Have a great week!'",
         },
@@ -1425,6 +1440,7 @@ export const workEmailLesson_11_4: BundledLesson = {
             "(ping me|tag me) (if (anything|something) changes (on your end)?)",
             "(thanks for|appreciate) (the flexibility|being flexible|the patience)",
           ],
+          model_answers: ["Anytime — I'll keep you posted. Let's sync Monday to confirm scope. Ping me if anything shifts on your end."],
           hint_tr:
             "Next-step + check-in: 'Anytime — I'll keep you posted. Let's sync Monday to confirm scope. Ping me if anything shifts on your end.' Modern email = ileri bakan kapanış.",
         },
@@ -1755,6 +1771,7 @@ export const workEmailLesson_11_5: BundledLesson = {
             "(similar to|comparable to|reminded me of) (what you|your)",
             "(would love|happy|open) to (hear|share|trade notes)",
           ],
+          model_answers: ["Thanks for the quick reply! Short version: I'm building checkout infra — reminded me of your post. Would love to trade notes."],
           hint_tr:
             "Slack'te: 'Thanks for the quick reply! Short version: I'm building checkout infra — reminded me of your post. Would love to trade notes.'",
         },
@@ -1771,6 +1788,7 @@ export const workEmailLesson_11_5: BundledLesson = {
             "(my (calendly|calendar)|here'?s my (calendly|link))",
             "(thanks again|appreciate (it|the time)|looking forward)",
           ],
+          model_answers: ["Tuesday works! Sending a Calendly link — pick any 20-min slot. Appreciate the time!"],
           hint_tr:
             "Onayla + somut: 'Tuesday works! Sending a Calendly link — pick any 20-min slot. Appreciate the time!'",
         },
@@ -1788,6 +1806,7 @@ export const workEmailLesson_11_5: BundledLesson = {
             "(if (the slot|none) (doesn'?t work|works)|if nothing fits)(,)? (.+) (lmk|let me know)",
             "(grateful|thanks) (for (.+)|again)",
           ],
+          model_answers: ["Sending it in 5 min — if no slot works, just let me know your preferred window. Thanks again!"],
           hint_tr:
             "Realistic ETA + opt-out: 'Sending it in 5 min — if no slot works, just let me know your preferred window. Thanks again!' Soğuk email follow-up'ta net ETA = profesyonel.",
         },
@@ -2074,6 +2093,7 @@ export const workEmailLesson_11_6: BundledLesson = {
             "(no (pressure|rush|worries|stress)|totally (get|understand) if)",
             "(timing'?s (off|bad)|not a (priority|fit)|not the right (time|moment))",
           ],
+          model_answers: ["Hey Alex — quick nudge on my last email. No pressure if timing's off, just wanted to surface it once more."],
           hint_tr:
             "'Hey Alex — quick nudge on my last email. No pressure if timing's off, just wanted to surface it once more.'",
         },
@@ -2091,6 +2111,7 @@ export const workEmailLesson_11_6: BundledLesson = {
             "(when (you have|things calm)|whenever (works|you can))",
             "(ping me|tag me|let me know) (if (questions|anything))",
           ],
+          model_answers: ["Totally get it — launch mode is brutal. Resending now. Ping me whenever, no rush."],
           hint_tr:
             "'Totally get it — launch mode is brutal. Resending now. Ping me whenever, no rush.'",
         },
@@ -2111,6 +2132,7 @@ export const workEmailLesson_11_6: BundledLesson = {
             "(slide \\d+|page \\d+|the (pricing|timeline|scope))",
             "(any (thoughts|feedback)|let me know what)",
           ],
+          model_answers: ["Thanks — no rush. Specifically curious on the pricing slide. Any thoughts welcome."],
           hint_tr:
             "Cevap: 'Thanks — no rush. Specifically curious on the pricing slide. Any thoughts welcome.'",
         },
@@ -2402,6 +2424,7 @@ export const workEmailLesson_11_7: BundledLesson = {
             "(ping|loop in|reach out to|try) (sarah|mehmet|the team)",
             "(she|he|they) (can (help|cover|jump in)|owns (it|that area))",
           ],
+          model_answers: ["Hey! I'm OOO through Friday — for deploys, ping Sarah, she owns that area. Back Monday!"],
           hint_tr:
             "Slack ozeti: 'Hey! I'm OOO through Friday — for deploys, ping Sarah, she owns that area. Back Monday!'",
         },
@@ -2417,6 +2440,7 @@ export const workEmailLesson_11_7: BundledLesson = {
             "(catch up|circle back|sync) (when (i'?m )?back|on monday|next week)",
             "(have a (great|good) (week|one)|tag me) (if (anything|something) (blows up|urgent))",
           ],
+          model_answers: ["Thanks! Will circle back Monday — tag me if something blows up."],
           hint_tr:
             "'Thanks! Will circle back Monday — tag me if something blows up.'",
         },
@@ -2434,6 +2458,7 @@ export const workEmailLesson_11_7: BundledLesson = {
             "(otherwise|barring (emergencies|fires)) monday (morning|first thing)",
             "(no commitment|can'?t guarantee) (turnaround|reply) (before|until) monday",
           ],
+          model_answers: ["If truly urgent, ping Sarah — she's covering. Otherwise Monday first thing. I won't promise weekend turnaround."],
           hint_tr:
             "Realistic ETA + opt-out: 'If truly urgent, ping Sarah — she's covering. Otherwise Monday first thing. I won't promise weekend turnaround.' OOO'da net sınır = saygılı.",
         },
@@ -2727,6 +2752,7 @@ export const workEmailLesson_11_8: BundledLesson = {
             "(try|loop in|ping|tag) (sarah|mehmet|name)",
             "(she|he|they) (owns|covers|leads) (that|checkout|this area)",
           ],
+          model_answers: ["Thanks for the loop in! Going to have to pass — checkout isn't really my scope. Loop in Sarah, she owns that area."],
           hint_tr:
             "'Thanks for the loop in! Going to have to pass — checkout isn't really my scope. Loop in Sarah, she owns that area.'",
         },
@@ -2744,6 +2770,7 @@ export const workEmailLesson_11_8: BundledLesson = {
             "(async|written) (update|recap|notes) (works|in between|otherwise)",
             "(tag me|ping me) (if (specific|anything) (comes up|blockers))",
           ],
+          model_answers: ["Monthly could work — weekly is a lot for my bandwidth. Async update in between? Tag me if specific blockers."],
           hint_tr:
             "Esnek karsi teklif: 'Monthly could work — weekly is a lot for my bandwidth. Async update in between? Tag me if specific blockers.'",
         },
@@ -2761,6 +2788,7 @@ export const workEmailLesson_11_8: BundledLesson = {
             "(once (the )?first monthly (lands|happens))(,)? (.+) (check in|revisit)",
             "(ping me|tag me) (when|the moment) (you (have|need)|design (.+))",
           ],
+          model_answers: ["Happy to — let's sync next Monday, I'll drop a calendar hold. After the first monthly, we'll revisit cadence."],
           hint_tr:
             "Next-step + check-in: 'Happy to — let's sync next Monday, I'll drop a calendar hold. After the first monthly, we'll revisit cadence.' Reddi yumuşat + ileri bakan plan.",
         },
