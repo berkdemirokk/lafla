@@ -6,6 +6,35 @@
 -- Supabase versions and can make authenticated/service-role calls fail before
 -- the policy layer is reached.
 
+-- Older production history recorded 00003 before the audit table was added to
+-- that migration. Repair that historical drift here instead of rewriting an
+-- already-recorded migration.
+create table if not exists public.account_deletion_log (
+  id bigserial primary key,
+  user_id_hash text not null,
+  actor text not null default 'self',
+  reason text,
+  deleted_at timestamptz default now() not null
+);
+
+alter table public.account_deletion_log enable row level security;
+
+create or replace function public.log_account_deletion(
+  p_user_id uuid,
+  p_actor text default 'self',
+  p_reason text default null
+)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into public.account_deletion_log (user_id_hash, actor, reason)
+  values (encode(digest(p_user_id::text, 'sha256'), 'hex'), p_actor, p_reason);
+end;
+$$;
+
 grant usage on schema public to authenticated, service_role;
 
 -- Public clients never access application tables anonymously.
