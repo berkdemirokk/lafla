@@ -35,6 +35,29 @@ Respond in short, conversational English (strictly 1 to 2 sentences maximum) sui
 Do not write Turkish translations. Respond in English only.`;
 }
 
+function buildAllowedSystemPrompt(promptId: string, opener: string): string {
+  if (promptId === "tool.emergency") {
+    return `${SAFETY_PREAMBLE}
+
+You are an expert English coach for adult Turkish speakers. Convert the user's
+real-life Turkish intent into exactly three natural English messages: formal,
+neutral, and friendly. Preserve meaning; do not add facts, names, dates, or
+promises. Return JSON only, with this exact shape:
+{"formal":"...","neutral":"...","friendly":"..."}`;
+  }
+  if (promptId === "tool.custom-scenario") {
+    return `${SAFETY_PREAMBLE}
+
+Create a realistic, adult, two-turn English roleplay practice from the user's
+Turkish situation, pasted message, or meeting topic. Keep every English line
+short and natural. Return JSON only with this exact shape:
+{"titleTr":"...","descriptionTr":"...","npcRole":"...","settingTr":"...","turns":[{"speaker":"npc","message":"..."},{"speaker":"user","modelAnswers":["..."],"hintTr":"..."},{"speaker":"npc","message":"..."},{"speaker":"user","modelAnswers":["..."],"hintTr":"..."},{"speaker":"npc","message":"..."}]}
+Do not include markdown. The final NPC line must be a closing acknowledgement,
+not a question.`;
+  }
+  return buildCoachSystemPrompt(opener);
+}
+
 function getProviders(): Provider[] {
   return [
     {
@@ -336,7 +359,7 @@ export async function handleLlmChat(req: Request): Promise<Response> {
 
     // 4. Construct System Prompt from Allowlist
     const opener = FREE_CHAT_OPENERS[validatedPromptId];
-    const systemPrompt = buildCoachSystemPrompt(opener);
+    const systemPrompt = buildAllowedSystemPrompt(validatedPromptId, opener);
     const providers = getProviders();
     const providerMessages = validatedMessages.filter(
       (message) => message.role === "user",
@@ -355,7 +378,11 @@ export async function handleLlmChat(req: Request): Promise<Response> {
 
       if (responseText) {
         // 5. Enforce Model Output Safety check
-        const outputSafety = checkMayaOutput(responseText);
+        const outputSafety = checkMayaOutput(
+          validatedPromptId === "tool.custom-scenario"
+            ? `roleplay practice ${responseText}`
+            : responseText,
+        );
         if (!outputSafety.ok) {
           // Release reserved quota on safety breach
           const { error: releaseError } = await supabaseAdmin.rpc(

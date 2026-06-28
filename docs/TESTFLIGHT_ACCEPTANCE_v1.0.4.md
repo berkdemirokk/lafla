@@ -1,12 +1,12 @@
-# TestFlight Acceptance — Lafla v1.0.3
+# TestFlight Acceptance — Lafla v1.0.4
 
 This is an evidence sheet, not a claim that physical tests have already run.
 Complete it against the new TestFlight build before promoting the build.
 
 ## Build identity
 
-- Version: `1.0.3`
-- Expected remote build: next number after `97`
+- Version: `1.0.4`
+- Expected remote build: next number after `98`
 - Git commit: ____________________
 - TestFlight build: ____________________
 - Tester/date: ____________________
@@ -56,7 +56,7 @@ needed. Do not record or upload the tester's raw audio.
 
 ## Linguist gate
 
-Review [LINGUIST_REVIEW_v1.0.3.csv](./LINGUIST_REVIEW_v1.0.3.csv):
+Review [LINGUIST_REVIEW_v1.0.4.csv](./LINGUIST_REVIEW_v1.0.4.csv):
 
 - All 100 sampled scenarios reviewed by a fluent/native English reviewer.
 - Average naturalness at least `4.0/5`.

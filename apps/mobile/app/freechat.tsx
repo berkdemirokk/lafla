@@ -371,7 +371,12 @@ export default function FreechatScreen() {
               Ücretsiz: 5 mesaj. Lafla Pro ile uzunluk sınırı yok.
             </Text>
             <Button label="Lafla Pro açıkla" onPress={handlePaywall} stacked />
-            <Pressable onPress={handleExit} style={styles.paywallSkip}>
+            <Pressable
+              onPress={handleExit}
+              style={styles.paywallSkip}
+              accessibilityRole="button"
+              accessibilityLabel="Şimdilik atla"
+            >
               <Text style={styles.paywallSkipText}>Şimdilik atla</Text>
             </Pressable>
           </View>

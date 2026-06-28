@@ -219,6 +219,7 @@ function FilterChip({
         pressed && !active && styles.chipPressed,
       ]}
       accessibilityRole="button"
+      accessibilityLabel={`${label} filtresi`}
       accessibilityState={{ selected: active }}
     >
       <Text style={[styles.chipText, active && styles.chipTextActive]}>

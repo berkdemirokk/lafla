@@ -16,26 +16,39 @@ import { Stack, router } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
 import * as Notifications from "expo-notifications";
+import { useFonts } from "expo-font";
 import { Text as RNText, TextInput as RNTextInput } from "react-native";
-import {
-  useFonts,
-  SpaceGrotesk_500Medium,
-  SpaceGrotesk_600SemiBold,
-  SpaceGrotesk_700Bold,
-} from "@expo-google-fonts/space-grotesk";
-import {
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-} from "@expo-google-fonts/inter";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { SpaceGrotesk_500Medium } from "@expo-google-fonts/space-grotesk/500Medium";
+import { SpaceGrotesk_600SemiBold } from "@expo-google-fonts/space-grotesk/600SemiBold";
+import { SpaceGrotesk_700Bold } from "@expo-google-fonts/space-grotesk/700Bold";
+import { Inter_400Regular } from "@expo-google-fonts/inter/400Regular";
+import { Inter_500Medium } from "@expo-google-fonts/inter/500Medium";
+import { Inter_600SemiBold } from "@expo-google-fonts/inter/600SemiBold";
+import { Inter_700Bold } from "@expo-google-fonts/inter/700Bold";
+import { Inter_800ExtraBold } from "@expo-google-fonts/inter/800ExtraBold";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
 import { initAds } from "../lib/ads";
 import { requestAttOnce } from "../lib/att";
 import { tokens } from "../theme";
+
+const K_LAST_OPEN_DAY = "lafla.analytics.lastOpenDay";
+
+function localDayKey(date: Date): string {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function daysBetweenKeys(previous: string | null, current: string): number | null {
+  if (!previous) return null;
+  const parse = (key: string) => {
+    const [year, month, day] = key.split("-").map(Number);
+    return Date.UTC(year ?? 0, (month ?? 1) - 1, day ?? 1);
+  };
+  const diff = Math.round((parse(current) - parse(previous)) / 86_400_000);
+  return Number.isFinite(diff) && diff >= 0 ? diff : null;
+}
 
 // 2026-05-24 — Font load gate.
 // Theme tokens (theme/index.ts) referans veriyor:
@@ -105,7 +118,22 @@ export default function RootLayout() {
     void (async () => {
       try {
         await initAnalytics();
-        await trackEvent("app_opened");
+        const today = localDayKey(new Date());
+        const previous = await AsyncStorage.getItem(K_LAST_OPEN_DAY).catch(
+          () => null,
+        );
+        const daysSinceLastOpen = daysBetweenKeys(previous, today);
+        await trackEvent("app_opened", {
+          days_since_last_open: daysSinceLastOpen ?? -1,
+          next_day_return: daysSinceLastOpen === 1,
+        });
+        if (daysSinceLastOpen !== null && daysSinceLastOpen >= 1) {
+          await trackEvent("app_returned", {
+            days_since_last_open: daysSinceLastOpen,
+            next_day_return: daysSinceLastOpen === 1,
+          });
+        }
+        await AsyncStorage.setItem(K_LAST_OPEN_DAY, today).catch(() => {});
       } catch {
         // ignore — analytics is non-critical
       }
@@ -201,6 +229,10 @@ export default function RootLayout() {
           <Stack.Screen name="ielts-band" />
           <Stack.Screen name="vocab-book" />
           <Stack.Screen name="weakness-report" />
+          <Stack.Screen name="mistake-coach" />
+          <Stack.Screen name="real-life" />
+          <Stack.Screen name="progress-compare" />
+          <Stack.Screen name="accent-lab" />
         </Stack>
       </ErrorBoundary>
     </SafeAreaProvider>

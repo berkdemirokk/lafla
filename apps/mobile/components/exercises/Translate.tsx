@@ -71,6 +71,9 @@ export function Translate({
         editable={!result}
         autoCapitalize="sentences"
         autoCorrect={false}
+        accessibilityLabel={
+          direction === "tr_to_en" ? "İngilizce çevirin" : "Türkçe çevirin"
+        }
       />
 
       {result && (

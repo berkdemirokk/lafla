@@ -78,6 +78,12 @@ export function FillBlank({
                 }
               }}
               disabled={!!result}
+              accessibilityRole="button"
+              accessibilityLabel={`${opt} seçeneği`}
+              accessibilityState={{
+                selected: isSelected,
+                disabled: Boolean(result),
+              }}
             >
               <Text
                 style={[

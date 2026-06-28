@@ -112,6 +112,9 @@ export function ListenAndTranscribe({
           onPress={onReplay}
           disabled={!playable || !!result}
           hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Cümleyi dinle"
+          accessibilityState={{ disabled: !playable || Boolean(result) }}
           style={({ pressed }) => [
             styles.speakerBtn,
             !playable && styles.speakerBtnDim,
@@ -140,6 +143,7 @@ export function ListenAndTranscribe({
         editable={!result}
         autoCapitalize="sentences"
         autoCorrect={false}
+        accessibilityLabel="Duyduğun İngilizce cümle"
       />
 
       {result && (
@@ -175,6 +179,8 @@ export function ListenAndTranscribe({
             pressed && styles.skipBtnPressed,
           ]}
           hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel="Bu egzersizi atla"
         >
           <Text style={styles.skipBtnText}>Bu egzersizi atla →</Text>
         </Pressable>

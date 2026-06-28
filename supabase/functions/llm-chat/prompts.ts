@@ -10,4 +10,6 @@ export const FREE_CHAT_OPENERS: Record<string, string> = {
   "social.lastfriend": "when did you last see a close friend in person?",
   "social.newpeople": "are you good at meeting new people, or does it stress you out?",
   "feel.mood": "how are you actually feeling today? not the polite answer",
+  "tool.emergency": "Turn a Turkish real-life need into natural English options.",
+  "tool.custom-scenario": "Build a short English roleplay from the user's real-life situation.",
 };

@@ -102,6 +102,7 @@ import {
   recordInteraction,
   getRelationship,
   tierFor,
+  memoryPromptForRelationship,
   type NpcRelationship,
 } from "../../lib/npc-relationships";
 import { nameAndBucketForNpc } from "../../lib/npc-names";
@@ -113,11 +114,14 @@ import {
 import type { RoleplayMode } from "../../lib/roleplay-progression";
 import {
   getRoleplayMode,
+  getRoleplayMasteryState,
   recordRoleplayMastery,
 } from "../../lib/roleplay-mastery";
 import { recordLessonCompletion } from "../../lib/daily-quests";
 import { checkUnlocksAfterLesson } from "../../lib/achievements";
 import { speak } from "../../lib/tts";
+import { modelAnswersForTurn } from "../../lib/roleplay-model";
+import { recordProgressComparison } from "../../lib/progress-comparison";
 import { hapticImpact, hapticSuccess } from "../../lib/feedback";
 import { markHomeTutorialSeen } from "../../lib/tutorial-state";
 import { allScenarios } from "../../lib/scenario";
@@ -241,6 +245,7 @@ export default function ScenarioScreen() {
   // ile hard-mode click gibi paralel tetikleyicilerin duplicate router
   // replace etmesini önler.
   const paywallNavRef = useRef(false);
+  const scenarioStartedAtRef = useRef(Date.now());
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
@@ -358,14 +363,23 @@ export default function ScenarioScreen() {
   // On mount: decide roleplay mode based on previous attempts
   useEffect(() => {
     if (!scenario) return;
+    scenarioStartedAtRef.current = Date.now();
     (async () => {
-      setRoleplayMode(await getRoleplayMode(scenario.id));
+      const [resolvedMode, mastery] = await Promise.all([
+        getRoleplayMode(scenario.id),
+        getRoleplayMasteryState(scenario.id),
+      ]);
+      setRoleplayMode(resolvedMode);
+      void trackEvent("scenario_started", {
+        scenario_id: scenario.id,
+        skill_id: scenario.skill_id,
+        mode: scenario.mode,
+        scene_level: scenario.cefrLevel ?? "unknown",
+        estimated_minutes: scenario.estimated_minutes,
+        attempt_number: mastery.attempts + 1,
+        is_repeat: mastery.attempts > 0,
+      }).catch(() => {});
     })();
-    void trackEvent("scenario_started", {
-      scenario_id: scenario.id,
-      skill_id: scenario.skill_id,
-      mode: scenario.mode,
-    }).catch(() => {});
     // 2026-05-24 — Sahne açılış sinyali. notifications.ts 6h "yarım kaldı"
     // bildirimini bu başlığı kullanarak kuracak; sahne tamamlanmazsa 6 saat
     // sonra "X sahnen yarım kaldı" push'u atar.
@@ -373,6 +387,15 @@ export default function ScenarioScreen() {
       scenario.title?.replace(/\n/g, " ") ?? "sahnen",
     ).catch(() => {});
   }, [scenario]);
+
+  useEffect(() => {
+    if (!scenario) return;
+    void trackEvent("scenario_phase_entered", {
+      scenario_id: scenario.id,
+      phase,
+      elapsed_ms: Date.now() - scenarioStartedAtRef.current,
+    }).catch(() => {});
+  }, [phase, scenario]);
 
   // 2026-05-21 — Free-tier paywall gate.
   // intro (force-first Match) → her zaman geç, ilk değer öncesi paywall yok
@@ -446,6 +469,8 @@ export default function ScenarioScreen() {
       score: sceneResult.score,
       mastery_score: masteryScore,
       assisted_turns: sceneResult.assisted_turns ?? 0,
+      duration_ms: Date.now() - scenarioStartedAtRef.current,
+      low_pressure: !hardMode,
     }).catch(() => {});
     // 2026-05-24 — Sahne tamamlandı: 6h "yarım kaldı" bildirimini iptal et,
     // dropoff zincirini (24h streak / 3d challenge / 7d gone) yeniden zamanla.
@@ -608,7 +633,19 @@ export default function ScenarioScreen() {
     );
   }
 
-  const onExitConfirmed = () => router.back();
+  const onExitConfirmed = () => {
+    if (phase !== "verdict") {
+      void trackEvent("scenario_abandoned", {
+        scenario_id: scenario.id,
+        phase,
+        elapsed_ms: Date.now() - scenarioStartedAtRef.current,
+        setup_index: setupIdx,
+        drill_index: drillIdx,
+        pre_scene_index: preSceneIdx,
+      }).catch(() => {});
+    }
+    router.back();
+  };
   const handleExit = () => {
     // SETUP is safe to abandon outright — nothing persisted yet, no scene
     // started. VERDICT is post-save, also safe. DRILL, SCENE, and the new
@@ -737,6 +774,22 @@ export default function ScenarioScreen() {
       score: result.score,
     }).catch(() => {});
 
+    const firstUserTurn = scenario.scene.turns.find(
+      (turn) => turn.speaker === "user",
+    );
+    const firstResponse = result.user_responses?.[0];
+    const coachedResponse = firstUserTurn
+      ? modelAnswersForTurn(firstUserTurn)[0]
+      : undefined;
+    if (firstResponse && coachedResponse) {
+      void recordProgressComparison({
+        scenarioId: scenario.id,
+        scenarioTitle: scenario.title.replace(/\n/g, " "),
+        userText: firstResponse,
+        coachedText: coachedResponse,
+      });
+    }
+
     // 2026-05-21 — Vocab book record. Sahnenin vocab_tile'ları kişisel
     // defter'e eklenir. Dedupe edilir (aynı sahne tekrar oynanırsa
     // kelimeler çift yazılmaz). Retention için kullanıcı "bu hafta 24
@@ -764,6 +817,17 @@ export default function ScenarioScreen() {
           npcName: name,
           npcBucket: bucket,
           mode: scenario.mode,
+          episode: {
+            scenarioId: scenario.id,
+            title: scenario.title.replace(/\n/g, " "),
+            outcome:
+              result.score >= 80
+                ? "goal_met"
+                : result.score >= 50
+                  ? "close"
+                  : "retry",
+            userSummary: result.user_responses?.[0]?.slice(0, 140),
+          },
         }).catch(() => {});
       }
     } catch {
@@ -776,6 +840,14 @@ export default function ScenarioScreen() {
   };
 
   const nextScenario = findNextScenario(scenario.skill_id, scenario.id);
+  const phaseProgress =
+    phase === "setup" || phase === "setup-extra"
+      ? { now: 1, text: "Kurulum, 1 / 4" }
+      : phase === "drill" || phase === "pre-scene"
+        ? { now: 2, text: "Alıştırma, 2 / 4" }
+        : phase === "scene"
+          ? { now: 3, text: "Sahne, 3 / 4" }
+          : { now: 4, text: "Bitiş, 4 / 4" };
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -785,7 +857,12 @@ export default function ScenarioScreen() {
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <View style={styles.header}>
-          <Pressable onPress={handleExit} style={styles.exitBtn}>
+          <Pressable
+            onPress={handleExit}
+            style={styles.exitBtn}
+            accessibilityRole="button"
+            accessibilityLabel="Sahneden çık"
+          >
             <Text style={styles.exitText}>← Geri</Text>
           </Pressable>
           {/* 2026-05-24 — 7-fazlı yeni akışı 4 dot'a kondense ettik
@@ -794,7 +871,13 @@ export default function ScenarioScreen() {
                 Dot 2 (Alıştırma): drill + pre-scene
                 Dot 3 (Sahne): scene
                 Dot 4 (Bitiş): recall + verdict */}
-          <View style={styles.phaseDots}>
+          <View
+            style={styles.phaseDots}
+            accessible
+            accessibilityRole="progressbar"
+            accessibilityLabel="Sahne ilerlemesi"
+            accessibilityValue={{ min: 1, max: 4, ...phaseProgress }}
+          >
             <PhaseDot
               active={phase === "setup" || phase === "setup-extra"}
               done={
@@ -861,8 +944,16 @@ export default function ScenarioScreen() {
                     pressed && { opacity: 0.85 },
                     isPremiumState === null && { opacity: 0.5 },
                   ]}
-                  accessibilityRole="switch"
-                  accessibilityState={{ checked: hardMode, disabled: isPremiumState === null }}
+                  accessibilityRole={isPremiumState === true ? "switch" : "button"}
+                  accessibilityLabel={
+                    isPremiumState === true
+                      ? "Hard Mode"
+                      : "Hard Mode, Lafla Pro ile aç"
+                  }
+                  accessibilityState={{
+                    checked: isPremiumState === true ? hardMode : undefined,
+                    disabled: isPremiumState === null,
+                  }}
                 >
                   <Text
                     style={[
@@ -893,7 +984,12 @@ export default function ScenarioScreen() {
                   <Text style={styles.drillLabel}>
                     YAPI · {setupExtraIdx + 1}/{scenario.setupExtra.length}
                   </Text>
-                  <Pressable onPress={() => goToNextPhase("setup-extra")} hitSlop={8}>
+                  <Pressable
+                    onPress={() => goToNextPhase("setup-extra")}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                    accessibilityLabel="Yapı alıştırmasını atla"
+                  >
                     <Text style={styles.drillSkip}>Atla</Text>
                   </Pressable>
                 </View>
@@ -912,7 +1008,12 @@ export default function ScenarioScreen() {
                 <Text style={styles.drillLabel}>
                   ALIŞTIRMA · {drillIdx + 1}/{scenario.warmups.length}
                 </Text>
-                <Pressable onPress={skipDrill} hitSlop={8}>
+                <Pressable
+                  onPress={skipDrill}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                  accessibilityLabel="Alıştırmayı atla, sahneye geç"
+                >
                   <Text style={styles.drillSkip}>Sahneye atla</Text>
                 </Pressable>
               </View>
@@ -936,7 +1037,12 @@ export default function ScenarioScreen() {
                   <Text style={styles.drillLabel}>
                     HAZIRLIK · {preSceneIdx + 1}/{scenario.preScene.length}
                   </Text>
-                  <Pressable onPress={() => goToNextPhase("pre-scene")} hitSlop={8}>
+                  <Pressable
+                    onPress={() => goToNextPhase("pre-scene")}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                    accessibilityLabel="Hazırlığı atla, sahneye geç"
+                  >
                     <Text style={styles.drillSkip}>Sahneye atla</Text>
                   </Pressable>
                 </View>
@@ -988,6 +1094,8 @@ export default function ScenarioScreen() {
                 sceneLevel={scenario.cefrLevel}
                 userLevel={userLevel ?? undefined}
                 hardMode={hardMode}
+                lowPressure={!hardMode}
+                memoryPrompt={memoryPromptForRelationship(npcRel) ?? undefined}
               />
             </View>
           )}
@@ -1001,7 +1109,12 @@ export default function ScenarioScreen() {
             <View style={styles.drillWrap}>
               <View style={styles.drillHeader}>
                 <Text style={styles.drillLabel}>HATIRLAMA</Text>
-                <Pressable onPress={advanceRecall} hitSlop={8}>
+                <Pressable
+                  onPress={advanceRecall}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                  accessibilityLabel="Hatırlama alıştırmasını atla"
+                >
                   <Text style={styles.drillSkip}>Atla</Text>
                 </Pressable>
               </View>
@@ -1344,7 +1457,7 @@ function PhaseDot({ active, done }: { active: boolean; done: boolean }) {
   }));
 
   return (
-    <View style={phaseStyles.dot}>
+    <View style={phaseStyles.dot} importantForAccessibility="no">
       <Animated.View
         style={[phaseStyles.dotLayer, phaseStyles.dotDone, doneStyle]}
       />
@@ -1570,7 +1683,12 @@ function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
       style={[introStyles.overlay, overlayStyle]}
       pointerEvents="box-none"
     >
-      <Pressable onPress={onDismiss} style={introStyles.fill}>
+      <Pressable
+        onPress={onDismiss}
+        style={introStyles.fill}
+        accessibilityRole="button"
+        accessibilityLabel="Konuşma başlıyor, hazırsan başla"
+      >
         <Animated.View style={[introStyles.card, cardStyle]}>
           <Text style={introStyles.label}>SAHNE</Text>
           <Text style={introStyles.title}>Konuşma başlıyor</Text>
@@ -1643,7 +1761,7 @@ function VerdictView({
   );
   useEffect(() => {
     if ((sceneResult.mistakes?.length ?? 0) > 0) {
-      setTopMistakes((sceneResult.mistakes ?? []).slice(0, 3));
+      setTopMistakes((sceneResult.mistakes ?? []).slice(0, 1));
       return;
     }
     (async () => {
@@ -1662,7 +1780,7 @@ function VerdictView({
           example_wrong?: string;
         } | undefined;
       };
-      const top = await tracker.getTopMistakes(3).catch(() => []);
+      const top = await tracker.getTopMistakes(1).catch(() => []);
       const enriched = top
         .map((m) => {
           const pat = patterns.getPattern(m.patternId);
@@ -1855,7 +1973,7 @@ function VerdictView({
       {topMistakes.length > 0 && (
         <View style={verdictStyles.feedbackPremium}>
           <Text style={verdictStyles.feedbackPremiumLabel}>
-            🔍 ÜZERİNDE ÇALIŞABİLECEĞİN HATA
+            🎯 BUGÜNÜN TEK ODAĞI
           </Text>
           {topMistakes.map((m, i) => (
             <View key={i} style={verdictStyles.mistakeRow}>

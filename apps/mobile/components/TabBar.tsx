@@ -47,6 +47,8 @@ export function TabBar({ active }: { active: TabKey }) {
               pressed && !isActive && styles.tabPressed,
             ]}
             accessibilityRole="tab"
+            accessibilityLabel={tab.label}
+            accessibilityHint={isActive ? "Seçili sekme" : `${tab.label} sekmesine git`}
             accessibilityState={{ selected: isActive }}
           >
             <Text style={[styles.label, isActive && styles.labelActive]}>

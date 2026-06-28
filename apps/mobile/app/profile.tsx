@@ -505,6 +505,12 @@ export default function ProfileScreen() {
           />
           <View style={styles.rowDivider} />
           <AccountRow
+            icon="message"
+            label="Önce · Sonra karşılaştırması"
+            onPress={() => router.push("/progress-compare" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
             icon="vocab"
             label="Kelime defterin"
             onPress={() => router.push("/vocab-book" as never)}
@@ -550,6 +556,12 @@ export default function ProfileScreen() {
             icon="message"
             label="Dinleme pratiği"
             onPress={() => router.push("/listen-mode" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="message"
+            label="Aksan laboratuvarı"
+            onPress={() => router.push("/accent-lab" as never)}
           />
         </View>
 

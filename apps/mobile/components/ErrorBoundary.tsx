@@ -146,6 +146,8 @@ export class ErrorBoundary extends React.Component<Props, State> {
                 styles.btnPrimary,
                 pressed && styles.btnPressed,
               ]}
+              accessibilityRole="button"
+              accessibilityLabel="Uygulamayı yeniden başlat"
             >
               <Text style={styles.btnPrimaryLabel}>Yeniden başlat</Text>
             </Pressable>
@@ -157,6 +159,8 @@ export class ErrorBoundary extends React.Component<Props, State> {
                 styles.btnGhost,
                 pressed && styles.btnPressed,
               ]}
+              accessibilityRole="button"
+              accessibilityLabel="Hatayı bildir"
             >
               <Text style={styles.btnGhostLabel}>Hatayı bildir</Text>
             </Pressable>

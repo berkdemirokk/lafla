@@ -286,6 +286,7 @@ export default function DiaryScreen() {
                   maxLength={MAX_CHARS}
                   autoFocus={!todayEntry}
                   editable={!saving}
+                  accessibilityLabel="Günlük İngilizce cümlen"
                 />
                 <Text style={styles.charCount}>
                   {input.length}/{MAX_CHARS}

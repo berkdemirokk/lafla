@@ -59,8 +59,15 @@ export function AchievementToast({ achievement, onDismiss }: Props) {
         { transform: [{ translateY }], opacity },
       ]}
       pointerEvents="box-none"
+      accessibilityLiveRegion="polite"
     >
-      <Pressable onPress={onDismiss} style={styles.toast}>
+      <Pressable
+        onPress={onDismiss}
+        style={styles.toast}
+        accessibilityRole="button"
+        accessibilityLabel={`Kilometre taşı: ${achievement.title}. ${achievement.description}`}
+        accessibilityHint="Bildirimi kapatır"
+      >
         <View style={styles.text}>
           <Text style={styles.unlocked}>KİLOMETRE TAŞI</Text>
           <Text style={styles.title}>{achievement.title}</Text>

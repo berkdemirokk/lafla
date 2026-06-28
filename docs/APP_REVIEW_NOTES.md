@@ -75,9 +75,9 @@ Deletion is immediate (no soft-delete / 30-day grace).
 - **AdMob ad placement:** Free tier sees a bottom-anchored adaptive banner on the home/today screens (not on auth/onboarding/paywall/scenario screens) and an interstitial after every 3rd completed scenario. Opt-in rewarded video grants 30 minutes of Pro. Lafla Pro subscribers see **zero ads** — `AdBanner` returns `null` and `onScenarioComplete` early-returns for entitled users. Children-directed flags are explicitly **false** (`tagForChildDirectedTreatment: false`, `tagForUnderAgeOfConsent: false`) because flirt + bar modes drive a 17+ age rating. `maxAdContentRating: T` keeps ad creatives Teen-or-tamer to match the rating.
 - **Sentry crash reporting** receives anonymous device/build metadata and crash stacks. No user email or profile fields are attached to events. Sentry breadcrumbs cover onboarding finalize, IAP purchase, voice journal recording, JSON parsing failures, scene-runtime crashes. The DSN is provisioned via EAS Secret `EXPO_PUBLIC_SENTRY_DSN`.
 - **Structured scenarios:** All dialogue, scene content, scoring, and feedback in the 971 guided scenarios are pre-authored and evaluated on-device. Their answers are not sent to Lafla servers; voice transcription is provided by the iOS Speech Recognition framework and may be processed according to the user's Apple/iOS settings.
-- **Optional Free Chat:** The separate Free Chat screen uses a runtime AI reply service. The recent conversation text is sent through the authenticated Supabase `llm-chat` Edge Function to a configured AI provider. Provider requests contain conversation content but no email or profile fields. Input/output safety filters run before content is displayed. This behavior is disclosed in the privacy policy and App Privacy answers.
+- **Optional AI tools:** Free Chat, Emergency English, and custom-scenario generation use a runtime AI service. Text entered for those features is sent through the authenticated Supabase `llm-chat` Edge Function to a configured AI provider. Provider requests contain the submitted text but no email or profile fields. Input/output safety filters run before content is displayed. This behavior is disclosed in the privacy policy and App Privacy answers.
 - **Voice Journal** audio is stored in `documentDirectory/voice-journal/` only. Never transmitted. Deleted on account deletion.
-- **Data collected:** Email + password (Supabase auth), purchase status (RevenueCat), optional Free Chat text (AI reply generation), anonymized usage events (PostHog when configured and consented), and ad serving data (AdMob; SKAdNetwork attribution). The live privacy policy at <https://berkdemirokk.github.io/lafla/privacy.html> discloses these processors. Full disclosure in `APP_STORE_PRIVACY_NUTRITION.md`.
+- **Data collected:** Email + password (Supabase auth), purchase status (RevenueCat), text submitted to optional AI tools, anonymized usage events (PostHog when configured and consented), and ad serving data (AdMob; SKAdNetwork attribution). The live privacy policy at <https://berkdemirokk.github.io/lafla/privacy.html> discloses these processors. Full disclosure in `APP_STORE_PRIVACY_NUTRITION.md`.
 
 ---
 
@@ -99,7 +99,7 @@ Deletion is immediate (no soft-delete / 30-day grace).
 | Scene Count | 971 (CEFR-mapped A1–C2) |
 | Side-rail Modes | Phoneme Drill, Listen & Transcribe, Voice Journal |
 
-Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current candidate version: **v1.0.3** (remote build number auto-increments from 97).
+Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current candidate version: **v1.0.4** (remote build number auto-increments from 98).
 
 ---
 

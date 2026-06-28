@@ -7,7 +7,7 @@ import { modelAnswersForTurn } from "../lib/roleplay-model";
 const SAMPLE_SIZE = 100;
 const outputPath = path.resolve(
   __dirname,
-  "../../../docs/LINGUIST_REVIEW_v1.0.3.csv",
+  "../../../docs/LINGUIST_REVIEW_v1.0.4.csv",
 );
 
 function csv(value: unknown): string {

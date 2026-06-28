@@ -182,6 +182,8 @@ export default function VocabBookScreen() {
               styles.emptyCta,
               pressed && { opacity: 0.86 },
             ]}
+            accessibilityRole="button"
+            accessibilityLabel="Bugüne git"
           >
             <Text style={styles.emptyCtaText}>Bugüne git</Text>
           </Pressable>
@@ -216,6 +218,7 @@ function FilterChip({
         pressed && !active && { opacity: 0.85 },
       ]}
       accessibilityRole="button"
+      accessibilityLabel={`${label} filtresi`}
       accessibilityState={{ selected: active }}
     >
       <Text style={[styles.chipText, active && styles.chipTextActive]}>

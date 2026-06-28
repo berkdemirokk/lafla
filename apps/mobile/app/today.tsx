@@ -43,7 +43,6 @@ import Animated, {
 import {
   getLocalProfile,
   getCompletedLessonIds,
-  getInterests,
   type LocalProfile,
 } from "../lib/local-progress";
 import {
@@ -52,14 +51,6 @@ import {
   type CefrLevel,
 } from "../lib/cefr-level";
 import { isStreakAtRisk } from "../lib/streak-shield";
-import {
-  getDailyExclusive,
-  isDailyExclusiveCompleted,
-} from "../lib/daily-exclusive";
-import {
-  ensureSurpriseSceneIfPending,
-  consumeSurprise,
-} from "../lib/variable-reward";
 import {
   getDueCount as getVocabDueCount,
   getDueMinutes as getVocabDueMinutes,
@@ -70,14 +61,13 @@ import {
   hasSeenHomeTutorial,
   markHomeTutorialSeen,
 } from "../lib/tutorial-state";
-import { interestsToModes } from "../lib/interest-mapping";
 import { TutorialOverlay } from "../components/TutorialOverlay";
 import { AdBanner } from "../components/AdBanner";
 import { VoiceWaveform } from "../components/VoiceWaveform";
 import { Icon } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
-import type { Scene, SceneMode } from "../data/scenes";
+import type { Scene } from "../data/scenes";
 import { SCENE_COUNT_DISPLAY } from "../lib/scene-counts";
 import { recordActive } from "../lib/notifications";
 import { isPremium } from "../lib/iap";
@@ -86,6 +76,7 @@ import {
   getRewardedExpiresAt,
 } from "../lib/rewarded";
 import { showRewardedAd } from "../lib/ads";
+import { getMistakeDNA } from "../lib/mistake-dna";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -133,17 +124,15 @@ interface TodayState {
   erosionDecay: number;
   erosionDaysIdle: number;
   erosionDroppedLevel: CefrLevel | null;
-  surprise: Scene | null;
   vocabDue: number;
   vocabDueMin: number;
-  daily: Scene | null;
-  dailyCompleted: boolean;
   // Plan
   planTotal: number;
   planCompleted: number;
   planEstimatedMin: number;
   planIsComplete: boolean;
   planFirstScene: Scene | null;
+  mistakeFocus: { label: string; recentCount: number } | null;
   // 2026-05-23 — Daily diary nudge state. Bugün entry yoksa Today'de
   // subtle bir banner gösterilir. Banner agresif değil — kullanıcı
   // istediği zaman atlar.
@@ -167,16 +156,14 @@ const EMPTY: TodayState = {
   erosionDecay: 0,
   erosionDaysIdle: 0,
   erosionDroppedLevel: null,
-  surprise: null,
   vocabDue: 0,
   vocabDueMin: 0,
-  daily: null,
-  dailyCompleted: false,
   planTotal: 0,
   planCompleted: 0,
   planEstimatedMin: 0,
   planIsComplete: false,
   planFirstScene: null,
+  mistakeFocus: null,
   diaryWrittenToday: false,
   isPremiumActive: false,
   rewardedActive: false,
@@ -287,16 +274,13 @@ export default function Today() {
   // is a `const` derived from `state`, not a function.
 
   const load = useCallback(async () => {
-    const [profile, completed, cefrLevel, interests, nameRaw] =
+    const [profile, completed, cefrLevel, nameRaw] =
       await Promise.all([
         getLocalProfile(),
         getCompletedLessonIds(),
         getCefrLevel(),
-        getInterests(),
         AsyncStorage.getItem(K_DISPLAY_NAME).catch(() => null),
       ]);
-    const interestModes: SceneMode[] | null =
-      interests.length > 0 ? interestsToModes(interests) : null;
     const streakAtRisk =
       profile?.current_streak && profile.current_streak > 0
         ? await isStreakAtRisk(profile.last_lesson_at ?? undefined).catch(
@@ -308,17 +292,6 @@ export default function Today() {
       daysIdle: 0,
       newLevel: null as CefrLevel | null,
     }));
-    const daily = await getDailyExclusive({
-      cefrLevel,
-      interestModes,
-    }).catch(() => null);
-    const dailyCompletedId = await isDailyExclusiveCompleted(completed).catch(
-      () => null,
-    );
-    const surprise = await ensureSurpriseSceneIfPending({
-      completedLessonIds: completed,
-      interestModes: interestModes ?? null,
-    }).catch(() => null);
     const [vocabDue, vocabDueMin] = await Promise.all([
       getVocabDueCount().catch(() => 0),
       getVocabDueMinutes().catch(() => 0),
@@ -339,6 +312,7 @@ export default function Today() {
     const tutorialSeen = await hasSeenHomeTutorial().catch(() => true);
     // Diary today entry — defansif, hata olsa bile Today crash etmesin.
     const diaryToday = await getTodayEntry().catch(() => null);
+    const mistakeDna = await getMistakeDNA(21).catch(() => null);
     // 2026-05-24 — Rewarded ad / premium status.
     const [isPremiumActive, rewardedActive, rewardedExpiresAt] =
       await Promise.all([
@@ -357,16 +331,19 @@ export default function Today() {
       erosionDecay: erosion.decayAmount,
       erosionDaysIdle: Math.floor(erosion.daysIdle),
       erosionDroppedLevel: erosion.newLevel,
-      surprise,
       vocabDue,
       vocabDueMin,
-      daily,
-      dailyCompleted: !!dailyCompletedId,
       planTotal: planSummary.total,
       planCompleted: planSummary.completed,
       planEstimatedMin: planSummary.estimatedMin,
       planIsComplete: planSummary.isComplete,
       planFirstScene,
+      mistakeFocus: mistakeDna
+        ? {
+            label: mistakeDna.dominantLabelTr,
+            recentCount: mistakeDna.items[0]?.recentCount ?? 0,
+          }
+        : null,
       diaryWrittenToday: diaryToday !== null,
       isPremiumActive,
       rewardedActive,
@@ -452,8 +429,6 @@ export default function Today() {
         ? "99+"
         : String(state.vocabDue)
       : null;
-  const surpriseBadge = state.surprise ? "•" : null;
-  const dailyBadge = state.dailyCompleted ? "✓" : state.daily ? "•" : null;
   const diaryBadge = state.diaryWrittenToday ? "✓" : null;
 
   // Empty state — plan yoksa ve done değilse (state hydrated ama plan boş).
@@ -627,7 +602,7 @@ export default function Today() {
             <Text style={styles.planDoneEmoji}>🎉</Text>
             <Text style={styles.planDoneTitle}>Bugünün planı tamam</Text>
             <Text style={styles.planDoneSub}>
-              Yarın yeni 5 sahne hazırlanır. Akış'tan ekstra sahne yapabilirsin.
+              Yarın üç kısa sahne hazırlanır. Akış'tan ekstra sahne yapabilirsin.
             </Text>
           </Animated.View>
         ) : showEmptyState ? (
@@ -736,23 +711,10 @@ export default function Today() {
           </Pressable>
 
           <Pressable
-            onPress={async () => {
-              if (state.surprise) {
-                const id = state.surprise.lessonId;
-                await consumeSurprise().catch(() => {});
-                pushRoute(router, `/scenario/${id}`);
-              } else {
-                // Sürpriz hazır değil — kullanıcıyı Akış'a yönlendir.
-                pushRoute(router, "/home");
-              }
-            }}
+            onPress={() => pushRoute(router, "/accent-lab")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
-            accessibilityLabel={
-              state.surprise
-                ? `Sürpriz sahne: ${state.surprise.title.replace(/\n/g, " ")}`
-                : "Sürpriz — Akış'tan keşfet"
-            }
+            accessibilityLabel="Aksan laboratuvarını aç"
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
             <View
@@ -769,35 +731,20 @@ export default function Today() {
                   { backgroundColor: tokens.brand.tertiarySoft },
                 ]}
               >
-                <Icon name="surprise" size={22} color={tokens.brand.tertiary} />
+                <Icon name="message" size={22} color={tokens.brand.tertiary} />
               </View>
-              {surpriseBadge ? (
-                <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
-                  <Text style={styles.tileBadgeText}>{surpriseBadge}</Text>
-                </View>
-              ) : null}
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>KEŞFET</Text>
-              <Text style={styles.tileTitle}>Sürpriz</Text>
+              <Text style={styles.tileEyebrow}>DİNLEME</Text>
+              <Text style={styles.tileTitle}>Aksan Lab</Text>
             </View>
           </Pressable>
 
           <Pressable
-            onPress={() => {
-              if (state.daily) {
-                pushRoute(router, `/scenario/${state.daily.lessonId}`);
-              } else {
-                pushRoute(router, "/home");
-              }
-            }}
+            onPress={() => pushRoute(router, "/real-life")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
-            accessibilityLabel={
-              state.daily
-                ? `Bugün için: ${state.daily.title.replace(/\n/g, " ")}`
-                : "Günün özel sahnesi"
-            }
+            accessibilityLabel="Acil İngilizce veya kendi senaryonu oluştur"
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
             <View
@@ -815,20 +762,18 @@ export default function Today() {
                 ]}
               >
                 <Icon
-                  name={state.dailyCompleted ? "checkmark" : "target"}
+                  name="target"
                   size={22}
                   color={tokens.brand.tertiary}
                 />
               </View>
-              {dailyBadge ? (
-                <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
-                  <Text style={styles.tileBadgeText}>{dailyBadge}</Text>
-                </View>
-              ) : null}
+              <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
+                <Text style={styles.tileBadgeText}>YENİ</Text>
+              </View>
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>ÖZEL</Text>
-              <Text style={styles.tileTitle}>Günün Özeli</Text>
+              <Text style={styles.tileEyebrow}>GERÇEK HAYAT</Text>
+              <Text style={styles.tileTitle}>Acil İngilizce</Text>
             </View>
           </Pressable>
 
@@ -883,6 +828,33 @@ export default function Today() {
             </View>
           </Pressable>
         </Animated.View>
+
+        {state.mistakeFocus && (
+          <Animated.View entering={FadeInDown.delay(240).duration(360)}>
+            <Pressable
+              onPress={() => pushRoute(router, "/mistake-coach")}
+              style={({ pressed }) => [
+                styles.mistakeCoachCard,
+                pressed && styles.pressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel={`Kişisel hata çalışması: ${state.mistakeFocus.label}`}
+            >
+              <View style={styles.mistakeCoachTop}>
+                <Text style={styles.mistakeCoachEyebrow}>HATA DNA’N · 3 DAKİKA</Text>
+                <Text style={styles.mistakeCoachCount}>
+                  {state.mistakeFocus.recentCount}×
+                </Text>
+              </View>
+              <Text style={styles.mistakeCoachTitle}>
+                Bugün sadece {state.mistakeFocus.label}
+              </Text>
+              <Text style={styles.mistakeCoachSub}>
+                Raporu okumak yerine doğrudan kişisel çalışmaya başla →
+              </Text>
+            </Pressable>
+          </Animated.View>
+        )}
 
         {/* HAFTALIK İLERLEME — 7 nokta, bu hafta kaç gün pratik yapıldı.
             longest_streak'ten değil, son 7 günün her birinde sahne tamamlandı
@@ -1464,6 +1436,42 @@ const styles = StyleSheet.create({
     color: tokens.text.primary,
     letterSpacing: -0.2,
     fontFamily: tokens.font.display,
+  },
+
+  mistakeCoachCard: {
+    padding: 18,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.brand.primarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.primary,
+    gap: 5,
+  },
+  mistakeCoachTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  mistakeCoachEyebrow: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+    letterSpacing: 1.2,
+  },
+  mistakeCoachCount: {
+    fontSize: 12,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+  },
+  mistakeCoachTitle: {
+    fontSize: 18,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.primary,
+    fontFamily: tokens.font.display,
+  },
+  mistakeCoachSub: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    lineHeight: 17,
   },
 
   // Haftalık ilerleme widget'ı — 7 nokta + depth pass.

@@ -26,7 +26,6 @@ import {
   Animated,
   Dimensions,
   Easing,
-  Image,
   PanResponder,
   Pressable,
   StyleSheet,
@@ -43,7 +42,7 @@ const AnimatedExpoImage = Animated.createAnimatedComponent(ExpoImage);
 
 import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
-import { getSceneVisualImage } from "../lib/scene-visual-theme";
+import { getSceneCoverSource } from "../lib/scene-cover-source";
 import { tokens } from "../theme";
 import AnimatedGradientOverlay from "./AnimatedGradientOverlay";
 import FloatingParticles from "./FloatingParticles";
@@ -98,8 +97,8 @@ const MODE_LABEL: Record<SceneMode, string> = {
 // Deterministic visual asset selection. Theme matching lives in lib so it can
 // be tested without importing React Native.
 // ---------------------------------------------------------------------------
-function getDeterministicImage(scene: Scene): string {
-  return getSceneVisualImage(scene);
+function getDeterministicImage(scene: Scene) {
+  return getSceneCoverSource(scene);
 }
 
 // ---------------------------------------------------------------------------
@@ -407,7 +406,7 @@ function SwipeSceneCardImpl({
         {/* Full background live image with overlay & top inner glow highlight */}
         {!imgFailed ? (
           <AnimatedExpoImage
-            source={{ uri: getDeterministicImage(scene) }}
+            source={getDeterministicImage(scene)}
             cachePolicy="disk"
             style={[
               StyleSheet.absoluteFillObject,

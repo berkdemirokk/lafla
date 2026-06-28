@@ -118,6 +118,8 @@ export default function LeaderboardScreen() {
           onPress={() => router.back()}
           style={styles.backBtn}
           hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Geri"
         >
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>

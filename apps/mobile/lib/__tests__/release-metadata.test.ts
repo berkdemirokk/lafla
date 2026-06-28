@@ -19,7 +19,7 @@ describe("release metadata", () => {
   it("uses remote build numbers without a conflicting local buildNumber", () => {
     const app = JSON.parse(read("apps/mobile/app.json"));
     expect(app.expo.ios.buildNumber).toBeUndefined();
-    expect(app.expo.version).toBe("1.0.3");
+    expect(app.expo.version).toBe("1.0.4");
   });
 
   it("keeps reviewer-facing copy aligned with the current product", () => {
@@ -39,8 +39,8 @@ describe("release metadata", () => {
   });
 
   it("ships the TestFlight acceptance and linguist-review evidence templates", () => {
-    const acceptance = read("docs/TESTFLIGHT_ACCEPTANCE_v1.0.3.md");
-    const linguistRows = read("docs/LINGUIST_REVIEW_v1.0.3.csv")
+    const acceptance = read("docs/TESTFLIGHT_ACCEPTANCE_v1.0.4.md");
+    const linguistRows = read("docs/LINGUIST_REVIEW_v1.0.4.csv")
       .trim()
       .split(/\r?\n/);
 

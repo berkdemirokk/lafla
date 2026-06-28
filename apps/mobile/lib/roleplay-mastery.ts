@@ -46,10 +46,16 @@ function parseState(raw: string | null): RoleplayMasteryState {
   }
 }
 
-export async function getRoleplayMode(scenarioId: string): Promise<RoleplayMode> {
-  const state = parseState(
+export async function getRoleplayMasteryState(
+  scenarioId: string,
+): Promise<RoleplayMasteryState> {
+  return parseState(
     await AsyncStorage.getItem(`${KEY_PREFIX}${scenarioId}`).catch(() => null),
   );
+}
+
+export async function getRoleplayMode(scenarioId: string): Promise<RoleplayMode> {
+  const state = await getRoleplayMasteryState(scenarioId);
   return resolveRoleplayMode({
     total_attempts: state.attempts,
     consecutive_correct: state.consecutiveGoalMet,

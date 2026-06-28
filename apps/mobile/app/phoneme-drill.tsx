@@ -116,6 +116,8 @@ export default function PhonemeDrillScreen() {
             onPress={() => router.back()}
             style={styles.backBtn}
             hitSlop={12}
+            accessibilityRole="button"
+            accessibilityLabel="Geri"
           >
             <Icon name="arrowLeft" size={24} color={tokens.text.primary} />
           </Pressable>
@@ -136,12 +138,19 @@ export default function PhonemeDrillScreen() {
                 : "Bu fonemler hala zor — ertesi gün tekrar dene."}
           </Text>
           <View style={styles.doneActions}>
-            <Pressable onPress={handleRestart} style={styles.primaryBtn}>
+            <Pressable
+              onPress={handleRestart}
+              style={styles.primaryBtn}
+              accessibilityRole="button"
+              accessibilityLabel="Telaffuz seansını yeniden başlat"
+            >
               <Text style={styles.primaryBtnText}>Yeniden başla</Text>
             </Pressable>
             <Pressable
               onPress={() => router.back()}
               style={styles.secondaryBtn}
+              accessibilityRole="button"
+              accessibilityLabel="Telaffuz seansını bitir"
             >
               <Text style={styles.secondaryBtnText}>Bitir</Text>
             </Pressable>
@@ -162,6 +171,8 @@ export default function PhonemeDrillScreen() {
           onPress={() => router.back()}
           style={styles.backBtn}
           hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Geri"
         >
           <Icon name="arrowLeft" size={24} color={tokens.text.primary} />
         </Pressable>

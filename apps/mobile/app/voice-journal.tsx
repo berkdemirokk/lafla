@@ -449,11 +449,14 @@ export default function VoiceJournalScreen() {
                         style={styles.noteInput}
                         maxLength={80}
                         autoFocus
+                        accessibilityLabel="Kayıt notu"
                       />
                       <Pressable
                         onPress={handleSaveNote}
                         style={styles.noteSaveBtn}
                         hitSlop={6}
+                        accessibilityRole="button"
+                        accessibilityLabel="Notu kaydet"
                       >
                         <Text style={styles.noteSaveText}>✓</Text>
                       </Pressable>
@@ -462,6 +465,8 @@ export default function VoiceJournalScreen() {
                     <Pressable
                       onPress={() => handleEditNote(entry)}
                       hitSlop={6}
+                      accessibilityRole="button"
+                      accessibilityLabel="Notu düzenle"
                     >
                       <Text style={styles.noteText}>{entry.note}</Text>
                     </Pressable>
@@ -469,6 +474,8 @@ export default function VoiceJournalScreen() {
                     <Pressable
                       onPress={() => handleEditNote(entry)}
                       hitSlop={6}
+                      accessibilityRole="button"
+                      accessibilityLabel="Not ekle"
                     >
                       <Text style={styles.noteAddText}>+ Not ekle</Text>
                     </Pressable>

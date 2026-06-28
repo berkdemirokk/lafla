@@ -16,7 +16,7 @@
     "asc:sync": "tsx scripts/asc-sync.ts",
     "asc:sync:apply": "tsx scripts/asc-sync.ts -- --apply",
     "test": "jest",
-    "qa:content": "tsx scripts/audit-roleplay-content.ts",
+    "qa:content": "tsx scripts/audit-roleplay-content.ts && tsx scripts/audit-quality-gate.ts",
     "qa:linguist": "tsx scripts/generate-linguist-review.ts",
     "qa:linguist:check": "tsx scripts/generate-linguist-review.ts --check"
   },
@@ -24,6 +24,7 @@
     "@babel/runtime": "^7.25.0",
     "@expo-google-fonts/inter": "^0.4.2",
     "@expo-google-fonts/space-grotesk": "^0.4.1",
+    "@expo/vector-icons": "14.1.0",
     "@react-native-async-storage/async-storage": "2.1.2",
     "@sentry/react-native": "^6.14.0",
     "@supabase/supabase-js": "^2.45.0",
@@ -58,6 +59,7 @@
     "react-native-reanimated": "~3.17.5",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
+    "react-native-svg": "15.11.2",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-view-shot": "~4.0.3"
   },

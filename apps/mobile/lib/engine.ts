@@ -198,6 +198,8 @@ export interface ExerciseResult {
   assisted_turns?: number;
   /** Mistakes detected in this completed roleplay, in encounter order. */
   mistakes?: RoleplayMistake[];
+  /** Final learner response for each completed roleplay turn. */
+  user_responses?: string[];
   feedback?: string;
 }
 

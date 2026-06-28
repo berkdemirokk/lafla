@@ -713,9 +713,9 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
   },
 
   // ===========================================================
-  // 2026-05-20 — Adım 8 BÜYÜK EXPANSION (native review pending)
-  // 59 → ~125 pattern hedefi. AI-first pass, "TODO native-review"
-  // işaretli olanlar yayın öncesi insan onayından geçer.
+  // 2026-05-20 — Adım 8 BÜYÜK EXPANSION
+  // 59 → ~125 pattern. Shipped patterns must pass the content quality gate
+  // in scripts/audit-quality-gate.ts before release.
   // ===========================================================
 
   // ----- TR DIRECT TRANSLATION TRAPS (en sık Türk hataları) -----
@@ -1357,7 +1357,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
     weight: 4,
   },
 
-  // ----- TODO native-review (henüz native İngilizce öğretmeni filtreleyecek) -----
 ];
 
 // ---------------------------------------------------------------------------

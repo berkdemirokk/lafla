@@ -82,6 +82,9 @@ export function WordOrder({
               onPress={() => removeFromBuild(b)}
               style={styles.builtToken}
               disabled={!!result}
+              accessibilityRole="button"
+              accessibilityLabel={`${b.token} kelimesini cümleden çıkar`}
+              accessibilityState={{ disabled: Boolean(result) }}
             >
               <Text style={styles.builtTokenText}>{b.token}</Text>
             </Pressable>
@@ -97,6 +100,9 @@ export function WordOrder({
             onPress={() => addToBuild(a)}
             style={styles.bankToken}
             disabled={!!result}
+            accessibilityRole="button"
+            accessibilityLabel={`${a.token} kelimesini cümleye ekle`}
+            accessibilityState={{ disabled: Boolean(result) }}
           >
             <Text style={styles.bankTokenText}>{a.token}</Text>
           </Pressable>

@@ -1,7 +1,7 @@
 # App Store Submission — Final Checklist
 
-> **Last updated:** 2026-06-22 (v1.0.3 TestFlight readiness audit)
-> **Status:** Kod tarafı doğrulandı. EAS remote iOS build numarası 97; yeni production build auto-increment ile sıradaki numarayı alacak. Aşağıdaki manuel adımlar tamamlanınca gönderim yapılabilir.
+> **Last updated:** 2026-06-22 (v1.0.4 TestFlight readiness audit)
+> **Status:** Kod tarafı doğrulandı. EAS remote iOS build numarası 98; yeni production build auto-increment ile sıradaki numarayı alacak. Aşağıdaki manuel adımlar tamamlanınca gönderim yapılabilir.
 >
 > **2026-05-26 audit sonrası değişen kritik alanlar:**
 > - Privacy policy (`docs/privacy.html`) AdMob disclosure ile güncellendi — eski "no third-party ad SDKs" iddiası kaldırıldı. ATT bölümü gerçek SDK davranışına hizalandı.
@@ -126,7 +126,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 
 > macOS olmadığı için Windows'tan yapılamaz. **Bir Apple Beta tester (sen + 1 arkadaş yeter)** TestFlight üzerinden cihaza yükleyip:
 >
-> **Kanıt kaydı:** Tüm cihaz, mikrofon, erişilebilirlik, IAP, Free Chat ve silme senaryolarını `docs/TESTFLIGHT_ACCEPTANCE_v1.0.3.md` içinde tarih, cihaz, build ve ekran kaydıyla işaretle. Dil kalitesi örneklemesi `docs/LINGUIST_REVIEW_v1.0.3.csv` dosyasında tamamlanmadan App Review gönderimi yapma.
+> **Kanıt kaydı:** Tüm cihaz, mikrofon, erişilebilirlik, IAP, Free Chat ve silme senaryolarını `docs/TESTFLIGHT_ACCEPTANCE_v1.0.4.md` içinde tarih, cihaz, build ve ekran kaydıyla işaretle. Dil kalitesi örneklemesi `docs/LINGUIST_REVIEW_v1.0.4.csv` dosyasında tamamlanmadan App Review gönderimi yapma.
 
 - [ ] **Fresh install:** Daha önce hiç Lafla açmamış cihazda
 - [ ] **Splash 300ms** — donmaz, geçişler smooth

@@ -21,8 +21,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { tokens } from "../theme";
 import { isPremium } from "../lib/iap";
-import { getTopMistakes } from "../lib/mistake-tracker";
-import { getPattern } from "../lib/mistake-patterns";
+import { getMistakeDNA } from "../lib/mistake-dna";
 
 interface WeaknessRow {
   patternId: string;
@@ -37,25 +36,25 @@ export default function WeaknessReportScreen() {
   const router = useRouter();
   const [premium, setPremium] = useState<boolean | null>(null);
   const [rows, setRows] = useState<WeaknessRow[]>([]);
+  const [focusLabel, setFocusLabel] = useState("");
+  const [totalRecent, setTotalRecent] = useState(0);
 
   useEffect(() => {
     (async () => {
       const isP = await isPremium().catch(() => false);
       setPremium(isP);
       if (isP) {
-        const top = await getTopMistakes(5).catch(() => []);
-        const enriched = top.flatMap<WeaknessRow>((m) => {
-          const pat = getPattern(m.patternId);
-          if (!pat) return [];
-          return [{
-            patternId: m.patternId,
-            count: m.count ?? 1,
-            reason_tr: pat.reason_tr,
-            example_right: pat.example_right,
-            example_wrong: pat.example_wrong,
-            weight: pat.weight ?? 1,
-          }];
-        });
+        const dna = await getMistakeDNA(21).catch(() => null);
+        const enriched = (dna?.items ?? []).map<WeaknessRow>((item) => ({
+          patternId: item.pattern.id,
+          count: item.recentCount,
+          reason_tr: item.pattern.reason_tr,
+          example_right: item.pattern.example_right,
+          example_wrong: item.pattern.example_wrong,
+          weight: item.pattern.weight,
+        }));
+        setFocusLabel(dna?.dominantLabelTr ?? "");
+        setTotalRecent(dna?.totalRecent ?? 0);
         setRows(enriched);
       }
     })();
@@ -70,10 +69,16 @@ export default function WeaknessReportScreen() {
       <StatusBar style="light" />
 
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.backBtn} hitSlop={12}>
+        <Pressable
+          onPress={() => router.back()}
+          style={styles.backBtn}
+          hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Geri"
+        >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.title}>Zayıflık Raporu</Text>
+        <Text style={styles.title}>Hata DNA’n</Text>
         <View style={styles.backBtn} />
       </View>
 
@@ -83,7 +88,12 @@ export default function WeaknessReportScreen() {
         ) : rows.length === 0 ? (
           <NoDataYet onGo={() => router.replace("/today" as never)} />
         ) : (
-          <Report rows={rows} />
+          <Report
+            rows={rows}
+            focusLabel={focusLabel}
+            totalRecent={totalRecent}
+            onTrain={() => router.push("/mistake-coach" as never)}
+          />
         )}
       </ScrollView>
     </SafeAreaView>
@@ -131,6 +141,8 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
       <Pressable
         onPress={onUpgrade}
         style={({ pressed }) => [styles.cta, pressed && { opacity: 0.88 }]}
+        accessibilityRole="button"
+        accessibilityLabel="Lafla Pro ile aç"
       >
         <Text style={styles.ctaText}>Lafla Pro ile aç — ₺99/ay</Text>
       </Pressable>
@@ -150,6 +162,8 @@ function NoDataYet({ onGo }: { onGo: () => void }) {
       <Pressable
         onPress={onGo}
         style={({ pressed }) => [styles.cta, pressed && { opacity: 0.88 }]}
+        accessibilityRole="button"
+        accessibilityLabel="Bugüne git"
       >
         <Text style={styles.ctaText}>Bugüne git</Text>
       </Pressable>
@@ -157,17 +171,36 @@ function NoDataYet({ onGo }: { onGo: () => void }) {
   );
 }
 
-function Report({ rows }: { rows: WeaknessRow[] }) {
-  const totalErrors = rows.reduce((sum, r) => sum + r.count, 0);
+function Report({
+  rows,
+  focusLabel,
+  totalRecent,
+  onTrain,
+}: {
+  rows: WeaknessRow[];
+  focusLabel: string;
+  totalRecent: number;
+  onTrain: () => void;
+}) {
   return (
     <View>
       <View style={styles.summaryCard}>
-        <Text style={styles.summaryLabel}>BU AY YAKALANAN HATA</Text>
-        <Text style={styles.summaryNum}>{totalErrors}</Text>
+        <Text style={styles.summaryLabel}>SON 3 HAFTADAKİ HATA DNA’N</Text>
+        <Text style={styles.summaryNum}>{totalRecent}</Text>
         <Text style={styles.summarySub}>
-          Top {rows.length} hata aşağıda — bu hatalar düzelirse büyük sıçrama.
+          Ana odağın: {focusLabel}. Bugün yalnızca bunu çalışacağız.
         </Text>
       </View>
+
+      <Pressable
+        onPress={onTrain}
+        style={({ pressed }) => [styles.coachCta, pressed && { opacity: 0.88 }]}
+        accessibilityRole="button"
+        accessibilityLabel="Üç dakikalık kişisel çalışmayı başlat"
+      >
+        <Text style={styles.coachCtaEyebrow}>SANA ÖZEL · 3 DAKİKA</Text>
+        <Text style={styles.coachCtaTitle}>Tek odaklı çalışmayı başlat →</Text>
+      </Pressable>
 
       {rows.map((row, i) => (
         <View key={row.patternId} style={styles.weaknessCard}>
@@ -186,7 +219,7 @@ function Report({ rows }: { rows: WeaknessRow[] }) {
       ))}
 
       <Text style={styles.disclaimer}>
-        Bu rapor son 30 günlük verilere bakar. Hata azalırsa list yenilenir —
+        Bu rapor son 21 günlük verilere bakar. Hata azalırsa liste yenilenir —
         düzeldiğini buradan göreceksin.
       </Text>
     </View>
@@ -373,6 +406,25 @@ const styles = StyleSheet.create({
     borderLeftWidth: 3,
     borderLeftColor: tokens.semantic.warning,
     gap: 6,
+  },
+  coachCta: {
+    marginVertical: 14,
+    padding: 18,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.brand.primary,
+    gap: 4,
+  },
+  coachCtaEyebrow: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.onPrimary,
+    letterSpacing: 1.2,
+    opacity: 0.72,
+  },
+  coachCtaTitle: {
+    fontSize: 17,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.onPrimary,
   },
   weaknessHeader: {
     flexDirection: "row",

@@ -58,6 +58,8 @@ import {
   hashText,
   pruneOlderThan,
 } from "./tts-cache";
+import { resolveAccentLocale, type AccentId } from "./accent";
+export type { AccentId } from "./accent";
 
 // ─── config ───────────────────────────────────────────────────────────────
 
@@ -152,6 +154,8 @@ export type SpeakOpts = {
   npcRole?: string;
   /** Scene/setting hint that augments voice picking (e.g. "Asking out"). */
   setting?: string;
+  /** Native English accent used by the Accent Lab. */
+  accent?: AccentId;
 };
 
 /**
@@ -174,22 +178,36 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
 
   const lang = opts?.lang ?? (TURKISH_CHARS.test(text) ? "tr-TR" : "en-US");
   const rate = opts?.rate ?? 0.95;
+  const accent = opts?.accent ?? "american";
+  const playbackKey = `${text}|${lang}|${accent}`;
   // For the BUNDLED path we resolve a Chatterbox voice id by role/setting.
   // For the REMOTE path we still use the ElevenLabs voice id from extras.
   const bundledVoiceId = opts?.voiceId ?? pickVoiceId(opts?.npcRole, opts?.setting);
   const remoteVoiceId = DEFAULT_VOICE_ID;
 
   // Toggle: same phrase re-tapped → stop and bail.
-  if (lastUtterance === text) {
+  if (lastUtterance === playbackKey) {
     await stopAsync();
     return;
   }
 
   // Always stop whatever's playing before starting something new.
   await stopAsync();
-  lastUtterance = text;
+  lastUtterance = playbackKey;
 
   const myToken = ++playbackToken;
+
+  // Accent Lab must use the device's locale-specific native voice. Bundled
+  // and remote files are single-voice assets and would fake accent variety.
+  if (lang !== "tr-TR" && accent !== "american") {
+    speakNative(
+      text,
+      resolveAccentLocale(accent),
+      accent === "international" ? Math.min(rate, 0.9) : rate,
+      playbackKey,
+    );
+    return;
+  }
 
   // 0. Bundled MP3 lookup — tried for BOTH languages, since Chatterbox can
   // render Turkish too if we ever ship Turkish bundled audio. The index is
@@ -207,7 +225,7 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
 
   // Turkish → native synth (no remote round-trip).
   if (lang === "tr-TR") {
-    speakNative(text, lang, rate);
+    speakNative(text, lang, rate, playbackKey);
     return;
   }
 
@@ -227,7 +245,7 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
 
   // Last resort: expo-speech.
   if (myToken !== playbackToken) return;
-  speakNative(text, lang, rate);
+  speakNative(text, lang, rate, playbackKey);
 }
 
 /** Stop any currently-playing audio (remote MP3 or native synth). */
@@ -392,7 +410,12 @@ async function playLocalMp3(uri: string, token: number): Promise<boolean> {
 
 // ─── fallback: native expo-speech ─────────────────────────────────────────
 
-function speakNative(text: string, lang: string, rate: number): void {
+function speakNative(
+  text: string,
+  lang: string,
+  rate: number,
+  playbackKey: string,
+): void {
   try {
     Speech.stop();
     Speech.speak(text, {
@@ -400,13 +423,13 @@ function speakNative(text: string, lang: string, rate: number): void {
       rate,
       pitch: 1.0,
       onDone: () => {
-        if (lastUtterance === text) lastUtterance = null;
+        if (lastUtterance === playbackKey) lastUtterance = null;
       },
       onStopped: () => {
-        if (lastUtterance === text) lastUtterance = null;
+        if (lastUtterance === playbackKey) lastUtterance = null;
       },
       onError: () => {
-        if (lastUtterance === text) lastUtterance = null;
+        if (lastUtterance === playbackKey) lastUtterance = null;
       },
     });
   } catch {

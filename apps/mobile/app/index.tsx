@@ -195,7 +195,15 @@ export default function Splash() {
   };
 
   return (
-    <Pressable style={styles.container} onPress={skip}>
+    <Pressable
+      style={styles.container}
+      onPress={skip}
+      disabled={loading}
+      accessibilityRole="button"
+      accessibilityLabel="Lafla, devam et"
+      accessibilityHint="Uygulamaya devam eder"
+      accessibilityState={{ disabled: loading, busy: loading }}
+    >
       <StatusBar style="light" />
 
       <View style={styles.center}>

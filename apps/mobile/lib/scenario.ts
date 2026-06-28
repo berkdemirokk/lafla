@@ -10,6 +10,10 @@
 import { allLessons, type BundledLesson } from "../data/lessons";
 import { SAMPLE_SCENES, type CefrLevel } from "../data/scenes";
 import { normalizeRoleplayPatterns } from "./roleplay-pattern";
+import {
+  calibrateScenarioLevel,
+  calibrateSessionMinutes,
+} from "./cefr-calibrator";
 
 // 2026-05-21 — scenario-level CEFR adaptation. Each Scenario inherits the
 // `cefrLevel` of its matching Scene (data/scenes.ts). RoleplayChat reads
@@ -93,9 +97,9 @@ export interface Scenario {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyExercise = any;
 
-export const MAX_SETUP_ITEMS = 3;
-export const MAX_CONTROLLED_PRACTICE_ITEMS = 2;
-export const MAX_ROLEPLAY_USER_TURNS = 3;
+export const MAX_SETUP_ITEMS = 2;
+export const MAX_CONTROLLED_PRACTICE_ITEMS = 1;
+export const MAX_ROLEPLAY_USER_TURNS = 2;
 
 export function limitRoleplayTurns<T extends SceneTurn>(
   turns: readonly T[],
@@ -104,9 +108,23 @@ export function limitRoleplayTurns<T extends SceneTurn>(
   const limited: T[] = [];
   let userTurns = 0;
 
-  for (const turn of turns) {
+  for (let index = 0; index < turns.length; index += 1) {
+    const turn = turns[index]!;
     if (turn.speaker === "user") {
-      if (userTurns >= maxUserTurns) break;
+      if (userTurns >= maxUserTurns) {
+        // Preserve the first authored closing acknowledgement after the
+        // omitted turn. This keeps a short scene from ending abruptly on the
+        // learner's message or on an unanswered NPC question.
+        const closingNpc = turns
+          .slice(index + 1)
+          .find(
+            (candidate) =>
+              candidate.speaker === "npc" &&
+              !/[?？]\s*$/.test(candidate.message ?? ""),
+          );
+        if (closingNpc) limited.push(closingNpc);
+        break;
+      }
       userTurns += 1;
     }
     limited.push(turn);
@@ -159,6 +177,7 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
 
   // A scenario MUST have a roleplay. Skip lessons without one.
   if (!roleplay) return null;
+  const limitedRoleplayTurns = limitRoleplayTurns(roleplay.turns);
 
   // 2026-05-25 — Phase 5D: cap 12 → 25. Adaptive filtering UI tarafında
   // (filterSetupByLevel) yapılıyor — burada tüm pool'u Setup'a getiriyoruz ki
@@ -192,8 +211,11 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
     mode: modeOf(lesson.skill_id),
     title: lesson.title,
     description: lesson.description ?? "",
-    estimated_minutes: lesson.estimated_minutes ?? 3,
-    cefrLevel: _lessonLevelMap.get(lesson.id),
+    estimated_minutes: calibrateSessionMinutes(lesson.estimated_minutes ?? 3),
+    cefrLevel: calibrateScenarioLevel(
+      _lessonLevelMap.get(lesson.id),
+      limitedRoleplayTurns,
+    ),
     setup,
     setupExtra: [],
     preScene: [],
@@ -202,7 +224,7 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
       description: roleplay.scenario_description,
       npc_role: roleplay.npc_role,
       setting: roleplay.setting,
-      turns: limitRoleplayTurns(roleplay.turns).map((turn) =>
+      turns: limitedRoleplayTurns.map((turn) =>
         turn.speaker === "user"
           ? {
               ...turn,
@@ -219,17 +241,22 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
 
 // Cached all scenarios — built once from the lesson registry.
 let _scenariosCache: Scenario[] | null = null;
+let _scenarioByIdCache: Map<string, Scenario> | null = null;
 
 export function allScenarios(): Scenario[] {
   if (_scenariosCache) return _scenariosCache;
   _scenariosCache = allLessons
     .map(lessonToScenario)
     .filter((s): s is Scenario => s !== null);
+  _scenarioByIdCache = new Map(
+    _scenariosCache.map((scenario) => [scenario.id, scenario]),
+  );
   return _scenariosCache;
 }
 
 export function getScenario(id: string): Scenario | null {
-  return allScenarios().find((s) => s.id === id) ?? null;
+  if (!_scenarioByIdCache) allScenarios();
+  return _scenarioByIdCache?.get(id) ?? null;
 }
 
 export function getScenariosByMode(mode: string): Scenario[] {

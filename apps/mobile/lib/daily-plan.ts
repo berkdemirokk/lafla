@@ -22,7 +22,7 @@ import { SAMPLE_SCENES, type Scene } from "../data/scenes";
 import { getScenario } from "./scenario";
 import {
   getCefrLevel,
-  getRelevantLevels,
+  getComfortLevels,
   type CefrLevel,
 } from "./cefr-level";
 import { getInterests, getCompletedLessonIds } from "./local-progress";
@@ -31,8 +31,8 @@ import { interestsToModes } from "./interest-mapping";
 const K_PLAN = "lafla.dailyPlan";
 const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
 
-/** Plan boyutu — 5 sahne × ~4 dk = ~20 dk + araya vocab tekrar ile 28-30 dk. */
-const PLAN_SIZE = 5;
+/** Three independent 2–4 minute sessions; no long mandatory lesson chain. */
+const PLAN_SIZE = 3;
 
 interface StoredPlan {
   /** Plan üretim tarihi (toDateString). */
@@ -69,6 +69,10 @@ function planSigFrom(lessonIds: readonly string[]): string {
 
 function todayKey(): string {
   return new Date().toDateString();
+}
+
+function calibratedLevel(scene: Scene): CefrLevel | undefined {
+  return getScenario(scene.lessonId)?.cefrLevel ?? scene.cefrLevel;
 }
 
 /**
@@ -108,7 +112,7 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
         const scenes = stored.lessonIds
           .map((id) => SAMPLE_SCENES.find((s) => s.lessonId === id))
           .filter((s): s is Scene => !!s);
-        if (scenes.length >= 3) return scenes;
+        if (scenes.length >= PLAN_SIZE) return scenes.slice(0, PLAN_SIZE);
         // Hasarlı plan — yeniden üret
       }
     }
@@ -125,7 +129,7 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
 
   const interestModes =
     interests.length > 0 ? interestsToModes(interests) : null;
-  const relevantLevels = cefr ? new Set(getRelevantLevels(cefr)) : null;
+  const relevantLevels = cefr ? new Set(getComfortLevels(cefr)) : null;
 
   // Playable + uncompleted
   const basePool = SAMPLE_SCENES.filter((s) => {
@@ -149,7 +153,10 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
 
   if (relevantLevels) {
     const levelWithinInterest = interestPool.filter(
-      (s) => !s.cefrLevel || relevantLevels.has(s.cefrLevel),
+      (s) => {
+        const level = calibratedLevel(s);
+        return !level || relevantLevels.has(level);
+      },
     );
     if (levelWithinInterest.length >= PLAN_SIZE) {
       pool = levelWithinInterest;
@@ -160,7 +167,10 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
       pool = interestPool;
     } else {
       const levelOnly = basePool.filter(
-        (s) => !s.cefrLevel || relevantLevels.has(s.cefrLevel),
+        (s) => {
+          const level = calibratedLevel(s);
+          return !level || relevantLevels.has(level);
+        },
       );
       pool = levelOnly.length >= PLAN_SIZE ? levelOnly : basePool;
     }
@@ -337,8 +347,8 @@ export async function getPlanSummary(): Promise<{
   const plan = await getOrCreateDailyPlan();
   const { completed } = await getPlanProgress();
   const total = plan.length;
-  // Ortalama 4 dk/sahne (durationMin 5 ama ekstra UI/verdict overhead düş)
-  const estimatedMin = Math.max(1, (total - completed) * 4);
+  const remaining = total - completed;
+  const estimatedMin = remaining === 0 ? 0 : remaining * 3;
   return {
     total,
     completed,

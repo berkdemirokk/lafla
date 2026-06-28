@@ -418,6 +418,18 @@ export function getRelevantLevels(userLevel: CefrLevel): CefrLevel[] {
 }
 
 /**
+ * Levels safe for a daily success loop. Stretch content remains discoverable
+ * in the scene feed, but the daily plan never surprises a learner with a
+ * scene above their current level.
+ */
+export function getComfortLevels(userLevel: CefrLevel): CefrLevel[] {
+  const idx = CEFR_LEVELS.indexOf(userLevel);
+  if (idx <= 0) return ["A1"];
+  if (userLevel === "C2") return ["B2", "C1", "C2"];
+  return CEFR_LEVELS.slice(Math.max(0, idx - 1), idx + 1);
+}
+
+/**
  * Stretch target — the next level up, for challenging content.
  * Returns null at C2 (no stretch).
  */
@@ -552,7 +564,7 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
   setup: readonly T[],
   userLevel: CefrLevel | null,
 ): T[] {
-  if (!userLevel) return setup.slice(0, 3);
+  if (!userLevel) return setup.slice(0, 2);
 
   const acceptableBands = bandFor(userLevel);
   const exact = setup.filter((s) => s.cefr_band === userLevel);
@@ -567,5 +579,5 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
     (s) => s.cefr_band && !acceptableBands.includes(s.cefr_band),
   );
 
-  return [...exact, ...nearby, ...untagged, ...remaining].slice(0, 3);
+  return [...exact, ...nearby, ...untagged, ...remaining].slice(0, 2);
 }

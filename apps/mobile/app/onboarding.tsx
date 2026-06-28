@@ -813,6 +813,7 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
               }
               hitSlop={6}
               accessibilityRole="link"
+              accessibilityLabel="Kullanım Koşulları"
             >
               <Text style={styles.privacyLink}>Kullanım Koşulları</Text>
             </Pressable>
@@ -823,6 +824,7 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
               }
               hitSlop={6}
               accessibilityRole="link"
+              accessibilityLabel="Gizlilik Politikası"
             >
               <Text style={styles.privacyLink}>Gizlilik Politikası</Text>
             </Pressable>

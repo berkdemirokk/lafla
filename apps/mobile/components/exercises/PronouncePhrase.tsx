@@ -379,6 +379,8 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
                 pressed && styles.settingsBtnPressed,
               ]}
               hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel="Uygulama ayarlarını aç"
             >
               <Text style={styles.settingsBtnText}>Ayarları aç →</Text>
             </Pressable>
@@ -404,6 +406,8 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
             pressed && styles.skipBtnPressed,
           ]}
           hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel="Bu egzersizi atla"
         >
           <Text style={styles.skipBtnText}>Bu egzersizi atla →</Text>
         </Pressable>
@@ -417,6 +421,8 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
               styles.micCta,
               pressed && styles.micCtaPressed,
             ]}
+            accessibilityRole="button"
+            accessibilityLabel="Konuşmaya başla"
           >
             <Text style={styles.micCtaText}>Şimdi sen söyle 🎤</Text>
           </Pressable>
@@ -437,6 +443,8 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
                 pressed && styles.cancelBtnPressed,
               ]}
               hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel="Dinlemeyi iptal et"
             >
               <Text style={styles.cancelBtnText}>İptal</Text>
             </Pressable>

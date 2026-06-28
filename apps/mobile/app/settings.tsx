@@ -629,12 +629,16 @@ export default function SettingsScreen() {
                   <Pressable
                     style={[styles.modalBtn, styles.modalBtnGhost]}
                     onPress={cancelDeleteFlow}
+                    accessibilityRole="button"
+                    accessibilityLabel="Hesap silme işleminden vazgeç"
                   >
                     <Text style={styles.modalBtnGhostText}>Vazgeç</Text>
                   </Pressable>
                   <Pressable
                     style={[styles.modalBtn, styles.modalBtnDanger]}
                     onPress={proceedToTyping}
+                    accessibilityRole="button"
+                    accessibilityLabel="Hesap silme onayına devam et"
                   >
                     <Text style={styles.modalBtnDangerText}>Devam et</Text>
                   </Pressable>
@@ -657,6 +661,8 @@ export default function SettingsScreen() {
                   placeholder="SİL"
                   placeholderTextColor={tokens.text.tertiary}
                   style={styles.modalInput}
+                  accessibilityLabel="Hesap silme onayı"
+                  accessibilityHint="Onaylamak için SİL yaz"
                 />
                 {deleteError && (
                   <Text style={styles.modalError}>{deleteError}</Text>
@@ -665,12 +671,16 @@ export default function SettingsScreen() {
                   <Pressable
                     style={[styles.modalBtn, styles.modalBtnGhost]}
                     onPress={cancelDeleteFlow}
+                    accessibilityRole="button"
+                    accessibilityLabel="Hesap silme işleminden vazgeç"
                   >
                     <Text style={styles.modalBtnGhostText}>Vazgeç</Text>
                   </Pressable>
                   <Pressable
                     style={[styles.modalBtn, styles.modalBtnDanger]}
                     onPress={confirmDelete}
+                    accessibilityRole="button"
+                    accessibilityLabel="Hesabımı kalıcı olarak sil"
                   >
                     <Text style={styles.modalBtnDangerText}>
                       Hesabımı kalıcı olarak sil
@@ -681,6 +691,8 @@ export default function SettingsScreen() {
                   <Pressable
                     style={styles.modalFallback}
                     onPress={openMailtoFallback}
+                    accessibilityRole="link"
+                    accessibilityLabel="Manuel hesap silme desteğine e-posta gönder"
                   >
                     <Text style={styles.modalFallbackText}>
                       Otomatik silme başarısız. Manuel destek için: berkkdemirok@gmail.com

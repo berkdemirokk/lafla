@@ -60,10 +60,18 @@ export function Button({
         onPressIn={() => setPressed(true)}
         onPressOut={() => setPressed(false)}
         disabled={disabled || loading}
+        accessibilityRole="button"
+        accessibilityLabel={label}
+        accessibilityState={{
+          disabled: Boolean(disabled || loading),
+          busy: Boolean(loading),
+        }}
       >
         {loading ? (
           <ActivityIndicator
             color={isPrimary ? tokens.text.onPrimary : tokens.text.primary}
+            accessibilityElementsHidden
+            importantForAccessibility="no"
           />
         ) : (
           <Text
@@ -100,6 +108,7 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   btn: {
+    minHeight: 48,
     paddingVertical: 18,
     paddingHorizontal: 32,
     borderRadius: tokens.radius.full,

@@ -205,9 +205,34 @@ jobs:
           retention-days: 30
 
       - name: Upload to TestFlight
-        uses: apple-actions/upload-testflight-build@v3
-        with:
-          app-path: ${{ runner.temp }}/lafla.ipa
-          issuer-id: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-          api-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
-          api-private-key: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        shell: bash
+        env:
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: |
+          KEY_DIR="$HOME/.appstoreconnect/private_keys"
+          mkdir -p "$KEY_DIR"
+          cp "$API_KEY_PATH" "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
+          chmod 600 "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
+          trap 'rm -f "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"' EXIT
+
+          set +e
+          UPLOAD_OUTPUT=$(xcrun altool \
+            --output-format xml \
+            --upload-app \
+            --file "$RUNNER_TEMP/lafla.ipa" \
+            --type ios \
+            --apiKey "$ASC_KEY_ID" \
+            --apiIssuer "$ASC_ISSUER_ID" 2>&1)
+          UPLOAD_STATUS=$?
+          set -e
+          printf '%s\n' "$UPLOAD_OUTPUT"
+
+          if [ "$UPLOAD_STATUS" -ne 0 ] || printf '%s' "$UPLOAD_OUTPUT" | grep -Eqi 'UPLOAD FAILED|Validation failed|STATE_ERROR|The bundle is invalid|Invalid Pre-Release Train'; then
+            echo "::error::Apple rejected the TestFlight upload"
+            exit 1
+          fi
+          if ! printf '%s' "$UPLOAD_OUTPUT" | grep -Eqi 'UPLOAD SUCCEEDED|No errors uploading'; then
+            echo "::error::Apple upload did not return an explicit success marker"
+            exit 1
+          fi

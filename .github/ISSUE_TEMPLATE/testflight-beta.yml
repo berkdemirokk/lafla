@@ -1,5 +1,5 @@
 name: TestFlight beta report
-description: Structured Lafla v1.0.3 device and usability evidence
+description: Structured Lafla v1.0.4 device and usability evidence
 title: "[TestFlight] "
 labels: ["testflight", "qa"]
 body:
@@ -7,7 +7,7 @@ body:
     id: build
     attributes:
       label: Build
-      placeholder: "1.0.3 (98)"
+      placeholder: "1.0.4 (99)"
     validations:
       required: true
   - type: input

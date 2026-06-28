@@ -56,6 +56,8 @@ export default function IeltsBandScreen() {
           onPress={() => router.back()}
           style={styles.backBtn}
           hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Geri"
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
@@ -125,6 +127,8 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
       <Pressable
         onPress={onUpgrade}
         style={({ pressed }) => [styles.cta, pressed && styles.ctaPressed]}
+        accessibilityRole="button"
+        accessibilityLabel="Lafla Pro ile aç"
       >
         <Text style={styles.ctaText}>Lafla Pro ile aç — ₺99/ay</Text>
       </Pressable>
@@ -150,6 +154,8 @@ function NotEnoughData({
       <Pressable
         onPress={onGo}
         style={({ pressed }) => [styles.cta, pressed && styles.ctaPressed]}
+        accessibilityRole="button"
+        accessibilityLabel="IELTS sahnelerine git"
       >
         <Text style={styles.ctaText}>IELTS sahnelerine git</Text>
       </Pressable>

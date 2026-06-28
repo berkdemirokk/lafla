@@ -31,7 +31,10 @@ import { nameForNpc } from "../../lib/npc-names";
 import { maybePrependBridge } from "../../lib/npc-bridge";
 import { recordUserText } from "../../lib/mistake-tracker";
 import { detectMistakes, getPattern } from "../../lib/mistake-patterns";
-import type { RoleplayMode } from "../../lib/roleplay-progression";
+import {
+  resolveTurnSupport,
+  type RoleplayMode,
+} from "../../lib/roleplay-progression";
 import {
   averageRoleplayScores,
   assessRoleplayScore,
@@ -57,6 +60,7 @@ const K_TTS_MUTED = "lafla.tts.muted";
 // with voice; the choice survives across scenarios and app restarts.
 const K_INPUT_MODE = "lafla.roleplay.inputMode";
 type InputMode = "voice" | "text";
+type SubmissionSource = InputMode | "choice";
 
 interface RoleplayTurn {
   speaker: "npc" | "user";
@@ -114,6 +118,10 @@ interface Props {
    * bu prop sadece premium'da true gelir.
    */
   hardMode?: boolean;
+  /** Hide live scores/corrections and deliver one focused correction at the end. */
+  lowPressure?: boolean;
+  /** A short previous-episode acknowledgement shown as the NPC's first bubble. */
+  memoryPrompt?: string;
 }
 
 interface ChatMessage {
@@ -245,6 +253,8 @@ export function RoleplayChat({
   sceneLevel,
   userLevel,
   hardMode = false,
+  lowPressure = true,
+  memoryPrompt,
 }: Props) {
   // Delta: positive = user above scene (review mode), negative = below (stretch).
   // Both levels required for non-neutral adaptation; either missing → 0.
@@ -262,6 +272,7 @@ export function RoleplayChat({
       : levelDelta > 0
         ? "review"
         : "matched";
+  const pressureFree = lowPressure && !hardMode;
   // Resolve a stable seed. The caller usually passes the scenario id; if it
   // doesn't, fall back to (role + setting) so the name is still consistent
   // for that pairing (just not unique across scenarios sharing those values).
@@ -276,6 +287,15 @@ export function RoleplayChat({
   const [independentScores, setIndependentScores] = useState<number[]>([]);
   const [assistedTurns, setAssistedTurns] = useState(0);
   const [sceneMistakes, setSceneMistakes] = useState<RoleplayMistake[]>([]);
+  const [userResponses, setUserResponses] = useState<string[]>([]);
+  const focusMistakeRef = useRef<{
+    mistake: RoleplayMistake;
+    weight: number;
+  } | null>(null);
+  const roleplayStartedAtRef = useRef(Date.now());
+  const firstResponseTrackedRef = useRef(false);
+  const hintTrackedTurnsRef = useRef(new Set<number>());
+  const finalizedRef = useRef(false);
   const [finished, setFinished] = useState(false);
   const [retryTurnIdx, setRetryTurnIdx] = useState<number | null>(null);
   const [freeInputForTurn, setFreeInputForTurn] = useState(false);
@@ -473,6 +493,10 @@ export function RoleplayChat({
     let i = turnIdx;
     const isOpening = turnIdx === 0 && shown.length === 0;
     const newShown: ChatMessage[] = [];
+    if (isOpening && memoryPrompt) {
+      newShown.push({ speaker: "npc", message: memoryPrompt });
+    }
+    let authoredNpcCount = 0;
     while (i < turns.length && turns[i]!.speaker === "npc") {
       const raw = turns[i]!.message;
       if (raw) {
@@ -480,7 +504,7 @@ export function RoleplayChat({
         // Everything that follows in the same opening block (rare, but
         // some scenes have consecutive NPC lines) is left untouched so we
         // don't try to inject the name multiple times into one greeting.
-        const isFirstNpcLine = isOpening && newShown.length === 0;
+        const isFirstNpcLine = isOpening && authoredNpcCount === 0;
         let message = isFirstNpcLine
           ? personalizeOpener(raw, userName)
           : raw;
@@ -505,10 +529,11 @@ export function RoleplayChat({
         // every follow-up. Personalized opener path never hits this branch
         // because reactions are queued from user submits, and the opening
         // block (turnIdx === 0, shown empty) precedes any user turn.
-        if (newShown.length === 0 && pendingReaction && !isFirstNpcLine) {
+        if (authoredNpcCount === 0 && pendingReaction && !isFirstNpcLine) {
           message = `${pendingReaction} ${message}`;
         }
         newShown.push({ speaker: "npc", message });
+        authoredNpcCount += 1;
       }
       i++;
     }
@@ -546,7 +571,7 @@ export function RoleplayChat({
     // the same NPC block when the toggle flips, so we deliberately omit it
     // and accept the stale-closure trade (mute applies to the NEXT block).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [turnIdx, turns, userName, pendingReaction]);
+  }, [turnIdx, turns, userName, pendingReaction, memoryPrompt]);
 
   // Auto-scroll
   useEffect(() => {
@@ -560,6 +585,53 @@ export function RoleplayChat({
   const currentTurn = turns[turnIdx];
   const awaitingUserInput =
     !finished && currentTurn?.speaker === "user";
+  const currentUserTurnIndex = useMemo(
+    () =>
+      turns
+        .slice(0, turnIdx)
+        .filter((turn) => turn.speaker === "user").length,
+    [turnIdx, turns],
+  );
+  const turnSupportMode = resolveTurnSupport({
+    baseMode: mode,
+    userTurnIndex: currentUserTurnIndex,
+    levelDelta,
+    hardMode,
+  });
+  const shouldShowHint = Boolean(
+    !hardMode &&
+      currentTurn?.hint_tr &&
+      (retryTurnIdx === turnIdx ||
+        forceShowHint ||
+        adaptMode === "stretch" ||
+        (adaptMode === "matched" && turnSupportMode !== "free")),
+  );
+
+  useEffect(() => {
+    if (!shouldShowHint || hintTrackedTurnsRef.current.has(turnIdx)) return;
+    hintTrackedTurnsRef.current.add(turnIdx);
+    void trackEvent("roleplay_hint_shown", {
+      scenario_id: seed ?? "unknown",
+      turn_index: turnIdx,
+      support_mode: turnSupportMode,
+      reason:
+        retryTurnIdx === turnIdx
+          ? "retry"
+          : forceShowHint
+            ? "rescue"
+            : adaptMode === "stretch"
+              ? "stretch"
+              : "guided",
+    }).catch(() => {});
+  }, [
+    adaptMode,
+    forceShowHint,
+    retryTurnIdx,
+    seed,
+    shouldShowHint,
+    turnIdx,
+    turnSupportMode,
+  ]);
   const choiceOptions = useMemo(
     () =>
       currentTurn
@@ -726,17 +798,23 @@ export function RoleplayChat({
   // Voice path'lerde `input` state commit'ini beklemeden direkt submit
   // edebilmek için text parametresi alır; manuel klavye submit'ler
   // submitUserTurn() yine input state'inden okur.
-  const submitUserTurnWith = (text: string) => {
+  const submitUserTurnWith = (
+    text: string,
+    source: SubmissionSource = inputMode,
+  ) => {
     if (!awaitingUserInput || !text.trim() || !currentTurn) return;
-    submitUserTurnInternal(text);
+    submitUserTurnInternal(text, source);
   };
 
   const submitUserTurn = () => {
     if (!awaitingUserInput || !input.trim() || !currentTurn) return;
-    submitUserTurnInternal(input);
+    submitUserTurnInternal(input, inputMode);
   };
 
-  const submitUserTurnInternal = (input: string) => {
+  const submitUserTurnInternal = (
+    input: string,
+    submissionSource: SubmissionSource,
+  ) => {
     // NOT: parameter adı bilinçli olarak `input` — outer state'i shadow eder
     // ki eski body'deki tüm `input` referansları parameter'a bağlansın.
     // Voice path text-as-arg geçer; klavye path submitUserTurn `input`
@@ -753,6 +831,19 @@ export function RoleplayChat({
 
     if (submissionLockedRef.current) return;
     submissionLockedRef.current = true;
+
+    if (!firstResponseTrackedRef.current) {
+      firstResponseTrackedRef.current = true;
+      void trackEvent("roleplay_first_response", {
+        scenario_id: seed ?? "unknown",
+        elapsed_ms: Date.now() - roleplayStartedAtRef.current,
+        input_source: submissionSource,
+        support_mode: turnSupportMode,
+        low_pressure: pressureFree,
+        scene_level: sceneLevel ?? "unknown",
+        user_level: userLevel ?? "unknown",
+      }).catch(() => {});
+    }
 
     const rawEval = evaluateRoleplayTurn(
       currentTurn.acceptable_patterns ?? [],
@@ -782,15 +873,11 @@ export function RoleplayChat({
           reason_tr: top.pat!.reason_tr,
           correct_example: top.pat!.example_right,
         };
-        const detected = mistakeInline;
-        setSceneMistakes((previous) => {
-          const duplicate = previous.some(
-            (mistake) =>
-              mistake.reason_tr === detected.reason_tr &&
-              mistake.matched === detected.matched,
-          );
-          return duplicate ? previous : [...previous, detected].slice(0, 3);
-        });
+        const weight = top.pat!.weight ?? 0;
+        if (!focusMistakeRef.current || weight > focusMistakeRef.current.weight) {
+          focusMistakeRef.current = { mistake: mistakeInline, weight };
+          setSceneMistakes([mistakeInline]);
+        }
       }
     }
 
@@ -799,8 +886,8 @@ export function RoleplayChat({
       {
         speaker: "user",
         message: input,
-        score: evalResult.score,
-        mistake: mistakeInline,
+        score: pressureFree ? undefined : evalResult.score,
+        mistake: pressureFree ? undefined : mistakeInline,
       },
     ]);
 
@@ -811,7 +898,7 @@ export function RoleplayChat({
     if (firstAttempt) {
       setIndependentScores((prev) => [...prev, evalResult.score]);
     }
-    const shouldRetry = evalResult.score < 80 && firstAttempt;
+    const shouldRetry = !pressureFree && evalResult.score < 80 && firstAttempt;
     if (shouldRetry) {
       setRetryTurnIdx(turnIdx);
       setInput("");
@@ -820,12 +907,15 @@ export function RoleplayChat({
         scenario_id: seed ?? "unknown",
         turn_index: turnIdx,
         assessment: assessRoleplayScore(evalResult.score),
-        input_mode: inputMode,
+        input_mode: submissionSource,
+        support_mode: turnSupportMode,
+        low_pressure: pressureFree,
       }).catch(() => {});
       return;
     }
 
     if (!firstAttempt) setAssistedTurns((count) => count + 1);
+    setUserResponses((previous) => [...previous, input]);
     setRetryTurnIdx(null);
     setTurnScores((prev) => [...prev, evalResult.score]);
     void trackEvent("roleplay_turn_completed", {
@@ -833,7 +923,9 @@ export function RoleplayChat({
       turn_index: turnIdx,
       assessment: assessRoleplayScore(evalResult.score),
       retried: retryTurnIdx === turnIdx,
-      input_mode: inputMode,
+      input_mode: submissionSource,
+      support_mode: turnSupportMode,
+      low_pressure: pressureFree,
     }).catch(() => {});
 
     // Queue the score-based reaction ACK for the NEXT NPC line. Skipped on
@@ -867,6 +959,8 @@ export function RoleplayChat({
   };
 
   const finalize = () => {
+    if (finalizedRef.current) return;
+    finalizedRef.current = true;
     const correctCount = turnScores.filter((s) => s >= 80).length;
     onComplete({
       exercise_id: "roleplay_chat",
@@ -876,6 +970,7 @@ export function RoleplayChat({
       mastery_score: masteryScore,
       assisted_turns: assistedTurns,
       mistakes: sceneMistakes,
+      user_responses: userResponses,
       feedback: `${correctCount}/${turnScores.length} hedefe uygun tepki.`,
     });
   };
@@ -957,6 +1052,13 @@ export function RoleplayChat({
               </Text>
             </View>
           )}
+          {pressureFree && (
+            <View style={styles.lowPressureBadge}>
+              <Text style={styles.lowPressureBadgeText}>
+                RAHAT MOD · DÜZELTMELER SAHNE SONUNDA
+              </Text>
+            </View>
+          )}
           {!hardMode && adaptMode === "stretch" && (
             <View style={styles.stretchBadge}>
               <Text style={styles.stretchBadgeText}>
@@ -1000,12 +1102,7 @@ export function RoleplayChat({
               - matched + non-free → göster
               - review → gösterme
               hintGlowStyle (Reanimated): 5sn idle → shadow opacity/radius pulse */}
-          {!hardMode &&
-            currentTurn?.hint_tr &&
-            (retryTurnIdx === turnIdx ||
-              forceShowHint ||
-              adaptMode === "stretch" ||
-              (adaptMode === "matched" && mode !== "free")) && (
+          {shouldShowHint && (
             <Animated.View
               style={[
                 styles.hintBox,
@@ -1033,7 +1130,7 @@ export function RoleplayChat({
 
           {/* First encounter is recognition before production. The learner
               can still bypass choices and answer with voice/text. */}
-          {mode === "multi-choice" &&
+          {turnSupportMode === "multi-choice" &&
           currentTurn &&
           choiceOptions.length > 0 &&
           !freeInputForTurn ? (
@@ -1042,7 +1139,7 @@ export function RoleplayChat({
                 <Pressable
                   key={`${turnIdx}-${i}`}
                   style={styles.choiceBtn}
-                  onPress={() => submitUserTurnWith(opt)}
+                  onPress={() => submitUserTurnWith(opt, "choice")}
                   accessibilityRole="button"
                   accessibilityLabel={`${i + 1}. cevap seçeneği: ${opt}`}
                 >
@@ -1156,6 +1253,7 @@ export function RoleplayChat({
                   returnKeyType="send"
                   blurOnSubmit={false}
                   onSubmitEditing={submitUserTurn}
+                  accessibilityLabel="İngilizce cevabın"
                 />
                 <Pressable
                   style={[
@@ -1248,6 +1346,9 @@ function ChatBubble({
           bubbleStyles.bubble,
           isUser ? bubbleStyles.bubbleUser : bubbleStyles.bubbleNpc,
         ]}
+        accessibilityRole="button"
+        accessibilityLabel={`${isUser ? "Sen" : "Konuşma partneri"}: ${message.message}`}
+        accessibilityHint="Mesajı sesli dinler"
       >
         <Text
           style={[
@@ -1496,6 +1597,22 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.extrabold,
     color: tokens.semantic.error,
     letterSpacing: 1.2,
+  },
+  lowPressureBadge: {
+    alignSelf: "flex-start",
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    marginBottom: 6,
+  },
+  lowPressureBadgeText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.8,
   },
   stretchBadge: {
     alignSelf: "flex-start",

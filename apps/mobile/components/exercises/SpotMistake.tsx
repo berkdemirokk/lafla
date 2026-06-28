@@ -62,6 +62,7 @@ export function SpotMistake({
         editable={!result}
         autoCapitalize="sentences"
         autoCorrect={false}
+        accessibilityLabel="Cümlenin doğru hali"
       />
 
       {result && (
