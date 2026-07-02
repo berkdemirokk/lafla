@@ -146,9 +146,12 @@ async function callOpenAICompatible(
     });
 
     if (!response.ok) {
-      console.warn(
-        `[LLM Router] ${provider.name} failed with status: ${response.status}`,
-      );
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `[LLM Router] ${provider.name} failed with status: ${response.status}`,
+        );
+      }
       return null; // Fallthrough
     }
 
@@ -159,7 +162,10 @@ async function callOpenAICompatible(
       null
     );
   } catch (e) {
-    console.warn(`[LLM Router] Error calling ${provider.name}:`, e);
+    if (__DEV__) {
+      // eslint-disable-next-line no-console
+      console.warn(`[LLM Router] Error calling ${provider.name}:`, e);
+    }
     return null; // Fallthrough
   }
 }
@@ -206,16 +212,22 @@ async function callGemini(
     });
 
     if (!response.ok) {
-      console.warn(
-        `[LLM Router] Gemini failed with status: ${response.status}`,
-      );
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `[LLM Router] Gemini failed with status: ${response.status}`,
+        );
+      }
       return null; // Fallthrough
     }
 
     const data = await response.json();
     return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
   } catch (e) {
-    console.warn("[LLM Router] Error calling Gemini:", e);
+    if (__DEV__) {
+      // eslint-disable-next-line no-console
+      console.warn("[LLM Router] Error calling Gemini:", e);
+    }
     return null; // Fallthrough
   }
 }
@@ -257,7 +269,10 @@ export async function chatCompleteDetailed(
       }
       throw new Error("Edge function returned empty response");
     } catch (e) {
-      console.error("[LLM Router] Failed to call Edge Function proxy:", e);
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.error("[LLM Router] Failed to call Edge Function proxy:", e);
+      }
       throw e;
     }
   }

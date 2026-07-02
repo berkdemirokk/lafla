@@ -22,7 +22,7 @@ import {
   TextInput,
   ActivityIndicator,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -40,6 +40,11 @@ import { supabase } from "../lib/supabase";
 import { hapticImpact, hapticSelection, hapticSuccess } from "../lib/feedback";
 import { restorePurchases } from "../lib/iap";
 import {
+  getThemePreference,
+  setThemePreference,
+  type AppThemePreference,
+} from "../lib/theme-preference";
+import {
   disableReminders,
   enableDailyReminder,
   getReminderHour,
@@ -50,6 +55,15 @@ import { signOut } from "../lib/auth";
 import { tokens } from "../theme";
 
 const K_AUTO_SPEAK = "lafla.settings.autoSpeak";
+const THEME_OPTIONS: Array<{
+  value: AppThemePreference;
+  label: string;
+  icon: string;
+}> = [
+  { value: "system", label: "Sistem", icon: "⚙️" },
+  { value: "dark", label: "Dark", icon: "🌙" },
+  { value: "light", label: "White", icon: "☀️" },
+];
 
 // ===== Defensive dynamic loaders =====================================
 // `lib/sfx.ts` ships in this same wave from a sibling agent. If the file
@@ -92,6 +106,8 @@ export default function SettingsScreen() {
   const params = useLocalSearchParams<{ action?: string }>();
   const [autoSpeak, setAutoSpeak] = useState(true);
   const [sfxOn, setSfxOn] = useState(true);
+  const [themePreference, setThemePreferenceState] =
+    useState<AppThemePreference>("dark");
   // "Analytics olmadan kullan" — ON means opted OUT of analytics.
   // We store the inverse internally for clearer call-site semantics.
   const [analyticsOptOut, setAnalyticsOptOut] = useState(false);
@@ -118,6 +134,11 @@ export default function SettingsScreen() {
     (async () => {
       const v = await AsyncStorage.getItem(K_AUTO_SPEAK).catch(() => null);
       if (v === "false") setAutoSpeak(false);
+      try {
+        setThemePreferenceState(await getThemePreference());
+      } catch {
+        // ignore — default dark keeps legacy behavior
+      }
       // Daily reminder state
       try {
         const [enabled, hour] = await Promise.all([
@@ -206,6 +227,13 @@ export default function SettingsScreen() {
         // non-fatal
       }
     }
+  };
+
+  const handleThemeChange = async (preference: AppThemePreference) => {
+    if (preference === themePreference) return;
+    hapticSelection();
+    setThemePreferenceState(preference);
+    await setThemePreference(preference);
   };
 
   const openDeleteFlow = async () => {
@@ -398,7 +426,7 @@ export default function SettingsScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
@@ -420,6 +448,10 @@ export default function SettingsScreen() {
       >
         {/* ===================== TERCİHLER ===================== */}
         <Section title="TERCİHLER">
+          <ThemePreferencePicker
+            value={themePreference}
+            onChange={handleThemeChange}
+          />
           <Toggle
             icon="🔊"
             label="Otomatik telaffuz"
@@ -801,6 +833,55 @@ function Toggle({
   );
 }
 
+function ThemePreferencePicker({
+  value,
+  onChange,
+}: {
+  value: AppThemePreference;
+  onChange: (value: AppThemePreference) => void;
+}) {
+  return (
+    <View style={styles.themePickerRow}>
+      <View style={styles.themePickerHeader}>
+        <Text style={styles.rowIcon}>🎨</Text>
+        <View style={styles.toggleText}>
+          <Text style={styles.rowLabel}>Tema</Text>
+          <Text style={styles.rowSub}>Dark veya White görünüm seç</Text>
+        </View>
+      </View>
+      <View style={styles.themeSegment}>
+        {THEME_OPTIONS.map((option) => {
+          const selected = option.value === value;
+          return (
+            <Pressable
+              key={option.value}
+              onPress={() => onChange(option.value)}
+              style={({ pressed }) => [
+                styles.themeOption,
+                selected && styles.themeOptionSelected,
+                pressed && styles.rowPressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel={`Tema seçimi: ${option.label}`}
+              accessibilityState={{ selected }}
+            >
+              <Text style={styles.themeOptionIcon}>{option.icon}</Text>
+              <Text
+                style={[
+                  styles.themeOptionText,
+                  selected && styles.themeOptionTextSelected,
+                ]}
+              >
+                {option.label}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
+
 // 2026-05-24 — Reminder hour preset picker. Toggle ON iken Toggle altında
 // görünür. 3 preset chip (Sabah/Öğle/Akşam). Custom saat picker v2
 // hedefiyle ertelendi — preset'ler kullanıcı çoğunluğunu kapsar ve UI
@@ -948,6 +1029,56 @@ const styles = StyleSheet.create({
   },
   toggleText: {
     flex: 1,
+  },
+  themePickerRow: {
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    gap: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: tokens.border.light,
+  },
+  themePickerHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  themeSegment: {
+    flexDirection: "row",
+    gap: 8,
+    padding: 4,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+  },
+  themeOption: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 5,
+    paddingVertical: 9,
+    borderRadius: tokens.radius.full,
+  },
+  themeOptionSelected: {
+    backgroundColor: tokens.brand.primary,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 7,
+    elevation: 3,
+  },
+  themeOptionIcon: {
+    fontSize: 13,
+  },
+  themeOptionText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.2,
+  },
+  themeOptionTextSelected: {
+    color: tokens.brand.onPrimary,
   },
   rowChevron: {
     fontSize: 20,

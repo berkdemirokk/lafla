@@ -32,8 +32,10 @@ export function resolveRoleplayMode(
 
 /**
  * Reduce support inside a single short scene: recognition -> guided recall ->
- * independent production. A harder-than-user scene keeps one hint after the
- * opening choice; an easier review scene starts directly with production.
+ * independent production. First encounters now keep recognition for the first
+ * two user turns so beginners get early success before open production.
+ * A harder-than-user scene keeps guidance throughout; an easier review scene
+ * starts directly with production.
  */
 export function resolveTurnSupport({
   baseMode,
@@ -44,11 +46,11 @@ export function resolveTurnSupport({
   if (hardMode || levelDelta > 0) return "free";
 
   const turn = Math.max(0, userTurnIndex);
-  if (levelDelta < 0) return turn === 0 ? "multi-choice" : "hinted";
+  if (levelDelta < 0) return turn <= 1 ? "multi-choice" : "hinted";
 
   if (baseMode === "free") return "free";
-  if (baseMode === "hinted") return turn === 0 ? "hinted" : "free";
-  if (turn === 0) return "multi-choice";
-  if (turn === 1) return "hinted";
+  if (baseMode === "hinted") return turn <= 1 ? "hinted" : "free";
+  if (turn <= 1) return "multi-choice";
+  if (turn === 2) return "hinted";
   return "free";
 }

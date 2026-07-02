@@ -14,7 +14,7 @@
 //   1. Create RevenueCat project — get iOS public SDK key
 //   2. In App Store Connect → My Apps → Lafla → Subscriptions:
 //      - Create Subscription Group "Lafla Premium"
-//      - Create two products: lafla.premium.monthly (149 TL), lafla.premium.yearly (999 TL)
+//      - Create two products: lafla.premium.monthly (₺99/ay), lafla.premium.yearly (₺999/yıl)
 //   3. In RevenueCat dashboard:
 //      - Add iOS app with bundle id com.lafla.app
 //      - Create Entitlement "Lafla Pro" (must match PREMIUM_ENTITLEMENT below)

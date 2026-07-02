@@ -20,7 +20,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
@@ -96,7 +96,10 @@ export default function FreechatScreen() {
           setUserTurnCount(serverTurns);
         }
       } catch (err) {
-        console.warn("[Freechat] Failed to fetch server turn count:", err);
+        if (__DEV__) {
+          // eslint-disable-next-line no-console
+          console.warn("[Freechat] Failed to fetch server turn count:", err);
+        }
       }
     };
     refresh();
@@ -261,10 +264,13 @@ export default function FreechatScreen() {
         ];
       });
     } catch (err) {
-      console.warn(
-        "[Freechat] LLM router failed, falling back to static prompt:",
-        err,
-      );
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          "[Freechat] LLM router failed, falling back to static prompt:",
+          err,
+        );
+      }
       setServiceNotice(
         "Canlı yanıt gecikti. Sohbeti hazır takip sorusuyla sürdürüyoruz.",
       );
@@ -319,7 +325,7 @@ export default function FreechatScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Header */}
       <View style={styles.header}>

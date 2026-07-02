@@ -61,10 +61,10 @@ or downgrade between them without a refund refund dance.
 
 | Product ID              | Type       | Price (TR) | Duration | Notes |
 | ----------------------- | ---------- | ---------- | -------- | ----- |
-| `lafla.premium.monthly` | Auto-renew | ₺99        | 1 month  | Flexible tier |
-| `lafla.premium.yearly`  | Auto-renew | ₺999       | 1 year   | Best value — ≈₺83/ay |
+| `lafla.premium.monthly` | Auto-renew | ₺99 / ay   | 1 month  | Flexible tier |
+| `lafla.premium.yearly`  | Auto-renew | ₺999 / yıl | 1 year   | Best value — ≈₺83/ay |
 
-The yearly price is ₺999 (≈ ₺83/ay equivalent, ~16% cheaper than 12 months
+The yearly price is ₺999/yıl (≈ ₺83/ay equivalent, ~16% cheaper than 12 months
 of monthly). This matches the Trend Researcher recommendation: competitive
 with Duolingo Super Türkiye (~₺680/yıl equivalent) while staying below
 Speak's ₺4188/yıl. The "−%X" badge on the paywall toggle computes this
@@ -78,6 +78,10 @@ RevenueCat** — products stay `Waiting for Review` until then.
 **Tier copy for App Store Connect (Turkish):**
 - Monthly: "Lafla Pro Aylık — Sınırsız sahne, premium özellikler. ₺99/ay."
 - Yearly: "Lafla Pro Yıllık — 12 ay tek ödeme. Aylık ₺83 eşdeğeri (~%16 indirim)."
+
+Runtime fallback display strings are `₺99 / ay` and `₺999 / yıl`; App Store /
+RevenueCat localized prices override these whenever `getOffering()` returns
+live StoreKit price strings.
 
 ---
 

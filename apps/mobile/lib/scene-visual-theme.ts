@@ -79,7 +79,6 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
   ],
   immigration: [
     IMG("photo-1436491865332-7a61a109cc05"),
-    IMG("photo-1544016713-3a7b3729f23c"), // official passport desk
     IMG("photo-1517400508447-f8dd518b86db"), // travel checkpoint
     IMG("photo-1522071820081-009f0129c71c"), // official counter
   ],
@@ -90,7 +89,6 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1566417713940-fe7c737a9ef2"), // luxury pub interior
     IMG("photo-1510812431401-41d2bd2722f3"), // wine glasses moody light
     IMG("photo-1528605248644-14dd04022da1"), // dynamic night pub crowd
-    IMG("photo-1574096079513-d8259312b7a3"), // retro cyberpunk bar vibe
   ],
   cafe: [
     IMG("photo-1501339847302-ac426a4a7cbb"), // aesthetic warm cafe
@@ -279,7 +277,6 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1517248135467-4c7edcad34c4"),
     IMG("photo-1516450360452-9312f5e86fc7"), // romantic home date
     IMG("photo-1518199266791-5375a83190b7"), // couple holding hands close up
-    IMG("photo-1537367686720-3f4345eef22e"), // young relationship conversation
   ],
   party: [
     IMG("photo-1516450360452-9312f5e86fc7"),
@@ -292,7 +289,6 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1519389950473-47ba0277781c"), // technology team meeting
     IMG("photo-1454165804606-c3d57bc86b40"), // modern corporate meeting
     IMG("photo-1531538606174-0f90ff5dce83"), // board strategy discussion
-    IMG("photo-1542744173-8e0ee26d222f"), // team workshop session
   ],
   work_interview: [
     IMG("photo-1553877522-43269d4ea984"), // job interview resume review
@@ -375,9 +371,288 @@ function textOf(scene: VisualScene): string {
     .toLowerCase();
 }
 
+function skillIs(skill: string, prefixes: readonly string[]): boolean {
+  return prefixes.some(
+    (prefix) =>
+      skill === prefix ||
+      skill.startsWith(`${prefix}.`) ||
+      skill.startsWith(`${prefix}-`),
+  );
+}
+
+function themeFromSkillId(skill: string): VisualTheme | null {
+  // Skill IDs are the highest-confidence signal. They prevent broad text
+  // matches from misclassifying scenes, e.g. "Flat White" => housing via
+  // "flat", or restaurant scenes containing "sipariş" => delivery.
+  if (skillIs(skill, ["order.cafe"])) return "cafe";
+  if (skillIs(skill, ["order.fastfood"])) return "fastfood";
+  if (skillIs(skill, ["order.delivery"])) return "delivery";
+  if (skillIs(skill, ["order.grocery", "daily.a2.supermarket"])) {
+    return "grocery";
+  }
+  if (skillIs(skill, ["order.bill", "order.tipping"])) return "bill";
+  if (skillIs(skill, ["order.bar", "bar.approach"])) return "bar";
+  if (skillIs(skill, ["order.restaurant", "order.custom", "order.complaint"])) {
+    return "restaurant";
+  }
+
+  if (skillIs(skill, ["airport"])) return "airport";
+  if (skillIs(skill, ["arc.us_immigration"])) return "immigration";
+
+  if (skillIs(skill, ["daily.hotel", "daily.a2.hotel"])) return "hotel";
+  if (
+    skillIs(skill, [
+      "daily.housing",
+      "daily.expanded.landlord",
+      "arc.apartment_hunt",
+    ])
+  ) {
+    return "housing";
+  }
+
+  if (skillIs(skill, ["daily.pharmacy", "daily.a2.pharmacy"])) {
+    return "pharmacy";
+  }
+  if (skillIs(skill, ["daily.health", "daily.a2.doctor", "arc.doctor_visit"])) {
+    return "doctor";
+  }
+  if (skillIs(skill, ["daily.expanded.dentist"])) return "dentist";
+  if (skillIs(skill, ["daily.expanded.optician"])) return "optician";
+  if (skillIs(skill, ["daily.expanded.vet"])) return "vet";
+  if (skillIs(skill, ["daily.emergency"])) return "emergency";
+
+  if (
+    skillIs(skill, [
+      "daily.shopping",
+      "daily.a2.shopping",
+      "daily.expanded.drycleaner",
+    ])
+  ) {
+    return "shopping";
+  }
+  if (skillIs(skill, ["daily.bank", "daily.expanded.bankopen"])) return "bank";
+  if (
+    skillIs(skill, [
+      "daily.service",
+      "daily.expanded.dmv",
+      "daily.expanded.insurance",
+      "daily.expanded.utilities",
+    ])
+  ) {
+    return "service_counter";
+  }
+  if (
+    skillIs(skill, [
+      "daily.logistics",
+      "daily.a2.micro-package",
+      "daily.expanded.postoffice",
+    ])
+  ) {
+    return "package";
+  }
+  if (skillIs(skill, ["daily.expanded.library"])) return "library";
+  if (skillIs(skill, ["daily.expanded.worship"])) return "worship";
+  if (
+    skillIs(skill, [
+      "daily.gym",
+      "daily.expanded.gymsub",
+      "daily.expanded.yogaclass",
+    ])
+  ) {
+    return "gym";
+  }
+  if (skillIs(skill, ["daily.salon", "daily.expanded.salondetailed"])) {
+    return "salon";
+  }
+  if (skillIs(skill, ["daily.phone", "arc.customer_support"])) return "phone";
+  if (skillIs(skill, ["daily.tech_support", "arc.tech_support"])) {
+    return "tech_support";
+  }
+
+  if (skillIs(skill, ["daily.taxi", "daily.a2.taxi"])) return "taxi";
+  if (
+    skillIs(skill, [
+      "daily.transport",
+      "daily.a2.transit",
+      "daily.expanded.transitdelay",
+    ])
+  ) {
+    return "transit";
+  }
+  if (skillIs(skill, ["daily.directions", "daily.a2.lost"])) {
+    return "directions";
+  }
+
+  if (skillIs(skill, ["daily.a2.family", "personal.b1.in-laws"])) {
+    return "family";
+  }
+  if (skillIs(skill, ["daily.a2.hobbies", "personal.b1.new-hobby"])) {
+    return "hobbies";
+  }
+  if (skillIs(skill, ["daily.a2.weather", "daily.a2.weatherlikes"])) {
+    return "weather";
+  }
+  if (skillIs(skill, ["personal.b1.self-care", "personal.b1.therapy"])) {
+    return "self_care";
+  }
+
+  if (skillIs(skill, ["personal.b1.dating-app", "arc.online_dating", "flirt.opener"])) {
+    return "dating_app";
+  }
+  if (
+    skillIs(skill, [
+      "flirt.firstdate",
+      "flirt.second_date",
+      "flirt.date",
+      "personal.b1.first-date",
+    ])
+  ) {
+    return "date_cafe";
+  }
+  if (skillIs(skill, ["daily.expanded.partytalk"])) return "party";
+  if (
+    skillIs(skill, [
+      "flirt",
+      "personal.b1.breakup",
+      "personal.b1.long-distance",
+      "personal.b1.love-boundaries",
+      "personal.b1.repair",
+      "personal.b1.we-need-to-talk",
+      "personal.b1.apology",
+    ])
+  ) {
+    return "relationship";
+  }
+
+  if (skillIs(skill, ["work.codereview", "work.tech", "arc.junior_dev_london"])) {
+    return "work_code";
+  }
+  if (skillIs(skill, ["work.email"])) return "work_email";
+  if (skillIs(skill, ["work.remote", "work.slack", "work.standup"])) {
+    return "work_remote";
+  }
+  if (skillIs(skill, ["work.interview", "work.hire", "arc.salary_neg"])) {
+    return "work_interview";
+  }
+  if (
+    skillIs(skill, [
+      "work.network",
+      "work.networking",
+      "work.coffeechat",
+      "arc.ny_tech_conf",
+    ])
+  ) {
+    return "work_networking";
+  }
+  if (
+    skillIs(skill, [
+      "work.1on1",
+      "work.crisis",
+      "work.disagree",
+      "work.feedback_giving",
+      "work.meeting",
+      "work.meeting2",
+      "work.promotion_ask",
+      "work.review",
+      "arc.work_conflict",
+    ])
+  ) {
+    return "work_meeting";
+  }
+
+  if (skillIs(skill, ["ielts.w1", "ielts.w2"])) return "writing";
+  if (skillIs(skill, ["arc.uni_admission", "arc.erasmus_amsterdam", "story.erasmus"])) {
+    return "university";
+  }
+  if (skillIs(skill, ["ielts.p1", "ielts.p2", "ielts.p3", "story.ielts"])) {
+    return "ielts";
+  }
+
+  return null;
+}
+
+function themeFromLessonId(lessonId: string | undefined): VisualTheme | null {
+  switch (lessonId) {
+    case "daily.survival.a1.2":
+      return "daily_conversation";
+    case "daily.expand.22":
+      return "bank";
+    case "daily.expand.23":
+      return "phone";
+    default:
+      return null;
+  }
+}
+
 export function getVisualThemeForScene(scene: VisualScene): VisualTheme {
   const skill = (scene.skillId || "").toLowerCase();
   const text = textOf(scene);
+  const lessonTheme = themeFromLessonId(scene.lessonId);
+  if (lessonTheme) return lessonTheme;
+  const skillTheme = themeFromSkillId(skill);
+  if (skillTheme) return skillTheme;
+
+  // Professional/B1-C1 scenes share broad skill IDs, so title/lesson text must
+  // win before broad substring rules such as "tea" or generic
+  // "professional => meeting". Otherwise a bank, police or municipality scene
+  // can look like a random cafe/payment/office card.
+  if (
+    hasAny(skill, ["professional.b1", "professional.c1"]) ||
+    hasAny(text, ["professional.b1", "professional.c1"])
+  ) {
+    if (
+      hasAny(text, ["lease", "kira", "landlord", "ev sahibi", "faturalar"])
+    ) {
+      return "housing";
+    }
+    if (
+      hasAny(text, ["bank", "banka", "hesap aç", "deposit", "depozit", "kart"])
+    ) {
+      return "bank";
+    }
+    if (
+      hasAny(text, ["sick leave", "hastalık izni", "doctor", "doktor"])
+    ) {
+      return "doctor";
+    }
+    if (
+      hasAny(text, [
+        "insurance",
+        "sigorta",
+        "lawyer",
+        "avukat",
+        "witness",
+        "tanık",
+        "govoffice",
+        "resmi belge",
+        "police",
+        "polis",
+        "municipality",
+        "belediye",
+        "complaint",
+        "şikayet",
+        "legal",
+        "hr soruşturması",
+      ])
+    ) {
+      return "service_counter";
+    }
+    if (
+      hasAny(text, ["sales call", "salescall", "cold call", "investor", "yatırımcı", "referral"])
+    ) {
+      return "work_networking";
+    }
+    if (
+      hasAny(text, ["conflict", "çatış", "negotiation", "müzakere", "feedback", "geri bildirim"])
+    ) {
+      return "work_meeting";
+    }
+    if (
+      hasAny(text, ["keynote", "sunum", "board", "kurul", "press", "basın", "all-hands", "pitch"])
+    ) {
+      return "work_presentation";
+    }
+  }
 
   // --- HAVAALANI & PASAPORT KONTROLÜ (Airport & Immigration) ---
   if (
@@ -396,7 +671,8 @@ export function getVisualThemeForScene(scene: VisualScene): VisualTheme {
   // --- OTEL & KONAKLAMA (Hotel & Housing) ---
   if (
     hasAny(skill, ["daily.hotel", "otel", "oda"]) ||
-    hasAny(text, ["hotel", "check-in", "reservation under", "room key", "late checkout", "otel", "resepsiyon", "oda"])
+    hasAny(text, ["hotel", "check-in", "reservation under", "room key", "late checkout", "otel", "resepsiyon"]) ||
+    hasWord(text, ["oda"])
   ) {
     return "hotel";
   }
@@ -411,7 +687,8 @@ export function getVisualThemeForScene(scene: VisualScene): VisualTheme {
   // --- YEME-İÇME & HİZMETLER (Food, Drinks & Services) ---
   if (
     hasAny(skill, ["order.cafe", "kahve", "kafe", "barista"]) ||
-    hasAny(text, ["barista", "flat white", "latte", "cappuccino", "coffee", "tea", "kahve", "kafe", "çay"])
+    hasAny(text, ["barista", "flat white", "latte", "cappuccino"]) ||
+    hasWord(text, ["coffee", "tea", "kahve", "kafe", "çay"])
   ) {
     return "cafe";
   }
@@ -423,7 +700,7 @@ export function getVisualThemeForScene(scene: VisualScene): VisualTheme {
   }
   if (
     hasAny(skill, ["order.delivery", "kurye", "paket"]) ||
-    hasAny(text, ["uber eats", "courier", "leave at door", "buzz apt", "delivery", "kurye", "paket", "sipariş"])
+    hasAny(text, ["uber eats", "courier", "leave at door", "buzz apt", "delivery", "kurye", "teslimat"])
   ) {
     return "delivery";
   }
@@ -435,13 +712,15 @@ export function getVisualThemeForScene(scene: VisualScene): VisualTheme {
   }
   if (
     hasAny(skill, ["order.bill", "order.tipping", "hesap", "bahşiş"]) ||
-    hasAny(text, ["bill", "split", "tip", "receipt", "apple pay", "separate check", "payment", "hesap", "bahşiş", "kartla ödeme"])
+    hasAny(text, ["apple pay", "separate check", "kartla ödeme"]) ||
+    hasWord(text, ["bill", "split", "tip", "receipt", "payment", "hesap", "bahşiş"])
   ) {
     return "bill";
   }
   if (
     hasAny(skill, ["order.bar", "bar.approach", "bar", "bira", "kokteyl", "pub"]) ||
-    hasAny(text, ["cocktail", "wine", "beer", "pub", "whisky", "last call", "bar", "bira", "kokteyl", "şarap", "pub", "viski"])
+    hasAny(text, ["cocktail", "wine", "beer", "whisky", "last call", "bira", "kokteyl", "şarap", "viski"]) ||
+    hasWord(text, ["bar", "pub"])
   ) {
     return "bar";
   }

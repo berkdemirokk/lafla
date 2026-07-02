@@ -41,7 +41,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../../components/ThemedStatusBar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { pushRoute, replaceRoute } from "../../lib/routes";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -851,7 +851,7 @@ export default function ScenarioScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -995,6 +995,7 @@ export default function ScenarioScreen() {
                 </View>
                 <View style={styles.drillBody}>
                   <DrillRenderer
+                    key={`setup-extra-${scenario.id}-${setupExtraIdx}-${scenario.setupExtra[setupExtraIdx]!.type}`}
                     exercise={scenario.setupExtra[setupExtraIdx]!}
                     onComplete={advanceSetupExtra}
                   />
@@ -1019,6 +1020,7 @@ export default function ScenarioScreen() {
               </View>
               <View style={styles.drillBody}>
                 <DrillRenderer
+                  key={`drill-${scenario.id}-${drillIdx}-${scenario.warmups[drillIdx]!.type}`}
                   exercise={scenario.warmups[drillIdx]!}
                   onComplete={advanceDrill}
                 />
@@ -1048,6 +1050,7 @@ export default function ScenarioScreen() {
                 </View>
                 <View style={styles.drillBody}>
                   <DrillRenderer
+                    key={`pre-scene-${scenario.id}-${preSceneIdx}-${scenario.preScene[preSceneIdx]!.type}`}
                     exercise={scenario.preScene[preSceneIdx]!}
                     onComplete={advancePreScene}
                   />
@@ -1120,6 +1123,7 @@ export default function ScenarioScreen() {
               </View>
               <View style={styles.drillBody}>
                 <DrillRenderer
+                  key={`recall-${scenario.id}-${scenario.recallQuiz.type}`}
                   exercise={scenario.recallQuiz}
                   onComplete={advanceRecall}
                 />

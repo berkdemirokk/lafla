@@ -81,7 +81,7 @@ Tüm 971 sahneye erişim, sınırsız tekrar, yönlendirmeli telaffuz pratiği, 
 All 971 scenes unlocked, unlimited replays, guided pronunciation practice, IELTS Band estimate, personal weakness report.
 ```
 
-**Price:** TR Tier 30 — `₺99` (Apple auto-localizes other countries)
+**Price:** TR Tier 30 — `₺99/ay` (Apple auto-localizes other countries)
 
 ---
 
@@ -109,7 +109,7 @@ Yıllık plan — aylığa göre %16 tasarruf. Tüm 971 sahneye erişim, sınır
 Yearly plan — 16% savings vs monthly. All 971 scenes unlocked, unlimited replays, IELTS Band estimate, personal weakness report.
 ```
 
-**Price:** TR Tier 200 — `₺999` (Apple auto-localizes other countries)
+**Price:** TR Tier 200 — `₺999/yıl` (Apple auto-localizes other countries)
 
 > **RevenueCat dashboard adımı (ASC tarafı bittikten sonra):**
 > - Offering: `default`
@@ -399,7 +399,7 @@ Lafla is a Turkish-first English speaking-practice app. The home feed is gated b
 
 Two iOS permissions (Microphone, Speech Recognition) are requested lazily — only when the user first taps a voice exercise, not on first launch. Denying either still leaves the rest of the app usable; we present a graceful "go to Settings" prompt.
 
-Two In-App Purchases ship: `lafla.premium.monthly` (₺99/mo) and `lafla.premium.yearly` (₺999/yr) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.
+Two In-App Purchases ship: `lafla.premium.monthly` (₺99/ay) and `lafla.premium.yearly` (₺999/yıl) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.
 
 App Tracking Transparency (ATT) prompt is shown after onboarding completes (Apple HIG: prompt at first meaningful value moment, not on launch). AdMob initialization is sequenced after ATT response. PostHog analytics are gated by ATT — denied users get zero tracking.
 

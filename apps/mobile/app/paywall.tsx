@@ -12,13 +12,13 @@
 // the displayed discount always matches the App Store reality (no risk of
 // Apple 3.1.1 misrepresentation if user re-prices in App Store Connect).
 //
-// Exam Pass ($99 one-time) was removed from this build because no real
+// Exam Pass one-time purchase was removed from this build because no real
 // non-consumable IAP product is configured in App Store Connect yet; shipping
 // it bound to the yearly subscription would have been IAP misrepresentation
 // (Apple Guideline 3.1.1). It will return as a separate non-consumable IAP
 // in a later release once the App Store Connect product is provisioned.
 //
-// The displayed $9.99 price is a marketing fallback; the live App Store
+// The displayed local price is a marketing fallback; the live App Store
 // price string from RevenueCat's getOffering() overrides it when available.
 //
 // Trial copy ("İlk 7 gün ücretsiz") is intentionally OMITTED here. A trial
@@ -53,7 +53,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { trackEvent } from "../lib/analytics";
@@ -78,6 +78,14 @@ import {
   SCENE_COUNT_DISPLAY,
 } from "../lib/scene-counts";
 import { useSession } from "../lib/useSession";
+import {
+  IELTS_MOCK_TEST_PRICE_DISPLAY,
+  PRO_MONTHLY_PRICE_COMPACT,
+  PRO_MONTHLY_PRICE_DISPLAY,
+  PRO_MONTHLY_PRICE_MICROS,
+  PRO_YEARLY_PRICE_DISPLAY,
+  PRO_YEARLY_PRICE_MICROS,
+} from "../lib/monetization";
 
 // Live price shape — both tiers carry priceAmountMicros so we can compute
 // the discount on the fly without trusting a hardcoded percentage.
@@ -93,12 +101,12 @@ type LivePrices = { monthly: LivePrice; yearly: LivePrice };
 // Fallback display prices when RevenueCat is unavailable (Expo Go, init
 // failure, etc). Keep them roughly aligned with the App Store Connect
 // products so the marketing copy never disagrees with the live tier.
-const FALLBACK_MONTHLY = "₺99 / ay";
-const FALLBACK_YEARLY = "₺999 / yıl";
+const FALLBACK_MONTHLY = PRO_MONTHLY_PRICE_DISPLAY;
+const FALLBACK_YEARLY = PRO_YEARLY_PRICE_DISPLAY;
 // Used to compute the fallback discount badge before the live offering
 // resolves. Once live prices arrive, we recompute from micros.
-const FALLBACK_MONTHLY_MICROS = 99_000_000; // ₺99 in micros
-const FALLBACK_YEARLY_MICROS = 999_000_000; // ₺999 in micros
+const FALLBACK_MONTHLY_MICROS = PRO_MONTHLY_PRICE_MICROS;
+const FALLBACK_YEARLY_MICROS = PRO_YEARLY_PRICE_MICROS;
 
 // Feature row — premium icon library (2026-05-23 — brand audit fix).
 // Emoji'den semantic IconName'e migrate edildi. Paywall conversion-critical
@@ -118,8 +126,8 @@ const FEATURES: FeatureRow[] = [
   },
   {
     icon: "mic",
-    title: "Native ses ile konuş",
-    subtitle: "Türkçe konuşana özel pronunciation feedback.",
+    title: "Sesli pratik + telaffuz geri bildirimi",
+    subtitle: "Türkçe konuşana özel th, v/w ve vurgu hatalarını yakala.",
   },
   {
     icon: "infinite",
@@ -490,7 +498,7 @@ export default function PaywallScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
@@ -511,10 +519,13 @@ export default function PaywallScreen() {
         <Animated.View style={[styles.hero, heroStyle]}>
           {isFromIeltsBand ? (
             <>
-              <Text style={styles.title}>IELTS Band Tahmini{"\n"}sadece ₺99/ay.</Text>
+              <Text style={styles.title}>
+                IELTS Band Tahmini{"\n"}sadece {PRO_MONTHLY_PRICE_COMPACT}.
+              </Text>
               <Text style={styles.subtitle}>
-                Mock test merkezi ₺500. Lafla Pro aboneliği aylık ₺99 — sınırsız
-                tahmin + detaylı analiz + sınırsız sahne.
+                Mock test merkezi {IELTS_MOCK_TEST_PRICE_DISPLAY}. Lafla Pro
+                aboneliği aylık {PRO_MONTHLY_PRICE_COMPACT} — sınırsız tahmin +
+                detaylı analiz + sınırsız sahne.
               </Text>
             </>
           ) : isFromHardMode ? (

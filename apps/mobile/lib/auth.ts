@@ -139,7 +139,10 @@ export async function getCurrentProfile(): Promise<Profile | null> {
     .eq("id", user.id)
     .single();
   if (error) {
-    console.warn("[Lafla] getCurrentProfile error:", error.message);
+    if (__DEV__) {
+      // eslint-disable-next-line no-console
+      console.warn("[Lafla] getCurrentProfile error:", error.message);
+    }
     return null;
   }
   const profile = data as Profile;

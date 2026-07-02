@@ -10,45 +10,59 @@
 //   Headline: "Space Grotesk" (geometric, distinctive)
 //   Body / Label: "Inter" (humanist sans, very readable on mobile)
 
-import { Platform } from "react-native";
+import {
+  DynamicColorIOS,
+  Platform,
+} from "react-native";
+
+function dynamicColor(light: string, dark: string): string {
+  if (Platform.OS === "ios") {
+    return DynamicColorIOS({ light, dark }) as unknown as string;
+  }
+  // Android/Web fallback keeps the existing dark Neon Noir palette. The user
+  // preference is still stored and applied via Appearance.setColorScheme; iOS
+  // resolves the full custom palette natively through DynamicColorIOS.
+  return dark;
+}
 
 export const tokens = {
   bg: {
-    // Dark base hierarchy
-    app: "#000000",
-    surface: "#0a0a0a",
-    surfaceBright: "#1a1a1a",
-    surfaceDim: "#050505",
-    surfaceContainer: "#121212",
-    surfaceContainerLow: "#0c0c0c",
-    surfaceContainerLowest: "#000000",
-    surfaceContainerHigh: "#1c1c1c",
-    surfaceContainerHighest: "#252525",
-    surfaceVariant: "#1a1a1a",
-    // Inverse (light surfaces — used sparingly for "NPC bubbles" / coach quotes)
-    onBackground: "#0a0a0a",
-    inverseSurface: "#fafafa",
-    inverseSurfaceLight: "#ffffff",
+    // Dynamic base hierarchy. Dark remains the default Neon Noir identity;
+    // light mode keeps the same pink/cyan accents on paper-like surfaces.
+    app: dynamicColor("#F8F8FB", "#000000"),
+    surface: dynamicColor("#FFFFFF", "#0a0a0a"),
+    surfaceBright: dynamicColor("#FFFFFF", "#1a1a1a"),
+    surfaceDim: dynamicColor("#EEF0F6", "#050505"),
+    surfaceContainer: dynamicColor("#FFFFFF", "#121212"),
+    surfaceContainerLow: dynamicColor("#F3F4F8", "#0c0c0c"),
+    surfaceContainerLowest: dynamicColor("#FFFFFF", "#000000"),
+    surfaceContainerHigh: dynamicColor("#ECEEF4", "#1c1c1c"),
+    surfaceContainerHighest: dynamicColor("#E4E7EF", "#252525"),
+    surfaceVariant: dynamicColor("#EEF0F6", "#1a1a1a"),
+    // Inverse surfaces — used sparingly for "NPC bubbles" / coach quotes.
+    onBackground: dynamicColor("#FFFFFF", "#0a0a0a"),
+    inverseSurface: dynamicColor("#111318", "#fafafa"),
+    inverseSurfaceLight: dynamicColor("#000000", "#ffffff"),
   },
   text: {
-    primary: "#ffffff",
-    secondary: "rgba(255, 255, 255, 0.65)",
+    primary: dynamicColor("#101116", "#ffffff"),
+    secondary: dynamicColor("rgba(16, 17, 22, 0.68)", "rgba(255, 255, 255, 0.65)"),
     // Bumped from 0.40 → 0.58 to clear WCAG AA 4.5:1 for body text on
     // bg.app (#000). Accessibility audit flagged the lower value as ~4.3:1.
-    tertiary: "rgba(255, 255, 255, 0.58)",
-    onSurfaceVariant: "rgba(255, 255, 255, 0.75)",
+    tertiary: dynamicColor("rgba(16, 17, 22, 0.52)", "rgba(255, 255, 255, 0.58)"),
+    onSurfaceVariant: dynamicColor("rgba(16, 17, 22, 0.72)", "rgba(255, 255, 255, 0.75)"),
     // On inverse (light) surfaces — rare
-    inverseOnSurface: "#0a0a0a",
-    secondaryFixedDim: "rgba(255, 255, 255, 0.55)",
+    inverseOnSurface: dynamicColor("#ffffff", "#0a0a0a"),
+    secondaryFixedDim: dynamicColor("rgba(16, 17, 22, 0.55)", "rgba(255, 255, 255, 0.55)"),
     // On accent backgrounds
     onPrimary: "#ffffff", // white text on hot pink (WCAG AA on large text)
     onSecondary: "#ffffff", // white text on near-black
     onTertiary: "#000000", // black text on cyan (cyan too bright for white)
   },
   border: {
-    outline: "rgba(255, 255, 255, 0.18)",
-    outlineVariant: "rgba(255, 255, 255, 0.10)",
-    light: "rgba(255, 255, 255, 0.06)",
+    outline: dynamicColor("rgba(16, 17, 22, 0.18)", "rgba(255, 255, 255, 0.18)"),
+    outlineVariant: dynamicColor("rgba(16, 17, 22, 0.10)", "rgba(255, 255, 255, 0.10)"),
+    light: dynamicColor("rgba(16, 17, 22, 0.08)", "rgba(255, 255, 255, 0.06)"),
   },
   brand: {
     // Primary — hot pink (CTA, focus, hero accent)
@@ -59,30 +73,30 @@ export const tokens = {
     onPrimary: "#ffffff",
     onPrimaryContainer: "#ffffff",
     primaryGlow: "rgba(255, 6, 122, 0.40)",
-    primarySoft: "rgba(255, 6, 122, 0.15)",
+    primarySoft: dynamicColor("rgba(255, 6, 122, 0.10)", "rgba(255, 6, 122, 0.15)"),
 
     // Secondary — near-black (cards, NPC bubbles, panels)
-    secondary: "#121212",
+    secondary: dynamicColor("#15151A", "#121212"),
     onSecondary: "#ffffff",
 
     // Tertiary — electric cyan (scores, links, info, active states)
-    tertiary: "#00FFFF",
-    tertiaryContainer: "rgba(0, 255, 255, 0.16)",
-    onTertiary: "#000000",
-    onTertiaryContainer: "#003a3a",
-    tertiaryGlow: "rgba(0, 255, 255, 0.32)",
-    tertiarySoft: "rgba(0, 255, 255, 0.12)",
+    tertiary: dynamicColor("#007A83", "#00FFFF"),
+    tertiaryContainer: dynamicColor("rgba(0, 162, 170, 0.14)", "rgba(0, 255, 255, 0.16)"),
+    onTertiary: dynamicColor("#ffffff", "#000000"), // white on light-mode teal, black on dark neon cyan
+    onTertiaryContainer: dynamicColor("#003a3a", "#003a3a"),
+    tertiaryGlow: dynamicColor("rgba(0, 162, 170, 0.24)", "rgba(0, 255, 255, 0.32)"),
+    tertiarySoft: dynamicColor("rgba(0, 162, 170, 0.10)", "rgba(0, 255, 255, 0.12)"),
   },
   semantic: {
     // Success uses tertiary cyan (Neon Noir accent system)
-    success: "#00FFFF",
-    successContainer: "rgba(0, 255, 255, 0.14)",
+    success: dynamicColor("#007A83", "#00FFFF"),
+    successContainer: dynamicColor("rgba(0, 162, 170, 0.12)", "rgba(0, 255, 255, 0.14)"),
     // Warning — soft amber that reads in dark
-    warning: "#FFB020",
-    warningContainer: "rgba(255, 176, 32, 0.14)",
+    warning: dynamicColor("#9A6200", "#FFB020"),
+    warningContainer: dynamicColor("rgba(180, 112, 0, 0.12)", "rgba(255, 176, 32, 0.14)"),
     // Error — slightly less aggressive red on dark
-    error: "#FF4D6D",
-    errorContainer: "rgba(255, 77, 109, 0.14)",
+    error: dynamicColor("#C81E4A", "#FF4D6D"),
+    errorContainer: dynamicColor("rgba(190, 31, 62, 0.10)", "rgba(255, 77, 109, 0.14)"),
     onError: "#ffffff",
     onErrorContainer: "#ffb3c1",
   },

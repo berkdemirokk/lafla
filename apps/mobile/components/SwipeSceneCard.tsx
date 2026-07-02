@@ -42,7 +42,8 @@ const AnimatedExpoImage = Animated.createAnimatedComponent(ExpoImage);
 
 import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
-import { getSceneCoverSource } from "../lib/scene-cover-source";
+import { getSceneCoverSpec } from "../lib/scene-cover-source";
+import { getSceneDisplayMinutes } from "../lib/scene-duration";
 import { tokens } from "../theme";
 import AnimatedGradientOverlay from "./AnimatedGradientOverlay";
 import FloatingParticles from "./FloatingParticles";
@@ -52,6 +53,7 @@ import FloatingParticles from "./FloatingParticles";
 // ---------------------------------------------------------------------------
 
 const SCREEN = Dimensions.get("window");
+type CoverStage = "primary" | "fallback" | "gradient";
 
 // Horizontal swipe thresholds. We require either a fairly long drag OR
 // a high-velocity flick so accidental thumb shifts don't trigger nav.
@@ -93,12 +95,24 @@ const MODE_LABEL: Record<SceneMode, string> = {
   ielts:   "IELTS",
 };
 
-// ---------------------------------------------------------------------------
-// Deterministic visual asset selection. Theme matching lives in lib so it can
-// be tested without importing React Native.
-// ---------------------------------------------------------------------------
-function getDeterministicImage(scene: Scene) {
-  return getSceneCoverSource(scene);
+function getCardPromise(scene: Scene, completed: boolean): string {
+  if (completed) {
+    return "Tekrar turu: önce dinle, sonra daha doğal tek cevap kur.";
+  }
+
+  switch (scene.cefrLevel) {
+    case "A1":
+    case "A2":
+      return "İlk turlar seçenekli; takılırsan ipucu otomatik açılır.";
+    case "B1":
+      return "Kısa cevapla başla; koç sadece en kritik hatayı seçer.";
+    case "B2":
+    case "C1":
+    case "C2":
+      return "Serbest konuş; düzeltmeler konuşma sonunda gelir.";
+    default:
+      return "Seviyene göre başlar; hata baskısı konuşma sonunda gelir.";
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -131,10 +145,15 @@ function SwipeSceneCardImpl({
   onSkip,
   isActive = true,
 }: SwipeSceneCardProps) {
-  // BUG-7 FIX: fallback when Unsplash images fail to load (offline/network)
-  const [imgFailed, setImgFailed] = useState(false);
-  // Reset on scene change so recycled cards retry
-  useEffect(() => { setImgFailed(false); }, [scene.id]);
+  const coverSpec = useMemo(() => getSceneCoverSpec(scene), [scene]);
+  const cardPromise = useMemo(
+    () => getCardPromise(scene, completed),
+    [scene, completed],
+  );
+  // Remote theme image → local fallback → branded gradient. Recycled cards
+  // must retry from the primary image when the scene changes.
+  const [coverStage, setCoverStage] = useState<CoverStage>("primary");
+  useEffect(() => { setCoverStage("primary"); }, [scene.id]);
   // Horizontal pan offset — drives card translate, opacity, and edge glow.
   const translateX = useRef(new Animated.Value(0)).current;
   // Entrance animation (fade + slight upward translate). Replays whenever
@@ -363,6 +382,15 @@ function SwipeSceneCardImpl({
     onSkip(scene.lessonId);
   }, [skipCtaScale, onSkip, scene.lessonId]);
 
+  const handleCoverError = useCallback(() => {
+    setCoverStage((stage) => {
+      if (stage === "primary" && coverSpec.fallbackSource) {
+        return "fallback";
+      }
+      return "gradient";
+    });
+  }, [coverSpec.fallbackSource]);
+
   // -------------------------------------------------------------------------
   // Derived display strings
   // -------------------------------------------------------------------------
@@ -373,6 +401,13 @@ function SwipeSceneCardImpl({
   const displayTitle = scene.title.replace(/\n/g, " ");
   const accent = MODE_ACCENT[scene.mode];
   const modeLabel = MODE_LABEL[scene.mode];
+  const displayMinutes = getSceneDisplayMinutes(scene);
+  const activeCoverSource =
+    coverStage === "primary"
+      ? coverSpec.source
+      : coverStage === "fallback"
+        ? coverSpec.fallbackSource
+        : undefined;
 
   return (
     <View style={[styles.outer, { height: cardHeight }]}>
@@ -404,9 +439,9 @@ function SwipeSceneCardImpl({
         {...panResponder.panHandlers}
       >
         {/* Full background live image with overlay & top inner glow highlight */}
-        {!imgFailed ? (
+        {activeCoverSource ? (
           <AnimatedExpoImage
-            source={getDeterministicImage(scene)}
+            source={activeCoverSource}
             cachePolicy="disk"
             style={[
               StyleSheet.absoluteFillObject,
@@ -419,10 +454,10 @@ function SwipeSceneCardImpl({
               },
             ]}
             contentFit="cover"
-            onError={() => setImgFailed(true)}
+            onError={handleCoverError}
           />
         ) : (
-          /* BUG-7 FIX: gradient fallback when image fails to load (offline) */
+          /* Gradient fallback when both remote and local covers fail/offline. */
           <LinearGradient
             colors={[tokens.bg.surfaceContainer, accent.fill, tokens.bg.app]}
             start={{ x: 0, y: 0 }}
@@ -501,12 +536,20 @@ function SwipeSceneCardImpl({
             <Text style={styles.description} numberOfLines={3}>
               {scene.description}
             </Text>
+            <View style={styles.promiseBox}>
+              <Text style={styles.promiseKicker}>
+                {completed ? "TEKRAR AKIŞI" : "BASKISIZ AKIŞ"}
+              </Text>
+              <Text style={styles.promiseText} numberOfLines={2}>
+                {cardPromise}
+              </Text>
+            </View>
           </View>
 
           {/* Lower — meta line (duration / progress) */}
           <View style={styles.metaArea}>
-            <Text style={styles.metaText}>
-              {scene.durationMin} dk
+            <Text style={styles.metaText} numberOfLines={1}>
+              {displayMinutes} dk · {coverSpec.label}
               {scene.progressLabel ? ` · ${scene.progressLabel}` : ""}
             </Text>
             <Text style={styles.hintText}>
@@ -716,6 +759,30 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: tokens.weight.medium,
     color: tokens.text.secondary,
+    textAlign: "center",
+  },
+  promiseBox: {
+    marginTop: 14,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 16,
+    backgroundColor: "rgba(0, 0, 0, 0.36)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.14)",
+    gap: 4,
+  },
+  promiseKicker: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 1.2,
+    textAlign: "center",
+  },
+  promiseText: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
     textAlign: "center",
   },
 

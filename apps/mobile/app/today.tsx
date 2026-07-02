@@ -18,11 +18,11 @@
 //
 // Tutorial overlay ilk açılışta burada (Today first impression).
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import { pushRoute } from "../lib/routes";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Animated, {
@@ -48,6 +48,7 @@ import {
 import {
   getCefrLevel,
   checkErosionForUi,
+  getRelevantLevels,
   type CefrLevel,
 } from "../lib/cefr-level";
 import { isStreakAtRisk } from "../lib/streak-shield";
@@ -67,8 +68,10 @@ import { VoiceWaveform } from "../components/VoiceWaveform";
 import { Icon } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
-import type { Scene } from "../data/scenes";
+import { SAMPLE_SCENES, type Scene, type SceneMode } from "../data/scenes";
 import { SCENE_COUNT_DISPLAY } from "../lib/scene-counts";
+import { getScenario } from "../lib/scenario";
+import { getSceneDisplayMinutes } from "../lib/scene-duration";
 import { recordActive } from "../lib/notifications";
 import { isPremium } from "../lib/iap";
 import {
@@ -79,6 +82,93 @@ import { showRewardedAd } from "../lib/ads";
 import { getMistakeDNA } from "../lib/mistake-dna";
 
 const K_DISPLAY_NAME = "lafla.displayName";
+
+type CoreContextId = "work" | "daily" | "social" | "travel" | "ielts";
+
+const CORE_CONTEXTS: ReadonlyArray<{
+  id: CoreContextId;
+  label: string;
+  detail: string;
+}> = [
+  { id: "work", label: "İş", detail: "toplantı, mail" },
+  { id: "daily", label: "Günlük", detail: "market, doktor" },
+  { id: "social", label: "Sosyal", detail: "small talk" },
+  { id: "travel", label: "Seyahat", detail: "havaalanı" },
+  { id: "ielts", label: "IELTS", detail: "sınav provası" },
+];
+
+const CORE_TRUST_PROMISES: ReadonlyArray<{
+  label: string;
+  detail: string;
+}> = [
+  { label: "Tek durum", detail: "karışık menü yok" },
+  { label: "Seviyeli", detail: "ipucu otomatik" },
+  { label: "Baskısız", detail: "hata en sonda" },
+];
+
+const CONTEXT_MODE_PRIORITY: Record<CoreContextId, readonly SceneMode[]> = {
+  work: ["work"],
+  daily: ["daily", "order"],
+  social: ["flirt", "bar"],
+  travel: ["airport"],
+  ielts: ["ielts"],
+};
+
+function contextForScene(scene: Scene | null): CoreContextId {
+  switch (scene?.mode) {
+    case "work":
+      return "work";
+    case "flirt":
+    case "bar":
+      return "social";
+    case "airport":
+      return "travel";
+    case "ielts":
+      return "ielts";
+    case "daily":
+    case "order":
+    default:
+      return "daily";
+  }
+}
+
+function pickSceneForContext(
+  scenes: readonly Scene[],
+  context: CoreContextId,
+): Scene | null {
+  const modes = CONTEXT_MODE_PRIORITY[context];
+  return scenes.find((scene) => modes.includes(scene.mode)) ?? null;
+}
+
+function pickPlayableSceneForContext(
+  context: CoreContextId,
+  completedLessonIds: readonly string[],
+  cefrLevel: CefrLevel | null,
+): Scene | null {
+  const modes = CONTEXT_MODE_PRIORITY[context];
+  const completed = new Set(completedLessonIds);
+  const allowedLevels = cefrLevel ? new Set(getRelevantLevels(cefrLevel)) : null;
+  const playable = SAMPLE_SCENES.filter(
+    (scene) => modes.includes(scene.mode) && getScenario(scene.lessonId) !== null,
+  );
+  const levelMatched = allowedLevels
+    ? playable.filter(
+        (scene) => !scene.cefrLevel || allowedLevels.has(scene.cefrLevel),
+      )
+    : playable;
+
+  return (
+    levelMatched.find((scene) => !completed.has(scene.lessonId)) ??
+    levelMatched[0] ??
+    playable.find((scene) => !completed.has(scene.lessonId)) ??
+    playable[0] ??
+    null
+  );
+}
+
+function compactSceneTitle(scene: Scene | null): string {
+  return scene?.title.replace(/\n/g, " ") ?? "seviyene uygun kısa prova";
+}
 
 function greetingFor(hour: number): string {
   if (hour >= 6 && hour < 12) return "Günaydın";
@@ -131,7 +221,9 @@ interface TodayState {
   planCompleted: number;
   planEstimatedMin: number;
   planIsComplete: boolean;
+  planRemainingScenes: Scene[];
   planFirstScene: Scene | null;
+  completedLessonIds: string[];
   mistakeFocus: { label: string; recentCount: number } | null;
   // 2026-05-23 — Daily diary nudge state. Bugün entry yoksa Today'de
   // subtle bir banner gösterilir. Banner agresif değil — kullanıcı
@@ -162,7 +254,9 @@ const EMPTY: TodayState = {
   planCompleted: 0,
   planEstimatedMin: 0,
   planIsComplete: false,
+  planRemainingScenes: [],
   planFirstScene: null,
+  completedLessonIds: [],
   mistakeFocus: null,
   diaryWrittenToday: false,
   isPremiumActive: false,
@@ -174,6 +268,8 @@ export default function Today() {
   const router = useRouter();
   const [state, setState] = useState<TodayState>(EMPTY);
   const [showTutorial, setShowTutorial] = useState(false);
+  const [selectedCoreContext, setSelectedCoreContext] =
+    useState<CoreContextId | null>(null);
 
   // ─── Ambient animations ──────────────────────────────────────────────
   // Two independent shared-value drivers. They start once on mount and
@@ -305,8 +401,11 @@ export default function Today() {
         isComplete: false,
       })),
     ]);
+    const planRemainingScenes = planScenes.filter(
+      (s) => !completed.has(s.lessonId),
+    );
     const planFirstScene =
-      planScenes.find((s) => !completed.has(s.lessonId)) ??
+      planRemainingScenes[0] ??
       planScenes[0] ??
       null;
     const tutorialSeen = await hasSeenHomeTutorial().catch(() => true);
@@ -337,7 +436,9 @@ export default function Today() {
       planCompleted: planSummary.completed,
       planEstimatedMin: planSummary.estimatedMin,
       planIsComplete: planSummary.isComplete,
+      planRemainingScenes,
       planFirstScene,
+      completedLessonIds: Array.from(completed),
       mistakeFocus: mistakeDna
         ? {
             label: mistakeDna.dominantLabelTr,
@@ -384,7 +485,28 @@ export default function Today() {
   );
 
   const streak = state.profile?.current_streak ?? 0;
-  const remainingInPlan = Math.max(0, state.planTotal - state.planCompleted);
+  const effectiveCoreContext =
+    selectedCoreContext ?? contextForScene(state.planFirstScene);
+  const fallbackCoreScene = useMemo(
+    () =>
+      pickPlayableSceneForContext(
+        effectiveCoreContext,
+        state.completedLessonIds,
+        state.cefrLevel,
+      ),
+    [effectiveCoreContext, state.cefrLevel, state.completedLessonIds],
+  );
+  const selectedCoreScene =
+    pickSceneForContext(state.planRemainingScenes, effectiveCoreContext) ??
+    fallbackCoreScene ??
+    state.planFirstScene;
+  const selectedCoreFromPlan = Boolean(
+    selectedCoreScene &&
+      state.planRemainingScenes.some(
+        (scene) => scene.lessonId === selectedCoreScene.lessonId,
+      ),
+  );
+  const selectedCoreDuration = getSceneDisplayMinutes(selectedCoreScene);
 
   // 2026-05-24 — Streak heartbeat sadece streak > 0 iken çalışsın. Önceki
   // versiyon mount'ta loop'u her zaman başlatıyordu; chip render edilmese
@@ -455,7 +577,7 @@ export default function Today() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Top bar */}
       <View style={styles.topBar}>
@@ -502,30 +624,13 @@ export default function Today() {
         onScroll={onScroll}
         scrollEventThrottle={16}
       >
-        {/* HERO — Daily Plan (en güçlü CTA) */}
-        {/*
-          Option E layout:
-            • Outer Animated.View — handles the pulsing pink halo. backgroundColor +
-              borderRadius live here so iOS draws shadow correctly. overflow:hidden
-              clips the backdrop to the rounded shape; iOS still renders the shadow
-              outside those bounds, so the halo survives.
-            • HeroBackdrop — absolute-fill dual waveform (pink dense bass + cyan
-              sparse melody) with pointerEvents:none so it never steals touches.
-            • Inner Pressable — transparent surface, owns padding + content + ripple.
-        */}
+        {/* CORE LOOP v2 — tek ana karar: bugün İngilizce nerede lazım? */}
         {state.planFirstScene && !state.planIsComplete ? (
-          // Outer wrapper applies the 3D press tilt + persistent halo.
-          // We split into two Animated.View layers so the tilt transform
-          // doesn't conflict with the halo's shadow animation (combining
-          // perspective + animated shadowOpacity on a single view causes
-          // iOS to flicker on first press).
           <Animated.View style={heroPressStyle}>
             <Animated.View
               entering={FadeInDown.duration(420)}
-              style={[styles.heroFrame, heroGlowStyle]}
+              style={[styles.coreFrame, heroGlowStyle]}
             >
-              {/* Premium inner highlight — 1px üst kenarda ışık yansıması.
-                  Apple buton bevel'ı tarzı, tactile depth. */}
               <View
                 style={styles.heroInnerHighlight}
                 pointerEvents="none"
@@ -544,7 +649,7 @@ export default function Today() {
                     gap={8}
                     height={92}
                     color={tokens.brand.primary}
-                    accessibilityLabel=""
+                    decorative
                   />
                 </Animated.View>
                 {/* Top cyan moves slower (-16px) — depth layering */}
@@ -560,38 +665,147 @@ export default function Today() {
                     gap={12}
                     height={58}
                     color={tokens.brand.tertiary}
-                    accessibilityLabel=""
+                    decorative
                   />
                 </Animated.View>
               </View>
-              <Pressable
-                onPress={() => {
-                  // BUG-5 FIX: guard null planFirstScene
-                  const scene = state.planFirstScene;
-                  if (scene) {
-                    pushRoute(router, `/scenario/${scene.lessonId}`);
-                  } else {
-                    pushRoute(router, "/home");
-                  }
-                }}
-                onPressIn={onHeroPressIn}
-                onPressOut={onHeroPressOut}
-                style={styles.heroPressable}
-                accessibilityRole="button"
-                accessibilityLabel={`Bugünün planı: ${remainingInPlan} sahne kaldı`}
-              >
-                <Text style={styles.planLabel}>
-                  {state.planCompleted > 0
-                    ? `▶ DEVAM ET (${state.planCompleted}/${state.planTotal})`
-                    : "▶ BUGÜNÜN PLANI"}
+              <View style={styles.coreContent}>
+                <View style={styles.coreTopRow}>
+                  <Text style={styles.coreEyebrow}>
+                    BUGÜNKÜ EN İYİ 3 DAKİKA
+                  </Text>
+                  <View style={styles.coreTimeBadge}>
+                    <Text style={styles.coreTimeBadgeText}>
+                      ~{selectedCoreDuration} dk
+                    </Text>
+                  </View>
+                </View>
+
+                <Text style={styles.coreTitle}>Tek hedef, tek kısa prova.</Text>
+                <Text style={styles.coreSub}>
+                  Bir durum seç; seviyene göre ipucu açılır, konuşma baskısız
+                  akar, düzeltme en sonda gelir.
                 </Text>
-                <Text style={styles.planTitle}>
-                  {remainingInPlan} sahne · ~{state.planEstimatedMin} dk
+
+                <View style={styles.coreTrustRail}>
+                  {CORE_TRUST_PROMISES.map((promise) => (
+                    <View key={promise.label} style={styles.coreTrustPill}>
+                      <Text style={styles.coreTrustLabel}>{promise.label}</Text>
+                      <Text style={styles.coreTrustDetail}>
+                        {promise.detail}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
+
+                <Text style={styles.coreQuestion}>
+                  Bugün İngilizce nerede lazım?
                 </Text>
-                <Text style={styles.planSub} numberOfLines={1}>
-                  Sıradaki: {state.planFirstScene.title.replace(/\n/g, " ")}
-                </Text>
-              </Pressable>
+                <View style={styles.coreContextGrid}>
+                  {CORE_CONTEXTS.map((context) => {
+                    const selected = effectiveCoreContext === context.id;
+                    return (
+                      <Pressable
+                        key={context.id}
+                        onPress={() => setSelectedCoreContext(context.id)}
+                        style={({ pressed }) => [
+                          styles.coreContextChip,
+                          selected && styles.coreContextChipSelected,
+                          pressed && styles.pressed,
+                        ]}
+                        accessibilityRole="button"
+                        accessibilityLabel={`${context.label} bağlamını seç`}
+                        accessibilityState={{ selected }}
+                      >
+                        <Text
+                          style={[
+                            styles.coreContextLabel,
+                            selected && styles.coreContextLabelSelected,
+                          ]}
+                        >
+                          {context.label}
+                        </Text>
+                        <Text
+                          style={[
+                            styles.coreContextDetail,
+                            selected && styles.coreContextDetailSelected,
+                          ]}
+                          numberOfLines={1}
+                        >
+                          {context.detail}
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+
+                <Pressable
+                  onPress={() => {
+                    const scene = selectedCoreScene;
+                    if (scene) {
+                      pushRoute(router, `/scenario/${scene.lessonId}`);
+                    } else {
+                      pushRoute(router, "/home");
+                    }
+                  }}
+                  onPressIn={onHeroPressIn}
+                  onPressOut={onHeroPressOut}
+                  style={({ pressed }) => [
+                    styles.corePrimaryCta,
+                    pressed && styles.pressed,
+                  ]}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${compactSceneTitle(selectedCoreScene)} provasına başla`}
+                >
+                  <View style={styles.corePrimaryText}>
+                    <Text style={styles.corePrimaryLabel}>
+                      {selectedCoreDuration} dk kısa provaya başla
+                    </Text>
+                    <Text style={styles.corePrimarySub} numberOfLines={1}>
+                      {selectedCoreFromPlan ? "Planından" : "Bağlama uygun"}:{" "}
+                      {compactSceneTitle(selectedCoreScene)}
+                    </Text>
+                  </View>
+                  <Icon
+                    name="chevronRight"
+                    size={22}
+                    color={tokens.text.onPrimary}
+                  />
+                </Pressable>
+
+                <View style={styles.coreQuickRow}>
+                  <Pressable
+                    onPress={() => pushRoute(router, "/real-life")}
+                    style={({ pressed }) => [
+                      styles.coreQuickAction,
+                      pressed && styles.pressed,
+                    ]}
+                    accessibilityRole="button"
+                    accessibilityLabel="Acil İngilizce aracını aç"
+                  >
+                    <Text style={styles.coreQuickTitle}>Acil İngilizce</Text>
+                    <Text style={styles.coreQuickSub} numberOfLines={1}>
+                      Türkçe yaz, üç doğal cevap al
+                    </Text>
+                  </Pressable>
+                  <Pressable
+                    onPress={() => pushRoute(router, "/mistake-coach")}
+                    style={({ pressed }) => [
+                      styles.coreQuickAction,
+                      pressed && styles.pressed,
+                    ]}
+                    accessibilityRole="button"
+                    accessibilityLabel="Kişisel Hata DNA koçunu aç"
+                  >
+                    <Text style={styles.coreQuickTitle}>Hata DNA</Text>
+                    <Text style={styles.coreQuickSub} numberOfLines={1}>
+                      {state.mistakeFocus
+                        ? `Bugün: ${state.mistakeFocus.label}`
+                        : "İlk konuşmadan sonra açılır"}
+                    </Text>
+                  </Pressable>
+                </View>
+              </View>
             </Animated.View>
           </Animated.View>
         ) : state.planIsComplete ? (
@@ -741,10 +955,10 @@ export default function Today() {
           </Pressable>
 
           <Pressable
-            onPress={() => pushRoute(router, "/real-life")}
+            onPress={() => pushRoute(router, "/progress-compare")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
-            accessibilityLabel="Acil İngilizce veya kendi senaryonu oluştur"
+            accessibilityLabel="Önce sonra gelişim karşılaştırmasını aç"
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
             <View
@@ -762,18 +976,18 @@ export default function Today() {
                 ]}
               >
                 <Icon
-                  name="target"
+                  name="trending"
                   size={22}
                   color={tokens.brand.tertiary}
                 />
               </View>
               <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
-                <Text style={styles.tileBadgeText}>YENİ</Text>
+                <Text style={styles.tileBadgeText}>SES</Text>
               </View>
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>GERÇEK HAYAT</Text>
-              <Text style={styles.tileTitle}>Acil İngilizce</Text>
+              <Text style={styles.tileEyebrow}>GELİŞİM</Text>
+              <Text style={styles.tileTitle}>Önce/Sonra</Text>
             </View>
           </Pressable>
 
@@ -1043,7 +1257,7 @@ const styles = StyleSheet.create({
   // The frame owns: backgroundColor, borderRadius, border, shadow (animated),
   // and overflow:hidden so the backdrop clips to the rounded corners.
   // The Pressable inside is transparent and owns padding + content layout.
-  heroFrame: {
+  coreFrame: {
     borderRadius: tokens.radius.lg,
     backgroundColor: tokens.brand.primarySoft,
     borderWidth: 1.5,
@@ -1090,28 +1304,175 @@ const styles = StyleSheet.create({
     right: 0,
     opacity: 0.14,
   },
-  heroPressable: {
-    padding: 20,
-    gap: 8,
-    backgroundColor: "transparent",
+  coreContent: {
+    padding: 18,
+    gap: 12,
+    backgroundColor: "rgba(8, 10, 18, 0.62)",
   },
-  planLabel: {
+  coreTopRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  coreEyebrow: {
     fontSize: 11,
     fontWeight: tokens.weight.extrabold,
     color: tokens.brand.primary,
     letterSpacing: 1.5,
   },
-  planTitle: {
-    fontSize: 22,
+  coreTimeBadge: {
+    paddingVertical: 5,
+    paddingHorizontal: 9,
+    borderRadius: tokens.radius.full,
+    backgroundColor: "rgba(255,255,255,0.08)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.14)",
+  },
+  coreTimeBadgeText: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: 0.3,
+  },
+  coreTitle: {
+    fontSize: 24,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     fontFamily: tokens.font.display,
-    letterSpacing: -0.5,
+    letterSpacing: -0.7,
   },
-  planSub: {
+  coreSub: {
     fontSize: 13,
     color: tokens.text.secondary,
+    lineHeight: 18,
     letterSpacing: -0.1,
+  },
+  coreTrustRail: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  coreTrustPill: {
+    flex: 1,
+    paddingVertical: 9,
+    paddingHorizontal: 9,
+    borderRadius: 14,
+    backgroundColor: "rgba(0,0,0,0.28)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.12)",
+    gap: 2,
+  },
+  coreTrustLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreTrustDetail: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    lineHeight: 13,
+  },
+  coreQuestion: {
+    marginTop: 2,
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreContextGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+  },
+  coreContextChip: {
+    flexBasis: "31%",
+    flexGrow: 1,
+    minWidth: 92,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 16,
+    backgroundColor: "rgba(255,255,255,0.06)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.10)",
+    gap: 2,
+  },
+  coreContextChipSelected: {
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderColor: tokens.brand.tertiary,
+  },
+  coreContextLabel: {
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreContextLabelSelected: {
+    color: tokens.brand.tertiary,
+  },
+  coreContextDetail: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    lineHeight: 13,
+  },
+  coreContextDetailSelected: {
+    color: tokens.text.secondary,
+  },
+  corePrimaryCta: {
+    marginTop: 2,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.45,
+    shadowRadius: 14,
+    elevation: 8,
+  },
+  corePrimaryText: {
+    flex: 1,
+    gap: 2,
+  },
+  corePrimaryLabel: {
+    fontSize: 15,
+    fontWeight: tokens.weight.black,
+    color: tokens.brand.onPrimary,
+    letterSpacing: -0.1,
+  },
+  corePrimarySub: {
+    fontSize: 11,
+    color: tokens.brand.onPrimary,
+    opacity: 0.82,
+  },
+  coreQuickRow: {
+    flexDirection: "row",
+    gap: 10,
+  },
+  coreQuickAction: {
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 16,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    gap: 3,
+  },
+  coreQuickTitle: {
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreQuickSub: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    lineHeight: 14,
   },
 
   planDone: {

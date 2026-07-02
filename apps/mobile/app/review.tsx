@@ -24,7 +24,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
@@ -130,7 +130,7 @@ export default function ReviewScreen() {
   if (items.length === 0 && !finished) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.empty}>
           <Text style={styles.emptyEmoji}>📚</Text>
           <Text style={styles.emptyTitle}>Bugünlük tekrar yok</Text>
@@ -152,7 +152,7 @@ export default function ReviewScreen() {
   if (finished) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <Text style={styles.doneEmoji}>✨</Text>
           <Text style={styles.doneTitle}>Tekrar tamamlandı</Text>
@@ -183,7 +183,7 @@ export default function ReviewScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Header — progress + back */}
       <View style={styles.header}>

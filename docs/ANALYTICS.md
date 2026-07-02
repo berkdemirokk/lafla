@@ -170,7 +170,7 @@ Fired once per cold start, after navigation is ready.
 ```json
 {
   "product_id": "lafla_premium_annual",
-  "price_local": "₺499.99",
+  "price_local": "₺999",
   "currency": "TRY",
   "source": "paywall"
 }

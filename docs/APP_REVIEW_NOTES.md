@@ -37,8 +37,8 @@ The demo account is pre-seeded with:
 
 Two subscription products in the same Subscription Group:
 
-- **`lafla.premium.monthly`** — Lafla Pro monthly subscription (₺99 base; displayed local price overrides marketing copy via RevenueCat `getOffering`).
-- **`lafla.premium.yearly`** — Lafla Pro yearly subscription (₺999 base; ~16% saving vs. 12× monthly).
+- **`lafla.premium.monthly`** — Lafla Pro monthly subscription (₺99/ay base; displayed local price overrides marketing copy via RevenueCat `getOffering`).
+- **`lafla.premium.yearly`** — Lafla Pro yearly subscription (₺999/yıl base; ~16% saving vs. 12× monthly).
 
 The paywall presents both via a segmented toggle (default: Yıllık / Yearly preselected — this is the recommended tier; the user can switch to Aylık / Monthly with a tap).
 

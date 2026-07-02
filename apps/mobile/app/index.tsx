@@ -4,7 +4,7 @@
 
 import { useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Animated, {
@@ -204,7 +204,7 @@ export default function Splash() {
       accessibilityHint="Uygulamaya devam eder"
       accessibilityState={{ disabled: loading, busy: loading }}
     >
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.center}>
         {/* Halo glow ring — wordmark'ın arkasında 3D depth katmanı.

@@ -11,7 +11,7 @@
 // certificates, ielts-band, vocab-book, weakness-report. Yeni ekran
 // eklerken bu listeyi güncel tut.
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Stack, router } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
@@ -33,6 +33,7 @@ import { initSentry } from "../lib/sentry";
 import { initAds } from "../lib/ads";
 import { requestAttOnce } from "../lib/att";
 import { tokens } from "../theme";
+import { hydrateThemePreference } from "../lib/theme-preference";
 
 const K_LAST_OPEN_DAY = "lafla.analytics.lastOpenDay";
 
@@ -91,6 +92,7 @@ _TextInput.defaultProps = {
 initSentry();
 
 export default function RootLayout() {
+  const [themeReady, setThemeReady] = useState(false);
   const [fontsLoaded, fontError] = useFonts({
     SpaceGrotesk_500Medium,
     SpaceGrotesk_600SemiBold,
@@ -103,12 +105,24 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (fontsLoaded || fontError) {
+    if ((fontsLoaded || fontError) && themeReady) {
       // Font yüklenemediyse splash'i yine de kapat — system font ile devam.
       // (App'in launch'ı font hatasıyla bloklanmasın.)
       SplashScreen.hideAsync().catch(() => {});
     }
-  }, [fontsLoaded, fontError]);
+  }, [fontsLoaded, fontError, themeReady]);
+
+  useEffect(() => {
+    let cancelled = false;
+    void hydrateThemePreference()
+      .catch(() => "dark" as const)
+      .finally(() => {
+        if (!cancelled) setThemeReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     // Defensive: also run on mount in case the module-level call was a no-op
@@ -189,7 +203,7 @@ export default function RootLayout() {
 
   // Splash kapanana kadar (ya font hazır ya da yüklenemedi) UI gösterme —
   // yarım font tipografisi flash yapması önlenir.
-  if (!fontsLoaded && !fontError) {
+  if ((!fontsLoaded && !fontError) || !themeReady) {
     return null;
   }
 

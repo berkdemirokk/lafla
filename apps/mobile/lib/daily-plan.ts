@@ -27,6 +27,7 @@ import {
 } from "./cefr-level";
 import { getInterests, getCompletedLessonIds } from "./local-progress";
 import { interestsToModes } from "./interest-mapping";
+import { getSceneDisplayMinutes } from "./scene-duration";
 
 const K_PLAN = "lafla.dailyPlan";
 const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
@@ -348,7 +349,12 @@ export async function getPlanSummary(): Promise<{
   const { completed } = await getPlanProgress();
   const total = plan.length;
   const remaining = total - completed;
-  const estimatedMin = remaining === 0 ? 0 : remaining * 3;
+  const estimatedMin =
+    remaining === 0
+      ? 0
+      : plan
+          .slice(completed)
+          .reduce((sum, scene) => sum + getSceneDisplayMinutes(scene), 0);
   return {
     total,
     completed,

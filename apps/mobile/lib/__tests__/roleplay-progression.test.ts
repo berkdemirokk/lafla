@@ -39,11 +39,18 @@ describe("resolveTurnSupport", () => {
         userTurnIndex: 1,
         levelDelta: 0,
       }),
-    ).toBe("hinted");
+    ).toBe("multi-choice");
     expect(
       resolveTurnSupport({
         baseMode: "multi-choice",
         userTurnIndex: 2,
+        levelDelta: 0,
+      }),
+    ).toBe("hinted");
+    expect(
+      resolveTurnSupport({
+        baseMode: "multi-choice",
+        userTurnIndex: 3,
         levelDelta: 0,
       }),
     ).toBe("free");
@@ -61,6 +68,13 @@ describe("resolveTurnSupport", () => {
       resolveTurnSupport({
         baseMode: "free",
         userTurnIndex: 1,
+        levelDelta: -1,
+      }),
+    ).toBe("multi-choice");
+    expect(
+      resolveTurnSupport({
+        baseMode: "free",
+        userTurnIndex: 2,
         levelDelta: -1,
       }),
     ).toBe("hinted");

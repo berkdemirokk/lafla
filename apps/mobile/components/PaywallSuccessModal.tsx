@@ -10,7 +10,7 @@
 
 import { useEffect } from "react";
 import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "./ThemedStatusBar";
 import Animated, {
   Easing,
   cancelAnimation,
@@ -112,7 +112,7 @@ export function PaywallSuccessModal({ visible, onClose }: Props) {
       onRequestClose={onClose}
     >
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.body}>
           {/* Pembe halo arka plan — breathing */}
           <Animated.View style={[styles.halo, haloStyle]} pointerEvents="none" />

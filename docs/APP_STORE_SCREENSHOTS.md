@@ -173,16 +173,16 @@ All 10 screenshots share:
 - Centered card: English phrase **"Hey, I noticed you're into rock climbing too"**
 - Speaker icon (large, animated wave bars indicating playback)
 - Below phrase: Turkish gloss in muted gray — *"Selam, senin de tırmanışa ilgi duyduğunu fark ettim"*
-- Bottom: two buttons side by side — `Dinle` (Listen, with headphone icon), `Söyle` (Speak, with mic icon — micı disabled state with "Yakında" badge)
-- Tiny footnote: *"Native speaker — Premium TTS"*
+- Bottom: two buttons side by side — `Dinle` (Listen, with headphone icon), `Söyle` (Speak, with mic icon)
+- Tiny footnote: *"Türkçe konuşana özel telaffuz ipuçları"*
 
 **Caption (TR):**
-> Native ses. Gerçek aksan. Cihazında çalışıyor.
+> Dinle, söyle, telaffuzunu geliştir.
 
 **Caption (EN):**
-> Native voice. Real accent. Works on-device.
+> Listen, speak, improve pronunciation.
 
-> *Why:* Pronunciation grading is on roadmap (Apple Speech framework). "Yakında" / "Soon" badge is honest and creates anticipation.
+> *Why:* Manifest boşken native-human audio veya premium TTS vaadi verilmez; mevcut ürün değeri sesli pratik + telaffuz ipuçları olarak anlatılır.
 
 ---
 

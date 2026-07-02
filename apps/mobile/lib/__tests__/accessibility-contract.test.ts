@@ -32,11 +32,31 @@ function findMissingAccessibilityContracts(): string[] {
     const visit = (node: ts.Node) => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         const tagName = node.tagName.getText(sourceFile);
+        const jsxAttributes = node.attributes.properties.filter(
+          ts.isJsxAttribute,
+        );
+        const accessibilityLabel = jsxAttributes.find(
+          (attribute) =>
+            attribute.name.getText(sourceFile) === "accessibilityLabel",
+        );
+        if (
+          accessibilityLabel?.initializer &&
+          ts.isStringLiteral(accessibilityLabel.initializer) &&
+          accessibilityLabel.initializer.text.trim().length === 0
+        ) {
+          const { line } = sourceFile.getLineAndCharacterOfPosition(
+            node.getStart(sourceFile),
+          );
+          violations.push(
+            `${path.relative(MOBILE_ROOT, filePath)}:${line + 1} ${tagName} has empty accessibilityLabel`,
+          );
+        }
+
         if (tagName === "Pressable" || tagName === "TextInput") {
           const attributes = new Set(
-            node.attributes.properties
-              .filter(ts.isJsxAttribute)
-              .map((attribute) => attribute.name.getText(sourceFile)),
+            jsxAttributes.map((attribute) =>
+              attribute.name.getText(sourceFile),
+            ),
           );
           const missing =
             tagName === "Pressable"

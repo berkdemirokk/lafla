@@ -20,7 +20,7 @@ import {
   Pressable,
   ScrollView,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -110,7 +110,7 @@ export default function PhonemeDrillScreen() {
     );
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.header}>
           <Pressable
             onPress={() => router.back()}
@@ -165,7 +165,7 @@ export default function PhonemeDrillScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
       <View style={styles.header}>
         <Pressable
           onPress={() => router.back()}

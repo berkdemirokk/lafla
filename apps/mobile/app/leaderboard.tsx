@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
-import { supabase } from "../lib/supabase";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
+import { isSupabaseConfigured, supabase } from "../lib/supabase";
 import { tokens } from "../theme";
 
 interface LeaderboardItem {
@@ -27,6 +27,7 @@ export default function LeaderboardScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [data, setData] = useState<LeaderboardItem[]>([]);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const fetchLeaderboard = async (isRefresh = false) => {
     if (isRefresh) {
@@ -36,6 +37,13 @@ export default function LeaderboardScreen() {
     }
 
     try {
+      setErrorMessage(null);
+      if (!isSupabaseConfigured) {
+        setData([]);
+        setErrorMessage("Liderlik tablosu bu sürümde henüz aktif değil.");
+        return;
+      }
+
       // 1) Get current authenticated user
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
@@ -50,7 +58,11 @@ export default function LeaderboardScreen() {
       
       setData(profiles || []);
     } catch (e) {
-      console.error("[Leaderboard] Failed to fetch:", e);
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.error("[Leaderboard] Failed to fetch:", e);
+      }
+      setErrorMessage("Sıralama şu an yüklenemedi. Biraz sonra tekrar dene.");
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -110,7 +122,7 @@ export default function LeaderboardScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
       
       {/* Header */}
       <View style={styles.header}>
@@ -150,7 +162,23 @@ export default function LeaderboardScreen() {
           }
           ListEmptyComponent={
             <View style={styles.emptyContainer}>
-              <Text style={styles.emptyText}>Henüz sıralama verisi bulunamadı.</Text>
+              <Text style={styles.emptyTitle}>
+                {errorMessage ? "Sıralama hazır değil" : "Henüz sıralama yok"}
+              </Text>
+              <Text style={styles.emptyText}>
+                {errorMessage ?? "İlk tamamlanan sahnelerden sonra burada öğrenciler görünür."}
+              </Text>
+              <Pressable
+                onPress={() => fetchLeaderboard(true)}
+                style={({ pressed }) => [
+                  styles.retryBtn,
+                  pressed && styles.retryBtnPressed,
+                ]}
+                accessibilityRole="button"
+                accessibilityLabel="Liderlik tablosunu tekrar yükle"
+              >
+                <Text style={styles.retryText}>Tekrar dene</Text>
+              </Pressable>
             </View>
           }
         />
@@ -291,9 +319,35 @@ const styles = StyleSheet.create({
   emptyContainer: {
     paddingVertical: 40,
     alignItems: "center",
+    gap: 8,
+  },
+  emptyTitle: {
+    color: tokens.text.primary,
+    fontSize: 16,
+    fontWeight: tokens.weight.extrabold,
   },
   emptyText: {
     color: tokens.text.tertiary,
     fontSize: 14,
+    textAlign: "center",
+    lineHeight: 19,
+    paddingHorizontal: 24,
+  },
+  retryBtn: {
+    marginTop: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.primary,
+  },
+  retryBtnPressed: {
+    opacity: 0.86,
+  },
+  retryText: {
+    color: tokens.brand.primary,
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
   },
 });

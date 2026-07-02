@@ -15,13 +15,14 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { tokens } from "../theme";
 import { isPremium } from "../lib/iap";
 import { getMistakeDNA } from "../lib/mistake-dna";
+import { PRO_MONTHLY_PRICE_COMPACT } from "../lib/monetization";
 
 interface WeaknessRow {
   patternId: string;
@@ -66,7 +67,7 @@ export default function WeaknessReportScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
@@ -144,7 +145,9 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
         accessibilityRole="button"
         accessibilityLabel="Lafla Pro ile aç"
       >
-        <Text style={styles.ctaText}>Lafla Pro ile aç — ₺99/ay</Text>
+        <Text style={styles.ctaText}>
+          Lafla Pro ile aç — {PRO_MONTHLY_PRICE_COMPACT}
+        </Text>
       </Pressable>
     </View>
   );

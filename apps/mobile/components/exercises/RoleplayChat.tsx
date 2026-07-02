@@ -1135,6 +1135,15 @@ export function RoleplayChat({
           choiceOptions.length > 0 &&
           !freeInputForTurn ? (
             <View style={styles.choiceCol}>
+              <View style={styles.choiceCoachBox}>
+                <Text style={styles.choiceCoachTitle}>
+                  Seçerek başlayabilirsin
+                </Text>
+                <Text style={styles.choiceCoachText}>
+                  Bu test değil. Cevabı seç; sonra balona dokunup telaffuzunu
+                  dinle. Hazır hissedince kendi cümleni söyle veya yaz.
+                </Text>
+              </View>
               {choiceOptions.map((opt, i) => (
                 <Pressable
                   key={`${turnIdx}-${i}`}
@@ -1780,6 +1789,26 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.semibold,
     color: tokens.brand.tertiary,
     letterSpacing: 0.3,
+  },
+  choiceCoachBox: {
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    gap: 3,
+  },
+  choiceCoachTitle: {
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: -0.1,
+  },
+  choiceCoachText: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    lineHeight: 17,
   },
   choiceCol: {
     gap: 8,

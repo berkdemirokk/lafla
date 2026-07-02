@@ -56,6 +56,8 @@ export interface VoiceWaveformProps {
   style?: StyleProp<ViewStyle>;
   /** A11y label override; defaults to a generic "Ses dalgası". */
   accessibilityLabel?: string;
+  /** Hide purely decorative ambient waveforms from screen readers. */
+  decorative?: boolean;
 }
 
 const MIN_BARS = 3;
@@ -71,6 +73,7 @@ export function VoiceWaveform({
   gap = 4,
   style,
   accessibilityLabel = "Ses dalgası",
+  decorative = false,
 }: VoiceWaveformProps) {
   const barCount = Math.max(MIN_BARS, Math.min(MAX_BARS, Math.floor(bars)));
   const minH = Math.max(2, Math.round(height * 0.18));
@@ -112,8 +115,11 @@ export function VoiceWaveform({
   return (
     <View
       style={[styles.row, { height, gap }, style]}
-      accessibilityRole="image"
-      accessibilityLabel={accessibilityLabel}
+      accessible={!decorative}
+      accessibilityElementsHidden={decorative}
+      importantForAccessibility={decorative ? "no-hide-descendants" : "auto"}
+      accessibilityRole={decorative ? undefined : "image"}
+      accessibilityLabel={decorative ? undefined : accessibilityLabel}
     >
       {Array.from({ length: barCount }).map((_, i) => (
         <Bar

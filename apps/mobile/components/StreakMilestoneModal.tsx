@@ -23,7 +23,7 @@ import {
   Platform,
   type ViewStyle,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "./ThemedStatusBar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Animated, {
   Easing,
@@ -262,7 +262,7 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       onRequestClose={onClose}
     >
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.body}>
           {/* Cyan halo arka plan — breathing */}
           <Animated.View

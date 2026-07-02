@@ -1,6 +1,6 @@
 // Lafla — IELTS Band Estimator screen (Premium killer feature).
 //
-// 2026-05-21 — Türk öğrenci IELTS mock test ₺500 öderken biz ₺99/ay
+// 2026-05-21 — Türk öğrenci IELTS mock test ücretleri öderken Lafla Pro
 // Lafla Pro'ta sunuyoruz. Bu ekran Premium kullanıcı için açık, free
 // kullanıcı için paywall'a yönlendiriyor.
 //
@@ -16,7 +16,7 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -26,6 +26,10 @@ import {
   estimateSpeakingBand,
   type BandEstimate,
 } from "../lib/ielts-band-estimator";
+import {
+  IELTS_MOCK_TEST_PRICE_DISPLAY,
+  PRO_MONTHLY_PRICE_COMPACT,
+} from "../lib/monetization";
 
 export default function IeltsBandScreen() {
   const router = useRouter();
@@ -49,7 +53,7 @@ export default function IeltsBandScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
@@ -99,7 +103,10 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
     <View>
       <View style={styles.lockHero}>
         <Text style={styles.lockEmoji}>🔒</Text>
-        <Text style={styles.lockTitle}>Mock test merkezi ₺500.{"\n"}Biz ₺99/ay.</Text>
+        <Text style={styles.lockTitle}>
+          Mock test merkezi {IELTS_MOCK_TEST_PRICE_DISPLAY}.{"\n"}Biz{" "}
+          {PRO_MONTHLY_PRICE_COMPACT}.
+        </Text>
       </View>
 
       {/* Sample preview — what they'll get */}
@@ -130,7 +137,9 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
         accessibilityRole="button"
         accessibilityLabel="Lafla Pro ile aç"
       >
-        <Text style={styles.ctaText}>Lafla Pro ile aç — ₺99/ay</Text>
+        <Text style={styles.ctaText}>
+          Lafla Pro ile aç — {PRO_MONTHLY_PRICE_COMPACT}
+        </Text>
       </Pressable>
     </View>
   );

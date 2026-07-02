@@ -28,7 +28,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -461,7 +461,7 @@ export default function PlacementScreen() {
     const target = SPEAKING_PHRASES[mcqDerivedLevel];
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Konuşma testi</Text>
           <Text style={styles.headerSub}>
@@ -485,7 +485,7 @@ export default function PlacementScreen() {
     const target = LISTENING_PHRASES[mcqDerivedLevel];
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Dinleme testi</Text>
           <Text style={styles.headerSub}>
@@ -509,7 +509,7 @@ export default function PlacementScreen() {
   if (phase === "done" && finalLevel) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <Text style={styles.doneEmoji}>🎯</Text>
           <Text style={styles.doneTitle}>Seviyen ölçüldü</Text>
@@ -551,7 +551,7 @@ export default function PlacementScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Header — progress + escape hatch */}
       <View style={styles.header}>

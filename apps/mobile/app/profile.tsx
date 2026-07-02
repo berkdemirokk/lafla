@@ -24,7 +24,7 @@ import {
   RefreshControl,
   Share,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -312,7 +312,7 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
@@ -798,7 +798,6 @@ function AccountRow({ icon, label, danger, onPress }: AccountRowProps) {
         name="chevronRight"
         size={18}
         color={tokens.text.tertiary}
-        accessibilityLabel=""
       />
     </Pressable>
   );

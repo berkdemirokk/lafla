@@ -2,7 +2,7 @@
 //
 // 2026-05-21 — Lafla Pro değer önerisini gerçek bir engel ile destekle.
 // Önceden: free kullanıcı sınırsız sahne oynayabiliyordu, AdMob banner
-// tek "değer" engeliydi. ₺99/ay neden ödenir? Cevap yoktu.
+// tek "değer" engeliydi. Lafla Pro neden ödenir? Cevap yoktu.
 //
 // Şimdi: günde N sahne free. N+1'inci sahne açılışında paywall.
 // Premium ise (RevenueCat isPremium) muaf.
