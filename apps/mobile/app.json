@@ -38,8 +38,7 @@
           "googlesyndication.com",
           "doubleclick.net",
           "google-analytics.com",
-          "app-measurement.com",
-          "o447951.ingest.sentry.io"
+          "app-measurement.com"
         ],
         "NSPrivacyAccessedAPITypes": [
           {

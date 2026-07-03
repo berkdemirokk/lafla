@@ -15,7 +15,7 @@
 //   - 5 sahne (CEFR ±1 + ilgi alanı filtreli, completed olmayanlar)
 //   - Skill çeşitliliği için aynı skill'den max 2 sahne
 //   - Deterministic per (user, day) — aynı gün açtıkça aynı plan
-//   - Yarına yeni plan (Date.toDateString seed)
+//   - Yarına yeni plan (local YYYY-MM-DD seed)
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
@@ -28,6 +28,7 @@ import {
 import { getInterests, getCompletedLessonIds } from "./local-progress";
 import { interestsToModes } from "./interest-mapping";
 import { getSceneDisplayMinutes } from "./scene-duration";
+import { localDayKey } from "./day-key";
 
 const K_PLAN = "lafla.dailyPlan";
 const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
@@ -36,7 +37,7 @@ const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
 const PLAN_SIZE = 3;
 
 interface StoredPlan {
-  /** Plan üretim tarihi (toDateString). */
+  /** Plan üretim tarihi (local YYYY-MM-DD). */
   date: string;
   /** Plan içindeki lessonId sırası. */
   lessonIds: string[];
@@ -69,7 +70,7 @@ function planSigFrom(lessonIds: readonly string[]): string {
 }
 
 function todayKey(): string {
-  return new Date().toDateString();
+  return localDayKey();
 }
 
 function calibratedLevel(scene: Scene): CefrLevel | undefined {

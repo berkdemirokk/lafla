@@ -71,9 +71,12 @@ describe("release metadata", () => {
     expect(ielts).toContain("PRO_MONTHLY_PRICE_COMPACT");
     expect(weakness).toContain("PRO_MONTHLY_PRICE_COMPACT");
 
-    for (const document of [reviewNotes, revenueCat, submission, asc, metadata]) {
+    for (const document of [revenueCat, submission, asc]) {
       expect(document).toContain(PRO_MONTHLY_PRICE_COMPACT);
       expect(document).toContain(PRO_YEARLY_PRICE_COMPACT);
+    }
+
+    for (const document of [reviewNotes, revenueCat, submission, asc, metadata]) {
       expect(document).not.toContain("₺149");
       expect(document).not.toContain("149 TL");
       expect(document).not.toContain("$9.99");
@@ -82,7 +85,10 @@ describe("release metadata", () => {
     expect(revenueCat).toContain(PRO_MONTHLY_PRICE_DISPLAY);
     expect(revenueCat).toContain(PRO_YEARLY_PRICE_DISPLAY);
     expect(asc).toContain(PRO_YEARLY_SAVINGS_LABEL_TR);
-    expect(metadata).toContain(PRO_YEARLY_SAVINGS_LABEL_EN);
+    expect(asc).toContain(PRO_YEARLY_SAVINGS_LABEL_EN);
+    expect(metadata).toContain(
+      "exact localized price and billing period before confirmation",
+    );
   });
 
   it("ships the TestFlight acceptance and linguist-review evidence templates", () => {

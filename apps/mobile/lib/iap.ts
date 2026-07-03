@@ -322,11 +322,28 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
       return { ok: false, error: "No current offering configured" };
     }
 
-    // Map our PackageId to RevenueCat's identifiers
+    // Map our PackageId to RevenueCat's package types and identifiers. The
+    // dashboard has historically used both RevenueCat defaults ($rc_monthly /
+    // $rc_annual) and plain aliases (monthly / yearly); accept both so a
+    // correct StoreKit product is not missed because of dashboard naming.
+    const packageAliases =
+      id === "monthly"
+        ? new Set(["monthly", "$rc_monthly"])
+        : new Set(["yearly", "annual", "$rc_annual"]);
     const pkg =
       id === "monthly"
-        ? current.monthly ?? current.availablePackages?.find((p: { identifier: string }) => p.identifier === "$rc_monthly")
-        : current.annual ?? current.availablePackages?.find((p: { identifier: string }) => p.identifier === "$rc_annual");
+        ? current.monthly ??
+          current.availablePackages?.find(
+            (p: { identifier?: string; packageType?: string }) =>
+              packageAliases.has(String(p.identifier ?? "").toLowerCase()) ||
+              packageAliases.has(String(p.packageType ?? "").toLowerCase()),
+          )
+        : current.annual ??
+          current.availablePackages?.find(
+            (p: { identifier?: string; packageType?: string }) =>
+              packageAliases.has(String(p.identifier ?? "").toLowerCase()) ||
+              packageAliases.has(String(p.packageType ?? "").toLowerCase()),
+          );
 
     if (!pkg) {
       return { ok: false, error: `Package ${id} not found in offering` };

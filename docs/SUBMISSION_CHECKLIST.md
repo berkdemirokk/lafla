@@ -81,8 +81,8 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 - [ ] **Subtitle (TR):** `Donma. Konuş. Türkçe ipuçlu.`
 - [ ] **Subtitle (EN):** `Stop freezing. Speak. Turkish hints.` (placeholder — Section 1.2 kararına göre)
 - [ ] **App Name:** `Lafla: İngilizce Konuşma`
-- [ ] **Support URL:** `https://berkdemirokk.github.io/` (root; app-ads.txt lives here)
-- [ ] **Marketing URL:** (boş bırak veya aynı)
+- [ ] **Support URL:** `https://berkdemirokk.github.io/lafla/`
+- [ ] **Marketing URL:** `https://berkdemirokk.github.io/lafla/` veya boş bırak
 - [ ] **Privacy Policy URL:** `https://berkdemirokk.github.io/lafla/privacy.html`
 
 ### A.6 Screenshots (6.7" iPhone — zorunlu)
@@ -143,8 +143,8 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 - [ ] **Voice Journal** — /voice-journal kayıt + timeline, sweep race fix doğrula (Faz 2)
 - [ ] **Profile** — 7 mod rail görünüyor, streak ve XP doğru
 - [ ] **Lafla Pro row** — Profile'dan tıklanınca paywall açılıyor
-- [ ] **Paywall yearly default** — segmented toggle Yıllık preselected, ₺999/yıl + %X indirim pill
-- [ ] **Paywall monthly toggle** — tap ederse ₺99/ay fiyat değişiyor
+- [ ] **Paywall yearly default** — segmented toggle Yıllık preselected, live App Store yearly price görünüyor; indirim pill'i sadece live yıllık fiyat 12× aylıktan ucuzsa çıkıyor
+- [ ] **Paywall monthly toggle** — tap ederse live App Store monthly price'a değişiyor
 - [ ] **Restore Purchases** — Settings → "Satın alımları geri yükle" → "Aktif abonelik bulunamadı" Alert
 - [ ] **Account deletion** — Settings → "Hesabımı sil" → "SİL" yaz → Supabase user gerçekten silindi mi (Supabase dashboard kontrol)
 - [ ] **Privacy URL** — Settings → "Gizlilik politikası" → tarayıcıda 200 dönüyor mu
@@ -199,14 +199,14 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 | Soru | Cevap |
 |---|---|
 | Bundle ID | `com.lafla.app` |
-| Lafla Pro IAP IDs | `lafla.premium.monthly` (₺99/ay), `lafla.premium.yearly` (₺999/yıl) |
+| Lafla Pro IAP IDs | `lafla.premium.monthly`, `lafla.premium.yearly` |
 | RevenueCat Offering | `default` (packages: `$rc_monthly`, `$rc_annual`) |
 | Master commit (submit hazır) | `4edb017` (v0.9.0) veya sonrası |
 | Latest tag | `lafla-v0.9.0` |
 | TestFlight pipeline | Auto on `lafla-v*` tag push; manual: `gh workflow run expo-testflight.yml` |
 | Privacy URL | `https://berkdemirokk.github.io/lafla/privacy.html` |
 | Terms URL | `https://berkdemirokk.github.io/lafla/terms.html` |
-| Support URL | `https://berkdemirokk.github.io/` |
+| Support URL | `https://berkdemirokk.github.io/lafla/` |
 | Support email | `berkkdemirok@gmail.com` |
 | Demo account location | ASC → App Review Information → Demo Account |
 | Apple Team ID | `44B88YK392` |

@@ -11,26 +11,28 @@
 - ✅ Paywall (`app/paywall.tsx`) now displays both tiers via segmented toggle.
   Yearly is the default selection. Discount % is computed live from
   `priceAmountMicros` ratio so it always matches the App Store reality.
-- ⚠️  **App Store Connect IAP products NOT yet created**. The two RC products
-  (`monthly`, `yearly`) currently point at RC's internal **Test Store**, not
-  real App Store products. Sandbox / production purchases will fail until
-  the App Store side is wired (see §1 below).
+- ⚠️  **Verify App Store Connect + RevenueCat before every release.** The
+  public App Store listing exposes monthly and yearly IAPs, but the private
+  ASC/RevenueCat dashboard state must still be checked before release: both
+  products must be attached to the same RevenueCat entitlement and offering.
 
 **Remaining steps to go live (do these IN ORDER — App Store Connect side):**
-1. In App Store Connect → Subscriptions: create `lafla.premium.monthly`
+1. In App Store Connect → Subscriptions: verify `lafla.premium.monthly`
    (₺99/ay) and `lafla.premium.yearly` (₺999/yıl) as auto-renewable
    subscriptions in the same subscription group "Lafla Premium". Same level
    in the group means user can switch between them. See §1 below.
-2. In RC dashboard → Products → "Lafla (App Store)" → **+ New** (or **Import**)
-   → add both product IDs from step 1.
+2. In RC dashboard → Products → "Lafla (App Store)" → confirm both product IDs
+   are imported from App Store Connect.
 3. Attach both products to the `Lafla Pro` entitlement.
-4. In the `default` offering: replace the Test Store packages with App Store
-   ones (or create new packages bound to the App Store products).
+4. In the `default` offering: confirm `$rc_monthly`/`monthly` and
+   `$rc_annual`/`yearly` packages are bound to App Store products, not Test
+   Store products.
 5. EAS dev build → sandbox test (both tiers + tier-switching) → submit for
    review.
 
-Until step 1 lands, the paywall shows real UI but `purchasePackage()` will
-return `{ ok: false, error: "..." }`. Mock fallback (Expo Go) still works.
+If any dashboard link is wrong, `purchasePackage()` returns
+`{ ok: false, error: "..." }` and the paywall asks the user to retry instead
+of silently granting premium. Mock fallback is limited to development builds.
 
 ---
 
@@ -119,7 +121,7 @@ at runtime. Add it to `app.json` under `expo.extra`:
   "expo": {
     "extra": {
       "revenuecatIosKey": "appl_xxxxxxxxxxxxxxxx",
-      "revenuecatEntitlement": "premium"
+      "revenuecatEntitlement": "Lafla Pro"
     }
   }
 }
@@ -225,7 +227,7 @@ keep compiling.
    accelerated (1 month → ~5 min) so subscription expiry is testable in
    a single session.
 4. Verify on RevenueCat dashboard → **Customers** → the test user's
-   entitlement appears as `premium` with `Active`.
+   entitlement appears as `Lafla Pro` with `Active`.
 
 Common gotchas:
 - Sandbox accounts can't be used in the real App Store; they fail silently
@@ -257,9 +259,8 @@ mock to remain available in dev builds even after the real SDK is wired.
 
 ## 8. Integration with `paywall.tsx`
 
-`apps/mobile/app/paywall.tsx` currently shows an "Alert: yakında" message
-when the CTA is tapped (function `handlePurchase`). When production is
-ready:
+`apps/mobile/app/paywall.tsx` calls `purchasePackage(plan)` directly. Keep the
+CTA wired to the real purchase path and use the mock path only in development:
 
 ```ts
 import { purchasePackage, restorePurchases } from "../lib/iap";
@@ -296,13 +297,13 @@ scenarios) trivial and survives a re-install with no internet.
 ## 10. Checklist before shipping
 
 - [ ] Paid Apps Agreement active in App Store Connect
-- [ ] Both products `Ready to Submit`
-- [ ] Entitlement `premium` configured in RevenueCat
-- [ ] Offering `default` has both `monthly` and `yearly` packages
+- [ ] Both products ready/approved in App Store Connect
+- [ ] Entitlement `Lafla Pro` configured in RevenueCat
+- [ ] Offering `default` has both `$rc_monthly`/`monthly` and `$rc_annual`/`yearly` packages
 - [ ] Public SDK key in `app.json extra.revenuecatIosKey`
 - [ ] `react-native-purchases` installed; dev client rebuilt
-- [ ] Mock bodies in `lib/iap.ts` replaced
-- [ ] Paywall calls `purchasePackage(plan)` and `restorePurchases()`
+- [ ] Production mock grant is disabled; only `__DEV__` can use local mock premium
+- [ ] Paywall calls `purchasePackage(plan)` and `restorePurchasesDetailed()`
 - [ ] Sandbox tester confirmed end-to-end on a physical device
 - [ ] Privacy nutrition labels updated in App Store Connect
 - [ ] Subscription terms / privacy / restore links visible on paywall

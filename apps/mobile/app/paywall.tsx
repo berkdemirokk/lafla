@@ -481,8 +481,8 @@ export default function PaywallScreen() {
   // Trial: aktif seçili plana göre, yoksa diğer plandan oku. Sadece >0 gün
   // olduğunda göster.
   const activeTrialDays = isYearly
-    ? livePrices.yearly?.trialDays ?? livePrices.monthly?.trialDays
-    : livePrices.monthly?.trialDays ?? livePrices.yearly?.trialDays;
+    ? livePrices.yearly?.trialDays
+    : livePrices.monthly?.trialDays;
   const trialAvailable = activeTrialDays != null && activeTrialDays > 0;
   const trialLabel = trialAvailable
     ? `İlk ${activeTrialDays} gün ücretsiz`
@@ -495,6 +495,7 @@ export default function PaywallScreen() {
       : isYearly
         ? "Yıllık aboneliği başlat"
         : "Aylık aboneliği başlat";
+  const renewalPeriodLabel = isYearly ? "yıllık" : "aylık";
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -572,8 +573,8 @@ export default function PaywallScreen() {
         </Animated.View>
 
         {/* 2026-05-26 — Anonymous (hesapsız) user uyarısı.
-            Satın almadan önce hesap açmaya yönlendir; aksi halde yeni
-            cihazda Restore Purchases çalışmaz (Apple 3.1.1 expectation). */}
+            Hesap, abonelik eşleştirmesini daha güvenli yapar; ancak kullanıcı
+            hesapsız satın almayı da Apple ID üzerinden restore edebilir. */}
         {isAnonymous && (
           <Animated.View style={[styles.anonNotice, cardStyle]}>
             <Icon
@@ -583,11 +584,11 @@ export default function PaywallScreen() {
             />
             <View style={styles.anonNoticeBody}>
               <Text style={styles.anonNoticeTitle}>
-                Önce hesap aç — sonra abone ol
+                Hesapla daha güvenli
               </Text>
               <Text style={styles.anonNoticeText}>
-                Hesap açmadan satın alırsan abonelik bu cihaza bağlı kalır;
-                yeni cihazda geri yükleyemezsin.
+                Hesap açarsan aboneliğin profilinle eşleşir. Hesapsız devam
+                edersen satın alımı Apple ID üzerinden geri yükleyebilirsin.
               </Text>
               <Pressable
                 onPress={() => {
@@ -797,7 +798,7 @@ export default function PaywallScreen() {
           {/* FOOTER — disclaimer + links, ordered by visual weight */}
           <Text style={styles.disclaimer}>
             Abonelik, yenileme tarihinden en az 24 saat önce iptal edilmediği
-            sürece görüntülenen fiyat üzerinden aylık otomatik yenilenir. Ödeme,
+            sürece görüntülenen fiyat üzerinden {renewalPeriodLabel} otomatik yenilenir. Ödeme,
             onayda Apple ID hesabınızdan tahsil edilir. iOS Ayarlar → Apple ID →
             Abonelikler yolundan yönetebilir veya iptal edebilirsiniz.
           </Text>

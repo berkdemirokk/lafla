@@ -24,10 +24,15 @@ function syncSentryUser(s: Session | null): void {
 
 async function syncExternalUserIds(s: Session | null): Promise<void> {
   const userId = s?.user?.id ?? null;
-  await Promise.all([
-    setAnalyticsUserId(userId).catch(() => {}),
-    setRevenueCatUserId(userId).catch(() => {}),
-  ]);
+  await setAnalyticsUserId(userId).catch(() => {});
+  // Do not call RevenueCat logOut just because there is no Supabase session.
+  // Anonymous StoreKit purchases are tied to RevenueCat's current anonymous
+  // app user id; resetting it on every signed-out screen can make a freshly
+  // purchased entitlement look lost until restore. Explicit app sign-out still
+  // clears RevenueCat in auth.signOut().
+  if (userId) {
+    await setRevenueCatUserId(userId).catch(() => {});
+  }
 }
 
 export function useSession(): SessionState {
@@ -40,13 +45,21 @@ export function useSession(): SessionState {
       return;
     }
 
-    supabase.auth.getSession().then(async ({ data }) => {
-      const s = data.session ?? null;
-      setSession(s);
-      syncSentryUser(s);
-      await syncExternalUserIds(s);
-      setLoading(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(async ({ data }) => {
+        const s = data.session ?? null;
+        setSession(s);
+        syncSentryUser(s);
+        await syncExternalUserIds(s);
+      })
+      .catch(() => {
+        setSession(null);
+        syncSentryUser(null);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
 
     const { data: subscription } = supabase.auth.onAuthStateChange(
       (_event, newSession) => {

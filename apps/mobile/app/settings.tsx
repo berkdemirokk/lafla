@@ -38,7 +38,7 @@ import {
 } from "../lib/delete-account";
 import { supabase } from "../lib/supabase";
 import { hapticImpact, hapticSelection, hapticSuccess } from "../lib/feedback";
-import { restorePurchases } from "../lib/iap";
+import { restorePurchasesDetailed } from "../lib/iap";
 import {
   getThemePreference,
   setThemePreference,
@@ -325,13 +325,20 @@ export default function SettingsScreen() {
   };
 
   // Apple Guideline 3.1.1 — Restore Purchases ulaşılabilirlik. Settings'ten
-  // tetiklenir; paywall'da ayrı bir buton zaten var. SDK live değilse "aktif
-  // abonelik bulunamadı" gibi kibar bir mesaj döner.
+  // tetiklenir; paywall'da ayrı bir buton zaten var. SDK/network hatası ile
+  // "aktif abonelik yok" durumunu özellikle ayır.
   const handleRestorePurchases = async () => {
     hapticImpact("light");
     try {
-      const restored = await restorePurchases();
-      if (restored) {
+      const result = await restorePurchasesDetailed();
+      if (!result.ok) {
+        Alert.alert(
+          "Geri yükleme başarısız",
+          "İnternet bağlantını kontrol edip tekrar dene.",
+        );
+        return;
+      }
+      if (result.active) {
         hapticSuccess();
         Alert.alert(
           "Geri yüklendi",

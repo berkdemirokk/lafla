@@ -126,7 +126,7 @@ Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açık
 
 Tüm 971 sahneye erişim, sınırsız tekrar, yönlendirmeli telaffuz pratiği, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
 
-📋 Fiyat: ₺99/ay veya ₺999/yıl (yıllık planda %16 tasarruf)
+📋 Aylık ve yıllık planlar mevcut. App Store satın alma ekranı onaydan önce kesin yerel fiyatı ve faturalama dönemini gösterir.
 🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin
 ⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir
 📜 Şartlar: https://berkdemirokk.github.io/lafla/terms.html · Gizlilik: https://berkdemirokk.github.io/lafla/privacy.html
@@ -179,7 +179,7 @@ Every scene targets these specific traps. Every correction is explained in Turki
 
 All 971 scenes unlocked, unlimited replays, guided pronunciation practice, IELTS Band estimate, personal weakness report, advanced progress dashboard.
 
-📋 Pricing: ₺99/month or ₺999/year (16% savings on annual)
+📋 Monthly and yearly plans are available. The App Store purchase sheet shows the exact localized price and billing period before confirmation.
 🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions
 ⏰ Renewal continues at the end of each period unless cancelled
 📜 Terms: https://berkdemirokk.github.io/lafla/terms.html · Privacy: https://berkdemirokk.github.io/lafla/privacy.html
@@ -336,14 +336,14 @@ Feedback: berkkdemirok@gmail.com
 
 ### Screenshot 6 — Pricing / Value
 
-- **Show:** Lafla Pro paywall surface. Hero: `Lafla Pro — Tüm sahneler` with a glowing border. Segmented toggle (Aylık / Yıllık) at the top with **Yıllık** preselected. Price row: `₺999 / yıl` (with `%16 indirim` pill). Below: four feature rows with checkmark icons:
+- **Show:** Lafla Pro paywall surface. Hero: `Lafla Pro — Tüm sahneler` with a glowing border. Segmented toggle (Aylık / Yıllık) at the top with **Yıllık** preselected. Price row uses the live localized App Store price, with a savings pill only when the live annual price is cheaper than 12 monthly periods. Below: four feature rows with checkmark icons:
   - `✓ 971 sahnenin tamamı`
   - `✓ Sınırsız tekrar ve telaffuz analizi`
   - `✓ IELTS Band tahmini + kişisel zayıflık raporu`
   - `✓ Erken erişim — yeni modlar`
   - Restore Purchases link visible at the bottom (compliance signal to Apple).
 - **Headline overlay (TR):** `Bir kahvenin yarısı.`
-- **Sub:** `Yıllık ₺999 veya aylık ₺99. İstediğin an iptal.`
+- **Sub:** `Aylık veya yıllık seç. Fiyatı App Store onay ekranında gör. İstediğin an iptal.`
 - **Why:** Closes the funnel with the value proposition. Restore link visible = clean signal for Apple's reviewer. Annual-default segmented toggle reflects the live paywall behavior (yearly is the recommended tier in v0.9.0).
 
 > **Localization note:** Upload TR captions on the TR locale and EN captions on the EN locale. Images are identical — only the overlay text swaps. EN overlay equivalents: `Stop freezing.` / `Open, swipe, speak.` / `A real scene, a real mistake.` / `We explain mistakes in Turkish.` / `Real progress, mapped to CEFR.` / `Half a coffee.`
@@ -408,9 +408,9 @@ Lafla is a Turkish-first English speaking-practice app. The home feed is gated b
 
 Two iOS permissions (Microphone, Speech Recognition) are requested lazily — only when the user first taps a voice exercise, not on first launch. Denying either still leaves the rest of the app usable; we present a graceful "go to Settings" prompt.
 
-Two In-App Purchases ship: `lafla.premium.monthly` (₺99/ay) and `lafla.premium.yearly` (₺999/yıl) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.
+Two In-App Purchases ship: `lafla.premium.monthly` and `lafla.premium.yearly` — both via RevenueCat. The App Store purchase sheet shows the exact localized price and billing period before confirmation. Restore Purchases is reachable from both the paywall and Settings.
 
-App Tracking Transparency (ATT) prompt is shown after onboarding completes (Apple HIG: prompt at first meaningful value moment, not on launch). AdMob initialization is sequenced after ATT response. PostHog analytics are gated by ATT — denied users get zero tracking.
+App Tracking Transparency (ATT) prompt is requested from the root app shell before AdMob initialization. PostHog analytics are gated by ATT — denied users get zero tracking.
 
 Two side-rail practice modes exist for silent environments:
 - Phoneme Drill (/phoneme-drill): targeted pronunciation alıştırması for hard sounds

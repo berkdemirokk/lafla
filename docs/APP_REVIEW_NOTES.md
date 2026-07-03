@@ -37,8 +37,8 @@ The demo account is pre-seeded with:
 
 Two subscription products in the same Subscription Group:
 
-- **`lafla.premium.monthly`** — Lafla Pro monthly subscription (₺99/ay base; displayed local price overrides marketing copy via RevenueCat `getOffering`).
-- **`lafla.premium.yearly`** — Lafla Pro yearly subscription (₺999/yıl base; ~16% saving vs. 12× monthly).
+- **`lafla.premium.monthly`** — Lafla Pro monthly subscription. The App Store purchase sheet shows the exact localized price before confirmation.
+- **`lafla.premium.yearly`** — Lafla Pro yearly subscription. The paywall computes any savings badge from live App Store price data instead of hardcoded copy.
 
 The paywall presents both via a segmented toggle (default: Yıllık / Yearly preselected — this is the recommended tier; the user can switch to Aylık / Monthly with a tap).
 
@@ -71,7 +71,7 @@ Deletion is immediate (no soft-delete / 30-day grace).
 
 ## Privacy
 
-- **Tracking (ATT):** The app integrates AdMob for free-tier ads and PostHog for product analytics. The ATT permission prompt is presented at the end of onboarding, BEFORE AdMob initialization. PostHog is **not initialized** until ATT is resolved AND granted. AdMob initializes after ATT resolves and applies `requestNonPersonalizedAdsOnly: true` regardless of ATT outcome (defense-in-depth); when ATT is denied the SDK additionally cannot read the IDFA. SKAdNetwork identifiers are declared in `app.json` for iOS install attribution.
+- **Tracking (ATT):** The app integrates AdMob for free-tier ads and PostHog for product analytics. The ATT permission prompt is requested from the root app shell before AdMob initialization. PostHog is **not initialized** until ATT is resolved AND granted. AdMob initializes after ATT resolves and applies `requestNonPersonalizedAdsOnly: true` regardless of ATT outcome (defense-in-depth); when ATT is denied the SDK additionally cannot read the IDFA. SKAdNetwork identifiers are declared in `app.json` for iOS install attribution.
 - **AdMob ad placement:** Free tier sees a bottom-anchored adaptive banner on the home/today screens (not on auth/onboarding/paywall/scenario screens) and an interstitial after every 3rd completed scenario. Opt-in rewarded video grants 30 minutes of Pro. Lafla Pro subscribers see **zero ads** — `AdBanner` returns `null` and `onScenarioComplete` early-returns for entitled users. Children-directed flags are explicitly **false** (`tagForChildDirectedTreatment: false`, `tagForUnderAgeOfConsent: false`) because flirt + bar modes drive a 17+ age rating. `maxAdContentRating: T` keeps ad creatives Teen-or-tamer to match the rating.
 - **Sentry crash reporting** receives anonymous device/build metadata and crash stacks. No user email or profile fields are attached to events. Sentry breadcrumbs cover onboarding finalize, IAP purchase, voice journal recording, JSON parsing failures, scene-runtime crashes. The DSN is provisioned via EAS Secret `EXPO_PUBLIC_SENTRY_DSN`.
 - **Structured scenarios:** All dialogue, scene content, scoring, and feedback in the 971 guided scenarios are pre-authored and evaluated on-device. Their answers are not sent to Lafla servers; voice transcription is provided by the iOS Speech Recognition framework and may be processed according to the user's Apple/iOS settings.

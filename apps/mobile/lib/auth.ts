@@ -9,6 +9,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SecureStore from "expo-secure-store";
 import { supabase } from "./supabase";
+import { setUserId as setRevenueCatUserId } from "./iap";
 
 // 2026-05-25 — signOut sırasında temizlenecek user-data anahtarları.
 // signOut bu key'leri silmediği için: User1 onboarding bitirir →
@@ -113,6 +114,7 @@ export async function signOut() {
   // mount'ı yanlış yere yönlendirmesin (B-AUTH-1).
   await Promise.all([
     AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {}),
+    setRevenueCatUserId(null).catch(() => {}),
     ...SECURE_STORE_USER_KEYS.map((k) =>
       SecureStore.deleteItemAsync(k).catch(() => {}),
     ),

@@ -18,6 +18,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { isPremium } from "./iap";
+import { localDayKey } from "./day-key";
 
 const K_FREE_DATE = "lafla.freeTier.date";
 const K_FREE_COUNT = "lafla.freeTier.count";
@@ -28,15 +29,11 @@ const K_FREE_COUNT = "lafla.freeTier.count";
  */
 export const FREE_DAILY_SCENE_QUOTA = 3;
 
-// 2026-05-25 (B-PAY-11) — Eski versiyon `toDateString()` LOCAL timezone'a
-// bağımlıydı: kullanıcı uçakta saat değiştirebilir / TR → AB seyahat ederse
-// gece yarısı geçişinde sayaç ya erken sıfırlanır ya ileriye atlar. UTC
-// gün başlangıcı stabildir; abuse vektörünü de kapatır (cihaz saatini
-// ileri al → quota sıfırla).
+// User-facing daily quota should reset with the same local day boundary as the
+// Daily Plan. Otherwise Turkey users can see a fresh plan at 00:00 but stay
+// blocked by yesterday's quota until UTC midnight rolls over.
 function todayKey(): string {
-  const d = new Date();
-  // YYYY-MM-DD (UTC)
-  return d.toISOString().slice(0, 10);
+  return localDayKey();
 }
 
 interface CounterState {
