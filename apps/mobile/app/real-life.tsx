@@ -15,6 +15,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Button } from "../components/Button";
 import { SpeakerButton } from "../components/SpeakerButton";
+import { TabBar } from "../components/TabBar";
 import { RoleplayChat } from "../components/exercises/RoleplayChat";
 import { trackEvent } from "../lib/analytics";
 import type { ExerciseResult } from "../lib/engine";
@@ -39,6 +40,51 @@ const EXAMPLES: Record<ToolMode, string[]> = {
   ],
 };
 
+const QUICK_REQUESTS: ReadonlyArray<{
+  mode: ToolMode;
+  title: string;
+  subtitle: string;
+  text: string;
+}> = [
+  {
+    mode: "emergency",
+    title: "Patrona gecikme",
+    subtitle: "resmi + doğal + samimi",
+    text: "Patronuma 15 dakika gecikeceğimi nazikçe söyleyeceğim",
+  },
+  {
+    mode: "emergency",
+    title: "Toplantıyı ertele",
+    subtitle: "kırmadan yeniden planla",
+    text: "Müşteri toplantısını başka güne almak istiyorum",
+  },
+  {
+    mode: "scenario",
+    title: "Maaş görüşmesi",
+    subtitle: "baskısız kısa prova",
+    text: "Yöneticimle maaş artışı konuşacağım; net ama saygılı olmak istiyorum",
+  },
+  {
+    mode: "scenario",
+    title: "WhatsApp cevabı",
+    subtitle: "mesajı doğal kur",
+    text: "Bu WhatsApp mesajına cevap provasını yap: Yarın konuşabilir miyiz?",
+  },
+];
+
+const TRUST_POINTS = [
+  { label: "30 sn", detail: "hemen cevap" },
+  { label: "3 ton", detail: "resmi / doğal / samimi" },
+  { label: "Sesli", detail: "dinle ve tekrar et" },
+];
+
+const TONE_HINTS: Record<keyof EmergencyAnswers, string> = {
+  formal: "Patron, müşteri, resmi mail",
+  neutral: "Günlük iş ve sosyal kullanım",
+  friendly: "Arkadaş veya samimi ekip",
+  source: "",
+};
+
 export default function RealLifeScreen() {
   const router = useRouter();
   const [mode, setMode] = useState<ToolMode>("emergency");
@@ -59,9 +105,14 @@ export default function RealLifeScreen() {
     setInput("");
   };
 
-  const generate = async () => {
-    const request = input.trim();
+  const generateFrom = async (
+    rawRequest = input,
+    activeMode: ToolMode = mode,
+  ) => {
+    const request = rawRequest.trim();
     if (!request || loading) return;
+    if (rawRequest !== input) setInput(rawRequest);
+    if (activeMode !== mode) setMode(activeMode);
     setLoading(true);
     setError(null);
     setAnswers(null);
@@ -69,7 +120,7 @@ export default function RealLifeScreen() {
     setScenarioResult(null);
     const startedAt = Date.now();
     try {
-      if (mode === "emergency") {
+      if (activeMode === "emergency") {
         const result = await generateEmergencyAnswers(request);
         setAnswers(result);
         void trackEvent("emergency_english_generated", {
@@ -94,6 +145,8 @@ export default function RealLifeScreen() {
       setLoading(false);
     }
   };
+
+  const generate = async () => generateFrom();
 
   if (scenario) {
     return (
@@ -211,6 +264,38 @@ export default function RealLifeScreen() {
             </Text>
           </View>
 
+          <View style={styles.promiseRow}>
+            {TRUST_POINTS.map((item) => (
+              <View key={item.label} style={styles.promisePill}>
+                <Text style={styles.promiseLabel}>{item.label}</Text>
+                <Text style={styles.promiseDetail}>{item.detail}</Text>
+              </View>
+            ))}
+          </View>
+
+          <View style={styles.quickPanel}>
+            <Text style={styles.sectionLabel}>EN SIK KULLANILANLAR</Text>
+            <View style={styles.quickGrid}>
+              {QUICK_REQUESTS.filter((item) => item.mode === mode).map(
+                (item) => (
+                  <Pressable
+                    key={item.title}
+                    onPress={() => void generateFrom(item.text, item.mode)}
+                    style={({ pressed }) => [
+                      styles.quickCard,
+                      pressed && styles.pressed,
+                    ]}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${item.title} için hazırla`}
+                  >
+                    <Text style={styles.quickTitle}>{item.title}</Text>
+                    <Text style={styles.quickSub}>{item.subtitle}</Text>
+                  </Pressable>
+                ),
+              )}
+            </View>
+          </View>
+
           <TextInput
             value={input}
             onChangeText={setInput}
@@ -262,18 +347,39 @@ export default function RealLifeScreen() {
 
           {answers && (
             <View style={styles.answerList}>
-              <AnswerCard label="RESMÎ" text={answers.formal} />
-              <AnswerCard label="DOĞAL" text={answers.neutral} />
-              <AnswerCard label="SAMİMİ" text={answers.friendly} />
+              <AnswerCard
+                label="RESMÎ"
+                hint={TONE_HINTS.formal}
+                text={answers.formal}
+              />
+              <AnswerCard
+                label="DOĞAL"
+                hint={TONE_HINTS.neutral}
+                text={answers.neutral}
+              />
+              <AnswerCard
+                label="SAMİMİ"
+                hint={TONE_HINTS.friendly}
+                text={answers.friendly}
+              />
               {answers.source === "fallback" && (
                 <Text style={styles.offlineNote}>
-                  Canlı koç erişilemedi; güvenli çevrimdışı öneriler gösterildi.
+                  Canlı koç gecikti; en güvenli hazır kalıplar gösterildi.
                 </Text>
               )}
+              <Button
+                label="Bunu 2 turluk provaya çevir"
+                variant="secondary"
+                onPress={() => void generateFrom(input, "scenario")}
+                disabled={!input.trim()}
+                loading={loading}
+                stacked
+              />
             </View>
           )}
         </ScrollView>
       </KeyboardAvoidingView>
+      <TabBar active="real-life" />
     </SafeAreaView>
   );
 }
@@ -300,11 +406,22 @@ function ModeButton({
   );
 }
 
-function AnswerCard({ label, text }: { label: string; text: string }) {
+function AnswerCard({
+  label,
+  hint,
+  text,
+}: {
+  label: string;
+  hint: string;
+  text: string;
+}) {
   return (
     <View style={styles.answerCard}>
       <View style={styles.answerHeader}>
-        <Text style={styles.answerLabel}>{label}</Text>
+        <View>
+          <Text style={styles.answerLabel}>{label}</Text>
+          <Text style={styles.answerHint}>{hint}</Text>
+        </View>
         <SpeakerButton text={text} size="sm" />
       </View>
       <Text style={styles.answerText}>{text}</Text>
@@ -330,6 +447,17 @@ const styles = StyleSheet.create({
   eyebrow: { color: tokens.brand.primary, fontSize: 10, fontWeight: tokens.weight.extrabold, letterSpacing: 1.4, marginBottom: 6 },
   title: { color: tokens.text.primary, fontSize: 28, lineHeight: 34, fontWeight: tokens.weight.black, fontFamily: tokens.font.display },
   subtitle: { color: tokens.text.secondary, fontSize: 14, lineHeight: 20, marginTop: 7 },
+  promiseRow: { flexDirection: "row", gap: 8 },
+  promisePill: { flex: 1, paddingVertical: 10, paddingHorizontal: 10, borderRadius: 16, backgroundColor: tokens.bg.surfaceContainer, borderWidth: 1, borderColor: tokens.border.outlineVariant },
+  promiseLabel: { color: tokens.brand.tertiary, fontSize: 13, fontWeight: tokens.weight.black, fontFamily: tokens.font.display },
+  promiseDetail: { color: tokens.text.tertiary, fontSize: 10, marginTop: 2 },
+  quickPanel: { gap: 10 },
+  sectionLabel: { color: tokens.text.tertiary, fontSize: 10, fontWeight: tokens.weight.extrabold, letterSpacing: 1.3 },
+  quickGrid: { flexDirection: "row", gap: 10 },
+  quickCard: { flex: 1, minHeight: 86, padding: 14, borderRadius: tokens.radius.lg, backgroundColor: tokens.brand.primarySoft, borderWidth: 1, borderColor: tokens.brand.primary, justifyContent: "space-between" },
+  quickTitle: { color: tokens.text.primary, fontSize: 15, fontWeight: tokens.weight.black, fontFamily: tokens.font.display },
+  quickSub: { color: tokens.text.secondary, fontSize: 11, lineHeight: 15, marginTop: 5 },
+  pressed: { opacity: 0.82, transform: [{ scale: 0.98 }] },
   input: { minHeight: 128, padding: 16, color: tokens.text.primary, fontSize: 16, lineHeight: 23, textAlignVertical: "top", borderRadius: tokens.radius.lg, backgroundColor: tokens.bg.surfaceContainer, borderWidth: 1, borderColor: tokens.border.outlineVariant },
   chips: { gap: 8 },
   chip: { alignSelf: "flex-start", paddingVertical: 8, paddingHorizontal: 12, borderRadius: tokens.radius.full, backgroundColor: tokens.bg.surfaceContainerHigh, borderWidth: 1, borderColor: tokens.border.light },
@@ -339,6 +467,7 @@ const styles = StyleSheet.create({
   answerCard: { padding: 16, borderRadius: tokens.radius.lg, backgroundColor: tokens.bg.surfaceContainer, borderWidth: 1, borderColor: tokens.border.outlineVariant, gap: 8 },
   answerHeader: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
   answerLabel: { color: tokens.brand.tertiary, fontSize: 10, fontWeight: tokens.weight.extrabold, letterSpacing: 1.4 },
+  answerHint: { color: tokens.text.tertiary, fontSize: 10, marginTop: 2 },
   answerText: { color: tokens.text.primary, fontSize: 16, lineHeight: 23, fontWeight: tokens.weight.semibold },
   offlineNote: { color: tokens.text.tertiary, fontSize: 11, lineHeight: 16, textAlign: "center" },
   roleplayWrap: { flex: 1, paddingHorizontal: 16, paddingBottom: 8 },

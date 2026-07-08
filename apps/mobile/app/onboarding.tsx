@@ -1324,7 +1324,8 @@ function CefrStep({
       <ScrollView contentContainerStyle={styles.stepScroll}>
         <Text style={styles.stepHeader}>İngilizce seviyen?</Text>
         <Text style={styles.stepSubtitle}>
-          Test ile ölç (~6 dakika) veya kendin seç — zamanla otomatik ayarlanır.
+          2 dakikalık mini test yap veya kendin seç — seviye zamanla otomatik
+          incelir.
         </Text>
 
         {/* Placement test CTA — primary path. Lerna AI'da var, Lafla'da
@@ -1344,7 +1345,7 @@ function CefrStep({
           <View style={styles.placementCtaText}>
             <Text style={styles.placementCtaTitle}>Test ile ölç</Text>
             <Text style={styles.placementCtaSub}>
-              12 soru + konuşma + dinleme · ~6 dakika
+              12 kısa soru + konuşma + dinleme · ~2 dk
             </Text>
           </View>
           <Text style={styles.placementCtaArrow}>›</Text>

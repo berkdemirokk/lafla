@@ -1,4 +1,4 @@
-// Lafla — Shared bottom tab bar (3 tabs).
+// Lafla — Shared bottom tab bar.
 //
 // 2026-05-21 — 3-ekran yapısı:
 //   Bugün → /today    (default: daily plan + banners)
@@ -15,7 +15,7 @@ import { tokens } from "../theme";
 
 const BOTTOM_NAV_HEIGHT = 60;
 
-type TabKey = "today" | "home" | "profile";
+type TabKey = "today" | "real-life" | "home" | "profile";
 
 interface Tab {
   key: TabKey;
@@ -25,6 +25,7 @@ interface Tab {
 
 const TABS: ReadonlyArray<Tab> = [
   { key: "today", label: "Bugün", route: "/today" },
+  { key: "real-life", label: "Acil", route: "/real-life" },
   { key: "home", label: "Akış", route: "/home" },
   { key: "profile", label: "Profil", route: "/profile" },
 ];
