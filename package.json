@@ -5,13 +5,28 @@
   "description": "Söyle gitsin — Türk-first İngilizce konuşma simülatörü.",
   "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "typecheck": "pnpm -r typecheck",
-    "dev:mobile": "pnpm --filter mobile start",
-    "test": "pnpm -r test"
+    "typecheck": "corepack pnpm --filter @lafla/mobile typecheck",
+    "dev:mobile": "corepack pnpm --filter @lafla/mobile start",
+    "test": "corepack pnpm --filter @lafla/mobile test -- --runInBand"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
     "@types/node": "^20.10.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@babel/core@7.29.0": "7.29.7",
+      "js-yaml@3.14.2": "3.15.0",
+      "js-yaml@4.1.1": "4.2.0",
+      "postcss": "8.5.10",
+      "shell-quote@1.8.3": "1.8.4",
+      "tar@7.5.15": "7.5.16",
+      "undici@6.25.0": "6.27.0",
+      "uuid": "11.1.1",
+      "ws@6.2.3": "6.2.4",
+      "ws@7.5.10": "7.5.11",
+      "ws@8.20.1": "8.21.0"
+    }
   },
   "engines": {
     "node": ">=20",

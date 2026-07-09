@@ -45,6 +45,10 @@ import { modelAnswersForTurn } from "../../lib/roleplay-model";
 import { buildRoleplayChoiceOptions } from "../../lib/roleplay-options";
 import { roleplayReaction } from "../../lib/roleplay-branching";
 import {
+  roleplayMasteryContribution,
+  roleplayTurnUsedSupport,
+} from "../../lib/roleplay-session-scoring";
+import {
   isAvailable as isSttAvailable,
   startListening as startStt,
   stopListening as stopStt,
@@ -622,7 +626,7 @@ export function RoleplayChat({
     hardMode
       ? "Serbest cevap · ipucu yok"
       : openingSupportMode === "multi-choice"
-        ? "Önce seçenek · sonra kendi cevabın"
+        ? "Önce hazır cevap · sonra kendi cevabın"
         : openingSupportMode === "hinted"
           ? "İpucu açık · kısa cevap yeter"
           : "Serbest cevap · takılırsan yaz";
@@ -926,13 +930,26 @@ export function RoleplayChat({
       },
     ]);
 
+    // Completion score and mastery score are intentionally different.
+    // A ready-made choice/hint is good support for finishing the scene, but it
+    // must not be treated as fully independent speaking ability for CEFR /
+    // free-mode unlocks. Cap supported turns below the success threshold.
+    const firstAttempt = retryTurnIdx !== turnIdx;
+    const supportedTurn = roleplayTurnUsedSupport({
+      submissionSource,
+      hintVisible: shouldShowHint,
+      retried: !firstAttempt,
+    });
+    const masteryContribution = roleplayMasteryContribution(
+      evalResult.score,
+      supportedTurn,
+    );
+    if (firstAttempt) {
+      setIndependentScores((prev) => [...prev, masteryContribution]);
+    }
     // A correction only becomes learning when the user retrieves the phrase
     // again. Keep the first low response on the same turn and allow one
     // immediate repair attempt before the scripted conversation advances.
-    const firstAttempt = retryTurnIdx !== turnIdx;
-    if (firstAttempt) {
-      setIndependentScores((prev) => [...prev, evalResult.score]);
-    }
     const shouldRetry = !pressureFree && evalResult.score < 80 && firstAttempt;
     if (shouldRetry) {
       setRetryTurnIdx(turnIdx);
@@ -949,7 +966,7 @@ export function RoleplayChat({
       return;
     }
 
-    if (!firstAttempt) setAssistedTurns((count) => count + 1);
+    if (!firstAttempt || supportedTurn) setAssistedTurns((count) => count + 1);
     setUserResponses((previous) => [...previous, input]);
     setRetryTurnIdx(null);
     setTurnScores((prev) => [...prev, evalResult.score]);
@@ -960,6 +977,7 @@ export function RoleplayChat({
       retried: retryTurnIdx === turnIdx,
       input_mode: submissionSource,
       support_mode: turnSupportMode,
+      support_used: supportedTurn,
       low_pressure: pressureFree,
     }).catch(() => {});
 
@@ -1199,11 +1217,12 @@ export function RoleplayChat({
             <View style={styles.choiceCol}>
               <View style={styles.choiceCoachBox}>
                 <Text style={styles.choiceCoachTitle}>
-                  Seçerek başlayabilirsin
+                  Hazır cevapla başlayabilirsin
                 </Text>
                 <Text style={styles.choiceCoachText}>
-                  Bu test değil. Cevabı seç; sonra balona dokunup telaffuzunu
-                  dinle. Hazır hissedince kendi cümleni söyle veya yaz.
+                  Bu test değil. Hazır cümleyi kullan; sonra balona dokunup
+                  telaffuzunu dinle. Hazır hissedince kendi cümleni söyle veya
+                  yaz.
                 </Text>
               </View>
               {choiceOptions.map((opt, i) => (
@@ -1212,7 +1231,7 @@ export function RoleplayChat({
                   style={styles.choiceBtn}
                   onPress={() => submitUserTurnWith(opt, "choice")}
                   accessibilityRole="button"
-                  accessibilityLabel={`${i + 1}. cevap seçeneği: ${opt}`}
+                  accessibilityLabel={`${i + 1}. hazır cevap: ${opt}`}
                 >
                   <Text style={styles.choiceText}>{opt}</Text>
                 </Pressable>

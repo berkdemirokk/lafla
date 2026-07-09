@@ -1981,7 +1981,7 @@ function VerdictView({
 
       {(sceneResult.assisted_turns ?? 0) > 0 && (
         <Text style={verdictStyles.feedback}>
-          {sceneResult.assisted_turns} turu düzeltmeyle tamamladın. Kalıcı
+          {sceneResult.assisted_turns} turu destekle tamamladın. Kalıcı
           ilerleme için bu kalıplar tekrar gününe eklendi.
         </Text>
       )}

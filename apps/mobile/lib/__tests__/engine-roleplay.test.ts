@@ -29,6 +29,20 @@ describe("evaluateRoleplayTurn", () => {
     ).toEqual({ matched: true, score: 90 });
   });
 
+  it("accepts concise beginner wording when the model answer anchors the intent", () => {
+    expect(
+      evaluateRoleplayTurn([], "coffee please", ["A coffee, please."]),
+    ).toEqual({ matched: true, score: 90 });
+  });
+
+  it("accepts common natural paraphrases without an LLM call", () => {
+    expect(
+      evaluateRoleplayTurn([], "Could we reschedule for Friday?", [
+        "Can we push it to Friday?",
+      ]),
+    ).toEqual({ matched: true, score: 86 });
+  });
+
   it("does not fuzzy-match a contradictory negated answer", () => {
     expect(
       evaluateRoleplayTurn([], "I do not want a coffee please", [

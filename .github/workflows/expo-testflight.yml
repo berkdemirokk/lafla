@@ -65,6 +65,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
+          version: 9.0.0
           run_install: false
 
       - name: Get pnpm store directory
@@ -100,7 +101,7 @@ jobs:
         run: pnpm typecheck
 
       - name: Run mobile tests
-        run: pnpm --filter @lafla/mobile exec jest --runInBand
+        run: pnpm --filter @lafla/mobile test -- --runInBand
 
       - name: Audit roleplay content
         run: pnpm --filter @lafla/mobile qa:content
@@ -109,7 +110,7 @@ jobs:
         run: pnpm --filter @lafla/mobile qa:linguist:check
 
       - name: Verify Expo dependencies
-        run: pnpm dlx expo-doctor@latest apps/mobile
+        run: pnpm --filter @lafla/mobile expo:check && pnpm dlx expo-doctor@latest apps/mobile
 
       - name: Setup Deno
         uses: denoland/setup-deno@v2

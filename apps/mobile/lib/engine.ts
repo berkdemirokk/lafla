@@ -192,9 +192,9 @@ export interface ExerciseResult {
   exercise_type: string;
   correct: boolean;
   score: number;
-  /** First-attempt performance, excluding points earned after a retry. */
+  /** First-attempt independent performance, with guided support capped. */
   mastery_score?: number;
-  /** Roleplay turns completed with immediate corrective support. */
+  /** Roleplay turns completed with choices, hints, or immediate repair. */
   assisted_turns?: number;
   /** Mistakes detected in this completed roleplay, in encounter order. */
   mistakes?: RoleplayMistake[];
@@ -397,6 +397,146 @@ function stripFillers(input: string): string {
   return text.trim().replace(/\s+/g, " ");
 }
 
+const ROLEPLAY_NEGATION =
+  /\b(no|not|never|dont|doesnt|didnt|cant|cannot|wont|isnt|arent|wasnt|werent|without)\b/i;
+
+const ROLEPLAY_STOPWORDS = new Set([
+  "a", "an", "the",
+  "i", "im", "id", "ill", "ive", "me", "my", "mine",
+  "you", "your", "yours",
+  "he", "she", "it", "we", "they", "them", "us",
+  "am", "is", "are", "was", "were", "be", "been", "being",
+  "do", "does", "did",
+  "can", "could", "would", "will", "shall", "may", "might",
+  "to", "for", "of", "in", "on", "at", "by", "with", "from",
+  "about", "as", "and", "or", "but",
+  "this", "that", "these", "those", "there", "here",
+  "just", "really", "very", "so", "well", "then", "now",
+  "too", "also", "please",
+]);
+
+const ROLEPLAY_SYNONYMS: Record<string, string> = {
+  ok: "yes",
+  okay: "yes",
+  yep: "yes",
+  yup: "yes",
+  yeah: "yes",
+  sure: "yes",
+  absolutely: "yes",
+  thanks: "thank",
+  appreciated: "thank",
+  appreciate: "thank",
+  sorry: "apologize",
+  apologies: "apologize",
+  apologize: "apologize",
+  apologise: "apologize",
+  reschedule: "move",
+  postpone: "move",
+  pushed: "move",
+  push: "move",
+  moved: "move",
+  moving: "move",
+  delay: "late",
+  delayed: "late",
+  traffic: "traffic",
+  stuck: "late",
+  held: "late",
+  meet: "see",
+  meeting: "see",
+  call: "phone",
+  calling: "phone",
+  text: "message",
+  dm: "message",
+  assist: "help",
+  helping: "help",
+  purchase: "buy",
+  buying: "buy",
+  grab: "get",
+  take: "get",
+  taking: "get",
+  need: "need",
+  must: "need",
+  want: "want",
+  like: "want",
+};
+
+function hasRoleplayNegation(input: string): boolean {
+  return ROLEPLAY_NEGATION.test(normalize(input));
+}
+
+function hasPoliteOrAckMarker(input: string): boolean {
+  return /\b(please|thanks?|thank you|sure|yes|yeah|yep|ok|okay|absolutely)\b/i.test(
+    input,
+  );
+}
+
+function normalizeIntentToken(token: string): string | null {
+  let normalized = ROLEPLAY_SYNONYMS[token] ?? token;
+  if (normalized.length > 5 && normalized.endsWith("ing")) {
+    normalized = normalized.slice(0, -3);
+  } else if (normalized.length > 4 && normalized.endsWith("ed")) {
+    normalized = normalized.slice(0, -2);
+  } else if (normalized.length > 4 && normalized.endsWith("s")) {
+    normalized = normalized.slice(0, -1);
+  }
+  normalized = ROLEPLAY_SYNONYMS[normalized] ?? normalized;
+  if (ROLEPLAY_STOPWORDS.has(normalized)) return null;
+  if (normalized.length < 2) return null;
+  return normalized;
+}
+
+function roleplayIntentTokens(input: string): Set<string> {
+  return new Set(
+    normalize(input)
+      .split(" ")
+      .map(normalizeIntentToken)
+      .filter((token): token is string => Boolean(token)),
+  );
+}
+
+function modelAnswerIntentScore(candidate: string, model: string): number {
+  if (hasRoleplayNegation(candidate) !== hasRoleplayNegation(model)) return 0;
+
+  const candidateTokens = roleplayIntentTokens(candidate);
+  const modelTokens = roleplayIntentTokens(model);
+  if (candidateTokens.size === 0 || modelTokens.size === 0) return 0;
+
+  let overlap = 0;
+  for (const token of candidateTokens) {
+    if (modelTokens.has(token)) overlap += 1;
+  }
+  if (overlap === 0) return 0;
+
+  const modelCoverage = overlap / modelTokens.size;
+  const candidateCoverage = overlap / candidateTokens.size;
+
+  if (modelTokens.size === 1) {
+    return overlap === 1 &&
+      (candidateTokens.size === 1 || hasPoliteOrAckMarker(candidate))
+      ? 0.82
+      : 0;
+  }
+
+  if (modelTokens.size === 2) {
+    if (overlap === 2) return 0.86;
+    if (
+      overlap === 1 &&
+      candidateTokens.size <= 3 &&
+      hasPoliteOrAckMarker(candidate)
+    ) {
+      return 0.82;
+    }
+    return 0;
+  }
+
+  if (overlap >= 2 && modelCoverage >= 0.5) return 0.86;
+  if (overlap >= 2 && modelCoverage >= 0.4 && candidateCoverage >= 0.6) {
+    return 0.82;
+  }
+  if (overlap >= 3 && modelCoverage >= 0.35) return 0.8;
+  return 0;
+}
+
 export function evaluateRoleplayTurn(
   patterns: string[],
   input: string,
@@ -426,7 +566,6 @@ export function evaluateRoleplayTurn(
   // Compare only against explicit model answers from the lesson hint; this
   // adds tolerance without declaring arbitrary long text correct.
   if (modelAnswers.length > 0) {
-    const negation = /\b(no|not|never|don'?t|doesn'?t|didn'?t|can'?t|won'?t|isn'?t|aren'?t)\b/i;
     const candidates =
       stripped.length > 0 && stripped !== trimmed
         ? [trimmed, stripped]
@@ -434,7 +573,7 @@ export function evaluateRoleplayTurn(
 
     for (const candidate of candidates) {
       const compatibleModels = modelAnswers.filter(
-        (model) => negation.test(model) === negation.test(candidate),
+        (model) => hasRoleplayNegation(model) === hasRoleplayNegation(candidate),
       );
       if (compatibleModels.length > 0) {
         const modelMatch = matchPhrase({
@@ -443,6 +582,14 @@ export function evaluateRoleplayTurn(
         });
         if (modelMatch.matched) {
           return { matched: true, score: 90 };
+        }
+        const intentScore = Math.max(
+          ...compatibleModels.map((model) =>
+            modelAnswerIntentScore(candidate, model),
+          ),
+        );
+        if (intentScore >= 0.8) {
+          return { matched: true, score: Math.round(intentScore * 100) };
         }
       }
     }
