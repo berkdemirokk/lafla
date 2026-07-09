@@ -200,6 +200,8 @@ export interface ExerciseResult {
   mistakes?: RoleplayMistake[];
   /** Final learner response for each completed roleplay turn. */
   user_responses?: string[];
+  /** Authored natural target response for each completed roleplay turn. */
+  target_responses?: string[];
   feedback?: string;
 }
 

@@ -720,6 +720,14 @@ export function RoleplayChat({
         .flatMap(modelAnswersForTurn)[0] ?? null,
     [turns],
   );
+  const targetResponses = useMemo(
+    () =>
+      turns
+        .filter((turn) => turn.speaker === "user")
+        .map((turn) => modelAnswersForTurn(turn)[0])
+        .filter((answer): answer is string => Boolean(answer)),
+    [turns],
+  );
 
   // Voice capture handlers. Owns the lifecycle of one listening window.
   // - startVoiceCapture: requests mic, starts STT, streams interim transcripts
@@ -1051,6 +1059,7 @@ export function RoleplayChat({
       assisted_turns: assistedTurns,
       mistakes: sceneMistakes,
       user_responses: userResponses,
+      target_responses: targetResponses.slice(0, userResponses.length),
       feedback,
     });
   };

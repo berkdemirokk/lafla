@@ -1817,13 +1817,18 @@ function VerdictView({
     }
     return `${prefix}bu tur güvenilir biçimde değerlendirilemedi. İpuçlarıyla tekrar dene.`;
   })();
-  const firstUserTurn = scenario.scene.turns.find(
-    (turn) => turn.speaker === "user",
-  );
-  const targetTakeaway = firstUserTurn
-    ? modelAnswersForTurn(firstUserTurn)[0]
-    : undefined;
-  const firstUserResponse = sceneResult.user_responses?.[0]?.trim();
+  const targetResponses =
+    sceneResult.target_responses ??
+    scenario.scene.turns
+      .filter((turn) => turn.speaker === "user")
+      .map((turn) => modelAnswersForTurn(turn)[0])
+      .filter((answer): answer is string => Boolean(answer));
+  const coachTurns = (sceneResult.user_responses ?? [])
+    .map((response, index) => ({
+      response: response.trim(),
+      target: targetResponses[index],
+    }))
+    .filter((turn) => turn.response || turn.target);
 
   // "Level achieved" pulse on the score card once the count-up finishes.
   // Only triggers at score ≥ 75 so it stays a meaningful reward rather
@@ -1955,23 +1960,53 @@ function VerdictView({
         </View>
       </View>
 
-      {targetTakeaway && (
+      {coachTurns.length > 0 && (
         <View style={verdictStyles.takeawayCard}>
-          <Text style={verdictStyles.takeawayLabel}>BUGÜNÜN CÜMLESİ</Text>
-          {firstUserResponse ? (
-            <View style={verdictStyles.takeawayLine}>
-              <Text style={verdictStyles.takeawaySmallLabel}>İlk cevabın</Text>
-              <Text style={verdictStyles.takeawayUser}>
-                “{firstUserResponse}”
+          <Text style={verdictStyles.takeawayLabel}>KONUŞMA KOÇU ÖZETİ</Text>
+          <Text style={verdictStyles.takeawayIntro}>
+            Cevapların kaybolmuyor. Her tur için kendi cümleni ve daha doğal
+            versiyonu karşılaştır.
+          </Text>
+          {coachTurns.map((turn, index) => (
+            <View
+              key={`${index}-${turn.target ?? turn.response}`}
+              style={verdictStyles.coachTurnCard}
+            >
+              <Text style={verdictStyles.takeawaySmallLabel}>
+                Tur {index + 1}
               </Text>
+              {turn.response ? (
+                <View style={verdictStyles.takeawayLine}>
+                  <Text style={verdictStyles.takeawaySmallLabel}>
+                    Senin cevabın
+                  </Text>
+                  <Text style={verdictStyles.takeawayUser}>
+                    “{turn.response}”
+                  </Text>
+                </View>
+              ) : null}
+              {turn.target ? (
+                <View style={verdictStyles.takeawayLine}>
+                  <View style={verdictStyles.takeawayTargetHeader}>
+                    <Text style={verdictStyles.takeawaySmallLabel}>
+                      Daha doğal hali
+                    </Text>
+                    <Pressable
+                      onPress={() => speak(turn.target!)}
+                      accessibilityRole="button"
+                      accessibilityLabel={`Tur ${index + 1} doğal cevabı dinle`}
+                      hitSlop={8}
+                    >
+                      <Text style={verdictStyles.takeawayListen}>Dinle</Text>
+                    </Pressable>
+                  </View>
+                  <Text style={verdictStyles.takeawayTarget}>
+                    “{turn.target}”
+                  </Text>
+                </View>
+              ) : null}
             </View>
-          ) : null}
-          <View style={verdictStyles.takeawayLine}>
-            <Text style={verdictStyles.takeawaySmallLabel}>Daha doğal hali</Text>
-            <Text style={verdictStyles.takeawayTarget}>
-              “{targetTakeaway}”
-            </Text>
-          </View>
+          ))}
         </View>
       )}
 
@@ -2773,13 +2808,37 @@ const verdictStyles = StyleSheet.create({
     color: tokens.brand.primary,
     letterSpacing: 1.4,
   },
+  takeawayIntro: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    lineHeight: 18,
+  },
+  coachTurnCard: {
+    padding: 12,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainerLowest,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    gap: 10,
+  },
   takeawayLine: {
     gap: 4,
+  },
+  takeawayTargetHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
   },
   takeawaySmallLabel: {
     fontSize: 11,
     color: tokens.text.tertiary,
     fontWeight: tokens.weight.bold,
+  },
+  takeawayListen: {
+    fontSize: 12,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.extrabold,
   },
   takeawayUser: {
     fontSize: 13,
