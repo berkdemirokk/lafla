@@ -18,10 +18,12 @@ import Animated, {
 } from "react-native-reanimated";
 import { useSession } from "../lib/useSession";
 import { getCurrentProfile } from "../lib/auth";
+import { useTranslation } from "../lib/i18n";
 import { tokens } from "../theme";
 
 export default function Splash() {
   const router = useRouter();
+  const { t } = useTranslation();
   const { session, loading } = useSession();
   // 2026-05-25 (B-AUTH-3) — decide() setTimeout ile skip() Pressable arasında
   // race: kullanıcı 300ms reveal sırasında ekrana dokunursa hem skip hem
@@ -200,8 +202,8 @@ export default function Splash() {
       onPress={skip}
       disabled={loading}
       accessibilityRole="button"
-      accessibilityLabel="Lafla, devam et"
-      accessibilityHint="Uygulamaya devam eder"
+      accessibilityLabel={t("splash.accessibility_label")}
+      accessibilityHint={t("splash.accessibility_hint")}
       accessibilityState={{ disabled: loading, busy: loading }}
     >
       <ThemedStatusBar />
@@ -218,12 +220,12 @@ export default function Splash() {
         </Animated.Text>
         <Animated.View style={[styles.accentLine, accentStyle]} />
         <Animated.Text style={[styles.tagline, taglineStyle]}>
-          Konuş, çalış.
+          {t("splash.tagline")}
         </Animated.Text>
       </View>
 
       <View style={styles.bottomHint}>
-        <Text style={styles.hintText}>Dokun, devam et</Text>
+        <Text style={styles.hintText}>{t("splash.tap_to_continue")}</Text>
       </View>
     </Pressable>
   );

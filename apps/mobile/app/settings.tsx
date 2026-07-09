@@ -52,17 +52,18 @@ import {
 } from "../lib/notifications";
 import { redeemReferralCode, getRedeemedCode } from "../lib/referral";
 import { signOut } from "../lib/auth";
+import { useTranslation, type Locale } from "../lib/i18n";
 import { tokens } from "../theme";
 
 const K_AUTO_SPEAK = "lafla.settings.autoSpeak";
 const THEME_OPTIONS: Array<{
   value: AppThemePreference;
-  label: string;
+  labelKey: string;
   icon: string;
 }> = [
-  { value: "system", label: "Sistem", icon: "⚙️" },
-  { value: "dark", label: "Dark", icon: "🌙" },
-  { value: "light", label: "White", icon: "☀️" },
+  { value: "system", labelKey: "settings.theme.system", icon: "⚙️" },
+  { value: "dark", labelKey: "settings.theme.dark", icon: "🌙" },
+  { value: "light", labelKey: "settings.theme.light", icon: "☀️" },
 ];
 
 // ===== Defensive dynamic loaders =====================================
@@ -100,6 +101,7 @@ const TERMS_URL = "https://berkdemirokk.github.io/lafla/terms.html";
 
 export default function SettingsScreen() {
   const router = useRouter();
+  const { t, locale, setLocale } = useTranslation();
   // 2026-05-24 — Profile "Hesabımı sil" row'undan deep link.
   // ?action=delete → mount'ta openDeleteFlow tetiklenir; kullanıcı profile'den
   // beklediği UX'i Settings'e gelirken ALMIŞ olur, scroll-and-tap aramaz.
@@ -186,8 +188,8 @@ export default function SettingsScreen() {
       if (!ok) {
         setReminderOn(false);
         Alert.alert(
-          "Bildirim izni gerekli",
-          "iOS Ayarlar → Lafla → Bildirimler yolundan açabilirsin.",
+          t("settings.reminder.permission_title"),
+          t("settings.reminder.permission_body"),
         );
         return;
       }
@@ -234,6 +236,12 @@ export default function SettingsScreen() {
     hapticSelection();
     setThemePreferenceState(preference);
     await setThemePreference(preference);
+  };
+
+  const handleLocaleChange = async (nextLocale: Locale) => {
+    if (nextLocale === locale) return;
+    hapticSelection();
+    await setLocale(nextLocale);
   };
 
   const openDeleteFlow = async () => {
@@ -333,25 +341,28 @@ export default function SettingsScreen() {
       const result = await restorePurchasesDetailed();
       if (!result.ok) {
         Alert.alert(
-          "Geri yükleme başarısız",
-          "İnternet bağlantını kontrol edip tekrar dene.",
+          t("settings.alert.restore_failed_title"),
+          t("settings.alert.restore_failed_body"),
         );
         return;
       }
       if (result.active) {
         hapticSuccess();
         Alert.alert(
-          "Geri yüklendi",
-          "Premium özellikler tekrar aktif.",
+          t("settings.alert.restore_success_title"),
+          t("settings.alert.restore_success_body"),
         );
       } else {
         Alert.alert(
-          "Aktif abonelik bulunamadı",
-          "Bu Apple ID üzerinde aktif bir Lafla aboneliği bulamadık.",
+          t("settings.alert.restore_none_title"),
+          t("settings.alert.restore_none_body"),
         );
       }
     } catch {
-      Alert.alert("Hata", "Geri yükleme başarısız. Tekrar dene.");
+      Alert.alert(
+        t("common.error"),
+        t("settings.alert.restore_failed_body"),
+      );
     }
   };
 
@@ -363,8 +374,8 @@ export default function SettingsScreen() {
     const existing = await getRedeemedCode().catch(() => null);
     if (existing) {
       Alert.alert(
-        "Davet kodu kullanıldı",
-        `${existing} kodu redeem edildi. 1 ay Lafla Pro bonusu en geç 24 saat içinde aktif olur.`,
+        t("settings.alert.referral_used_title"),
+        t("settings.alert.referral_used_body", { code: existing }),
       );
       return;
     }
@@ -412,13 +423,13 @@ export default function SettingsScreen() {
     }
     Linking.openURL(
       "mailto:berkkdemirok@gmail.com?subject=Lafla geri bildirim",
-    ).catch(() => Alert.alert("Hata", "Mail uygulaması açılamadı."));
+    ).catch(() => Alert.alert(t("common.error"), t("settings.alert.mail_failed")));
   };
 
   const openUrl = (url: string) => {
     hapticSelection();
     Linking.openURL(url).catch(() =>
-      Alert.alert("Hata", "Bağlantı açılamadı."),
+      Alert.alert(t("common.error"), t("settings.alert.link_failed")),
     );
   };
 
@@ -441,11 +452,11 @@ export default function SettingsScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
-          <Text style={styles.backText}>← Geri</Text>
+          <Text style={styles.backText}>← {t("common.back")}</Text>
         </Pressable>
-        <Text style={styles.title}>Ayarlar</Text>
+        <Text style={styles.title}>{t("settings.title")}</Text>
         <View style={styles.spacer} />
       </View>
 
@@ -454,22 +465,25 @@ export default function SettingsScreen() {
         showsVerticalScrollIndicator={false}
       >
         {/* ===================== TERCİHLER ===================== */}
-        <Section title="TERCİHLER">
+        <Section title={t("settings.section.preferences")}>
+          <LanguagePicker value={locale} onChange={handleLocaleChange} />
           <ThemePreferencePicker
             value={themePreference}
             onChange={handleThemeChange}
           />
           <Toggle
             icon="🔊"
-            label="Otomatik telaffuz"
-            description="Yeni kelimelerde sesli okuma"
+            label={t("settings.auto_speak.label")}
+            description={t("settings.auto_speak.description")}
             value={autoSpeak}
             onValueChange={setAutoSpeakValue}
           />
           <Toggle
             icon="🔔"
-            label="Günlük hatırlatma"
-            description={`Her gün ${String(reminderHour).padStart(2, "0")}:00'da bir sahne önerisi`}
+            label={t("settings.reminder.label")}
+            description={t("settings.reminder.description", {
+              hour: String(reminderHour).padStart(2, "0"),
+            })}
             value={reminderOn}
             onValueChange={handleReminderToggle}
             isLast={!reminderOn && !sfxAvailable}
@@ -484,8 +498,8 @@ export default function SettingsScreen() {
           {sfxAvailable && (
             <Toggle
               icon="🎵"
-              label="Ses efektleri"
-              description="Doğru / yanlış cevap tıkları"
+              label={t("settings.sfx.label")}
+              description={t("settings.sfx.description")}
               value={sfxOn}
               onValueChange={handleSfxToggle}
               isLast
@@ -494,32 +508,32 @@ export default function SettingsScreen() {
         </Section>
 
         {/* ===================== GİZLİLİK ===================== */}
-        <Section title="GİZLİLİK">
+        <Section title={t("settings.section.privacy")}>
           <Toggle
             icon="📊"
-            label="Analytics olmadan kullan"
-            description="Anonim kullanım verisi gönderme. Çökme raporları etkilenmez."
+            label={t("settings.analytics.label")}
+            description={t("settings.analytics.description")}
             value={analyticsOptOut}
             onValueChange={handleAnalyticsToggle}
           />
           <Row
             icon="🔒"
-            label="Gizlilik politikası"
+            label={t("settings.privacy_policy")}
             onPress={() => openUrl(PRIVACY_URL)}
           />
           <Row
             icon="📄"
-            label="Kullanım koşulları"
+            label={t("settings.terms")}
             onPress={() => openUrl(TERMS_URL)}
             isLast
           />
         </Section>
 
         {/* ===================== HESAP ===================== */}
-        <Section title="HESAP">
+        <Section title={t("settings.section.account")}>
           <Row
             icon="👤"
-            label="Profil"
+            label={t("settings.profile")}
             onPress={() => {
               hapticSelection();
               router.push("/profile" as never);
@@ -527,7 +541,7 @@ export default function SettingsScreen() {
           />
           <Row
             icon="✨"
-            label="Lafla Pro Aboneliği"
+            label={t("settings.pro")}
             onPress={() => {
               hapticSelection();
               router.push("/paywall" as never);
@@ -535,7 +549,7 @@ export default function SettingsScreen() {
           />
           <Row
             icon="💳"
-            label="Aboneliğim"
+            label={t("settings.subscription")}
             onPress={() => openUrl(APPLE_SUBS_URL)}
           />
           {/* Apple Guideline 3.1.1 — Restore Purchases ulaşılabilir hem
@@ -543,29 +557,29 @@ export default function SettingsScreen() {
               2026-05-20'ye kadar koddan eksikti, şimdi karşılığı var. */}
           <Row
             icon="🔄"
-            label="Satın alımları geri yükle"
+            label={t("settings.restore")}
             onPress={handleRestorePurchases}
           />
           {/* Referral code redeem — Adım 7. */}
           <Row
             icon="🎁"
-            label="Bir davet kodum var"
+            label={t("settings.referral")}
             onPress={handleReferralRedeem}
           />
           {/* Çıkış yap — Apple review pattern Settings → Account → Sign Out
               beklediği için profile.tsx'tekine ek olarak buraya da eklendi. */}
           <Row
             icon="🚪"
-            label="Çıkış yap"
+            label={t("settings.sign_out")}
             onPress={() => {
               hapticSelection();
               Alert.alert(
-                "Hesap",
-                "Çıkış yapmak istediğine emin misin?",
+                t("settings.alert.sign_out_title"),
+                t("settings.alert.sign_out_body"),
                 [
-                  { text: "Vazgeç", style: "cancel" },
+                  { text: t("common.cancel"), style: "cancel" },
                   {
-                    text: "Çıkış",
+                    text: t("settings.sign_out"),
                     style: "destructive",
                     onPress: async () => {
                       await signOut().catch(() => {});
@@ -578,7 +592,7 @@ export default function SettingsScreen() {
           />
           <Row
             icon="🗑️"
-            label="Hesabımı sil"
+            label={t("settings.delete_account")}
             onPress={openDeleteFlow}
             danger
             isLast
@@ -586,37 +600,37 @@ export default function SettingsScreen() {
         </Section>
 
         {/* ===================== DESTEK ===================== */}
-        <Section title="DESTEK">
+        <Section title={t("settings.section.support")}>
           <Row
             icon="💬"
-            label="Bize yaz"
+            label={t("settings.write_us")}
             onPress={() =>
               Linking.openURL(
                 "mailto:berkkdemirok@gmail.com?subject=Lafla geri bildirim",
               ).catch(() =>
-                Alert.alert("Hata", "Mail uygulaması açılamadı."),
+                Alert.alert(t("common.error"), t("settings.alert.mail_failed")),
               )
             }
           />
           <Row
             icon="⭐"
-            label="App Store'da değerlendir"
+            label={t("settings.rate")}
             onPress={handleRate}
             isLast
           />
         </Section>
 
         {/* ===================== HAKKINDA ===================== */}
-        <Section title="HAKKINDA">
+        <Section title={t("settings.section.about")}>
           <View style={styles.aboutBox}>
             <Text style={styles.aboutVersion}>
-              Sürüm {version}
+              {t("settings.version", { version })}
               {build ? `  ·  Build ${build}` : ""}
             </Text>
             <Text style={styles.aboutCopyright}>
-              Lafla © 2026 Berk Demirok
+              {t("settings.copyright")}
             </Text>
-            <Text style={styles.aboutTagline}>Konuş, çalış.</Text>
+            <Text style={styles.aboutTagline}>{t("settings.tagline")}</Text>
           </View>
         </Section>
       </ScrollView>
@@ -770,6 +784,59 @@ function Section({
   );
 }
 
+function LanguagePicker({
+  value,
+  onChange,
+}: {
+  value: Locale;
+  onChange: (value: Locale) => void;
+}) {
+  const { t } = useTranslation();
+  const options: Array<{ value: Locale; label: string }> = [
+    { value: "tr", label: t("common.turkish") },
+    { value: "en", label: t("common.english") },
+  ];
+  return (
+    <View style={styles.themePickerRow}>
+      <View style={styles.themePickerHeader}>
+        <Text style={styles.rowIcon}>🌐</Text>
+        <View style={styles.toggleText}>
+          <Text style={styles.rowLabel}>{t("common.language")}</Text>
+          <Text style={styles.rowSub}>{t("settings.language.description")}</Text>
+        </View>
+      </View>
+      <View style={styles.themeSegment}>
+        {options.map((option) => {
+          const selected = option.value === value;
+          return (
+            <Pressable
+              key={option.value}
+              onPress={() => onChange(option.value)}
+              style={({ pressed }) => [
+                styles.themeOption,
+                selected && styles.themeOptionSelected,
+                pressed && styles.rowPressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel={`${t("common.language")}: ${option.label}`}
+              accessibilityState={{ selected }}
+            >
+              <Text
+                style={[
+                  styles.themeOptionText,
+                  selected && styles.themeOptionTextSelected,
+                ]}
+              >
+                {option.label}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
+
 // ===== Row (tappable navigation) =====================================
 function Row({
   icon,
@@ -847,18 +914,20 @@ function ThemePreferencePicker({
   value: AppThemePreference;
   onChange: (value: AppThemePreference) => void;
 }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.themePickerRow}>
       <View style={styles.themePickerHeader}>
         <Text style={styles.rowIcon}>🎨</Text>
         <View style={styles.toggleText}>
-          <Text style={styles.rowLabel}>Tema</Text>
-          <Text style={styles.rowSub}>Dark veya White görünüm seç</Text>
+          <Text style={styles.rowLabel}>{t("settings.theme.label")}</Text>
+          <Text style={styles.rowSub}>{t("settings.theme.description")}</Text>
         </View>
       </View>
       <View style={styles.themeSegment}>
         {THEME_OPTIONS.map((option) => {
           const selected = option.value === value;
+          const label = t(option.labelKey);
           return (
             <Pressable
               key={option.value}
@@ -869,7 +938,7 @@ function ThemePreferencePicker({
                 pressed && styles.rowPressed,
               ]}
               accessibilityRole="button"
-              accessibilityLabel={`Tema seçimi: ${option.label}`}
+              accessibilityLabel={`${t("settings.theme.label")}: ${label}`}
               accessibilityState={{ selected }}
             >
               <Text style={styles.themeOptionIcon}>{option.icon}</Text>
@@ -879,7 +948,7 @@ function ThemePreferencePicker({
                   selected && styles.themeOptionTextSelected,
                 ]}
               >
-                {option.label}
+                {label}
               </Text>
             </Pressable>
           );
@@ -893,10 +962,14 @@ function ThemePreferencePicker({
 // görünür. 3 preset chip (Sabah/Öğle/Akşam). Custom saat picker v2
 // hedefiyle ertelendi — preset'ler kullanıcı çoğunluğunu kapsar ve UI
 // kompleksitesi minimum.
-const REMINDER_PRESETS: Array<{ label: string; hour: number; icon: string }> = [
-  { label: "Sabah", hour: 9, icon: "☀️" },
-  { label: "Öğle", hour: 13, icon: "☕" },
-  { label: "Akşam", hour: 19, icon: "🌙" },
+const REMINDER_PRESETS: Array<{
+  labelKey: string;
+  hour: number;
+  icon: string;
+}> = [
+  { labelKey: "settings.reminder.morning", hour: 9, icon: "☀️" },
+  { labelKey: "settings.reminder.noon", hour: 13, icon: "☕" },
+  { labelKey: "settings.reminder.evening", hour: 19, icon: "🌙" },
 ];
 
 function ReminderHourPicker({
@@ -908,6 +981,7 @@ function ReminderHourPicker({
   onChange: (h: number) => void;
   isLast?: boolean;
 }) {
+  const { t } = useTranslation();
   return (
     <View
       style={[
@@ -919,6 +993,7 @@ function ReminderHourPicker({
       <View style={styles.reminderPickerGrid}>
         {REMINDER_PRESETS.map((p) => {
           const active = p.hour === activeHour;
+          const label = t(p.labelKey);
           return (
             <Pressable
               key={p.hour}
@@ -929,7 +1004,10 @@ function ReminderHourPicker({
                 pressed && { opacity: 0.8 },
               ]}
               accessibilityRole="button"
-              accessibilityLabel={`Hatırlatma saati: ${p.label} ${p.hour}:00`}
+              accessibilityLabel={t("settings.reminder.hour_label", {
+                label,
+                hour: String(p.hour),
+              })}
               accessibilityState={{ selected: active }}
             >
               <Text style={styles.reminderChipIcon}>{p.icon}</Text>
@@ -939,7 +1017,7 @@ function ReminderHourPicker({
                   active && styles.reminderChipLabelActive,
                 ]}
               >
-                {p.label}
+                {label}
               </Text>
               <Text
                 style={[

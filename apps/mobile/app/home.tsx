@@ -47,6 +47,7 @@ import { tokens } from "../theme";
 import { SwipeSceneCard } from "../components/SwipeSceneCard";
 import { AdBanner } from "../components/AdBanner";
 import { TabBar, TAB_BAR_HEIGHT } from "../components/TabBar";
+import { useTranslation } from "../lib/i18n";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 const MIN_FEED = 5;
@@ -57,14 +58,14 @@ const TOP_BAR_HEIGHT = 48;
 // Order ve sceneMode değerleri data/scenes.ts SceneMode tipiyle birebir.
 // 2026-05-24 — emoji eklendi (onboarding chip'leriyle senkron); başlıkta
 // görsel ayırıcı olarak kullanılır.
-const MODE_LABELS: Record<SceneMode, string> = {
-  flirt: "Flört",
-  work: "İş",
-  bar: "Bar",
-  airport: "Havaalanı",
-  daily: "Günlük",
-  order: "Sipariş",
-  ielts: "IELTS",
+const MODE_LABEL_KEYS: Record<SceneMode, string> = {
+  flirt: "mode.flirt",
+  work: "mode.work",
+  bar: "mode.bar",
+  airport: "mode.airport",
+  daily: "mode.daily",
+  order: "mode.order",
+  ielts: "mode.ielts",
 };
 
 const MODE_EMOJI: Record<SceneMode, string> = {
@@ -130,6 +131,7 @@ const EMPTY: FeedState = {
 
 export default function Home() {
   const router = useRouter();
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const [state, setState] = useState<FeedState>(EMPTY);
   const listRef = useRef<FlatList<Scene>>(null);
@@ -327,9 +329,9 @@ export default function Home() {
           gri yerine — Neon Noir semantic). */}
       <View style={styles.topBar}>
         <Text style={styles.title} numberOfLines={1}>
-          Akış
+          {t("feed.title")}
           {modeOverride
-            ? ` · ${MODE_EMOJI[modeOverride]} ${MODE_LABELS[modeOverride]}`
+            ? ` · ${MODE_EMOJI[modeOverride]} ${t(MODE_LABEL_KEYS[modeOverride])}`
             : ""}
         </Text>
         {modeOverride && (
@@ -340,10 +342,12 @@ export default function Home() {
               pressed && { opacity: 0.6 },
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Mod filtresini kaldır, tüm akışı göster"
+            accessibilityLabel={t("feed.clear_filter_label")}
             hitSlop={8}
           >
-            <Text style={styles.clearFilterText}>Tümü ✕</Text>
+            <Text style={styles.clearFilterText}>
+              {t("feed.clear_filter")}
+            </Text>
           </Pressable>
         )}
       </View>
@@ -391,13 +395,13 @@ export default function Home() {
 // 2026-05-26 — Apple Guideline 2.1: "yakında" / "coming soon" tetik kelimeleri
 // reviewer'a app eksik gibi görünüyor. Mesaj filter sonucuna nötr çevrildi.
 function EmptyState({ onTo }: { onTo: () => void }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.emptyWrap}>
       <Text style={styles.emptyEmoji}>🌙</Text>
-      <Text style={styles.emptyTitle}>Bu filtrede sahne yok</Text>
+      <Text style={styles.emptyTitle}>{t("feed.empty_title")}</Text>
       <Text style={styles.emptySub}>
-        Filtreyi temizleyip tüm sahnelere bak ya da Bugün sekmesindeki planına
-        dön.
+        {t("feed.empty_sub")}
       </Text>
       <Pressable
         onPress={onTo}
@@ -406,9 +410,9 @@ function EmptyState({ onTo }: { onTo: () => void }) {
           pressed && { opacity: 0.86, transform: [{ scale: 0.97 }] },
         ]}
         accessibilityRole="button"
-        accessibilityLabel="Bugün sekmesine git"
+        accessibilityLabel={t("feed.go_today_label")}
       >
-        <Text style={styles.emptyCtaText}>Bugüne git</Text>
+        <Text style={styles.emptyCtaText}>{t("feed.go_today")}</Text>
       </Pressable>
     </View>
   );

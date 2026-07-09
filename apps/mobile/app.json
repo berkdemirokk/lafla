@@ -71,6 +71,7 @@
     "plugins": [
       "expo-router",
       "./plugins/with-fmt-xcode26-fix",
+      "./plugins/with-info-plist-localizations",
       "expo-secure-store",
       "expo-av",
       "expo-file-system",

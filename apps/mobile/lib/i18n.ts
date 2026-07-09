@@ -16,6 +16,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Localization from "expo-localization";
 
 import trMessages from "../locales/tr.json";
 import enMessages from "../locales/en.json";
@@ -48,14 +49,21 @@ function isLocale(value: unknown): value is Locale {
 /**
  * Best-effort detection of the device locale using expo-localization.
  *
- * 2026-05-25 — DİSABLED. UI'nın %99'u hardcoded Türkçe. EN device locale
- * fallback'i Apple reviewer (device EN) gibi senaryoda Apple Sign-In butonu
- * EN, geri kalan TR mismatch'ine yol açıyordu. Tam i18n migration bitene
- * kadar device locale ignored → hep DEFAULT_LOCALE'e (TR) düşer. User manuel
- * setLocale("en") çağırırsa sözlükteki ~22 key EN olur, geri kalan TR (zaten
- * yarı-half state). Tam i18n migrate'inde bu return'ü eski haline getir.
+ * Best-effort detection. We only support Turkish and English; every other
+ * device language falls back to the Turkish-first default.
  */
 function detectDeviceLocale(): Locale | null {
+  try {
+    const preferred = Localization.getLocales?.()[0];
+    const language =
+      preferred?.languageCode ??
+      preferred?.languageTag?.split(/[-_]/)[0] ??
+      null;
+    if (language === "tr") return "tr";
+    if (language === "en") return "en";
+  } catch {
+    // Unsupported runtime or mocked module.
+  }
   return null;
 }
 
