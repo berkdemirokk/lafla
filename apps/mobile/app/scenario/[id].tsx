@@ -1099,6 +1099,7 @@ export default function ScenarioScreen() {
                 hardMode={hardMode}
                 lowPressure={!hardMode}
                 memoryPrompt={memoryPromptForRelationship(npcRel) ?? undefined}
+                estimatedMinutes={scenario.estimated_minutes}
               />
             </View>
           )}
@@ -1734,7 +1735,7 @@ function VerdictView({
   onContinue,
   planNextLabel,
 }: {
-  scenario: { mode: string; title: string };
+  scenario: Scenario;
   sceneResult: ExerciseResult;
   hasNext: boolean;
   /**
@@ -1746,10 +1747,8 @@ function VerdictView({
   userName: string;
   onContinue: () => void;
   /**
-   * 2026-05-21 — Daily Plan auto-advance copy.
-   * Plan sırasında bir sonraki sahne varsa başlığı buraya gelir. VerdictView
-   * 3s countdown gösterip otomatik onContinue tetikler. null ise legacy
-   * davranış: manuel "Devam" butonu.
+   * Daily Plan next-action copy. Plan sırasında bir sonraki sahne varsa
+   * başlığı buraya gelir. Geçiş manuel kalır; sonuç ekranı otomatik kapanmaz.
    */
   planNextLabel: string | null;
 }) {
@@ -1799,24 +1798,10 @@ function VerdictView({
       setTopMistakes(enriched);
     })();
   }, [sceneResult.mistakes]);
-  // 2026-05-21 — Daily Plan auto-advance countdown.
-  // 2026-05-25 — 3s → 5s. Skor count-up (900ms) + CEFR delta animasyonu
-  // (950+700ms) tamamlanmadan countdown başlıyordu → kullanıcı skoru
-  // okuyamadan sıradaki sahneye fırlatılıyordu. 5s ile rahat okuma süresi.
-  // planNextLabel varsa kullanıcı 5-4-3-2-1 sayar ve otomatik bir sonraki
-  // sahneye geçer. "Şimdi git" butonuyla atlanabilir; "Mola al" pause eder.
-  const [autoCountdown, setAutoCountdown] = useState<number | null>(
-    planNextLabel ? 5 : null,
-  );
-  useEffect(() => {
-    if (autoCountdown === null) return;
-    if (autoCountdown <= 0) {
-      onContinue();
-      return;
-    }
-    const t = setTimeout(() => setAutoCountdown((n) => (n ?? 0) - 1), 1000);
-    return () => clearTimeout(t);
-  }, [autoCountdown, onContinue]);
+  // Learning flow should not auto-push the learner away from the result screen.
+  // The previous countdown moved to the next plan item after a few seconds,
+  // often before the user could read the correction. Keep the next action
+  // explicit and user-controlled.
   const assessment = assessRoleplayScore(sceneResult.score);
   const masteryAssessment = assessRoleplayScore(
     sceneResult.mastery_score ?? sceneResult.score,
@@ -1832,6 +1817,13 @@ function VerdictView({
     }
     return `${prefix}bu tur güvenilir biçimde değerlendirilemedi. İpuçlarıyla tekrar dene.`;
   })();
+  const firstUserTurn = scenario.scene.turns.find(
+    (turn) => turn.speaker === "user",
+  );
+  const targetTakeaway = firstUserTurn
+    ? modelAnswersForTurn(firstUserTurn)[0]
+    : undefined;
+  const firstUserResponse = sceneResult.user_responses?.[0]?.trim();
 
   // "Level achieved" pulse on the score card once the count-up finishes.
   // Only triggers at score ≥ 75 so it stays a meaningful reward rather
@@ -1963,6 +1955,26 @@ function VerdictView({
         </View>
       </View>
 
+      {targetTakeaway && (
+        <View style={verdictStyles.takeawayCard}>
+          <Text style={verdictStyles.takeawayLabel}>BUGÜNÜN CÜMLESİ</Text>
+          {firstUserResponse ? (
+            <View style={verdictStyles.takeawayLine}>
+              <Text style={verdictStyles.takeawaySmallLabel}>İlk cevabın</Text>
+              <Text style={verdictStyles.takeawayUser}>
+                “{firstUserResponse}”
+              </Text>
+            </View>
+          ) : null}
+          <View style={verdictStyles.takeawayLine}>
+            <Text style={verdictStyles.takeawaySmallLabel}>Daha doğal hali</Text>
+            <Text style={verdictStyles.takeawayTarget}>
+              “{targetTakeaway}”
+            </Text>
+          </View>
+        </View>
+      )}
+
       {sceneResult.feedback && (
         <Text style={verdictStyles.feedback}>{sceneResult.feedback}</Text>
       )}
@@ -1992,39 +2004,17 @@ function VerdictView({
       )}
 
       <View style={verdictStyles.footer}>
-        {/* 2026-05-21 — Daily Plan: planNextLabel varsa "3s sonra sıradaki"
-            countdown. Aksi takdirde eski davranış: tek dokunuşlu Devam. */}
-        {planNextLabel && autoCountdown !== null ? (
-          <View>
-            <Button
-              label={
-                autoCountdown > 0
-                  ? `Sıradaki: ${planNextLabel} (${autoCountdown}s)`
-                  : `Sıradaki: ${planNextLabel}`
-              }
-              onPress={() => {
-                setAutoCountdown(null);
-                onContinue();
-              }}
-              stacked
-            />
-            <Pressable
-              onPress={() => setAutoCountdown(null)}
-              style={verdictStyles.pauseLink}
-              hitSlop={10}
-              accessibilityRole="button"
-              accessibilityLabel="Otomatik geçişi durdur"
-            >
-              <Text style={verdictStyles.pauseLinkText}>⏸ Mola al</Text>
-            </Pressable>
-          </View>
-        ) : (
-          <Button
-            label={hasNext ? "Sıradaki sahne" : "Akışa dön"}
-            onPress={onContinue}
-            stacked
-          />
-        )}
+        <Button
+          label={
+            planNextLabel
+              ? `Sıradaki: ${planNextLabel}`
+              : hasNext
+                ? "Sıradaki sahne"
+                : "Bugüne dön"
+          }
+          onPress={onContinue}
+          stacked
+        />
         {/* Skoru paylaş — Adım 5 (2026-05-20).
             2026-05-25 — Skor >= 60 olmadıkça gösterme. Düşük skoru paylaş
             CTA'sı kullanıcıya başarısızlığı suratına sokuyordu. Sadece
@@ -2766,6 +2756,42 @@ const verdictStyles = StyleSheet.create({
     paddingHorizontal: 16,
     lineHeight: 20,
     marginBottom: tokens.spacing.md,
+  },
+  takeawayCard: {
+    width: "100%",
+    padding: 16,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    marginBottom: tokens.spacing.md,
+    gap: 12,
+  },
+  takeawayLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+    letterSpacing: 1.4,
+  },
+  takeawayLine: {
+    gap: 4,
+  },
+  takeawaySmallLabel: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    fontWeight: tokens.weight.bold,
+  },
+  takeawayUser: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    lineHeight: 18,
+    fontStyle: "italic",
+  },
+  takeawayTarget: {
+    fontSize: 15,
+    color: tokens.text.primary,
+    lineHeight: 21,
+    fontWeight: tokens.weight.extrabold,
   },
   // 2026-05-21 — Premium deep feedback gate
   feedbackLocked: {

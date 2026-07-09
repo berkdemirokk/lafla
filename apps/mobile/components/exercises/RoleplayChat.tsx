@@ -122,6 +122,8 @@ interface Props {
   lowPressure?: boolean;
   /** A short previous-episode acknowledgement shown as the NPC's first bubble. */
   memoryPrompt?: string;
+  /** Reader-facing estimate shown before the first answer. */
+  estimatedMinutes?: number;
 }
 
 interface ChatMessage {
@@ -255,6 +257,7 @@ export function RoleplayChat({
   hardMode = false,
   lowPressure = true,
   memoryPrompt,
+  estimatedMinutes,
 }: Props) {
   // Delta: positive = user above scene (review mode), negative = below (stretch).
   // Both levels required for non-neutral adaptation; either missing → 0.
@@ -262,14 +265,16 @@ export function RoleplayChat({
     if (!sceneLevel || !userLevel) return 0;
     return CEFR_ORDER.indexOf(userLevel) - CEFR_ORDER.indexOf(sceneLevel);
   }, [sceneLevel, userLevel]);
+  const beginnerSafety = !hardMode && (userLevel === "A1" || userLevel === "A2");
+  const supportLevelDelta = beginnerSafety ? Math.min(levelDelta, 0) : levelDelta;
   // Mode classification — keeps render branches readable.
   // Hard mode override — Premium kullanıcı toggle'lamışsa adaptMode
   // "review" gibi davranır (no hint) + minimum response length.
   const adaptMode: "stretch" | "matched" | "review" = hardMode
     ? "review"
-    : levelDelta < 0
+    : supportLevelDelta < 0
       ? "stretch"
-      : levelDelta > 0
+      : supportLevelDelta > 0
         ? "review"
         : "matched";
   const pressureFree = lowPressure && !hardMode;
@@ -585,6 +590,15 @@ export function RoleplayChat({
   const currentTurn = turns[turnIdx];
   const awaitingUserInput =
     !finished && currentTurn?.speaker === "user";
+  const totalUserTurns = useMemo(
+    () => turns.filter((turn) => turn.speaker === "user").length,
+    [turns],
+  );
+  const sessionMinutes =
+    Math.min(
+      4,
+      Math.max(2, estimatedMinutes ?? Math.ceil(totalUserTurns * 1.2)),
+    );
   const currentUserTurnIndex = useMemo(
     () =>
       turns
@@ -593,11 +607,25 @@ export function RoleplayChat({
     [turnIdx, turns],
   );
   const turnSupportMode = resolveTurnSupport({
-    baseMode: mode,
+    baseMode: beginnerSafety ? "multi-choice" : mode,
     userTurnIndex: currentUserTurnIndex,
-    levelDelta,
+    levelDelta: supportLevelDelta,
     hardMode,
   });
+  const openingSupportMode = resolveTurnSupport({
+    baseMode: beginnerSafety ? "multi-choice" : mode,
+    userTurnIndex: 0,
+    levelDelta: supportLevelDelta,
+    hardMode,
+  });
+  const supportSummary =
+    hardMode
+      ? "Serbest cevap · ipucu yok"
+      : openingSupportMode === "multi-choice"
+        ? "Önce seçenek · sonra kendi cevabın"
+        : openingSupportMode === "hinted"
+          ? "İpucu açık · kısa cevap yeter"
+          : "Serbest cevap · takılırsan yaz";
   const shouldShowHint = Boolean(
     !hardMode &&
       currentTurn?.hint_tr &&
@@ -661,6 +689,13 @@ export function RoleplayChat({
   );
   const finalAssessmentLabel = roleplayAssessmentLabel(
     assessRoleplayScore(finalScore),
+  );
+  const firstTargetAnswer = useMemo(
+    () =>
+      turns
+        .filter((turn) => turn.speaker === "user")
+        .flatMap(modelAnswersForTurn)[0] ?? null,
+    [turns],
   );
 
   // Voice capture handlers. Owns the lifecycle of one listening window.
@@ -962,6 +997,14 @@ export function RoleplayChat({
     if (finalizedRef.current) return;
     finalizedRef.current = true;
     const correctCount = turnScores.filter((s) => s >= 80).length;
+    const focusMistake = sceneMistakes[0];
+    const feedback = focusMistake
+      ? `Bugünün tek odağı: ${focusMistake.reason_tr}`
+      : finalScore >= 80
+        ? "Bugünün kazanımı: bu durumu baskısız akışta tamamladın. Bir sonraki tekrar daha serbest olabilir."
+        : firstTargetAnswer
+          ? `Bugünün cümlesi: “${firstTargetAnswer}”. Önce dinle, sonra aynı fikri kendi sesinle tekrar et.`
+          : `${correctCount}/${turnScores.length} hedefe uygun tepki.`;
     onComplete({
       exercise_id: "roleplay_chat",
       exercise_type: "roleplay_chat",
@@ -971,7 +1014,7 @@ export function RoleplayChat({
       assisted_turns: assistedTurns,
       mistakes: sceneMistakes,
       user_responses: userResponses,
-      feedback: `${correctCount}/${turnScores.length} hedefe uygun tepki.`,
+      feedback,
     });
   };
 
@@ -1019,6 +1062,25 @@ export function RoleplayChat({
       >
         <View style={styles.contextBubble}>
           <Text style={styles.contextText}>{scenarioDescription}</Text>
+        </View>
+
+        <View style={styles.sessionContractCard}>
+          <Text style={styles.contractEyebrow}>BU SAHNE NASIL İŞLEYECEK?</Text>
+          <View style={styles.contractGrid}>
+            <View style={styles.contractPill}>
+              <Text style={styles.contractValue}>{sessionMinutes} dk</Text>
+              <Text style={styles.contractLabel}>kısa seans</Text>
+            </View>
+            <View style={styles.contractPill}>
+              <Text style={styles.contractValue}>{totalUserTurns}</Text>
+              <Text style={styles.contractLabel}>cevap turu</Text>
+            </View>
+            <View style={styles.contractPill}>
+              <Text style={styles.contractValue}>Sonda</Text>
+              <Text style={styles.contractLabel}>tek düzeltme</Text>
+            </View>
+          </View>
+          <Text style={styles.contractSupport}>{supportSummary}</Text>
         </View>
 
         {shown.map((msg, i) => (
@@ -1508,6 +1570,56 @@ const styles = StyleSheet.create({
   contextText: {
     fontSize: 12,
     color: tokens.text.secondary,
+    fontWeight: tokens.weight.semibold,
+  },
+  sessionContractCard: {
+    alignSelf: "stretch",
+    padding: 14,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    gap: 10,
+    marginBottom: 6,
+  },
+  contractEyebrow: {
+    fontSize: 10,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 1.2,
+    textAlign: "center",
+  },
+  contractGrid: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  contractPill: {
+    flex: 1,
+    paddingVertical: 9,
+    paddingHorizontal: 8,
+    borderRadius: 14,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    alignItems: "center",
+    gap: 2,
+  },
+  contractValue: {
+    fontSize: 14,
+    color: tokens.text.primary,
+    fontWeight: tokens.weight.black,
+    fontFamily: tokens.font.display,
+  },
+  contractLabel: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    textAlign: "center",
+  },
+  contractSupport: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    lineHeight: 17,
+    textAlign: "center",
     fontWeight: tokens.weight.semibold,
   },
   inputBar: {
