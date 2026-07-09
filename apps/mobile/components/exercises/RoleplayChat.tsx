@@ -146,6 +146,14 @@ function extractExampleFromTurn(turn?: RoleplayTurn): string | null {
   return turn ? modelAnswersForTurn(turn)[0] ?? null : null;
 }
 
+function compactTurnGoal(turn?: RoleplayTurn): string | null {
+  const source = turn?.hint_tr ?? extractExampleFromTurn(turn);
+  if (!source) return null;
+  const cleaned = source.replace(/\s+/g, " ").trim();
+  if (cleaned.length <= 120) return cleaned;
+  return `${cleaned.slice(0, 117).trimEnd()}…`;
+}
+
 // Sanitize a display name for inline injection into NPC dialog. Strips
 // control chars and quotes that would break the rendered string, collapses
 // whitespace, and hard-caps the length. Casing is preserved.
@@ -308,6 +316,9 @@ export function RoleplayChat({
   const [finished, setFinished] = useState(false);
   const [retryTurnIdx, setRetryTurnIdx] = useState<number | null>(null);
   const [freeInputForTurn, setFreeInputForTurn] = useState(false);
+  const [selectedReadyAnswer, setSelectedReadyAnswer] = useState<string | null>(
+    null,
+  );
   // 2026-05-23 — Faz 3 LLM-siz smart conversation:
   //
   // hintAttention: user cevabı vermeden 5sn geçtiyse hint box glow yapar.
@@ -626,7 +637,7 @@ export function RoleplayChat({
     hardMode
       ? "Serbest cevap · ipucu yok"
       : openingSupportMode === "multi-choice"
-        ? "Önce hazır cevap · sonra kendi cevabın"
+        ? "Önce prova · sonra kendi cevabın"
         : openingSupportMode === "hinted"
           ? "İpucu açık · kısa cevap yeter"
           : "Serbest cevap · takılırsan yaz";
@@ -671,9 +682,17 @@ export function RoleplayChat({
         : [],
     [currentTurn, turns],
   );
+  const currentTurnGoal = useMemo(
+    () => compactTurnGoal(currentTurn),
+    [currentTurn],
+  );
+  const turnProgressLabel = awaitingUserInput
+    ? `${Math.min(currentUserTurnIndex + 1, totalUserTurns)}/${totalUserTurns}`
+    : `${Math.min(currentUserTurnIndex, totalUserTurns)}/${totalUserTurns}`;
 
   useEffect(() => {
     setFreeInputForTurn(false);
+    setSelectedReadyAnswer(null);
     setVoiceError(null);
   }, [turnIdx]);
 
@@ -1083,22 +1102,18 @@ export function RoleplayChat({
         </View>
 
         <View style={styles.sessionContractCard}>
-          <Text style={styles.contractEyebrow}>BU SAHNE NASIL İŞLEYECEK?</Text>
-          <View style={styles.contractGrid}>
-            <View style={styles.contractPill}>
-              <Text style={styles.contractValue}>{sessionMinutes} dk</Text>
-              <Text style={styles.contractLabel}>kısa seans</Text>
-            </View>
-            <View style={styles.contractPill}>
-              <Text style={styles.contractValue}>{totalUserTurns}</Text>
-              <Text style={styles.contractLabel}>cevap turu</Text>
-            </View>
-            <View style={styles.contractPill}>
-              <Text style={styles.contractValue}>Sonda</Text>
-              <Text style={styles.contractLabel}>tek düzeltme</Text>
-            </View>
+          <View style={styles.contractHeader}>
+            <Text style={styles.contractEyebrow}>KONUŞMA GÖREVİ</Text>
+            <Text style={styles.contractMeta}>
+              {sessionMinutes} dk · {totalUserTurns} cevap
+            </Text>
           </View>
-          <Text style={styles.contractSupport}>{supportSummary}</Text>
+          <Text style={styles.contractGoal}>
+            {scenarioDescription}
+          </Text>
+          <Text style={styles.contractSupport}>
+            {supportSummary} · Düzeltme sonda tek odak
+          </Text>
         </View>
 
         {shown.map((msg, i) => (
@@ -1125,6 +1140,12 @@ export function RoleplayChat({
                           hint hidden by default, build fluency reps)
               Matched (delta 0) renders nothing — the default UI is
               already calibrated to user level. */}
+          {awaitingUserInput && currentTurnGoal && (
+            <View style={styles.turnGoalStrip}>
+              <Text style={styles.turnGoalStep}>Tur {turnProgressLabel}</Text>
+              <Text style={styles.turnGoalText}>{currentTurnGoal}</Text>
+            </View>
+          )}
           {hardMode && (
             <View style={styles.hardModeBadge}>
               <Text style={styles.hardModeBadgeText}>
@@ -1217,28 +1238,67 @@ export function RoleplayChat({
             <View style={styles.choiceCol}>
               <View style={styles.choiceCoachBox}>
                 <Text style={styles.choiceCoachTitle}>
-                  Hazır cevapla başlayabilirsin
+                  Tur {turnProgressLabel}: önce prova et
                 </Text>
                 <Text style={styles.choiceCoachText}>
-                  Bu test değil. Hazır cümleyi kullan; sonra balona dokunup
-                  telaffuzunu dinle. Hazır hissedince kendi cümleni söyle veya
-                  yaz.
+                  Cümleyi hemen göndermiyoruz. Önce dinle, anlamını gör, sonra
+                  hazır cevabı gönder veya kendi cevabını söyle.
                 </Text>
               </View>
-              {choiceOptions.map((opt, i) => (
-                <Pressable
-                  key={`${turnIdx}-${i}`}
-                  style={styles.choiceBtn}
-                  onPress={() => submitUserTurnWith(opt, "choice")}
-                  accessibilityRole="button"
-                  accessibilityLabel={`${i + 1}. hazır cevap: ${opt}`}
-                >
-                  <Text style={styles.choiceText}>{opt}</Text>
-                </Pressable>
-              ))}
+              {selectedReadyAnswer ? (
+                <View style={styles.readyAnswerCard}>
+                  <Text style={styles.readyAnswerEyebrow}>Hazır cümle</Text>
+                  <Text style={styles.readyAnswerText}>
+                    {selectedReadyAnswer}
+                  </Text>
+                  <View style={styles.readyAnswerActions}>
+                    <Pressable
+                      onPress={() => speak(selectedReadyAnswer)}
+                      style={styles.readyAnswerSecondaryBtn}
+                      accessibilityRole="button"
+                      accessibilityLabel="Hazır cevabı dinle"
+                    >
+                      <Text style={styles.readyAnswerSecondaryText}>
+                        Dinle
+                      </Text>
+                    </Pressable>
+                    <Pressable
+                      onPress={() =>
+                        submitUserTurnWith(selectedReadyAnswer, "choice")
+                      }
+                      style={styles.readyAnswerPrimaryBtn}
+                      accessibilityRole="button"
+                      accessibilityLabel="Hazır cevabı gönder"
+                    >
+                      <Text style={styles.readyAnswerPrimaryText}>
+                        Gönder
+                      </Text>
+                    </Pressable>
+                  </View>
+                </View>
+              ) : (
+                choiceOptions.map((opt, i) => (
+                  <Pressable
+                    key={`${turnIdx}-${i}`}
+                    style={styles.choiceBtn}
+                    onPress={() => {
+                      setSelectedReadyAnswer(opt);
+                      void trackEvent("roleplay_ready_answer_previewed", {
+                        scenario_id: seed ?? "unknown",
+                        turn_index: turnIdx,
+                      }).catch(() => {});
+                    }}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${i + 1}. hazır cevabı prova et: ${opt}`}
+                  >
+                    <Text style={styles.choiceText}>{opt}</Text>
+                  </Pressable>
+                ))
+              )}
               <Pressable
                 onPress={() => {
                   setFreeInputForTurn(true);
+                  setSelectedReadyAnswer(null);
                   void trackEvent("roleplay_guidance_bypassed", {
                     scenario_id: seed ?? "unknown",
                     turn_index: turnIdx,
@@ -1601,44 +1661,33 @@ const styles = StyleSheet.create({
     gap: 10,
     marginBottom: 6,
   },
+  contractHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+  },
   contractEyebrow: {
     fontSize: 10,
     color: tokens.brand.tertiary,
     fontWeight: tokens.weight.extrabold,
     letterSpacing: 1.2,
-    textAlign: "center",
   },
-  contractGrid: {
-    flexDirection: "row",
-    gap: 8,
+  contractMeta: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    fontWeight: tokens.weight.semibold,
   },
-  contractPill: {
-    flex: 1,
-    paddingVertical: 9,
-    paddingHorizontal: 8,
-    borderRadius: 14,
-    backgroundColor: tokens.bg.surfaceContainerHigh,
-    borderWidth: 1,
-    borderColor: tokens.border.light,
-    alignItems: "center",
-    gap: 2,
-  },
-  contractValue: {
+  contractGoal: {
     fontSize: 14,
     color: tokens.text.primary,
-    fontWeight: tokens.weight.black,
-    fontFamily: tokens.font.display,
-  },
-  contractLabel: {
-    fontSize: 10,
-    color: tokens.text.tertiary,
-    textAlign: "center",
+    fontWeight: tokens.weight.bold,
+    lineHeight: 20,
   },
   contractSupport: {
     fontSize: 12,
     color: tokens.text.secondary,
     lineHeight: 17,
-    textAlign: "center",
     fontWeight: tokens.weight.semibold,
   },
   inputBar: {
@@ -1647,6 +1696,28 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: tokens.border.light,
     gap: 6,
+  },
+  turnGoalStrip: {
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    gap: 3,
+  },
+  turnGoalStep: {
+    fontSize: 10,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 0.8,
+    textTransform: "uppercase",
+  },
+  turnGoalText: {
+    fontSize: 13,
+    color: tokens.text.primary,
+    fontWeight: tokens.weight.semibold,
+    lineHeight: 18,
   },
   hintBox: {
     backgroundColor: tokens.brand.primarySoft,
@@ -1957,6 +2028,57 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: tokens.weight.semibold,
     lineHeight: 20,
+  },
+  readyAnswerCard: {
+    padding: 14,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainerLowest,
+    borderWidth: 2,
+    borderColor: tokens.brand.tertiary,
+    gap: 10,
+  },
+  readyAnswerEyebrow: {
+    fontSize: 10,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+  },
+  readyAnswerText: {
+    color: tokens.text.primary,
+    fontSize: 17,
+    fontWeight: tokens.weight.bold,
+    lineHeight: 23,
+  },
+  readyAnswerActions: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  readyAnswerSecondaryBtn: {
+    flex: 1,
+    paddingVertical: 11,
+    borderRadius: tokens.radius.base,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    backgroundColor: tokens.bg.surfaceContainer,
+  },
+  readyAnswerPrimaryBtn: {
+    flex: 1,
+    paddingVertical: 11,
+    borderRadius: tokens.radius.base,
+    alignItems: "center",
+    backgroundColor: tokens.brand.primary,
+  },
+  readyAnswerSecondaryText: {
+    color: tokens.text.secondary,
+    fontWeight: tokens.weight.bold,
+    fontSize: 13,
+  },
+  readyAnswerPrimaryText: {
+    color: tokens.text.onPrimary,
+    fontWeight: tokens.weight.black,
+    fontSize: 13,
   },
   finalScore: {
     alignSelf: "center",
