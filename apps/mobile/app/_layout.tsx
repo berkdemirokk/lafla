@@ -17,7 +17,13 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
 import * as Notifications from "expo-notifications";
 import { useFonts } from "expo-font";
-import { Text as RNText, TextInput as RNTextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Text as RNText,
+  TextInput as RNTextInput,
+  View,
+} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SpaceGrotesk_500Medium } from "@expo-google-fonts/space-grotesk/500Medium";
 import { SpaceGrotesk_600SemiBold } from "@expo-google-fonts/space-grotesk/600SemiBold";
@@ -87,12 +93,15 @@ _TextInput.defaultProps = {
   maxFontSizeMultiplier: TEXT_MAX_SCALE,
 };
 
+const LAUNCH_FALLBACK_MS = 1200;
+
 // Initialize once at module load so the SDK is live before any render —
 // crashes during the very first frame are still captured.
 initSentry();
 
 export default function RootLayout() {
   const [themeReady, setThemeReady] = useState(false);
+  const [showLaunchFallback, setShowLaunchFallback] = useState(false);
   const [fontsLoaded, fontError] = useFonts({
     SpaceGrotesk_500Medium,
     SpaceGrotesk_600SemiBold,
@@ -104,13 +113,23 @@ export default function RootLayout() {
     Inter_800ExtraBold,
   });
 
+  const canRenderApp = (fontsLoaded || fontError) && themeReady;
+
   useEffect(() => {
-    if ((fontsLoaded || fontError) && themeReady) {
+    if (canRenderApp || showLaunchFallback) {
       // Font yüklenemediyse splash'i yine de kapat — system font ile devam.
       // (App'in launch'ı font hatasıyla bloklanmasın.)
       SplashScreen.hideAsync().catch(() => {});
     }
-  }, [fontsLoaded, fontError, themeReady]);
+  }, [canRenderApp, showLaunchFallback]);
+
+  useEffect(() => {
+    if (canRenderApp) return;
+    const timeout = setTimeout(() => {
+      setShowLaunchFallback(true);
+    }, LAUNCH_FALLBACK_MS);
+    return () => clearTimeout(timeout);
+  }, [canRenderApp]);
 
   useEffect(() => {
     let cancelled = false;
@@ -203,8 +222,8 @@ export default function RootLayout() {
 
   // Splash kapanana kadar (ya font hazır ya da yüklenemedi) UI gösterme —
   // yarım font tipografisi flash yapması önlenir.
-  if ((!fontsLoaded && !fontError) || !themeReady) {
-    return null;
+  if (!canRenderApp) {
+    return showLaunchFallback ? <LaunchFallback /> : null;
   }
 
   return (
@@ -252,3 +271,33 @@ export default function RootLayout() {
     </SafeAreaProvider>
   );
 }
+
+function LaunchFallback() {
+  return (
+    <View style={stylesLaunch.root}>
+      <Text style={stylesLaunch.wordmark}>Lafla</Text>
+      <View style={stylesLaunch.accent} />
+    </View>
+  );
+}
+
+const stylesLaunch = StyleSheet.create({
+  root: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#000000",
+  },
+  wordmark: {
+    color: "#ffffff",
+    fontSize: 56,
+    fontWeight: "800",
+  },
+  accent: {
+    width: 56,
+    height: 2,
+    marginTop: 12,
+    borderRadius: 1,
+    backgroundColor: "#FF067A",
+  },
+});

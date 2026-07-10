@@ -19,6 +19,11 @@ interface Provider {
   extraHeaders?: Record<string, string>;
 }
 
+interface GenerationOptions {
+  maxTokens: number;
+  temperature: number;
+}
+
 const SAFETY_PREAMBLE = `[AI SAFETY GUARDRAIL ACTIVE]
 1. Decline NSFW, sexual, violent, illegal, or self-harm requests and redirect the user to English practice.
 2. Do not provide personalized medical, legal, or financial advice; recommend qualified professional help.
@@ -51,11 +56,21 @@ promises. Return JSON only, with this exact shape:
 Create a realistic, adult, two-turn English roleplay practice from the user's
 Turkish situation, pasted message, or meeting topic. Keep every English line
 short and natural. Return JSON only with this exact shape:
-{"titleTr":"...","descriptionTr":"...","npcRole":"...","settingTr":"...","turns":[{"speaker":"npc","message":"..."},{"speaker":"user","modelAnswers":["..."],"hintTr":"..."},{"speaker":"npc","message":"..."},{"speaker":"user","modelAnswers":["..."],"hintTr":"..."},{"speaker":"npc","message":"..."}]}
+{"titleTr":"...","descriptionTr":"...","npcRole":"...","settingTr":"...","turns":[{"speaker":"npc","message":"..."},{"speaker":"user","modelAnswers":["...","..."],"hintTr":"..."},{"speaker":"npc","message":"..."},{"speaker":"user","modelAnswers":["...","..."],"hintTr":"..."},{"speaker":"npc","message":"..."}]}
 Do not include markdown. The final NPC line must be a closing acknowledgement,
 not a question.`;
   }
   return buildCoachSystemPrompt(opener);
+}
+
+function generationOptionsForPrompt(promptId: string): GenerationOptions {
+  if (promptId === "tool.custom-scenario") {
+    return { maxTokens: 520, temperature: 0.45 };
+  }
+  if (promptId === "tool.emergency") {
+    return { maxTokens: 240, temperature: 0.25 };
+  }
+  return { maxTokens: 160, temperature: 0.7 };
 }
 
 function getProviders(): Provider[] {
@@ -114,6 +129,7 @@ async function callOpenAICompatible(
   provider: Provider,
   messages: Message[],
   systemPrompt: string,
+  generation: GenerationOptions,
 ): Promise<string | null> {
   if (!provider.apiKey) return null;
 
@@ -130,12 +146,16 @@ async function callOpenAICompatible(
 
   const isCloudflare = provider.name === "cloudflare";
   const body = isCloudflare
-    ? { messages: requestMessages, max_tokens: 128, temperature: 0.7 }
+    ? {
+      messages: requestMessages,
+      max_tokens: generation.maxTokens,
+      temperature: generation.temperature,
+    }
     : {
       model: provider.model,
       messages: requestMessages,
-      max_tokens: 128,
-      temperature: 0.7,
+      max_tokens: generation.maxTokens,
+      temperature: generation.temperature,
     };
 
   const controller = new AbortController();
@@ -175,6 +195,7 @@ async function callGemini(
   provider: Provider,
   messages: Message[],
   systemPrompt: string,
+  generation: GenerationOptions,
 ): Promise<string | null> {
   if (!provider.apiKey) return null;
 
@@ -188,8 +209,8 @@ async function callGemini(
   const body: Record<string, any> = {
     contents,
     generationConfig: {
-      maxOutputTokens: 128,
-      temperature: 0.7,
+      maxOutputTokens: generation.maxTokens,
+      temperature: generation.temperature,
     },
   };
 
@@ -235,10 +256,11 @@ async function callProvider(
   provider: Provider,
   messages: Message[],
   systemPrompt: string,
+  generation: GenerationOptions,
 ): Promise<string | null> {
   return provider.format === "gemini"
-    ? callGemini(provider, messages, systemPrompt)
-    : callOpenAICompatible(provider, messages, systemPrompt);
+    ? callGemini(provider, messages, systemPrompt, generation)
+    : callOpenAICompatible(provider, messages, systemPrompt, generation);
 }
 
 export async function handleLlmChat(req: Request): Promise<Response> {
@@ -360,6 +382,7 @@ export async function handleLlmChat(req: Request): Promise<Response> {
     // 4. Construct System Prompt from Allowlist
     const opener = FREE_CHAT_OPENERS[validatedPromptId];
     const systemPrompt = buildAllowedSystemPrompt(validatedPromptId, opener);
+    const generation = generationOptionsForPrompt(validatedPromptId);
     const providers = getProviders();
     const providerMessages = validatedMessages.filter(
       (message) => message.role === "user",
@@ -374,6 +397,7 @@ export async function handleLlmChat(req: Request): Promise<Response> {
         provider,
         providerMessages,
         systemPrompt,
+        generation,
       );
 
       if (responseText) {
