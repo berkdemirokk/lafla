@@ -324,7 +324,12 @@ export default function Onboarding() {
   const handleInterestsContinue = async () => {
     if (state.interests.length < MIN_INTERESTS) return;
     hapticSelection();
-    await setInterests(state.interests).catch(() => {});
+    try {
+      await setInterests(state.interests);
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
+    }
     void trackEvent("onboarding_interests_selected", {
       interests: state.interests,
       count: state.interests.length,
@@ -344,7 +349,12 @@ export default function Onboarding() {
     // tamamını seçili kabul eder; kullanıcı plan + sürpriz görür ve
     // settings'ten daraltabilir.
     const allLifestyle = LIFESTYLE_CHOICES.map((c) => c.id);
-    await setInterests(allLifestyle).catch(() => {});
+    try {
+      await setInterests(allLifestyle);
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
+    }
     dispatch({ type: "SET_INTERESTS", interests: allLifestyle });
     void trackEvent("onboarding_step_skipped", {
       step: "interests",
@@ -392,12 +402,17 @@ export default function Onboarding() {
     hapticImpact("light");
     // Onboarding state'ini disk'e kaydet (interests + displayName) —
     // placement screen onlara erişebilsin.
-    await setInterests(state.interests).catch(() => {});
-    const trimmed = state.displayName.trim();
-    if (trimmed.length > 0) {
-      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+    try {
+      await setInterests(state.interests);
+      const trimmed = state.displayName.trim();
+      if (trimmed.length > 0) {
+        await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed);
+      }
+      await setOnboardingStep("cefr");
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
     }
-    await setOnboardingStep("cefr").catch(() => {});
     void trackEvent("onboarding_placement_initiated").catch(() => {});
     router.replace("/placement" as never);
   };

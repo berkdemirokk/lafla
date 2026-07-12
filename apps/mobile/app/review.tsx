@@ -16,6 +16,7 @@ import {
   StyleSheet,
   Pressable,
   ScrollView,
+  Alert,
 } from "react-native";
 import Animated, {
   Easing,
@@ -58,6 +59,7 @@ export default function ReviewScreen() {
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [savingRecall, setSavingRecall] = useState(false);
   const [stats, setStats] = useState<SessionStats>({
     total: 0,
     easy: 0,
@@ -102,7 +104,8 @@ export default function ReviewScreen() {
   };
 
   const handleRecall = async (r: Recall) => {
-    if (!current) return;
+    if (!current || savingRecall) return;
+    setSavingRecall(true);
     void Haptics.impactAsync(
       r === "easy"
         ? Haptics.ImpactFeedbackStyle.Light
@@ -110,7 +113,13 @@ export default function ReviewScreen() {
           ? Haptics.ImpactFeedbackStyle.Heavy
           : Haptics.ImpactFeedbackStyle.Medium,
     ).catch(() => {});
-    await recordVocabReview(current.id, r).catch(() => {});
+    try {
+      await recordVocabReview(current.id, r);
+    } catch {
+      Alert.alert(t("common.error_title"), t("common.load_error_body"));
+      setSavingRecall(false);
+      return;
+    }
     setStats((s) => ({
       ...s,
       [r]: s[r] + 1,
@@ -125,6 +134,7 @@ export default function ReviewScreen() {
       setIdx(idx + 1);
       setRevealed(false);
     }
+    setSavingRecall(false);
   };
 
   const cardFlipStyle = useAnimatedStyle(() => ({
@@ -194,7 +204,14 @@ export default function ReviewScreen() {
   }
 
   // ─── active card ────────────────────────────────────────────────
-  if (!current) return null;
+  if (!current) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState status="error" onRetry={() => void load()} />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -250,24 +267,28 @@ export default function ReviewScreen() {
               hint={t("review.hint.forgot")}
               accent={tokens.semantic.error}
               onPress={() => handleRecall("forgot")}
+              disabled={savingRecall}
             />
             <RecallBtn
               label={t("review.hard")}
               hint={t("review.hint.hard")}
               accent={tokens.semantic.warning}
               onPress={() => handleRecall("hard")}
+              disabled={savingRecall}
             />
             <RecallBtn
               label={t("review.ok")}
               hint={t("review.hint.ok")}
               accent={tokens.brand.primary}
               onPress={() => handleRecall("ok")}
+              disabled={savingRecall}
             />
             <RecallBtn
               label={t("review.easy")}
               hint={t("review.hint.easy")}
               accent={tokens.brand.tertiary}
               onPress={() => handleRecall("easy")}
+              disabled={savingRecall}
             />
           </View>
         )}
@@ -283,23 +304,28 @@ function RecallBtn({
   hint,
   accent,
   onPress,
+  disabled,
 }: {
   label: string;
   hint: string;
   accent: string;
   onPress: () => void;
+  disabled: boolean;
 }) {
   const { t } = useTranslation();
   return (
     <Pressable
       onPress={onPress}
+      disabled={disabled}
       style={({ pressed }) => [
         styles.recallBtn,
         { borderColor: accent },
-        pressed && styles.recallBtnPressed,
+        pressed && !disabled && styles.recallBtnPressed,
+        disabled && styles.recallBtnDisabled,
       ]}
       accessibilityRole="button"
       accessibilityLabel={t("review.recall_label", { label, hint })}
+      accessibilityState={{ disabled, busy: disabled }}
     >
       <Text style={[styles.recallLabel, { color: accent }]}>{label}</Text>
       <Text style={styles.recallHint}>{hint}</Text>
@@ -428,6 +454,7 @@ const styles = StyleSheet.create({
     opacity: 0.85,
     transform: [{ scale: 0.97 }],
   },
+  recallBtnDisabled: { opacity: 0.55 },
   recallLabel: {
     fontSize: 15,
     fontWeight: tokens.weight.extrabold,

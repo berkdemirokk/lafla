@@ -87,6 +87,16 @@ function findMissingAccessibilityContracts(): string[] {
 }
 
 describe("accessibility contract", () => {
+  it("does not allow a top-level screen to fail as an unexplained blank view", () => {
+    const appDirectory = path.join(MOBILE_ROOT, "app");
+    const screenFiles = collectTsxFiles(appDirectory);
+
+    for (const screenFile of screenFiles) {
+      const source = fs.readFileSync(screenFile, "utf8");
+      expect(source).not.toMatch(/if\s*\(\s*!current\w*\s*\)\s*return null\s*;/);
+    }
+  });
+
   it("gives every native interactive control an explicit Turkish-friendly contract", () => {
     expect(findMissingAccessibilityContracts()).toEqual([]);
   });

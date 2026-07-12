@@ -46,6 +46,7 @@ import { PronouncePhrase } from "../components/exercises/PronouncePhrase";
 import { ListenAndTranscribe } from "../components/exercises/ListenAndTranscribe";
 import type { ExerciseResult } from "../lib/engine";
 import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState } from "../components/AsyncScreenState";
 import {
   PLACEMENT_QUESTION_COUNT,
   computeFinalLevel,
@@ -458,6 +459,23 @@ export default function PlacementScreen() {
   const progress = history.length;
   const total = PLACEMENT_QUESTION_COUNT;
 
+  const recoverPlacement = async () => {
+    await AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});
+    setHistory([]);
+    setCurrentLevel("B1");
+    setUsedIds(new Set());
+    setSelectedIdx(null);
+    setRevealed(false);
+    setMcqDerivedLevel(null);
+    setSpeakingScore(null);
+    setListeningScore(null);
+    setFinalLevel(null);
+    setAdaptiveHint(null);
+    setPhase("mcq");
+    setQuestionNonce((nonce) => nonce + 1);
+    void trackEvent("placement_recovered").catch(() => {});
+  };
+
   // ─── speaking phase ─────────────────────────────────────────
   if (phase === "speaking" && mcqDerivedLevel) {
     const target = SPEAKING_PHRASES[mcqDerivedLevel];
@@ -543,7 +561,14 @@ export default function PlacementScreen() {
 
   // ─── question render ────────────────────────────────────────
 
-  if (!current) return null;
+  if (!current) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState status="error" onRetry={() => void recoverPlacement()} />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
