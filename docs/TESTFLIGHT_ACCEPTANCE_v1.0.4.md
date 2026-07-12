@@ -6,12 +6,12 @@ Complete it against the new TestFlight build before promoting the build.
 ## Build identity
 
 - Version: `1.0.4`
-- TestFlight production build: `112`
-- GitHub Actions run: `29201249421`
-- Source commit: `b0b96ca0ae9aca517469a471e76257cfd437f8a8`
-- Apple delivery UUID: `d12705f4-123f-4c57-94f2-e7413aede900`
+- TestFlight production build: `113`
+- GitHub Actions run: `29202895285`
+- Source commit: `2f023353e9ed553e9de580c152d23d965938eaa1`
+- Apple delivery UUID: `b6f38cc3-9bd8-4d41-a089-d81111a606c9`
 - Upload result: `UPLOAD SUCCEEDED with no errors`
-- IPA identity: `com.lafla.app` · `1.0.4 (112)`
+- IPA identity: `com.lafla.app` · `1.0.4 (113)`
 - Native permission resources verified in IPA: `en.lproj` and `tr.lproj`
 - App privacy manifest verified in IPA: tracking domains + 4 required-reason API categories
 - Git commit: ____________________
