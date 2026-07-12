@@ -3,6 +3,7 @@
 
 import { supabase } from "./supabase";
 import { captureException } from "./sentry";
+import { enqueueCloudProgress, flushCloudProgressOutbox } from "./cloud-progress-outbox";
 import {
   bumpDailyActivity,
   bumpSkillMastery,
@@ -38,10 +39,19 @@ export type AttemptInput = {
   hints_used?: number;
 };
 
+async function getCachedUser() {
+  try {
+    const { data } = await supabase.auth.getSession();
+    return data.session?.user ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export async function recordAttempt(attempt: AttemptInput) {
   // Cloud sync (signed in only). Local doesn't need per-attempt detail —
   // completeLesson aggregates accuracy.
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getCachedUser();
   if (!user) return;
 
   await supabase.from("attempts").insert({
@@ -105,9 +115,8 @@ export async function completeLesson(args: {
   await bumpStreak();
 
   // ===== CLOUD (if signed in) =====
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getCachedUser();
   if (user) {
-    // best-effort cloud mirror; ignore failures
     const cloudState = {
       user_id: user.id,
       lesson_id: args.lesson_id,
@@ -120,23 +129,23 @@ export async function completeLesson(args: {
       total_correct: newLocal.total_correct,
       last_attempt_at: newLocal.last_attempt_at,
     };
-    // BUG-15 FIX: log cloud sync errors to Sentry (still fire-and-forget)
-    supabase.from("lesson_state").upsert(cloudState).then(() => {}, (err: unknown) => {
-      captureException(err, { source: "srs.completeLesson.lesson_state" });
-    });
-
-    supabase
-      .from("skill_mastery")
-      .upsert({
+    const skillMastery = {
         user_id: user.id,
         skill_id: args.skill_id,
         mastery_score: args.accuracy,
         lessons_completed: 1,
         last_practiced_at: new Date().toISOString(),
-      })
-      .then(() => {}, (err: unknown) => {
-        captureException(err, { source: "srs.completeLesson.skill_mastery" });
-      });
+      };
+    await enqueueCloudProgress({
+      userId: user.id,
+      lessonState: cloudState,
+      skillMastery,
+    }).catch((error: unknown) => {
+      captureException(error, { source: "srs.completeLesson.outbox" });
+    });
+    void flushCloudProgressOutbox().catch((error: unknown) => {
+      captureException(error, { source: "srs.completeLesson.flush" });
+    });
   }
 
   return { xp_earned: xpEarned, next_review_at: nextReview.toISOString() };

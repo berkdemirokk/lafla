@@ -6,6 +6,7 @@ import { setUserId as setAnalyticsUserId } from "./analytics";
 import { setUserId as setRevenueCatUserId } from "./iap";
 import { supabase, isSupabaseConfigured } from "./supabase";
 import { setUser as setSentryUser } from "./sentry";
+import { flushCloudProgressOutbox } from "./cloud-progress-outbox";
 
 export type SessionState = {
   session: Session | null;
@@ -32,6 +33,7 @@ async function syncExternalUserIds(s: Session | null): Promise<void> {
   // clears RevenueCat in auth.signOut().
   if (userId) {
     await setRevenueCatUserId(userId).catch(() => {});
+    await flushCloudProgressOutbox().catch(() => {});
   }
 }
 

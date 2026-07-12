@@ -22,6 +22,7 @@ import {
   StyleSheet,
   Text,
   View,
+  AppState,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SpaceGrotesk_500Medium } from "@expo-google-fonts/space-grotesk/500Medium";
@@ -40,6 +41,7 @@ import { requestAttOnce } from "../lib/att";
 import { ThemeProvider, tokens, useAppTheme } from "../theme";
 import { hydrateThemePreference } from "../lib/theme-preference";
 import { hydrateLocale } from "../lib/i18n";
+import { flushCloudProgressOutbox } from "../lib/cloud-progress-outbox";
 
 const K_LAST_OPEN_DAY = "lafla.analytics.lastOpenDay";
 
@@ -125,6 +127,15 @@ export default function RootLayout() {
     return () => {
       cancelled = true;
     };
+  }, []);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (state) => {
+      if (state === "active") {
+        void flushCloudProgressOutbox().catch(() => {});
+      }
+    });
+    return () => subscription.remove();
   }, []);
 
   useEffect(() => {
