@@ -412,6 +412,8 @@
   "scenario.progress.finish": "Bitiş, 4 / 4",
   "scenario.exit_label": "Sahneden çık",
   "scenario.progress_label": "Sahne ilerlemesi",
+  "scenario.progress_saving": "İlerlemen kaydediliyor…",
+  "scenario.progress_save_error": "İlerlemen kaydedilemedi. Bu ekrandan ayrılmadan yeniden dene.",
   "scenario.hard_mode": "Hard Mode",
   "scenario.hard_mode_locked_label": "Hard Mode, Lafla Pro ile aç",
   "scenario.hard_mode_locked": "🔒 🔥 HARD MODE · Lafla Pro ile aç",

@@ -433,6 +433,9 @@ export default function ScenarioScreen() {
     days: number;
   }>({ visible: false, days: 0 });
   const savedRef = useRef(false);
+  const [progressSaveStatus, setProgressSaveStatus] = useState<
+    "idle" | "saving" | "saved" | "error"
+  >("idle");
 
   // Auto-speak the current setup phrase
   useEffect(() => {
@@ -459,6 +462,7 @@ export default function ScenarioScreen() {
       return;
     }
     savedRef.current = true;
+    setProgressSaveStatus("saving");
     const masteryScore = sceneResult.mastery_score ?? sceneResult.score;
     const accuracy = masteryScore / 100;
     void trackEvent("scenario_completed", {
@@ -480,17 +484,23 @@ export default function ScenarioScreen() {
       // were already true beforehand. completeLesson() below will mutate
       // current_streak, total_xp and last_lesson_at via local-progress.
       await getLocalProfile().catch(() => null);
-      await completeLesson({
-        lesson_id: scenario.id,
-        skill_id: scenario.skill_id,
-        accuracy,
-        exercises_completed: 1,
-      }).catch(() => {});
-      await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
-      await recordLessonCompletion({
-        xpEarned: 20 + Math.round(accuracy * 30),
-        isRoleplay: true,
-      }).catch(() => {});
+      try {
+        await completeLesson({
+          lesson_id: scenario.id,
+          skill_id: scenario.skill_id,
+          accuracy,
+          exercises_completed: 1,
+        });
+        setProgressSaveStatus("saved");
+        await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
+        await recordLessonCompletion({
+          xpEarned: 20 + Math.round(accuracy * 30),
+          isRoleplay: true,
+        }).catch(() => {});
+      } catch {
+        setProgressSaveStatus("error");
+        return;
+      }
       // checkUnlocksAfterLesson is idempotent — already-earned achievements
       // are filtered out of the return set, so re-runs after retries are safe.
       const earned = await checkUnlocksAfterLesson(
@@ -604,6 +614,28 @@ export default function ScenarioScreen() {
       }
     })();
   }, [phase, sceneResult, scenario, isIntro, filteredSetup]);
+
+  const retryProgressSave = async () => {
+    if (!scenario || !sceneResult || progressSaveStatus === "saving") return;
+    setProgressSaveStatus("saving");
+    const accuracy = (sceneResult.mastery_score ?? sceneResult.score) / 100;
+    try {
+      await completeLesson({
+        lesson_id: scenario.id,
+        skill_id: scenario.skill_id,
+        accuracy,
+        exercises_completed: 1,
+      });
+      setProgressSaveStatus("saved");
+      await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
+      await recordLessonCompletion({
+        xpEarned: 20 + Math.round(accuracy * 30),
+        isRoleplay: true,
+      }).catch(() => {});
+    } catch {
+      setProgressSaveStatus("error");
+    }
+  };
 
   // Drain achievement queue — when the active toast clears, slide the next
   // queued unlock in. We also auto-advance after 2s when there are multiple
@@ -1144,6 +1176,8 @@ export default function ScenarioScreen() {
                   ? nextInPlanScene.title.replace(/\n/g, " ")
                   : null
               }
+              progressSaveStatus={progressSaveStatus}
+              onRetrySave={() => void retryProgressSave()}
               onContinue={() => {
                 // Switch-trigger #1 — force-first intro scene biterse:
                 // 1) "completed" flag yaz (bir daha tetiklenmez)
@@ -1742,6 +1776,8 @@ function VerdictView({
   userName,
   onContinue,
   planNextLabel,
+  progressSaveStatus,
+  onRetrySave,
 }: {
   scenario: Scenario;
   sceneResult: ExerciseResult;
@@ -1759,6 +1795,8 @@ function VerdictView({
    * başlığı buraya gelir. Geçiş manuel kalır; sonuç ekranı otomatik kapanmaz.
    */
   planNextLabel: string | null;
+  progressSaveStatus: "idle" | "saving" | "saved" | "error";
+  onRetrySave: () => void;
 }) {
   const { t, locale } = useTranslation();
   // Share card ref — view-shot ile capture edilir. Off-screen pozisyonda
@@ -2055,6 +2093,24 @@ function VerdictView({
       )}
 
       <View style={verdictStyles.footer}>
+        {progressSaveStatus === "saving" && (
+          <Text style={verdictStyles.saveStatus} accessibilityLiveRegion="polite">
+            {t("scenario.progress_saving")}
+          </Text>
+        )}
+        {progressSaveStatus === "error" && (
+          <View style={verdictStyles.saveError} accessibilityLiveRegion="assertive">
+            <Text style={verdictStyles.saveErrorText}>{t("scenario.progress_save_error")}</Text>
+            <Pressable
+              onPress={onRetrySave}
+              accessibilityRole="button"
+              accessibilityLabel={t("common.try_again")}
+              style={verdictStyles.saveRetry}
+            >
+              <Text style={verdictStyles.saveRetryText}>{t("common.try_again")}</Text>
+            </Pressable>
+          </View>
+        )}
         <Button
           label={
             planNextLabel
@@ -2064,6 +2120,7 @@ function VerdictView({
                 : t("scenario.verdict.back_today")
           }
           onPress={onContinue}
+          disabled={progressSaveStatus !== "saved"}
           stacked
         />
         {/* Skoru paylaş — Adım 5 (2026-05-20).
@@ -2934,6 +2991,38 @@ const verdictStyles = StyleSheet.create({
     width: "100%",
     marginTop: "auto",
     gap: 10,
+  },
+  saveStatus: {
+    color: tokens.text.secondary,
+    fontSize: 13,
+    lineHeight: 18,
+    textAlign: "center",
+  },
+  saveError: {
+    gap: 10,
+    padding: 14,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.semantic.error,
+    backgroundColor: tokens.semantic.errorContainer,
+  },
+  saveErrorText: {
+    color: tokens.semantic.error,
+    fontSize: 13,
+    lineHeight: 18,
+    textAlign: "center",
+  },
+  saveRetry: {
+    minHeight: 44,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.semantic.error,
+  },
+  saveRetryText: {
+    color: tokens.text.onPrimary,
+    fontSize: 14,
+    fontWeight: tokens.weight.extrabold,
   },
   // 2026-05-21 — auto-advance pause hint. Daily plan countdown bar altında
   // tek satır küçük link: "⏸ Mola al". Tıklayınca countdown durur, kullanıcı
