@@ -74,11 +74,10 @@ async function readMap<T>(key: string): Promise<Record<string, T>> {
 }
 
 async function writeMap<T>(key: string, map: Record<string, T>) {
-  try {
-    await AsyncStorage.setItem(key, JSON.stringify(map));
-  } catch {
-    // ignore
-  }
+  // A failed progress write is not recoverable by pretending success. Let the
+  // caller decide whether to retry, queue, or surface an error; otherwise the
+  // verdict UI advances while lesson/XP/streak data silently disappears.
+  await AsyncStorage.setItem(key, JSON.stringify(map));
 }
 
 export async function getLocalProfile(): Promise<LocalProfile> {

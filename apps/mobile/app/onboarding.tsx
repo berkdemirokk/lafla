@@ -367,16 +367,21 @@ export default function Onboarding() {
   const handleNameContinue = async () => {
     const trimmed = state.displayName.trim();
     hapticSelection();
+    try {
     if (trimmed.length > 0) {
-      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed);
       void trackEvent("onboarding_name_set", { length: trimmed.length }).catch(
         () => {},
       );
     } else {
-      await AsyncStorage.removeItem(K_DISPLAY_NAME).catch(() => {});
+      await AsyncStorage.removeItem(K_DISPLAY_NAME);
     }
     // Eski anahtar varsa temizle — tek kaynak: lafla.displayName.
-    await AsyncStorage.removeItem(K_LEGACY_NAME).catch(() => {});
+    await AsyncStorage.removeItem(K_LEGACY_NAME);
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
+    }
     dispatch({ type: "NEXT" });
   };
 
