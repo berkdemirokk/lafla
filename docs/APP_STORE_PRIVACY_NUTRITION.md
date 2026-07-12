@@ -118,7 +118,7 @@
 - **Collected:** Yes (text answers in scenarios — translate / fill-blank / roleplay turns / IELTS responses)
 - **Linked to user:** Yes
 - **Used for tracking:** No
-- **Purposes:** App Functionality. Guided-scenario scoring is fully on-device (`lib/engine.ts` + `lib/mistake-patterns.ts`); aggregated mastery state syncs to Supabase. In optional Free Chat, Emergency English, and custom-scenario tools, the text entered for that feature is sent through the Supabase `llm-chat` Edge Function to an AI provider. Provider requests do not add the user's email or profile fields, but the submitted text itself is transmitted.
+- **Purposes:** App Functionality. Guided-scenario scoring is fully on-device (`lib/engine.ts` + `lib/mistake-patterns.ts`); aggregated mastery state syncs to Supabase. Free Chat, Emergency English, and custom-scenario generation are also processed entirely on-device. Text entered in those three tools is not transmitted to Lafla servers or an AI provider.
 
 ---
 
@@ -292,4 +292,4 @@
 | Apple adds new data type categories | Re-read Apple's docs, re-classify Lafla data |
 | Annual review | Walk through every section every 12 months |
 
-Last reviewed: 2026-06-22 (Lafla v1.0.4 — guided-scenario local scoring and optional Free Chat AI processing documented separately; live privacy policy verified).
+Last reviewed: 2026-07-11 (Lafla v1.0.4 — guided scenarios, Free Chat, and Real Life generation verified as on-device; live privacy policy update required before submission if its wording differs).

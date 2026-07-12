@@ -80,6 +80,7 @@ import {
 } from "../lib/rewarded";
 import { showRewardedAd } from "../lib/ads";
 import { getMistakeDNA } from "../lib/mistake-dna";
+import { useTranslation, type UseTranslation } from "../lib/i18n";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -87,23 +88,23 @@ type CoreContextId = "work" | "daily" | "social" | "travel" | "ielts";
 
 const CORE_CONTEXTS: ReadonlyArray<{
   id: CoreContextId;
-  label: string;
-  detail: string;
+  labelKey: string;
+  detailKey: string;
 }> = [
-  { id: "work", label: "İş", detail: "toplantı, mail" },
-  { id: "daily", label: "Günlük", detail: "market, doktor" },
-  { id: "social", label: "Sosyal", detail: "small talk" },
-  { id: "travel", label: "Seyahat", detail: "havaalanı" },
-  { id: "ielts", label: "IELTS", detail: "sınav provası" },
+  { id: "work", labelKey: "today.context.work", detailKey: "today.context.work_detail" },
+  { id: "daily", labelKey: "today.context.daily", detailKey: "today.context.daily_detail" },
+  { id: "social", labelKey: "today.context.social", detailKey: "today.context.social_detail" },
+  { id: "travel", labelKey: "today.context.travel", detailKey: "today.context.travel_detail" },
+  { id: "ielts", labelKey: "today.context.ielts", detailKey: "today.context.ielts_detail" },
 ];
 
 const CORE_TRUST_PROMISES: ReadonlyArray<{
-  label: string;
-  detail: string;
+  labelKey: string;
+  detailKey: string;
 }> = [
-  { label: "Tek durum", detail: "karışık menü yok" },
-  { label: "Seviyeli", detail: "ipucu otomatik" },
-  { label: "Baskısız", detail: "hata en sonda" },
+  { labelKey: "today.trust.one", detailKey: "today.trust.one_detail" },
+  { labelKey: "today.trust.level", detailKey: "today.trust.level_detail" },
+  { labelKey: "today.trust.calm", detailKey: "today.trust.calm_detail" },
 ];
 
 const CONTEXT_MODE_PRIORITY: Record<CoreContextId, readonly SceneMode[]> = {
@@ -166,29 +167,31 @@ function pickPlayableSceneForContext(
   );
 }
 
-function compactSceneTitle(scene: Scene | null): string {
-  return scene?.title.replace(/\n/g, " ") ?? "seviyene uygun kısa prova";
+function compactSceneTitle(scene: Scene | null, fallback: string): string {
+  return scene?.title.replace(/\n/g, " ") ?? fallback;
 }
 
-function greetingFor(hour: number): string {
-  if (hour >= 6 && hour < 12) return "Günaydın";
-  if (hour >= 12 && hour < 18) return "İyi günler";
-  if (hour >= 18 && hour < 22) return "İyi akşamlar";
-  return "İyi geceler";
+function greetingFor(hour: number, t: UseTranslation["t"]): string {
+  if (hour >= 6 && hour < 12) return t("today.greeting.morning");
+  if (hour >= 12 && hour < 18) return t("today.greeting.day");
+  if (hour >= 18 && hour < 22) return t("today.greeting.evening");
+  return t("today.greeting.night");
 }
 
 // 2026-05-24 — Rewarded grant bitiş zamanına kalan süreyi kısa-format döner.
 // "23 sa 47 dk" / "5 sa" / "12 dk" / "2 dk altı" gibi human-readable.
-function formatTimeUntil(target: Date): string {
+function formatTimeUntil(target: Date, locale: "tr" | "en"): string {
   const diffMs = target.getTime() - Date.now();
-  if (diffMs <= 0) return "0 dk";
+  const minute = locale === "tr" ? "dk" : "min";
+  const hour = locale === "tr" ? "sa" : "hr";
+  if (diffMs <= 0) return `0 ${minute}`;
   const totalMin = Math.floor(diffMs / 60000);
-  if (totalMin < 2) return "2 dk altı";
+  if (totalMin < 2) return locale === "tr" ? "2 dk altı" : "under 2 min";
   const hours = Math.floor(totalMin / 60);
   const mins = totalMin % 60;
-  if (hours === 0) return `${mins} dk`;
-  if (mins === 0) return `${hours} sa`;
-  return `${hours} sa ${mins} dk`;
+  if (hours === 0) return `${mins} ${minute}`;
+  if (mins === 0) return `${hours} ${hour}`;
+  return `${hours} ${hour} ${mins} ${minute}`;
 }
 
 function sanitizeName(raw: string | null | undefined): string {
@@ -266,8 +269,10 @@ const EMPTY: TodayState = {
 
 export default function Today() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [state, setState] = useState<TodayState>(EMPTY);
   const [showTutorial, setShowTutorial] = useState(false);
+  const [planLoadFailed, setPlanLoadFailed] = useState(false);
   const [selectedCoreContext, setSelectedCoreContext] =
     useState<CoreContextId | null>(null);
 
@@ -392,15 +397,19 @@ export default function Today() {
       getVocabDueCount().catch(() => 0),
       getVocabDueMinutes().catch(() => 0),
     ]);
-    const [planScenes, planSummary] = await Promise.all([
-      getOrCreateDailyPlan().catch(() => [] as Scene[]),
-      getPlanSummary().catch(() => ({
-        total: 0,
-        completed: 0,
-        estimatedMin: 0,
-        isComplete: false,
-      })),
+    const [planResult, summaryResult] = await Promise.allSettled([
+      getOrCreateDailyPlan(),
+      getPlanSummary(),
     ]);
+    const planFailed = planResult.status === "rejected" || summaryResult.status === "rejected";
+    setPlanLoadFailed(planFailed);
+    const planScenes = planResult.status === "fulfilled" ? planResult.value : [];
+    const planSummary = summaryResult.status === "fulfilled" ? summaryResult.value : {
+      total: 0,
+      completed: 0,
+      estimatedMin: 0,
+      isComplete: false,
+    };
     const planRemainingScenes = planScenes.filter(
       (s) => !completed.has(s.lessonId),
     );
@@ -583,7 +592,7 @@ export default function Today() {
       <View style={styles.topBar}>
         <View style={styles.topBarLeft}>
           <Text style={styles.greeting} numberOfLines={1} adjustsFontSizeToFit>
-            {greetingFor(state.hour)}
+            {greetingFor(state.hour, t)}
             {state.displayName ? `, ${state.displayName}` : ""}
           </Text>
         </View>
@@ -595,7 +604,7 @@ export default function Today() {
               pressed && styles.pressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Liderlik Tablosunu Aç"
+            accessibilityLabel={t("today.open_leaderboard")}
             hitSlop={8}
           >
             <Icon name="trophy" size={20} color={tokens.brand.tertiary} />
@@ -604,7 +613,7 @@ export default function Today() {
             <Animated.View
               style={[styles.streakChip, streakStyle]}
               accessibilityRole="text"
-              accessibilityLabel={`${streak} günlük seri`}
+              accessibilityLabel={t("today.streak_days", { count: String(streak) })}
             >
               <Text
                 style={styles.streakChipText}
@@ -672,34 +681,33 @@ export default function Today() {
               <View style={styles.coreContent}>
                 <View style={styles.coreTopRow}>
                   <Text style={styles.coreEyebrow}>
-                    BUGÜNKÜ EN İYİ 3 DAKİKA
+                    {t("today.hero_eyebrow")}
                   </Text>
                   <View style={styles.coreTimeBadge}>
                     <Text style={styles.coreTimeBadgeText}>
-                      ~{selectedCoreDuration} dk
+                      ~{selectedCoreDuration} {t("today.minute_short")}
                     </Text>
                   </View>
                 </View>
 
-                <Text style={styles.coreTitle}>Tek hedef, tek kısa prova.</Text>
+                <Text style={styles.coreTitle}>{t("today.hero_title")}</Text>
                 <Text style={styles.coreSub}>
-                  Bir durum seç; seviyene göre ipucu açılır, konuşma baskısız
-                  akar, düzeltme en sonda gelir.
+                  {t("today.hero_subtitle")}
                 </Text>
 
                 <View style={styles.coreTrustRail}>
                   {CORE_TRUST_PROMISES.map((promise) => (
-                    <View key={promise.label} style={styles.coreTrustPill}>
-                      <Text style={styles.coreTrustLabel}>{promise.label}</Text>
+                    <View key={promise.labelKey} style={styles.coreTrustPill}>
+                      <Text style={styles.coreTrustLabel}>{t(promise.labelKey)}</Text>
                       <Text style={styles.coreTrustDetail}>
-                        {promise.detail}
+                        {t(promise.detailKey)}
                       </Text>
                     </View>
                   ))}
                 </View>
 
                 <Text style={styles.coreQuestion}>
-                  Bugün İngilizce nerede lazım?
+                  {t("today.context_question")}
                 </Text>
                 <View style={styles.coreContextGrid}>
                   {CORE_CONTEXTS.map((context) => {
@@ -714,7 +722,9 @@ export default function Today() {
                           pressed && styles.pressed,
                         ]}
                         accessibilityRole="button"
-                        accessibilityLabel={`${context.label} bağlamını seç`}
+                        accessibilityLabel={t("today.select_context", {
+                          context: t(context.labelKey),
+                        })}
                         accessibilityState={{ selected }}
                       >
                         <Text
@@ -723,7 +733,7 @@ export default function Today() {
                             selected && styles.coreContextLabelSelected,
                           ]}
                         >
-                          {context.label}
+                          {t(context.labelKey)}
                         </Text>
                         <Text
                           style={[
@@ -732,7 +742,7 @@ export default function Today() {
                           ]}
                           numberOfLines={1}
                         >
-                          {context.detail}
+                          {t(context.detailKey)}
                         </Text>
                       </Pressable>
                     );
@@ -755,15 +765,21 @@ export default function Today() {
                     pressed && styles.pressed,
                   ]}
                   accessibilityRole="button"
-                  accessibilityLabel={`${compactSceneTitle(selectedCoreScene)} provasına başla`}
+                  accessibilityLabel={t("today.start_scene", {
+                    scene: compactSceneTitle(selectedCoreScene, t("today.scene_fallback")),
+                  })}
                 >
                   <View style={styles.corePrimaryText}>
                     <Text style={styles.corePrimaryLabel}>
-                      {selectedCoreDuration} dk kısa provaya başla
+                      {t("today.start_short_rehearsal", {
+                        minutes: String(selectedCoreDuration),
+                      })}
                     </Text>
                     <Text style={styles.corePrimarySub} numberOfLines={1}>
-                      {selectedCoreFromPlan ? "Planından" : "Bağlama uygun"}:{" "}
-                      {compactSceneTitle(selectedCoreScene)}
+                      {selectedCoreFromPlan
+                        ? t("today.from_plan")
+                        : t("today.for_context")}: {" "}
+                      {compactSceneTitle(selectedCoreScene, t("today.scene_fallback"))}
                     </Text>
                   </View>
                   <Icon
@@ -781,11 +797,11 @@ export default function Today() {
                       pressed && styles.pressed,
                     ]}
                     accessibilityRole="button"
-                    accessibilityLabel="Acil İngilizce aracını aç"
+                    accessibilityLabel={t("today.open_emergency")}
                   >
-                    <Text style={styles.coreQuickTitle}>Acil İngilizce</Text>
+                    <Text style={styles.coreQuickTitle}>{t("today.emergency_title")}</Text>
                     <Text style={styles.coreQuickSub} numberOfLines={1}>
-                      Türkçe yaz, üç doğal cevap al
+                      {t("today.emergency_subtitle")}
                     </Text>
                   </Pressable>
                   <Pressable
@@ -795,13 +811,13 @@ export default function Today() {
                       pressed && styles.pressed,
                     ]}
                     accessibilityRole="button"
-                    accessibilityLabel="Kişisel Hata DNA koçunu aç"
+                    accessibilityLabel={t("today.open_mistake_coach")}
                   >
-                    <Text style={styles.coreQuickTitle}>Hata DNA</Text>
+                    <Text style={styles.coreQuickTitle}>{t("today.mistake_dna")}</Text>
                     <Text style={styles.coreQuickSub} numberOfLines={1}>
                       {state.mistakeFocus
-                        ? `Bugün: ${state.mistakeFocus.label}`
-                        : "İlk konuşmadan sonra açılır"}
+                        ? t("today.mistake_today", { mistake: state.mistakeFocus.label })
+                        : t("today.mistake_locked")}
                     </Text>
                   </Pressable>
                 </View>
@@ -814,9 +830,9 @@ export default function Today() {
             style={[styles.planDone, planDoneGlowStyle]}
           >
             <Text style={styles.planDoneEmoji}>🎉</Text>
-            <Text style={styles.planDoneTitle}>Bugünün planı tamam</Text>
+            <Text style={styles.planDoneTitle}>{t("today.plan_done_title")}</Text>
             <Text style={styles.planDoneSub}>
-              Yarın üç kısa sahne hazırlanır. Akış'tan ekstra sahne yapabilirsin.
+              {t("today.plan_done_subtitle")}
             </Text>
           </Animated.View>
         ) : showEmptyState ? (
@@ -826,11 +842,22 @@ export default function Today() {
             entering={FadeInDown.duration(420)}
             style={styles.emptyState}
           >
-            <Text style={styles.emptyTitle}>Hadi başlayalım</Text>
-            <Text style={styles.emptySub}>
-              Henüz bir plan yok. Akış'tan ilk sahneni seç, gerisi
-              kendiliğinden gelir.
+            <Text style={styles.emptyTitle}>
+              {planLoadFailed ? t("common.load_error_title") : t("today.empty_title")}
             </Text>
+            <Text style={styles.emptySub}>
+              {planLoadFailed ? t("common.load_error_body") : t("today.empty_subtitle")}
+            </Text>
+            {planLoadFailed ? (
+              <Pressable
+                onPress={() => void load()}
+                style={({ pressed }) => [styles.emptyCta, pressed && styles.pressed]}
+                accessibilityRole="button"
+                accessibilityLabel={t("common.try_again")}
+              >
+                <Text style={styles.emptyCtaText}>{t("common.try_again")}</Text>
+              </Pressable>
+            ) : null}
             <Pressable
               onPress={() => pushRoute(router, "/home")}
               style={({ pressed }) => [
@@ -838,9 +865,9 @@ export default function Today() {
                 pressed && styles.pressed,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Akış'ı aç"
+              accessibilityLabel={t("today.open_feed")}
             >
-              <Text style={styles.emptyCtaText}>Akış'ı aç</Text>
+              <Text style={styles.emptyCtaText}>{t("today.open_feed")}</Text>
             </Pressable>
           </Animated.View>
         ) : null}
@@ -852,7 +879,7 @@ export default function Today() {
             <View style={styles.warningBanner}>
               <Icon name="streak" size={14} color={tokens.semantic.warning} />
               <Text style={styles.warningText}>
-                Streak risk altında — 1 sahne kurtarır
+                {t("today.streak_risk")}
               </Text>
             </View>
           </Animated.View>
@@ -865,12 +892,18 @@ export default function Today() {
                   size={12}
                   color={tokens.semantic.error}
                 />
-                <Text style={styles.erosionLabel}>CEFR İLERLEMEN GERİLİYOR</Text>
+              <Text style={styles.erosionLabel}>{t("today.erosion_title")}</Text>
               </View>
               <Text style={styles.erosionText}>
                 {state.erosionDroppedLevel
-                  ? `${state.erosionDaysIdle} gün ara — ${state.erosionDroppedLevel}'e düştün.`
-                  : `${state.erosionDaysIdle} gün ara — −${state.erosionDecay.toFixed(2)} aşındı.`}
+                  ? t("today.erosion_level_drop", {
+                      days: String(state.erosionDaysIdle),
+                      level: state.erosionDroppedLevel,
+                    })
+                  : t("today.erosion_decay", {
+                      days: String(state.erosionDaysIdle),
+                      amount: state.erosionDecay.toFixed(2),
+                    })}
               </Text>
             </View>
           </Animated.View>
@@ -891,8 +924,8 @@ export default function Today() {
             accessibilityRole="button"
             accessibilityLabel={
               state.vocabDue > 0
-                ? `Kelime tekrarı: ${state.vocabDue} kelime`
-                : "Kelime tekrarı"
+                ? t("today.vocab_due", { count: String(state.vocabDue) })
+                : t("today.vocab_review")
             }
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
@@ -919,8 +952,8 @@ export default function Today() {
               ) : null}
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>PRATİK</Text>
-              <Text style={styles.tileTitle}>Kelime</Text>
+              <Text style={styles.tileEyebrow}>{t("today.practice")}</Text>
+              <Text style={styles.tileTitle}>{t("today.vocabulary")}</Text>
             </View>
           </Pressable>
 
@@ -928,7 +961,7 @@ export default function Today() {
             onPress={() => pushRoute(router, "/accent-lab")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
-            accessibilityLabel="Aksan laboratuvarını aç"
+            accessibilityLabel={t("today.open_accent_lab")}
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
             <View
@@ -949,8 +982,8 @@ export default function Today() {
               </View>
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>DİNLEME</Text>
-              <Text style={styles.tileTitle}>Aksan Lab</Text>
+              <Text style={styles.tileEyebrow}>{t("today.listening")}</Text>
+              <Text style={styles.tileTitle}>{t("today.accent_lab")}</Text>
             </View>
           </Pressable>
 
@@ -958,7 +991,7 @@ export default function Today() {
             onPress={() => pushRoute(router, "/progress-compare")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
-            accessibilityLabel="Önce sonra gelişim karşılaştırmasını aç"
+            accessibilityLabel={t("today.open_progress_compare")}
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
             <View
@@ -982,12 +1015,12 @@ export default function Today() {
                 />
               </View>
               <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
-                <Text style={styles.tileBadgeText}>SES</Text>
+                <Text style={styles.tileBadgeText}>{t("today.voice")}</Text>
               </View>
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>GELİŞİM</Text>
-              <Text style={styles.tileTitle}>Önce/Sonra</Text>
+              <Text style={styles.tileEyebrow}>{t("today.progress")}</Text>
+              <Text style={styles.tileTitle}>{t("today.before_after")}</Text>
             </View>
           </Pressable>
 
@@ -997,8 +1030,8 @@ export default function Today() {
             accessibilityRole="button"
             accessibilityLabel={
               state.diaryWrittenToday
-                ? "Bugünün günlük cümlesi yazıldı"
-                : "Bugünün cümlesini yazmak için günlüğü aç"
+                ? t("today.diary_done")
+                : t("today.open_diary")
             }
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
@@ -1017,7 +1050,7 @@ export default function Today() {
               <View
                 style={[
                   styles.tileIconWrap,
-                  { backgroundColor: "rgba(255,255,255,0.06)" },
+                  { backgroundColor: tokens.bg.surfaceContainerHighest },
                 ]}
               >
                 <Icon
@@ -1037,8 +1070,8 @@ export default function Today() {
               ) : null}
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>ARŞİV</Text>
-              <Text style={styles.tileTitle}>Günlük</Text>
+              <Text style={styles.tileEyebrow}>{t("today.archive")}</Text>
+              <Text style={styles.tileTitle}>{t("today.diary")}</Text>
             </View>
           </Pressable>
         </Animated.View>
@@ -1052,19 +1085,21 @@ export default function Today() {
                 pressed && styles.pressed,
               ]}
               accessibilityRole="button"
-              accessibilityLabel={`Kişisel hata çalışması: ${state.mistakeFocus.label}`}
+              accessibilityLabel={t("today.personal_mistake", {
+                mistake: state.mistakeFocus.label,
+              })}
             >
               <View style={styles.mistakeCoachTop}>
-                <Text style={styles.mistakeCoachEyebrow}>HATA DNA’N · 3 DAKİKA</Text>
+                <Text style={styles.mistakeCoachEyebrow}>{t("today.mistake_focus_eyebrow")}</Text>
                 <Text style={styles.mistakeCoachCount}>
                   {state.mistakeFocus.recentCount}×
                 </Text>
               </View>
               <Text style={styles.mistakeCoachTitle}>
-                Bugün sadece {state.mistakeFocus.label}
+                {t("today.focus_only", { mistake: state.mistakeFocus.label })}
               </Text>
               <Text style={styles.mistakeCoachSub}>
-                Raporu okumak yerine doğrudan kişisel çalışmaya başla →
+                {t("today.start_personal_practice")}
               </Text>
             </Pressable>
           </Animated.View>
@@ -1079,9 +1114,9 @@ export default function Today() {
           style={styles.weeklyCard}
         >
           <View style={styles.weeklyHeader}>
-            <Text style={styles.weeklyLabel}>HAFTALIK İLERLEME</Text>
+            <Text style={styles.weeklyLabel}>{t("today.weekly_progress")}</Text>
             <Text style={styles.weeklyCount}>
-              {Math.min(streak, 7)} / 7 Gün
+              {t("today.days_of_seven", { count: String(Math.min(streak, 7)) })}
             </Text>
           </View>
           <View style={styles.weeklyDotsRow}>
@@ -1109,15 +1144,15 @@ export default function Today() {
               pressed && styles.pressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Akıştan rastgele sahneler keşfet"
+            accessibilityLabel={t("today.explore_feed_label")}
           >
             <View style={styles.exploreIconCircle}>
               <Icon name="explore" size={22} color={tokens.brand.primary} />
             </View>
             <View style={styles.exploreText}>
-              <Text style={styles.exploreTitle}>Akış'tan keşfet</Text>
+              <Text style={styles.exploreTitle}>{t("today.explore_feed")}</Text>
               <Text style={styles.exploreSub}>
-                Plan dışı {SCENE_COUNT_DISPLAY} sahneyi kaydırarak gez.
+                {t("today.explore_scenes", { count: String(SCENE_COUNT_DISPLAY) })}
               </Text>
             </View>
             <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
@@ -1136,8 +1171,9 @@ export default function Today() {
                 color={tokens.brand.tertiary}
               />
               <Text style={styles.rewardedActiveText}>
-                Bugün Pro açık · {formatTimeUntil(state.rewardedExpiresAt)}{" "}
-                kaldı
+                {t("today.pro_active", {
+                  time: formatTimeUntil(state.rewardedExpiresAt, locale),
+                })}
               </Text>
             </View>
           </Animated.View>
@@ -1152,17 +1188,17 @@ export default function Today() {
                 rewardedLoading && styles.rewardedCtaLoading,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Reklam izle, bugün için Pro aç"
+              accessibilityLabel={t("today.watch_ad_label")}
             >
               <View style={styles.rewardedIconCircle}>
                 <Icon name="play" size={20} color={tokens.brand.tertiary} />
               </View>
               <View style={styles.rewardedText}>
                 <Text style={styles.rewardedTitle}>
-                  {rewardedLoading ? "Hazırlanıyor..." : "Reklamı izle, Pro aç"}
+                  {rewardedLoading ? t("common.loading") : t("today.watch_ad_title")}
                 </Text>
                 <Text style={styles.rewardedSub}>
-                  30 sn reklam · 30 dk reklamsız + sınırsız sahne
+                  {t("today.watch_ad_subtitle")}
                 </Text>
               </View>
               <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
@@ -1279,7 +1315,7 @@ const styles = StyleSheet.create({
     left: 1,
     right: 1,
     height: 1,
-    backgroundColor: "rgba(255, 255, 255, 0.18)",
+    backgroundColor: tokens.border.outline,
     borderTopLeftRadius: tokens.radius.lg,
     borderTopRightRadius: tokens.radius.lg,
   },
@@ -1307,7 +1343,7 @@ const styles = StyleSheet.create({
   coreContent: {
     padding: 18,
     gap: 12,
-    backgroundColor: "rgba(8, 10, 18, 0.62)",
+    backgroundColor: tokens.bg.surfaceContainer,
   },
   coreTopRow: {
     flexDirection: "row",
@@ -1325,9 +1361,9 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 9,
     borderRadius: tokens.radius.full,
-    backgroundColor: "rgba(255,255,255,0.08)",
+    backgroundColor: tokens.bg.surfaceContainerHigh,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.14)",
+    borderColor: tokens.border.outline,
   },
   coreTimeBadgeText: {
     fontSize: 11,
@@ -1357,9 +1393,9 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
     paddingHorizontal: 9,
     borderRadius: 14,
-    backgroundColor: "rgba(0,0,0,0.28)",
+    backgroundColor: tokens.bg.surfaceContainerLow,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.12)",
+    borderColor: tokens.border.outlineVariant,
     gap: 2,
   },
   coreTrustLabel: {
@@ -1392,9 +1428,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     borderRadius: 16,
-    backgroundColor: "rgba(255,255,255,0.06)",
+    backgroundColor: tokens.bg.surfaceContainerHigh,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.10)",
+    borderColor: tokens.border.outlineVariant,
     gap: 2,
   },
   coreContextChipSelected: {
@@ -1734,7 +1770,7 @@ const styles = StyleSheet.create({
     left: 1,
     right: 1,
     height: 1,
-    backgroundColor: "rgba(255,255,255,0.10)",
+    backgroundColor: tokens.border.outline,
     borderTopLeftRadius: 22,
     borderTopRightRadius: 22,
   },

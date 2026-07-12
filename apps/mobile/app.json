@@ -11,10 +11,9 @@
     "platforms": [
       "ios"
     ],
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
+    "locales": {
+      "en": "./native-locales/en.json",
+      "tr": "./native-locales/tr.json"
     },
     "ios": {
       "bundleIdentifier": "com.lafla.app",
@@ -70,8 +69,19 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F7F7FA",
+          "resizeMode": "contain",
+          "dark": {
+            "backgroundColor": "#000000",
+            "image": "./assets/icon.png"
+          },
+          "imageWidth": 180
+        }
+      ],
       "./plugins/with-fmt-xcode26-fix",
-      "./plugins/with-info-plist-localizations",
       "expo-secure-store",
       "expo-av",
       "expo-file-system",

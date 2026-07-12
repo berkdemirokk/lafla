@@ -35,6 +35,7 @@ import Animated, {
   type SharedValue,
 } from "react-native-reanimated";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 export interface VoiceWaveformProps {
   /**
@@ -72,9 +73,11 @@ export function VoiceWaveform({
   barWidth = 3,
   gap = 4,
   style,
-  accessibilityLabel = "Ses dalgası",
+  accessibilityLabel,
   decorative = false,
 }: VoiceWaveformProps) {
+  const { t } = useTranslation();
+  const resolvedAccessibilityLabel = accessibilityLabel ?? t("accessibility.voice_waveform");
   const barCount = Math.max(MIN_BARS, Math.min(MAX_BARS, Math.floor(bars)));
   const minH = Math.max(2, Math.round(height * 0.18));
   const maxH = height;
@@ -119,7 +122,7 @@ export function VoiceWaveform({
       accessibilityElementsHidden={decorative}
       importantForAccessibility={decorative ? "no-hide-descendants" : "auto"}
       accessibilityRole={decorative ? undefined : "image"}
-      accessibilityLabel={decorative ? undefined : accessibilityLabel}
+      accessibilityLabel={decorative ? undefined : resolvedAccessibilityLabel}
     >
       {Array.from({ length: barCount }).map((_, i) => (
         <Bar

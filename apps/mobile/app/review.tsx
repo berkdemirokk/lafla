@@ -9,7 +9,7 @@
 //
 // Session bitince: özet (kaç doğru / yanlış, kaç gün sonra tekrar)
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -39,6 +39,8 @@ import {
 } from "../lib/srs-vocab";
 import { speak } from "../lib/tts";
 import { trackEvent } from "../lib/analytics";
+import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 interface SessionStats {
   total: number;
@@ -50,7 +52,9 @@ interface SessionStats {
 
 export default function ReviewScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [items, setItems] = useState<VocabItem[]>([]);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -65,16 +69,21 @@ export default function ReviewScreen() {
   // Card flip animation — reveal sırasında card sallanır
   const flip = useSharedValue(0);
 
-  useEffect(() => {
-    (async () => {
+  const load = useCallback(async () => {
+    setStatus("loading");
+    try {
       const due = await getDueVocab({ limit: 30 });
       setItems(due);
       setStats((s) => ({ ...s, total: due.length }));
+      setStatus("ready");
       void trackEvent("vocab_review_session_start", {
         due_count: due.length,
       }).catch(() => {});
-    })();
+    } catch {
+      setStatus("error");
+    }
   }, []);
+  useEffect(() => { void load(); }, [load]);
 
   const current = items[idx] ?? null;
 
@@ -127,19 +136,25 @@ export default function ReviewScreen() {
   }));
 
   // ─── empty queue ─────────────────────────────────────────────────
+  if (status !== "ready") {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      </SafeAreaView>
+    );
+  }
+
   if (items.length === 0 && !finished) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <ThemedStatusBar />
         <View style={styles.empty}>
           <Text style={styles.emptyEmoji}>📚</Text>
-          <Text style={styles.emptyTitle}>Bugünlük tekrar yok</Text>
-          <Text style={styles.emptySub}>
-            Yeni kelime öğrenmek için bir sahne aç. Tekrarlar otomatik olarak
-            burada belirir.
-          </Text>
+          <Text style={styles.emptyTitle}>{t("review.empty_title")}</Text>
+          <Text style={styles.emptySub}>{t("review.empty_body")}</Text>
           <Button
-            label="Anasayfa"
+            label={t("review.home")}
             onPress={() => router.replace("/today" as never)}
             stacked
           />
@@ -155,20 +170,20 @@ export default function ReviewScreen() {
         <ThemedStatusBar />
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <Text style={styles.doneEmoji}>✨</Text>
-          <Text style={styles.doneTitle}>Tekrar tamamlandı</Text>
+          <Text style={styles.doneTitle}>{t("review.done")}</Text>
           <View style={styles.doneStats}>
-            <DoneRow label="Toplam" value={String(stats.total)} accent={tokens.text.primary} />
-            <DoneRow label="Kolay" value={String(stats.easy)} accent={tokens.brand.tertiary} />
-            <DoneRow label="Tamam" value={String(stats.ok)} accent={tokens.brand.primary} />
-            <DoneRow label="Zor" value={String(stats.hard)} accent={tokens.semantic.warning} />
-            <DoneRow label="Hatırlamadım" value={String(stats.forgot)} accent={tokens.semantic.error} />
+            <DoneRow label={t("review.total")} value={String(stats.total)} accent={tokens.text.primary} />
+            <DoneRow label={t("review.easy")} value={String(stats.easy)} accent={tokens.brand.tertiary} />
+            <DoneRow label={t("review.ok")} value={String(stats.ok)} accent={tokens.brand.primary} />
+            <DoneRow label={t("review.hard")} value={String(stats.hard)} accent={tokens.semantic.warning} />
+            <DoneRow label={t("review.forgot")} value={String(stats.forgot)} accent={tokens.semantic.error} />
           </View>
           <Text style={styles.doneFootnote}>
-            Hatırlamadığın kelimeler yarın yine gelir. Kolayların 3-5 gün sonra.
+            {t("review.footnote")}
           </Text>
           <View style={{ marginTop: 24, width: "100%" }}>
             <Button
-              label="Anasayfa"
+              label={t("review.home")}
               onPress={() => router.replace("/today" as never)}
               stacked
             />
@@ -192,9 +207,9 @@ export default function ReviewScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
-          <Text style={styles.backText}>← Geri</Text>
+          <Text style={styles.backText}>← {t("common.back")}</Text>
         </Pressable>
         <Text style={styles.progress}>
           {idx + 1} / {items.length}
@@ -215,7 +230,7 @@ export default function ReviewScreen() {
               <Pressable
                 onPress={() => speak(current.word).catch(() => {})}
                 accessibilityRole="button"
-                accessibilityLabel={`${current.word} — sesli dinle`}
+                accessibilityLabel={t("review.listen_label", { word: current.word })}
               >
                 <Text style={styles.backWord}>{current.word} 🔊</Text>
               </Pressable>
@@ -226,31 +241,31 @@ export default function ReviewScreen() {
         {/* CTA: reveal veya 4 recall button */}
         {!revealed ? (
           <View style={styles.revealBtnWrap}>
-            <Button label="Cevabı gör" onPress={handleReveal} stacked />
+            <Button label={t("review.reveal")} onPress={handleReveal} stacked />
           </View>
         ) : (
           <View style={styles.recallGrid}>
             <RecallBtn
-              label="Hatırlamadım"
-              hint="< 1 gün"
+              label={t("review.forgot")}
+              hint={t("review.hint.forgot")}
               accent={tokens.semantic.error}
               onPress={() => handleRecall("forgot")}
             />
             <RecallBtn
-              label="Zor"
-              hint="yarın"
+              label={t("review.hard")}
+              hint={t("review.hint.hard")}
               accent={tokens.semantic.warning}
               onPress={() => handleRecall("hard")}
             />
             <RecallBtn
-              label="Tamam"
-              hint="2-3 gün"
+              label={t("review.ok")}
+              hint={t("review.hint.ok")}
               accent={tokens.brand.primary}
               onPress={() => handleRecall("ok")}
             />
             <RecallBtn
-              label="Kolay"
-              hint="5-7 gün"
+              label={t("review.easy")}
+              hint={t("review.hint.easy")}
               accent={tokens.brand.tertiary}
               onPress={() => handleRecall("easy")}
             />
@@ -274,6 +289,7 @@ function RecallBtn({
   accent: string;
   onPress: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <Pressable
       onPress={onPress}
@@ -283,7 +299,7 @@ function RecallBtn({
         pressed && styles.recallBtnPressed,
       ]}
       accessibilityRole="button"
-      accessibilityLabel={`${label} — sonraki tekrar ${hint}`}
+      accessibilityLabel={t("review.recall_label", { label, hint })}
     >
       <Text style={[styles.recallLabel, { color: accent }]}>{label}</Text>
       <Text style={styles.recallHint}>{hint}</Text>

@@ -8,14 +8,9 @@ import { SpeakerButton } from "../components/SpeakerButton";
 import { trackEvent } from "../lib/analytics";
 import type { AccentId } from "../lib/accent";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
-const ACCENTS: Array<{ id: AccentId; label: string; region: string }> = [
-  { id: "american", label: "Amerikan", region: "ABD" },
-  { id: "british", label: "İngiliz", region: "Birleşik Krallık" },
-  { id: "indian", label: "Hint", region: "Hindistan" },
-  { id: "irish", label: "İrlanda", region: "İrlanda" },
-  { id: "international", label: "Uluslararası", region: "İş İngilizcesi" },
-];
+const ACCENTS: AccentId[] = ["american", "british", "indian", "irish", "international"];
 
 const PHRASES = [
   "Could you walk me through the next steps?",
@@ -27,8 +22,8 @@ const PHRASES = [
 
 export default function AccentLabScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [accent, setAccent] = useState<AccentId>("american");
-  const active = ACCENTS.find((item) => item.id === accent)!;
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -38,54 +33,51 @@ export default function AccentLabScreen() {
           onPress={() => router.back()}
           style={styles.back}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>Aksan Laboratuvarı</Text>
+        <Text style={styles.headerTitle}>{t("accent_lab.header")}</Text>
         <View style={styles.back} />
       </View>
       <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.eyebrow}>GERÇEK DÜNYA DİNLEMESİ</Text>
-        <Text style={styles.title}>Aynı İngilizce, farklı kulak.</Text>
-        <Text style={styles.subtitle}>
-          İş görüşmesinde yalnızca Amerikan aksanı duymayacaksın. Aynı cümleyi
-          beş farklı konuşma ortamında dinle.
-        </Text>
+        <Text style={styles.eyebrow}>{t("accent_lab.eyebrow")}</Text>
+        <Text style={styles.title}>{t("accent_lab.title")}</Text>
+        <Text style={styles.subtitle}>{t("accent_lab.subtitle")}</Text>
 
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.accentRow}
         >
-          {ACCENTS.map((item) => {
-            const selected = item.id === accent;
+          {ACCENTS.map((id) => {
+            const selected = id === accent;
             return (
               <Pressable
-                key={item.id}
+                key={id}
                 onPress={() => {
-                  setAccent(item.id);
+                  setAccent(id);
                   void trackEvent("accent_lab_selected", {
-                    accent: item.id,
+                    accent: id,
                   }).catch(() => {});
                 }}
                 style={[styles.accentCard, selected && styles.accentCardActive]}
                 accessibilityRole="button"
                 accessibilityState={{ selected }}
-                accessibilityLabel={`${item.label} aksanı`}
+                accessibilityLabel={t("accent_lab.accent_label", { accent: t(`accent.${id}.name`) })}
               >
                 <Text style={[styles.accentName, selected && styles.accentNameActive]}>
-                  {item.label}
+                  {t(`accent.${id}.name`)}
                 </Text>
-                <Text style={styles.accentRegion}>{item.region}</Text>
+                <Text style={styles.accentRegion}>{t(`accent.${id}.region`)}</Text>
               </Pressable>
             );
           })}
         </ScrollView>
 
         <View style={styles.activeRow}>
-          <Text style={styles.activeLabel}>SEÇİLİ AKSAN</Text>
-          <Text style={styles.activeName}>{active.label}</Text>
+          <Text style={styles.activeLabel}>{t("accent_lab.selected")}</Text>
+          <Text style={styles.activeName}>{t(`accent.${accent}.name`)}</Text>
         </View>
 
         <View style={styles.phraseList}>
@@ -98,10 +90,7 @@ export default function AccentLabScreen() {
           ))}
         </View>
 
-        <Text style={styles.note}>
-          Ses kalitesi cihazındaki yüklü sistem seslerine bağlıdır. Bir bölgesel
-          ses yüklü değilse iOS en yakın İngilizce sesi kullanabilir.
-        </Text>
+        <Text style={styles.note}>{t("accent_lab.note")}</Text>
       </ScrollView>
     </SafeAreaView>
   );

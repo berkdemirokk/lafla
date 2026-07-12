@@ -38,7 +38,6 @@ import {
 import {
   averageRoleplayScores,
   assessRoleplayScore,
-  roleplayAssessmentLabel,
 } from "../../lib/roleplay-assessment";
 import { trackEvent } from "../../lib/analytics";
 import { modelAnswersForTurn } from "../../lib/roleplay-model";
@@ -53,6 +52,7 @@ import {
   startListening as startStt,
   stopListening as stopStt,
 } from "../../lib/speech-recognition";
+import { useTranslation } from "../../lib/i18n";
 
 // AsyncStorage key for the per-app TTS mute preference. Survives across
 // scenarios and app restarts so the user doesn't have to re-mute every chat.
@@ -271,6 +271,7 @@ export function RoleplayChat({
   memoryPrompt,
   estimatedMinutes,
 }: Props) {
+  const { t, locale } = useTranslation();
   // Delta: positive = user above scene (review mode), negative = below (stretch).
   // Both levels required for non-neutral adaptation; either missing → 0.
   const levelDelta = useMemo(() => {
@@ -635,12 +636,12 @@ export function RoleplayChat({
   });
   const supportSummary =
     hardMode
-      ? "Serbest cevap · ipucu yok"
+      ? t("roleplay.support.free_no_hint")
       : openingSupportMode === "multi-choice"
-        ? "Önce prova · sonra kendi cevabın"
+        ? t("roleplay.support.rehearse_first")
         : openingSupportMode === "hinted"
-          ? "İpucu açık · kısa cevap yeter"
-          : "Serbest cevap · takılırsan yaz";
+          ? t("roleplay.support.hint_open")
+          : t("roleplay.support.free_answer");
   const shouldShowHint = Boolean(
     !hardMode &&
       currentTurn?.hint_tr &&
@@ -710,8 +711,8 @@ export function RoleplayChat({
     () => averageRoleplayScores(independentScores),
     [independentScores],
   );
-  const finalAssessmentLabel = roleplayAssessmentLabel(
-    assessRoleplayScore(finalScore),
+  const finalAssessmentLabel = t(
+    `scenario.assessment.${assessRoleplayScore(finalScore)}`,
   );
   const firstTargetAnswer = useMemo(
     () =>
@@ -778,7 +779,7 @@ export function RoleplayChat({
         // interim + recording=false visually conveys "didn't catch that."
         setRecording(false);
         setInterimText("");
-        setVoiceError("Seni duyamadım. Tekrar dene veya yazarak devam et.");
+        setVoiceError(t("roleplay.voice.not_heard"));
         sttAbortRef.current = null;
         void trackEvent("roleplay_voice_failed", {
           scenario_id: seed ?? "unknown",
@@ -790,7 +791,7 @@ export function RoleplayChat({
       if (sttAbortRef.current !== controller) return;
       setRecording(false);
       setInterimText("");
-      setVoiceError("Mikrofon başlatılamadı. Tekrar dene veya yazarak devam et.");
+      setVoiceError(t("roleplay.voice.start_failed"));
       sttAbortRef.current = null;
       void trackEvent("roleplay_voice_failed", {
         scenario_id: seed ?? "unknown",
@@ -822,7 +823,7 @@ export function RoleplayChat({
         setInput(trimmed);
         submitUserTurnWith(trimmed);
       } else {
-        setVoiceError("Bir şey duyamadım. Tekrar dene veya yazarak devam et.");
+        setVoiceError(t("roleplay.voice.nothing_heard"));
         void trackEvent("roleplay_voice_failed", {
           scenario_id: seed ?? "unknown",
           reason: "empty_timeout",
@@ -856,7 +857,7 @@ export function RoleplayChat({
       // 2026-05-26 (P0 audit fix) — text-as-arg pattern (closure'dan kurtul).
       submitUserTurnWith(trimmed);
     } else {
-      setVoiceError("Bir şey duyamadım. Tekrar dene veya yazarak devam et.");
+      setVoiceError(t("roleplay.voice.nothing_heard"));
     }
   };
 
@@ -1044,12 +1045,17 @@ export function RoleplayChat({
     const correctCount = turnScores.filter((s) => s >= 80).length;
     const focusMistake = sceneMistakes[0];
     const feedback = focusMistake
-      ? `Bugünün tek odağı: ${focusMistake.reason_tr}`
+      ? locale === "tr"
+        ? t("roleplay.feedback.focus", { reason: focusMistake.reason_tr })
+        : t("learning.mistake_fallback_en")
       : finalScore >= 80
-        ? "Bugünün kazanımı: bu durumu baskısız akışta tamamladın. Bir sonraki tekrar daha serbest olabilir."
+        ? t("roleplay.feedback.win")
         : firstTargetAnswer
-          ? `Bugünün cümlesi: “${firstTargetAnswer}”. Önce dinle, sonra aynı fikri kendi sesinle tekrar et.`
-          : `${correctCount}/${turnScores.length} hedefe uygun tepki.`;
+          ? t("roleplay.feedback.sentence", { sentence: firstTargetAnswer })
+          : t("roleplay.feedback.score", {
+              correct: String(correctCount),
+              total: String(turnScores.length),
+            });
     onComplete({
       exercise_id: "roleplay_chat",
       exercise_type: "roleplay_chat",
@@ -1089,7 +1095,9 @@ export function RoleplayChat({
           onPress={toggleMute}
           style={[styles.muteBtn, muted && styles.muteBtnOff]}
           accessibilityRole="button"
-          accessibilityLabel={muted ? "Sesi aç" : "Sesi kapat"}
+          accessibilityLabel={
+            muted ? t("roleplay.audio_on") : t("roleplay.audio_off")
+          }
           accessibilityState={{ selected: !muted }}
           hitSlop={8}
         >
@@ -1112,16 +1120,19 @@ export function RoleplayChat({
 
         <View style={styles.sessionContractCard}>
           <View style={styles.contractHeader}>
-            <Text style={styles.contractEyebrow}>KONUŞMA GÖREVİ</Text>
+            <Text style={styles.contractEyebrow}>{t("roleplay.task")}</Text>
             <Text style={styles.contractMeta}>
-              {sessionMinutes} dk · {totalUserTurns} cevap
+              {t("roleplay.task_meta", {
+                minutes: String(sessionMinutes),
+                answers: String(totalUserTurns),
+              })}
             </Text>
           </View>
           <Text style={styles.contractGoal}>
             {scenarioDescription}
           </Text>
           <Text style={styles.contractSupport}>
-            {supportSummary} · Düzeltme sonda tek odak
+            {supportSummary} · {t("roleplay.correction_summary")}
           </Text>
         </View>
 
@@ -1151,45 +1162,55 @@ export function RoleplayChat({
               already calibrated to user level. */}
           {awaitingUserInput && currentTurnGoal && (
             <View style={styles.turnGoalStrip}>
-              <Text style={styles.turnGoalStep}>Tur {turnProgressLabel}</Text>
+              <Text style={styles.turnGoalStep}>
+                {t("roleplay.turn", { progress: turnProgressLabel })}
+              </Text>
               <Text style={styles.turnGoalText}>{currentTurnGoal}</Text>
             </View>
           )}
           {hardMode && (
             <View style={styles.hardModeBadge}>
               <Text style={styles.hardModeBadgeText}>
-                🔥 HARD MODE · İPUÇSUZ · TAM CÜMLE
+                {t("roleplay.hard_badge")}
               </Text>
             </View>
           )}
           {pressureFree && (
             <View style={styles.lowPressureBadge}>
               <Text style={styles.lowPressureBadgeText}>
-                RAHAT MOD · DÜZELTMELER SAHNE SONUNDA
+                {t("roleplay.relaxed_badge")}
               </Text>
             </View>
           )}
           {!hardMode && adaptMode === "stretch" && (
             <View style={styles.stretchBadge}>
               <Text style={styles.stretchBadgeText}>
-                BU SAHNE {sceneLevel}{userLevel ? ` · SEN ${userLevel}` : ""} · İPUÇLARI AÇIK
+                {t("roleplay.stretch_badge", {
+                  scene: sceneLevel ?? "",
+                  user: userLevel ?? "",
+                })}
               </Text>
             </View>
           )}
           {!hardMode && adaptMode === "review" && (
             <View style={styles.reviewBadge}>
               <Text style={styles.reviewBadgeText}>
-                {sceneLevel} TEKRARI · SEN {userLevel} · İPUÇSUZ
+                {t("roleplay.review_badge", {
+                  scene: sceneLevel ?? "",
+                  user: userLevel ?? "",
+                })}
               </Text>
             </View>
           )}
 
           {retryTurnIdx === turnIdx && (
             <View style={styles.retryBox}>
-              <Text style={styles.retryTitle}>Aynı turu bir kez daha dene</Text>
+              <Text style={styles.retryTitle}>{t("roleplay.retry_title")}</Text>
               {extractExampleFromTurn(currentTurn) ? (
                 <Text style={styles.retryExample}>
-                  Örnek: “{extractExampleFromTurn(currentTurn)}”
+                  {t("roleplay.example", {
+                    example: extractExampleFromTurn(currentTurn) ?? "",
+                  })}
                 </Text>
               ) : null}
             </View>
@@ -1223,7 +1244,7 @@ export function RoleplayChat({
             >
               {forceShowHint && (
                 <Text style={styles.hintForcedLabel}>
-                  Sıkıştın mı? İpucu açıldı:
+                  {t("roleplay.hint_rescue")}
                 </Text>
               )}
               <Text
@@ -1233,7 +1254,9 @@ export function RoleplayChat({
                     styles.hintTextStretch,
                 ]}
               >
-                {currentTurn?.hint_tr}
+                {locale === "tr"
+                  ? currentTurn?.hint_tr
+                  : t("learning.hint_fallback_en")}
               </Text>
             </Animated.View>
           )}
@@ -1247,16 +1270,15 @@ export function RoleplayChat({
             <View style={styles.choiceCol}>
               <View style={styles.choiceCoachBox}>
                 <Text style={styles.choiceCoachTitle}>
-                  Tur {turnProgressLabel}: önce prova et
+                  {t("roleplay.rehearse_turn", { progress: turnProgressLabel })}
                 </Text>
                 <Text style={styles.choiceCoachText}>
-                  Cümleyi hemen göndermiyoruz. Önce dinle, anlamını gör, sonra
-                  hazır cevabı gönder veya kendi cevabını söyle.
+                  {t("roleplay.rehearse_body")}
                 </Text>
               </View>
               {selectedReadyAnswer ? (
                 <View style={styles.readyAnswerCard}>
-                  <Text style={styles.readyAnswerEyebrow}>Hazır cümle</Text>
+                  <Text style={styles.readyAnswerEyebrow}>{t("roleplay.ready_sentence")}</Text>
                   <Text style={styles.readyAnswerText}>
                     {selectedReadyAnswer}
                   </Text>
@@ -1265,10 +1287,10 @@ export function RoleplayChat({
                       onPress={() => speak(selectedReadyAnswer)}
                       style={styles.readyAnswerSecondaryBtn}
                       accessibilityRole="button"
-                      accessibilityLabel="Hazır cevabı dinle"
+                      accessibilityLabel={t("roleplay.listen_ready")}
                     >
                       <Text style={styles.readyAnswerSecondaryText}>
-                        Dinle
+                        {t("roleplay.listen")}
                       </Text>
                     </Pressable>
                     <Pressable
@@ -1277,10 +1299,10 @@ export function RoleplayChat({
                       }
                       style={styles.readyAnswerPrimaryBtn}
                       accessibilityRole="button"
-                      accessibilityLabel="Hazır cevabı gönder"
+                      accessibilityLabel={t("roleplay.send_ready")}
                     >
                       <Text style={styles.readyAnswerPrimaryText}>
-                        Gönder
+                        {t("roleplay.send")}
                       </Text>
                     </Pressable>
                   </View>
@@ -1298,7 +1320,10 @@ export function RoleplayChat({
                       }).catch(() => {});
                     }}
                     accessibilityRole="button"
-                    accessibilityLabel={`${i + 1}. hazır cevabı prova et: ${opt}`}
+                    accessibilityLabel={t("roleplay.rehearse_option", {
+                      number: String(i + 1),
+                      answer: opt,
+                    })}
                   >
                     <Text style={styles.choiceText}>{opt}</Text>
                   </Pressable>
@@ -1316,10 +1341,12 @@ export function RoleplayChat({
                 style={styles.inputModeToggle}
                 hitSlop={10}
                 accessibilityRole="button"
-                accessibilityLabel="Kendi cevabımı vereceğim"
+                accessibilityLabel={t("roleplay.own_answer_label")}
               >
                 <Text style={styles.inputModeToggleText}>
-                  {sttAvailable ? "🎙️ Kendim söyleyeceğim" : "⌨️ Kendim yazacağım"}
+                  {sttAvailable
+                    ? t("roleplay.own_answer_speak")
+                    : t("roleplay.own_answer_write")}
                 </Text>
               </Pressable>
             </View>
@@ -1339,19 +1366,23 @@ export function RoleplayChat({
                   busy: recording,
                 }}
                 accessibilityLabel={
-                  recording ? "Konuşmayı bitir" : "Konuşmaya başla"
+                  recording
+                    ? t("roleplay.voice.stop_label")
+                    : t("roleplay.voice.start_label")
                 }
                 accessibilityHint={
                   recording
-                    ? "Kaydı bitirip duyulan cevabı gönderir"
-                    : "İngilizce cevabını dinlemeye başlar"
+                    ? t("roleplay.voice.stop_hint")
+                    : t("roleplay.voice.start_hint")
                 }
               >
                 <Text style={styles.micEmoji}>
                   {recording ? "🔴" : "🎙️"}
                 </Text>
                 <Text style={styles.micLabel}>
-                  {recording ? "Dinliyor..." : "Konuşmak için bas"}
+                  {recording
+                    ? t("roleplay.voice.listening")
+                    : t("roleplay.voice.tap_to_speak")}
                 </Text>
               </Pressable>
               {recording && interimText ? (
@@ -1378,10 +1409,10 @@ export function RoleplayChat({
                 style={styles.inputModeToggle}
                 hitSlop={10}
                 accessibilityRole="button"
-                accessibilityLabel="Yazarak gönder"
+                accessibilityLabel={t("roleplay.write_answer")}
               >
                 <Text style={styles.inputModeToggleText}>
-                  ⌨️ Yazarak gönder
+                  {t("roleplay.write_answer_cta")}
                 </Text>
               </Pressable>
             </View>
@@ -1395,8 +1426,7 @@ export function RoleplayChat({
                   style={styles.voiceErrorText}
                   accessibilityLiveRegion="polite"
                 >
-                  Sesli giriş bu cihazda kullanılamıyor. Yazarak devam
-                  edebilirsin.
+                  {t("roleplay.voice.unavailable")}
                 </Text>
               ) : null}
               <View style={styles.inputRow}>
@@ -1404,7 +1434,7 @@ export function RoleplayChat({
                   style={styles.input}
                   value={input}
                   onChangeText={setInput}
-                  placeholder="İngilizce cevap yaz..."
+                  placeholder={t("roleplay.write_placeholder")}
                   placeholderTextColor={tokens.text.tertiary}
                   editable={awaitingUserInput}
                   multiline
@@ -1412,7 +1442,7 @@ export function RoleplayChat({
                   returnKeyType="send"
                   blurOnSubmit={false}
                   onSubmitEditing={submitUserTurn}
-                  accessibilityLabel="İngilizce cevabın"
+                  accessibilityLabel={t("roleplay.answer_label")}
                 />
                 <Pressable
                   style={[
@@ -1423,7 +1453,7 @@ export function RoleplayChat({
                   onPress={submitUserTurn}
                   disabled={!input.trim() || !awaitingUserInput}
                   accessibilityRole="button"
-                  accessibilityLabel="Gönder"
+                  accessibilityLabel={t("roleplay.send")}
                 >
                   {/* Right-pointing triangle drawn from borders — crisper than
                       a unicode glyph and adapts to any font. */}
@@ -1436,10 +1466,10 @@ export function RoleplayChat({
                   style={styles.inputModeToggle}
                   hitSlop={10}
                   accessibilityRole="button"
-                  accessibilityLabel="Sesli konuşmaya geç"
+                  accessibilityLabel={t("roleplay.switch_to_voice")}
                 >
                   <Text style={styles.inputModeToggleText}>
-                    🎙️ Sesli konuşmaya geç
+                    {t("roleplay.switch_to_voice_cta")}
                   </Text>
                 </Pressable>
               )}
@@ -1458,15 +1488,15 @@ export function RoleplayChat({
               style={styles.endSceneLink}
               hitSlop={10}
               accessibilityRole="button"
-              accessibilityLabel="Sahneyi şimdi bitir ve sonucu gör"
+              accessibilityLabel={t("roleplay.finish_scene_label")}
             >
-              <Text style={styles.endSceneText}>Sahneyi bitir →</Text>
+              <Text style={styles.endSceneText}>{t("roleplay.finish_scene")}</Text>
             </Pressable>
           )}
         </View>
       ) : (
         <View style={styles.finishBar}>
-          <Button label={`Devam et →`} onPress={finalize} />
+          <Button label={`${t("common.continue")} →`} onPress={finalize} />
         </View>
       )}
     </View>
@@ -1483,6 +1513,7 @@ function ChatBubble({
   setting?: string;
 }) {
   const isUser = message.speaker === "user";
+  const { t, locale } = useTranslation();
 
   return (
     <View
@@ -1506,8 +1537,10 @@ function ChatBubble({
           isUser ? bubbleStyles.bubbleUser : bubbleStyles.bubbleNpc,
         ]}
         accessibilityRole="button"
-        accessibilityLabel={`${isUser ? "Sen" : "Konuşma partneri"}: ${message.message}`}
-        accessibilityHint="Mesajı sesli dinler"
+        accessibilityLabel={`${
+          isUser ? t("roleplay.you") : t("roleplay.partner")
+        }: ${message.message}`}
+        accessibilityHint={t("roleplay.listen_message_hint")}
       >
         <Text
           style={[
@@ -1532,7 +1565,9 @@ function ChatBubble({
             ✓ {message.mistake.correct_example}
           </Text>
           <Text style={bubbleStyles.mistakeReason}>
-            {message.mistake.reason_tr}
+            {locale === "tr"
+              ? message.mistake.reason_tr
+              : t("learning.mistake_fallback_en")}
           </Text>
         </View>
       )}
@@ -1559,10 +1594,10 @@ function ChatBubble({
               ? bubbleStyles.scoreTextMid
               : bubbleStyles.scoreTextMiss;
           const label = isGood
-            ? "✓ Hedefe uygun"
+            ? t("roleplay.score.good")
             : isMid
-              ? "Yakın — tekrar et"
-              : "↻ Tekrar dene";
+              ? t("roleplay.score.close")
+              : t("roleplay.score.retry");
           return (
             <View style={[bubbleStyles.scoreChip, chipStyle]}>
               <Text style={[bubbleStyles.scoreText, textStyle]}>{label}</Text>

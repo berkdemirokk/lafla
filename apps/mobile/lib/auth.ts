@@ -10,6 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SecureStore from "expo-secure-store";
 import { supabase } from "./supabase";
 import { setUserId as setRevenueCatUserId } from "./iap";
+import { clearAll as clearVoiceJournal } from "./voice-journal";
 
 // 2026-05-25 — signOut sırasında temizlenecek user-data anahtarları.
 // signOut bu key'leri silmediği için: User1 onboarding bitirir →
@@ -30,6 +31,29 @@ const USER_BOUND_KEYS = [
   K_INTERESTS,
 ];
 const SECURE_STORE_USER_KEYS = ["lafla.apple.credentials.v1"];
+const DEVICE_SCOPED_KEYS = new Set([
+  "lafla.analytics.optout",
+  "lafla.att.requested.v1",
+  "lafla.locale",
+  "lafla.roleplay.inputMode",
+  "lafla.settings.autoSpeak",
+  "lafla.settings.themePreference",
+  "lafla.sfx.enabled",
+  "lafla.tts.muted",
+]);
+
+async function clearUserBoundLocalData(): Promise<void> {
+  // Voice files live outside AsyncStorage; delete them while their index is
+  // still available, then clear the remaining account-scoped keys.
+  await clearVoiceJournal().catch(() => {});
+  const keys = await AsyncStorage.getAllKeys().catch(() => []);
+  const userKeys = keys.filter(
+    (key) => key.startsWith("lafla.") && !DEVICE_SCOPED_KEYS.has(key),
+  );
+  if (userKeys.length > 0) {
+    await AsyncStorage.multiRemove(userKeys).catch(() => {});
+  }
+}
 
 export type Profile = {
   id: string;
@@ -113,7 +137,7 @@ export async function signOut() {
   // Local user-bound storage'ı önce temizle ki Supabase callback'i bir sonraki
   // mount'ı yanlış yere yönlendirmesin (B-AUTH-1).
   await Promise.all([
-    AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {}),
+    clearUserBoundLocalData(),
     setRevenueCatUserId(null).catch(() => {}),
     ...SECURE_STORE_USER_KEYS.map((k) =>
       SecureStore.deleteItemAsync(k).catch(() => {}),

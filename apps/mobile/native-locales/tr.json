@@ -1,0 +1,6 @@
+{
+  "NSMicrophoneUsageDescription": "Telaffuzunu değerlendirmek ve sahnede sesle cevap verebilmek için mikrofon erişimi gerekli.",
+  "NSPhotoLibraryUsageDescription": "İlerleme kartını galerine kaydedebilmen için izin gerekli.",
+  "NSSpeechRecognitionUsageDescription": "Söylediğin İngilizce cümleleri anlamak için konuşma tanıma kullanılır.",
+  "NSUserTrackingUsageDescription": "Anonim reklam kimliğin (IDFA) yalnızca ücretsiz sürümde daha alakalı reklamlar göstermek için kullanılır. Reddedersen kişiselleştirilmemiş reklam görürsün."
+}

@@ -47,6 +47,7 @@ import { getSceneDisplayMinutes } from "../lib/scene-duration";
 import { tokens } from "../theme";
 import AnimatedGradientOverlay from "./AnimatedGradientOverlay";
 import FloatingParticles from "./FloatingParticles";
+import { useTranslation } from "../lib/i18n";
 
 // ---------------------------------------------------------------------------
 // Layout constants
@@ -85,33 +86,33 @@ const MODE_ACCENT: Record<SceneMode, { fill: string; text: string }> = {
   ielts:   { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
 };
 
-const MODE_LABEL: Record<SceneMode, string> = {
-  flirt:   "Flört",
-  work:    "İş",
-  bar:     "Bar",
-  airport: "Havaalanı",
-  daily:   "Günlük",
-  order:   "Sipariş",
-  ielts:   "IELTS",
+const MODE_LABEL_KEYS: Record<SceneMode, string> = {
+  flirt: "mode.flirt",
+  work: "mode.work",
+  bar: "mode.bar",
+  airport: "mode.airport",
+  daily: "mode.daily",
+  order: "mode.order",
+  ielts: "mode.ielts",
 };
 
-function getCardPromise(scene: Scene, completed: boolean): string {
+function getCardPromiseKey(scene: Scene, completed: boolean): string {
   if (completed) {
-    return "Tekrar turu: önce dinle, sonra daha doğal tek cevap kur.";
+    return "scene_card.promise.completed";
   }
 
   switch (scene.cefrLevel) {
     case "A1":
     case "A2":
-      return "İlk turlar seçenekli; takılırsan ipucu otomatik açılır.";
+      return "scene_card.promise.beginner";
     case "B1":
-      return "Kısa cevapla başla; koç sadece en kritik hatayı seçer.";
+      return "scene_card.promise.intermediate";
     case "B2":
     case "C1":
     case "C2":
-      return "Serbest konuş; düzeltmeler konuşma sonunda gelir.";
+      return "scene_card.promise.advanced";
     default:
-      return "Seviyene göre başlar; hata baskısı konuşma sonunda gelir.";
+      return "scene_card.promise.default";
   }
 }
 
@@ -145,11 +146,9 @@ function SwipeSceneCardImpl({
   onSkip,
   isActive = true,
 }: SwipeSceneCardProps) {
+  const { t } = useTranslation();
   const coverSpec = useMemo(() => getSceneCoverSpec(scene), [scene]);
-  const cardPromise = useMemo(
-    () => getCardPromise(scene, completed),
-    [scene, completed],
-  );
+  const cardPromise = t(getCardPromiseKey(scene, completed));
   // Remote theme image → local fallback → branded gradient. Recycled cards
   // must retry from the primary image when the scene changes.
   const [coverStage, setCoverStage] = useState<CoverStage>("primary");
@@ -400,7 +399,7 @@ function SwipeSceneCardImpl({
   // so we flatten newlines but preserve the source string elsewhere.
   const displayTitle = scene.title.replace(/\n/g, " ");
   const accent = MODE_ACCENT[scene.mode];
-  const modeLabel = MODE_LABEL[scene.mode];
+  const modeLabel = t(MODE_LABEL_KEYS[scene.mode]);
   const displayMinutes = getSceneDisplayMinutes(scene);
   const activeCoverSource =
     coverStage === "primary"
@@ -488,7 +487,7 @@ function SwipeSceneCardImpl({
         <View
           style={styles.body}
           accessibilityRole="text"
-          accessibilityLabel={`Sahne: ${displayTitle}. Konuş butonuna basarak başla, sağa kaydırarak da girilebilir.`}
+          accessibilityLabel={t("scene_card.accessibility", { title: displayTitle })}
         >
           {/* Floating overlays — mode + CEFR + completion */}
           <View style={styles.overlayTop}>
@@ -505,7 +504,7 @@ function SwipeSceneCardImpl({
               ) : null}
               {scene.isNew && !completed ? (
                 <View style={styles.newBadge}>
-                  <Text style={styles.newBadgeText}>YENİ</Text>
+                  <Text style={styles.newBadgeText}>{t("scene_card.new")}</Text>
                 </View>
               ) : null}
               {/* Native audio rozeti — Adım 9 (2026-05-20).
@@ -514,7 +513,7 @@ function SwipeSceneCardImpl({
                   rozet otomatik gözükmeye başlar. */}
               {hasNativeAudio(scene.lessonId) ? (
                 <View style={styles.nativeBadge}>
-                  <Text style={styles.nativeBadgeText}>🎙️ NATIVE</Text>
+                  <Text style={styles.nativeBadgeText}>{t("scene_card.native")}</Text>
                 </View>
               ) : null}
               {completed ? (
@@ -538,7 +537,9 @@ function SwipeSceneCardImpl({
             </Text>
             <View style={styles.promiseBox}>
               <Text style={styles.promiseKicker}>
-                {completed ? "TEKRAR AKIŞI" : "BASKISIZ AKIŞ"}
+                {completed
+                  ? t("scene_card.repeat_flow")
+                  : t("scene_card.low_pressure_flow")}
               </Text>
               <Text style={styles.promiseText} numberOfLines={2}>
                 {cardPromise}
@@ -549,11 +550,11 @@ function SwipeSceneCardImpl({
           {/* Lower — meta line (duration / progress) */}
           <View style={styles.metaArea}>
             <Text style={styles.metaText} numberOfLines={1}>
-              {displayMinutes} dk · {coverSpec.label}
+              {t("scene_card.minutes", { count: String(displayMinutes) })} · {coverSpec.label}
               {scene.progressLabel ? ` · ${scene.progressLabel}` : ""}
             </Text>
             <Text style={styles.hintText}>
-              ⇡ Sonraki  ·  → Konuş  ·  ← Atla
+              {t("scene_card.gesture_hint")}
             </Text>
           </View>
         </View>
@@ -566,7 +567,7 @@ function SwipeSceneCardImpl({
             onPress={handleSkipPress}
             style={styles.skipBtn}
             accessibilityRole="button"
-            accessibilityLabel="Bu sahneyi atla"
+            accessibilityLabel={t("scene_card.skip_label")}
             hitSlop={12}
           >
             <Text style={styles.skipBtnText}>✕</Text>
@@ -579,9 +580,9 @@ function SwipeSceneCardImpl({
             onPress={handleEnterPress}
             style={styles.enterBtn}
             accessibilityRole="button"
-            accessibilityLabel="Konuşmaya başla"
+            accessibilityLabel={t("scene_card.start_label")}
           >
-            <Text style={styles.enterBtnText}>Konuş ▶</Text>
+            <Text style={styles.enterBtnText}>{t("scene_card.start_cta")}</Text>
           </Pressable>
         </Animated.View>
       </View>

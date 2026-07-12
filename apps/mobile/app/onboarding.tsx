@@ -741,6 +741,7 @@ const dotStyles = StyleSheet.create({
 // ============================================================
 
 function WelcomeStep({ onStart }: { onStart: () => void }) {
+  const { t } = useTranslation();
   // Wordmark için: gecikmeli scale-in + sürekli yumuşak nabız glow.
   // 2026-05-24 — glow target opacity 0.85 → 0.45 (gaming-poster→premium-neon).
   const wordmarkScale = useSharedValue(0.9);
@@ -789,25 +790,21 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
           </Animated.Text>
         </View>
         <Animated.View style={taglineStyle}>
-          <Text style={styles.welcomeTagline}>
-            Donma. Konuş.
-          </Text>
-          <Text style={styles.welcomeSubtagline}>
-            5 dakikada gerçek pratik — sahne sahne, ezber yok.
-          </Text>
+          <Text style={styles.welcomeTagline}>{t("onboarding.welcome.tagline")}</Text>
+          <Text style={styles.welcomeSubtagline}>{t("onboarding.welcome.subtitle")}</Text>
         </Animated.View>
       </View>
       <View style={styles.footer}>
         <AnimatedCta
-          label="Başla"
+          label={t("onboarding.welcome.start")}
           onPress={onStart}
-          accessibilityLabel="Onboarding'i başlat"
+          accessibilityLabel={t("onboarding.welcome.start_label")}
         />
         {/* 2026-05-23 — Apple Review 5.1.1: hesap oluşturma akışında
             privacy + terms linkleri zorunlu. Welcome ekranında "Başla"
             altında küçük link satırı. */}
         <View style={styles.privacyLinks}>
-          <Text style={styles.privacyPrefix}>Başlayarak şunları kabul edersin:</Text>
+          <Text style={styles.privacyPrefix}>{t("onboarding.welcome.terms_prefix")}</Text>
           <View style={styles.privacyRow}>
             <Pressable
               onPress={() =>
@@ -815,9 +812,9 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
               }
               hitSlop={6}
               accessibilityRole="link"
-              accessibilityLabel="Kullanım Koşulları"
+              accessibilityLabel={t("auth.terms")}
             >
-              <Text style={styles.privacyLink}>Kullanım Koşulları</Text>
+              <Text style={styles.privacyLink}>{t("auth.terms")}</Text>
             </Pressable>
             <Text style={styles.privacyDot}> · </Text>
             <Pressable
@@ -826,9 +823,9 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
               }
               hitSlop={6}
               accessibilityRole="link"
-              accessibilityLabel="Gizlilik Politikası"
+              accessibilityLabel={t("auth.privacy")}
             >
-              <Text style={styles.privacyLink}>Gizlilik Politikası</Text>
+              <Text style={styles.privacyLink}>{t("auth.privacy")}</Text>
             </Pressable>
           </View>
         </View>
@@ -850,6 +847,7 @@ function PreviewStep({
   onContinue: () => void;
   onSkip: () => void;
 }) {
+  const { t } = useTranslation();
   const headerOpacity = useSharedValue(0);
   const headerTranslate = useSharedValue(10);
   const npcOpacity = useSharedValue(0);
@@ -935,16 +933,16 @@ function PreviewStep({
     <StepContainer>
       <ScrollView contentContainerStyle={previewStyles.scroll}>
         <Animated.View style={headerStyle}>
-          <Text style={previewStyles.header}>Lafla nasıl çalışır?</Text>
+          <Text style={previewStyles.header}>{t("onboarding.preview.title")}</Text>
           <Text style={previewStyles.subtitle}>
-            Donduğun an, Türkçeye özel hata düzeltme — anında, sade.
+            {t("onboarding.preview.subtitle")}
           </Text>
         </Animated.View>
 
         <View style={previewStyles.chatWrap}>
           {/* NPC bubble */}
           <Animated.View style={[previewStyles.npcRow, npcStyle]}>
-            <Text style={previewStyles.npcLabel}>Match'ten mesaj</Text>
+            <Text style={previewStyles.npcLabel}>{t("onboarding.preview.match_label")}</Text>
             <View style={previewStyles.npcBubble}>
               <Text style={previewStyles.npcText}>
                 Hey, you&apos;ve been a stranger lately. Wanna grab a drink this
@@ -960,7 +958,7 @@ function PreviewStep({
                 Yes, I am go with you on Saturday
               </Text>
             </View>
-            <Text style={previewStyles.userLabel}>Donduğun an böyle yazıyorsun</Text>
+            <Text style={previewStyles.userLabel}>{t("onboarding.preview.mistake_label")}</Text>
           </Animated.View>
 
           {/* Correction card — Lafla'nın yaptığı iş */}
@@ -976,8 +974,7 @@ function PreviewStep({
               </Text>
             </View>
             <Text style={previewStyles.correctionReason}>
-              Türkçe &quot;gideceğim&quot; → &quot;I am going&quot; değil.
-              Davet kabul için &quot;I&apos;d love to&quot; veya &quot;I&apos;ll&quot;.
+              {t("onboarding.preview.correction_reason")}
             </Text>
           </Animated.View>
         </View>
@@ -987,16 +984,16 @@ function PreviewStep({
           style={styles.linkRow}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Bu adımı atla"
+          accessibilityLabel={t("onboarding.preview.skip_label")}
         >
-          <Text style={styles.linkText}>Şimdilik atla →</Text>
+          <Text style={styles.linkText}>{t("onboarding.preview.skip")}</Text>
         </Pressable>
       </ScrollView>
       <View style={styles.footer}>
         <AnimatedCta
-          label="Devam et"
+          label={t("common.continue")}
           onPress={onContinue}
-          accessibilityLabel="Devam et"
+          accessibilityLabel={t("common.continue")}
         />
       </View>
     </StepContainer>

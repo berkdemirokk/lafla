@@ -296,15 +296,15 @@ export default function SettingsScreen() {
   const confirmDelete = async () => {
     // Accept both "SİL" (Turkish dotted) and "SIL" (ASCII fallback) so
     // keyboards without a Turkish locale can still confirm.
-    const t = deleteConfirmText.trim();
+    const confirmation = deleteConfirmText.trim();
+    const expectedKeyword = t("settings.delete.keyword");
     if (
-      t !== "SİL" &&
-      t !== "SIL" &&
-      t !== "sil" &&
-      t !== "sİl" &&
-      t !== "sil".toLocaleUpperCase("tr")
+      confirmation.toLocaleUpperCase(locale) !==
+        expectedKeyword.toLocaleUpperCase(locale) &&
+      confirmation.toLocaleUpperCase("tr") !== "SİL" &&
+      confirmation.toUpperCase() !== "SIL"
     ) {
-      setDeleteError('Onaylamak için "SİL" yazmalısın.');
+      setDeleteError(t("settings.delete.keyword_error", { keyword: expectedKeyword }));
       return;
     }
     hapticImpact("heavy");
@@ -316,14 +316,16 @@ export default function SettingsScreen() {
       router.replace("/" as never);
     } else {
       setDeleteStep("typing");
-      setDeleteError(res.error ?? "Bilinmeyen hata.");
+      setDeleteError(res.error ?? t("settings.delete.unknown_error"));
     }
   };
 
   const openMailtoFallback = () => {
+    const subject = encodeURIComponent(t("settings.delete.mail_subject"));
+    const body = encodeURIComponent(t("settings.delete.mail_body"));
     Linking.openURL(
-      "mailto:berkkdemirok@gmail.com?subject=Hesap silme talebi&body=Otomatik silme başarısız oldu, hesabımın manuel olarak silinmesini talep ediyorum.",
-    ).catch(() => Alert.alert("Hata", "Mail uygulaması açılamadı."));
+      `mailto:berkkdemirok@gmail.com?subject=${subject}&body=${body}`,
+    ).catch(() => Alert.alert(t("common.error"), t("settings.alert.mail_failed")));
   };
 
   const setAutoSpeakValue = async (v: boolean) => {
@@ -380,25 +382,25 @@ export default function SettingsScreen() {
       return;
     }
     Alert.prompt?.(
-      "Davet kodu",
-      "Arkadaşının verdiği 6 karakterlik kodu gir.",
+      t("settings.referral_prompt_title"),
+      t("settings.referral_prompt_body"),
       [
-        { text: "Vazgeç", style: "cancel" },
+        { text: t("common.cancel"), style: "cancel" },
         {
-          text: "Redeem et",
+          text: t("settings.referral_redeem"),
           onPress: async (input) => {
             const code = (input ?? "").trim().toUpperCase();
             const ok = await redeemReferralCode(code).catch(() => false);
             if (ok) {
               hapticSuccess();
               Alert.alert(
-                "Kod kabul edildi",
-                "Senin ve arkadaşının +1 ay Lafla Pro bonusu 24 saat içinde işlenir.",
+                t("settings.referral_success_title"),
+                t("settings.referral_success_body"),
               );
             } else {
               Alert.alert(
-                "Geçersiz kod",
-                "Kod geçersiz veya zaten kullanılmış. Tekrar dene.",
+                t("settings.referral_invalid_title"),
+                t("settings.referral_invalid_body"),
               );
             }
           },
@@ -646,35 +648,38 @@ export default function SettingsScreen() {
           <View style={styles.modalCard}>
             {deleteStep === "preview" && (
               <>
-                <Text style={styles.modalTitle}>Hesabını silmek üzeresin</Text>
+                <Text style={styles.modalTitle}>{t("settings.delete.preview_title")}</Text>
                 {deleteAccountEmail ? (
                   <Text style={styles.modalAccount}>
-                    Silinecek hesap:{" "}
+                    {t("settings.delete.account_label")}{" "}
                     <Text style={styles.modalAccountEmail}>
                       {deleteAccountEmail}
                     </Text>
                   </Text>
                 ) : null}
                 <Text style={styles.modalBody}>
-                  Bu işlem GERİ ALINAMAZ. Aşağıdakiler kalıcı olarak silinecek:
+                  {t("settings.delete.irreversible")}
                 </Text>
                 <View style={styles.modalList}>
                   <Text style={styles.modalListItem}>
-                    • {deletePreview?.scenes_completed ?? 0} tamamlanmış sahne
+                    {t("settings.delete.scenes", {
+                      count: String(deletePreview?.scenes_completed ?? 0),
+                    })}
                   </Text>
                   <Text style={styles.modalListItem}>
-                    • {(deletePreview?.hours_practiced ?? 0).toFixed(1)} saat pratik
+                    {t("settings.delete.hours", {
+                      count: (deletePreview?.hours_practiced ?? 0).toFixed(1),
+                    })}
                   </Text>
                   <Text style={styles.modalListItem}>
-                    • Tüm ilerleme, XP ve seri kayıtların
+                    {t("settings.delete.progress")}
                   </Text>
                   <Text style={styles.modalListItem}>
-                    • Yedeklerin ve sesli oturum geçmişin
+                    {t("settings.delete.backups")}
                   </Text>
                   {deletePreview?.premium_active && (
                     <Text style={[styles.modalListItem, styles.modalWarn]}>
-                      • UYARI: Premium aboneliğin aktif. App Store/Google Play
-                      iptali ayrıca gereklidir.
+                      {t("settings.delete.premium_warning")}
                     </Text>
                   )}
                 </View>
@@ -683,17 +688,17 @@ export default function SettingsScreen() {
                     style={[styles.modalBtn, styles.modalBtnGhost]}
                     onPress={cancelDeleteFlow}
                     accessibilityRole="button"
-                    accessibilityLabel="Hesap silme işleminden vazgeç"
+                    accessibilityLabel={t("settings.delete.cancel_label")}
                   >
-                    <Text style={styles.modalBtnGhostText}>Vazgeç</Text>
+                    <Text style={styles.modalBtnGhostText}>{t("common.cancel")}</Text>
                   </Pressable>
                   <Pressable
                     style={[styles.modalBtn, styles.modalBtnDanger]}
                     onPress={proceedToTyping}
                     accessibilityRole="button"
-                    accessibilityLabel="Hesap silme onayına devam et"
+                    accessibilityLabel={t("settings.delete.continue_label")}
                   >
-                    <Text style={styles.modalBtnDangerText}>Devam et</Text>
+                    <Text style={styles.modalBtnDangerText}>{t("common.continue")}</Text>
                   </Pressable>
                 </View>
               </>
@@ -701,21 +706,24 @@ export default function SettingsScreen() {
 
             {deleteStep === "typing" && (
               <>
-                <Text style={styles.modalTitle}>Son onay</Text>
+                <Text style={styles.modalTitle}>{t("settings.delete.final_title")}</Text>
                 <Text style={styles.modalBody}>
-                  Onaylamak için aşağıya{" "}
-                  <Text style={styles.modalCode}>SİL</Text> yaz.
+                  {t("settings.delete.type_prefix")}{" "}
+                  <Text style={styles.modalCode}>{t("settings.delete.keyword")}</Text>{" "}
+                  {t("settings.delete.type_suffix")}
                 </Text>
                 <TextInput
                   value={deleteConfirmText}
                   onChangeText={setDeleteConfirmText}
                   autoCapitalize="characters"
                   autoCorrect={false}
-                  placeholder="SİL"
+                  placeholder={t("settings.delete.keyword")}
                   placeholderTextColor={tokens.text.tertiary}
                   style={styles.modalInput}
-                  accessibilityLabel="Hesap silme onayı"
-                  accessibilityHint="Onaylamak için SİL yaz"
+                  accessibilityLabel={t("settings.delete.confirm_label")}
+                  accessibilityHint={t("settings.delete.confirm_hint", {
+                    keyword: t("settings.delete.keyword"),
+                  })}
                 />
                 {deleteError && (
                   <Text style={styles.modalError}>{deleteError}</Text>
@@ -725,18 +733,18 @@ export default function SettingsScreen() {
                     style={[styles.modalBtn, styles.modalBtnGhost]}
                     onPress={cancelDeleteFlow}
                     accessibilityRole="button"
-                    accessibilityLabel="Hesap silme işleminden vazgeç"
+                    accessibilityLabel={t("settings.delete.cancel_label")}
                   >
-                    <Text style={styles.modalBtnGhostText}>Vazgeç</Text>
+                    <Text style={styles.modalBtnGhostText}>{t("common.cancel")}</Text>
                   </Pressable>
                   <Pressable
                     style={[styles.modalBtn, styles.modalBtnDanger]}
                     onPress={confirmDelete}
                     accessibilityRole="button"
-                    accessibilityLabel="Hesabımı kalıcı olarak sil"
+                    accessibilityLabel={t("settings.delete.permanent_label")}
                   >
                     <Text style={styles.modalBtnDangerText}>
-                      Hesabımı kalıcı olarak sil
+                      {t("settings.delete.permanent_cta")}
                     </Text>
                   </Pressable>
                 </View>
@@ -745,10 +753,10 @@ export default function SettingsScreen() {
                     style={styles.modalFallback}
                     onPress={openMailtoFallback}
                     accessibilityRole="link"
-                    accessibilityLabel="Manuel hesap silme desteğine e-posta gönder"
+                    accessibilityLabel={t("settings.delete.manual_label")}
                   >
                     <Text style={styles.modalFallbackText}>
-                      Otomatik silme başarısız. Manuel destek için: berkkdemirok@gmail.com
+                      {t("settings.delete.manual_body")}
                     </Text>
                   </Pressable>
                 )}
@@ -758,7 +766,7 @@ export default function SettingsScreen() {
             {deleteStep === "deleting" && (
               <View style={styles.modalDeleting}>
                 <ActivityIndicator size="large" color={tokens.brand.primary} />
-                <Text style={styles.modalBody}>Hesabın siliniyor…</Text>
+                <Text style={styles.modalBody}>{t("settings.delete.deleting")}</Text>
               </View>
             )}
           </View>
@@ -901,7 +909,7 @@ function Toggle({
           false: tokens.bg.surfaceContainerHigh,
           true: tokens.brand.primary,
         }}
-        thumbColor={value ? tokens.brand.secondary : "#fff"}
+        thumbColor={value ? tokens.brand.onPrimary : tokens.text.primary}
       />
     </View>
   );
@@ -1238,7 +1246,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   modalWarn: {
-    color: "#c2410c",
+    color: tokens.semantic.warning,
     fontWeight: tokens.weight.semibold,
   },
   modalCode: {
@@ -1258,7 +1266,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   modalError: {
-    color: "#b91c1c",
+    color: tokens.semantic.error,
     fontSize: 13,
     marginBottom: 8,
   },
@@ -1283,10 +1291,10 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.semibold,
   },
   modalBtnDanger: {
-    backgroundColor: "#b91c1c",
+    backgroundColor: tokens.semantic.error,
   },
   modalBtnDangerText: {
-    color: "#fff",
+    color: tokens.semantic.onError,
     fontSize: 14,
     fontWeight: tokens.weight.bold,
   },

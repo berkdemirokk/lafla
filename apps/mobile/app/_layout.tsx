@@ -16,12 +16,11 @@ import { Stack, router } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
 import * as Notifications from "expo-notifications";
+import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import {
   StyleSheet,
   Text,
-  Text as RNText,
-  TextInput as RNTextInput,
   View,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -38,8 +37,9 @@ import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
 import { initAds } from "../lib/ads";
 import { requestAttOnce } from "../lib/att";
-import { tokens } from "../theme";
+import { ThemeProvider, tokens, useAppTheme } from "../theme";
 import { hydrateThemePreference } from "../lib/theme-preference";
+import { hydrateLocale } from "../lib/i18n";
 
 const K_LAST_OPEN_DAY = "lafla.analytics.lastOpenDay";
 
@@ -75,24 +75,6 @@ SplashScreen.preventAutoHideAsync().catch(() => {
   /* no-op — preventAutoHideAsync may reject if hide already called (Fast Refresh) */
 });
 
-// 2026-05-24 — Dynamic Type clamp.
-// iOS XXL erişilebilirlik metin boyutu varsayılan olarak 1.7x büyütür; kartlar
-// + chip'ler + paywall fiyatları bu boyutta kırılıyordu. 1.4x cap ile çoğu
-// layout'u koruyup gözü zayıf kullanıcı için de okunabilir kalıyoruz. Uygulama
-// genelinde tek satır default — her Text/TextInput'u tek tek override etmek
-// yerine. Bireysel override (ör. hero başlığı) lokal prop ile yapılabilir.
-const TEXT_MAX_SCALE = 1.4;
-// RN Text/TextInput defaultProps API'si TypeScript'te declare edilmiyor ama
-// runtime'da çalışıyor. Bilinen pattern (React Native 0.79).
-type DefaultPropable = { defaultProps?: Record<string, unknown> };
-const _Text = RNText as unknown as DefaultPropable;
-_Text.defaultProps = { ..._Text.defaultProps, maxFontSizeMultiplier: TEXT_MAX_SCALE };
-const _TextInput = RNTextInput as unknown as DefaultPropable;
-_TextInput.defaultProps = {
-  ..._TextInput.defaultProps,
-  maxFontSizeMultiplier: TEXT_MAX_SCALE,
-};
-
 const LAUNCH_FALLBACK_MS = 1200;
 
 // Initialize once at module load so the SDK is live before any render —
@@ -100,7 +82,7 @@ const LAUNCH_FALLBACK_MS = 1200;
 initSentry();
 
 export default function RootLayout() {
-  const [themeReady, setThemeReady] = useState(false);
+  const [preferencesReady, setPreferencesReady] = useState(false);
   const [showLaunchFallback, setShowLaunchFallback] = useState(false);
   const [fontsLoaded, fontError] = useFonts({
     SpaceGrotesk_500Medium,
@@ -113,7 +95,7 @@ export default function RootLayout() {
     Inter_800ExtraBold,
   });
 
-  const canRenderApp = (fontsLoaded || fontError) && themeReady;
+  const canRenderApp = (fontsLoaded || fontError) && preferencesReady;
 
   useEffect(() => {
     if (canRenderApp || showLaunchFallback) {
@@ -133,10 +115,12 @@ export default function RootLayout() {
 
   useEffect(() => {
     let cancelled = false;
-    void hydrateThemePreference()
-      .catch(() => "dark" as const)
+    void Promise.all([
+      hydrateThemePreference().catch(() => "system" as const),
+      hydrateLocale(),
+    ])
       .finally(() => {
-        if (!cancelled) setThemeReady(true);
+        if (!cancelled) setPreferencesReady(true);
       });
     return () => {
       cancelled = true;
@@ -227,18 +211,30 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
+    <ThemeProvider>
+      <ThemedRootNavigator />
+    </ThemeProvider>
+  );
+}
+
+function ThemedRootNavigator() {
+  const { colors, scheme } = useAppTheme();
+
+  return (
+    <SafeAreaProvider
+      style={{ flex: 1, backgroundColor: colors.bg.app }}
+    >
       <ErrorBoundary>
         <Stack
           screenOptions={{
             headerShown: false,
-            contentStyle: { backgroundColor: tokens.bg.app },
+            contentStyle: { backgroundColor: colors.bg.app },
             animation: "fade",
           }}
         >
           <Stack.Screen
             name="index"
-            options={{ contentStyle: { backgroundColor: tokens.bg.onBackground } }}
+            options={{ contentStyle: { backgroundColor: colors.bg.onBackground } }}
           />
           <Stack.Screen name="auth" />
           <Stack.Screen name="onboarding" />
@@ -268,6 +264,7 @@ export default function RootLayout() {
           <Stack.Screen name="accent-lab" />
         </Stack>
       </ErrorBoundary>
+      <StatusBar style={scheme === "dark" ? "light" : "dark"} />
     </SafeAreaProvider>
   );
 }
@@ -286,10 +283,10 @@ const stylesLaunch = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#000000",
+    backgroundColor: tokens.bg.app,
   },
   wordmark: {
-    color: "#ffffff",
+    color: tokens.text.primary,
     fontSize: 56,
     fontWeight: "800",
   },
@@ -298,6 +295,6 @@ const stylesLaunch = StyleSheet.create({
     height: 2,
     marginTop: 12,
     borderRadius: 1,
-    backgroundColor: "#FF067A",
+    backgroundColor: tokens.brand.primary,
   },
 });

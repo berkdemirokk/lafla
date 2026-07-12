@@ -35,6 +35,7 @@ import {
   type ExerciseResult,
 } from "../../lib/engine";
 import { speak } from "../../lib/tts";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   npc_line: string;
@@ -61,6 +62,7 @@ export function ListenRespond({
   ideal_response,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [stage, setStage] = useState<Stage>("intro");
   const [remaining, setRemaining] = useState<number>(
     Math.max(1, Math.round(think_seconds || 3)),
@@ -228,7 +230,7 @@ export function ListenRespond({
       },
       onError: (e) => {
         hapticError();
-        setErrorMsg(e.message || "Mikrofon hatası");
+        setErrorMsg(e.message || t("exercise.microphone_error"));
         if (!gradedThisSession.current) {
           // Eğer hiç grade alınmadıysa → skipped (devam edebilir).
           setStage("skipped");
@@ -257,7 +259,7 @@ export function ListenRespond({
         exercise_type: "listen_respond",
         correct: true,
         score: 100,
-        feedback: "Voice atlandı (cihaz desteklemiyor).",
+        feedback: t("exercise.voice_skipped"),
       });
       return;
     }
@@ -268,8 +270,8 @@ export function ListenRespond({
       correct: graded.matched,
       score: graded.score,
       feedback: graded.matched
-        ? "İyi cevap!"
-        : `İdeal: "${ideal_response}"`,
+        ? t("exercise.feedback.good_answer")
+        : t("exercise.ideal_answer_quoted", { answer: ideal_response }),
     });
   };
 
@@ -292,7 +294,7 @@ export function ListenRespond({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Dinle ve cevap ver</Text>
+      <Text style={styles.prompt}>{t("exercise.listen_respond.title")}</Text>
 
       {/* NPC line — always visible, always tappable for re-listen */}
       <Animated.View
@@ -300,7 +302,7 @@ export function ListenRespond({
         style={styles.npcBlock}
       >
         <View style={styles.npcRow}>
-          <Text style={styles.npcLabel}>NPC der ki</Text>
+          <Text style={styles.npcLabel}>{t("exercise.listen_respond.npc_says")}</Text>
           <SpeakerButton text={npc_line} size="sm" />
         </View>
         <Text style={styles.npcLine}>{npc_line}</Text>
@@ -309,17 +311,19 @@ export function ListenRespond({
       {/* Stage-specific middle */}
       {stage === "intro" && (
         <View style={styles.stageBlock}>
-          <Text style={styles.introText}>Dinle...</Text>
+          <Text style={styles.introText}>{t("exercise.listen")}</Text>
         </View>
       )}
 
       {stage === "countdown" && (
         <Animated.View entering={FadeInDown.duration(360)} style={styles.stageBlock}>
-          <Text style={styles.countdownLabel}>Düşün</Text>
+          <Text style={styles.countdownLabel}>{t("exercise.think")}</Text>
           <View style={styles.countdownCircle}>
             <Text style={styles.countdownNumber}>{remaining}</Text>
           </View>
-          <Text style={styles.hint}>💡 {tr_hint}</Text>
+          <Text style={styles.hint}>
+            💡 {locale === "tr" ? tr_hint : t("learning.hint_fallback_en")}
+          </Text>
         </Animated.View>
       )}
 
@@ -333,7 +337,7 @@ export function ListenRespond({
           >
             <Text style={styles.micPulseIcon}>🎤</Text>
           </RNAnimated.View>
-          <Text style={styles.listeningText}>Şimdi sen söyle</Text>
+          <Text style={styles.listeningText}>{t("exercise.speak_now")}</Text>
           <Pressable
             onPress={handleStopEarly}
             style={({ pressed }) => [
@@ -342,9 +346,9 @@ export function ListenRespond({
             ]}
             hitSlop={10}
             accessibilityRole="button"
-            accessibilityLabel="Mikrofonu durdur"
+            accessibilityLabel={t("exercise.stop_microphone")}
           >
-            <Text style={styles.cancelBtnText}>Durdur</Text>
+            <Text style={styles.cancelBtnText}>{t("exercise.stop")}</Text>
           </Pressable>
         </View>
       )}
@@ -358,7 +362,7 @@ export function ListenRespond({
           ]}
         >
           <View style={styles.scoreRow}>
-            <Text style={styles.scoreLabel}>Skor</Text>
+            <Text style={styles.scoreLabel}>{t("exercise.score")}</Text>
             <Text
               style={[
                 styles.scoreValue,
@@ -372,15 +376,15 @@ export function ListenRespond({
           </View>
           {graded.heard ? (
             <>
-              <Text style={styles.heardLabel}>Sen dedin</Text>
+              <Text style={styles.heardLabel}>{t("exercise.you_said")}</Text>
               <Text style={styles.heardText}>"{graded.heard}"</Text>
             </>
           ) : (
-            <Text style={styles.heardText}>(ses algılanmadı)</Text>
+            <Text style={styles.heardText}>{t("exercise.no_speech_detected")}</Text>
           )}
           {!graded.matched && (
             <>
-              <Text style={styles.idealLabel}>İdeal cevap</Text>
+              <Text style={styles.idealLabel}>{t("exercise.ideal_answer")}</Text>
               <Text style={styles.idealText}>{ideal_response}</Text>
             </>
           )}
@@ -390,9 +394,9 @@ export function ListenRespond({
       {stage === "skipped" && (
         <View style={styles.gradedBlock}>
           <Text style={styles.heardText}>
-            Mikrofon kullanılamadı — bu egzersiz atlandı.
+            {t("exercise.microphone_unavailable_skipped")}
           </Text>
-          <Text style={styles.idealLabel}>İdeal cevap</Text>
+          <Text style={styles.idealLabel}>{t("exercise.ideal_answer")}</Text>
           <Text style={styles.idealText}>{ideal_response}</Text>
         </View>
       )}
@@ -409,14 +413,14 @@ export function ListenRespond({
             {stage === "graded" && (
               <View style={styles.btnFlex}>
                 <Button
-                  label="Tekrar dene"
+                  label={t("common.try_again")}
                   onPress={handleRetry}
                   variant="secondary"
                 />
               </View>
             )}
             <View style={styles.btnFlex}>
-              <Button label="Devam et →" onPress={handleContinue} />
+              <Button label={`${t("common.continue")} →`} onPress={handleContinue} />
             </View>
           </View>
         )}

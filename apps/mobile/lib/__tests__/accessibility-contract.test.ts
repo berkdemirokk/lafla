@@ -90,4 +90,10 @@ describe("accessibility contract", () => {
   it("gives every native interactive control an explicit Turkish-friendly contract", () => {
     expect(findMissingAccessibilityContracts()).toEqual([]);
   });
+
+  it("does not globally cap iOS Dynamic Type", () => {
+    const layout = fs.readFileSync(path.join(MOBILE_ROOT, "app", "_layout.tsx"), "utf8");
+    expect(layout).not.toContain("maxFontSizeMultiplier");
+    expect(layout).not.toMatch(/(?:Text|TextInput)\.defaultProps/);
+  });
 });

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
@@ -11,14 +11,25 @@ import {
   type ProgressComparison,
 } from "../lib/progress-comparison";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 export default function ProgressCompareScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [items, setItems] = useState<ProgressComparison[]>([]);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
-  useEffect(() => {
-    void getProgressComparisons().then(setItems).catch(() => setItems([]));
+  const load = useCallback(async () => {
+    setStatus("loading");
+    try {
+      setItems(await getProgressComparisons());
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
+  useEffect(() => { void load(); }, [load]);
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -28,54 +39,53 @@ export default function ProgressCompareScreen() {
           onPress={() => router.back()}
           style={styles.back}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>Önce · Sonra</Text>
+        <Text style={styles.headerTitle}>{t("progress_compare.header")}</Text>
         <View style={styles.back} />
       </View>
-      <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.title}>Gelişimini duy.</Text>
-        <Text style={styles.subtitle}>
-          İlk cevabın, koç versiyonu ve sonraki denemen yan yana.
-        </Text>
+      {status !== "ready" ? (
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      ) : <ScrollView contentContainerStyle={styles.content}>
+        <Text style={styles.title}>{t("progress_compare.title")}</Text>
+        <Text style={styles.subtitle}>{t("progress_compare.subtitle")}</Text>
         {items.length === 0 ? (
           <View style={styles.empty}>
-            <Text style={styles.emptyTitle}>Henüz karşılaştırma yok</Text>
-            <Text style={styles.emptyText}>
-              Aynı sahneyi ikinci kez yaptığında üçüncü kart da açılır.
-            </Text>
+            <Text style={styles.emptyTitle}>{t("progress_compare.empty_title")}</Text>
+            <Text style={styles.emptyText}>{t("progress_compare.empty_body")}</Text>
           </View>
         ) : (
           items.map((item) => (
             <ComparisonCard key={item.scenarioId} item={item} />
           ))
         )}
-      </ScrollView>
+      </ScrollView>}
     </SafeAreaView>
   );
 }
 
 function ComparisonCard({ item }: { item: ProgressComparison }) {
+  const { t } = useTranslation();
   const repeat = item.repeats[0];
   const days = comparisonDaysApart(item);
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{item.scenarioTitle}</Text>
-      <AudioLine label="İLK CEVABIN" text={item.first.text} />
+      <AudioLine label={t("progress_compare.first")} text={item.first.text} />
       <View style={styles.connector} />
-      <AudioLine label="KOÇ VERSİYONU" text={item.coachedText} coached />
+      <AudioLine label={t("progress_compare.coached")} text={item.coachedText} coached />
       <View style={styles.connector} />
       {repeat ? (
         <AudioLine
-          label={days !== null && days >= 6 ? `${days} GÜN SONRA` : "SONRAKİ DENEMEN"}
+          label={days !== null && days >= 6 ? t("progress_compare.days_later", { days: String(days) }) : t("progress_compare.next_attempt")}
           text={repeat.text}
         />
       ) : (
         <View style={styles.lockedLine}>
-          <Text style={styles.lockedLabel}>BİR HAFTA SONRA</Text>
-          <Text style={styles.lockedText}>Aynı sahneyi tekrar et; farkı burada gör.</Text>
+          <Text style={styles.lockedLabel}>{t("progress_compare.one_week_later")}</Text>
+          <Text style={styles.lockedText}>{t("progress_compare.locked_body")}</Text>
         </View>
       )}
     </View>

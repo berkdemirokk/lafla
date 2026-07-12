@@ -54,9 +54,9 @@ export interface VoiceEntry {
   durationMs: number;
   /** Optional 1-line note (kullanıcı isterse "ne hakkında" yazar). */
   note?: string;
-  /** AI-generated transcription of the recording. */
+  /** Device/system speech-recognition transcription of the recording. */
   transcript?: string;
-  /** AI analysis stats. */
+  /** Deterministically calculated speaking statistics. */
   analysis?: {
     fillerWords: number;
     wordCount: number;
@@ -158,15 +158,16 @@ export async function saveEntry(args: {
   };
   list.unshift(entry); // Yeni → eski sıralama.
   // FIFO cap — en eski(ler)i sil.
+  const filesToDelete: string[] = [];
   while (list.length > MAX_ENTRIES) {
     const removed = list.pop();
-    if (removed) {
-      // Best effort dosya silme — başarısız olsa bile index temizlenmiş.
-      void FileSystem.deleteAsync(removed.uri, { idempotent: true }).catch(
-        () => {},
-      );
-    }
+    if (removed) filesToDelete.push(removed.uri);
   }
+  await Promise.all(
+    filesToDelete.map((uri) =>
+      FileSystem.deleteAsync(uri, { idempotent: true }).catch(() => {}),
+    ),
+  );
   await writeIndex(list);
   return entry;
 }
@@ -243,7 +244,7 @@ export async function deleteEntry(id: string): Promise<void> {
   const removed = list[idx]!;
   list.splice(idx, 1);
   await writeIndex(list);
-  void FileSystem.deleteAsync(removed.uri, { idempotent: true }).catch(
+  await FileSystem.deleteAsync(removed.uri, { idempotent: true }).catch(
     () => {},
   );
 }
@@ -276,11 +277,11 @@ export async function getCount(): Promise<number> {
  */
 export async function clearAll(): Promise<void> {
   const list = await readIndex();
-  for (const entry of list) {
-    void FileSystem.deleteAsync(entry.uri, { idempotent: true }).catch(
-      () => {},
-    );
-  }
+  await Promise.all(
+    list.map((entry) =>
+      FileSystem.deleteAsync(entry.uri, { idempotent: true }).catch(() => {}),
+    ),
+  );
   try {
     await AsyncStorage.removeItem(K_INDEX);
   } catch {
@@ -289,7 +290,7 @@ export async function clearAll(): Promise<void> {
 }
 
 // -------------------------------------------------------------
-// BUG-8: AI Speech Recognition & Weekly Stats Entegrasyonu
+// BUG-8: iOS Speech Recognition & Weekly Stats Entegrasyonu
 // -------------------------------------------------------------
 
 function loadSpeechModule() {

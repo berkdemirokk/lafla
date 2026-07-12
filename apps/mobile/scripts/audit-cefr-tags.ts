@@ -177,6 +177,21 @@ function parseSceneLevels(scenesFile: string): Map<string, Level> {
   return map;
 }
 
+function parseLevelOverrides(scenesFile: string): Map<string, Level> {
+  const src = fs.readFileSync(scenesFile, "utf-8");
+  const block = src.match(
+    /LESSON_LEVEL_OVERRIDES[^=]*=\s*\{([\s\S]*?)\};/,
+  )?.[1];
+  const map = new Map<string, Level>();
+  if (!block) return map;
+  for (const match of block.matchAll(
+    /"([^"]+)"\s*:\s*"(A1|A2|B1|B2|C1|C2)"/g,
+  )) {
+    map.set(match[1]!, match[2] as Level);
+  }
+  return map;
+}
+
 // ─── Marker scoring ──────────────────────────────────────────────────
 
 function countMarkers(
@@ -244,6 +259,7 @@ function findLessonFiles(dataDir: string): string[] {
 }
 
 function main(): void {
+  const checkOnly = process.argv.includes("--check");
   const dataDir = path.join(MOBILE_DIR, "data");
   const scenesFile = path.join(dataDir, "scenes.ts");
 
@@ -264,6 +280,9 @@ function main(): void {
 
   // Read scene levels from scenes.ts root file.
   const sceneLevels = parseSceneLevels(scenesFile);
+  for (const [lessonId, level] of parseLevelOverrides(scenesFile)) {
+    sceneLevels.set(lessonId, level);
+  }
 
   // Also look inside scene fragment files (cefr-*-scenes.ts).
   const sceneFragmentFiles = fs
@@ -290,6 +309,14 @@ function main(): void {
   }
   console.log(`  ${analyzed} lessons analyzed`);
   console.log(`  ${mismatches.length} POTENTIAL MISMATCHES detected\n`);
+  const unmapped = allLessons.filter(
+    (lesson) => !sceneLevels.has(lesson.lessonId),
+  );
+  if (unmapped.length > 0) {
+    throw new Error(
+      `Missing CEFR mappings: ${unmapped.map((lesson) => lesson.lessonId).join(", ")}`,
+    );
+  }
 
   // Sort mismatches by severity (biggest jump first).
   mismatches.sort(
@@ -385,8 +412,12 @@ function main(): void {
   lines.push("3. **Rewriting NPC turns** is the alternative — soften the");
   lines.push("   marker phrase to a level-appropriate equivalent.");
 
-  fs.writeFileSync(reportPath, lines.join("\n"));
-  console.log(`Report written to: ${reportPath}`);
+  if (checkOnly) {
+    console.log("CEFR mapping and marker checks passed.");
+  } else {
+    fs.writeFileSync(reportPath, lines.join("\n"));
+    console.log(`Report written to: ${reportPath}`);
+  }
 }
 
 main();

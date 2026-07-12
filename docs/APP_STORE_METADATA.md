@@ -420,7 +420,7 @@ Voice Journal (/voice-journal): users can record up to 2-minute audio entries; s
 
 Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → immediate deletion via Supabase edge function. No 30-day grace.
 
-The 971 guided scenarios are pre-authored and scored on-device. Optional Free Chat and Real Life tools (Emergency English and custom-scenario generation) use an AI service and transmit only the text entered for that feature, as disclosed in the privacy policy. Voice Journal audio remains local.
+The 971 guided scenarios are pre-authored and scored on-device. Free Chat and Real Life tools (Emergency English and custom-scenario generation) also run on-device using bundled deterministic rules; text entered in those tools is not transmitted to an AI provider or Lafla server. Voice Journal audio remains local.
 
 Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: berkkdemirok@gmail.com (Istanbul business hours, <4h response).
 ```

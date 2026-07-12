@@ -1,6 +1,6 @@
 // Lafla — Lightweight i18n scaffold. No external i18n libraries.
 //
-// Loads flat dictionaries for TR/EN/IT/ES/DE/SR from /locales, persists active locale in
+// Loads flat dictionaries for TR/EN from /locales, persists active locale in
 // AsyncStorage under `lafla.locale`. Falls back to the key string if a
 // translation is missing.
 //
@@ -125,14 +125,42 @@ function interpolate(template: string, vars?: Record<string, string>): string {
   });
 }
 
+function humanizeKey(key: string): string {
+  const tail = key.split(".").pop() ?? key;
+  const words = tail.replace(/[_-]+/g, " ").trim();
+  if (!words) return key;
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
+function missingMessage(key: string): string {
+  return __DEV__ ? key : humanizeKey(key);
+}
+
 /**
- * Look up `key` in the active locale. Falls back to TR, then to the raw
- * key string if nothing is found. Supports {var} interpolation via `vars`.
+ * Resolve a string without leaking Turkish into an English session.
+ *
+ * Turkish is the product default, but it is not a safe fallback once the
+ * user explicitly chooses English: a forgotten key would otherwise render
+ * a silently mixed-language UI. Locale parity tests catch omissions before
+ * release; this runtime guard keeps production readable if a dynamic key
+ * still slips through.
+ */
+function resolveMessage(locale: Locale, key: string): string {
+  const direct = MESSAGES[locale]?.[key];
+  if (direct !== undefined) return direct;
+  if (locale === DEFAULT_LOCALE) {
+    return MESSAGES[DEFAULT_LOCALE]?.[key] ?? missingMessage(key);
+  }
+  return missingMessage(key);
+}
+
+/**
+ * Look up `key` in the active locale. English intentionally never falls back
+ * to Turkish; missing production keys are humanized instead. Supports
+ * {var} interpolation via `vars`.
  */
 export function t(key: string, vars?: Record<string, string>): string {
-  const active = MESSAGES[currentLocale];
-  const fallback = MESSAGES[DEFAULT_LOCALE];
-  const raw = active?.[key] ?? fallback?.[key] ?? key;
+  const raw = resolveMessage(currentLocale, key);
   return interpolate(raw, vars);
 }
 
@@ -167,9 +195,7 @@ export function useTranslation(): UseTranslation {
     (key: string, vars?: Record<string, string>) => {
       // Read from currentLocale rather than the closed-over `locale` so
       // that updates between renders are reflected immediately.
-      const active = MESSAGES[currentLocale];
-      const fallback = MESSAGES[DEFAULT_LOCALE];
-      const raw = active?.[key] ?? fallback?.[key] ?? key;
+      const raw = resolveMessage(currentLocale, key);
       return interpolate(raw, vars);
     },
     [locale],

@@ -30,6 +30,32 @@ describe("release metadata", () => {
     expect(app.expo.version).toBe("1.0.4");
   });
 
+  it("ships localized iOS permission prompts through Expo's native locale pipeline", () => {
+    const app = JSON.parse(read("apps/mobile/app.json"));
+    const en = JSON.parse(read("apps/mobile/native-locales/en.json"));
+    const tr = JSON.parse(read("apps/mobile/native-locales/tr.json"));
+    const requiredKeys = [
+      "NSMicrophoneUsageDescription",
+      "NSPhotoLibraryUsageDescription",
+      "NSSpeechRecognitionUsageDescription",
+      "NSUserTrackingUsageDescription",
+    ];
+
+    expect(app.expo.locales).toEqual({
+      en: "./native-locales/en.json",
+      tr: "./native-locales/tr.json",
+    });
+    expect(Object.keys(en).sort()).toEqual(requiredKeys.sort());
+    expect(Object.keys(tr).sort()).toEqual(requiredKeys.sort());
+    for (const key of requiredKeys) {
+      expect(en[key]).toEqual(expect.any(String));
+      expect(tr[key]).toEqual(expect.any(String));
+      expect(en[key].trim()).not.toBe("");
+      expect(tr[key].trim()).not.toBe("");
+      expect(en[key]).not.toBe(tr[key]);
+    }
+  });
+
   it("keeps reviewer-facing copy aligned with the current product", () => {
     const documents = [
       "docs/APP_REVIEW_NOTES.md",
@@ -49,12 +75,18 @@ describe("release metadata", () => {
   it("does not sell unrecorded native-audio inventory in the paywall", () => {
     const paywall = read("apps/mobile/app/paywall.tsx");
     const nativeAudioManifest = read("apps/mobile/data/native-audio-manifest.ts");
+    const trMessages = JSON.parse(
+      read("apps/mobile/locales/tr.json"),
+    ) as Record<string, string>;
 
     expect(nativeAudioManifest).toContain(
       "NATIVE_AUDIO_MANIFEST: ReadonlyArray<NativeAudioBundle> = []",
     );
     expect(paywall).not.toContain("Native ses ile konuş");
-    expect(paywall).toContain("Sesli pratik + telaffuz geri bildirimi");
+    expect(paywall).toContain("paywall.feature.voice_title");
+    expect(trMessages["paywall.feature.voice_title"]).toBe(
+      "Sesli pratik + telaffuz geri bildirimi",
+    );
   });
 
   it("keeps monetization copy aligned across release surfaces", () => {

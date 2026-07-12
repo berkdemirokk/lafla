@@ -29,6 +29,7 @@ import { PhonemeFeedback } from "../PhonemeFeedback";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { pushPronScore } from "../../lib/pronunciation-history";
 import type { ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 type Phase = "speaking" | "listening" | "feedback";
 
@@ -54,6 +55,7 @@ export function SpeechShadowing({
   trTranslations,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [idx, setIdx] = useState(0);
   const [phase, setPhase] = useState<Phase>("speaking");
   const [lastScore, setLastScore] = useState<number | null>(null);
@@ -284,7 +286,7 @@ export function SpeechShadowing({
       exercise_type: "speech_shadowing",
       correct: false,
       score: 50,
-      feedback: "Atlandı.",
+      feedback: t("exercise.skipped"),
     });
   };
 
@@ -292,10 +294,10 @@ export function SpeechShadowing({
 
   const stateLabel =
     phase === "speaking"
-      ? "Dinliyor"
+      ? t("exercise.listening")
       : phase === "listening"
-        ? "🎤 Şimdi sen tekrarla"
-        : "Bitti";
+        ? t("exercise.repeat_now")
+        : t("exercise.finished");
   const stateIcon =
     phase === "speaking" ? "◯" : phase === "listening" ? "🎤" : "✓";
 
@@ -313,7 +315,7 @@ export function SpeechShadowing({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Tekrar Et</Text>
+      <Text style={styles.prompt}>{t("exercise.shadowing.title")}</Text>
 
       <View style={styles.dotsRow}>
         {phrases.map((_, i) => (
@@ -330,7 +332,7 @@ export function SpeechShadowing({
 
       <View style={[styles.heroCard, cardFlash]}>
         <Text style={styles.phrase}>{current ?? ""}</Text>
-        {trCurrent ? <Text style={styles.tr}>{trCurrent}</Text> : null}
+        {locale === "tr" && trCurrent ? <Text style={styles.tr}>{trCurrent}</Text> : null}
       </View>
 
       <View style={styles.stateRow}>
@@ -355,9 +357,9 @@ export function SpeechShadowing({
           style={styles.skipBtn}
           onPress={onSkipAll}
           accessibilityRole="button"
-          accessibilityLabel="Gölgeleme alıştırmasını atla"
+          accessibilityLabel={t("exercise.shadowing.skip_label")}
         >
-          <Text style={styles.skipLabel}>Atla</Text>
+          <Text style={styles.skipLabel}>{t("common.skip")}</Text>
         </Pressable>
       </View>
     </View>
@@ -404,12 +406,12 @@ const styles = StyleSheet.create({
     marginBottom: tokens.spacing.md,
   },
   cardFlashGood: {
-    borderColor: tokens.brand.primaryFixed,
-    backgroundColor: "rgba(246, 255, 0, 0.18)",
+    borderColor: tokens.semantic.success,
+    backgroundColor: tokens.semantic.successContainer,
   },
   cardFlashOkay: {
-    borderColor: tokens.semantic.successContainer,
-    backgroundColor: tokens.semantic.successContainer,
+    borderColor: tokens.semantic.warning,
+    backgroundColor: tokens.semantic.warningContainer,
   },
   cardFlashMiss: {
     borderColor: tokens.semantic.error,

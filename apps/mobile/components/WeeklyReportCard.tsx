@@ -10,6 +10,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { tokens } from "../theme";
 import type { WeeklyReport } from "../lib/metrics";
+import { useTranslation } from "../lib/i18n";
 
 interface WeeklyReportCardProps {
   report: WeeklyReport | null;
@@ -17,6 +18,7 @@ interface WeeklyReportCardProps {
 }
 
 export function WeeklyReportCard({ report, onPress }: WeeklyReportCardProps) {
+  const { t } = useTranslation();
   const Wrapper = onPress ? Pressable : View;
 
   return (
@@ -28,26 +30,26 @@ export function WeeklyReportCard({ report, onPress }: WeeklyReportCardProps) {
       ]}
     >
       <View style={styles.header}>
-        <Text style={styles.title}>Bu Hafta</Text>
+        <Text style={styles.title}>{t("weekly.title")}</Text>
         {onPress ? <Text style={styles.chev}>›</Text> : null}
       </View>
 
       <View style={styles.statsRow}>
         <MiniStat
           value={report ? String(report.daysActive) : "—"}
-          label="Gün"
+          label={t("weekly.days")}
         />
         <MiniStat
           value={report ? String(report.totalMinutes) : "—"}
-          label="Dakika"
+          label={t("weekly.minutes")}
         />
         <MiniStat
           value={report ? String(report.newVocabAdded) : "—"}
-          label="Kelime"
+          label={t("weekly.words")}
         />
         <MiniStat
           value={report ? String(report.coachSessions) : "—"}
-          label="Koç"
+          label={t("weekly.coach")}
         />
       </View>
 

@@ -45,6 +45,7 @@ import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
 import { PronouncePhrase } from "../components/exercises/PronouncePhrase";
 import { ListenAndTranscribe } from "../components/exercises/ListenAndTranscribe";
 import type { ExerciseResult } from "../lib/engine";
+import { useTranslation } from "../lib/i18n";
 import {
   PLACEMENT_QUESTION_COUNT,
   computeFinalLevel,
@@ -160,6 +161,7 @@ function nextAdaptiveLevel(
 
 export default function PlacementScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [currentLevel, setCurrentLevel] = useState<CefrLevel>("B1");
   const [usedIds, setUsedIds] = useState<Set<string>>(new Set());
@@ -320,8 +322,8 @@ export default function PlacementScreen() {
       setAdaptiveHint(
         nextLevel !== current.level
           ? isCorrect
-            ? `Bunu kolay yaptın — biraz zorlaştırıyoruz ⤴︎`
-            : `Bu zor geldi, basitleştiriyoruz ⤵︎`
+            ? t("placement.adaptive_harder")
+            : t("placement.adaptive_easier")
           : null,
       );
       setCurrentLevel(nextLevel);
@@ -426,9 +428,9 @@ export default function PlacementScreen() {
     } catch (e) {
       setSaving(false);
       Alert.alert(
-        "Bir şey ters gitti",
-        "Seviyen kaydedilemedi. İnternetini kontrol edip tekrar dene.",
-        [{ text: "Tamam" }],
+        t("common.error_title"),
+        t("placement.save_error"),
+        [{ text: t("common.ok") }],
       );
       return;
     }
@@ -463,15 +465,13 @@ export default function PlacementScreen() {
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <ThemedStatusBar />
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Konuşma testi</Text>
-          <Text style={styles.headerSub}>
-            Bu cümleyi sesli oku — telaffuzun seviye tahmininin son ayağı.
-          </Text>
+          <Text style={styles.headerTitle}>{t("placement.speaking_title")}</Text>
+          <Text style={styles.headerSub}>{t("placement.speaking_body")}</Text>
         </View>
         <ScrollView contentContainerStyle={styles.body}>
           <PronouncePhrase
             phrase={target.phrase}
-            trHint={target.tr}
+            trHint={locale === "tr" ? target.tr : undefined}
             onComplete={handleSpeakingComplete}
             onSkip={handleSpeakingSkip}
           />
@@ -487,15 +487,13 @@ export default function PlacementScreen() {
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <ThemedStatusBar />
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Dinleme testi</Text>
-          <Text style={styles.headerSub}>
-            Cümleyi dinle ve duyduğunu yaz. Son adım.
-          </Text>
+          <Text style={styles.headerTitle}>{t("placement.listening_title")}</Text>
+          <Text style={styles.headerSub}>{t("placement.listening_body")}</Text>
         </View>
         <ScrollView contentContainerStyle={styles.body}>
           <ListenAndTranscribe
             sentence={target.sentence}
-            trHint={target.tr}
+            trHint={locale === "tr" ? target.tr : undefined}
             onComplete={handleListeningComplete}
             onSkip={handleListeningSkip}
           />
@@ -512,29 +510,27 @@ export default function PlacementScreen() {
         <ThemedStatusBar />
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <Text style={styles.doneEmoji}>🎯</Text>
-          <Text style={styles.doneTitle}>Seviyen ölçüldü</Text>
+          <Text style={styles.doneTitle}>{t("placement.done_title")}</Text>
           <View style={styles.levelHero}>
             <Text style={styles.levelHeroText}>{finalLevel}</Text>
           </View>
           <Text style={styles.doneSub}>
-            {levelDescription(finalLevel)}
+            {t(`placement.level.${finalLevel}`)}
           </Text>
           {/* If the oral checks demoted the user from their MCQ level we
               surface a one-line explanation. Better to admit "we adjusted"
               than to silently disagree with the user's own intuition. */}
           {mcqDerivedLevel && mcqDerivedLevel !== finalLevel ? (
             <Text style={styles.doneAdjustment}>
-              📖 Okuma: {mcqDerivedLevel} · 🎙️ Konuşma & dinleme:{" "}
-              {finalLevel} — sahneler {finalLevel}'den başlar, pratik
-              ettikçe yukarı çıkar.
+              {t("placement.adjustment", { reading: mcqDerivedLevel, oral: finalLevel })}
             </Text>
           ) : null}
           <Text style={styles.doneFoot}>
-            Sahneler bu seviyeden başlar. Yanlış mı? Ayarlar'dan değiştirebilirsin.
+            {t("placement.done_foot")}
           </Text>
           <View style={styles.doneFooter}>
             <Button
-              label={saving ? "..." : "Anasayfa"}
+              label={saving ? "…" : t("placement.home")}
               onPress={handleAccept}
               disabled={saving}
               stacked
@@ -564,12 +560,12 @@ export default function PlacementScreen() {
             onPress={() => {
               hapticSelection();
               Alert.alert(
-                "Testten çık",
-                "İlerleme silinecek. Seviyeni kendin de seçebilirsin.",
+                t("placement.exit_title"),
+                t("placement.exit_body"),
                 [
-                  { text: "Devam et", style: "cancel" },
+                  { text: t("placement.continue_test"), style: "cancel" },
                   {
-                    text: "Çık",
+                    text: t("placement.exit"),
                     style: "destructive",
                     onPress: async () => {
                       await AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(
@@ -584,11 +580,11 @@ export default function PlacementScreen() {
             hitSlop={12}
             style={styles.headerCancel}
             accessibilityRole="button"
-            accessibilityLabel="Testten çık"
+            accessibilityLabel={t("placement.exit_title")}
           >
-            <Text style={styles.headerCancelText}>← Çık</Text>
+            <Text style={styles.headerCancelText}>← {t("placement.exit")}</Text>
           </Pressable>
-          <Text style={styles.headerTitle}>Seviye testi</Text>
+          <Text style={styles.headerTitle}>{t("placement.title")}</Text>
           <View style={styles.headerCancel} />
         </View>
         <View style={styles.dotsRow}>
@@ -615,7 +611,7 @@ export default function PlacementScreen() {
           </View>
         )}
         <Text style={styles.prompt}>{current.prompt}</Text>
-        {current.prompt_tr ? (
+        {locale === "tr" && current.prompt_tr ? (
           <Text style={styles.promptTr}>{current.prompt_tr}</Text>
         ) : null}
 
@@ -656,7 +652,7 @@ export default function PlacementScreen() {
         </View>
 
         {/* Explanation — sadece revealed sonrası */}
-        {revealed && (
+        {revealed && locale === "tr" && (
           <View style={styles.explainBox}>
             <Text style={styles.explainText}>{current.explanation_tr}</Text>
           </View>
@@ -665,7 +661,7 @@ export default function PlacementScreen() {
 
       <View style={styles.footer}>
         <Button
-          label={revealed ? "Sıradaki ›" : "Cevapla"}
+          label={revealed ? t("placement.next") : t("placement.answer")}
           onPress={revealed ? () => {} : handleConfirm}
           disabled={selectedIdx === null || revealed}
           stacked

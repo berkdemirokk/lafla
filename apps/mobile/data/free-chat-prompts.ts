@@ -22,6 +22,17 @@ export interface FollowupPattern {
   hint_tr?: string;
 }
 
+export type FreeChatTopic =
+  | "daily"
+  | "work"
+  | "social"
+  | "feel"
+  | "weekend"
+  | "food"
+  | "travel"
+  | "learning"
+  | "culture";
+
 export interface FreeChatPrompt {
   id: string;
   /** NPC açılış mesajı (kullanıcıya ilk yazılan). */
@@ -29,7 +40,7 @@ export interface FreeChatPrompt {
   /** Türkçe hint — kullanıcıya konuyu açıklar. */
   hint_tr: string;
   /** Hangi mode'la bağlantılı — ileride filter için. */
-  topic: "daily" | "work" | "social" | "feel" | "weekend" | "food";
+  topic: FreeChatTopic;
   /** Kullanıcının cevabını sınıflandıran 4-6 pattern. İlk eşleşen kazanır. */
   followups: FollowupPattern[];
   /** Hiçbiri eşleşmezse fallback. */
@@ -332,6 +343,231 @@ export const FREE_CHAT_PROMPTS: ReadonlyArray<FreeChatPrompt> = [
     ],
     default_followup: "what would make today better?",
     default_hint_tr: "İyileştirme: 'a nap' / 'finishing this project' / 'a walk'.",
+  },
+  {
+    id: "daily.smallwin",
+    npc_opener: "what's one small win you had today?",
+    hint_tr: "Küçük bir başarı seç: 'I finally...' / 'I managed to...'",
+    topic: "daily",
+    followups: [
+      {
+        triggers: ["\\b(finished|completed|managed|finally|solved|fixed)\\b"],
+        npc_reply: "nice. what helped you get it done?",
+        hint_tr: "Yardımcı olan şeyi söyle: focus, time, a person veya yeni bir yöntem.",
+      },
+      {
+        triggers: ["\\b(rest|slept|walk|gym|workout|cooked)\\b"],
+        npc_reply: "that absolutely counts. how did you feel afterward?",
+        hint_tr: "Sonraki duygunu geçmiş zamanda anlat.",
+      },
+      {
+        triggers: ["\\b(none|nothing|no win|can't think|cannot think)\\b"],
+        npc_reply: "fair. what's one tiny thing you still showed up for?",
+        hint_tr: "Çok küçük bir çaba bile olabilir: 'I answered...' / 'I tried...'",
+      },
+    ],
+    default_followup: "what made that feel like a win to you?",
+    default_hint_tr: "Neden önemli olduğunu bir cümleyle açıkla.",
+  },
+  {
+    id: "work.skill",
+    npc_opener: "what skill are you trying to get better at for work?",
+    hint_tr: "Bir beceri söyle: presenting, coding, negotiating, writing...",
+    topic: "work",
+    followups: [
+      {
+        triggers: ["\\b(present|presentation|public speaking|speak)\\b"],
+        npc_reply: "what part is harder: preparing or speaking in the moment?",
+        hint_tr: "İki seçenekten birini seç ve nedenini ekle.",
+      },
+      {
+        triggers: ["\\b(code|coding|program|software|technical)\\b"],
+        npc_reply: "are you learning through a project or a course?",
+        hint_tr: "Öğrenme yöntemini söyle.",
+      },
+      {
+        triggers: ["\\b(lead|manage|management|feedback|delegate)\\b"],
+        npc_reply: "what situation gives you the best chance to practise that?",
+        hint_tr: "Gerçek bir iş durumu örneği ver.",
+      },
+    ],
+    default_followup: "how are you practising it right now?",
+    default_hint_tr: "Şimdiki yöntemini present continuous ile anlat.",
+  },
+  {
+    id: "weekend.ideal",
+    npc_opener: "ideal weekend: fully planned or completely spontaneous?",
+    hint_tr: "Bir taraf seç: 'I prefer planned weekends because...'",
+    topic: "weekend",
+    followups: [
+      {
+        triggers: ["\\b(plan|planned|organized|schedule)\\b"],
+        npc_reply: "what's the one thing you always plan first?",
+        hint_tr: "Önce planladığın şeyi söyle.",
+      },
+      {
+        triggers: ["\\b(spontaneous|random|decide later|go with the flow)\\b"],
+        npc_reply: "what's the best last-minute plan you've ever made?",
+        hint_tr: "Geçmişten plansız bir an anlat.",
+      },
+      {
+        triggers: ["\\b(both|mix|depends|balance)\\b"],
+        npc_reply: "fair. what do you plan, and what do you leave open?",
+        hint_tr: "İki kısmı karşılaştır.",
+      },
+    ],
+    default_followup: "what would your perfect Saturday look like?",
+    default_hint_tr: "Sabah, öğlen veya akşamdan iki detay ver.",
+  },
+  {
+    id: "food.new",
+    npc_opener: "what's a food you tried recently for the first time?",
+    hint_tr: "Geçmiş zaman: 'I tried ... for the first time.'",
+    topic: "food",
+    followups: [
+      {
+        triggers: ["\\b(loved|amazing|delicious|really good)\\b"],
+        npc_reply: "okay, instant favorite. what did it taste like?",
+        hint_tr: "Tadı sıfatlarla anlat: spicy, rich, fresh, sweet...",
+      },
+      {
+        triggers: ["\\b(hated|awful|bad|weird|not for me)\\b"],
+        npc_reply: "at least you tried it. was it the taste or the texture?",
+        hint_tr: "Tat mı doku mu olduğunu söyle.",
+      },
+      {
+        triggers: ["\\b(okay|fine|average|not bad)\\b"],
+        npc_reply: "would you give it a second chance somewhere else?",
+        hint_tr: "Would ile cevap ver ve sebep ekle.",
+      },
+    ],
+    default_followup: "what made you decide to try it?",
+    default_hint_tr: "Karar sebebini anlat: recommendation, curiosity, travel...",
+  },
+  {
+    id: "social.recommend",
+    npc_opener: "what's the best recommendation a friend gave you lately?",
+    hint_tr: "Film, mekân, kitap veya tavsiye olabilir.",
+    topic: "social",
+    followups: [
+      {
+        triggers: ["\\b(movie|film|series|show)\\b"],
+        npc_reply: "did it live up to the recommendation?",
+        hint_tr: "Beklentiyi karşılayıp karşılamadığını söyle.",
+      },
+      {
+        triggers: ["\\b(book|podcast|article|album|song)\\b"],
+        npc_reply: "what idea or moment stayed with you?",
+        hint_tr: "Aklında kalan bir fikir veya anı anlat.",
+      },
+      {
+        triggers: ["\\b(place|restaurant|cafe|bar|city)\\b"],
+        npc_reply: "would you take another friend there?",
+        hint_tr: "Would ile önerip önermeyeceğini söyle.",
+      },
+    ],
+    default_followup: "what made it a good recommendation?",
+    default_hint_tr: "Neden sana uygun olduğunu açıkla.",
+  },
+  {
+    id: "feel.energy",
+    npc_opener: "when do you usually have the most energy during the day?",
+    hint_tr: "Zaman söyle: early morning, after lunch, late at night...",
+    topic: "feel",
+    followups: [
+      {
+        triggers: ["\\b(morning|early|wake up|breakfast)\\b"],
+        npc_reply: "what's the first thing you like doing with that energy?",
+        hint_tr: "İlk aktiviteni söyle.",
+      },
+      {
+        triggers: ["\\b(afternoon|after lunch|midday)\\b"],
+        npc_reply: "interesting. do you get a dip before that boost?",
+        hint_tr: "Öncesiyle sonrasını karşılaştır.",
+      },
+      {
+        triggers: ["\\b(evening|night|late)\\b"],
+        npc_reply: "night owl then. does that ever make mornings difficult?",
+        hint_tr: "Sabaha etkisini anlat.",
+      },
+    ],
+    default_followup: "what tends to raise or lower your energy?",
+    default_hint_tr: "Enerjini etkileyen bir alışkanlık söyle.",
+  },
+  {
+    id: "travel.next",
+    npc_opener: "if you could take a short trip next month, where would you go?",
+    hint_tr: "Yer ve sebep: 'I'd go to ... because...'",
+    topic: "travel",
+    followups: [
+      {
+        triggers: ["\\b(beach|sea|island|coast)\\b"],
+        npc_reply: "relaxing trip or packed with activities?",
+        hint_tr: "Tatil tarzını seç ve açıkla.",
+      },
+      {
+        triggers: ["\\b(city|museum|architecture|historic|history)\\b"],
+        npc_reply: "what would be your first stop there?",
+        hint_tr: "İlk durağını söyle.",
+      },
+      {
+        triggers: ["\\b(mountain|nature|forest|camp|hike)\\b"],
+        npc_reply: "would you go alone or with someone?",
+        hint_tr: "Kiminle gideceğini ve nedenini söyle.",
+      },
+    ],
+    default_followup: "what would you want to experience there?",
+    default_hint_tr: "Görmek, tatmak veya yapmak istediğin bir şeyi anlat.",
+  },
+  {
+    id: "learning.skill",
+    npc_opener: "what's something useful you've learned recently?",
+    hint_tr: "Yeni bir bilgi veya beceri seç: 'I recently learned how to...'",
+    topic: "learning",
+    followups: [
+      {
+        triggers: ["\\b(language|english|word|phrase|grammar)\\b"],
+        npc_reply: "what helped it finally stick?",
+        hint_tr: "Hatırlamana yardımcı olan yöntemi söyle.",
+      },
+      {
+        triggers: ["\\b(work|job|code|software|tool)\\b"],
+        npc_reply: "have you used it in a real task yet?",
+        hint_tr: "Present perfect ile gerçek kullanımını anlat.",
+      },
+      {
+        triggers: ["\\b(cook|recipe|repair|make|build)\\b"],
+        npc_reply: "could you teach the basic version to someone else?",
+        hint_tr: "Öğretip öğretemeyeceğini ve ilk adımı söyle.",
+      },
+    ],
+    default_followup: "how do you think you'll use it next?",
+    default_hint_tr: "Gelecekteki kullanım için plan kur.",
+  },
+  {
+    id: "culture.recent",
+    npc_opener: "what's a movie, book, or song you can't stop thinking about?",
+    hint_tr: "Bir eser seç ve kısa görüşünü söyle.",
+    topic: "culture",
+    followups: [
+      {
+        triggers: ["\\b(movie|film|series|show|episode)\\b"],
+        npc_reply: "which scene stayed with you most?",
+        hint_tr: "Bir sahneyi spoiler vermeden anlat.",
+      },
+      {
+        triggers: ["\\b(book|novel|story|article)\\b"],
+        npc_reply: "was it the idea, the writing, or a character?",
+        hint_tr: "Üç seçenekten birini seç ve açıkla.",
+      },
+      {
+        triggers: ["\\b(song|album|music|concert)\\b"],
+        npc_reply: "what mood does it put you in?",
+        hint_tr: "Müziğin sende oluşturduğu duyguyu söyle.",
+      },
+    ],
+    default_followup: "who would you recommend it to?",
+    default_hint_tr: "Kime ve neden önereceğini söyle.",
   },
 ];
 

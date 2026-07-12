@@ -7,7 +7,7 @@
   "scripts": {
     "typecheck": "corepack pnpm --filter @lafla/mobile typecheck",
     "dev:mobile": "corepack pnpm --filter @lafla/mobile start",
-    "test": "corepack pnpm --filter @lafla/mobile test -- --runInBand"
+    "test": "corepack pnpm --dir apps/mobile run test --runInBand"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

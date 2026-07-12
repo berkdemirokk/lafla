@@ -9,6 +9,7 @@ import { tokens } from "../../theme";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { matchPhrase, type ExerciseResult } from "../../lib/engine";
 import { speak } from "../../lib/tts";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   sentence: string;
@@ -30,6 +31,7 @@ export function ListenAndTranscribe({
   onComplete,
   onSkip,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
   const [playCount, setPlayCount] = useState(0);
@@ -71,7 +73,7 @@ export function ListenAndTranscribe({
         exercise_type: "listen_transcribe",
         correct: false,
         score: 0,
-        feedback: "Bu egzersiz hazır değil — bir sonrakine geç.",
+        feedback: t("exercise.not_ready"),
       });
       return;
     }
@@ -89,23 +91,26 @@ export function ListenAndTranscribe({
       correct,
       score,
       feedback: correct
-        ? `Doğru duydun! "${sentence}"`
-        : `Doğrusu: "${sentence}"`,
+        ? t("exercise.listen.correct", { sentence })
+        : t("exercise.correct_answer_quoted", { answer: sentence }),
     };
     setResult(r);
     hapticForScore(r.score);
   };
 
   const replayLabel = playable
-    ? `Tekrar dinle (${playCount}/${MAX_PLAYS})`
-    : "Daha fazla dinleme yok";
+    ? t("exercise.listen.replay", {
+        count: String(playCount),
+        max: String(MAX_PLAYS),
+      })
+    : t("exercise.listen.no_more");
 
   // Show trHint only after 2nd replay, and only while still answering.
   const showHint = !result && !!trHint && playCount >= 2;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Duy ve yaz</Text>
+      <Text style={styles.prompt}>{t("exercise.listen_transcribe.title")}</Text>
 
       <View style={styles.speakerBlock}>
         <Pressable
@@ -113,7 +118,7 @@ export function ListenAndTranscribe({
           disabled={!playable || !!result}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Cümleyi dinle"
+          accessibilityLabel={t("exercise.listen_sentence")}
           accessibilityState={{ disabled: !playable || Boolean(result) }}
           style={({ pressed }) => [
             styles.speakerBtn,
@@ -135,7 +140,7 @@ export function ListenAndTranscribe({
           styles.input,
           result && (result.correct ? styles.inputOk : styles.inputMiss),
         ]}
-        placeholder="Duyduğunu yaz..."
+        placeholder={t("exercise.listen_transcribe.placeholder")}
         placeholderTextColor={tokens.text.secondary}
         value={input}
         onChangeText={setInput}
@@ -143,7 +148,7 @@ export function ListenAndTranscribe({
         editable={!result}
         autoCapitalize="sentences"
         autoCorrect={false}
-        accessibilityLabel="Duyduğun İngilizce cümle"
+        accessibilityLabel={t("exercise.listen_transcribe.answer_label")}
       />
 
       {result && (
@@ -158,12 +163,16 @@ export function ListenAndTranscribe({
               ? `✓ ${result.score}/100`
               : `✗ ${result.score}/100`}
           </Text>
-          <Text style={styles.feedbackAnswerLabel}>Doğru cevap</Text>
+          <Text style={styles.feedbackAnswerLabel}>{t("exercise.correct_answer_label")}</Text>
           <Text style={styles.feedbackAnswer}>{sentence}</Text>
         </View>
       )}
 
-      {showHint && <Text style={styles.hint}>💡 {trHint}</Text>}
+      {showHint && (
+        <Text style={styles.hint}>
+          💡 {locale === "tr" ? trHint : t("learning.hint_fallback_en")}
+        </Text>
+      )}
 
       {/* 2026-05-25 (B-SCN-15) — Skip kapısı. Sadece parent onSkip verdiyse
           ve henüz cevap göndermediyse (graded sonrası skip mantıksız) görünür.
@@ -180,15 +189,15 @@ export function ListenAndTranscribe({
           ]}
           hitSlop={8}
           accessibilityRole="button"
-          accessibilityLabel="Bu egzersizi atla"
+          accessibilityLabel={t("exercise.skip_label")}
         >
-          <Text style={styles.skipBtnText}>Bu egzersizi atla →</Text>
+          <Text style={styles.skipBtnText}>{t("exercise.skip_cta")}</Text>
         </Pressable>
       )}
 
       <View style={styles.footer}>
         <Button
-          label={result ? "Devam et →" : "Kontrol et"}
+          label={result ? `${t("common.continue")} →` : t("exercise.check")}
           onPress={result ? () => onComplete(result) : submit}
           disabled={!result && !input.trim()}
         />
@@ -253,20 +262,21 @@ const styles = StyleSheet.create({
     minHeight: 110,
     textAlignVertical: "top",
   },
-  inputOk: { borderColor: tokens.brand.primaryFixed },
+  inputOk: { borderColor: tokens.semantic.success },
   inputMiss: { borderColor: tokens.semantic.error },
   feedback: {
     marginTop: tokens.spacing.md,
     padding: tokens.spacing.md,
     borderRadius: tokens.radius.base,
+    borderWidth: 1,
   },
   feedbackOk: {
-    backgroundColor: "rgba(246, 255, 0, 0.12)",
-    borderWidth: 1,
-    borderColor: tokens.brand.primaryFixed,
+    backgroundColor: tokens.semantic.successContainer,
+    borderColor: tokens.semantic.success,
   },
   feedbackMiss: {
     backgroundColor: tokens.semantic.errorContainer,
+    borderColor: tokens.semantic.error,
   },
   feedbackTitle: {
     color: tokens.text.primary,

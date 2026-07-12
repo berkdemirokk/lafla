@@ -6,7 +6,11 @@ Complete it against the new TestFlight build before promoting the build.
 ## Build identity
 
 - Version: `1.0.4`
-- Expected remote build: next number after `98`
+- EAS production build: `111`
+- EAS build ID: `9f885136-ba54-43ba-9f2a-6a8248ce90d7`
+- IPA identity verified: `com.lafla.app` · `1.0.4 (111)`
+- Native permission resources verified in IPA: `en.lproj` and `tr.lproj`
+- App privacy manifest verified in IPA: tracking domains + 4 required-reason API categories
 - Git commit: ____________________
 - TestFlight build: ____________________
 - Tester/date: ____________________

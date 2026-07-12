@@ -5,6 +5,7 @@ import { Button } from "../Button";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import type { ExerciseResult } from "../../lib/engine";
 import { tokens } from "../../theme";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   question: string;
@@ -21,6 +22,7 @@ export function MultipleChoice({
   explanation,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
   const [attempts, setAttempts] = useState(0);
@@ -47,13 +49,15 @@ export function MultipleChoice({
       correct: true,
       score,
       feedback:
-        attempts <= 1 ? "İlk denemede doğru." : "Düzeltip doğru cevabı buldun.",
+        attempts <= 1
+          ? t("exercise.feedback.first_try")
+          : t("exercise.feedback.corrected"),
     });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.eyebrow}>KISA HAZIRLIK</Text>
+      <Text style={styles.eyebrow}>{t("exercise.quick_prep")}</Text>
       <Text style={styles.question}>{question}</Text>
 
       <View style={styles.options}>
@@ -76,7 +80,10 @@ export function MultipleChoice({
                 showWrong && styles.optionWrong,
               ]}
               accessibilityRole="radio"
-              accessibilityLabel={`${index + 1}. seçenek: ${option}`}
+              accessibilityLabel={t("exercise.numbered_option", {
+                number: String(index + 1),
+                option,
+              })}
               accessibilityState={{ checked: isSelected, disabled: checked }}
             >
               <Text style={styles.optionText}>{option}</Text>
@@ -91,14 +98,24 @@ export function MultipleChoice({
           accessibilityLiveRegion="polite"
         >
           <Text style={styles.feedbackTitle}>
-            {correct ? "Doğru" : "Henüz değil — doğru cevabı gör ve tekrar seç"}
+            {correct ? t("exercise.correct") : t("exercise.not_yet")}
           </Text>
-          {explanation ? <Text style={styles.feedbackText}>{explanation}</Text> : null}
+          {explanation ? (
+            <Text style={styles.feedbackText}>
+              {locale === "tr" ? explanation : t("learning.explanation_fallback_en")}
+            </Text>
+          ) : null}
         </View>
       )}
 
       <Button
-        label={checked ? (correct ? "Devam et →" : "Tekrar dene") : "Kontrol et"}
+        label={
+          checked
+            ? correct
+              ? `${t("common.continue")} →`
+              : t("common.try_again")
+            : t("exercise.check")
+        }
         onPress={checked ? (correct ? complete : retry) : check}
         disabled={!checked && selected === null}
       />

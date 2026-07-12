@@ -483,7 +483,7 @@ const REVIEW_NOTES = [
   "",
   "Account deletion: Settings → Hesabımı Sil → type 'SİL' → immediate deletion via Supabase edge function. Apple Sign-In refresh_token is revoked server-side (POST appleid.apple.com/auth/revoke) before auth.users deletion. No 30-day grace.",
   "",
-  "The 971 guided scenarios are pre-authored and scored on-device. Optional Free Chat and Real Life tools send only the text entered for those features through the authenticated Supabase llm-chat Edge Function to an AI provider; no email or profile fields are added to provider requests. Input/output safety filters are applied. Voice Journal audio remains local.",
+  "The 971 guided scenarios are pre-authored and scored on-device. Free Chat, Emergency English, and custom-scenario generation also run on-device with deterministic intent, entity, and conversation-state rules. Text entered in those tools is not sent to an AI provider or Lafla server. Input/output safety filters are applied locally. Voice Journal audio remains local.",
   "",
   "IELTS Band Estimator displays a clear in-app disclaimer that it is Lafla's internal scoring model, NOT an official IELTS score (not affiliated with British Council/IDP/Cambridge English Assessment).",
   "",

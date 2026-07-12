@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -13,6 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { isSupabaseConfigured, supabase } from "../lib/supabase";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 interface LeaderboardItem {
   id: string;
@@ -23,13 +24,14 @@ interface LeaderboardItem {
 
 export default function LeaderboardScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [data, setData] = useState<LeaderboardItem[]>([]);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const fetchLeaderboard = async (isRefresh = false) => {
+  const fetchLeaderboard = useCallback(async (isRefresh = false) => {
     if (isRefresh) {
       setRefreshing(true);
     } else {
@@ -40,19 +42,20 @@ export default function LeaderboardScreen() {
       setErrorMessage(null);
       if (!isSupabaseConfigured) {
         setData([]);
-        setErrorMessage("Liderlik tablosu bu sürümde henüz aktif değil.");
+        setErrorMessage(t("leaderboard.unavailable"));
         return;
       }
 
-      // 1) Get current authenticated user
-      const { data: { user } } = await supabase.auth.getUser();
+      const [userResult, leaderboardResult] = await Promise.all([
+        supabase.auth.getUser(),
+        supabase.rpc("get_leaderboard", { row_limit: 50 }),
+      ]);
+      const user = userResult.data.user;
       if (user) {
         setCurrentUserId(user.id);
       }
 
-      // 2) Get top 50 users sorted by total_xp (RPC bypasses RLS)
-      const { data: profiles, error } = await supabase
-        .rpc('get_leaderboard', { row_limit: 50 });
+      const { data: profiles, error } = leaderboardResult;
 
       if (error) throw error;
       
@@ -62,16 +65,16 @@ export default function LeaderboardScreen() {
         // eslint-disable-next-line no-console
         console.error("[Leaderboard] Failed to fetch:", e);
       }
-      setErrorMessage("Sıralama şu an yüklenemedi. Biraz sonra tekrar dene.");
+      setErrorMessage(t("leaderboard.load_error"));
     } finally {
       setLoading(false);
       setRefreshing(false);
     }
-  };
+  }, [t]);
 
   useEffect(() => {
-    fetchLeaderboard();
-  }, []);
+    void fetchLeaderboard();
+  }, [fetchLeaderboard]);
 
   const renderItem = ({ item, index }: { item: LeaderboardItem; index: number }) => {
     const rank = index + 1;
@@ -104,16 +107,16 @@ export default function LeaderboardScreen() {
         {/* User Info */}
         <View style={styles.userInfo}>
           <Text style={[styles.userName, isCurrentUser && styles.userNameActive]}>
-            {item.display_name || "Anonim Öğrenci"}
+            {item.display_name || t("leaderboard.anonymous")}
           </Text>
           {item.current_streak > 0 && (
-            <Text style={styles.userStreak}>🔥 {item.current_streak} Günlük Seri</Text>
+            <Text style={styles.userStreak}>{t("leaderboard.streak", { count: String(item.current_streak) })}</Text>
           )}
         </View>
 
         {/* XP Value */}
         <View style={styles.xpWrapper}>
-          <Text style={styles.xpText}>{item.total_xp.toLocaleString("tr-TR")}</Text>
+          <Text style={styles.xpText}>{item.total_xp.toLocaleString(locale === "tr" ? "tr-TR" : "en-US")}</Text>
           <Text style={styles.xpSub}>XP</Text>
         </View>
       </View>
@@ -131,11 +134,11 @@ export default function LeaderboardScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
-          <Text style={styles.backText}>← Geri</Text>
+          <Text style={styles.backText}>← {t("common.back")}</Text>
         </Pressable>
-        <Text style={styles.title}>Liderlik Tablosu</Text>
+        <Text style={styles.title}>{t("leaderboard.title")}</Text>
         <View style={styles.headerRight} />
       </View>
 
@@ -143,7 +146,7 @@ export default function LeaderboardScreen() {
       {loading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={tokens.brand.primary} />
-          <Text style={styles.loadingText}>Sıralama yükleniyor...</Text>
+          <Text style={styles.loadingText}>{t("leaderboard.loading")}</Text>
         </View>
       ) : (
         <FlatList
@@ -163,10 +166,10 @@ export default function LeaderboardScreen() {
           ListEmptyComponent={
             <View style={styles.emptyContainer}>
               <Text style={styles.emptyTitle}>
-                {errorMessage ? "Sıralama hazır değil" : "Henüz sıralama yok"}
+                {errorMessage ? t("leaderboard.empty_error_title") : t("leaderboard.empty_title")}
               </Text>
               <Text style={styles.emptyText}>
-                {errorMessage ?? "İlk tamamlanan sahnelerden sonra burada öğrenciler görünür."}
+                {errorMessage ?? t("leaderboard.empty_body")}
               </Text>
               <Pressable
                 onPress={() => fetchLeaderboard(true)}
@@ -175,9 +178,9 @@ export default function LeaderboardScreen() {
                   pressed && styles.retryBtnPressed,
                 ]}
                 accessibilityRole="button"
-                accessibilityLabel="Liderlik tablosunu tekrar yükle"
+                accessibilityLabel={t("leaderboard.retry_label")}
               >
-                <Text style={styles.retryText}>Tekrar dene</Text>
+                <Text style={styles.retryText}>{t("leaderboard.retry")}</Text>
               </Pressable>
             </View>
           }

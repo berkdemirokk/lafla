@@ -47,6 +47,8 @@ import {
   markRecordingInactive,
   type VoiceEntry,
 } from "../lib/voice-journal";
+import { useTranslation, type Locale } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 // 2 dakika hard cap — daha uzun kayıt:
 //   • Storage'ı agresif şişirir (30 entry × 2dk = 60dk audio ≈ 50MB)
@@ -61,28 +63,31 @@ function formatDuration(ms: number): string {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-function formatRelativeDate(iso: string): string {
+function formatRelativeDate(iso: string, locale: Locale): string {
   const t = new Date(iso).getTime();
   const now = Date.now();
   const diffMs = now - t;
   const diffHours = diffMs / (3600 * 1000);
   if (diffHours < 1) {
     const mins = Math.max(1, Math.floor(diffMs / 60000));
-    return `${mins} dk önce`;
+    return new Intl.RelativeTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { numeric: "always" }).format(-mins, "minute");
   }
   if (diffHours < 24) {
-    return `${Math.floor(diffHours)} saat önce`;
+    return new Intl.RelativeTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { numeric: "always" }).format(-Math.floor(diffHours), "hour");
   }
   const diffDays = Math.floor(diffHours / 24);
-  if (diffDays < 7) return `${diffDays} gün önce`;
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)} hafta önce`;
-  return `${Math.floor(diffDays / 30)} ay önce`;
+  const formatter = new Intl.RelativeTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { numeric: "always" });
+  if (diffDays < 7) return formatter.format(-diffDays, "day");
+  if (diffDays < 30) return formatter.format(-Math.floor(diffDays / 7), "week");
+  return formatter.format(-Math.floor(diffDays / 30), "month");
 }
 
 export default function VoiceJournalScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [entries, setEntries] = useState<VoiceEntry[]>([]);
   const [permission, setPermission] = useState<boolean | null>(null);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
   // Recording state.
   const [isRecording, setIsRecording] = useState(false);
@@ -101,8 +106,13 @@ export default function VoiceJournalScreen() {
   const [noteInput, setNoteInput] = useState("");
 
   const load = useCallback(async () => {
-    const all = await getEntries().catch(() => [] as VoiceEntry[]);
-    setEntries(all);
+    setStatus("loading");
+    try {
+      setEntries(await getEntries());
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
 
   useFocusEffect(
@@ -140,8 +150,8 @@ export default function VoiceJournalScreen() {
   const startRecording = async () => {
     if (permission === false) {
       Alert.alert(
-        "Mikrofon izni gerekli",
-        "Ses notu bırakabilmek için Ayarlar'dan mikrofon iznini aç.",
+        t("voice_journal.permission_title"),
+        t("voice_journal.permission_body"),
       );
       return;
     }
@@ -200,7 +210,7 @@ export default function VoiceJournalScreen() {
       // (background music çalarken kayıt başlatma vs.) tanıyabilelim.
       captureException(err, { source: "voice-journal.startRecording" });
       markRecordingInactive();
-      Alert.alert("Kayıt başlamadı", "Mikrofon hazır değil, tekrar dene.");
+      Alert.alert(t("voice_journal.start_error_title"), t("voice_journal.start_error_body"));
     }
   };
 
@@ -225,7 +235,7 @@ export default function VoiceJournalScreen() {
         recordingRef.current = null;
         targetPathRef.current = null;
         if (durationMs < 1500 && durationMs > 0) {
-          Alert.alert("Çok kısa", "En az 2 saniye konuşman gerek.");
+          Alert.alert(t("voice_journal.short_title"), t("voice_journal.short_body"));
         }
         return;
       }
@@ -242,7 +252,7 @@ export default function VoiceJournalScreen() {
       // Prod observability: kayıt bitirme fail'i = potansiyel data loss.
       // Hangi durumda olduğunu öğrenebilelim diye Sentry'ye düşür.
       captureException(err, { source: "voice-journal.stopRecording" });
-      Alert.alert("Kaydedilemedi", "Bir şeyler ters gitti, tekrar dene.");
+      Alert.alert(t("voice_journal.save_error_title"), t("voice_journal.save_error_body"));
     } finally {
       recordingRef.current = null;
       targetPathRef.current = null;
@@ -300,18 +310,18 @@ export default function VoiceJournalScreen() {
         // eslint-disable-next-line no-console
         console.warn("[voice-journal] playback failed:", err);
       }
-      Alert.alert("Dinlenemedi", "Ses dosyası okunamadı.");
+      Alert.alert(t("voice_journal.play_error_title"), t("voice_journal.play_error_body"));
     }
   };
 
   const handleDelete = (entry: VoiceEntry) => {
     Alert.alert(
-      "Ses notunu sil",
-      `${formatRelativeDate(entry.recordedAt)} kaydı kalıcı olarak silinecek.`,
+      t("voice_journal.delete_title"),
+      t("voice_journal.delete_body", { date: formatRelativeDate(entry.recordedAt, locale) }),
       [
-        { text: "Vazgeç", style: "cancel" },
+        { text: t("common.cancel"), style: "cancel" },
         {
-          text: "Sil",
+          text: t("voice_journal.delete"),
           style: "destructive",
           onPress: async () => {
             if (playingId === entry.id && soundRef.current) {
@@ -353,15 +363,17 @@ export default function VoiceJournalScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>Sesli günlük</Text>
+        <Text style={styles.headerTitle}>{t("voice_journal.title")}</Text>
         <View style={{ width: 40 }} />
       </View>
 
-      <ScrollView
+      {status !== "ready" ? (
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      ) : <ScrollView
         contentContainerStyle={styles.scroll}
         showsVerticalScrollIndicator={false}
       >
@@ -376,34 +388,33 @@ export default function VoiceJournalScreen() {
             ]}
             disabled={permission === false}
             accessibilityRole="button"
-            accessibilityLabel={isRecording ? "Kaydı bitir" : "Yeni kayıt"}
+            accessibilityLabel={isRecording ? t("voice_journal.stop") : t("voice_journal.new")}
           >
             <Text style={styles.recordIcon}>{isRecording ? "■" : "●"}</Text>
           </Pressable>
           <Text style={styles.recordLabel}>
             {isRecording
-              ? `Kaydediliyor · ${formatDuration(elapsedMs)}`
-              : "Yeni kayıt"}
+              ? t("voice_journal.recording", { duration: formatDuration(elapsedMs) })
+              : t("voice_journal.new")}
           </Text>
           <Text style={styles.recordHint}>
             {isRecording
-              ? "Bitirmek için tekrar dokun"
-              : "30 saniye İngilizce konuş — kendi tonunu duyabilirsin"}
+              ? t("voice_journal.stop_hint")
+              : t("voice_journal.start_hint")}
           </Text>
         </View>
 
         {/* Timeline */}
         {entries.length === 0 ? (
           <View style={styles.emptyState}>
-            <Text style={styles.emptyTitle}>Henüz kayıt yok</Text>
+            <Text style={styles.emptyTitle}>{t("voice_journal.empty_title")}</Text>
             <Text style={styles.emptyText}>
-              İlk sesini kaydet. 1 hafta sonra geri gelip kendinle
-              karşılaştır — gelişim duyulabilir bir şey.
+              {t("voice_journal.empty_body")}
             </Text>
           </View>
         ) : (
           <View style={styles.timeline}>
-            <Text style={styles.timelineHeader}>Önceki kayıtlar</Text>
+            <Text style={styles.timelineHeader}>{t("voice_journal.previous")}</Text>
             {entries.map((entry) => {
               const isPlaying = playingId === entry.id;
               const isEditingNote = editNoteId === entry.id;
@@ -415,7 +426,7 @@ export default function VoiceJournalScreen() {
                       style={styles.playBtn}
                       hitSlop={6}
                       accessibilityRole="button"
-                      accessibilityLabel={isPlaying ? "Durdur" : "Çal"}
+                      accessibilityLabel={isPlaying ? t("voice_journal.stop_playback") : t("voice_journal.play")}
                     >
                       <Text style={styles.playIcon}>
                         {isPlaying ? "❚❚" : "▶"}
@@ -423,7 +434,7 @@ export default function VoiceJournalScreen() {
                     </Pressable>
                     <View style={styles.entryMeta}>
                       <Text style={styles.entryDate}>
-                        {formatRelativeDate(entry.recordedAt)}
+                        {formatRelativeDate(entry.recordedAt, locale)}
                       </Text>
                       <Text style={styles.entryDuration}>
                         {formatDuration(entry.durationMs)}
@@ -434,7 +445,7 @@ export default function VoiceJournalScreen() {
                       style={styles.deleteBtn}
                       hitSlop={8}
                       accessibilityRole="button"
-                      accessibilityLabel="Sil"
+                      accessibilityLabel={t("voice_journal.delete")}
                     >
                       <Text style={styles.deleteIcon}>×</Text>
                     </Pressable>
@@ -444,19 +455,19 @@ export default function VoiceJournalScreen() {
                       <TextInput
                         value={noteInput}
                         onChangeText={setNoteInput}
-                        placeholder="Bu kayıt ne hakkındaydı?"
+                        placeholder={t("voice_journal.note_placeholder")}
                         placeholderTextColor={tokens.text.tertiary}
                         style={styles.noteInput}
                         maxLength={80}
                         autoFocus
-                        accessibilityLabel="Kayıt notu"
+                        accessibilityLabel={t("voice_journal.note_label")}
                       />
                       <Pressable
                         onPress={handleSaveNote}
                         style={styles.noteSaveBtn}
                         hitSlop={6}
                         accessibilityRole="button"
-                        accessibilityLabel="Notu kaydet"
+                        accessibilityLabel={t("voice_journal.note_save")}
                       >
                         <Text style={styles.noteSaveText}>✓</Text>
                       </Pressable>
@@ -466,7 +477,7 @@ export default function VoiceJournalScreen() {
                       onPress={() => handleEditNote(entry)}
                       hitSlop={6}
                       accessibilityRole="button"
-                      accessibilityLabel="Notu düzenle"
+                      accessibilityLabel={t("voice_journal.note_edit")}
                     >
                       <Text style={styles.noteText}>{entry.note}</Text>
                     </Pressable>
@@ -475,9 +486,9 @@ export default function VoiceJournalScreen() {
                       onPress={() => handleEditNote(entry)}
                       hitSlop={6}
                       accessibilityRole="button"
-                      accessibilityLabel="Not ekle"
+                      accessibilityLabel={t("voice_journal.note_add")}
                     >
-                      <Text style={styles.noteAddText}>+ Not ekle</Text>
+                      <Text style={styles.noteAddText}>+ {t("voice_journal.note_add")}</Text>
                     </Pressable>
                   )}
                 </View>
@@ -489,12 +500,11 @@ export default function VoiceJournalScreen() {
         {permission === false && (
           <View style={styles.permWarn}>
             <Text style={styles.permWarnText}>
-              ⚠ Mikrofon izni reddedildi. Ayarlar &gt; Lafla &gt; Mikrofon ile
-              etkinleştirebilirsin.
+              {t("voice_journal.permission_warning")}
             </Text>
           </View>
         )}
-      </ScrollView>
+      </ScrollView>}
     </SafeAreaView>
   );
 }

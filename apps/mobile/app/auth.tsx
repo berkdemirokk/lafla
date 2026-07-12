@@ -1168,11 +1168,11 @@ const chipStyles = StyleSheet.create({
   },
   wrapError: {
     backgroundColor: tokens.semantic.errorContainer,
-    borderColor: "rgba(255, 77, 109, 0.35)",
+    borderColor: tokens.semantic.error,
   },
   wrapInfo: {
     backgroundColor: tokens.brand.primarySoft,
-    borderColor: "rgba(255, 6, 122, 0.35)",
+    borderColor: tokens.brand.primary,
   },
   text: {
     fontSize: 13,
@@ -1183,6 +1183,6 @@ const chipStyles = StyleSheet.create({
     color: tokens.semantic.onErrorContainer,
   },
   textInfo: {
-    color: "#ffb7d8",
+    color: tokens.brand.primary,
   },
 });

@@ -13,8 +13,10 @@ import {
 
 import { isPremium, subscribePremiumChange } from "../lib/iap";
 import { getBannerUnitId } from "../lib/ads";
+import { useTranslation } from "../lib/i18n";
 
 export function AdBanner() {
+  const { t } = useTranslation();
   const [show, setShow] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export function AdBanner() {
   if (show !== true) return null;
 
   return (
-    <View accessibilityLabel="Reklam alanı (Lafla Pro ile kalkar)">
+    <View accessibilityLabel={t("ads.banner_label")}>
       <BannerAd
         unitId={getBannerUnitId()}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}

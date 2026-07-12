@@ -411,7 +411,7 @@ Voice Journal (/voice-journal): users can record up to 2-minute audio entries; s
 
 Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → immediate deletion via Supabase edge function. No 30-day grace.
 
-The 971 guided scenarios are pre-authored and scored on-device. The separate optional Free Chat screen sends recent conversation text through the authenticated Supabase llm-chat Edge Function to an AI provider; no email or profile fields are added to provider requests. Input/output safety filters are applied. Voice Journal audio remains local.
+The 971 guided scenarios are pre-authored and scored on-device. Free Chat, Emergency English, and custom-scenario generation also run on-device with deterministic intent, entity, and conversation-state rules. Text entered in those tools is not sent to an AI provider or Lafla server. Input/output safety filters are applied locally. Voice Journal audio remains local.
 
 Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: berkkdemirok@gmail.com (Istanbul business hours, <4h response).
 ```

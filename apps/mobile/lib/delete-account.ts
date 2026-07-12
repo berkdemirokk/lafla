@@ -20,9 +20,11 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
+import * as SecureStore from "expo-secure-store";
 import { supabase, isSupabaseConfigured } from "./supabase";
 import { getLocalProfile, getAllLessonState } from "./local-progress";
-import { isPremium } from "./iap";
+import { isPremium, setUserId as setRevenueCatUserId } from "./iap";
+import { clearAll as clearVoiceJournal } from "./voice-journal";
 
 const SUPABASE_URL =
   Constants.expoConfig?.extra?.supabaseUrl ??
@@ -37,6 +39,7 @@ const SUPABASE_ANON_KEY =
 // (mirrors metrics.ts; we don't import to avoid circular & to keep this lib
 // lean enough to call from a teardown context).
 const FALLBACK_LESSON_MINUTES = 4;
+const SECURE_STORE_USER_KEYS = ["lafla.apple.credentials.v1"];
 
 export interface DeletePreview {
   scenes_completed: number;
@@ -174,13 +177,21 @@ export async function deleteAccountInstant(): Promise<DeleteResult> {
 // Removes every AsyncStorage key beginning with "lafla." so a re-install or
 // re-signup starts clean. We use multiRemove for a single I/O batch.
 async function clearAllLocalLaflaKeys(): Promise<void> {
-  try {
-    const allKeys = await AsyncStorage.getAllKeys();
-    const ours = allKeys.filter((k) => k.startsWith("lafla."));
-    if (ours.length > 0) {
-      await AsyncStorage.multiRemove(ours);
-    }
-  } catch {
-    // best effort — failure here shouldn't block the success return.
-  }
+  // The index is an AsyncStorage key, so remove physical recordings first.
+  await clearVoiceJournal().catch(() => {});
+  await Promise.all([
+    (async () => {
+      try {
+        const allKeys = await AsyncStorage.getAllKeys();
+        const ours = allKeys.filter((key) => key.startsWith("lafla."));
+        if (ours.length > 0) await AsyncStorage.multiRemove(ours);
+      } catch {
+        // The server-side deletion has already succeeded; keep tearing down.
+      }
+    })(),
+    setRevenueCatUserId(null).catch(() => {}),
+    ...SECURE_STORE_USER_KEYS.map((key) =>
+      SecureStore.deleteItemAsync(key).catch(() => {}),
+    ),
+  ]);
 }

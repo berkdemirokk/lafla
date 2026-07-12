@@ -17,6 +17,7 @@ import {
 } from "react-native";
 
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 export interface ShareCardProps {
   assessment: string;
@@ -38,14 +39,14 @@ const MODE_EMOJI: Record<string, string> = {
   ielts: "🎓",
 };
 
-const MODE_LABEL: Record<string, string> = {
-  flirt: "Flört",
-  work: "İş",
-  bar: "Bar",
-  airport: "Havaalanı",
-  daily: "Günlük",
-  order: "Sipariş",
-  ielts: "IELTS",
+const MODE_LABEL_KEYS: Record<string, string> = {
+  flirt: "mode.flirt",
+  work: "mode.work",
+  bar: "mode.bar",
+  airport: "mode.airport",
+  daily: "mode.daily",
+  order: "mode.order",
+  ielts: "mode.ielts",
 };
 
 /**
@@ -58,20 +59,23 @@ export const ShareCard = forwardRef<View, ShareCardProps>(function ShareCard(
   { assessment, cefrLevel, cefrProgress, sceneTitle, sceneMode, userName, style },
   ref,
 ) {
+  const { t } = useTranslation();
   const emoji = MODE_EMOJI[sceneMode] ?? "🎯";
-  const modeLabel = MODE_LABEL[sceneMode] ?? sceneMode;
+  const modeLabel = MODE_LABEL_KEYS[sceneMode]
+    ? t(MODE_LABEL_KEYS[sceneMode])
+    : sceneMode;
   const cefrDisplay = cefrLevel
     ? `${cefrLevel}+${cefrProgress.toFixed(2)}`
     : "—";
   // 2026-05-24 — fallback "Berk" → "Sen" (dev'in adı production'a sızıyordu).
-  const name = userName?.trim() || "Sen";
+  const name = userName?.trim() || t("share_card.you");
 
   return (
     <View ref={ref} style={[styles.card, style]} collapsable={false}>
       {/* Top — Lafla wordmark + tagline */}
       <View style={styles.topBar}>
         <Text style={styles.wordmark}>Lafla</Text>
-        <Text style={styles.tagline}>Donma. Konuş.</Text>
+        <Text style={styles.tagline}>{t("tagline")}</Text>
       </View>
 
       {/* Hero — büyük skor + CEFR */}
@@ -94,7 +98,7 @@ export const ShareCard = forwardRef<View, ShareCardProps>(function ShareCard(
       {/* Footer — kişisel mesaj + CTA */}
       <View style={styles.footer}>
         <Text style={styles.userName}>— {name}</Text>
-        <Text style={styles.cta}>İngilizce konuşurken donmadın mı?{"\n"}lafla.app</Text>
+        <Text style={styles.cta}>{t("share_card.cta")}{"\n"}lafla.app</Text>
       </View>
     </View>
   );

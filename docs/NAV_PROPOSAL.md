@@ -48,7 +48,7 @@ Sohbet'i bottom nav'a almayıp **Profil ekranından veya Akış üst barından**
 
 **Olası giriş noktaları:**
 - `feed.tsx` topBar'a yeni bir 💬 ikonu (sağda, ⚙'den önce).
-- `profile.tsx` içinde "AI Sohbet" satırı (settings/help benzeri).
+- `profile.tsx` içinde "Serbest Sohbet" satırı (settings/help benzeri).
 - Akış'ın FAB'ı (floating action button) — yeni komponent gerektirir.
 
 **Pro:**
@@ -57,7 +57,7 @@ Sohbet'i bottom nav'a almayıp **Profil ekranından veya Akış üst barından**
 - Mevcut kullanıcı için sıfır öğrenme eğrisi.
 
 **Con:**
-- AI Sohbet, ürünün **hero özelliği** olmasına rağmen gizli kalır → düşük keşif (low discovery).
+- Serbest Sohbet, ürünün **hero özelliği** olmasına rağmen gizli kalır → düşük keşif (low discovery).
 - Yeni kullanıcı onboarding'te Sohbet'i bulamayabilir → activation metrikleri zayıflar.
 - Top bar zaten dolu (avatar + brand + ⚙); 4. ikon görsel olarak sıkışır.
 
@@ -86,7 +86,7 @@ Sohbet'i bottom nav'a almayıp **Profil ekranından veya Akış üst barından**
 
 **5-tab.** Gerekçeler:
 
-1. **Sohbet hero feature** — Lafla'nın diferansiyatörü "Turkish-first English app + AI conversation". FreeChat'i gizlemek, ürünün ana satış vaadini gömmek demek.
+1. **Sohbet hero feature** — Lafla'nın diferansiyatörü "Turkish-first English app + cihaz-içi akıllı konuşma". FreeChat'i gizlemek, ürünün ana satış vaadini gömmek demek.
 2. **Discovery ≫ visual breathing room** — Bottom nav'in işlevi keşfettirmek; estetik ikincil. 5 tab, Duolingo, Babbel, Cake gibi yarışmacıların standardı.
 3. **Düşük geri dönülmez maliyet** — Karar yanlışsa, env flag ile ~5 dakikada 4-tab'a geri sarılabilir (bkz. §8 A/B plan).
 4. **Activation telemetrisi gerekli** — Şu an FreeChat'in DAU/erişim oranı bilinmiyor; bottom nav'a koyup ölçmek, gerçek veriyi açar.

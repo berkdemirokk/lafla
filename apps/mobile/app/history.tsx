@@ -4,7 +4,7 @@
 // rakamlar var (XP, streak, completed count) ama drill-down yok. Bu ekran
 // son 200 sahne completion'ını gösterir, mode filtresi ile.
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -25,16 +25,8 @@ import {
   type SceneHistoryEntry,
 } from "../lib/scene-history";
 import type { SceneMode } from "../data/scenes";
-
-const MODE_LABEL: Record<SceneMode, string> = {
-  flirt: "Flört",
-  work: "İş",
-  bar: "Bar",
-  airport: "Havaalanı",
-  daily: "Günlük",
-  order: "Sipariş",
-  ielts: "IELTS",
-};
+import { useTranslation, type Locale } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 const MODE_EMOJI: Record<SceneMode, string> = {
   flirt: "💕",
@@ -50,6 +42,7 @@ type ModeFilter = "all" | SceneMode;
 
 export default function HistoryScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [entries, setEntries] = useState<SceneHistoryEntry[]>([]);
   const [summary, setSummary] = useState({
     total: 0,
@@ -58,14 +51,20 @@ export default function HistoryScreen() {
     topMode: null as SceneMode | null,
   });
   const [filter, setFilter] = useState<ModeFilter>("all");
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
-  useEffect(() => {
-    (async () => {
+  const load = useCallback(async () => {
+    setStatus("loading");
+    try {
       const [h, s] = await Promise.all([readHistory(), getHistorySummary()]);
       setEntries(h);
       setSummary(s);
-    })();
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
+  useEffect(() => { void load(); }, [load]);
 
   const filtered = useMemo(() => {
     if (filter === "all") return entries;
@@ -81,7 +80,7 @@ export default function HistoryScreen() {
 
   const renderItem = ({ item }: ListRenderItemInfo<SceneHistoryEntry>) => {
     const date = new Date(item.completedAt);
-    const dateLabel = formatRelativeDate(date);
+    const dateLabel = formatRelativeDate(date, locale);
     const scoreColor =
       item.score >= 75
         ? tokens.brand.tertiary
@@ -96,7 +95,7 @@ export default function HistoryScreen() {
         ]}
         onPress={() => router.push(`/scenario/${item.lessonId}` as never)}
         accessibilityRole="button"
-        accessibilityLabel={`${item.title} sahnesi, ${item.score} puan, ${dateLabel}`}
+        accessibilityLabel={t("history.scene_label", { title: item.title, score: String(item.score), date: dateLabel })}
       >
         <Text style={styles.rowEmoji}>{item.emoji ?? MODE_EMOJI[item.mode]}</Text>
         <View style={styles.rowMiddle}>
@@ -104,7 +103,7 @@ export default function HistoryScreen() {
             {item.title.replace(/\n/g, " ")}
           </Text>
           <Text style={styles.rowMeta}>
-            {MODE_LABEL[item.mode]} · {dateLabel}
+            {t(`mode.${item.mode}`)} · {dateLabel}
           </Text>
         </View>
         <View style={[styles.scorePill, { borderColor: scoreColor }]}>
@@ -126,34 +125,37 @@ export default function HistoryScreen() {
           onPress={() => router.back()}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
           style={styles.backBtn}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.title}>Geçmiş</Text>
+        <Text style={styles.title}>{t("history.title")}</Text>
         <View style={styles.backBtn} />
       </View>
 
+      {status !== "ready" ? (
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      ) : <>
       {/* Summary */}
       <View style={styles.summaryRow}>
         <View style={styles.summaryCell}>
           <Text style={styles.summaryNum}>{summary.total}</Text>
-          <Text style={styles.summaryLbl}>toplam</Text>
+          <Text style={styles.summaryLbl}>{t("history.total")}</Text>
         </View>
         <View style={styles.summaryCell}>
           <Text style={styles.summaryNum}>{summary.thisWeek}</Text>
-          <Text style={styles.summaryLbl}>bu hafta</Text>
+          <Text style={styles.summaryLbl}>{t("history.this_week")}</Text>
         </View>
         <View style={styles.summaryCell}>
           <Text style={styles.summaryNum}>{summary.avgScore}</Text>
-          <Text style={styles.summaryLbl}>ort. skor</Text>
+          <Text style={styles.summaryLbl}>{t("history.avg_score")}</Text>
         </View>
         <View style={styles.summaryCell}>
           <Text style={styles.summaryNum}>
             {summary.topMode ? MODE_EMOJI[summary.topMode] : "—"}
           </Text>
-          <Text style={styles.summaryLbl}>en sık mod</Text>
+          <Text style={styles.summaryLbl}>{t("history.top_mode")}</Text>
         </View>
       </View>
 
@@ -165,14 +167,16 @@ export default function HistoryScreen() {
           contentContainerStyle={styles.filterRow}
         >
           <FilterChip
-            label="Hepsi"
+            label={t("history.all")}
+            accessibilityLabel={t("history.filter_label", { filter: t("history.all") })}
             active={filter === "all"}
             onPress={() => setFilter("all")}
           />
           {availableModes.map((m) => (
             <FilterChip
               key={m}
-              label={`${MODE_EMOJI[m]} ${MODE_LABEL[m]}`}
+              label={`${MODE_EMOJI[m]} ${t(`mode.${m}`)}`}
+              accessibilityLabel={t("history.filter_label", { filter: t(`mode.${m}`) })}
               active={filter === m}
               onPress={() => setFilter(m)}
             />
@@ -184,10 +188,8 @@ export default function HistoryScreen() {
       {filtered.length === 0 ? (
         <View style={styles.emptyWrap}>
           <Text style={styles.emptyEmoji}>📭</Text>
-          <Text style={styles.emptyTitle}>Henüz bir sahne yapmadın</Text>
-          <Text style={styles.emptySub}>
-            Anasayfaya dön, ilk sahnene gir — sonuçlar burada birikecek.
-          </Text>
+          <Text style={styles.emptyTitle}>{t("history.empty_title")}</Text>
+          <Text style={styles.emptySub}>{t("history.empty_body")}</Text>
         </View>
       ) : (
         <FlatList
@@ -197,16 +199,19 @@ export default function HistoryScreen() {
           contentContainerStyle={styles.listContent}
         />
       )}
+      </>}
     </SafeAreaView>
   );
 }
 
 function FilterChip({
   label,
+  accessibilityLabel,
   active,
   onPress,
 }: {
   label: string;
+  accessibilityLabel: string;
   active: boolean;
   onPress: () => void;
 }) {
@@ -219,7 +224,7 @@ function FilterChip({
         pressed && !active && styles.chipPressed,
       ]}
       accessibilityRole="button"
-      accessibilityLabel={`${label} filtresi`}
+      accessibilityLabel={accessibilityLabel}
       accessibilityState={{ selected: active }}
     >
       <Text style={[styles.chipText, active && styles.chipTextActive]}>
@@ -230,19 +235,18 @@ function FilterChip({
 }
 
 // Türkçe relative date — "5 dk önce", "dün", "3 gün önce", "geçen hafta", etc.
-function formatRelativeDate(d: Date): string {
+function formatRelativeDate(d: Date, locale: Locale): string {
   const diffMs = Date.now() - d.getTime();
   const diffMin = Math.floor(diffMs / 60000);
-  if (diffMin < 1) return "şimdi";
-  if (diffMin < 60) return `${diffMin} dk önce`;
+  const formatter = new Intl.RelativeTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { numeric: "auto" });
+  if (diffMin < 1) return formatter.format(0, "minute");
+  if (diffMin < 60) return formatter.format(-diffMin, "minute");
   const diffH = Math.floor(diffMin / 60);
-  if (diffH < 24) return `${diffH} saat önce`;
+  if (diffH < 24) return formatter.format(-diffH, "hour");
   const diffD = Math.floor(diffH / 24);
-  if (diffD === 1) return "dün";
-  if (diffD < 7) return `${diffD} gün önce`;
-  if (diffD < 30) return `${Math.floor(diffD / 7)} hafta önce`;
-  // Daha eski → DD MMM
-  return d.toLocaleDateString("tr-TR", { day: "numeric", month: "short" });
+  if (diffD < 7) return formatter.format(-diffD, "day");
+  if (diffD < 30) return formatter.format(-Math.floor(diffD / 7), "week");
+  return d.toLocaleDateString(locale === "tr" ? "tr-TR" : "en-US", { day: "numeric", month: "short" });
 }
 
 const styles = StyleSheet.create({

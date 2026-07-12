@@ -7,7 +7,7 @@
 // Free: locked preview + paywall
 // Premium: top 5 zayıflık + her biri için ne yapacağı + drill önerisi
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -23,6 +23,8 @@ import { tokens } from "../theme";
 import { isPremium } from "../lib/iap";
 import { getMistakeDNA } from "../lib/mistake-dna";
 import { PRO_MONTHLY_PRICE_COMPACT } from "../lib/monetization";
+import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 interface WeaknessRow {
   patternId: string;
@@ -35,17 +37,20 @@ interface WeaknessRow {
 
 export default function WeaknessReportScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [premium, setPremium] = useState<boolean | null>(null);
   const [rows, setRows] = useState<WeaknessRow[]>([]);
   const [focusLabel, setFocusLabel] = useState("");
   const [totalRecent, setTotalRecent] = useState(0);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
-  useEffect(() => {
-    (async () => {
-      const isP = await isPremium().catch(() => false);
+  const load = useCallback(async () => {
+    setStatus("loading");
+    try {
+      const isP = await isPremium();
       setPremium(isP);
       if (isP) {
-        const dna = await getMistakeDNA(21).catch(() => null);
+        const dna = await getMistakeDNA(21);
         const enriched = (dna?.items ?? []).map<WeaknessRow>((item) => ({
           patternId: item.pattern.id,
           count: item.recentCount,
@@ -58,11 +63,23 @@ export default function WeaknessReportScreen() {
         setTotalRecent(dna?.totalRecent ?? 0);
         setRows(enriched);
       }
-    })();
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
+  useEffect(() => { void load(); }, [load]);
 
-  if (premium === null) {
-    return <SafeAreaView style={styles.safe} edges={["top", "bottom"]} />;
+  if (status !== "ready" || premium === null) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState
+          status={status === "ready" ? "loading" : status}
+          onRetry={() => void load()}
+        />
+      </SafeAreaView>
+    );
   }
 
   return (
@@ -75,11 +92,11 @@ export default function WeaknessReportScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.title}>Hata DNA’n</Text>
+        <Text style={styles.title}>{t("weakness.title")}</Text>
         <View style={styles.backBtn} />
       </View>
 
@@ -102,51 +119,52 @@ export default function WeaknessReportScreen() {
 }
 
 function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
+  const { t } = useTranslation();
   return (
     <View>
       <View style={styles.lockHero}>
         <Text style={styles.lockEmoji}>📊</Text>
-        <Text style={styles.lockTitle}>Hangi hatayı{"\n"}tekrar tekrar yapıyorsun?</Text>
+        <Text style={styles.lockTitle}>{t("weakness.hero")}</Text>
       </View>
 
       <View style={styles.previewCard}>
-        <Text style={styles.previewLabel}>ÖRNEK (PREMIUM)</Text>
+        <Text style={styles.previewLabel}>{t("weakness.sample")}</Text>
         <PreviewWeakness
           rank={1}
           count={18}
-          reason="Present perfect yerine past simple kullanıyorsun"
+          reason={t("weakness.preview.present_perfect")}
           example="'I lived here for 3 years' → 'I've lived here for 3 years'"
         />
         <PreviewWeakness
           rank={2}
           count={11}
-          reason="'I am agree' yanlış — be verb yok"
+          reason={t("weakness.preview.agree")}
           example="'I am agree' → 'I agree'"
         />
         <PreviewWeakness
           rank={3}
           count={9}
-          reason="'According to me' Türkçe etkisi"
+          reason={t("weakness.preview.opinion")}
           example="'According to me' → 'In my opinion'"
         />
       </View>
 
       <View style={styles.benefitsCard}>
-        <Text style={styles.benefitsTitle}>Lafla Pro ile açılan:</Text>
-        <BenefitLine icon="📊" text="Top 5 zayıflığın — sıralı, sayılı" />
-        <BenefitLine icon="🎯" text="Her hatanın doğru karşılığı" />
-        <BenefitLine icon="📚" text="Drill önerisi — bu hatayı çözecek sahneler" />
-        <BenefitLine icon="📈" text="Haftalık ilerleme — düzeliyor mu?" />
+        <Text style={styles.benefitsTitle}>{t("ielts_band.unlocked")}</Text>
+        <BenefitLine icon="📊" text={t("weakness.benefit_top")} />
+        <BenefitLine icon="🎯" text={t("weakness.benefit_correct")} />
+        <BenefitLine icon="📚" text={t("weakness.benefit_drill")} />
+        <BenefitLine icon="📈" text={t("weakness.benefit_progress")} />
       </View>
 
       <Pressable
         onPress={onUpgrade}
         style={({ pressed }) => [styles.cta, pressed && { opacity: 0.88 }]}
         accessibilityRole="button"
-        accessibilityLabel="Lafla Pro ile aç"
+        accessibilityLabel={t("ielts_band.unlock")}
       >
         <Text style={styles.ctaText}>
-          Lafla Pro ile aç — {PRO_MONTHLY_PRICE_COMPACT}
+          {t("ielts_band.unlock_price", { price: PRO_MONTHLY_PRICE_COMPACT })}
         </Text>
       </Pressable>
     </View>
@@ -154,21 +172,21 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
 }
 
 function NoDataYet({ onGo }: { onGo: () => void }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.notReadyWrap}>
       <Text style={styles.notReadyEmoji}>✨</Text>
-      <Text style={styles.notReadyTitle}>Henüz yakalanan hata yok</Text>
+      <Text style={styles.notReadyTitle}>{t("weakness.empty_title")}</Text>
       <Text style={styles.notReadySub}>
-        Birkaç sahne tamamladığında hatalar burada birikecek. Düzenli pratiğe
-        devam et — rapor bir hafta sonra anlamlı olur.
+        {t("weakness.empty_body")}
       </Text>
       <Pressable
         onPress={onGo}
         style={({ pressed }) => [styles.cta, pressed && { opacity: 0.88 }]}
         accessibilityRole="button"
-        accessibilityLabel="Bugüne git"
+        accessibilityLabel={t("weakness.go_today")}
       >
-        <Text style={styles.ctaText}>Bugüne git</Text>
+        <Text style={styles.ctaText}>{t("weakness.go_today")}</Text>
       </Pressable>
     </View>
   );
@@ -185,13 +203,14 @@ function Report({
   totalRecent: number;
   onTrain: () => void;
 }) {
+  const { t, locale } = useTranslation();
   return (
     <View>
       <View style={styles.summaryCard}>
-        <Text style={styles.summaryLabel}>SON 3 HAFTADAKİ HATA DNA’N</Text>
+        <Text style={styles.summaryLabel}>{t("weakness.summary")}</Text>
         <Text style={styles.summaryNum}>{totalRecent}</Text>
         <Text style={styles.summarySub}>
-          Ana odağın: {focusLabel}. Bugün yalnızca bunu çalışacağız.
+          {t("weakness.focus", { focus: focusLabel || t("weakness.general_focus") })}
         </Text>
       </View>
 
@@ -199,10 +218,10 @@ function Report({
         onPress={onTrain}
         style={({ pressed }) => [styles.coachCta, pressed && { opacity: 0.88 }]}
         accessibilityRole="button"
-        accessibilityLabel="Üç dakikalık kişisel çalışmayı başlat"
+        accessibilityLabel={t("weakness.start_label")}
       >
-        <Text style={styles.coachCtaEyebrow}>SANA ÖZEL · 3 DAKİKA</Text>
-        <Text style={styles.coachCtaTitle}>Tek odaklı çalışmayı başlat →</Text>
+        <Text style={styles.coachCtaEyebrow}>{t("weakness.coach_eyebrow")}</Text>
+        <Text style={styles.coachCtaTitle}>{t("weakness.coach_title")}</Text>
       </Pressable>
 
       {rows.map((row, i) => (
@@ -213,7 +232,9 @@ function Report({
               <Text style={styles.weaknessCountText}>{row.count}×</Text>
             </View>
           </View>
-          <Text style={styles.weaknessReason}>{row.reason_tr}</Text>
+          <Text style={styles.weaknessReason}>
+            {locale === "tr" ? row.reason_tr : t("learning.mistake_fallback_en")}
+          </Text>
           {row.example_wrong && (
             <Text style={styles.weaknessWrong}>✗ {row.example_wrong}</Text>
           )}
@@ -222,8 +243,7 @@ function Report({
       ))}
 
       <Text style={styles.disclaimer}>
-        Bu rapor son 21 günlük verilere bakar. Hata azalırsa liste yenilenir —
-        düzeldiğini buradan göreceksin.
+        {t("weakness.disclaimer")}
       </Text>
     </View>
   );

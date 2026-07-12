@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { Animated, Text, View, StyleSheet, Pressable } from "react-native";
 import { tokens } from "../theme";
 import type { AchievementDef } from "../lib/achievements";
+import { useTranslation } from "../lib/i18n";
 
 interface Props {
   achievement: AchievementDef | null;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export function AchievementToast({ achievement, onDismiss }: Props) {
+  const { t } = useTranslation();
   const translateY = useRef(new Animated.Value(-120)).current;
   const opacity = useRef(new Animated.Value(0)).current;
 
@@ -65,11 +67,14 @@ export function AchievementToast({ achievement, onDismiss }: Props) {
         onPress={onDismiss}
         style={styles.toast}
         accessibilityRole="button"
-        accessibilityLabel={`Kilometre taşı: ${achievement.title}. ${achievement.description}`}
-        accessibilityHint="Bildirimi kapatır"
+        accessibilityLabel={t("achievement.accessibility", {
+          title: achievement.title,
+          description: achievement.description,
+        })}
+        accessibilityHint={t("achievement.dismiss_hint")}
       >
         <View style={styles.text}>
-          <Text style={styles.unlocked}>KİLOMETRE TAŞI</Text>
+          <Text style={styles.unlocked}>{t("achievement.milestone")}</Text>
           <Text style={styles.title}>{achievement.title}</Text>
           <Text style={styles.desc} numberOfLines={2}>
             {achievement.description}
@@ -97,7 +102,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.08)",
+    borderColor: tokens.brand.primaryFixed,
     shadowColor: tokens.brand.secondary,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
@@ -108,20 +113,21 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   unlocked: {
-    color: tokens.brand.primary,
+    color: tokens.brand.onSecondary,
     fontSize: 11,
     fontWeight: tokens.weight.bold,
     letterSpacing: 1.5,
     marginBottom: 2,
   },
   title: {
-    color: tokens.text.primary,
+    color: tokens.brand.onSecondary,
     fontSize: 18,
     fontWeight: tokens.weight.extrabold,
     marginBottom: 2,
   },
   desc: {
-    color: tokens.text.secondaryFixedDim,
+    color: tokens.brand.onSecondary,
+    opacity: 0.72,
     fontSize: 13,
     lineHeight: 18,
   },

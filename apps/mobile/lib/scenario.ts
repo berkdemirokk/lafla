@@ -8,7 +8,11 @@
 //   4. VERDICT: Sonuç + sonraki tekrar
 
 import { allLessons, type BundledLesson } from "../data/lessons";
-import { SAMPLE_SCENES, type CefrLevel } from "../data/scenes";
+import {
+  LESSON_LEVEL_OVERRIDES,
+  SAMPLE_SCENES,
+  type CefrLevel,
+} from "../data/scenes";
 import { normalizeRoleplayPatterns } from "./roleplay-pattern";
 import {
   calibrateScenarioLevel,
@@ -25,6 +29,9 @@ import {
 const _lessonLevelMap = new Map<string, CefrLevel>();
 for (const s of SAMPLE_SCENES) {
   if (s.cefrLevel) _lessonLevelMap.set(s.lessonId, s.cefrLevel);
+}
+for (const [lessonId, level] of Object.entries(LESSON_LEVEL_OVERRIDES)) {
+  _lessonLevelMap.set(lessonId, level);
 }
 
 export interface SetupPhrase {

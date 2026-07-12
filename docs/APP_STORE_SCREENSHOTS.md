@@ -70,7 +70,7 @@ All 10 screenshots share:
 **On screen:**
 - Mid-conversation chat screen
 - User bubble (right, purple): *"I have been there twice last summer"* — with red underline on `have been ... last summer`
-- Below, AI partner bubble (left, gray): *"Oh nice! Where exactly?"*
+- Below, conversation-partner bubble (left, gray): *"Oh nice! Where exactly?"*
 - Bottom: correction card sliding up from below
   - Header: **Düzeltme** / *Correction*
   - Old: `have been ... last summer`

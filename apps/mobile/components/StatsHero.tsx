@@ -20,12 +20,14 @@ import {
   formatVocabCount,
   type UserMetrics,
 } from "../lib/metrics";
+import { useTranslation } from "../lib/i18n";
 
 interface StatsHeroProps {
   metrics: UserMetrics | null;
 }
 
 export function StatsHero({ metrics }: StatsHeroProps) {
+  const { t } = useTranslation();
   const practice = metrics ? formatPracticeMinutes(metrics.totalPracticeMinutes) : "—";
   const vocab = metrics ? formatVocabCount(metrics.activeVocabSize) : "—";
   const scenes = metrics
@@ -35,10 +37,10 @@ export function StatsHero({ metrics }: StatsHeroProps) {
 
   return (
     <View style={styles.grid}>
-      <HeroTile value={practice} label="Toplam pratik" />
-      <HeroTile value={vocab} label="Aktif kelime" />
-      <HeroTile value={scenes} label="Sahne" />
-      <HeroTile value={consistency} label="Aktif gün (30g)" />
+      <HeroTile value={practice} label={t("stats.practice")} />
+      <HeroTile value={vocab} label={t("stats.active_words")} />
+      <HeroTile value={scenes} label={t("stats.scenes")} />
+      <HeroTile value={consistency} label={t("stats.active_days")} />
     </View>
   );
 }

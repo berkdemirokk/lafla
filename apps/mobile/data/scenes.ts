@@ -31,6 +31,15 @@ import { storyArcV2Scenes } from "./story-arc-v2-scenes";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
+/**
+ * Lessons that are intentionally outside the swipe-feed registry still need
+ * an authored CEFR anchor. The forced onboarding roleplay is the only such
+ * lesson today; keeping it explicit prevents silent inference drift.
+ */
+export const LESSON_LEVEL_OVERRIDES: Readonly<Record<string, CefrLevel>> = {
+  "intro.match.0.1": "A2",
+};
+
 // Six user-facing modes (post-2026-05-20 radical cut).
 // Migration table for old SceneMode values, used in adım 8:
 //   banter   + bar context   → bar

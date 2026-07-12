@@ -11,6 +11,7 @@ import {
 import { addBreadcrumb } from "../lib/sentry";
 import { getCrisisResources } from "../lib/safety-filter";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 interface CrisisModalProps {
   visible: boolean;
@@ -18,6 +19,7 @@ interface CrisisModalProps {
 }
 
 export function CrisisModal({ visible, onClose }: CrisisModalProps) {
+  const { t, locale } = useTranslation();
   const resources = getCrisisResources();
 
   useEffect(() => {
@@ -42,9 +44,13 @@ export function CrisisModal({ visible, onClose }: CrisisModalProps) {
       onRequestClose={onClose}
     >
       <View style={styles.container}>
-        <Text style={styles.eyebrow}>Destek</Text>
-        <Text style={styles.title}>{resources.title}</Text>
-        <Text style={styles.message}>{resources.message}</Text>
+        <Text style={styles.eyebrow}>{t("safety.support")}</Text>
+        <Text style={styles.title}>
+          {locale === "tr" ? resources.title : t("safety.crisis_title")}
+        </Text>
+        <Text style={styles.message}>
+          {locale === "tr" ? resources.message : t("safety.crisis_message")}
+        </Text>
 
         <View style={styles.list}>
           {resources.lines.map((line) => (
@@ -53,7 +59,10 @@ export function CrisisModal({ visible, onClose }: CrisisModalProps) {
               style={styles.callButton}
               onPress={() => void handleCall(line.number)}
               accessibilityRole="button"
-              accessibilityLabel={`${line.name} ${line.number} numarasını ara`}
+              accessibilityLabel={t("safety.call_label", {
+                name: line.name,
+                number: line.number,
+              })}
             >
               <Text style={styles.callName}>{line.name}</Text>
               <Text style={styles.callNumber}>{line.number}</Text>
@@ -65,9 +74,9 @@ export function CrisisModal({ visible, onClose }: CrisisModalProps) {
           style={styles.closeButton}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Lafla'ya dön"
+          accessibilityLabel={t("safety.back_to_lafla")}
         >
-          <Text style={styles.closeText}>Lafla'ya dön</Text>
+          <Text style={styles.closeText}>{t("safety.back_to_lafla")}</Text>
         </Pressable>
       </View>
     </Modal>

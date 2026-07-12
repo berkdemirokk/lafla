@@ -41,3 +41,7 @@ verify_jwt = false
 
 [functions.revenuecat-sync]
 verify_jwt = true
+
+# Compatibility tombstone only; returns HTTP 410 and never calls a provider.
+[functions.llm-chat]
+verify_jwt = true

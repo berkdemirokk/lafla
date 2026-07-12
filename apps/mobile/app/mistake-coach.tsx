@@ -21,6 +21,7 @@ import {
   markIncorrectAttempt,
 } from "../lib/mistake-tracker";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 function normalize(value: string): string {
   return value
@@ -40,6 +41,7 @@ function acceptedCorrections(example: string): string[] {
 
 export default function MistakeCoachScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [dna, setDna] = useState<MistakeDNA | null | undefined>(undefined);
   const [step, setStep] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
@@ -117,52 +119,58 @@ export default function MistakeCoachScreen() {
           onPress={() => router.back()}
           style={styles.backBtn}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>Tek Odaklı Koç</Text>
+        <Text style={styles.headerTitle}>{t("mistake_coach.title")}</Text>
         <View style={styles.backBtn} />
       </View>
 
       {!focus || !dna ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyTitle}>Henüz çalışma gerektiren hata yok</Text>
+          <Text style={styles.emptyTitle}>{t("mistake_coach.empty_title")}</Text>
           <Text style={styles.emptyText}>
-            Roleplay yaptıkça Lafla son üç haftadaki tekrar eden hatalarını burada
-            tek bir çalışmaya dönüştürecek.
+            {t("mistake_coach.empty_body")}
           </Text>
-          <Button label="Bugüne dön" onPress={() => router.replace("/today" as never)} />
+          <Button label={t("mistake_coach.back_today")} onPress={() => router.replace("/today" as never)} />
         </View>
       ) : finished ? (
         <View style={styles.empty}>
-          <Text style={styles.doneEyebrow}>3 DAKİKALIK ODAK TAMAMLANDI</Text>
+          <Text style={styles.doneEyebrow}>{t("mistake_coach.done")}</Text>
           <Text style={styles.doneScore}>{correctCount}/3</Text>
-          <Text style={styles.emptyTitle}>{dna.dominantLabelTr}</Text>
+          <Text style={styles.emptyTitle}>
+            {locale === "tr" ? dna.dominantLabelTr : t("weakness.general_focus")}
+          </Text>
           <Text style={styles.emptyText}>
-            Bir sonraki konuşmada koç aynı yapıyı yeniden kontrol edecek.
+            {t("mistake_coach.done_body")}
           </Text>
           <SpeakerButton text={spokenCorrection} size="lg" />
-          <Button label="Bugüne dön" onPress={() => router.replace("/today" as never)} />
+          <Button label={t("mistake_coach.back_today")} onPress={() => router.replace("/today" as never)} />
         </View>
       ) : (
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           <View style={styles.progressRow}>
-            <Text style={styles.progressLabel}>BUGÜNÜN TEK ODAĞI</Text>
+            <Text style={styles.progressLabel}>{t("mistake_coach.focus")}</Text>
             <Text style={styles.progressValue}>{step + 1}/3</Text>
           </View>
-          <Text style={styles.focusTitle}>{dna.dominantLabelTr}</Text>
+          <Text style={styles.focusTitle}>
+            {locale === "tr" ? dna.dominantLabelTr : t("weakness.general_focus")}
+          </Text>
           <Text style={styles.focusMeta}>
-            Son {dna.windowDays} günde {focus.recentCount} kez yakalandı
+            {t("mistake_coach.detected", {
+              days: String(dna.windowDays),
+              count: String(focus.recentCount),
+            })}
           </Text>
 
           <View style={styles.questionCard}>
             <Text style={styles.questionTitle}>
               {step === 0
-                ? "Hangisi doğal ve doğru?"
+                ? t("mistake_coach.question_natural")
                 : step === 1
-                  ? "Hangi cümle düzeltilmeli?"
-                  : "Yanlış cümleyi doğru biçimde yeniden yaz"}
+                  ? t("mistake_coach.question_wrong")
+                  : t("mistake_coach.question_rewrite")}
             </Text>
 
             {step < 2 ? (
@@ -178,7 +186,7 @@ export default function MistakeCoachScreen() {
                       key={option}
                       disabled={correct !== null}
                       accessibilityRole="button"
-                      accessibilityLabel={`Yanıt seçeneği: ${option}`}
+                      accessibilityLabel={t("mistake_coach.option", { option })}
                       accessibilityState={{ selected: chosen, disabled: correct !== null }}
                       onPress={() => {
                         setSelected(option);
@@ -204,14 +212,14 @@ export default function MistakeCoachScreen() {
                   autoCapitalize="sentences"
                   autoCorrect={false}
                   multiline
-                  placeholder="Doğru cümleyi İngilizce yaz"
+                  placeholder={t("mistake_coach.placeholder")}
                   placeholderTextColor={tokens.text.tertiary}
                   style={styles.input}
-                  accessibilityLabel="Düzeltilmiş İngilizce cümle"
+                  accessibilityLabel={t("mistake_coach.input_label")}
                 />
                 {correct === null && (
                   <Button
-                    label="Kontrol et"
+                    label={t("exercise.check")}
                     disabled={!production.trim()}
                     onPress={() =>
                       recordAnswer(
@@ -233,9 +241,11 @@ export default function MistakeCoachScreen() {
                 ]}
               >
                 <Text style={styles.feedbackLabel}>
-                  {correct ? "Doğru" : "Bu yapıya odaklan"}
+                  {correct ? t("exercise.correct") : t("mistake_coach.focus_structure")}
                 </Text>
-                <Text style={styles.reason}>{focus.pattern.reason_tr}</Text>
+                <Text style={styles.reason}>
+                  {locale === "tr" ? focus.pattern.reason_tr : t("learning.mistake_fallback_en")}
+                </Text>
                 <View style={styles.answerRow}>
                   <Text style={styles.rightAnswer}>
                     ✓ {focus.pattern.example_right}
@@ -243,7 +253,7 @@ export default function MistakeCoachScreen() {
                   <SpeakerButton text={spokenCorrection} size="sm" />
                 </View>
                 <Button
-                  label={step === 2 ? "Çalışmayı bitir" : "Devam"}
+                  label={step === 2 ? t("mistake_coach.finish") : t("common.continue")}
                   onPress={continueDrill}
                 />
               </View>

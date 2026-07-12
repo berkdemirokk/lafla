@@ -26,67 +26,68 @@ import {
   type EmergencyAnswers,
 } from "../lib/real-life-tools";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 type ToolMode = "emergency" | "scenario";
 
-const EXAMPLES: Record<ToolMode, string[]> = {
+const EXAMPLE_KEYS: Record<ToolMode, string[]> = {
   emergency: [
-    "Patronuma gecikeceğimi söyleyeceğim",
-    "Toplantıyı başka güne almak istiyorum",
+    "real_life.example.late",
+    "real_life.example.reschedule",
   ],
   scenario: [
-    "Maaş görüşmesi yapacağım",
-    "Bu WhatsApp mesajına cevap provası: Yarın konuşabilir miyiz?",
+    "real_life.example.salary",
+    "real_life.example.whatsapp",
   ],
 };
 
 const QUICK_REQUESTS: ReadonlyArray<{
   mode: ToolMode;
-  title: string;
-  subtitle: string;
-  text: string;
+  titleKey: string;
+  subtitleKey: string;
+  textKey: string;
 }> = [
   {
     mode: "emergency",
-    title: "Patrona gecikme",
-    subtitle: "resmi + doğal + samimi",
-    text: "Patronuma 15 dakika gecikeceğimi nazikçe söyleyeceğim",
+    titleKey: "real_life.quick.late_title",
+    subtitleKey: "real_life.quick.late_subtitle",
+    textKey: "real_life.quick.late_text",
   },
   {
     mode: "emergency",
-    title: "Toplantıyı ertele",
-    subtitle: "kırmadan yeniden planla",
-    text: "Müşteri toplantısını başka güne almak istiyorum",
+    titleKey: "real_life.quick.reschedule_title",
+    subtitleKey: "real_life.quick.reschedule_subtitle",
+    textKey: "real_life.quick.reschedule_text",
   },
   {
     mode: "scenario",
-    title: "Maaş görüşmesi",
-    subtitle: "baskısız kısa prova",
-    text: "Yöneticimle maaş artışı konuşacağım; net ama saygılı olmak istiyorum",
+    titleKey: "real_life.quick.salary_title",
+    subtitleKey: "real_life.quick.salary_subtitle",
+    textKey: "real_life.quick.salary_text",
   },
   {
     mode: "scenario",
-    title: "WhatsApp cevabı",
-    subtitle: "mesajı doğal kur",
-    text: "Bu WhatsApp mesajına cevap provasını yap: Yarın konuşabilir miyiz?",
+    titleKey: "real_life.quick.whatsapp_title",
+    subtitleKey: "real_life.quick.whatsapp_subtitle",
+    textKey: "real_life.quick.whatsapp_text",
   },
 ];
 
-const TRUST_POINTS = [
-  { label: "30 sn", detail: "hemen cevap" },
-  { label: "3 ton", detail: "resmi / doğal / samimi" },
-  { label: "Sesli", detail: "dinle ve tekrar et" },
+const TRUST_POINT_KEYS = [
+  { labelKey: "real_life.trust.speed_label", detailKey: "real_life.trust.speed_detail" },
+  { labelKey: "real_life.trust.tones_label", detailKey: "real_life.trust.tones_detail" },
+  { labelKey: "real_life.trust.audio_label", detailKey: "real_life.trust.audio_detail" },
 ];
 
-const TONE_HINTS: Record<keyof EmergencyAnswers, string> = {
-  formal: "Patron, müşteri, resmi mail",
-  neutral: "Günlük iş ve sosyal kullanım",
-  friendly: "Arkadaş veya samimi ekip",
-  source: "",
+const TONE_HINT_KEYS: Record<"formal" | "neutral" | "friendly", string> = {
+  formal: "real_life.tone.formal_hint",
+  neutral: "real_life.tone.neutral_hint",
+  friendly: "real_life.tone.friendly_hint",
 };
 
 export default function RealLifeScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [mode, setMode] = useState<ToolMode>("emergency");
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -137,9 +138,9 @@ export default function RealLifeScreen() {
       }
     } catch (reason) {
       setError(
-        reason instanceof Error
+        locale === "tr" && reason instanceof Error
           ? reason.message
-          : "Bu isteği şu anda hazırlayamadım.",
+          : t("real_life.error_generate"),
       );
     } finally {
       setLoading(false);
@@ -157,34 +158,37 @@ export default function RealLifeScreen() {
             onPress={reset}
             style={styles.headerBtn}
             accessibilityRole="button"
-            accessibilityLabel="Senaryo oluşturma ekranına dön"
+            accessibilityLabel={t("real_life.back_to_builder")}
           >
-            <Text style={styles.headerBtnText}>← Yeni</Text>
+            <Text style={styles.headerBtnText}>← {t("real_life.new")}</Text>
           </Pressable>
           <Text style={styles.headerTitle} numberOfLines={1}>
-            {scenario.titleTr}
+            {locale === "tr" ? scenario.titleTr : t("real_life.custom_scenario_title")}
           </Text>
           <View style={styles.sourceBadge}>
             <Text style={styles.sourceBadgeText}>
-              {scenario.source === "ai" ? "ÖZEL" : "ÇEVRİMDIŞI"}
+              {t("real_life.source_local")}
             </Text>
           </View>
         </View>
         {scenarioResult ? (
           <View style={styles.doneWrap}>
-            <Text style={styles.doneEyebrow}>KİŞİSEL PROVA TAMAMLANDI</Text>
-            <Text style={styles.doneTitle}>Gerçek konuşmaya hazırsın</Text>
+            <Text style={styles.doneEyebrow}>{t("real_life.done_eyebrow")}</Text>
+            <Text style={styles.doneTitle}>{t("real_life.done_title")}</Text>
             <Text style={styles.doneText}>
-              {scenarioResult.mistakes?.[0]?.reason_tr ??
-                "Mesajını kısa, doğal ve anlaşılır biçimde kurdun."}
+              {locale === "tr" && scenarioResult.mistakes?.[0]?.reason_tr
+                ? scenarioResult.mistakes[0].reason_tr
+                : t("real_life.done_body")}
             </Text>
-            <Button label="Aynı durumu yeniden prova et" onPress={() => setScenarioResult(null)} />
-            <Button label="Yeni durum oluştur" variant="secondary" onPress={reset} />
+            <Button label={t("real_life.retry")} onPress={() => setScenarioResult(null)} />
+            <Button label={t("real_life.new_situation")} variant="secondary" onPress={reset} />
           </View>
         ) : (
           <View style={styles.roleplayWrap}>
             <RoleplayChat
-              scenarioDescription={scenario.descriptionTr}
+              scenarioDescription={
+                locale === "tr" ? scenario.descriptionTr : t("real_life.custom_scenario_description")
+              }
               npcRole={scenario.npcRole}
               setting={scenario.settingTr}
               turns={scenario.turns}
@@ -213,11 +217,11 @@ export default function RealLifeScreen() {
           onPress={() => router.back()}
           style={styles.headerBtn}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
-          <Text style={styles.headerBtnText}>← Geri</Text>
+          <Text style={styles.headerBtnText}>← {t("common.back")}</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>Gerçek Hayat</Text>
+        <Text style={styles.headerTitle}>{t("real_life.title")}</Text>
         <View style={styles.headerBtn} />
       </View>
 
@@ -232,7 +236,7 @@ export default function RealLifeScreen() {
           <View style={styles.segment}>
             <ModeButton
               active={mode === "emergency"}
-              label="Acil İngilizce"
+              label={t("real_life.emergency_tab")}
               onPress={() => {
                 setMode("emergency");
                 reset();
@@ -240,7 +244,7 @@ export default function RealLifeScreen() {
             />
             <ModeButton
               active={mode === "scenario"}
-              label="Kendi senaryon"
+              label={t("real_life.scenario_tab")}
               onPress={() => {
                 setMode("scenario");
                 reset();
@@ -250,46 +254,50 @@ export default function RealLifeScreen() {
 
           <View>
             <Text style={styles.eyebrow}>
-              {mode === "emergency" ? "ANINDA KULLAN" : "SANA ÖZEL PROVA"}
+              {mode === "emergency"
+                ? t("real_life.emergency_eyebrow")
+                : t("real_life.scenario_eyebrow")}
             </Text>
             <Text style={styles.title}>
               {mode === "emergency"
-                ? "Türkçe yaz, doğal İngilizceyi al."
-                : "Durumu veya mesajı yapıştır."}
+                ? t("real_life.emergency_title")
+                : t("real_life.scenario_title")}
             </Text>
             <Text style={styles.subtitle}>
               {mode === "emergency"
-                ? "Resmî, doğal ve samimi üç seçenek; her biri sesli."
-                : "Lafla iki turluk, baskısız bir konuşma provası hazırlasın."}
+                ? t("real_life.emergency_subtitle")
+                : t("real_life.scenario_subtitle")}
             </Text>
           </View>
 
           <View style={styles.promiseRow}>
-            {TRUST_POINTS.map((item) => (
-              <View key={item.label} style={styles.promisePill}>
-                <Text style={styles.promiseLabel}>{item.label}</Text>
-                <Text style={styles.promiseDetail}>{item.detail}</Text>
+            {TRUST_POINT_KEYS.map((item) => (
+              <View key={item.labelKey} style={styles.promisePill}>
+                <Text style={styles.promiseLabel}>{t(item.labelKey)}</Text>
+                <Text style={styles.promiseDetail}>{t(item.detailKey)}</Text>
               </View>
             ))}
           </View>
 
           <View style={styles.quickPanel}>
-            <Text style={styles.sectionLabel}>EN SIK KULLANILANLAR</Text>
+            <Text style={styles.sectionLabel}>{t("real_life.quick_title")}</Text>
             <View style={styles.quickGrid}>
               {QUICK_REQUESTS.filter((item) => item.mode === mode).map(
                 (item) => (
                   <Pressable
-                    key={item.title}
-                    onPress={() => void generateFrom(item.text, item.mode)}
+                    key={item.titleKey}
+                    onPress={() => void generateFrom(t(item.textKey), item.mode)}
                     style={({ pressed }) => [
                       styles.quickCard,
                       pressed && styles.pressed,
                     ]}
                     accessibilityRole="button"
-                    accessibilityLabel={`${item.title} için hazırla`}
+                    accessibilityLabel={t("real_life.quick_accessibility", {
+                      title: t(item.titleKey),
+                    })}
                   >
-                    <Text style={styles.quickTitle}>{item.title}</Text>
-                    <Text style={styles.quickSub}>{item.subtitle}</Text>
+                    <Text style={styles.quickTitle}>{t(item.titleKey)}</Text>
+                    <Text style={styles.quickSub}>{t(item.subtitleKey)}</Text>
                   </Pressable>
                 ),
               )}
@@ -303,30 +311,33 @@ export default function RealLifeScreen() {
             multiline
             placeholder={
               mode === "emergency"
-                ? "Örn. Patronuma gecikeceğimi söyleyeceğim"
-                : "Örn. Yarınki müşteri toplantısında fiyat artışını açıklayacağım"
+                ? t("real_life.emergency_placeholder")
+                : t("real_life.scenario_placeholder")
             }
             placeholderTextColor={tokens.text.tertiary}
             style={styles.input}
             accessibilityLabel={
               mode === "emergency"
-                ? "Türkçe iletişim ihtiyacı"
-                : "Kişisel senaryo açıklaması"
+                ? t("real_life.emergency_input_label")
+                : t("real_life.scenario_input_label")
             }
           />
 
           <View style={styles.chips}>
-            {EXAMPLES[mode].map((example) => (
+            {EXAMPLE_KEYS[mode].map((exampleKey) => {
+              const example = t(exampleKey);
+              return (
               <Pressable
-                key={example}
+                key={exampleKey}
                 onPress={() => setInput(example)}
                 style={styles.chip}
                 accessibilityRole="button"
-                accessibilityLabel={`Örnek metni doldur: ${example}`}
+                accessibilityLabel={t("real_life.fill_example", { example })}
               >
                 <Text style={styles.chipText}>{example}</Text>
               </Pressable>
-            ))}
+              );
+            })}
           </View>
 
           {error && (
@@ -337,7 +348,9 @@ export default function RealLifeScreen() {
 
           <Button
             label={
-              mode === "emergency" ? "Üç seçenek hazırla" : "Provayı oluştur"
+              mode === "emergency"
+                ? t("real_life.generate_answers")
+                : t("real_life.generate_scenario")
             }
             onPress={() => void generate()}
             disabled={!input.trim()}
@@ -348,27 +361,22 @@ export default function RealLifeScreen() {
           {answers && (
             <View style={styles.answerList}>
               <AnswerCard
-                label="RESMÎ"
-                hint={TONE_HINTS.formal}
+                label={t("real_life.tone.formal")}
+                hint={t(TONE_HINT_KEYS.formal)}
                 text={answers.formal}
               />
               <AnswerCard
-                label="DOĞAL"
-                hint={TONE_HINTS.neutral}
+                label={t("real_life.tone.neutral")}
+                hint={t(TONE_HINT_KEYS.neutral)}
                 text={answers.neutral}
               />
               <AnswerCard
-                label="SAMİMİ"
-                hint={TONE_HINTS.friendly}
+                label={t("real_life.tone.friendly")}
+                hint={t(TONE_HINT_KEYS.friendly)}
                 text={answers.friendly}
               />
-              {answers.source === "fallback" && (
-                <Text style={styles.offlineNote}>
-                  Canlı koç gecikti; en güvenli hazır kalıplar gösterildi.
-                </Text>
-              )}
               <Button
-                label="Bunu 2 turluk provaya çevir"
+                label={t("real_life.convert_to_rehearsal")}
                 variant="secondary"
                 onPress={() => void generateFrom(input, "scenario")}
                 disabled={!input.trim()}
@@ -393,12 +401,13 @@ function ModeButton({
   label: string;
   onPress: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <Pressable
       onPress={onPress}
       style={[styles.modeBtn, active && styles.modeBtnActive]}
       accessibilityRole="tab"
-      accessibilityLabel={`Gerçek hayat modu: ${label}`}
+      accessibilityLabel={t("real_life.mode_accessibility", { label })}
       accessibilityState={{ selected: active }}
     >
       <Text style={[styles.modeText, active && styles.modeTextActive]}>{label}</Text>

@@ -26,19 +26,21 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Icon } from "./Icon";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 interface Props {
   visible: boolean;
   onClose: () => void;
 }
 
-const UNLOCKED: Array<{ icon: "infinite" | "trending" | "shield"; label: string }> = [
-  { icon: "infinite", label: "Sınırsız sahne pratiği" },
-  { icon: "trending", label: "IELTS Band + zayıflık raporu" },
-  { icon: "shield", label: "Streak shield + Hard Mode" },
+const UNLOCKED: Array<{ icon: "infinite" | "trending" | "shield"; labelKey: string }> = [
+  { icon: "infinite", labelKey: "paywall.success.unlimited" },
+  { icon: "trending", labelKey: "paywall.success.ielts" },
+  { icon: "shield", labelKey: "paywall.success.streak" },
 ];
 
 export function PaywallSuccessModal({ visible, onClose }: Props) {
+  const { t } = useTranslation();
   // Halo nabız — slow breath 2.4s sin loop.
   const haloPulse = useSharedValue(0);
   // Hero scale-in (mount'ta).
@@ -122,20 +124,18 @@ export function PaywallSuccessModal({ visible, onClose }: Props) {
             <View style={styles.checkCircle}>
               <Icon name="checkmark" size={36} color={tokens.brand.tertiary} />
             </View>
-            <Text style={styles.title}>Lafla Pro aktif</Text>
-            <Text style={styles.subtitle}>
-              Tüm sahneler, IELTS tahmini ve Hard Mode artık senin.
-            </Text>
+            <Text style={styles.title}>{t("paywall.success.title")}</Text>
+            <Text style={styles.subtitle}>{t("paywall.success.subtitle")}</Text>
           </Animated.View>
 
           {/* Açılan özellikler */}
           <Animated.View style={[styles.features, featuresStyle]}>
             {UNLOCKED.map((f) => (
-              <View key={f.label} style={styles.featureRow}>
+              <View key={f.labelKey} style={styles.featureRow}>
                 <View style={styles.featureIcon}>
                   <Icon name={f.icon} size={18} color={tokens.brand.primary} />
                 </View>
-                <Text style={styles.featureLabel}>{f.label}</Text>
+                <Text style={styles.featureLabel}>{t(f.labelKey)}</Text>
               </View>
             ))}
           </Animated.View>
@@ -146,9 +146,9 @@ export function PaywallSuccessModal({ visible, onClose }: Props) {
               onPress={onClose}
               style={({ pressed }) => [styles.cta, pressed && styles.ctaPressed]}
               accessibilityRole="button"
-              accessibilityLabel="Pratiğe başla"
+              accessibilityLabel={t("paywall.success.cta_label")}
             >
-              <Text style={styles.ctaText}>Hadi başla</Text>
+              <Text style={styles.ctaText}>{t("paywall.success.cta")}</Text>
             </Pressable>
           </Animated.View>
         </View>

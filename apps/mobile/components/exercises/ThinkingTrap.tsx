@@ -21,6 +21,7 @@ import { Button } from "../Button";
 import { tokens } from "../../theme";
 import { hapticImpact, hapticSuccess } from "../../lib/feedback";
 import { type ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   tr_thought: string;
@@ -40,6 +41,7 @@ export function ThinkingTrap({
   why_tr,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [stage, setStage] = useState<RevealStage>(0);
 
   // Staged reveal timeline. Tüm timer'ları toplu cleanup için array tut.
@@ -86,16 +88,14 @@ export function ThinkingTrap({
       exercise_type: "thinking_trap",
       correct: true,
       score: 100,
-      feedback: "Tuzak görüldü.",
+      feedback: t("exercise.feedback.trap_seen"),
     });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Düşünce Tuzağı</Text>
-      <Text style={styles.subprompt}>
-        Türkçe düşününce yanlış yola çıkmak çok kolay
-      </Text>
+      <Text style={styles.prompt}>{t("exercise.thinking_trap.title")}</Text>
+      <Text style={styles.subprompt}>{t("exercise.thinking_trap.subtitle")}</Text>
 
       <View style={styles.stack}>
         {stage >= 1 && (
@@ -103,8 +103,10 @@ export function ThinkingTrap({
             entering={FadeInDown.duration(420)}
             style={styles.trCard}
           >
-            <Text style={styles.trLabel}>Aklından şöyle geçer</Text>
-            <Text style={styles.trText}>{tr_thought}</Text>
+            <Text style={styles.trLabel}>{t("exercise.thinking_trap.thought_label")}</Text>
+            <Text style={styles.trText}>
+              {locale === "tr" ? tr_thought : t("learning.turkish_thought_fallback_en")}
+            </Text>
           </Animated.View>
         )}
 
@@ -112,11 +114,11 @@ export function ThinkingTrap({
           <Animated.View
             entering={FadeInDown.duration(420)}
             style={styles.wrongCard}
-            accessibilityLabel={`Yanlış İngilizce: ${wrong_en}`}
+            accessibilityLabel={t("exercise.thinking_trap.wrong_label", { text: wrong_en })}
           >
             <View style={styles.markRow}>
               <Text style={styles.wrongMark}>✗</Text>
-              <Text style={styles.wrongLabel}>Türkçeden çevirirsen</Text>
+              <Text style={styles.wrongLabel}>{t("exercise.thinking_trap.literal_label")}</Text>
             </View>
             <Text style={styles.wrongText}>{wrong_en}</Text>
           </Animated.View>
@@ -126,11 +128,11 @@ export function ThinkingTrap({
           <Animated.View
             entering={FadeInDown.duration(420)}
             style={styles.rightCard}
-            accessibilityLabel={`Doğru İngilizce: ${right_en}`}
+            accessibilityLabel={t("exercise.thinking_trap.right_label", { text: right_en })}
           >
             <View style={styles.markRow}>
               <Text style={styles.rightMark}>✓</Text>
-              <Text style={styles.rightLabel}>İngilizler şöyle der</Text>
+              <Text style={styles.rightLabel}>{t("exercise.thinking_trap.natural_label")}</Text>
             </View>
             <Text style={styles.rightText}>{right_en}</Text>
           </Animated.View>
@@ -141,8 +143,10 @@ export function ThinkingTrap({
             entering={FadeIn.duration(420)}
             style={styles.whyCard}
           >
-            <Text style={styles.whyLabel}>Neden</Text>
-            <Text style={styles.whyText}>{why_tr}</Text>
+            <Text style={styles.whyLabel}>{t("exercise.why")}</Text>
+            <Text style={styles.whyText}>
+              {locale === "tr" ? why_tr : t("learning.explanation_fallback_en")}
+            </Text>
           </Animated.View>
         )}
       </View>
@@ -150,7 +154,7 @@ export function ThinkingTrap({
       <View style={styles.footer}>
         {stage >= 5 && (
           <Animated.View entering={FadeIn.duration(380)}>
-            <Button label="Anladım →" onPress={handleContinue} />
+            <Button label={`${t("exercise.understood")} →`} onPress={handleContinue} />
           </Animated.View>
         )}
       </View>

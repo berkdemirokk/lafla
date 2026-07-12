@@ -28,11 +28,13 @@ import { getCefrLevel, type CefrLevel } from "../lib/cefr-level";
 import { trackEvent } from "../lib/analytics";
 import { hapticImpact, hapticSuccess } from "../lib/feedback";
 import { pickClipsForLevel, type ListenClip } from "../data/listen-bank";
+import { useTranslation } from "../lib/i18n";
 
 const SESSION_SIZE = 5;
 
 export default function ListenModeScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [clips, setClips] = useState<ListenClip[]>([]);
   const [idx, setIdx] = useState(0);
   const [scores, setScores] = useState<number[]>([]);
@@ -93,42 +95,42 @@ export default function ListenModeScreen() {
             style={styles.backBtn}
             hitSlop={12}
             accessibilityRole="button"
-            accessibilityLabel="Geri"
+            accessibilityLabel={t("common.back")}
           >
             <Icon name="arrowLeft" size={24} color={tokens.text.primary} />
           </Pressable>
-          <Text style={styles.headerTitle}>Dinleme pratiği</Text>
+          <Text style={styles.headerTitle}>{t("listen_mode.title")}</Text>
           <View style={{ width: 40 }} />
         </View>
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <View style={styles.scoreHero}>
-            <Text style={styles.scoreEyebrow}>SEANS ORTALAMASI</Text>
+            <Text style={styles.scoreEyebrow}>{t("practice.session_average")}</Text>
             <Text style={styles.scoreNum}>{avg}</Text>
             <Text style={styles.scoreOf}>/ 100</Text>
           </View>
           <Text style={styles.doneSub}>
             {avg >= 85
-              ? "Kulağın iyi yakalıyor. Çetin cümleler bile geçti."
+              ? t("listen_mode.result.high")
               : avg >= 70
-                ? "İyi gidiş. Aksanlı cümlelerde biraz pratik daha."
-                : "Bu seviye zor — yarın tekrar dene, otomatik daha kolay gelecek."}
+                ? t("listen_mode.result.medium")
+                : t("listen_mode.result.low")}
           </Text>
           <View style={styles.doneActions}>
             <Pressable
               onPress={handleRestart}
               style={styles.primaryBtn}
               accessibilityRole="button"
-              accessibilityLabel="Dinleme seansını yeniden başlat"
+              accessibilityLabel={t("listen_mode.restart_label")}
             >
-              <Text style={styles.primaryBtnText}>Yeniden başla</Text>
+              <Text style={styles.primaryBtnText}>{t("practice.restart")}</Text>
             </Pressable>
             <Pressable
               onPress={() => router.back()}
               style={styles.secondaryBtn}
               accessibilityRole="button"
-              accessibilityLabel="Dinleme seansını bitir"
+              accessibilityLabel={t("listen_mode.finish_label")}
             >
-              <Text style={styles.secondaryBtnText}>Bitir</Text>
+              <Text style={styles.secondaryBtnText}>{t("practice.finish")}</Text>
             </Pressable>
           </View>
         </ScrollView>
@@ -147,12 +149,12 @@ export default function ListenModeScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Icon name="arrowLeft" size={24} color={tokens.text.primary} />
         </Pressable>
         <View style={styles.headerCenter}>
-          <Text style={styles.headerTitle}>Dinleme pratiği</Text>
+          <Text style={styles.headerTitle}>{t("listen_mode.title")}</Text>
           <Text style={styles.headerProgress}>
             {idx + 1} / {clips.length}
           </Text>
@@ -295,13 +297,13 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.brand.secondary,
     borderRadius: tokens.radius.lg,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.08)",
+    borderColor: tokens.brand.tertiary,
     ...tokens.shadow.hero,
   },
   scoreEyebrow: {
     fontSize: 11,
     fontWeight: tokens.weight.extrabold,
-    color: tokens.text.tertiary,
+    color: tokens.brand.onSecondary,
     letterSpacing: 1.4,
     marginBottom: 6,
   },
@@ -314,7 +316,7 @@ const styles = StyleSheet.create({
   },
   scoreOf: {
     fontSize: 20,
-    color: tokens.text.tertiary,
+    color: tokens.brand.onSecondary,
     fontWeight: tokens.weight.bold,
     marginTop: 4,
   },

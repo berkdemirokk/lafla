@@ -46,6 +46,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { pushRoute, replaceRoute } from "../../lib/routes";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useTranslation } from "../../lib/i18n";
 
 import { Button } from "../../components/Button";
 import { SpeakerButton } from "../../components/SpeakerButton";
@@ -128,10 +129,7 @@ import { allScenarios } from "../../lib/scenario";
 import { tokens } from "../../theme";
 import type { AchievementDef } from "../../lib/achievements";
 import type { ExerciseResult, RoleplayMistake } from "../../lib/engine";
-import {
-  assessRoleplayScore,
-  roleplayAssessmentLabel,
-} from "../../lib/roleplay-assessment";
+import { assessRoleplayScore } from "../../lib/roleplay-assessment";
 
 // 2026-05-24 — Content expansion (Phase 1C, Agent C). 4 → 7 phase.
 // Yeni faz veri yoksa (eski lesson) getNextPhase() o fazı atlar; flow eskisi
@@ -237,6 +235,7 @@ export default function ScenarioScreen() {
     intro?: string;
   }>();
   const router = useRouter();
+  const { t } = useTranslation();
   const scenario = id ? getScenario(id) : null;
   // ?intro=true onboarding sonrası ilk pratikten gelir. Tamamlanınca işaretlenir
   // ve kullanıcı satış kesintisi olmadan Bugün ekranına döner.
@@ -626,8 +625,8 @@ export default function ScenarioScreen() {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <View style={styles.notFound}>
-          <Text style={styles.notFoundTitle}>Sahne bulunamadı</Text>
-          <Button label="Geri" onPress={() => router.back()} />
+          <Text style={styles.notFoundTitle}>{t("scenario.not_found")}</Text>
+          <Button label={t("common.back")} onPress={() => router.back()} />
         </View>
       </SafeAreaView>
     );
@@ -656,11 +655,11 @@ export default function ScenarioScreen() {
       return;
     }
     Alert.alert(
-      "Sahneden çık?",
-      "Sahneden çıkmak istediğine emin misin? İlerlemen kaydedilmeyecek.",
+      t("scenario.exit_title"),
+      t("scenario.exit_body"),
       [
-        { text: "Devam et", style: "cancel" },
-        { text: "Çık", style: "destructive", onPress: onExitConfirmed },
+        { text: t("common.continue"), style: "cancel" },
+        { text: t("scenario.exit_cta"), style: "destructive", onPress: onExitConfirmed },
       ],
     );
   };
@@ -842,12 +841,12 @@ export default function ScenarioScreen() {
   const nextScenario = findNextScenario(scenario.skill_id, scenario.id);
   const phaseProgress =
     phase === "setup" || phase === "setup-extra"
-      ? { now: 1, text: "Kurulum, 1 / 4" }
+      ? { now: 1, text: t("scenario.progress.setup") }
       : phase === "drill" || phase === "pre-scene"
-        ? { now: 2, text: "Alıştırma, 2 / 4" }
+        ? { now: 2, text: t("scenario.progress.drill") }
         : phase === "scene"
-          ? { now: 3, text: "Sahne, 3 / 4" }
-          : { now: 4, text: "Bitiş, 4 / 4" };
+          ? { now: 3, text: t("scenario.progress.scene") }
+          : { now: 4, text: t("scenario.progress.finish") };
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -861,9 +860,9 @@ export default function ScenarioScreen() {
             onPress={handleExit}
             style={styles.exitBtn}
             accessibilityRole="button"
-            accessibilityLabel="Sahneden çık"
+            accessibilityLabel={t("scenario.exit_label")}
           >
-            <Text style={styles.exitText}>← Geri</Text>
+            <Text style={styles.exitText}>← {t("common.back")}</Text>
           </Pressable>
           {/* 2026-05-24 — 7-fazlı yeni akışı 4 dot'a kondense ettik
               (kullanıcıya 7 dot karıştırır):
@@ -875,7 +874,7 @@ export default function ScenarioScreen() {
             style={styles.phaseDots}
             accessible
             accessibilityRole="progressbar"
-            accessibilityLabel="Sahne ilerlemesi"
+            accessibilityLabel={t("scenario.progress_label")}
             accessibilityValue={{ min: 1, max: 4, ...phaseProgress }}
           >
             <PhaseDot
@@ -947,8 +946,8 @@ export default function ScenarioScreen() {
                   accessibilityRole={isPremiumState === true ? "switch" : "button"}
                   accessibilityLabel={
                     isPremiumState === true
-                      ? "Hard Mode"
-                      : "Hard Mode, Lafla Pro ile aç"
+                      ? t("scenario.hard_mode")
+                      : t("scenario.hard_mode_locked_label")
                   }
                   accessibilityState={{
                     checked: isPremiumState === true ? hardMode : undefined,
@@ -962,10 +961,10 @@ export default function ScenarioScreen() {
                     ]}
                   >
                     {isPremiumState === false
-                      ? "🔒 🔥 HARD MODE · Lafla Pro ile aç"
+                      ? t("scenario.hard_mode_locked")
                       : hardMode
-                        ? "🔥 HARD MODE açık — ipuçsuz, tam cümle"
-                        : "🔥 Hard Mode dene · Premium"}
+                        ? t("scenario.hard_mode_on")
+                        : t("scenario.hard_mode_try")}
                   </Text>
                 </Pressable>
               )}
@@ -982,15 +981,15 @@ export default function ScenarioScreen() {
               <View style={styles.drillWrap}>
                 <View style={styles.drillHeader}>
                   <Text style={styles.drillLabel}>
-                    YAPI · {setupExtraIdx + 1}/{scenario.setupExtra.length}
+                    {t("scenario.structure")} · {setupExtraIdx + 1}/{scenario.setupExtra.length}
                   </Text>
                   <Pressable
                     onPress={() => goToNextPhase("setup-extra")}
                     hitSlop={8}
                     accessibilityRole="button"
-                    accessibilityLabel="Yapı alıştırmasını atla"
+                    accessibilityLabel={t("scenario.skip_structure_label")}
                   >
-                    <Text style={styles.drillSkip}>Atla</Text>
+                    <Text style={styles.drillSkip}>{t("common.skip")}</Text>
                   </Pressable>
                 </View>
                 <View style={styles.drillBody}>
@@ -1007,15 +1006,15 @@ export default function ScenarioScreen() {
             <View style={styles.drillWrap}>
               <View style={styles.drillHeader}>
                 <Text style={styles.drillLabel}>
-                  ALIŞTIRMA · {drillIdx + 1}/{scenario.warmups.length}
+                  {t("scenario.exercise")} · {drillIdx + 1}/{scenario.warmups.length}
                 </Text>
                 <Pressable
                   onPress={skipDrill}
                   hitSlop={8}
                   accessibilityRole="button"
-                  accessibilityLabel="Alıştırmayı atla, sahneye geç"
+                  accessibilityLabel={t("scenario.skip_exercise_label")}
                 >
-                  <Text style={styles.drillSkip}>Sahneye atla</Text>
+                  <Text style={styles.drillSkip}>{t("scenario.skip_to_scene")}</Text>
                 </Pressable>
               </View>
               <View style={styles.drillBody}>
@@ -1037,15 +1036,15 @@ export default function ScenarioScreen() {
               <View style={styles.drillWrap}>
                 <View style={styles.drillHeader}>
                   <Text style={styles.drillLabel}>
-                    HAZIRLIK · {preSceneIdx + 1}/{scenario.preScene.length}
+                    {t("scenario.preparation")} · {preSceneIdx + 1}/{scenario.preScene.length}
                   </Text>
                   <Pressable
                     onPress={() => goToNextPhase("pre-scene")}
                     hitSlop={8}
                     accessibilityRole="button"
-                    accessibilityLabel="Hazırlığı atla, sahneye geç"
+                    accessibilityLabel={t("scenario.skip_preparation_label")}
                   >
-                    <Text style={styles.drillSkip}>Sahneye atla</Text>
+                    <Text style={styles.drillSkip}>{t("scenario.skip_to_scene")}</Text>
                   </Pressable>
                 </View>
                 <View style={styles.drillBody}>
@@ -1077,11 +1076,13 @@ export default function ScenarioScreen() {
                         styles.npcRelTierFriend,
                     ]}
                   >
-                    {tierFor(npcRel.sceneCount).labelTr}
+                    {t(`relationship.tier.${tierFor(npcRel.sceneCount).tier}`)}
                   </Text>
                   <Text style={styles.npcRelSep}>·</Text>
                   <Text style={styles.npcRelCount}>
-                    {npcRel.sceneCount + 1}. sahnen
+                    {t("scenario.relationship_scene_count", {
+                      count: String(npcRel.sceneCount + 1),
+                    })}
                   </Text>
                 </View>
               )}
@@ -1112,14 +1113,14 @@ export default function ScenarioScreen() {
           {phase === "recall" && scenario.recallQuiz && (
             <View style={styles.drillWrap}>
               <View style={styles.drillHeader}>
-                <Text style={styles.drillLabel}>HATIRLAMA</Text>
+                <Text style={styles.drillLabel}>{t("scenario.recall")}</Text>
                 <Pressable
                   onPress={advanceRecall}
                   hitSlop={8}
                   accessibilityRole="button"
-                  accessibilityLabel="Hatırlama alıştırmasını atla"
+                  accessibilityLabel={t("scenario.skip_recall_label")}
                 >
-                  <Text style={styles.drillSkip}>Atla</Text>
+                  <Text style={styles.drillSkip}>{t("common.skip")}</Text>
                 </Pressable>
               </View>
               <View style={styles.drillBody}>
@@ -1268,6 +1269,7 @@ function DrillRenderer({
   exercise: any;
   onComplete: (r: ExerciseResult) => void;
 }) {
+  const { t } = useTranslation();
   switch (exercise.type) {
     case "multiple_choice":
       return (
@@ -1416,7 +1418,7 @@ function DrillRenderer({
         exercise_type: exercise.type,
         correct: false,
         score: 0,
-        feedback: "Bu alıştırma bu sürümde desteklenmiyor.",
+        feedback: t("scenario.exercise_unsupported"),
       });
       return null;
   }
@@ -1494,6 +1496,7 @@ function SetupView({
   total: number;
   onNext: () => void;
 }) {
+  const { t, locale } = useTranslation();
   // Spring-in entrance for the hero on every step. Re-mounts are forced
   // by the outer `key` (set on the SetupView call site) so this effect
   // runs cleanly for each vocab item rather than relying on dep tracking.
@@ -1555,7 +1558,7 @@ function SetupView({
     <ScrollView contentContainerStyle={setupStyles.content}>
       <View style={setupStyles.labelRow}>
         <Text style={setupStyles.label}>
-          KURULUM · {stepIndex + 1}/{total}
+          {t("scenario.setup")} · {stepIndex + 1}/{total}
         </Text>
         {phrase.cefr_band ? (
           <View style={setupStyles.levelBadge}>
@@ -1567,7 +1570,7 @@ function SetupView({
       <Pressable
         onPress={replayAudio}
         accessibilityRole="button"
-        accessibilityLabel="Cümleyi tekrar dinle"
+        accessibilityLabel={t("scenario.listen_again")}
       >
         <Animated.View style={[setupStyles.hero, heroStyle]}>
           <View style={setupStyles.wordRow}>
@@ -1575,18 +1578,18 @@ function SetupView({
             <SpeakerButton text={phrase.en} size="lg" />
           </View>
           <View style={setupStyles.divider} />
-          <Text style={setupStyles.tr}>{phrase.tr}</Text>
+          {locale === "tr" && <Text style={setupStyles.tr}>{phrase.tr}</Text>}
         </Animated.View>
       </Pressable>
 
       {phrase.example && (
         <Animated.View style={[setupStyles.exampleBox, exampleStyle]}>
           <View style={setupStyles.exampleHeader}>
-            <Text style={setupStyles.exampleLabel}>Örnek kullanım</Text>
+            <Text style={setupStyles.exampleLabel}>{t("scenario.example_usage")}</Text>
             <SpeakerButton text={phrase.example} size="sm" />
           </View>
           <Text style={setupStyles.exampleEn}>"{phrase.example}"</Text>
-          {phrase.example_tr && (
+          {locale === "tr" && phrase.example_tr && (
             <Text style={setupStyles.exampleTr}>"{phrase.example_tr}"</Text>
           )}
         </Animated.View>
@@ -1594,7 +1597,11 @@ function SetupView({
 
       <View style={setupStyles.footer}>
         <GlowingCta
-          label={stepIndex + 1 >= total ? "Hazırım" : "Devam"}
+          label={
+            stepIndex + 1 >= total
+              ? t("scenario.ready")
+              : t("common.continue")
+          }
           onPress={onNext}
         />
       </View>
@@ -1661,6 +1668,7 @@ function GlowingCta({
 // ============================================================
 
 function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
+  const { t } = useTranslation();
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(12);
 
@@ -1692,12 +1700,12 @@ function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
         onPress={onDismiss}
         style={introStyles.fill}
         accessibilityRole="button"
-        accessibilityLabel="Konuşma başlıyor, hazırsan başla"
+        accessibilityLabel={t("scenario.scene_intro_label")}
       >
         <Animated.View style={[introStyles.card, cardStyle]}>
-          <Text style={introStyles.label}>SAHNE</Text>
-          <Text style={introStyles.title}>Konuşma başlıyor</Text>
-          <Text style={introStyles.body}>Hazırsan başla.</Text>
+          <Text style={introStyles.label}>{t("scenario.scene")}</Text>
+          <Text style={introStyles.title}>{t("scenario.scene_intro_title")}</Text>
+          <Text style={introStyles.body}>{t("scenario.scene_intro_body")}</Text>
         </Animated.View>
       </Pressable>
     </Animated.View>
@@ -1752,6 +1760,7 @@ function VerdictView({
    */
   planNextLabel: string | null;
 }) {
+  const { t, locale } = useTranslation();
   // Share card ref — view-shot ile capture edilir. Off-screen pozisyonda
   // render edilir (görünmez ama mounted), kullanıcı "Skoru paylaş"a basınca
   // captureRef + expo-sharing zincirine alınır.
@@ -1806,16 +1815,16 @@ function VerdictView({
   const masteryAssessment = assessRoleplayScore(
     sceneResult.mastery_score ?? sceneResult.score,
   );
-  const assessmentLabel = roleplayAssessmentLabel(assessment);
+  const assessmentLabel = t(`scenario.assessment.${assessment}`);
   const verdictMsg = (() => {
     const prefix = userName ? `${userName}, ` : "";
     if (assessment === "goal_met") {
-      return `${prefix}bu sahnenin hedef cümlelerini doğru kullandın.`;
+      return t("scenario.verdict.goal_met", { prefix });
     }
     if (assessment === "close") {
-      return `${prefix}anlamlı bir deneme yaptın; hedef kalıpları bir kez daha çalış.`;
+      return t("scenario.verdict.close", { prefix });
     }
-    return `${prefix}bu tur güvenilir biçimde değerlendirilemedi. İpuçlarıyla tekrar dene.`;
+    return t("scenario.verdict.retry", { prefix });
   })();
   const targetResponses =
     sceneResult.target_responses ??
@@ -1914,14 +1923,14 @@ function VerdictView({
 
   return (
     <ScrollView contentContainerStyle={verdictStyles.content}>
-      <Text style={verdictStyles.title}>Sahne tamamlandı</Text>
+      <Text style={verdictStyles.title}>{t("scenario.verdict.title")}</Text>
       <Text style={verdictStyles.msg}>{verdictMsg}</Text>
 
       <Animated.View style={[verdictStyles.scoreCard, pulseStyle]}>
         {/* 2026-05-23 premium: inner highlight, "iOS button bevel" tactile
             depth. Verdict en kritik psikolojik moment — premium feedback. */}
         <View style={verdictStyles.scoreCardHighlight} pointerEvents="none" />
-        <Text style={verdictStyles.scoreLabel}>GÖREV SONUCU</Text>
+        <Text style={verdictStyles.scoreLabel}>{t("scenario.verdict.result")}</Text>
         <Text
           style={verdictStyles.scoreResult}
           accessibilityLiveRegion="polite"
@@ -1937,7 +1946,9 @@ function VerdictView({
       {cefrDelta && displayedProgress !== null && (
         <View style={verdictStyles.cefrCard}>
           <Text style={verdictStyles.cefrLabel}>
-            {cefrDelta.bumped ? "✨ Seviye atladın" : "İlerleme"}
+            {cefrDelta.bumped
+              ? t("scenario.verdict.level_up")
+              : t("scenario.verdict.progress")}
           </Text>
           <Text style={verdictStyles.cefrValue}>
             {cefrDelta.bumped
@@ -1946,10 +1957,13 @@ function VerdictView({
           </Text>
           <Text style={verdictStyles.cefrSub}>
             {cefrDelta.bumped
-              ? `${cefrDelta.toLevel} seviyesine ilk adımı attın.`
+              ? t("scenario.verdict.level_first_step", { level: cefrDelta.toLevel })
               : cefrDelta.toLevel === "C2"
-                ? "C2 ustalık — en üst seviye."
-                : `${nextLevelLabel(cefrDelta.toLevel)}'ye ${cefrDelta.scenesToNext} sahne kaldı.`}
+                ? t("scenario.verdict.c2_mastery")
+                : t("scenario.verdict.scenes_to_next", {
+                    level: nextLevelLabel(cefrDelta.toLevel),
+                    count: String(cefrDelta.scenesToNext),
+                  })}
           </Text>
         </View>
       )}
@@ -1962,23 +1976,20 @@ function VerdictView({
 
       {coachTurns.length > 0 && (
         <View style={verdictStyles.takeawayCard}>
-          <Text style={verdictStyles.takeawayLabel}>KONUŞMA KOÇU ÖZETİ</Text>
-          <Text style={verdictStyles.takeawayIntro}>
-            Cevapların kaybolmuyor. Her tur için kendi cümleni ve daha doğal
-            versiyonu karşılaştır.
-          </Text>
+          <Text style={verdictStyles.takeawayLabel}>{t("scenario.verdict.coach_summary")}</Text>
+          <Text style={verdictStyles.takeawayIntro}>{t("scenario.verdict.coach_intro")}</Text>
           {coachTurns.map((turn, index) => (
             <View
               key={`${index}-${turn.target ?? turn.response}`}
               style={verdictStyles.coachTurnCard}
             >
               <Text style={verdictStyles.takeawaySmallLabel}>
-                Tur {index + 1}
+                {t("scenario.verdict.turn", { count: String(index + 1) })}
               </Text>
               {turn.response ? (
                 <View style={verdictStyles.takeawayLine}>
                   <Text style={verdictStyles.takeawaySmallLabel}>
-                    Senin cevabın
+                    {t("scenario.verdict.your_answer")}
                   </Text>
                   <Text style={verdictStyles.takeawayUser}>
                     “{turn.response}”
@@ -1989,15 +2000,17 @@ function VerdictView({
                 <View style={verdictStyles.takeawayLine}>
                   <View style={verdictStyles.takeawayTargetHeader}>
                     <Text style={verdictStyles.takeawaySmallLabel}>
-                      Daha doğal hali
+                      {t("scenario.verdict.natural_version")}
                     </Text>
                     <Pressable
                       onPress={() => speak(turn.target!)}
                       accessibilityRole="button"
-                      accessibilityLabel={`Tur ${index + 1} doğal cevabı dinle`}
+                      accessibilityLabel={t("scenario.verdict.listen_turn", {
+                        count: String(index + 1),
+                      })}
                       hitSlop={8}
                     >
-                      <Text style={verdictStyles.takeawayListen}>Dinle</Text>
+                      <Text style={verdictStyles.takeawayListen}>{t("scenario.verdict.listen")}</Text>
                     </Pressable>
                   </View>
                   <Text style={verdictStyles.takeawayTarget}>
@@ -2010,25 +2023,28 @@ function VerdictView({
         </View>
       )}
 
-      {sceneResult.feedback && (
+      {locale === "tr" && sceneResult.feedback && (
         <Text style={verdictStyles.feedback}>{sceneResult.feedback}</Text>
       )}
 
       {(sceneResult.assisted_turns ?? 0) > 0 && (
         <Text style={verdictStyles.feedback}>
-          {sceneResult.assisted_turns} turu destekle tamamladın. Kalıcı
-          ilerleme için bu kalıplar tekrar gününe eklendi.
+          {t("scenario.verdict.assisted", {
+            count: String(sceneResult.assisted_turns),
+          })}
         </Text>
       )}
 
       {topMistakes.length > 0 && (
         <View style={verdictStyles.feedbackPremium}>
           <Text style={verdictStyles.feedbackPremiumLabel}>
-            🎯 BUGÜNÜN TEK ODAĞI
+            {t("scenario.verdict.focus")}
           </Text>
           {topMistakes.map((m, i) => (
             <View key={i} style={verdictStyles.mistakeRow}>
-              <Text style={verdictStyles.mistakeReason}>{m.reason_tr}</Text>
+              <Text style={verdictStyles.mistakeReason}>
+                {locale === "tr" ? m.reason_tr : t("learning.mistake_fallback_en")}
+              </Text>
               <View style={verdictStyles.mistakeFix}>
                 <Text style={verdictStyles.mistakeWrong}>✗ {m.matched}</Text>
                 <Text style={verdictStyles.mistakeRight}>✓ {m.correct_example}</Text>
@@ -2042,10 +2058,10 @@ function VerdictView({
         <Button
           label={
             planNextLabel
-              ? `Sıradaki: ${planNextLabel}`
+              ? t("scenario.verdict.next_named", { title: planNextLabel })
               : hasNext
-                ? "Sıradaki sahne"
-                : "Bugüne dön"
+                ? t("scenario.verdict.next_scene")
+                : t("scenario.verdict.back_today")
           }
           onPress={onContinue}
           stacked
@@ -2077,19 +2093,19 @@ function VerdictView({
                 if (available) {
                   await Sharing.shareAsync(uri, {
                     mimeType: "image/png",
-                    dialogTitle: "Başarıyı paylaş",
+                    dialogTitle: t("scenario.verdict.share_success"),
                   });
                   void trackEvent("share_score_completed", {
                     score: sceneResult.score,
                   }).catch(() => {});
                 } else {
                   Alert.alert(
-                    "Paylaşım yok",
-                    "Bu cihazda paylaşım servisi mevcut değil.",
+                    t("scenario.verdict.share_unavailable_title"),
+                    t("scenario.verdict.share_unavailable_body"),
                   );
                 }
               } catch {
-                Alert.alert("Hata", "Skor kartı oluşturulamadı.");
+                Alert.alert(t("common.error"), t("scenario.verdict.share_card_error"));
               } finally {
                 setSharing(false);
               }
@@ -2101,10 +2117,12 @@ function VerdictView({
               sharing && verdictStyles.shareBtnDisabled,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Skoru sosyal medyada paylaş"
+            accessibilityLabel={t("scenario.verdict.share_score_label")}
           >
             <Text style={verdictStyles.shareBtnText}>
-              {sharing ? "Hazırlanıyor..." : "📸 Başarıyı paylaş"}
+              {sharing
+                ? t("scenario.verdict.preparing")
+                : t("scenario.verdict.share_success_cta")}
             </Text>
           </Pressable>
 
@@ -2115,7 +2133,10 @@ function VerdictView({
           <Pressable
             onPress={async () => {
               const shareUrl = `https://berkdemirokk.github.io/lafla/?scene=${encodeURIComponent(scenarioIdForShare(scenario.title))}`;
-              const message = `Lafla'da “${scenario.title.replace(/\n/g, " ")}" konuşma hedefini tamamladım 💪 Sen de dene: ${shareUrl}`;
+              const message = t("scenario.verdict.friend_message", {
+                title: scenario.title.replace(/\n/g, " "),
+                url: shareUrl,
+              });
               try {
                 await Share.share({
                   message,
@@ -2133,9 +2154,9 @@ function VerdictView({
               pressed && verdictStyles.shareBtnPressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Bu sahneyi WhatsApp'ta arkadaşına gönder"
+            accessibilityLabel={t("scenario.verdict.send_friend_label")}
           >
-            <Text style={verdictStyles.shareBtnText}>💬 Arkadaşına gönder</Text>
+            <Text style={verdictStyles.shareBtnText}>{t("scenario.verdict.send_friend")}</Text>
           </Pressable>
         </View>
         )}

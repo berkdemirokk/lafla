@@ -6,4 +6,8 @@ describe("public scene count", () => {
     expect(SCENE_COUNT).toBe(allScenarios().length);
     expect(SCENE_COUNT_DISPLAY).toBe(String(allScenarios().length));
   });
+
+  it("gives every playable scenario an explicit or calibrated CEFR level", () => {
+    expect(allScenarios().filter((scenario) => !scenario.cefrLevel)).toEqual([]);
+  });
 });

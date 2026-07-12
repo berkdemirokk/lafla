@@ -2,7 +2,7 @@
 //
 // Pivots the surface area from cartoony XP/streak gamification to
 // Strava/Whoop-style "real metrics": hours of practice, vocabulary
-// size, AI chat time, CEFR sub-skill bars.
+// size, conversation practice time, CEFR sub-skill bars.
 //
 // Pure local read layer: no network, no LLM. Everything is derived
 // from AsyncStorage state that the lessons + chat surfaces already
@@ -495,7 +495,7 @@ function buildWeeklyHighlight(args: {
     return `Telaffuz skoru %${args.pronunciationDelta} yükseldi.`;
   }
   if (args.coachSessions >= 3) {
-    return `AI Koç ile ${args.coachSessions} oturum — sohbet ritmi güçlü.`;
+    return `Konuşma koçuyla ${args.coachSessions} oturum — sohbet ritmi güçlü.`;
   }
   if (args.newVocabAdded >= 40) {
     return `${args.newVocabAdded} yeni kelime ile aktif kelime hazinen büyüdü.`;

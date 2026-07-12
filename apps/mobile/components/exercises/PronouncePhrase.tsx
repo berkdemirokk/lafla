@@ -41,6 +41,7 @@ import {
 import { unavailablePronunciationResult } from "../../lib/pronunciation-session";
 import { pushPronScore } from "../../lib/pronunciation-history";
 import { PhonemeFeedback } from "../PhonemeFeedback";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   phrase: string;
@@ -64,19 +65,35 @@ interface GradedState {
   phonemes: PhonemeAnalysisResult | null;
 }
 
-const BAND_COLORS: Record<PronunciationBand, string> = {
-  good: "#95d5b2",
-  okay: "#ffd54f",
-  miss: "#ef9a9a",
+const BAND_THEME: Record<
+  PronunciationBand,
+  { backgroundColor: string; borderColor: string; color: string }
+> = {
+  good: {
+    backgroundColor: tokens.semantic.successContainer,
+    borderColor: tokens.semantic.success,
+    color: tokens.semantic.onSuccessContainer,
+  },
+  okay: {
+    backgroundColor: tokens.semantic.warningContainer,
+    borderColor: tokens.semantic.warning,
+    color: tokens.semantic.onWarningContainer,
+  },
+  miss: {
+    backgroundColor: tokens.semantic.errorContainer,
+    borderColor: tokens.semantic.error,
+    color: tokens.semantic.onErrorContainer,
+  },
 };
 
-function feedbackFor(score: number): string {
-  if (score >= 85) return "Harika telaffuz!";
-  if (score >= 50) return "Fena değil — tekrar dene, daha net çıkar.";
-  return "Yavaş ve net söylemeyi dene.";
+function feedbackKeyFor(score: number): string {
+  if (score >= 85) return "exercise.pronunciation.great";
+  if (score >= 50) return "exercise.pronunciation.okay";
+  return "exercise.pronunciation.slow";
 }
 
 export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
+  const { t, locale } = useTranslation();
   const [stage, setStage] = useState<Stage>("idle");
   const [graded, setGraded] = useState<GradedState | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -254,18 +271,18 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
         // (örn. "speech recognition permission denied"). Türk kullanıcıya
         // anlamlı çevirim.
         const raw = (e.message || "").toLowerCase();
-        let tr: string;
+        let message: string;
         if (raw.includes("permission")) {
-          tr = "Mikrofon izni gerekli — Ayarlar'dan izin ver.";
+          message = t("exercise.microphone_permission");
           setPermissionDenied(true); // Settings CTA görünür olsun
         } else if (raw.includes("network") || raw.includes("fetch")) {
-          tr = "Bağlantı problemi. İnternetini kontrol et.";
+          message = t("exercise.network_error");
         } else if (raw.includes("not available") || raw.includes("module")) {
-          tr = "Mikrofon bu cihazda desteklenmiyor.";
+          message = t("exercise.microphone_unsupported");
         } else {
-          tr = "Mikrofon hatası — bir daha dene.";
+          message = t("exercise.microphone_retry");
         }
-        setErrorMsg(tr);
+        setErrorMsg(message);
         // 2026-05-26 (P0-8 fix) — Functional setter ile race koruması.
         // setStage("listening") henüz commit olmadan onError SYNC çağrılırsa
         // önceki "idle → listening" intent kaybolup pulse loop kilitleniyordu.
@@ -310,24 +327,26 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
       exercise_type: "pronounce_phrase",
       correct: score >= 50,
       score,
-      feedback: feedbackFor(score),
+      feedback: t(feedbackKeyFor(score)),
     });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Telaffuz et</Text>
+      <Text style={styles.prompt}>{t("exercise.pronounce.title")}</Text>
 
       <View style={styles.phraseBlock}>
         <Text style={styles.phrase}>{phrase}</Text>
         <View style={styles.speakerRow}>
           <SpeakerButton text={phrase} size="lg" />
-          <Text style={styles.speakerHint}>Önce dinle</Text>
+          <Text style={styles.speakerHint}>{t("exercise.listen_first")}</Text>
         </View>
       </View>
 
       {stage !== "graded" && trHint && (
-        <Text style={styles.hint}>💡 {trHint}</Text>
+        <Text style={styles.hint}>
+          💡 {locale === "tr" ? trHint : t("learning.hint_fallback_en")}
+        </Text>
       )}
 
       {stage === "graded" && graded && (
@@ -338,19 +357,29 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
                 key={`${wb.word}-${idx}`}
                 style={[
                   styles.wordChip,
-                  { backgroundColor: BAND_COLORS[wb.band] },
+                  {
+                    backgroundColor: BAND_THEME[wb.band].backgroundColor,
+                    borderColor: BAND_THEME[wb.band].borderColor,
+                  },
                 ]}
               >
-                <Text style={styles.wordText}>{wb.word}</Text>
+                <Text
+                  style={[
+                    styles.wordText,
+                    { color: BAND_THEME[wb.band].color },
+                  ]}
+                >
+                  {wb.word}
+                </Text>
               </View>
             ))}
           </View>
 
           <View style={styles.scoreRow}>
-            <Text style={styles.scoreLabel}>Skor</Text>
+            <Text style={styles.scoreLabel}>{t("exercise.score")}</Text>
             <Text style={styles.scoreValue}>{graded.score}/100</Text>
           </View>
-          <Text style={styles.feedbackText}>{feedbackFor(graded.score)}</Text>
+          <Text style={styles.feedbackText}>{t(feedbackKeyFor(graded.score))}</Text>
 
           {/* Phoneme-level feedback — skor <85 ise gözükür.
               Türk için en zor fonemler (TH, V/W, AE, etc.) inline coaching.
@@ -380,9 +409,9 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
               ]}
               hitSlop={8}
               accessibilityRole="button"
-              accessibilityLabel="Uygulama ayarlarını aç"
+              accessibilityLabel={t("exercise.open_settings_label")}
             >
-              <Text style={styles.settingsBtnText}>Ayarları aç →</Text>
+              <Text style={styles.settingsBtnText}>{t("exercise.open_settings")}</Text>
             </Pressable>
           )}
         </View>
@@ -407,9 +436,9 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           ]}
           hitSlop={8}
           accessibilityRole="button"
-          accessibilityLabel="Bu egzersizi atla"
+          accessibilityLabel={t("exercise.skip_label")}
         >
-          <Text style={styles.skipBtnText}>Bu egzersizi atla →</Text>
+          <Text style={styles.skipBtnText}>{t("exercise.skip_cta")}</Text>
         </Pressable>
       )}
 
@@ -422,9 +451,9 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
               pressed && styles.micCtaPressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Konuşmaya başla"
+            accessibilityLabel={t("exercise.start_speaking")}
           >
-            <Text style={styles.micCtaText}>Şimdi sen söyle 🎤</Text>
+            <Text style={styles.micCtaText}>{t("exercise.speak_now_mic")}</Text>
           </Pressable>
         )}
 
@@ -435,7 +464,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
             >
               <Text style={styles.micPulseIcon}>🎤</Text>
             </Animated.View>
-            <Text style={styles.listeningText}>Dinliyorum...</Text>
+            <Text style={styles.listeningText}>{t("exercise.listening")}</Text>
             <Pressable
               onPress={handleCancel}
               style={({ pressed }) => [
@@ -444,9 +473,9 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
               ]}
               hitSlop={8}
               accessibilityRole="button"
-              accessibilityLabel="Dinlemeyi iptal et"
+              accessibilityLabel={t("exercise.cancel_listening")}
             >
-              <Text style={styles.cancelBtnText}>İptal</Text>
+              <Text style={styles.cancelBtnText}>{t("common.cancel")}</Text>
             </Pressable>
           </View>
         )}
@@ -455,13 +484,13 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           <View style={styles.gradedButtons}>
             <View style={styles.retryWrap}>
               <Button
-                label="Tekrar dene"
+                label={t("common.try_again")}
                 onPress={handleRetry}
                 variant="secondary"
               />
             </View>
             <View style={styles.continueWrap}>
-              <Button label="Devam et →" onPress={handleContinue} />
+              <Button label={`${t("common.continue")} →`} onPress={handleContinue} />
             </View>
           </View>
         )}
@@ -525,6 +554,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: tokens.radius.sm,
+    borderWidth: 1,
   },
   wordText: {
     fontSize: 16,

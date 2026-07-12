@@ -30,9 +30,11 @@ import {
   IELTS_MOCK_TEST_PRICE_DISPLAY,
   PRO_MONTHLY_PRICE_COMPACT,
 } from "../lib/monetization";
+import { useTranslation } from "../lib/i18n";
 
 export default function IeltsBandScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [premium, setPremium] = useState<boolean | null>(null);
   const [estimate, setEstimate] = useState<BandEstimate | null>(null);
 
@@ -61,11 +63,11 @@ export default function IeltsBandScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.title}>IELTS Band Tahmini</Text>
+        <Text style={styles.title}>{t("ielts_band.title")}</Text>
         <View style={styles.backBtn} />
       </View>
 
@@ -76,8 +78,7 @@ export default function IeltsBandScreen() {
           görünür. */}
       <View style={styles.disclaimerChip}>
         <Text style={styles.disclaimerText}>
-          Bu tahmin Lafla'nın iç skorlama modelidir.{"\n"}
-          Resmi IELTS skoru değildir, sınav merkezine başvur.
+          {t("ielts_band.legal_disclaimer")}
         </Text>
       </View>
 
@@ -85,7 +86,7 @@ export default function IeltsBandScreen() {
         {!premium ? (
           <PaywallPreview onUpgrade={() => router.push("/paywall?from=ielts-band" as never)} />
         ) : !estimate ? (
-          <Text style={styles.loadingText}>Hesaplanıyor...</Text>
+          <Text style={styles.loadingText}>{t("ielts_band.calculating")}</Text>
         ) : !estimate.hasEnoughData ? (
           <NotEnoughData estimate={estimate} onGo={() => router.replace("/today" as never)} />
         ) : (
@@ -99,21 +100,24 @@ export default function IeltsBandScreen() {
 // ─── Subcomponents ───────────────────────────────────────────────
 
 function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
+  const { t } = useTranslation();
   return (
     <View>
       <View style={styles.lockHero}>
         <Text style={styles.lockEmoji}>🔒</Text>
         <Text style={styles.lockTitle}>
-          Mock test merkezi {IELTS_MOCK_TEST_PRICE_DISPLAY}.{"\n"}Biz{" "}
-          {PRO_MONTHLY_PRICE_COMPACT}.
+          {t("ielts_band.price_compare", {
+            mock: IELTS_MOCK_TEST_PRICE_DISPLAY,
+            price: PRO_MONTHLY_PRICE_COMPACT,
+          })}
         </Text>
       </View>
 
       {/* Sample preview — what they'll get */}
       <View style={styles.previewCard}>
-        <Text style={styles.previewLabel}>ÖRNEK ÇIKTI (PREMIUM)</Text>
+        <Text style={styles.previewLabel}>{t("ielts_band.sample")}</Text>
         <Text style={styles.previewBand}>7.0</Text>
-        <Text style={styles.previewSub}>Tahmini Speaking Band</Text>
+        <Text style={styles.previewSub}>{t("ielts_band.estimated")}</Text>
         <View style={styles.previewBreakdown}>
           <BreakdownRow label="Fluency" value="7.0" />
           <BreakdownRow label="Lexical" value="6.5" />
@@ -123,22 +127,22 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
       </View>
 
       <View style={styles.benefitsCard}>
-        <Text style={styles.benefitsTitle}>Lafla Pro ile açılan:</Text>
-        <BenefitLine icon="🎯" text="IELTS Band tahminin — Speaking + Writing" />
-        <BenefitLine icon="🔍" text="Her cümle için ayrıntılı hata analizi" />
-        <BenefitLine icon="🔥" text="Hard mode — gerçek sınav zorluğu" />
-        <BenefitLine icon="📊" text="Haftalık zayıflık raporu — neyi çalış" />
-        <BenefitLine icon="🚫" text="Reklamsız + sınırsız sahne" />
+        <Text style={styles.benefitsTitle}>{t("ielts_band.unlocked")}</Text>
+        <BenefitLine icon="🎯" text={t("ielts_band.benefit_band")} />
+        <BenefitLine icon="🔍" text={t("ielts_band.benefit_analysis")} />
+        <BenefitLine icon="🔥" text={t("ielts_band.benefit_hard")} />
+        <BenefitLine icon="📊" text={t("ielts_band.benefit_report")} />
+        <BenefitLine icon="🚫" text={t("ielts_band.benefit_unlimited")} />
       </View>
 
       <Pressable
         onPress={onUpgrade}
         style={({ pressed }) => [styles.cta, pressed && styles.ctaPressed]}
         accessibilityRole="button"
-        accessibilityLabel="Lafla Pro ile aç"
+        accessibilityLabel={t("ielts_band.unlock")}
       >
         <Text style={styles.ctaText}>
-          Lafla Pro ile aç — {PRO_MONTHLY_PRICE_COMPACT}
+          {t("ielts_band.unlock_price", { price: PRO_MONTHLY_PRICE_COMPACT })}
         </Text>
       </Pressable>
     </View>
@@ -152,44 +156,48 @@ function NotEnoughData({
   estimate: BandEstimate;
   onGo: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.notReadyWrap}>
       <Text style={styles.notReadyEmoji}>📝</Text>
-      <Text style={styles.notReadyTitle}>Tahmin için biraz daha veri lazım</Text>
+      <Text style={styles.notReadyTitle}>{t("ielts_band.more_data")}</Text>
       <Text style={styles.notReadySub}>
-        Şu ana kadar {estimate.scenesCompleted} IELTS sahnesi yaptın.
-        Tahmin için en az 4 sahne gerek — {estimate.scenesNeeded} sahne kaldı.
+        {t("ielts_band.data_progress", {
+          completed: String(estimate.scenesCompleted),
+          needed: String(estimate.scenesNeeded),
+        })}
       </Text>
       <Pressable
         onPress={onGo}
         style={({ pressed }) => [styles.cta, pressed && styles.ctaPressed]}
         accessibilityRole="button"
-        accessibilityLabel="IELTS sahnelerine git"
+        accessibilityLabel={t("ielts_band.go_scenes")}
       >
-        <Text style={styles.ctaText}>IELTS sahnelerine git</Text>
+        <Text style={styles.ctaText}>{t("ielts_band.go_scenes")}</Text>
       </Pressable>
     </View>
   );
 }
 
 function BandReport({ estimate }: { estimate: BandEstimate }) {
+  const { t, locale } = useTranslation();
   const bandColor = bandToColor(estimate.speakingBand);
   return (
     <View>
       {/* Main band */}
       <View style={styles.mainBandCard}>
-        <Text style={styles.mainBandLabel}>TAHMİNİ SPEAKING BAND</Text>
+        <Text style={styles.mainBandLabel}>{t("ielts_band.estimated_upper")}</Text>
         <Text style={[styles.mainBandValue, { color: bandColor }]}>
           {estimate.speakingBand.toFixed(1)}
         </Text>
         <Text style={styles.mainBandFoot}>
-          {estimate.scenesCompleted} IELTS sahnesinin verilerine göre
+          {t("ielts_band.based_on", { count: String(estimate.scenesCompleted) })}
         </Text>
       </View>
 
       {/* Components */}
       <View style={styles.componentsCard}>
-        <Text style={styles.componentsTitle}>Kriter Bazında Tahmin</Text>
+        <Text style={styles.componentsTitle}>{t("ielts_band.criteria")}</Text>
         <ComponentRow
           label="Fluency & Coherence"
           value={estimate.components.fluency}
@@ -214,15 +222,15 @@ function BandReport({ estimate }: { estimate: BandEstimate }) {
 
       {/* Advice */}
       <View style={styles.adviceCard}>
-        <Text style={styles.adviceLabel}>BİR ÜST BAND İÇİN</Text>
-        <Text style={styles.adviceText}>{estimate.nextStepAdvice}</Text>
+        <Text style={styles.adviceLabel}>{t("ielts_band.next_band")}</Text>
+        <Text style={styles.adviceText}>
+          {locale === "tr" ? estimate.nextStepAdvice : t(`ielts_band.advice.${estimate.weakest}`)}
+        </Text>
       </View>
 
       {/* Disclaimer */}
       <Text style={styles.disclaimer}>
-        ⚠ Bu tahmin yapay zeka değil — pattern matching + skor analizi.
-        Gerçek sınav band'i için resmi mock test öneriyoruz. Ama 0.5 band
-        içinde isabet veriyor.
+        {t("ielts_band.method_disclaimer")}
       </Text>
     </View>
   );

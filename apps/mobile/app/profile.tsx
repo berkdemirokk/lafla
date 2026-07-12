@@ -65,6 +65,7 @@ import { interestsToModes } from "../lib/interest-mapping";
 import { Icon, type IconName } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
+import { useTranslation, type UseTranslation } from "../lib/i18n";
 
 // ---------------------------------------------------------------
 // Mode taxonomy
@@ -120,11 +121,11 @@ function sanitizeName(raw: string | null | undefined): string {
 
 // 2026-05-24 — Saat-aware selamlama. Today ile aynı semantik; greet copy
 // senkron kalsın diye iki dosyada da aynı bant aralıkları.
-function greetingFor(hour: number): string {
-  if (hour >= 6 && hour < 12) return "Günaydın";
-  if (hour >= 12 && hour < 18) return "İyi günler";
-  if (hour >= 18 && hour < 22) return "İyi akşamlar";
-  return "İyi geceler";
+function greetingFor(hour: number, t: UseTranslation["t"]): string {
+  if (hour >= 6 && hour < 12) return t("today.greeting.morning");
+  if (hour >= 12 && hour < 18) return t("today.greeting.day");
+  if (hour >= 18 && hour < 22) return t("today.greeting.evening");
+  return t("today.greeting.night");
 }
 
 // 2026-05-24 — İnitials avatar helper. "Berk" → "B", "Ahmet Yılmaz" → "AY",
@@ -149,6 +150,7 @@ function getInitials(name: string): string {
 
 export default function ProfileScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   // Empty string means "no name set" so the greeting renders as plain
   // "Merhaba" without a trailing comma.
   const [displayName, setDisplayName] = useState<string>("");
@@ -182,25 +184,10 @@ export default function ProfileScreen() {
   const [rewardedDay, setRewardedDay] = useState<boolean>(false);
 
   const loadAll = useCallback(async () => {
-    // Display name lives in AsyncStorage under `lafla.displayName` per the
-    // dashboard spec. Sanitize before storing in state so render-time logic
-    // doesn't need to defend against control chars or huge names.
-    try {
-      const name = await AsyncStorage.getItem("lafla.displayName");
-      setDisplayName(sanitizeName(name));
-    } catch {
-      setDisplayName("");
-    }
-
-    try {
-      const { data } = await supabase.auth.getUser();
-      setSignedIn(!!data.user);
-    } catch {
-      setSignedIn(false);
-    }
-
     try {
       const [
+        nameRaw,
+        authenticated,
         p,
         c,
         lvl,
@@ -213,18 +200,25 @@ export default function ProfileScreen() {
         premiumStatus,
         rewardedStatus,
       ] = await Promise.all([
-        getLocalProfile(),
-        getCompletedLessonIds(),
-        getCefrLevel(),
-        getInterests(),
-        getShieldCount(),
-        getMonthlyGrant(),
-        recentShieldUseIso(),
-        getRecentDecay(),
+        AsyncStorage.getItem("lafla.displayName").catch(() => null),
+        supabase.auth
+          .getUser()
+          .then(({ data }) => Boolean(data.user))
+          .catch(() => false),
+        getLocalProfile().catch(() => null),
+        getCompletedLessonIds().catch(() => new Set<string>()),
+        getCefrLevel().catch(() => null),
+        getInterests().catch(() => []),
+        getShieldCount().catch(() => 0),
+        getMonthlyGrant().catch(() => 0),
+        recentShieldUseIso().catch(() => null),
+        getRecentDecay().catch(() => 0),
         AsyncStorage.getItem("lafla.cefr.progress").catch(() => null),
         isPremium().catch(() => false),
         isRewardedPremiumActive().catch(() => false),
       ]);
+      setDisplayName(sanitizeName(nameRaw));
+      setSignedIn(authenticated);
       // proSubscriber: gerçek RC entitlement. rewardedDay rewarded grant'i
       // yansıtır; ikisi çakışırsa proSubscriber öncelikli (kalıcı status).
       // isPremium() rewarded'i de OR'lar — bu yüzden rewarded only durumda
@@ -243,9 +237,6 @@ export default function ProfileScreen() {
       // tüm cert'ler retroaktif verilir. Idempotent (daha önce verilenler
       // skip). İlk profile open'da 1 kere yeterli.
       if (lvl) {
-        const nameRaw = await AsyncStorage.getItem("lafla.displayName").catch(
-          () => null,
-        );
         backfillCertificatesUpTo(lvl, nameRaw ?? undefined).catch(() => {});
       }
       setRecentDecay(decay);
@@ -279,10 +270,10 @@ export default function ProfileScreen() {
   }, [loadAll]);
 
   const handleSignOut = () => {
-    Alert.alert("Hesap", "Çıkış yapmak istediğine emin misin?", [
-      { text: "Vazgeç", style: "cancel" },
+    Alert.alert(t("settings.alert.sign_out_title"), t("settings.alert.sign_out_body"), [
+      { text: t("common.cancel"), style: "cancel" },
       {
-        text: "Çıkış",
+        text: t("settings.sign_out"),
         style: "destructive",
         onPress: async () => {
           await signOut().catch(() => {});
@@ -320,11 +311,11 @@ export default function ProfileScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
-          <Text style={styles.backText}>← Geri</Text>
+          <Text style={styles.backText}>← {t("common.back")}</Text>
         </Pressable>
-        <Text style={styles.title}>Profil</Text>
+        <Text style={styles.title}>{t("profile.title")}</Text>
         <View style={styles.spacer} />
       </View>
 
@@ -360,7 +351,7 @@ export default function ProfileScreen() {
             <Text style={styles.avatarText}>{getInitials(displayName)}</Text>
           </View>
           <Text style={styles.greeting} numberOfLines={1}>
-            {greetingFor(new Date().getHours())}
+            {greetingFor(new Date().getHours(), t)}
             {displayName ? `, ${displayName}` : ""}
           </Text>
           {proSubscriber ? (
@@ -369,7 +360,7 @@ export default function ProfileScreen() {
             </View>
           ) : rewardedDay ? (
             <View style={styles.rewardedBadge}>
-              <Text style={styles.rewardedBadgeText}>Bugün Pro</Text>
+              <Text style={styles.rewardedBadgeText}>{t("profile.pro_today")}</Text>
             </View>
           ) : null}
         </View>
@@ -382,7 +373,7 @@ export default function ProfileScreen() {
           <StatChip
             icon="🔥"
             value={String(streak)}
-            label="gün seri"
+            label={t("profile.streak_days")}
             accent={tokens.brand.primary}
             glow={tokens.brand.primaryGlow}
           />
@@ -396,14 +387,14 @@ export default function ProfileScreen() {
           <StatChip
             icon="✅"
             value={String(completedCount)}
-            label="tamamlanan"
+            label={t("profile.completed")}
             accent={tokens.brand.tertiary}
             glow={tokens.brand.tertiaryGlow}
           />
           <StatChip
             icon="📚"
             value={cefrLevel ? `${cefrLevel}${cefrProgress > 0 ? `+${cefrProgress.toFixed(2)}` : ""}` : "—"}
-            label="seviye"
+            label={t("profile.level")}
             accent={tokens.brand.primary}
             glow={tokens.brand.primaryGlow}
           />
@@ -419,19 +410,19 @@ export default function ProfileScreen() {
             yerine tek satır pozitif okuma: "%X · B2'ye yaklaşıyorsun". */}
         {cefrLevel && recentDecay > 0 && (
           <View style={styles.erosionPill}>
-            <Text style={styles.erosionPillLabel}>CEFR AŞINMASI</Text>
+            <Text style={styles.erosionPillLabel}>{t("profile.cefr_erosion")}</Text>
             <Text style={styles.erosionPillValue}>
-              −{recentDecay.toFixed(2)} · ihmal cezası
+              {t("profile.cefr_decay", { amount: recentDecay.toFixed(2) })}
             </Text>
           </View>
         )}
         {cefrLevel && recentDecay === 0 && cefrProgress > 0 && (
           <View style={styles.cefrProgressPill}>
             <Text style={styles.cefrProgressPillLabel}>
-              {cefrLevel} İLERLEMEN
+              {t("profile.cefr_progress", { level: cefrLevel })}
             </Text>
             <Text style={styles.cefrProgressPillValue}>
-              %{Math.round(cefrProgress * 100)} · bir üst seviyeye doğru
+              {t("profile.next_level", { percent: String(Math.round(cefrProgress * 100)) })}
             </Text>
           </View>
         )}
@@ -442,12 +433,14 @@ export default function ProfileScreen() {
         {monthlyGrant > 0 && (
           <View style={styles.shieldRow}>
             <Text style={styles.shieldText}>
-              🛡️ {shieldCount} / {monthlyGrant} streak shield
-              {monthlyGrant === 2 ? " · bu ay" : ""}
+              {t("profile.shields", {
+                count: String(shieldCount),
+                total: String(monthlyGrant),
+              })}
             </Text>
             {recentShieldSave && (
               <Text style={styles.shieldSavedText}>
-                ✨ Son 24 saatte 1 shield streak'ini kurtardı
+                {t("profile.shield_saved")}
               </Text>
             )}
           </View>
@@ -456,7 +449,7 @@ export default function ProfileScreen() {
         {/* Modes — filtered to the user's onboarding-selected interest set.
             Falls back to the full 8 when interests is empty (skipped step or
             legacy install) so we never render a blank dashboard. */}
-        <Text style={styles.sectionLabel}>MODLAR</Text>
+        <Text style={styles.sectionLabel}>{t("profile.section_modes")}</Text>
         <View style={styles.modeList}>
           {visibleModes.map((m) => {
             const total = TOTAL_PER_MODE[m.key] ?? 0;
@@ -466,7 +459,7 @@ export default function ProfileScreen() {
               <ModeRowView
                 key={m.key}
                 emoji={m.emoji}
-                label={m.label}
+                label={t(`mode.${m.key}`)}
                 done={done}
                 total={total}
                 ratio={ratio}
@@ -490,77 +483,77 @@ export default function ProfileScreen() {
             voice/relationships), "Sessiz pratik" (phoneme-drill/listen-mode).
             Pro-gated analizler (ielts-band, weakness-report) "Lafla Pro"
             section'a taşındı — premium upsell daha net. */}
-        <Text style={styles.sectionLabel}>İLERLEME</Text>
+        <Text style={styles.sectionLabel}>{t("profile.section_progress")}</Text>
         <View style={styles.accountCard}>
           <AccountRow
             icon="trophy"
-            label="Liderlik tablosu"
+            label={t("profile.leaderboard")}
             onPress={() => router.push("/leaderboard" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="history"
-            label="Geçmiş sahneler"
+            label={t("profile.history")}
             onPress={() => router.push("/history" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="message"
-            label="Önce · Sonra karşılaştırması"
+            label={t("profile.before_after")}
             onPress={() => router.push("/progress-compare" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="vocab"
-            label="Kelime defterin"
+            label={t("profile.vocab_book")}
             onPress={() => router.push("/vocab-book" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="certificate"
-            label="Sertifikalarım"
+            label={t("profile.certificates")}
             onPress={() => router.push("/certificates" as never)}
           />
         </View>
 
-        <Text style={styles.sectionLabel}>GÜNLÜKLERİM</Text>
+        <Text style={styles.sectionLabel}>{t("profile.section_journals")}</Text>
         <View style={styles.accountCard}>
           <AccountRow
             icon="diary"
-            label="Günlüğüm"
+            label={t("diary.title")}
             onPress={() => router.push("/diary" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="voiceJournal"
-            label="Sesli günlük"
+            label={t("voice_journal.title")}
             onPress={() => router.push("/voice-journal" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="relationships"
-            label="İlişkilerim"
+            label={t("profile.relationships")}
             onPress={() => router.push("/relationships" as never)}
           />
         </View>
 
-        <Text style={styles.sectionLabel}>SESSİZ PRATİK</Text>
+        <Text style={styles.sectionLabel}>{t("profile.section_silent")}</Text>
         <View style={styles.accountCard}>
           <AccountRow
             icon="bolt"
-            label="Telaffuz pratiği"
+            label={t("profile.pronunciation")}
             onPress={() => router.push("/phoneme-drill" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="message"
-            label="Dinleme pratiği"
+            label={t("profile.listening")}
             onPress={() => router.push("/listen-mode" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="message"
-            label="Aksan laboratuvarı"
+            label={t("today.accent_lab")}
             onPress={() => router.push("/accent-lab" as never)}
           />
         </View>
@@ -572,31 +565,31 @@ export default function ProfileScreen() {
               bildirim handler yoksa ölü feature kalıyordu. */}
           <AccountRow
             icon="message"
-            label="Serbest sohbet"
+            label={t("freechat.title")}
             onPress={() => router.push("/freechat" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="band"
-            label="IELTS Band Tahminim"
+            label={t("profile.ielts_band")}
             onPress={() => router.push("/ielts-band" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="weakness"
-            label="Zayıflık Raporu"
+            label={t("profile.weakness_report")}
             onPress={() => router.push("/weakness-report" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="premium"
-            label={proSubscriber ? "Lafla Pro aboneliği · Aktif" : "Lafla Pro aboneliği"}
+            label={proSubscriber ? t("profile.pro_active") : t("settings.pro")}
             onPress={() => router.push("/paywall" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="referral"
-            label="Arkadaşını davet et — 1 ay ücretsiz"
+            label={t("profile.invite_friend")}
             onPress={async () => {
               try {
                 const code = await getMyReferralCode();
@@ -606,18 +599,18 @@ export default function ProfileScreen() {
                   url: `https://berkdemirokk.github.io/lafla/?ref=${encodeURIComponent(code)}`,
                 });
               } catch {
-                Alert.alert("Hata", "Davet linki oluşturulamadı.");
+                Alert.alert(t("common.error"), t("profile.invite_error"));
               }
             }}
           />
         </View>
 
         {/* Account */}
-        <Text style={styles.sectionLabel}>HESAP</Text>
+        <Text style={styles.sectionLabel}>{t("settings.section.account")}</Text>
         <View style={styles.accountCard}>
           <AccountRow
             icon="settings"
-            label="Ayarlar"
+            label={t("settings.title")}
             onPress={() => router.push("/settings" as never)}
           />
           <View style={styles.rowDivider} />
@@ -628,7 +621,7 @@ export default function ProfileScreen() {
               gelir — tek dokunuş, niyetin gerçekleşmesi. */}
           <AccountRow
             icon="trash"
-            label="Hesabımı sil"
+            label={t("settings.delete_account")}
             danger
             onPress={() =>
               router.push({
@@ -647,14 +640,14 @@ export default function ProfileScreen() {
             ]}
             onPress={handleSignOut}
             accessibilityRole="button"
-            accessibilityLabel="Çıkış yap"
+            accessibilityLabel={t("settings.sign_out")}
           >
-            <Text style={styles.signOutText}>Çıkış yap</Text>
+            <Text style={styles.signOutText}>{t("settings.sign_out")}</Text>
           </Pressable>
         )}
 
         <Text style={styles.versionText}>
-          Lafla v{Constants.expoConfig?.version ?? "0.0.0"} · Donma. Konuş.
+          Lafla v{Constants.expoConfig?.version ?? "0.0.0"} · {t("tagline")}
         </Text>
       </ScrollView>
       <TabBar active="profile" />
@@ -704,6 +697,7 @@ interface ModeRowProps {
 }
 
 function ModeRowView({ emoji, label, done, total, ratio, onPress }: ModeRowProps) {
+  const { t } = useTranslation();
   // Animate the fill bar from 0 → ratio on mount. Reanimated v3 — all work
   // happens on the UI thread; no per-frame JS callbacks.
   const fill = useSharedValue(0);
@@ -726,7 +720,7 @@ function ModeRowView({ emoji, label, done, total, ratio, onPress }: ModeRowProps
         pressed && styles.pressed,
       ]}
       accessibilityRole="button"
-      accessibilityLabel={`${label}, ${done} / ${total} tamamlandı`}
+      accessibilityLabel={t("profile.mode_progress_label", { label, done: String(done), total: String(total) })}
     >
       <Text style={styles.modeEmoji}>{emoji}</Text>
       <View style={styles.modeBody}>

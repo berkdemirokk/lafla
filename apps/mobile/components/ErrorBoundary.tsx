@@ -27,6 +27,7 @@ import {
 } from "react-native";
 import { tokens } from "../theme";
 import { captureException } from "../lib/sentry";
+import { t } from "../lib/i18n";
 
 interface Props {
   children: React.ReactNode;
@@ -115,10 +116,8 @@ export class ErrorBoundary extends React.Component<Props, State> {
       <View style={styles.root}>
         <View style={styles.content}>
           <Text style={styles.emoji}>💥</Text>
-          <Text style={styles.title}>Bir şey ters gitti</Text>
-          <Text style={styles.subtitle}>
-            Beklenmedik bir hata oluştu. Tekrar deneyebilir veya bize bildirebilirsin.
-          </Text>
+          <Text style={styles.title}>{t("error_boundary.title")}</Text>
+          <Text style={styles.subtitle}>{t("error_boundary.subtitle")}</Text>
 
           {__DEV__ && error ? (
             <ScrollView
@@ -147,9 +146,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
                 pressed && styles.btnPressed,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Uygulamayı yeniden başlat"
+              accessibilityLabel={t("error_boundary.restart_label")}
             >
-              <Text style={styles.btnPrimaryLabel}>Yeniden başlat</Text>
+              <Text style={styles.btnPrimaryLabel}>{t("error_boundary.restart")}</Text>
             </Pressable>
 
             <Pressable
@@ -160,9 +159,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
                 pressed && styles.btnPressed,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Hatayı bildir"
+              accessibilityLabel={t("error_boundary.report")}
             >
-              <Text style={styles.btnGhostLabel}>Hatayı bildir</Text>
+              <Text style={styles.btnGhostLabel}>{t("error_boundary.report")}</Text>
             </Pressable>
           </View>
         </View>
