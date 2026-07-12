@@ -6,9 +6,12 @@ Complete it against the new TestFlight build before promoting the build.
 ## Build identity
 
 - Version: `1.0.4`
-- EAS production build: `111`
-- EAS build ID: `9f885136-ba54-43ba-9f2a-6a8248ce90d7`
-- IPA identity verified: `com.lafla.app` · `1.0.4 (111)`
+- TestFlight production build: `112`
+- GitHub Actions run: `29201249421`
+- Source commit: `b0b96ca0ae9aca517469a471e76257cfd437f8a8`
+- Apple delivery UUID: `d12705f4-123f-4c57-94f2-e7413aede900`
+- Upload result: `UPLOAD SUCCEEDED with no errors`
+- IPA identity: `com.lafla.app` · `1.0.4 (112)`
 - Native permission resources verified in IPA: `en.lproj` and `tr.lproj`
 - App privacy manifest verified in IPA: tracking domains + 4 required-reason API categories
 - Git commit: ____________________
