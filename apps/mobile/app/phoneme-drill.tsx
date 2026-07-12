@@ -37,6 +37,7 @@ import {
   type DrillItem,
 } from "../data/phoneme-drill-data";
 import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 const SESSION_SIZE = 5;
 
@@ -48,15 +49,23 @@ export default function PhonemeDrillScreen() {
   const [scores, setScores] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
   const [userLevel, setUserLevel] = useState<CefrLevel | null>(null);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
   const load = useCallback(async () => {
-    const lvl = await getCefrLevel().catch(() => null);
-    setUserLevel(lvl);
-    const session = pickDrillsForLevel(lvl ?? "B1", SESSION_SIZE);
-    setDrills(session);
-    setIdx(0);
-    setScores([]);
-    setFinished(false);
+    setStatus("loading");
+    try {
+      const lvl = await getCefrLevel().catch(() => null);
+      setUserLevel(lvl);
+      const session = pickDrillsForLevel(lvl ?? "B1", SESSION_SIZE);
+      if (session.length === 0) throw new Error("No pronunciation drills available");
+      setDrills(session);
+      setIdx(0);
+      setScores([]);
+      setFinished(false);
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
 
   useFocusEffect(
@@ -163,7 +172,17 @@ export default function PhonemeDrillScreen() {
   }
 
   // ─── Active drill ──────────────────────────────────────────
-  if (!currentDrill) return null;
+  if (status !== "ready" || !currentDrill) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState
+          status={status === "ready" ? "error" : status}
+          onRetry={() => void load()}
+        />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>

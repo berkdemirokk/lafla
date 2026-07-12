@@ -253,19 +253,17 @@ speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation
 > **TR (primary):**
 
 ```
-Lafla — ilk sürüm. Konuş, çalış.
+Lafla artık daha hızlı, güvenilir ve erişilebilir:
 
-🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS
-🎬 971 oynanabilir sahne — A1'den C2'ye CEFR ile haritalı
-🎙️ Phoneme Drill — Türk kulağı için zor sesleri targetli alıştır
-🎧 Dinle + yaz modu — sessiz ortamda da pratik
-🇹🇷 Türkçeye özel hata geri bildirimi (article, doğrudan çeviri tuzakları)
-⚡ Sub-3-saniye geri bildirim — donduğunda Lafla zaten cevap vermiş
-🧠 Akıllı konuşma — NPC karakterler doğal başlangıçlarla konuşuyor
-💭 Voice Journal — kendi sesini kaydet, ilerlemeyi duy
-🌙 Neon Noir tema — premium, gece dostu
-
-Geri bildirim: berkkdemirok@gmail.com
+• Üretken yapay zekâ gerektirmeyen algoritmik konuşma motoru
+• Eksiksiz Türkçe ve İngilizce arayüz
+• Yenilenen açık ve koyu temalar
+• Daha güçlü gerçek hayat senaryoları ve adaptif pratik
+• Geliştirilen dinleme, telaffuz ve kelime egzersizleri
+• Açık yüklenme, hata ve yeniden deneme durumları
+• VoiceOver ve sınırsız Dynamic Type desteği
+• Güçlendirilmiş gizlilik ve yerel veri temizliği
+• Genel performans ve kararlılık iyileştirmeleri
 ```
 
 *(approx. 530 chars)*
@@ -273,19 +271,17 @@ Geri bildirim: berkkdemirok@gmail.com
 > **EN (secondary):**
 
 ```
-Lafla — first launch. Speak. Work.
+Lafla is now faster, more reliable, and more accessible:
 
-🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS
-🎬 971 scenarios playable at launch — CEFR-mapped A1 to C2
-🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse
-🎧 Listen & Transcribe — practice in silent environments
-🇹🇷 Turkish-tailored error feedback (articles, direct-translation traps)
-⚡ Sub-3-second feedback loop
-🧠 Smart conversation — NPCs reply with natural openers
-💭 Voice Journal — record yourself, hear your progress
-🌙 Neon Noir theme — premium, night-friendly
-
-Feedback: berkkdemirok@gmail.com
+• Algorithmic conversation engine—no generative AI required
+• Complete English and Turkish localization
+• Redesigned light and dark themes
+• Stronger real-life scenarios and adaptive practice
+• Improved listening, pronunciation, and vocabulary exercises
+• Clear loading, error, and retry states
+• VoiceOver and unrestricted Dynamic Type support
+• Stronger privacy and local-data cleanup
+• General performance and stability improvements
 ```
 
 *(approx. 530 chars)*
@@ -355,7 +351,7 @@ Feedback: berkkdemirok@gmail.com
 ### Türkçe (recommended for launch)
 
 ```
-Lafla geldi. 7 mod, 971 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçe ipuçlu hata feedback. Flörtten mülakata, donma. Konuş.
+Gerçek konuşmalar, akıllı tekrarlar, açık/koyu tema ve tamamen algoritmik pratik. Üretken yapay zekâ yok; İngilizce konuşma cesaretin hep yanında.
 ```
 
 *(160 / 170 characters)*
@@ -363,7 +359,7 @@ Lafla geldi. 7 mod, 971 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşm
 ### English
 
 ```
-Lafla just launched. 7 modes, 971 scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.
+Real conversations, adaptive review, light and dark themes, and fully algorithmic practice. No generative AI—just focused English speaking confidence.
 ```
 
 *(152 / 170 characters)*

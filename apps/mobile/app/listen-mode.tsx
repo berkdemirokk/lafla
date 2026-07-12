@@ -29,6 +29,7 @@ import { trackEvent } from "../lib/analytics";
 import { hapticImpact, hapticSuccess } from "../lib/feedback";
 import { pickClipsForLevel, type ListenClip } from "../data/listen-bank";
 import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 const SESSION_SIZE = 5;
 
@@ -40,15 +41,23 @@ export default function ListenModeScreen() {
   const [scores, setScores] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
   const [, setUserLevel] = useState<CefrLevel | null>(null);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
   const load = useCallback(async () => {
-    const lvl = await getCefrLevel().catch(() => null);
-    setUserLevel(lvl);
-    const session = pickClipsForLevel(lvl ?? "B1", SESSION_SIZE);
-    setClips(session);
-    setIdx(0);
-    setScores([]);
-    setFinished(false);
+    setStatus("loading");
+    try {
+      const lvl = await getCefrLevel().catch(() => null);
+      setUserLevel(lvl);
+      const session = pickClipsForLevel(lvl ?? "B1", SESSION_SIZE);
+      if (session.length === 0) throw new Error("No listening clips available");
+      setClips(session);
+      setIdx(0);
+      setScores([]);
+      setFinished(false);
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
 
   useFocusEffect(
@@ -138,7 +147,17 @@ export default function ListenModeScreen() {
     );
   }
 
-  if (!currentClip) return null;
+  if (status !== "ready" || !currentClip) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState
+          status={status === "ready" ? "error" : status}
+          onRetry={() => void load()}
+        />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>

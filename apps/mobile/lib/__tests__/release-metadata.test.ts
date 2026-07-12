@@ -72,6 +72,21 @@ describe("release metadata", () => {
     expect(documents[0]).toContain("Optional Free Chat");
   });
 
+  it("keeps localized promotional text current and within App Store limits", () => {
+    const syncScript = read("apps/mobile/scripts/asc-sync.ts");
+    const promotionalTexts = Array.from(
+      syncScript.matchAll(/promotionalText:\s*\n\s*"([^"]+)"/g),
+      (match) => match[1],
+    );
+
+    expect(promotionalTexts).toHaveLength(2);
+    for (const promotionalText of promotionalTexts) {
+      expect(promotionalText.length).toBeLessThanOrEqual(170);
+      expect(promotionalText).toMatch(/algoritmik|algorithmic/i);
+    }
+    expect(syncScript).not.toMatch(/ilk sürüm|just launched/i);
+  });
+
   it("does not sell unrecorded native-audio inventory in the paywall", () => {
     const paywall = read("apps/mobile/app/paywall.tsx");
     const nativeAudioManifest = read("apps/mobile/data/native-audio-manifest.ts");
