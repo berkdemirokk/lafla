@@ -568,6 +568,7 @@
   "exercise.start_speaking": "Start speaking",
   "exercise.speak_now_mic": "Now you say it 🎤",
   "exercise.listening": "Listening…",
+  "exercise.microphone_starting": "Preparing microphone…",
   "exercise.cancel_listening": "Cancel listening",
   "exercise.microphone_permission": "Microphone permission is required — allow it in Settings.",
   "exercise.network_error": "Connection problem. Check your internet.",

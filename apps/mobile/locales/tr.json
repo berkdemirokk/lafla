@@ -568,6 +568,7 @@
   "exercise.start_speaking": "Konuşmaya başla",
   "exercise.speak_now_mic": "Şimdi sen söyle 🎤",
   "exercise.listening": "Dinliyor…",
+  "exercise.microphone_starting": "Mikrofon hazırlanıyor…",
   "exercise.cancel_listening": "Dinlemeyi iptal et",
   "exercise.microphone_permission": "Mikrofon izni gerekli — Ayarlar'dan izin ver.",
   "exercise.network_error": "Bağlantı problemi. İnternetini kontrol et.",

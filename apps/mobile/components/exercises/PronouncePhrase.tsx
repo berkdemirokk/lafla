@@ -54,7 +54,7 @@ interface Props {
   onSkip?: () => void;
 }
 
-type Stage = "idle" | "listening" | "graded";
+type Stage = "idle" | "starting" | "listening" | "graded";
 
 interface GradedState {
   score: number;
@@ -122,7 +122,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   }, [stage]);
 
   useEffect(() => {
-    if (stage === "listening") {
+    if (stage === "starting" || stage === "listening") {
       pulse.setValue(1);
       pulseLoop.current = Animated.loop(
         Animated.sequence([
@@ -155,9 +155,10 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   // Auto-clear error toast after a moment.
   useEffect(() => {
     if (!errorMsg) return;
+    if (onSkip || permissionDenied) return;
     const t = setTimeout(() => setErrorMsg(null), 2400);
     return () => clearTimeout(t);
-  }, [errorMsg]);
+  }, [errorMsg, onSkip, permissionDenied]);
 
   // If we unmount mid-listen, make sure we tear down the native session.
   useEffect(() => {
@@ -178,12 +179,13 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   // loop'u. AppState listener ile background'da stopListening + stage idle.
   useEffect(() => {
     const sub = AppState.addEventListener("change", (next: AppStateStatus) => {
-      if (next !== "active" && stage === "listening") {
+      if (next !== "active" && (stage === "starting" || stage === "listening")) {
         try {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
           const sr = require("../../lib/speech-recognition");
           sr?.stopListening?.();
         } catch {}
+        stageRef.current = "idle";
         setStage("idle");
       }
     });
@@ -191,6 +193,9 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   }, [stage]);
 
   const handleMicPress = async () => {
+    if (stageRef.current !== "idle") return;
+    stageRef.current = "starting";
+    setStage("starting");
     hapticImpact("medium");
     setErrorMsg(null);
     gradedThisSession.current = false;
@@ -207,12 +212,16 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
     }
 
     if (!sr) {
+      stageRef.current = "idle";
+      setStage("idle");
       onComplete(unavailablePronunciationResult("pronounce_phrase"));
       return;
     }
 
     const available = await sr.isAvailable().catch(() => false);
     if (!available) {
+      stageRef.current = "idle";
+      setStage("idle");
       onComplete(unavailablePronunciationResult("pronounce_phrase"));
       return;
     }
@@ -230,7 +239,10 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
       onResult: (text, isFinal) => {
         // İlk interim sinyalinde stage'i "listening"e taşı. Final'a kadar
         // tekrar set edilmesi React no-op.
-        if (!gradedThisSession.current) setStage("listening");
+        if (!gradedThisSession.current) {
+          stageRef.current = "listening";
+          setStage("listening");
+        }
         if (!isFinal) return;
         if (gradedThisSession.current) return;
         gradedThisSession.current = true;
@@ -245,6 +257,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           heard: text,
           phonemes: null,
         });
+        stageRef.current = "graded";
         setStage("graded");
         if (g.score < 85) {
           // 2026-05-26 (P0-7 fix) — Snapshot phrase'i ve callback'te eşle.
@@ -287,6 +300,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
         // setStage("listening") henüz commit olmadan onError SYNC çağrılırsa
         // önceki "idle → listening" intent kaybolup pulse loop kilitleniyordu.
         if (!gradedThisSession.current) {
+          stageRef.current = "idle";
           setStage((s) => (s === "graded" ? s : "idle"));
         }
       },
@@ -303,11 +317,13 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
       // ignore
     }
     setStage("idle");
+    stageRef.current = "idle";
   };
 
   const handleRetry = () => {
     hapticImpact("light");
     setGraded(null);
+    stageRef.current = "idle";
     setStage("idle");
   };
 
@@ -457,14 +473,22 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           </Pressable>
         )}
 
-        {stage === "listening" && (
-          <View style={styles.listeningBlock}>
+        {(stage === "starting" || stage === "listening") && (
+          <View
+            style={styles.listeningBlock}
+            accessibilityLiveRegion="polite"
+            accessibilityState={{ busy: true }}
+          >
             <Animated.View
               style={[styles.micPulse, { transform: [{ scale: pulse }] }]}
             >
               <Text style={styles.micPulseIcon}>🎤</Text>
             </Animated.View>
-            <Text style={styles.listeningText}>{t("exercise.listening")}</Text>
+            <Text style={styles.listeningText}>
+              {stage === "starting"
+                ? t("exercise.microphone_starting")
+                : t("exercise.listening")}
+            </Text>
             <Pressable
               onPress={handleCancel}
               style={({ pressed }) => [
