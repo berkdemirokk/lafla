@@ -33,7 +33,7 @@
 // invented quotes pre-launch, which is dishonest and risks store review.
 // Counts updated 2026-05-20 after the 6-mode radical cut.
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -187,6 +187,7 @@ export default function PaywallScreen() {
   // monthly via the toggle.
   const [selectedPackage, setSelectedPackage] = useState<PackageId>("yearly");
   const [loading, setLoading] = useState(false);
+  const purchaseInFlightRef = useRef(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [, setLive] = useState<boolean | null>(null);
   // 2026-05-25 (B-PAY-7) — Offering fetch fail durumunda kullanıcıya retry
@@ -333,6 +334,7 @@ export default function PaywallScreen() {
   }));
 
   const handlePurchase = async (selected: PackageId) => {
+    if (purchaseInFlightRef.current) return;
     // 2026-05-25 (B-PAY-7) — Offering fetch fail durumda CTA tıklatma;
     // kullanıcı yanlış/eksik fiyat üzerine alım deneyemesin.
     if (offeringFailed) {
@@ -348,6 +350,7 @@ export default function PaywallScreen() {
       return;
     }
     hapticImpact("medium");
+    purchaseInFlightRef.current = true;
     setLoading(true);
     void trackEvent("purchase_initiated", { plan: selected }).catch(() => {});
     // Sentry breadcrumb: ödeme akışı başladı. Apple Sandbox / Sandbox tester
@@ -358,14 +361,9 @@ export default function PaywallScreen() {
       data: { plan: selected, fromIntro: isFromIntro },
     });
     try {
-      // 10sn timeout — RC SDK hang ederse setLoading(false) hiç çağrılmazdı,
-      // CTA disabled kalırdı. Promise.race + reject ile finally garantili.
-      const result = await Promise.race([
-        purchasePackage(selected),
-        new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error(t("paywall.alert.timeout"))), 10000),
-        ),
-      ]);
+      // StoreKit is user-driven and cannot be cancelled safely by a JS timer.
+      // Wait for RevenueCat's definitive success, cancel, or error result.
+      const result = await purchasePackage(selected);
       if (result.ok) {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});
@@ -397,6 +395,7 @@ export default function PaywallScreen() {
       }).catch(() => {});
       Alert.alert(t("common.error"), msg);
     } finally {
+      purchaseInFlightRef.current = false;
       setLoading(false);
     }
   };
@@ -414,6 +413,8 @@ export default function PaywallScreen() {
   };
 
   const handleRestore = async () => {
+    if (purchaseInFlightRef.current) return;
+    purchaseInFlightRef.current = true;
     hapticImpact("light");
     setLoading(true);
     try {
@@ -442,6 +443,7 @@ export default function PaywallScreen() {
     } catch {
       Alert.alert(t("common.error"), t("settings.alert.restore_failed_body"));
     } finally {
+      purchaseInFlightRef.current = false;
       setLoading(false);
     }
   };

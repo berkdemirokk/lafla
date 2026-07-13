@@ -104,6 +104,13 @@ describe("release metadata", () => {
     );
   });
 
+  it("does not time out a StoreKit purchase that remains active in native UI", () => {
+    const paywall = read("apps/mobile/app/paywall.tsx");
+    expect(paywall).toContain("await purchasePackage(selected)");
+    expect(paywall).not.toMatch(/Promise\.race\(\[\s*purchasePackage/);
+    expect(paywall).toContain("purchaseInFlightRef.current");
+  });
+
   it("keeps monetization copy aligned across release surfaces", () => {
     const paywall = read("apps/mobile/app/paywall.tsx");
     const ielts = read("apps/mobile/app/ielts-band.tsx");
