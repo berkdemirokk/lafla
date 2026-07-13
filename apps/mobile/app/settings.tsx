@@ -170,10 +170,13 @@ export default function SettingsScreen() {
 
   const handleAnalyticsToggle = async (optOut: boolean) => {
     hapticSelection();
+    const previous = analyticsOptOut;
     setAnalyticsOptOut(optOut);
     try {
       await setAnalyticsEnabled(!optOut);
     } catch {
+      setAnalyticsOptOut(previous);
+      Alert.alert(t("common.error_title"), t("settings.alert.save_failed"));
       // ignore — opt-out remains in local state, persistence error is non-fatal
     }
   };
@@ -196,8 +199,13 @@ export default function SettingsScreen() {
       setReminderOn(true);
       hapticSuccess();
     } else {
-      await disableReminders();
-      setReminderOn(false);
+      try {
+        await disableReminders();
+        setReminderOn(false);
+      } catch {
+        setReminderOn(true);
+        Alert.alert(t("common.error_title"), t("settings.alert.save_failed"));
+      }
     }
   };
 
@@ -207,6 +215,7 @@ export default function SettingsScreen() {
   const handleReminderHourChange = async (hour: number) => {
     if (hour === reminderHour) return;
     hapticSelection();
+    const previous = reminderHour;
     setReminderHour(hour);
     if (reminderOn) {
       // 2026-05-26 (P1 audit fix) — enableDailyReminder helper'ın idempotent
@@ -214,18 +223,28 @@ export default function SettingsScreen() {
       // user her saat değişiminde çoklu bildirim alır. Önce explicit cancel,
       // sonra reschedule. disableReminders cancelAll API'sini garantili
       // tetikler.
-      await disableReminders().catch(() => {});
-      await enableDailyReminder(hour);
+      try {
+        await disableReminders();
+        const enabled = await enableDailyReminder(hour);
+        if (!enabled) throw new Error("Reminder could not be scheduled");
+      } catch {
+        setReminderHour(previous);
+        await enableDailyReminder(previous).catch(() => false);
+        Alert.alert(t("common.error_title"), t("settings.alert.save_failed"));
+      }
     }
   };
 
   const handleSfxToggle = async (v: boolean) => {
     hapticSelection();
+    const previous = sfxOn;
     setSfxOn(v);
     if (setSfxEnabledFn) {
       try {
         await setSfxEnabledFn(v);
       } catch {
+        setSfxOn(previous);
+        Alert.alert(t("common.error_title"), t("settings.alert.save_failed"));
         // non-fatal
       }
     }
@@ -234,14 +253,25 @@ export default function SettingsScreen() {
   const handleThemeChange = async (preference: AppThemePreference) => {
     if (preference === themePreference) return;
     hapticSelection();
+    const previous = themePreference;
     setThemePreferenceState(preference);
-    await setThemePreference(preference);
+    try {
+      await setThemePreference(preference);
+    } catch {
+      setThemePreferenceState(previous);
+      await setThemePreference(previous).catch(() => {});
+      Alert.alert(t("common.error_title"), t("settings.alert.save_failed"));
+    }
   };
 
   const handleLocaleChange = async (nextLocale: Locale) => {
     if (nextLocale === locale) return;
     hapticSelection();
-    await setLocale(nextLocale);
+    try {
+      await setLocale(nextLocale);
+    } catch {
+      Alert.alert(t("common.error_title"), t("settings.alert.save_failed"));
+    }
   };
 
   const openDeleteFlow = async () => {
@@ -330,8 +360,14 @@ export default function SettingsScreen() {
 
   const setAutoSpeakValue = async (v: boolean) => {
     hapticSelection();
+    const previous = autoSpeak;
     setAutoSpeak(v);
-    await AsyncStorage.setItem(K_AUTO_SPEAK, v ? "true" : "false").catch(() => {});
+    try {
+      await AsyncStorage.setItem(K_AUTO_SPEAK, v ? "true" : "false");
+    } catch {
+      setAutoSpeak(previous);
+      Alert.alert(t("common.error_title"), t("settings.alert.save_failed"));
+    }
   };
 
   // Apple Guideline 3.1.1 — Restore Purchases ulaşılabilirlik. Settings'ten

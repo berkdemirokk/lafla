@@ -230,12 +230,9 @@ export async function getDistinctId(): Promise<string | null> {
 // ---------------------------------------------------------------------------
 
 export async function setAnalyticsEnabled(enabled: boolean): Promise<void> {
-  optedOut = !enabled;
-  try {
-    await AsyncStorage.setItem(K_OPTOUT, optedOut ? "true" : "false");
-  } catch {
-    // ignore
-  }
+  const nextOptedOut = !enabled;
+  await AsyncStorage.setItem(K_OPTOUT, nextOptedOut ? "true" : "false");
+  optedOut = nextOptedOut;
   try {
     if (!client) return;
     if (enabled) {

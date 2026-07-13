@@ -134,6 +134,7 @@
   "settings.reminder.noon": "Noon",
   "settings.reminder.evening": "Evening",
   "settings.reminder.hour_label": "Reminder time: {label} {hour}:00",
+  "settings.alert.save_failed": "Your preference could not be saved. The previous setting is still active.",
   "settings.sfx.label": "Sound effects",
   "settings.sfx.description": "Correct / wrong answer taps",
   "settings.analytics.label": "Use without analytics",

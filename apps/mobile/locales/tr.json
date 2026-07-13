@@ -134,6 +134,7 @@
   "settings.reminder.noon": "Öğle",
   "settings.reminder.evening": "Akşam",
   "settings.reminder.hour_label": "Hatırlatma saati: {label} {hour}:00",
+  "settings.alert.save_failed": "Tercihin kaydedilemedi. Önceki ayar korunuyor.",
   "settings.sfx.label": "Ses efektleri",
   "settings.sfx.description": "Doğru / yanlış cevap tıkları",
   "settings.analytics.label": "Analytics olmadan kullan",

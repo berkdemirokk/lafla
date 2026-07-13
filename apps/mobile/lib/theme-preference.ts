@@ -60,7 +60,7 @@ export function applyThemePreference(preference: AppThemePreference) {
 
 export async function setThemePreference(preference: AppThemePreference) {
   applyThemePreference(preference);
-  await AsyncStorage.setItem(K_THEME_PREFERENCE, preference).catch(() => {});
+  await AsyncStorage.setItem(K_THEME_PREFERENCE, preference);
 }
 
 export async function hydrateThemePreference(): Promise<AppThemePreference> {

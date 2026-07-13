@@ -103,13 +103,10 @@ export function getLocale(): Locale {
 
 export async function setLocale(locale: Locale): Promise<void> {
   if (!isLocale(locale)) return;
+  await AsyncStorage.setItem(STORAGE_KEY, locale);
   currentLocale = locale;
   hydrated = true;
-  try {
-    await AsyncStorage.setItem(STORAGE_KEY, locale);
-  } catch {
-    // Persistence failure is non-fatal — locale still applies for session.
-  }
+  // The stored locale is now authoritative for this update.
   listeners.forEach((fn) => fn(locale));
 }
 
