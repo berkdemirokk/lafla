@@ -24,13 +24,13 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Animated,
-  Dimensions,
   Easing,
   PanResponder,
   Pressable,
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
   type GestureResponderEvent,
   type PanResponderGestureState,
 } from "react-native";
@@ -48,12 +48,12 @@ import { tokens } from "../theme";
 import AnimatedGradientOverlay from "./AnimatedGradientOverlay";
 import FloatingParticles from "./FloatingParticles";
 import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 // ---------------------------------------------------------------------------
 // Layout constants
 // ---------------------------------------------------------------------------
 
-const SCREEN = Dimensions.get("window");
 type CoverStage = "primary" | "fallback" | "gradient";
 
 // Horizontal swipe thresholds. We require either a fairly long drag OR
@@ -147,6 +147,8 @@ function SwipeSceneCardImpl({
   isActive = true,
 }: SwipeSceneCardProps) {
   const { t } = useTranslation();
+  const { width } = useWindowDimensions();
+  const reduceMotion = useReduceMotionPreference();
   const coverSpec = useMemo(() => getSceneCoverSpec(scene), [scene]);
   const cardPromise = t(getCardPromiseKey(scene, completed));
   // Remote theme image → local fallback → branded gradient. Recycled cards
@@ -167,7 +169,7 @@ function SwipeSceneCardImpl({
   const kenBurnsAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (!isActive) {
+    if (!isActive || reduceMotion) {
       // Reset to start and stop
       kenBurnsAnim.setValue(0);
       return;
@@ -187,7 +189,7 @@ function SwipeSceneCardImpl({
     return () => {
       loop.stop();
     };
-  }, [isActive, scene.id, kenBurnsAnim]);
+  }, [isActive, scene.id, kenBurnsAnim, reduceMotion]);
 
   useEffect(() => {
     // Reset & replay the entrance animation for this scene.
@@ -241,7 +243,7 @@ function SwipeSceneCardImpl({
             // Fling the card off-screen then fire the action so the user
             // sees a clear visual response before the route swap.
             Animated.timing(translateX, {
-              toValue: direction * SCREEN.width * 1.2,
+              toValue: direction * width * 1.2,
               duration: 180,
               useNativeDriver: true,
             }).start(() => {
@@ -281,7 +283,7 @@ function SwipeSceneCardImpl({
           }).start();
         },
       }),
-    [onEnter, onSkip, scene.lessonId, translateX],
+    [onEnter, onSkip, scene.lessonId, translateX, width],
   );
 
   // -------------------------------------------------------------------------
@@ -289,23 +291,23 @@ function SwipeSceneCardImpl({
   // -------------------------------------------------------------------------
 
   const rotate = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    inputRange: [-width, 0, width],
     outputRange: ["-6deg", "0deg", "6deg"],
     extrapolate: "clamp",
   });
   const rotateY = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    inputRange: [-width, 0, width],
     outputRange: ["15deg", "0deg", "-15deg"],
     extrapolate: "clamp",
   });
   const imageScale = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    inputRange: [-width, 0, width],
     outputRange: [1.35, 1.25, 1.35],
     extrapolate: "clamp",
   });
   const imageTranslateX = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
-    outputRange: [SCREEN.width * 0.12, 0, -SCREEN.width * 0.12],
+    inputRange: [-width, 0, width],
+    outputRange: [width * 0.12, 0, -width * 0.12],
     extrapolate: "clamp",
   });
 
@@ -327,12 +329,12 @@ function SwipeSceneCardImpl({
   const combinedScale = Animated.multiply(imageScale, kbScale);
   const combinedTranslateX = Animated.add(imageTranslateX, kbTranslateX);
   const rightGlowOpacity = translateX.interpolate({
-    inputRange: [0, SCREEN.width * 0.4],
+    inputRange: [0, width * 0.4],
     outputRange: [0, 1],
     extrapolate: "clamp",
   });
   const leftGlowOpacity = translateX.interpolate({
-    inputRange: [-SCREEN.width * 0.4, 0],
+    inputRange: [-width * 0.4, 0],
     outputRange: [1, 0],
     extrapolate: "clamp",
   });
@@ -409,7 +411,7 @@ function SwipeSceneCardImpl({
         : undefined;
 
   return (
-    <View style={[styles.outer, { height: cardHeight }]}>
+    <View style={[styles.outer, { width, height: cardHeight }]}>
       {/* Edge glow hints — fade in while dragging. Right side = enter (pink),
           left side = skip (neutral white). Pure visual feedback, no touch. */}
       <Animated.View
@@ -598,7 +600,6 @@ export const SwipeSceneCard = memo(SwipeSceneCardImpl);
 
 const styles = StyleSheet.create({
   outer: {
-    width: SCREEN.width,
     backgroundColor: tokens.bg.app,
     overflow: "hidden",
   },

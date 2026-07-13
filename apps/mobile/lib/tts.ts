@@ -169,8 +169,8 @@ export type SpeakOpts = {
  *      2. Remote ElevenLabs via Worker (English only, if endpoint set).
  *      3. expo-speech / Apple Siri (Turkish always, English last resort).
  */
-export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
-  if (!text || !text.trim()) return;
+export async function speak(text: string, opts?: SpeakOpts): Promise<boolean> {
+  if (!text || !text.trim()) return false;
 
   // iOS sessizleştirme switch'i + audio session config — 2026-05-20 bug fix.
   // İlk speak() çağrısında bir kez set edilir, sonrakilerde no-op.
@@ -188,7 +188,7 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
   // Toggle: same phrase re-tapped → stop and bail.
   if (lastUtterance === playbackKey) {
     await stopAsync();
-    return;
+    return true;
   }
 
   // Always stop whatever's playing before starting something new.
@@ -200,13 +200,12 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
   // Accent Lab must use the device's locale-specific native voice. Bundled
   // and remote files are single-voice assets and would fake accent variety.
   if (lang !== "tr-TR" && accent !== "american") {
-    speakNative(
+    return speakNative(
       text,
       resolveAccentLocale(accent),
       accent === "international" ? Math.min(rate, 0.9) : rate,
       playbackKey,
     );
-    return;
   }
 
   // 0. Bundled MP3 lookup — tried for BOTH languages, since Chatterbox can
@@ -217,7 +216,7 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
   if (bundledLoader) {
     try {
       const ok = await playBundledModule(bundledLoader, myToken);
-      if (ok) return;
+      if (ok) return true;
     } catch {
       // fall through
     }
@@ -225,18 +224,17 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
 
   // Turkish → native synth (no remote round-trip).
   if (lang === "tr-TR") {
-    speakNative(text, lang, rate, playbackKey);
-    return;
+    return speakNative(text, lang, rate, playbackKey);
   }
 
   // English + endpoint configured → try the premium remote path.
   if (TTS_ENDPOINT) {
     try {
       const uri = await resolveMp3Uri(text, remoteVoiceId, lang);
-      if (myToken !== playbackToken) return; // user moved on
+      if (myToken !== playbackToken) return true; // superseded by newer audio
       if (uri) {
         const ok = await playLocalMp3(uri, myToken);
-        if (ok) return;
+        if (ok) return true;
       }
     } catch {
       // fall through to native
@@ -244,8 +242,8 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
   }
 
   // Last resort: expo-speech.
-  if (myToken !== playbackToken) return;
-  speakNative(text, lang, rate, playbackKey);
+  if (myToken !== playbackToken) return true;
+  return speakNative(text, lang, rate, playbackKey);
 }
 
 /** Stop any currently-playing audio (remote MP3 or native synth). */
@@ -415,26 +413,46 @@ function speakNative(
   lang: string,
   rate: number,
   playbackKey: string,
-): void {
-  try {
-    Speech.stop();
-    Speech.speak(text, {
-      language: lang,
-      rate,
-      pitch: 1.0,
-      onDone: () => {
-        if (lastUtterance === playbackKey) lastUtterance = null;
-      },
-      onStopped: () => {
-        if (lastUtterance === playbackKey) lastUtterance = null;
-      },
-      onError: () => {
-        if (lastUtterance === playbackKey) lastUtterance = null;
-      },
-    });
-  } catch {
-    // last-resort: even Speech.speak threw — give up silently
-  }
+): Promise<boolean> {
+  return new Promise((resolve) => {
+    let settled = false;
+    let fallbackTimer: ReturnType<typeof setTimeout>;
+    const settle = (started: boolean) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(fallbackTimer);
+      resolve(started);
+    };
+
+    // Older native speech implementations may omit onStart. If no error
+    // arrives promptly, consider the successfully scheduled utterance started.
+    fallbackTimer = setTimeout(() => settle(true), 750);
+
+    try {
+      Speech.stop();
+      Speech.speak(text, {
+        language: lang,
+        rate,
+        pitch: 1.0,
+        onStart: () => settle(true),
+        onDone: () => {
+          settle(true);
+          if (lastUtterance === playbackKey) lastUtterance = null;
+        },
+        onStopped: () => {
+          settle(true);
+          if (lastUtterance === playbackKey) lastUtterance = null;
+        },
+        onError: () => {
+          settle(false);
+          if (lastUtterance === playbackKey) lastUtterance = null;
+        },
+      });
+    } catch {
+      if (lastUtterance === playbackKey) lastUtterance = null;
+      settle(false);
+    }
+  });
 }
 
 async function stopAsync(): Promise<void> {

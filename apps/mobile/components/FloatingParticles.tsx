@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useMemo, useRef } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
+import { useReduceMotionPreference } from '../lib/use-reduce-motion-preference';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -80,6 +81,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   isActive = true,
   particleCount = 6,
 }) => {
+  const reduceMotion = useReduceMotionPreference();
   // Memoised configs so random values are stable across renders.
   const configs = useMemo(() => buildConfigs(particleCount), [particleCount]);
 
@@ -93,7 +95,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   const loopRefs = useRef<Animated.CompositeAnimation[]>([]);
 
   useEffect(() => {
-    if (!isActive) {
+    if (!isActive || reduceMotion) {
       // Stop any running loops & reset values.
       loopRefs.current.forEach((l) => l.stop());
       loopRefs.current = [];
@@ -121,7 +123,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
       loopRefs.current.forEach((l) => l.stop());
       loopRefs.current = [];
     };
-  }, [isActive, configs]);
+  }, [isActive, configs, reduceMotion]);
 
   return (
     <View style={styles.container} pointerEvents="none">

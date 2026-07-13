@@ -44,6 +44,7 @@ import { tokens } from "../theme";
 import { hapticImpact, hapticSuccess } from "../lib/feedback";
 import { trackEvent } from "../lib/analytics";
 import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 interface Props {
   visible: boolean;
@@ -100,6 +101,7 @@ function copyKeysFor(days: number): MilestoneCopy {
 
 export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
   const { t } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   const copyKeys = copyKeysFor(streakDays);
   const vars = { days: String(streakDays) };
   const copy = {
@@ -145,7 +147,16 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       firedRef.current = null;
       return;
     }
-    // Halo loop
+    if (reduceMotion) {
+      cancelAnimation(haloPulse);
+      haloPulse.value = 0;
+      numberScale.value = 1;
+      numberOpacity.value = 1;
+      titleOpacity.value = 1;
+      titleTranslate.value = 0;
+      subtitleOpacity.value = 1;
+      ctaOpacity.value = 1;
+    } else {
     haloPulse.value = withRepeat(
       withSequence(
         withTiming(1, { duration: 1400, easing: Easing.inOut(Easing.sin) }),
@@ -179,6 +190,7 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       520,
       withTiming(1, { duration: 380, easing: Easing.out(Easing.cubic) }),
     );
+    }
 
     // 2026-05-26 (P1 audit fix) — haptic + analytics idempotency. Parent
     // re-render'da visible=true sabit kalsa bile aynı streak için tek bir
@@ -197,6 +209,7 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
   }, [
     visible,
     streakDays,
+    reduceMotion,
     haloPulse,
     numberScale,
     numberOpacity,

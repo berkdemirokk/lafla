@@ -14,6 +14,7 @@ import React, { memo, useEffect, useRef } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import type { SceneMode } from '../data/scenes';
+import { useReduceMotionPreference } from '../lib/use-reduce-motion-preference';
 
 // ─── Props ───────────────────────────────────────────────────────────
 
@@ -33,11 +34,12 @@ const AnimatedGradientOverlay: React.FC<AnimatedGradientOverlayProps> = ({
   accentColor,
   isActive = true,
 }) => {
+  const reduceMotion = useReduceMotionPreference();
   // Pulse animation value (tint opacity: 0.10 → 0.22 → 0.10)
   const pulseAnim = useRef(new Animated.Value(0.10)).current;
 
   useEffect(() => {
-    if (!isActive) {
+    if (!isActive || reduceMotion) {
       pulseAnim.setValue(0.10);
       return;
     }
@@ -62,7 +64,7 @@ const AnimatedGradientOverlay: React.FC<AnimatedGradientOverlayProps> = ({
     return () => {
       loop.stop();
     };
-  }, [isActive, pulseAnim]);
+  }, [isActive, pulseAnim, reduceMotion]);
 
   return (
     <View style={StyleSheet.absoluteFillObject} pointerEvents="none">

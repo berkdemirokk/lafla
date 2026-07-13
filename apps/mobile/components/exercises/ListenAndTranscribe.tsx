@@ -35,30 +35,66 @@ export function ListenAndTranscribe({
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
   const [playCount, setPlayCount] = useState(0);
+  const [audioPending, setAudioPending] = useState(false);
+  const [audioError, setAudioError] = useState(false);
   const didAutoPlay = useRef(false);
+  const playRequestRef = useRef(false);
+  const mountedRef = useRef(true);
   // 2026-05-26 (P1 audit fix) — double-tap guard. setResult commit'ten
   // önce ikinci tap evaluate'i tekrar çalıştırıp hapticForScore'u iki
   // kez tetikliyordu.
   const submittedRef = useRef(false);
+
+  useEffect(() => () => {
+    mountedRef.current = false;
+  }, []);
 
   // Auto-play on mount after 400ms delay. The initial play doesn't count
   // against the user's 3 replays — only manual taps do.
   useEffect(() => {
     if (didAutoPlay.current) return;
     didAutoPlay.current = true;
-    const t = setTimeout(() => {
-      speak(sentence);
+    const timer = setTimeout(() => {
+      playRequestRef.current = true;
+      setAudioPending(true);
+      void speak(sentence)
+        .then((started) => {
+          if (mountedRef.current) setAudioError(!started);
+        })
+        .catch(() => {
+          if (mountedRef.current) setAudioError(true);
+        })
+        .finally(() => {
+          playRequestRef.current = false;
+          if (mountedRef.current) setAudioPending(false);
+        });
     }, 400);
-    return () => clearTimeout(t);
+    return () => clearTimeout(timer);
   }, [sentence]);
 
   const playable = playCount < MAX_PLAYS;
 
-  const onReplay = () => {
-    if (!playable) return;
+  const onReplay = async () => {
+    if (!playable || result || playRequestRef.current) return;
+    playRequestRef.current = true;
+    setAudioPending(true);
+    setAudioError(false);
     hapticSelection();
-    speak(sentence);
-    setPlayCount((c) => c + 1);
+    try {
+      const started = await speak(sentence);
+      if (mountedRef.current) {
+        if (started) {
+          setPlayCount((c) => c + 1);
+        } else {
+          setAudioError(true);
+        }
+      }
+    } catch {
+      if (mountedRef.current) setAudioError(true);
+    } finally {
+      playRequestRef.current = false;
+      if (mountedRef.current) setAudioPending(false);
+    }
   };
 
   const submit = () => {
@@ -114,12 +150,15 @@ export function ListenAndTranscribe({
 
       <View style={styles.speakerBlock}>
         <Pressable
-          onPress={onReplay}
-          disabled={!playable || !!result}
+          onPress={() => void onReplay()}
+          disabled={!playable || !!result || audioPending}
           hitSlop={12}
           accessibilityRole="button"
           accessibilityLabel={t("exercise.listen_sentence")}
-          accessibilityState={{ disabled: !playable || Boolean(result) }}
+          accessibilityState={{
+            disabled: !playable || Boolean(result) || audioPending,
+            busy: audioPending,
+          }}
           style={({ pressed }) => [
             styles.speakerBtn,
             !playable && styles.speakerBtnDim,
@@ -131,8 +170,17 @@ export function ListenAndTranscribe({
         <Text
           style={[styles.replayLabel, !playable && styles.replayLabelDim]}
         >
-          {replayLabel}
+          {audioPending ? t("exercise.audio_preparing") : replayLabel}
         </Text>
+        {audioError && !result && (
+          <Text
+            selectable
+            accessibilityRole="alert"
+            style={styles.audioError}
+          >
+            {t("exercise.audio_unavailable")}
+          </Text>
+        )}
       </View>
 
       <TextInput
@@ -250,6 +298,13 @@ const styles = StyleSheet.create({
   },
   replayLabelDim: {
     color: tokens.text.tertiary,
+  },
+  audioError: {
+    color: tokens.semantic.error,
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: "center",
+    maxWidth: 280,
   },
   input: {
     backgroundColor: tokens.bg.surfaceContainerLowest,

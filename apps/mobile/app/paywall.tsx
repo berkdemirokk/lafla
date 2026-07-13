@@ -45,6 +45,7 @@ import {
   Linking,
 } from "react-native";
 import Animated, {
+  cancelAnimation,
   Easing,
   useAnimatedStyle,
   useSharedValue,
@@ -87,6 +88,7 @@ import {
   PRO_YEARLY_PRICE_MICROS,
 } from "../lib/monetization";
 import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 // Live price shape — both tiers carry priceAmountMicros so we can compute
 // the discount on the fly without trusting a hardcoded percentage.
@@ -149,6 +151,7 @@ const FEATURES: FeatureRow[] = [
 export default function PaywallScreen() {
   const router = useRouter();
   const { t } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   // 2026-05-26 — Anonymous user (auth.tsx → "Atla") restore'u cross-device
   // çalışamaz çünkü RC user ID yok. Banner ile uyar, satın almadan önce
   // hesap açmaya yönlendir. Apple 3.1.1 risk azaltıcı.
@@ -261,6 +264,17 @@ export default function PaywallScreen() {
   }, []);
 
   useEffect(() => {
+    if (reduceMotion) {
+      cancelAnimation(ctaScale);
+      heroOpacity.value = 1;
+      heroTranslate.value = 0;
+      cardOpacity.value = 1;
+      cardTranslate.value = 0;
+      featuresOpacity.value = 1;
+      proofOpacity.value = 1;
+      ctaScale.value = 1;
+      return;
+    }
     // Staggered entrance — hero → card → features → proof.
     heroOpacity.value = withTiming(1, {
       duration: 360,
@@ -313,6 +327,7 @@ export default function PaywallScreen() {
     featuresOpacity,
     proofOpacity,
     ctaScale,
+    reduceMotion,
   ]);
 
   const heroStyle = useAnimatedStyle(() => ({

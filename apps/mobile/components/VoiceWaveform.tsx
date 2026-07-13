@@ -36,6 +36,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { tokens } from "../theme";
 import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 export interface VoiceWaveformProps {
   /**
@@ -77,6 +78,7 @@ export function VoiceWaveform({
   decorative = false,
 }: VoiceWaveformProps) {
   const { t } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   const resolvedAccessibilityLabel = accessibilityLabel ?? t("accessibility.voice_waveform");
   const barCount = Math.max(MIN_BARS, Math.min(MAX_BARS, Math.floor(bars)));
   const minH = Math.max(2, Math.round(height * 0.18));
@@ -88,7 +90,11 @@ export function VoiceWaveform({
   const driver = useSharedValue(0);
 
   useEffect(() => {
-    if (amplitude === undefined) {
+    if (reduceMotion) {
+      driver.value = amplitude === undefined
+        ? 0.35
+        : Math.max(0, Math.min(1, amplitude));
+    } else if (amplitude === undefined) {
       // Idle: loop a smooth back-and-forth so bars breathe even in silence.
       driver.value = 0;
       driver.value = withRepeat(
@@ -113,7 +119,7 @@ export function VoiceWaveform({
       // a screen the user has navigated away from.
       cancelAnimation(driver);
     };
-  }, [amplitude, driver]);
+  }, [amplitude, driver, reduceMotion]);
 
   return (
     <View

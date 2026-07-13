@@ -48,14 +48,13 @@ jobs:
           POSTHOG_KEY: ${{ secrets.EXPO_PUBLIC_POSTHOG_KEY }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
-          for name in EXPO_TOKEN APPLE_TEAM_ID ASC_KEY_ID ASC_ISSUER_ID ASC_PRIVATE_KEY SUPABASE_ACCESS_TOKEN SUPABASE_DB_PASSWORD SUPABASE_URL SUPABASE_KEY SENTRY_DSN REVENUECAT_KEY; do
+          for name in EXPO_TOKEN APPLE_TEAM_ID ASC_KEY_ID ASC_ISSUER_ID ASC_PRIVATE_KEY SUPABASE_ACCESS_TOKEN SUPABASE_DB_PASSWORD SUPABASE_URL SUPABASE_KEY SENTRY_DSN SENTRY_AUTH_TOKEN REVENUECAT_KEY; do
             if [ -z "${!name}" ]; then
               echo "::error::Required release secret is missing: $name"
               exit 1
             fi
           done
           [ -n "$POSTHOG_KEY" ] || echo "::warning::EXPO_PUBLIC_POSTHOG_KEY is missing; product analytics will be disabled"
-          [ -n "$SENTRY_AUTH_TOKEN" ] || echo "::warning::SENTRY_AUTH_TOKEN is missing; source-map upload is not verified"
 
       - name: Setup Node
         uses: actions/setup-node@v4

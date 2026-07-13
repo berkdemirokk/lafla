@@ -47,6 +47,7 @@ import { pushRoute, replaceRoute } from "../../lib/routes";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "../../lib/i18n";
+import { useReduceMotionPreference } from "../../lib/use-reduce-motion-preference";
 
 import { Button } from "../../components/Button";
 import { SpeakerButton } from "../../components/SpeakerButton";
@@ -245,6 +246,7 @@ export default function ScenarioScreen() {
   // replace etmesini önler.
   const paywallNavRef = useRef(false);
   const scenarioStartedAtRef = useRef(Date.now());
+  const completionIdRef = useRef(`scene:${Date.now()}:${Math.random().toString(36).slice(2)}`);
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
@@ -363,6 +365,7 @@ export default function ScenarioScreen() {
   useEffect(() => {
     if (!scenario) return;
     scenarioStartedAtRef.current = Date.now();
+    completionIdRef.current = `scene:${scenario.id}:${scenarioStartedAtRef.current}`;
     (async () => {
       const [resolvedMode, mastery] = await Promise.all([
         getRoleplayMode(scenario.id),
@@ -490,6 +493,7 @@ export default function ScenarioScreen() {
           skill_id: scenario.skill_id,
           accuracy,
           exercises_completed: 1,
+          completion_id: completionIdRef.current,
         });
         setProgressSaveStatus("saved");
         await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
@@ -625,6 +629,7 @@ export default function ScenarioScreen() {
         skill_id: scenario.skill_id,
         accuracy,
         exercises_completed: 1,
+        completion_id: completionIdRef.current,
       });
       setProgressSaveStatus("saved");
       await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
@@ -1653,9 +1658,15 @@ function GlowingCta({
   label: string;
   onPress: () => void;
 }) {
+  const reduceMotion = useReduceMotionPreference();
   const glow = useSharedValue(0.35);
 
   useEffect(() => {
+    if (reduceMotion) {
+      cancelAnimation(glow);
+      glow.value = 0.35;
+      return;
+    }
     glow.value = withRepeat(
       withSequence(
         withTiming(0.9, {
@@ -1673,7 +1684,7 @@ function GlowingCta({
     return () => {
       cancelAnimation(glow);
     };
-  }, [glow]);
+  }, [glow, reduceMotion]);
 
   const glowStyle = useAnimatedStyle(() => ({
     opacity: glow.value,

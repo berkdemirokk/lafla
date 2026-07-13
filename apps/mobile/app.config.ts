@@ -29,6 +29,24 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 // extra alanlarını override.
 export default ({ config }: ConfigContext): ExpoConfig => {
   const baseExtra = (config.extra ?? {}) as Record<string, unknown>;
+  if (process.env.EAS_BUILD_PROFILE === "production") {
+    const requiredProductionValues: Record<string, string | undefined> = {
+      EXPO_PUBLIC_SUPABASE_URL: process.env.EXPO_PUBLIC_SUPABASE_URL,
+      EXPO_PUBLIC_SUPABASE_ANON_KEY: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
+      EXPO_PUBLIC_SENTRY_DSN: process.env.EXPO_PUBLIC_SENTRY_DSN,
+      EXPO_PUBLIC_REVENUECAT_IOS_KEY:
+        process.env.EXPO_PUBLIC_REVENUECAT_IOS_KEY,
+      SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+    };
+    const missing = Object.entries(requiredProductionValues)
+      .filter(([, value]) => !value?.trim())
+      .map(([name]) => name);
+    if (missing.length > 0) {
+      throw new Error(
+        `Production build blocked: missing ${missing.join(", ")}`,
+      );
+    }
+  }
   return {
     ...config,
     name: config.name ?? "Lafla",

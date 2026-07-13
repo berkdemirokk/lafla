@@ -36,6 +36,7 @@ import {
 } from "../../lib/engine";
 import { speak } from "../../lib/tts";
 import { useTranslation } from "../../lib/i18n";
+import { useReduceMotionPreference } from "../../lib/use-reduce-motion-preference";
 
 interface Props {
   npc_line: string;
@@ -63,6 +64,7 @@ export function ListenRespond({
   onComplete,
 }: Props) {
   const { t, locale } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   const [stage, setStage] = useState<Stage>("intro");
   const [remaining, setRemaining] = useState<number>(
     Math.max(1, Math.round(think_seconds || 3)),
@@ -123,7 +125,7 @@ export function ListenRespond({
 
   // Pulse animation lifecycle.
   useEffect(() => {
-    if (stage === "listening") {
+    if (stage === "listening" && !reduceMotion) {
       pulse.setValue(1);
       pulseLoop.current = RNAnimated.loop(
         RNAnimated.sequence([
@@ -151,7 +153,7 @@ export function ListenRespond({
       pulseLoop.current?.stop();
       pulseLoop.current = null;
     };
-  }, [stage, pulse]);
+  }, [stage, pulse, reduceMotion]);
 
   // Auto-clear error toast.
   useEffect(() => {

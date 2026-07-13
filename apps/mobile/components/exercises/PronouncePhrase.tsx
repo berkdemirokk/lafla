@@ -42,6 +42,7 @@ import { unavailablePronunciationResult } from "../../lib/pronunciation-session"
 import { pushPronScore } from "../../lib/pronunciation-history";
 import { PhonemeFeedback } from "../PhonemeFeedback";
 import { useTranslation } from "../../lib/i18n";
+import { useReduceMotionPreference } from "../../lib/use-reduce-motion-preference";
 
 interface Props {
   phrase: string;
@@ -94,6 +95,7 @@ function feedbackKeyFor(score: number): string {
 
 export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   const { t, locale } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   const [stage, setStage] = useState<Stage>("idle");
   const [graded, setGraded] = useState<GradedState | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -122,7 +124,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   }, [stage]);
 
   useEffect(() => {
-    if (stage === "starting" || stage === "listening") {
+    if ((stage === "starting" || stage === "listening") && !reduceMotion) {
       pulse.setValue(1);
       pulseLoop.current = Animated.loop(
         Animated.sequence([
@@ -150,7 +152,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
       pulseLoop.current?.stop();
       pulseLoop.current = null;
     };
-  }, [stage, pulse]);
+  }, [stage, pulse, reduceMotion]);
 
   // Auto-clear error toast after a moment.
   useEffect(() => {

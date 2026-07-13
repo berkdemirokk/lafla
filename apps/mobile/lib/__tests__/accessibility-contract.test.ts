@@ -106,4 +106,18 @@ describe("accessibility contract", () => {
     expect(layout).not.toContain("maxFontSizeMultiplier");
     expect(layout).not.toMatch(/(?:Text|TextInput)\.defaultProps/);
   });
+
+  it("gates every continuous animation behind the system Reduce Motion preference", () => {
+    const continuouslyAnimatedFiles = SOURCE_ROOTS.flatMap(collectTsxFiles)
+      .filter((filePath) => {
+        const source = fs.readFileSync(filePath, "utf8");
+        return /withRepeat|(?:RN)?Animated\.loop/.test(source);
+      });
+
+    for (const filePath of continuouslyAnimatedFiles) {
+      const source = fs.readFileSync(filePath, "utf8");
+      expect(source).toContain("useReduceMotionPreference");
+      expect(source).toContain("reduceMotion");
+    }
+  });
 });

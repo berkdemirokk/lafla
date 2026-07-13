@@ -81,6 +81,7 @@ import {
 import { showRewardedAd } from "../lib/ads";
 import { getMistakeDNA } from "../lib/mistake-dna";
 import { useTranslation, type UseTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -270,6 +271,7 @@ const EMPTY: TodayState = {
 export default function Today() {
   const router = useRouter();
   const { t, locale } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   const [state, setState] = useState<TodayState>(EMPTY);
   const [showTutorial, setShowTutorial] = useState(false);
   const [planLoadFailed, setPlanLoadFailed] = useState(false);
@@ -284,6 +286,11 @@ export default function Today() {
   const streakPulse = useSharedValue(0);
 
   useEffect(() => {
+    if (reduceMotion) {
+      cancelAnimation(heroPulse);
+      heroPulse.value = 0;
+      return;
+    }
     // Hero halo: slow 2.2s sin breath. Goes 0→1→0 forever. Drives shadow
     // opacity + radius so the pink glow gently pumps without distracting.
     heroPulse.value = withRepeat(
@@ -297,7 +304,7 @@ export default function Today() {
     return () => {
       cancelAnimation(heroPulse);
     };
-  }, [heroPulse]);
+  }, [heroPulse, reduceMotion]);
 
   const heroGlowStyle = useAnimatedStyle(() => ({
     shadowOpacity: 0.32 + heroPulse.value * 0.42, // 0.32 → 0.74
@@ -522,7 +529,7 @@ export default function Today() {
   // bile shared value loop CPU/battery harcıyordu. Şimdi: streak değiştikçe
   // loop start/stop.
   useEffect(() => {
-    if (streak <= 0) {
+    if (streak <= 0 || reduceMotion) {
       cancelAnimation(streakPulse);
       streakPulse.value = 0;
       return;
@@ -547,7 +554,7 @@ export default function Today() {
     return () => {
       cancelAnimation(streakPulse);
     };
-  }, [streak, streakPulse]);
+  }, [streak, streakPulse, reduceMotion]);
 
   // 2026-05-25 — 2×2 action grid. Önceki "banner cap 2" logic'i kaldırıldı.
   // Şimdi 4 tile hep görünür: Kelime tekrarı / Sürpriz / Günün özeli / Günlük.

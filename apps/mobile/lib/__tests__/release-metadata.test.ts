@@ -156,4 +156,19 @@ describe("release metadata", () => {
     expect(acceptance).toContain("Monthly purchase");
     expect(linguistRows).toHaveLength(101);
   });
+
+  it("blocks production releases without symbolicated crash reporting", () => {
+    const workflow = read(".github/workflows/expo-testflight.yml");
+    const expoConfig = read("apps/mobile/app.config.ts");
+    const requiredSecretsLoop = workflow.match(/for name in ([^;]+); do/)?.[1] ?? "";
+
+    expect(requiredSecretsLoop).toContain("SENTRY_DSN");
+    expect(requiredSecretsLoop).toContain("SENTRY_AUTH_TOKEN");
+    expect(workflow).not.toContain(
+      "SENTRY_AUTH_TOKEN is missing; source-map upload is not verified",
+    );
+    expect(expoConfig).toContain('EAS_BUILD_PROFILE === "production"');
+    expect(expoConfig).toContain("SENTRY_AUTH_TOKEN");
+    expect(expoConfig).toContain("Production build blocked");
+  });
 });

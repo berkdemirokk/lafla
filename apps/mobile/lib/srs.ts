@@ -1,6 +1,7 @@
 // Lafla — Spaced Repetition System
 // Local-first: writes to AsyncStorage immediately, syncs to Supabase if signed in.
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { supabase } from "./supabase";
 import { captureException } from "./sentry";
 import { enqueueCloudProgress, flushCloudProgressOutbox } from "./cloud-progress-outbox";
@@ -66,12 +67,37 @@ export async function recordAttempt(attempt: AttemptInput) {
   }).then(() => {}, () => {});
 }
 
-export async function completeLesson(args: {
+type CompleteLessonArgs = {
   lesson_id: string;
   skill_id: string;
   accuracy: number;
   exercises_completed: number;
-}) {
+  completion_id: string;
+};
+
+type CompleteLessonResult = { xp_earned: number; next_review_at: string };
+type CompletionCloudEntry = {
+  userId: string;
+  lessonState: Record<string, unknown>;
+  skillMastery: Record<string, unknown>;
+};
+type CompletionReceipt = CompleteLessonResult & {
+  cloud_entry?: CompletionCloudEntry;
+};
+
+const K_COMPLETION_RECEIPTS = "lafla.lesson-completion.receipts.v1";
+const COMPLETION_SNAPSHOT_KEYS = [
+  "lafla.lessons",
+  "lafla.skills",
+  "lafla.daily",
+  "lafla.profile",
+  "lafla.shield.count",
+  "lafla.shield.refresh_ym",
+  "lafla.shield.last_used_at",
+] as const;
+let completionQueue: Promise<unknown> = Promise.resolve();
+
+async function completeLessonInner(args: CompleteLessonArgs): Promise<CompletionReceipt> {
   // BUG-6 FIX: unified XP formula across srs + scenario/daily-quests.
   // Previously 10+acc*20 here but 20+acc*30 in scenario — quest progress
   // reported different XP than actually earned. Now consistent everywhere.
@@ -136,19 +162,79 @@ export async function completeLesson(args: {
         lessons_completed: 1,
         last_practiced_at: new Date().toISOString(),
       };
-    await enqueueCloudProgress({
+    return {
+      xp_earned: xpEarned,
+      next_review_at: nextReview.toISOString(),
+      cloud_entry: {
       userId: user.id,
       lessonState: cloudState,
       skillMastery,
-    }).catch((error: unknown) => {
-      captureException(error, { source: "srs.completeLesson.outbox" });
-    });
-    void flushCloudProgressOutbox().catch((error: unknown) => {
-      captureException(error, { source: "srs.completeLesson.flush" });
-    });
+      },
+    };
   }
 
   return { xp_earned: xpEarned, next_review_at: nextReview.toISOString() };
+}
+
+async function queueCompletionCloud(receipt: CompletionReceipt): Promise<void> {
+  if (!receipt.cloud_entry) return;
+  await enqueueCloudProgress(receipt.cloud_entry);
+  void flushCloudProgressOutbox().catch((error: unknown) => {
+    captureException(error, { source: "srs.completeLesson.flush" });
+  });
+}
+
+export function completeLesson(args: CompleteLessonArgs): Promise<CompleteLessonResult> {
+  const operation = completionQueue.then(async () => {
+    const rawReceipts = await AsyncStorage.getItem(K_COMPLETION_RECEIPTS);
+    let receipts: Record<string, CompletionReceipt> = {};
+    try {
+      receipts = rawReceipts ? JSON.parse(rawReceipts) : {};
+    } catch {
+      receipts = {};
+    }
+    const existing = receipts[args.completion_id];
+    if (existing) {
+      await queueCompletionCloud(existing);
+      return {
+        xp_earned: existing.xp_earned,
+        next_review_at: existing.next_review_at,
+      };
+    }
+
+    const snapshot = await AsyncStorage.multiGet([...COMPLETION_SNAPSHOT_KEYS]);
+    let locallyCommitted = false;
+    try {
+      const receipt = await completeLessonInner(args);
+      receipts[args.completion_id] = receipt;
+      const recentReceipts = Object.fromEntries(
+        Object.entries(receipts).slice(-200),
+      );
+      await AsyncStorage.setItem(
+        K_COMPLETION_RECEIPTS,
+        JSON.stringify(recentReceipts),
+      );
+      locallyCommitted = true;
+      await queueCompletionCloud(receipt);
+      return {
+        xp_earned: receipt.xp_earned,
+        next_review_at: receipt.next_review_at,
+      };
+    } catch (error) {
+      if (locallyCommitted) throw error;
+      const restoreValues = snapshot.filter(
+        (entry): entry is [string, string] => entry[1] !== null,
+      );
+      const removeKeys = snapshot
+        .filter(([, value]) => value === null)
+        .map(([key]) => key);
+      if (restoreValues.length > 0) await AsyncStorage.multiSet(restoreValues);
+      if (removeKeys.length > 0) await AsyncStorage.multiRemove(removeKeys);
+      throw error;
+    }
+  });
+  completionQueue = operation.catch(() => undefined);
+  return operation;
 }
 
 export async function getDueLessons(limit = 20): Promise<string[]> {

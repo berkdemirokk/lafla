@@ -13,12 +13,12 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
 import {
-  Dimensions,
   FlatList,
   Pressable,
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
   type LayoutChangeEvent,
   type ListRenderItemInfo,
   type NativeScrollEvent,
@@ -51,7 +51,6 @@ import { useTranslation } from "../lib/i18n";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 const MIN_FEED = 5;
-const SCREEN = Dimensions.get("window");
 const TOP_BAR_HEIGHT = 48;
 
 // Mode label haritası — top bar başlığında ve aria-label'larda kullanılır.
@@ -132,6 +131,7 @@ const EMPTY: FeedState = {
 export default function Home() {
   const router = useRouter();
   const { t } = useTranslation();
+  const { height: windowHeight } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const [state, setState] = useState<FeedState>(EMPTY);
   const listRef = useRef<FlatList<Scene>>(null);
@@ -277,7 +277,7 @@ export default function Home() {
   // render'da measured yok → computed fallback (AdBanner hesaba katılmaz
   // ama bu sadece ilk frame; ikinci frame'de measured devreye girer).
   const computedHeight =
-    SCREEN.height - insets.top - insets.bottom - TOP_BAR_HEIGHT - TAB_BAR_HEIGHT;
+    windowHeight - insets.top - insets.bottom - TOP_BAR_HEIGHT - TAB_BAR_HEIGHT;
   const cardHeight = measuredHeight ?? computedHeight;
 
   const renderItem = useCallback(

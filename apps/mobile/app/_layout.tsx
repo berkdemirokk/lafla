@@ -42,8 +42,14 @@ import { ThemeProvider, tokens, useAppTheme } from "../theme";
 import { hydrateThemePreference } from "../lib/theme-preference";
 import { hydrateLocale } from "../lib/i18n";
 import { flushCloudProgressOutbox } from "../lib/cloud-progress-outbox";
+import {
+  markNotificationBootstrapComplete,
+  routeFromNotificationDeepLink,
+  setPendingNotificationRoute,
+} from "../lib/notification-routing";
 
 const K_LAST_OPEN_DAY = "lafla.analytics.lastOpenDay";
+const K_LAST_NOTIFICATION_RESPONSE = "lafla.notifications.lastResponse";
 
 function localDayKey(date: Date): string {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
@@ -190,11 +196,29 @@ export default function RootLayout() {
     // yutuyordu → kullanıcı bildirime bassa hiçbir yere gitmiyordu. Yeni:
     // exponential retry (200ms → 500ms → 1200ms → 2500ms) ile router hazır
     // olana kadar dene. Hâlâ fail ederse silent fail (worst case /today).
-    const sub = Notifications.addNotificationResponseReceivedListener((r) => {
+    const routeNotification = async (
+      r: Notifications.NotificationResponse,
+      coldLaunch: boolean,
+    ) => {
       try {
-        const link = r.notification.request.content.data?.deepLink;
-        if (typeof link !== "string" || !link.startsWith("lafla://")) return;
-        const path = link.replace(/^lafla:\/\//, "/");
+        const responseId = r.notification.request.identifier;
+        const previousId = await AsyncStorage.getItem(
+          K_LAST_NOTIFICATION_RESPONSE,
+        ).catch(() => null);
+        if (responseId && responseId === previousId) return;
+        const path = routeFromNotificationDeepLink(
+          r.notification.request.content.data?.deepLink,
+        );
+        if (!path) return;
+        if (responseId) {
+          await AsyncStorage.setItem(K_LAST_NOTIFICATION_RESPONSE, responseId).catch(
+            () => {},
+          );
+        }
+        if (coldLaunch) {
+          setPendingNotificationRoute(path);
+          return;
+        }
         const retries = [200, 500, 1200, 2500];
         let attempted = 0;
         const tryPush = () => {
@@ -211,6 +235,15 @@ export default function RootLayout() {
       } catch {
         // bozuk payload — yut
       }
+    };
+    void Notifications.getLastNotificationResponseAsync()
+      .then((response) => {
+        if (response) return routeNotification(response, true);
+      })
+      .catch(() => {})
+      .finally(markNotificationBootstrapComplete);
+    const sub = Notifications.addNotificationResponseReceivedListener((r) => {
+      void routeNotification(r, false);
     });
     return () => sub.remove();
   }, []);
@@ -248,6 +281,7 @@ function ThemedRootNavigator() {
             options={{ contentStyle: { backgroundColor: colors.bg.onBackground } }}
           />
           <Stack.Screen name="auth" />
+          <Stack.Screen name="reset-password" />
           <Stack.Screen name="onboarding" />
           <Stack.Screen name="home" />
           <Stack.Screen name="scenario/[id]" />

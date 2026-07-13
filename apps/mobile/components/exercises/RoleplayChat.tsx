@@ -53,6 +53,7 @@ import {
   stopListening as stopStt,
 } from "../../lib/speech-recognition";
 import { useTranslation } from "../../lib/i18n";
+import { useReduceMotionPreference } from "../../lib/use-reduce-motion-preference";
 
 // AsyncStorage key for the per-app TTS mute preference. Survives across
 // scenarios and app restarts so the user doesn't have to re-mute every chat.
@@ -272,6 +273,7 @@ export function RoleplayChat({
   estimatedMinutes,
 }: Props) {
   const { t, locale } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   // Delta: positive = user above scene (review mode), negative = below (stretch).
   // Both levels required for non-neutral adaptation; either missing → 0.
   const levelDelta = useMemo(() => {
@@ -373,6 +375,11 @@ export function RoleplayChat({
     // Idle → 5sn sonra glow başlat.
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
     idleTimerRef.current = setTimeout(() => {
+      if (reduceMotion) {
+        cancelAnimation(hintAttention);
+        hintAttention.value = 1;
+        return;
+      }
       hintAttention.value = withRepeat(
         withTiming(1, {
           duration: 1100,
@@ -385,7 +392,7 @@ export function RoleplayChat({
     return () => {
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
     };
-  }, [input, recording, turnIdx, hintAttention]);
+  }, [input, recording, turnIdx, hintAttention, reduceMotion]);
 
   // ─── Faz 3: Adaptive force-show hint ──────────────────────────────
   // 2 ardışık 0/30 score (low) turn'den sonra hint'i ZORLA göster — kullanıcı

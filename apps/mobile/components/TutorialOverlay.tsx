@@ -17,7 +17,7 @@ import {
   Pressable,
   StyleSheet,
   Modal,
-  Dimensions,
+  useWindowDimensions,
 } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -29,8 +29,7 @@ import * as Haptics from "expo-haptics";
 
 import { tokens } from "../theme";
 import { useTranslation } from "../lib/i18n";
-
-const SCREEN = Dimensions.get("window");
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 interface Props {
   /** Kullanıcının ekranda göreceği ad. Boşsa "selam!" generic. */
@@ -50,19 +49,26 @@ export function TutorialOverlay({
   onDismiss,
 }: Props) {
   const { t } = useTranslation();
+  const { width } = useWindowDimensions();
+  const reduceMotion = useReduceMotionPreference();
   // Fade + scale entry — overlay açılırken yumuşak, "patlatma" değil.
   const fade = useSharedValue(0);
   const scale = useSharedValue(0.94);
 
   useEffect(() => {
+    if (reduceMotion) {
+      fade.value = 1;
+      scale.value = 1;
+    } else {
     fade.value = withTiming(1, { duration: 220, easing: Easing.out(Easing.quad) });
     scale.value = withTiming(1, { duration: 240, easing: Easing.out(Easing.cubic) });
+    }
     try {
       void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     } catch {
       // ignore
     }
-  }, [fade, scale]);
+  }, [fade, scale, reduceMotion]);
 
   const cardStyle = useAnimatedStyle(() => ({
     opacity: fade.value,
@@ -79,8 +85,12 @@ export function TutorialOverlay({
     } catch {
       // ignore
     }
-    fade.value = withTiming(0, { duration: 160 });
-    setTimeout(onDismiss, 170);
+    if (reduceMotion) {
+      onDismiss();
+    } else {
+      fade.value = withTiming(0, { duration: 160 });
+      setTimeout(onDismiss, 170);
+    }
   };
 
   // Plan satırı için fallback — plan yoksa generic CTA
@@ -105,7 +115,9 @@ export function TutorialOverlay({
       </Pressable>
 
       <View style={styles.center} pointerEvents="box-none">
-        <Animated.View style={[styles.card, cardStyle]}>
+        <Animated.View
+          style={[styles.card, { width: Math.min(width - 48, 420) }, cardStyle]}
+        >
           {/* Header */}
           <Text style={styles.greeting}>
             {displayName
@@ -173,7 +185,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   card: {
-    width: Math.min(SCREEN.width - 48, 420),
     backgroundColor: tokens.bg.surface,
     borderRadius: tokens.radius.lg,
     borderWidth: 1.5,
