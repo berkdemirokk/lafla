@@ -10,7 +10,7 @@ jest.mock("expo-file-system", () => ({
 }));
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { clearAll } from "../voice-journal";
+import { clearAll, getEntries, saveEntry } from "../voice-journal";
 
 describe("voice journal cleanup", () => {
   beforeEach(async () => {
@@ -58,5 +58,39 @@ describe("voice journal cleanup", () => {
     await expect(
       AsyncStorage.getItem("lafla.voice-journal.index"),
     ).resolves.toBeNull();
+  });
+
+  it("never sweeps files when the metadata index is corrupt", async () => {
+    await AsyncStorage.setItem(
+      "lafla.voice-journal.index",
+      JSON.stringify([{ id: "broken", uri: 42 }]),
+    );
+
+    await expect(getEntries()).rejects.toThrow("index is invalid");
+    expect(mockDeleteFile).not.toHaveBeenCalled();
+  });
+
+  it("keeps evicted files when the replacement index cannot be saved", async () => {
+    const entries = Array.from({ length: 30 }, (_, index) => ({
+      id: String(index),
+      uri: `file:///documents/voice-journal/${index}.m4a`,
+      recordedAt: new Date(2026, 0, index + 1).toISOString(),
+      durationMs: 5000,
+    }));
+    await AsyncStorage.setItem(
+      "lafla.voice-journal.index",
+      JSON.stringify(entries),
+    );
+    jest
+      .spyOn(AsyncStorage, "setItem")
+      .mockRejectedValueOnce(new Error("disk full"));
+
+    await expect(
+      saveEntry({
+        uri: "file:///documents/voice-journal/new.m4a",
+        durationMs: 10000,
+      }),
+    ).rejects.toThrow("disk full");
+    expect(mockDeleteFile).not.toHaveBeenCalled();
   });
 });

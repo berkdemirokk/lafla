@@ -33,6 +33,14 @@ import { localDayKey } from "./day-key";
 const K_PLAN = "lafla.dailyPlan";
 const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
 
+let planProgressWriteChain: Promise<unknown> = Promise.resolve();
+
+function serializePlanProgressWrite<T>(work: () => Promise<T>): Promise<T> {
+  const job = planProgressWriteChain.then(work, work);
+  planProgressWriteChain = job.catch(() => undefined);
+  return job;
+}
+
 /** Three independent 2–4 minute sessions; no long mandatory lesson chain. */
 const PLAN_SIZE = 3;
 
@@ -264,30 +272,39 @@ export async function getPlanProgress(): Promise<{
  * çağrı no-op. Plan signature mismatch'inde progress reset.
  */
 export async function incrementPlanProgress(lessonId?: string): Promise<void> {
-  const today = todayKey();
-  const planScenes = await getOrCreateDailyPlan();
-  if (planScenes.length === 0) return;
-  const planLessonIds = planScenes.map((s) => s.lessonId);
-  if (lessonId && !planLessonIds.includes(lessonId)) {
-    return;
-  }
-  const sig = planSigFrom(planLessonIds);
-  let progress: PlanProgress = {
-    date: today,
-    completedCount: 0,
-    completedLessonIds: [],
-    planSig: sig,
-    lastCompletedAt: new Date().toISOString(),
-  };
-  try {
+  return serializePlanProgressWrite(async () => {
+    const today = todayKey();
+    const planScenes = await getOrCreateDailyPlan();
+    if (planScenes.length === 0) return;
+    const planLessonIds = planScenes.map((s) => s.lessonId);
+    if (lessonId && !planLessonIds.includes(lessonId)) {
+      return;
+    }
+    const sig = planSigFrom(planLessonIds);
+    let progress: PlanProgress = {
+      date: today,
+      completedCount: 0,
+      completedLessonIds: [],
+      planSig: sig,
+      lastCompletedAt: new Date().toISOString(),
+    };
     const raw = await AsyncStorage.getItem(K_PLAN_PROGRESS);
     if (raw) {
-      const p = JSON.parse(raw) as PlanProgress;
+      let p: PlanProgress | null = null;
+      try {
+        p = JSON.parse(raw) as PlanProgress;
+      } catch {
+        // Corrupt progress is recoverable and will be replaced below. Storage
+        // read failures still propagate before this point to prevent overwrite.
+      }
       // Plan değişmediyse aynı progress objesini taşı.
-      if (p.date === today && (!p.planSig || p.planSig === sig)) {
+      if (p?.date === today && (!p.planSig || p.planSig === sig)) {
         progress = {
           date: today,
-          completedCount: p.completedCount ?? 0,
+          completedCount:
+            Number.isFinite(p.completedCount) && p.completedCount >= 0
+              ? Math.floor(p.completedCount)
+              : 0,
           completedLessonIds: Array.isArray(p.completedLessonIds)
             ? p.completedLessonIds
             : [],
@@ -296,29 +313,23 @@ export async function incrementPlanProgress(lessonId?: string): Promise<void> {
         };
       }
     }
-  } catch {
-    // ignore
-  }
-  if (lessonId) {
-    if (progress.completedLessonIds?.includes(lessonId)) {
-      // Already counted — no-op.
-      return;
+    if (lessonId) {
+      if (progress.completedLessonIds?.includes(lessonId)) {
+        // Already counted — no-op.
+        return;
+      }
+      progress.completedLessonIds = [
+        ...(progress.completedLessonIds ?? []),
+        lessonId,
+      ];
     }
-    progress.completedLessonIds = [
-      ...(progress.completedLessonIds ?? []),
-      lessonId,
-    ];
-  }
-  progress.completedCount = Math.min(
-    planScenes.length,
-    (progress.completedCount ?? 0) + 1,
-  );
-  progress.lastCompletedAt = new Date().toISOString();
-  try {
+    progress.completedCount = Math.min(
+      planScenes.length,
+      (progress.completedCount ?? 0) + 1,
+    );
+    progress.lastCompletedAt = new Date().toISOString();
     await AsyncStorage.setItem(K_PLAN_PROGRESS, JSON.stringify(progress));
-  } catch {
-    // best effort
-  }
+  });
 }
 
 /**

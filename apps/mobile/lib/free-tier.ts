@@ -43,37 +43,42 @@ interface CounterState {
 
 async function readCounter(): Promise<CounterState> {
   const today = todayKey();
-  try {
-    const [date, rawCount] = await Promise.all([
-      AsyncStorage.getItem(K_FREE_DATE),
-      AsyncStorage.getItem(K_FREE_COUNT),
-    ]);
-    // Yeni güne geçtiyse sıfırla
-    if (date !== today) {
-      return { date: today, count: 0 };
-    }
-    const count = rawCount ? parseInt(rawCount, 10) : 0;
-    return { date: today, count: Number.isFinite(count) ? count : 0 };
-  } catch {
+  const [date, rawCount] = await Promise.all([
+    AsyncStorage.getItem(K_FREE_DATE),
+    AsyncStorage.getItem(K_FREE_COUNT),
+  ]);
+  // Yeni güne geçtiyse sıfırla
+  if (date !== today) {
     return { date: today, count: 0 };
   }
+  const parsed = rawCount ? Number(rawCount) : 0;
+  const count = Number.isSafeInteger(parsed) && parsed >= 0 ? parsed : 0;
+  return { date: today, count };
 }
 
 async function writeCounter(state: CounterState): Promise<void> {
-  try {
-    await AsyncStorage.setItem(K_FREE_DATE, state.date);
-    await AsyncStorage.setItem(K_FREE_COUNT, String(state.count));
-  } catch {
-    // best effort
-  }
+  await AsyncStorage.multiSet([
+    [K_FREE_DATE, state.date],
+    [K_FREE_COUNT, String(state.count)],
+  ]);
+}
+
+let counterWriteChain: Promise<unknown> = Promise.resolve();
+
+function serializeCounterWrite<T>(work: () => Promise<T>): Promise<T> {
+  const job = counterWriteChain.then(work, work);
+  counterWriteChain = job.catch(() => undefined);
+  return job;
 }
 
 /**
  * Bugün tamamlanmış sahne sayısı.
  */
 export async function getTodayCount(): Promise<number> {
-  const s = await readCounter();
-  return s.count;
+  return readCounter().then(
+    (state) => state.count,
+    () => 0,
+  );
 }
 
 /**
@@ -83,9 +88,11 @@ export async function getTodayCount(): Promise<number> {
 export async function incrementFreeTier(): Promise<void> {
   const premium = await isPremium().catch(() => false);
   if (premium) return;
-  const s = await readCounter();
-  s.count += 1;
-  await writeCounter(s);
+  return serializeCounterWrite(async () => {
+    const state = await readCounter();
+    state.count += 1;
+    await writeCounter(state);
+  });
 }
 
 /**
@@ -99,8 +106,13 @@ export async function incrementFreeTier(): Promise<void> {
 export async function shouldGatePaywall(): Promise<boolean> {
   const premium = await isPremium().catch(() => false);
   if (premium) return false;
-  const s = await readCounter();
-  return s.count >= FREE_DAILY_SCENE_QUOTA;
+  try {
+    const state = await readCounter();
+    return state.count >= FREE_DAILY_SCENE_QUOTA;
+  } catch {
+    // A broken counter must not silently turn the free tier into unlimited.
+    return true;
+  }
 }
 
 /**
@@ -110,8 +122,12 @@ export async function shouldGatePaywall(): Promise<boolean> {
 export async function getRemainingToday(): Promise<number> {
   const premium = await isPremium().catch(() => false);
   if (premium) return Infinity;
-  const s = await readCounter();
-  return Math.max(0, FREE_DAILY_SCENE_QUOTA - s.count);
+  try {
+    const state = await readCounter();
+    return Math.max(0, FREE_DAILY_SCENE_QUOTA - state.count);
+  } catch {
+    return 0;
+  }
 }
 
 /**
@@ -119,10 +135,5 @@ export async function getRemainingToday(): Promise<number> {
  * (lafla.* wipe zaten yapıyor, ama explicit reset için).
  */
 export async function resetFreeTier(): Promise<void> {
-  try {
-    await AsyncStorage.removeItem(K_FREE_DATE);
-    await AsyncStorage.removeItem(K_FREE_COUNT);
-  } catch {
-    // ignore
-  }
+  await AsyncStorage.multiRemove([K_FREE_DATE, K_FREE_COUNT]);
 }

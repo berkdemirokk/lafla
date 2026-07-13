@@ -51,16 +51,24 @@ export async function finalizeOnboarding(opts: FinalizeOpts): Promise<void> {
 
   try {
     await setCefrLevel(opts.level);
-    await setInterests(opts.interests).catch(() => {});
-    await AsyncStorage.removeItem("lafla.track").catch(() => {});
+    await setInterests(opts.interests);
 
     const trimmed = opts.displayName.trim();
     if (trimmed.length > 0) {
-      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed);
+    } else {
+      await AsyncStorage.removeItem(K_DISPLAY_NAME);
     }
 
+    // Completion is the commit marker and is intentionally written last.
+    // A failure before this point keeps the learner in onboarding so retrying
+    // repairs any earlier partial writes instead of entering a broken home.
     await setOnboarded(true);
-    await setOnboardingStep(null);
+
+    // Cleanup and remote/analytics work must not invalidate a locally durable
+    // completion. A stale step is ignored while `lafla.onboarded` is true.
+    await setOnboardingStep(null).catch(() => {});
+    await AsyncStorage.removeItem("lafla.track").catch(() => {});
     await completeOnboarding(opts.interests, trimmed).catch(() => {});
 
     // ATT — value seen (Apple HIG önerisi). Granted ise analytics re-init.

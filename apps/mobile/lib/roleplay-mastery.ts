@@ -54,6 +54,24 @@ export async function getRoleplayMasteryState(
   );
 }
 
+const masteryWriteChains = new Map<string, Promise<unknown>>();
+
+function serializeMasteryWrite<T>(
+  scenarioId: string,
+  work: () => Promise<T>,
+): Promise<T> {
+  const previous = masteryWriteChains.get(scenarioId) ?? Promise.resolve();
+  const job = previous.then(work, work);
+  const tail = job.catch(() => undefined);
+  masteryWriteChains.set(scenarioId, tail);
+  void tail.finally(() => {
+    if (masteryWriteChains.get(scenarioId) === tail) {
+      masteryWriteChains.delete(scenarioId);
+    }
+  });
+  return job;
+}
+
 export async function getRoleplayMode(scenarioId: string): Promise<RoleplayMode> {
   const state = await getRoleplayMasteryState(scenarioId);
   return resolveRoleplayMode({
@@ -66,8 +84,12 @@ export async function recordRoleplayMastery(
   scenarioId: string,
   score: number,
 ): Promise<void> {
-  const key = `${KEY_PREFIX}${scenarioId}`;
-  const current = parseState(await AsyncStorage.getItem(key).catch(() => null));
-  const next = advanceRoleplayMastery(current, score >= 80);
-  await AsyncStorage.setItem(key, JSON.stringify(next)).catch(() => {});
+  return serializeMasteryWrite(scenarioId, async () => {
+    const key = `${KEY_PREFIX}${scenarioId}`;
+    // A failed read must abort this read-modify-write operation or it could
+    // overwrite valid mastery with a fresh one-attempt state.
+    const current = parseState(await AsyncStorage.getItem(key));
+    const next = advanceRoleplayMastery(current, score >= 80);
+    await AsyncStorage.setItem(key, JSON.stringify(next));
+  });
 }

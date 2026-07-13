@@ -81,11 +81,7 @@ async function read(): Promise<RewardedState | null> {
 }
 
 async function write(state: RewardedState): Promise<void> {
-  try {
-    await AsyncStorage.setItem(K_REWARDED, JSON.stringify(state));
-  } catch {
-    // best effort
-  }
+  await AsyncStorage.setItem(K_REWARDED, JSON.stringify(state));
 }
 
 /**
@@ -119,6 +115,9 @@ export async function getRewardedExpiresAt(): Promise<Date | null> {
  * funnel'ını yiyordu. 30 dk daha doğru ölçek.
  */
 export async function grantRewardedPremium(minutes = 30): Promise<void> {
+  if (!Number.isFinite(minutes) || minutes <= 0) {
+    throw new RangeError("Reward duration must be a positive finite number");
+  }
   const now = Date.now();
   const expiresAt = now + minutes * 60 * 1000;
   await write({ expiresAt, grantedAt: now, minutes });
@@ -131,10 +130,6 @@ export async function grantRewardedPremium(minutes = 30): Promise<void> {
  * Test/debug için de kullanılır.
  */
 export async function clearRewardedPremium(): Promise<void> {
-  try {
-    await AsyncStorage.removeItem(K_REWARDED);
-    notifyPremiumChange();
-  } catch {
-    // best effort
-  }
+  await AsyncStorage.removeItem(K_REWARDED);
+  notifyPremiumChange();
 }

@@ -784,7 +784,7 @@ export default function ScenarioScreen() {
     void recordRoleplayMastery(
       scenario.id,
       result.mastery_score ?? result.score,
-    );
+    ).catch(() => {});
     // Daily plan progress — sadece bu sahne planın bir parçasıysa artar.
     // (getNextInPlan null değilse veya scenario.id planda son sahneyse de
     // sayılır; tek artırım, "Bugünün planı: 5 sahne · 20 dk" başlangıcının

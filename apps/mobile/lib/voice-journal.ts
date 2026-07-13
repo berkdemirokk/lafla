@@ -21,7 +21,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as FileSystem from "expo-file-system";
 
-import { isObject, parseSafe } from "./json-safe";
+import { isObject } from "./json-safe";
 
 const K_INDEX = "lafla.voice-journal.index";
 const MAX_ENTRIES = 30;
@@ -34,6 +34,14 @@ const DIR_NAME = "voice-journal";
 // Module-level tracking: kayıt başlarken aktif URI'yi işaretle, sweep
 // onu skip eder.
 let _activeRecordingUri: string | null = null;
+
+let journalMutationChain: Promise<unknown> = Promise.resolve();
+
+function serializeJournalMutation<T>(work: () => Promise<T>): Promise<T> {
+  const job = journalMutationChain.then(work, work);
+  journalMutationChain = job.catch(() => undefined);
+  return job;
+}
 
 export function markRecordingActive(uri: string): void {
   _activeRecordingUri = uri;
@@ -101,24 +109,19 @@ async function ensureDir(): Promise<void> {
 }
 
 async function readIndex(): Promise<VoiceEntry[]> {
-  try {
-    const raw = await AsyncStorage.getItem(K_INDEX);
-    if (!raw) return [];
-    const parsed = parseSafe<unknown[]>(raw, [], Array.isArray, {
-      source: "voice-journal.readIndex",
-    });
-    return parsed.filter(isVoiceEntry);
-  } catch {
-    return [];
+  const raw = await AsyncStorage.getItem(K_INDEX);
+  if (!raw) return [];
+  const parsed = JSON.parse(raw) as unknown;
+  if (!Array.isArray(parsed) || !parsed.every(isVoiceEntry)) {
+    // Never reinterpret a damaged/unreadable index as an empty journal. Doing
+    // so would let the orphan sweep delete recordings that still belong to it.
+    throw new Error("Voice journal index is invalid");
   }
+  return parsed;
 }
 
 async function writeIndex(list: VoiceEntry[]): Promise<void> {
-  try {
-    await AsyncStorage.setItem(K_INDEX, JSON.stringify(list));
-  } catch {
-    // ignore
-  }
+  await AsyncStorage.setItem(K_INDEX, JSON.stringify(list));
 }
 
 /**
@@ -145,31 +148,35 @@ export async function saveEntry(args: {
   durationMs: number;
   note?: string;
 }): Promise<VoiceEntry> {
-  const list = await readIndex();
-  // 2026-05-26 (P0 audit fix) — id de aynı collision riskini taşıyordu;
-  // preparePath'le aynı pattern kullan, AsyncStorage indeksinde tekil
-  // anahtar garanti et.
-  const entry: VoiceEntry = {
-    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-    uri: args.uri,
-    recordedAt: new Date().toISOString(),
-    durationMs: args.durationMs,
-    ...(args.note ? { note: args.note } : {}),
-  };
-  list.unshift(entry); // Yeni → eski sıralama.
-  // FIFO cap — en eski(ler)i sil.
-  const filesToDelete: string[] = [];
-  while (list.length > MAX_ENTRIES) {
-    const removed = list.pop();
-    if (removed) filesToDelete.push(removed.uri);
-  }
-  await Promise.all(
-    filesToDelete.map((uri) =>
-      FileSystem.deleteAsync(uri, { idempotent: true }).catch(() => {}),
-    ),
-  );
-  await writeIndex(list);
-  return entry;
+  return serializeJournalMutation(async () => {
+    const list = await readIndex();
+    // 2026-05-26 (P0 audit fix) — id de aynı collision riskini taşıyordu;
+    // preparePath'le aynı pattern kullan, AsyncStorage indeksinde tekil
+    // anahtar garanti et.
+    const entry: VoiceEntry = {
+      id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      uri: args.uri,
+      recordedAt: new Date().toISOString(),
+      durationMs: args.durationMs,
+      ...(args.note ? { note: args.note } : {}),
+    };
+    list.unshift(entry); // Yeni → eski sıralama.
+    // FIFO cap — en eski(ler)i sil.
+    const filesToDelete: string[] = [];
+    while (list.length > MAX_ENTRIES) {
+      const removed = list.pop();
+      if (removed) filesToDelete.push(removed.uri);
+    }
+    // Persist the new index before deleting entries evicted by the FIFO cap.
+    // If the write fails, every file referenced by the old index remains valid.
+    await writeIndex(list);
+    await Promise.all(
+      filesToDelete.map((uri) =>
+        FileSystem.deleteAsync(uri, { idempotent: true }).catch(() => {}),
+      ),
+    );
+    return entry;
+  });
 }
 
 /**
@@ -238,15 +245,17 @@ async function sweepOrphanFiles(index: VoiceEntry[]): Promise<void> {
  * Tek bir entry'yi sil (hem dosyası hem index'i).
  */
 export async function deleteEntry(id: string): Promise<void> {
-  const list = await readIndex();
-  const idx = list.findIndex((e) => e.id === id);
-  if (idx < 0) return;
-  const removed = list[idx]!;
-  list.splice(idx, 1);
-  await writeIndex(list);
-  await FileSystem.deleteAsync(removed.uri, { idempotent: true }).catch(
-    () => {},
-  );
+  return serializeJournalMutation(async () => {
+    const list = await readIndex();
+    const idx = list.findIndex((e) => e.id === id);
+    if (idx < 0) return;
+    const removed = list[idx]!;
+    list.splice(idx, 1);
+    await writeIndex(list);
+    await FileSystem.deleteAsync(removed.uri, { idempotent: true }).catch(
+      () => {},
+    );
+  });
 }
 
 /**
@@ -257,11 +266,13 @@ export async function updateEntryNote(
   id: string,
   note: string,
 ): Promise<void> {
-  const list = await readIndex();
-  const idx = list.findIndex((e) => e.id === id);
-  if (idx < 0) return;
-  list[idx] = { ...list[idx]!, note: note.trim() || undefined };
-  await writeIndex(list);
+  return serializeJournalMutation(async () => {
+    const list = await readIndex();
+    const idx = list.findIndex((e) => e.id === id);
+    if (idx < 0) return;
+    list[idx] = { ...list[idx]!, note: note.trim() || undefined };
+    await writeIndex(list);
+  });
 }
 
 /**
@@ -276,17 +287,17 @@ export async function getCount(): Promise<number> {
  * Settings → reset entry point. Tüm dosyaları + indeksi siler.
  */
 export async function clearAll(): Promise<void> {
-  const list = await readIndex();
-  await Promise.all(
-    list.map((entry) =>
-      FileSystem.deleteAsync(entry.uri, { idempotent: true }).catch(() => {}),
-    ),
-  );
-  try {
+  return serializeJournalMutation(async () => {
+    const list = await readIndex();
+    // Clear the index first so a partially failed file cleanup never leaves UI
+    // rows pointing at recordings that were already deleted.
     await AsyncStorage.removeItem(K_INDEX);
-  } catch {
-    // ignore
-  }
+    await Promise.all(
+      list.map((entry) =>
+        FileSystem.deleteAsync(entry.uri, { idempotent: true }),
+      ),
+    );
+  });
 }
 
 // -------------------------------------------------------------
@@ -393,17 +404,21 @@ export async function analyzeEntry(entryId: string): Promise<void> {
   
   const avgWordsPerMinute = durationMin > 0 ? Math.round(wordCount / durationMin) : 0;
 
-  list[idx] = {
-    ...entry,
-    transcript,
-    analysis: {
-      fillerWords,
-      wordCount,
-      avgWordsPerMinute,
-    },
-  };
-  
-  await writeIndex(list);
+  await serializeJournalMutation(async () => {
+    const latest = await readIndex();
+    const latestIdx = latest.findIndex((candidate) => candidate.id === entryId);
+    if (latestIdx < 0) throw new Error("Entry was deleted during analysis");
+    latest[latestIdx] = {
+      ...latest[latestIdx]!,
+      transcript,
+      analysis: {
+        fillerWords,
+        wordCount,
+        avgWordsPerMinute,
+      },
+    };
+    await writeIndex(latest);
+  });
 }
 
 export interface WeeklyStats {

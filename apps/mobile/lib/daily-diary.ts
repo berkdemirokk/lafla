@@ -18,9 +18,17 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { isObject, parseSafe } from "./json-safe";
+import { isObject } from "./json-safe";
 
 const K_DIARY_ENTRIES = "lafla.diary.entries";
+
+let diaryWriteChain: Promise<unknown> = Promise.resolve();
+
+function serializeDiaryWrite<T>(work: () => Promise<T>): Promise<T> {
+  const job = diaryWriteChain.then(work, work);
+  diaryWriteChain = job.catch(() => undefined);
+  return job;
+}
 
 export interface DiaryEntry {
   /** YYYY-MM-DD (kullanıcının yerel tarihi). Aynı gün için ikinci entry
@@ -52,24 +60,19 @@ function todayKey(): string {
 }
 
 async function readEntries(): Promise<DiaryEntry[]> {
-  try {
-    const raw = await AsyncStorage.getItem(K_DIARY_ENTRIES);
-    if (!raw) return [];
-    const parsed = parseSafe<unknown[]>(raw, [], Array.isArray, {
-      source: "daily-diary.readEntries",
-    });
-    return parsed.filter(isDiaryEntry);
-  } catch {
-    return [];
+  const raw = await AsyncStorage.getItem(K_DIARY_ENTRIES);
+  if (!raw) return [];
+  const parsed = JSON.parse(raw) as unknown;
+  if (!Array.isArray(parsed) || !parsed.every(isDiaryEntry)) {
+    // Personal writing must never be replaced by an empty list merely because
+    // a stored payload is unreadable. Keep it intact until explicit reset.
+    throw new Error("Diary index is invalid");
   }
+  return parsed;
 }
 
 async function writeEntries(list: DiaryEntry[]): Promise<void> {
-  try {
-    await AsyncStorage.setItem(K_DIARY_ENTRIES, JSON.stringify(list));
-  } catch {
-    // Best effort.
-  }
+  await AsyncStorage.setItem(K_DIARY_ENTRIES, JSON.stringify(list));
 }
 
 /**
@@ -80,23 +83,25 @@ async function writeEntries(list: DiaryEntry[]): Promise<void> {
 export async function setTodayEntry(text: string): Promise<void> {
   const cleaned = text.trim();
   if (!cleaned) return;
-  const truncated = cleaned.length > 200 ? cleaned.slice(0, 200) : cleaned;
-  const key = todayKey();
-  const all = await readEntries();
-  const idx = all.findIndex((e) => e.date === key);
-  const entry: DiaryEntry = {
-    date: key,
-    text: truncated,
-    createdAt: new Date().toISOString(),
-  };
-  if (idx >= 0) {
-    all[idx] = entry;
-  } else {
-    all.push(entry);
-  }
-  // Sort by date desc — newest first for timeline render.
-  all.sort((a, b) => (a.date < b.date ? 1 : -1));
-  await writeEntries(all);
+  return serializeDiaryWrite(async () => {
+    const truncated = cleaned.length > 200 ? cleaned.slice(0, 200) : cleaned;
+    const key = todayKey();
+    const all = await readEntries();
+    const idx = all.findIndex((e) => e.date === key);
+    const entry: DiaryEntry = {
+      date: key,
+      text: truncated,
+      createdAt: new Date().toISOString(),
+    };
+    if (idx >= 0) {
+      all[idx] = entry;
+    } else {
+      all.push(entry);
+    }
+    // Sort by date desc — newest first for timeline render.
+    all.sort((a, b) => (a.date < b.date ? 1 : -1));
+    await writeEntries(all);
+  });
 }
 
 /**
@@ -139,9 +144,5 @@ export async function getEntryCountLastDays(days: number): Promise<number> {
  * istemeyen kullanıcı için ayarda gizli kalmalı.
  */
 export async function clearDiary(): Promise<void> {
-  try {
-    await AsyncStorage.removeItem(K_DIARY_ENTRIES);
-  } catch {
-    // ignore
-  }
+  await AsyncStorage.removeItem(K_DIARY_ENTRIES);
 }
