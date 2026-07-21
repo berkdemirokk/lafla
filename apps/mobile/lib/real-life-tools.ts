@@ -6,7 +6,17 @@ export interface EmergencyAnswers {
   friendly: string;
   source: "local";
   intentId: string;
+  kind: "critical" | "everyday";
+  category: EmergencyCategory;
 }
+
+export type EmergencyCategory =
+  | "medical"
+  | "police"
+  | "fire"
+  | "accident"
+  | "travel"
+  | "everyday";
 
 export interface CustomScenarioTurn {
   speaker: "npc" | "user";
@@ -67,6 +77,7 @@ interface ScenarioBlueprint {
   secondHintTr: string;
   firstPatterns: readonly string[];
   secondPatterns: readonly string[];
+  emergencyCategory?: Exclude<EmergencyCategory, "everyday">;
 }
 
 export interface CompiledRealLifeRequest {
@@ -87,6 +98,7 @@ export interface CompiledRealLifeRequest {
   secondHintTr: string;
   firstPatterns: string[];
   secondPatterns: string[];
+  emergencyCategory?: Exclude<EmergencyCategory, "everyday">;
 }
 
 function normalizeTr(value: string): string {
@@ -197,6 +209,129 @@ function audienceRole(context: CompileContext, fallback: string): string {
 }
 
 const BLUEPRINTS: readonly ScenarioBlueprint[] = [
+  {
+    id: "medical_emergency",
+    patterns: [
+      /\b(ambulans|ambulance|tibbi acil|medical emergency|unconscious|collapsed)\b/,
+      /\b(nefes alam|can't breathe|cannot breathe|bilincsiz|bayil|agir kanama|heavy bleeding|severe allergic|alerjik reaksiyon|allergic reaction)/,
+    ],
+    titleTr: "Tıbbi acil durum provası",
+    npcRole: "Emergency operator",
+    settingTr: "Emergency phone call",
+    formal: "I need an ambulance now. This is a medical emergency.",
+    neutral: "We are at this location. I can tell you whether the person is conscious and breathing.",
+    friendly: "Please stay on the line and tell me what information you need.",
+    opener: "Emergency services. What has happened?",
+    followUp: "Tell me your exact location. Is the person conscious and breathing?",
+    closing: "Help is being arranged. Stay on the line and answer my questions.",
+    firstHintTr: "Önce ambulans istediğini ve bunun acil olduğunu söyle.",
+    secondAnswers: [
+      "I am at this location. The person is conscious and breathing.",
+      "I am at this location. The person is unconscious but breathing.",
+      "I am sharing my exact location now. Please stay on the line.",
+    ],
+    secondHintTr: "Yalnızca bildiğin konumu, bilinç ve nefes bilgisini ver.",
+    firstPatterns: ["(need|send|call).*(ambulance|medical help)|medical emergency"],
+    secondPatterns: ["(location|address|conscious|unconscious|breathing)"],
+    emergencyCategory: "medical",
+  },
+  {
+    id: "police_emergency",
+    patterns: [
+      /\b(polise? acil|polis cagir|police help|call the police|need the police|in danger|tehlikedeyim|being followed|takip ediliyorum|was attacked|saldiriya ugradim|robbed|soyuldum)\b/,
+    ],
+    titleTr: "Polisten acil yardım isteme",
+    npcRole: "Emergency operator",
+    settingTr: "Emergency phone call",
+    formal: "I need the police now. I am in danger.",
+    neutral: "I am at this location. I can describe what happened and who is involved.",
+    friendly: "Please stay on the line and tell me what to do next.",
+    opener: "Emergency services. Do you need the police?",
+    followUp: "Are you in a safe place, and what is your exact location?",
+    closing: "Help is being arranged. Stay on the line if it is safe to do so.",
+    firstHintTr: "Önce polis istediğini ve tehlikede olup olmadığını söyle.",
+    secondAnswers: [
+      "I am in a safe place now. I can share my exact location.",
+      "I am not in a safe place. My exact location is here.",
+      "I can describe the person and explain what happened.",
+    ],
+    secondHintTr: "Güvenlik durumunu ve konumunu kısa, gerçek bilgilerle ver.",
+    firstPatterns: ["(need|send|call).*(police)|in danger"],
+    secondPatterns: ["(safe place|not safe|location|describe|happened)"],
+    emergencyCategory: "police",
+  },
+  {
+    id: "fire_emergency",
+    patterns: [/\b(yangin|fire department|building is on fire|house is on fire|there is a fire)\b/],
+    titleTr: "Yangın ihbarı provası",
+    npcRole: "Emergency operator",
+    settingTr: "Emergency phone call",
+    formal: "There is a fire at this location. Please send the fire department now.",
+    neutral: "I can share the exact address and tell you whether anyone is inside.",
+    friendly: "Please stay on the line. I will answer your questions.",
+    opener: "Emergency services. Where is the fire?",
+    followUp: "What is the exact address, and is anyone still inside?",
+    closing: "The fire department is being notified. Follow the operator's safety instructions.",
+    firstHintTr: "Yangın olduğunu ve itfaiye istediğini hemen söyle.",
+    secondAnswers: [
+      "The fire is at this address. I do not know if anyone is inside.",
+      "The fire is at this address. Everyone I can see is outside.",
+      "I am sharing the exact location now.",
+    ],
+    secondHintTr: "Adresi ve içeride biri olup olmadığını yalnızca biliyorsan söyle.",
+    firstPatterns: ["fire.*(location|address)|send.*fire department|there is a fire"],
+    secondPatterns: ["(address|location|inside|outside)"],
+    emergencyCategory: "fire",
+  },
+  {
+    id: "accident_emergency",
+    patterns: [/\b(kaza\w*|accident|car crash|collision|yaral\w*|injured)\b/],
+    titleTr: "Kaza ihbarı provası",
+    npcRole: "Emergency operator",
+    settingTr: "Emergency phone call",
+    formal: "There has been an accident. Someone may be injured. Please send emergency help.",
+    neutral: "We are at this location. I can describe the accident and any immediate danger.",
+    friendly: "Please stay on the line and tell me what information you need.",
+    opener: "Emergency services. What kind of accident has happened?",
+    followUp: "What is your exact location, and is anyone injured or in immediate danger?",
+    closing: "Emergency help is being arranged. Stay on the line if it is safe.",
+    firstHintTr: "Kaza olduğunu ve acil yardım gerektiğini söyle.",
+    secondAnswers: [
+      "I am sharing the exact location. One person appears to be injured.",
+      "I am sharing the exact location. I do not know how many people are injured.",
+      "The accident is blocking the road. I can describe what I can see.",
+    ],
+    secondHintTr: "Konumu, yaralı sayısını ve gördüğün tehlikeyi tahmin etmeden anlat.",
+    firstPatterns: ["accident.*(help|injured)|send.*emergency help|someone.*injured"],
+    secondPatterns: ["(location|injured|blocking|describe|see)"],
+    emergencyCategory: "accident",
+  },
+  {
+    id: "lost_passport",
+    patterns: [
+      /\b(passaport|pasaport|passport)\w*.*\b(kayip|kaybet|calin|lost|stolen)/,
+      /\b(kayip|kaybet|calin|lost|stolen)\w*.*\b(passaport|pasaport|passport)/,
+    ],
+    titleTr: "Kayıp pasaport yardımı",
+    npcRole: "Police or embassy staff member",
+    settingTr: "Police station or embassy",
+    formal: "My passport has been lost or stolen. I need to file a police report and contact my embassy.",
+    neutral: "I last saw my passport recently. Could you tell me the next step?",
+    friendly: "I have a copy of my identification and can share my travel details.",
+    opener: "Hello. How can I help you today?",
+    followUp: "When did you last see your passport, and do you have a copy or another form of identification?",
+    closing: "Thank you. We will explain the report and replacement steps.",
+    firstHintTr: "Pasaportun kayıp veya çalıntı olduğunu açıkça söyle.",
+    secondAnswers: [
+      "I last saw it today, and I have a digital copy.",
+      "I do not know exactly when it went missing, but I can share my travel details.",
+      "Could you help me contact my embassy and file the report?",
+    ],
+    secondHintTr: "Son gördüğün zamanı ve varsa kimlik kopyanı belirt.",
+    firstPatterns: ["passport.*(lost|stolen)|file.*police report|contact.*embassy"],
+    secondPatterns: ["(last saw|copy|travel details|embassy|report)"],
+    emergencyCategory: "travel",
+  },
   {
     id: "salary_raise",
     patterns: [/\b(maas|zam|ucret|salary\b|raise\b|compensation\b|promotion\b)/],
@@ -790,6 +925,7 @@ export function compileRealLifeRequest(input: string): CompiledRealLifeRequest {
     secondHintTr: blueprint.secondHintTr,
     firstPatterns: [...blueprint.firstPatterns],
     secondPatterns: [...blueprint.secondPatterns],
+    emergencyCategory: blueprint.emergencyCategory,
   };
 }
 
@@ -825,22 +961,35 @@ function ensureOutputIsSafe(parts: readonly string[]): void {
 export async function generateEmergencyAnswers(
   input: string,
 ): Promise<EmergencyAnswers> {
-  const clean = ensureInputIsSafe(input, "English roleplay scenario practice:");
+  const clean = input.trim().slice(0, 500);
+  if (!clean) throw new Error("Lütfen çalışmak istediğin durumu yaz.");
   const plan = compileRealLifeRequest(clean);
-  ensureOutputIsSafe([plan.formal, plan.neutral, plan.friendly]);
+  ensureEmergencyPracticeIsSafe(clean, Boolean(plan.emergencyCategory));
+  if (!plan.emergencyCategory) {
+    ensureOutputIsSafe([plan.formal, plan.neutral, plan.friendly]);
+  }
   return {
     formal: plan.formal,
     neutral: plan.neutral,
     friendly: plan.friendly,
     source: "local",
     intentId: plan.blueprintId,
+    kind: plan.emergencyCategory ? "critical" : "everyday",
+    category: plan.emergencyCategory ?? "everyday",
   };
 }
 
 export async function generateCustomScenario(
   input: string,
 ): Promise<CustomScenario> {
-  const clean = ensureInputIsSafe(input, "roleplay practice:");
+  const emergencyPlan = compileRealLifeRequest(input);
+  const clean = emergencyPlan.emergencyCategory
+    ? input.trim().slice(0, 500)
+    : ensureInputIsSafe(input, "roleplay practice:");
+  if (!clean) throw new Error("Lütfen çalışmak istediğin durumu yaz.");
+  if (emergencyPlan.emergencyCategory) {
+    ensureEmergencyPracticeIsSafe(clean, true);
+  }
   const plan = compileRealLifeRequest(clean);
   const turns: CustomScenarioTurn[] = [
     { speaker: "npc", message: plan.opener },
@@ -859,11 +1008,13 @@ export async function generateCustomScenario(
     },
     { speaker: "npc", message: plan.closing },
   ];
-  ensureOutputIsSafe(
-    turns.flatMap((turn) =>
-      turn.speaker === "npc" ? [turn.message ?? ""] : turn.model_answers ?? [],
-    ),
-  );
+  if (!plan.emergencyCategory) {
+    ensureOutputIsSafe(
+      turns.flatMap((turn) =>
+        turn.speaker === "npc" ? [turn.message ?? ""] : turn.model_answers ?? [],
+      ),
+    );
+  }
 
   return {
     titleTr: plan.titleTr,
@@ -874,4 +1025,23 @@ export async function generateCustomScenario(
     source: "local",
     intentId: plan.blueprintId,
   };
+}
+
+function ensureEmergencyPracticeIsSafe(
+  clean: string,
+  isAuthoredEmergency: boolean,
+): void {
+  const safety = checkUserInput(`English roleplay scenario practice: ${clean}`);
+  const canRenderAuthoredEmergency =
+    isAuthoredEmergency &&
+    safety.reason !== "crisis" &&
+    safety.reason !== "nsfw" &&
+    safety.reason !== "drugs" &&
+    safety.reason !== "financial";
+  if (!safety.ok && !canRenderAuthoredEmergency) {
+    throw new Error(
+      safety.suggestedResponse_tr ??
+        "Bu istek güvenli İngilizce pratiğine uygun değil.",
+    );
+  }
 }

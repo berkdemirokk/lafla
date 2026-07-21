@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Alert,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -18,6 +19,7 @@ import { SpeakerButton } from "../components/SpeakerButton";
 import { TabBar } from "../components/TabBar";
 import { RoleplayChat } from "../components/exercises/RoleplayChat";
 import { trackEvent } from "../lib/analytics";
+import { enqueueVocab } from "../lib/srs-vocab";
 import type { ExerciseResult } from "../lib/engine";
 import {
   generateCustomScenario,
@@ -32,8 +34,8 @@ type ToolMode = "emergency" | "scenario";
 
 const EXAMPLE_KEYS: Record<ToolMode, string[]> = {
   emergency: [
-    "real_life.example.late",
-    "real_life.example.reschedule",
+    "real_life.example.accident",
+    "real_life.example.allergy",
   ],
   scenario: [
     "real_life.example.salary",
@@ -49,15 +51,27 @@ const QUICK_REQUESTS: ReadonlyArray<{
 }> = [
   {
     mode: "emergency",
-    titleKey: "real_life.quick.late_title",
-    subtitleKey: "real_life.quick.late_subtitle",
-    textKey: "real_life.quick.late_text",
+    titleKey: "real_life.quick.ambulance_title",
+    subtitleKey: "real_life.quick.ambulance_subtitle",
+    textKey: "real_life.quick.ambulance_text",
   },
   {
     mode: "emergency",
-    titleKey: "real_life.quick.reschedule_title",
-    subtitleKey: "real_life.quick.reschedule_subtitle",
-    textKey: "real_life.quick.reschedule_text",
+    titleKey: "real_life.quick.police_title",
+    subtitleKey: "real_life.quick.police_subtitle",
+    textKey: "real_life.quick.police_text",
+  },
+  {
+    mode: "emergency",
+    titleKey: "real_life.quick.fire_title",
+    subtitleKey: "real_life.quick.fire_subtitle",
+    textKey: "real_life.quick.fire_text",
+  },
+  {
+    mode: "emergency",
+    titleKey: "real_life.quick.passport_title",
+    subtitleKey: "real_life.quick.passport_subtitle",
+    textKey: "real_life.quick.passport_text",
   },
   {
     mode: "scenario",
@@ -79,6 +93,12 @@ const TRUST_POINT_KEYS = [
   { labelKey: "real_life.trust.audio_label", detailKey: "real_life.trust.audio_detail" },
 ];
 
+const EMERGENCY_TRUST_POINT_KEYS = [
+  { labelKey: "real_life.trust.emergency_label", detailKey: "real_life.trust.emergency_detail" },
+  { labelKey: "real_life.trust.steps_label", detailKey: "real_life.trust.steps_detail" },
+  { labelKey: "real_life.trust.audio_label", detailKey: "real_life.trust.audio_detail" },
+];
+
 const TONE_HINT_KEYS: Record<"formal" | "neutral" | "friendly", string> = {
   formal: "real_life.tone.formal_hint",
   neutral: "real_life.tone.neutral_hint",
@@ -97,6 +117,8 @@ export default function RealLifeScreen() {
   const [scenarioResult, setScenarioResult] = useState<ExerciseResult | null>(
     null,
   );
+  const [savingAnswers, setSavingAnswers] = useState(false);
+  const [answersSaved, setAnswersSaved] = useState(false);
 
   const reset = () => {
     setAnswers(null);
@@ -104,6 +126,7 @@ export default function RealLifeScreen() {
     setScenarioResult(null);
     setError(null);
     setInput("");
+    setAnswersSaved(false);
   };
 
   const generateFrom = async (
@@ -119,6 +142,7 @@ export default function RealLifeScreen() {
     setAnswers(null);
     setScenario(null);
     setScenarioResult(null);
+    setAnswersSaved(false);
     const startedAt = Date.now();
     try {
       if (activeMode === "emergency") {
@@ -126,6 +150,8 @@ export default function RealLifeScreen() {
         setAnswers(result);
         void trackEvent("emergency_english_generated", {
           source: result.source,
+          category: result.category,
+          kind: result.kind,
           latency_ms: Date.now() - startedAt,
         }).catch(() => {});
       } else {
@@ -148,6 +174,35 @@ export default function RealLifeScreen() {
   };
 
   const generate = async () => generateFrom();
+
+  const saveAnswersForReview = async () => {
+    if (!answers || savingAnswers || answersSaved) return;
+    setSavingAnswers(true);
+    try {
+      for (const phrase of [answers.formal, answers.neutral, answers.friendly]) {
+        await enqueueVocab({
+          word: phrase,
+          translation: input.trim(),
+          source_lesson_id: `real-life.${answers.intentId}`,
+          source_lesson_title: t("real_life.review_source_title"),
+          was_correct: false,
+        });
+      }
+      setAnswersSaved(true);
+      void trackEvent("emergency_english_saved", {
+        category: answers.category,
+        intent_id: answers.intentId,
+      }).catch(() => {});
+      Alert.alert(
+        t("real_life.saved_title"),
+        t("real_life.saved_body"),
+      );
+    } catch {
+      setError(t("real_life.error_save"));
+    } finally {
+      setSavingAnswers(false);
+    }
+  };
 
   if (scenario) {
     return (
@@ -271,7 +326,7 @@ export default function RealLifeScreen() {
           </View>
 
           <View style={styles.promiseRow}>
-            {TRUST_POINT_KEYS.map((item) => (
+            {(mode === "emergency" ? EMERGENCY_TRUST_POINT_KEYS : TRUST_POINT_KEYS).map((item) => (
               <View key={item.labelKey} style={styles.promisePill}>
                 <Text style={styles.promiseLabel}>{t(item.labelKey)}</Text>
                 <Text style={styles.promiseDetail}>{t(item.detailKey)}</Text>
@@ -360,27 +415,46 @@ export default function RealLifeScreen() {
 
           {answers && (
             <View style={styles.answerList}>
+              {answers.kind === "critical" && (
+                <View style={styles.criticalNotice} accessibilityRole="alert">
+                  <Text style={styles.criticalNoticeTitle}>
+                    {t("real_life.critical_notice_title")}
+                  </Text>
+                  <Text style={styles.criticalNoticeBody}>
+                    {t("real_life.critical_notice_body")}
+                  </Text>
+                </View>
+              )}
               <AnswerCard
-                label={t("real_life.tone.formal")}
-                hint={t(TONE_HINT_KEYS.formal)}
+                label={t(answers.kind === "critical" ? "real_life.step.first" : "real_life.tone.formal")}
+                hint={t(answers.kind === "critical" ? "real_life.step.first_hint" : TONE_HINT_KEYS.formal)}
                 text={answers.formal}
               />
               <AnswerCard
-                label={t("real_life.tone.neutral")}
-                hint={t(TONE_HINT_KEYS.neutral)}
+                label={t(answers.kind === "critical" ? "real_life.step.detail" : "real_life.tone.neutral")}
+                hint={t(answers.kind === "critical" ? "real_life.step.detail_hint" : TONE_HINT_KEYS.neutral)}
                 text={answers.neutral}
               />
               <AnswerCard
-                label={t("real_life.tone.friendly")}
-                hint={t(TONE_HINT_KEYS.friendly)}
+                label={t(answers.kind === "critical" ? "real_life.step.keep_open" : "real_life.tone.friendly")}
+                hint={t(answers.kind === "critical" ? "real_life.step.keep_open_hint" : TONE_HINT_KEYS.friendly)}
                 text={answers.friendly}
               />
+              <Text style={styles.offlineNote}>{t("real_life.offline_notice")}</Text>
               <Button
                 label={t("real_life.convert_to_rehearsal")}
                 variant="secondary"
                 onPress={() => void generateFrom(input, "scenario")}
                 disabled={!input.trim()}
                 loading={loading}
+                stacked
+              />
+              <Button
+                label={t(answersSaved ? "real_life.saved_cta" : "real_life.save_for_review")}
+                variant="secondary"
+                onPress={() => void saveAnswersForReview()}
+                disabled={answersSaved}
+                loading={savingAnswers}
                 stacked
               />
             </View>
@@ -462,8 +536,8 @@ const styles = StyleSheet.create({
   promiseDetail: { color: tokens.text.tertiary, fontSize: 10, marginTop: 2 },
   quickPanel: { gap: 10 },
   sectionLabel: { color: tokens.text.tertiary, fontSize: 10, fontWeight: tokens.weight.extrabold, letterSpacing: 1.3 },
-  quickGrid: { flexDirection: "row", gap: 10 },
-  quickCard: { flex: 1, minHeight: 86, padding: 14, borderRadius: tokens.radius.lg, backgroundColor: tokens.brand.primarySoft, borderWidth: 1, borderColor: tokens.brand.primary, justifyContent: "space-between" },
+  quickGrid: { flexDirection: "row", flexWrap: "wrap", gap: 10 },
+  quickCard: { flexGrow: 1, flexBasis: "46%", minHeight: 86, padding: 14, borderRadius: tokens.radius.lg, backgroundColor: tokens.brand.primarySoft, borderWidth: 1, borderColor: tokens.brand.primary, justifyContent: "space-between" },
   quickTitle: { color: tokens.text.primary, fontSize: 15, fontWeight: tokens.weight.black, fontFamily: tokens.font.display },
   quickSub: { color: tokens.text.secondary, fontSize: 11, lineHeight: 15, marginTop: 5 },
   pressed: { opacity: 0.82, transform: [{ scale: 0.98 }] },
@@ -473,6 +547,9 @@ const styles = StyleSheet.create({
   chipText: { color: tokens.text.secondary, fontSize: 12 },
   error: { color: tokens.semantic.error, fontSize: 13, lineHeight: 19 },
   answerList: { gap: 12, marginTop: 6 },
+  criticalNotice: { padding: 16, borderRadius: tokens.radius.lg, backgroundColor: tokens.semantic.errorContainer, borderWidth: 1, borderColor: tokens.semantic.error },
+  criticalNoticeTitle: { color: tokens.semantic.error, fontSize: 14, fontWeight: tokens.weight.black, fontFamily: tokens.font.display },
+  criticalNoticeBody: { color: tokens.text.secondary, fontSize: 12, lineHeight: 18, marginTop: 5 },
   answerCard: { padding: 16, borderRadius: tokens.radius.lg, backgroundColor: tokens.bg.surfaceContainer, borderWidth: 1, borderColor: tokens.border.outlineVariant, gap: 8 },
   answerHeader: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
   answerLabel: { color: tokens.brand.tertiary, fontSize: 10, fontWeight: tokens.weight.extrabold, letterSpacing: 1.4 },

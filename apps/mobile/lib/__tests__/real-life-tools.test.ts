@@ -7,6 +7,11 @@ import {
 } from "../real-life-tools";
 
 const BLUEPRINT_CASES = [
+  ["medical_emergency", "Şiddetli alerjik reaksiyon geçiriyorum ve ambulans gerekiyor"],
+  ["police_emergency", "Tehlikedeyim ve hemen polis yardımına ihtiyacım var"],
+  ["fire_emergency", "Binada yangın var ve itfaiye gerekiyor"],
+  ["accident_emergency", "Trafik kazası oldu ve bir kişi yaralı olabilir"],
+  ["lost_passport", "Pasaportumu kaybettim ve elçiliğe ulaşmam gerekiyor"],
   ["salary_raise", "Yöneticimle maaş artışını konuşacağım"],
   ["running_late", "Patronuma 15 dakika geç kalacağımı söyleyeceğim"],
   ["deadline_extension", "Teslim tarihi için ek süre istemem gerekiyor"],
@@ -48,6 +53,11 @@ describe("local real-life tools", () => {
         "professional_disagreement",
         "airport_help",
         "landlord_repair",
+        "medical_emergency",
+        "police_emergency",
+        "fire_emergency",
+        "accident_emergency",
+        "lost_passport",
       ]),
     );
   });
@@ -98,6 +108,34 @@ describe("local real-life tools", () => {
     expect(result.formal).toMatch(/about 25 minutes late/i);
     expect(result.neutral).toMatch(/keep you posted/i);
     expect(result.friendly).toMatch(/sorry/i);
+    expect(result.kind).toBe("everyday");
+    expect(result.category).toBe("everyday");
+  });
+
+  it.each([
+    ["Ambulans lazım, kişi bilinçsiz", "medical_emergency", "medical", /ambulance now/i],
+    ["Saldırıya uğradım, polise acil yardım lazım", "police_emergency", "police", /police now/i],
+    ["Evde yangın var", "fire_emergency", "fire", /fire department now/i],
+    ["Trafik kazası oldu", "accident_emergency", "accident", /emergency help/i],
+    ["Pasaportum çalındı", "lost_passport", "travel", /police report/i],
+  ])(
+    "creates authored critical phrases for %s",
+    async (request, expectedId, expectedCategory, firstPhrase) => {
+      const result = await generateEmergencyAnswers(request);
+      expect(result.intentId).toBe(expectedId);
+      expect(result.kind).toBe("critical");
+      expect(result.category).toBe(expectedCategory);
+      expect(result.formal).toMatch(firstPhrase);
+    },
+  );
+
+  it("never lets a critical blueprint bypass crisis safety", async () => {
+    await expect(
+      generateEmergencyAnswers("Ambulans çağır, kendimi öldüreceğim"),
+    ).rejects.toThrow(/112|yalnız olmadığını/i);
+    await expect(
+      generateCustomScenario("Ambulans çağır, kendimi öldüreceğim"),
+    ).rejects.toThrow(/112|yalnız olmadığını/i);
   });
 
   it.each([
