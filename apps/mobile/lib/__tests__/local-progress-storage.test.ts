@@ -16,13 +16,15 @@ describe("local progress storage integrity", () => {
     await AsyncStorage.clear();
   });
 
-  it("advances the streak across local midnight even when UTC date is unchanged", async () => {
+  it("advances the streak across local midnight regardless of runner timezone", async () => {
+    const previousLocalNight = new Date(2026, 6, 20, 23, 30);
+    const nextLocalMorning = new Date(2026, 6, 21, 0, 30);
     await setLocalProfile({
       current_streak: 4,
       longest_streak: 4,
-      last_lesson_at: "2026-07-20T20:30:00.000Z",
+      last_lesson_at: previousLocalNight.toISOString(),
     });
-    jest.useFakeTimers().setSystemTime(new Date("2026-07-20T21:30:00.000Z"));
+    jest.useFakeTimers().setSystemTime(nextLocalMorning);
 
     await bumpStreak();
 
