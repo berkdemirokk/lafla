@@ -13,6 +13,7 @@ jest.mock("../iap", () => ({
 import {
   FREE_DAILY_SCENE_QUOTA,
   incrementFreeTier,
+  markLearningValueReached,
   shouldGatePaywall,
 } from "../free-tier";
 import { grantRewardedPremium } from "../rewarded";
@@ -43,11 +44,20 @@ describe("entitlement persistence", () => {
   });
 
   it("gates once the durable daily quota is reached", async () => {
+    await markLearningValueReached();
     for (let index = 0; index < FREE_DAILY_SCENE_QUOTA; index += 1) {
       await incrementFreeTier();
     }
 
     await expect(shouldGatePaywall()).resolves.toBe(true);
+  });
+
+  it("does not gate before the learner receives a complete scene result", async () => {
+    for (let index = 0; index < FREE_DAILY_SCENE_QUOTA; index += 1) {
+      await incrementFreeTier();
+    }
+
+    await expect(shouldGatePaywall()).resolves.toBe(false);
   });
 
   it("does not charge quota or show a paywall while entitlement is unknown", async () => {

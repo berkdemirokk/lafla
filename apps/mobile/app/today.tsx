@@ -18,7 +18,7 @@
 //
 // Tutorial overlay ilk açılışta burada (Today first impression).
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import { pushRoute } from "../lib/routes";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
@@ -48,7 +48,6 @@ import {
 import {
   getCefrLevel,
   checkErosionForUi,
-  getRelevantLevels,
   type CefrLevel,
 } from "../lib/cefr-level";
 import { isStreakAtRisk } from "../lib/streak-shield";
@@ -68,9 +67,8 @@ import { VoiceWaveform } from "../components/VoiceWaveform";
 import { Icon } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
-import { SAMPLE_SCENES, type Scene, type SceneMode } from "../data/scenes";
+import { type Scene } from "../data/scenes";
 import { SCENE_COUNT_DISPLAY } from "../lib/scene-counts";
-import { getScenario } from "../lib/scenario";
 import { getSceneDisplayMinutes } from "../lib/scene-duration";
 import { recordActive } from "../lib/notifications";
 import { isPremium } from "../lib/iap";
@@ -85,20 +83,6 @@ import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
-type CoreContextId = "work" | "daily" | "social" | "travel" | "ielts";
-
-const CORE_CONTEXTS: ReadonlyArray<{
-  id: CoreContextId;
-  labelKey: string;
-  detailKey: string;
-}> = [
-  { id: "work", labelKey: "today.context.work", detailKey: "today.context.work_detail" },
-  { id: "daily", labelKey: "today.context.daily", detailKey: "today.context.daily_detail" },
-  { id: "social", labelKey: "today.context.social", detailKey: "today.context.social_detail" },
-  { id: "travel", labelKey: "today.context.travel", detailKey: "today.context.travel_detail" },
-  { id: "ielts", labelKey: "today.context.ielts", detailKey: "today.context.ielts_detail" },
-];
-
 const CORE_TRUST_PROMISES: ReadonlyArray<{
   labelKey: string;
   detailKey: string;
@@ -107,66 +91,6 @@ const CORE_TRUST_PROMISES: ReadonlyArray<{
   { labelKey: "today.trust.level", detailKey: "today.trust.level_detail" },
   { labelKey: "today.trust.calm", detailKey: "today.trust.calm_detail" },
 ];
-
-const CONTEXT_MODE_PRIORITY: Record<CoreContextId, readonly SceneMode[]> = {
-  work: ["work"],
-  daily: ["daily", "order"],
-  social: ["flirt", "bar"],
-  travel: ["airport"],
-  ielts: ["ielts"],
-};
-
-function contextForScene(scene: Scene | null): CoreContextId {
-  switch (scene?.mode) {
-    case "work":
-      return "work";
-    case "flirt":
-    case "bar":
-      return "social";
-    case "airport":
-      return "travel";
-    case "ielts":
-      return "ielts";
-    case "daily":
-    case "order":
-    default:
-      return "daily";
-  }
-}
-
-function pickSceneForContext(
-  scenes: readonly Scene[],
-  context: CoreContextId,
-): Scene | null {
-  const modes = CONTEXT_MODE_PRIORITY[context];
-  return scenes.find((scene) => modes.includes(scene.mode)) ?? null;
-}
-
-function pickPlayableSceneForContext(
-  context: CoreContextId,
-  completedLessonIds: readonly string[],
-  cefrLevel: CefrLevel | null,
-): Scene | null {
-  const modes = CONTEXT_MODE_PRIORITY[context];
-  const completed = new Set(completedLessonIds);
-  const allowedLevels = cefrLevel ? new Set(getRelevantLevels(cefrLevel)) : null;
-  const playable = SAMPLE_SCENES.filter(
-    (scene) => modes.includes(scene.mode) && getScenario(scene.lessonId) !== null,
-  );
-  const levelMatched = allowedLevels
-    ? playable.filter(
-        (scene) => !scene.cefrLevel || allowedLevels.has(scene.cefrLevel),
-      )
-    : playable;
-
-  return (
-    levelMatched.find((scene) => !completed.has(scene.lessonId)) ??
-    levelMatched[0] ??
-    playable.find((scene) => !completed.has(scene.lessonId)) ??
-    playable[0] ??
-    null
-  );
-}
 
 function compactSceneTitle(scene: Scene | null, fallback: string): string {
   return scene?.title.replace(/\n/g, " ") ?? fallback;
@@ -275,8 +199,6 @@ export default function Today() {
   const [state, setState] = useState<TodayState>(EMPTY);
   const [showTutorial, setShowTutorial] = useState(false);
   const [planLoadFailed, setPlanLoadFailed] = useState(false);
-  const [selectedCoreContext, setSelectedCoreContext] =
-    useState<CoreContextId | null>(null);
 
   // ─── Ambient animations ──────────────────────────────────────────────
   // Two independent shared-value drivers. They start once on mount and
@@ -501,21 +423,7 @@ export default function Today() {
   );
 
   const streak = state.profile?.current_streak ?? 0;
-  const effectiveCoreContext =
-    selectedCoreContext ?? contextForScene(state.planFirstScene);
-  const fallbackCoreScene = useMemo(
-    () =>
-      pickPlayableSceneForContext(
-        effectiveCoreContext,
-        state.completedLessonIds,
-        state.cefrLevel,
-      ),
-    [effectiveCoreContext, state.cefrLevel, state.completedLessonIds],
-  );
-  const selectedCoreScene =
-    pickSceneForContext(state.planRemainingScenes, effectiveCoreContext) ??
-    fallbackCoreScene ??
-    state.planFirstScene;
+  const selectedCoreScene = state.planFirstScene;
   const selectedCoreFromPlan = Boolean(
     selectedCoreScene &&
       state.planRemainingScenes.some(
@@ -711,49 +619,6 @@ export default function Today() {
                       </Text>
                     </View>
                   ))}
-                </View>
-
-                <Text style={styles.coreQuestion}>
-                  {t("today.context_question")}
-                </Text>
-                <View style={styles.coreContextGrid}>
-                  {CORE_CONTEXTS.map((context) => {
-                    const selected = effectiveCoreContext === context.id;
-                    return (
-                      <Pressable
-                        key={context.id}
-                        onPress={() => setSelectedCoreContext(context.id)}
-                        style={({ pressed }) => [
-                          styles.coreContextChip,
-                          selected && styles.coreContextChipSelected,
-                          pressed && styles.pressed,
-                        ]}
-                        accessibilityRole="button"
-                        accessibilityLabel={t("today.select_context", {
-                          context: t(context.labelKey),
-                        })}
-                        accessibilityState={{ selected }}
-                      >
-                        <Text
-                          style={[
-                            styles.coreContextLabel,
-                            selected && styles.coreContextLabelSelected,
-                          ]}
-                        >
-                          {t(context.labelKey)}
-                        </Text>
-                        <Text
-                          style={[
-                            styles.coreContextDetail,
-                            selected && styles.coreContextDetailSelected,
-                          ]}
-                          numberOfLines={1}
-                        >
-                          {t(context.detailKey)}
-                        </Text>
-                      </Pressable>
-                    );
-                  })}
                 </View>
 
                 <Pressable

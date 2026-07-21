@@ -32,7 +32,6 @@
       "privacyManifests": {
         "NSPrivacyTracking": true,
         "NSPrivacyTrackingDomains": [
-          "eu.i.posthog.com",
           "googleadservices.com",
           "googlesyndication.com",
           "doubleclick.net",

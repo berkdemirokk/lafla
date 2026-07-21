@@ -97,6 +97,7 @@ import {
 import {
   shouldGatePaywall,
   incrementFreeTier,
+  markLearningValueReached,
 } from "../../lib/free-tier";
 import { recordSceneCompletion } from "../../lib/scene-history";
 import { recordVocabFromScene } from "../../lib/vocab-book";
@@ -132,6 +133,7 @@ import type { AchievementDef } from "../../lib/achievements";
 import type { ExerciseResult, RoleplayMistake } from "../../lib/engine";
 import { assessRoleplayScore } from "../../lib/roleplay-assessment";
 import { captureException } from "../../lib/sentry";
+import { recordSceneEvidence } from "../../lib/learning-evidence";
 
 // 2026-05-24 — Content expansion (Phase 1C, Agent C). 4 → 7 phase.
 // Yeni faz veri yoksa (eski lesson) getNextPhase() o fazı atlar; flow eskisi
@@ -820,8 +822,17 @@ export default function ScenarioScreen() {
     // açılışında shouldGatePaywall true dönerse paywall'a yönlendirir.
     // intro/Match sahnesi sayılmaz (force-first ücretsiz pattern).
     if (!isIntro) {
+      void markLearningValueReached().catch(() => {});
       incrementFreeTier().catch(() => {});
     }
+
+    void recordSceneEvidence({
+      sceneId: scenario.id,
+      score: result.mastery_score ?? result.score,
+      userResponses: result.user_responses,
+      assistedTurns: result.assisted_turns,
+      mistakeCount: result.mistakes?.length ?? 0,
+    }).catch(() => {});
 
     // 2026-05-21 — Local history record (History sayfası için).
     // intro dahil her sahne kaydedilir — kullanıcı geçmişini görmek için.

@@ -157,7 +157,18 @@ jobs:
 
       - name: Deploy Supabase Edge Functions
         shell: bash
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
         run: |
+          if [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; then
+            supabase secrets set \
+              AZURE_SPEECH_KEY="$AZURE_SPEECH_KEY" \
+              AZURE_SPEECH_REGION="$AZURE_SPEECH_REGION" \
+              --project-ref "$PROJECT_REF"
+          else
+            echo "::warning::Azure Speech secrets are missing; acoustic pronunciation will use the on-device fallback"
+          fi
           echo "=== Deploying llm-chat ==="
           supabase functions deploy llm-chat --project-ref "$PROJECT_REF" --no-verify-jwt=false
           echo "=== Deploying delete-account ==="
@@ -168,6 +179,8 @@ jobs:
           supabase functions deploy revenuecat-webhook --project-ref "$PROJECT_REF" --no-verify-jwt
           echo "=== Deploying revenuecat-sync ==="
           supabase functions deploy revenuecat-sync --project-ref "$PROJECT_REF" --no-verify-jwt=false
+          echo "=== Deploying pronunciation-assess ==="
+          supabase functions deploy pronunciation-assess --project-ref "$PROJECT_REF" --no-verify-jwt
 
       - name: Write App Store Connect API key
         run: |

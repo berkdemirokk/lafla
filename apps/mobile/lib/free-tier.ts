@@ -4,16 +4,16 @@
 // Önceden: free kullanıcı sınırsız sahne oynayabiliyordu, AdMob banner
 // tek "değer" engeliydi. Lafla Pro neden ödenir? Cevap yoktu.
 //
-// Şimdi: günde N sahne free. N+1'inci sahne açılışında paywall.
+// Şimdi: kullanıcı ilk tam sonucunu gördükten sonra günde N sahne free.
 // Premium ise (RevenueCat isPremium) muaf.
 //
 // State:
 //   K_FREE_DATE       — son sayaç tarihi (toDateString); değişince sayaç sıfırlanır
 //   K_FREE_COUNT      — bugün tamamlanan sahne sayısı
-//   K_FREE_GATE_SEEN  — bugün paywall'u açtı mı (true ise yeniden bypass'e olanak verilir)
+//   K_LEARNING_VALUE_REACHED — ilk tam sahne sonucu gösterildi mi
 //
 // Counter SAHNE TAMAMLANDIĞINDA artar (verdict ekranı sonrası), açılışta
-// kontrol edilir. Bu yüzden free user 3 sahneyi tamamlar, 4. sahneye
+// kontrol edilir. Bu yüzden free user 5 sahneyi tamamlar, 6. sahneye
 // tıklayınca paywall görür. "Tamamlanmamış" sayılmaz.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -22,12 +22,18 @@ import { localDayKey } from "./day-key";
 
 const K_FREE_DATE = "lafla.freeTier.date";
 const K_FREE_COUNT = "lafla.freeTier.count";
+const K_LEARNING_VALUE_REACHED = "lafla.freeTier.learningValueReached";
 
 /**
- * Günlük free quota — değiştirilebilir lever. 3 hızlı sahne sonra paywall.
+ * Günlük free quota — ilk değer anından sonra 5 sahne.
  * Speak / Talkpal benzer modelleri kullanıyor (~3-5 free/gün).
  */
-export const FREE_DAILY_SCENE_QUOTA = 3;
+export const FREE_DAILY_SCENE_QUOTA = 5;
+
+/** Unlock monetization only after the learner has received a real scene result. */
+export async function markLearningValueReached(): Promise<void> {
+  await AsyncStorage.setItem(K_LEARNING_VALUE_REACHED, "true");
+}
 
 // User-facing daily quota should reset with the same local day boundary as the
 // Daily Plan. Otherwise Turkey users can see a fresh plan at 00:00 but stay
@@ -107,6 +113,8 @@ export async function shouldGatePaywall(): Promise<boolean> {
   const premium = await getPremiumStatus().catch(() => "unknown" as const);
   if (premium !== "inactive") return false;
   try {
+    const valueReached = await AsyncStorage.getItem(K_LEARNING_VALUE_REACHED);
+    if (valueReached !== "true") return false;
     const state = await readCounter();
     return state.count >= FREE_DAILY_SCENE_QUOTA;
   } catch {
@@ -135,5 +143,9 @@ export async function getRemainingToday(): Promise<number> {
  * (lafla.* wipe zaten yapıyor, ama explicit reset için).
  */
 export async function resetFreeTier(): Promise<void> {
-  await AsyncStorage.multiRemove([K_FREE_DATE, K_FREE_COUNT]);
+  await AsyncStorage.multiRemove([
+    K_FREE_DATE,
+    K_FREE_COUNT,
+    K_LEARNING_VALUE_REACHED,
+  ]);
 }

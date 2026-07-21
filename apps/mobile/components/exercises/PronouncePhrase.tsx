@@ -43,6 +43,15 @@ import { pushPronScore } from "../../lib/pronunciation-history";
 import { PhonemeFeedback } from "../PhonemeFeedback";
 import { useTranslation } from "../../lib/i18n";
 import { useReduceMotionPreference } from "../../lib/use-reduce-motion-preference";
+import {
+  cancelAcousticRecording,
+  isAcousticPronunciationAvailable,
+  startAcousticRecording,
+  stopAndAssessPronunciation,
+  type AcousticPronunciationResult,
+  type AcousticRecordingSession,
+} from "../../lib/acoustic-pronunciation";
+import { recordPronunciationEvidence } from "../../lib/learning-evidence";
 
 interface Props {
   phrase: string;
@@ -55,7 +64,7 @@ interface Props {
   onSkip?: () => void;
 }
 
-type Stage = "idle" | "starting" | "listening" | "graded";
+type Stage = "idle" | "starting" | "listening" | "assessing" | "graded";
 
 interface GradedState {
   score: number;
@@ -64,6 +73,7 @@ interface GradedState {
   /** Phoneme analysis — sadece skor <85 ise hesaplanır + gösterilir.
    *  Türk-niche moat: ELSA/Speak generic %, Lafla per-fonem TR ipucu. */
   phonemes: PhonemeAnalysisResult | null;
+  acoustic: AcousticPronunciationResult | null;
 }
 
 const BAND_THEME: Record<
@@ -107,6 +117,8 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   // başlar, kullanıcı handleRetry'a basarsa yeni denemede ESKİ phoneme
   // result'u patch'leyebilir. Snapshot ile bağ.
   const phraseSnapshotRef = useRef<string>("");
+  const acousticSessionRef = useRef<AcousticRecordingSession | null>(null);
+  const acousticDisabledRef = useRef(false);
 
   // Pulse animation for mic during listening
   const pulse = useRef(new Animated.Value(1)).current;
@@ -165,6 +177,9 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   // If we unmount mid-listen, make sure we tear down the native session.
   useEffect(() => {
     return () => {
+      const acousticSession = acousticSessionRef.current;
+      acousticSessionRef.current = null;
+      if (acousticSession) void cancelAcousticRecording(acousticSession);
       try {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const sr = require("../../lib/speech-recognition");
@@ -181,7 +196,13 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   // loop'u. AppState listener ile background'da stopListening + stage idle.
   useEffect(() => {
     const sub = AppState.addEventListener("change", (next: AppStateStatus) => {
-      if (next !== "active" && (stage === "starting" || stage === "listening")) {
+      if (
+        next !== "active" &&
+        (stage === "starting" || stage === "listening" || stage === "assessing")
+      ) {
+        const acousticSession = acousticSessionRef.current;
+        acousticSessionRef.current = null;
+        if (acousticSession) void cancelAcousticRecording(acousticSession);
         try {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
           const sr = require("../../lib/speech-recognition");
@@ -201,6 +222,29 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
     hapticImpact("medium");
     setErrorMsg(null);
     gradedThisSession.current = false;
+
+    const acousticAvailable =
+      !acousticDisabledRef.current &&
+      (await isAcousticPronunciationAvailable());
+    if (acousticAvailable) {
+      try {
+        acousticSessionRef.current = await startAcousticRecording();
+        stageRef.current = "listening";
+        setStage("listening");
+        return;
+      } catch (error) {
+        const raw = error instanceof Error ? error.message.toLowerCase() : "";
+        if (raw.includes("permission")) {
+          setPermissionDenied(true);
+          setErrorMsg(t("exercise.microphone_permission"));
+        } else {
+          setErrorMsg(t("exercise.microphone_retry"));
+        }
+        stageRef.current = "idle";
+        setStage("idle");
+        return;
+      }
+    }
 
     // Dynamic require so the bundle still builds when the native dep
     // isn't installed in the current environment.
@@ -258,6 +302,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           bandsByWord: g.bandsByWord,
           heard: text,
           phonemes: null,
+          acoustic: null,
         });
         stageRef.current = "graded";
         setStage("graded");
@@ -311,6 +356,55 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
 
   const handleCancel = async () => {
     hapticImpact("light");
+    const acousticSession = acousticSessionRef.current;
+    if (acousticSession) {
+      acousticSessionRef.current = null;
+      stageRef.current = "assessing";
+      setStage("assessing");
+      try {
+        const assessment = await stopAndAssessPronunciation(
+          acousticSession,
+          phrase,
+        );
+        void recordPronunciationEvidence({
+          score: assessment.overall,
+          durationSeconds: Math.max(
+            1,
+            Math.round((Date.now() - acousticSession.startedAt) / 1000),
+          ),
+        }).catch(() => {});
+        const targetWords = phrase
+          .replace(/[^a-zA-Z'\s-]/g, "")
+          .split(/\s+/)
+          .filter(Boolean);
+        const bandsByWord: WordBand[] = targetWords.map((word, index) => {
+          const score = assessment.words[index]?.accuracy ?? 0;
+          return {
+            word,
+            band: score >= 80 ? "good" : score >= 55 ? "okay" : "miss",
+          };
+        });
+        hapticForScore(assessment.overall);
+        setGraded({
+          score: assessment.overall,
+          bandsByWord,
+          heard: assessment.transcript,
+          phonemes: null,
+          acoustic: assessment,
+        });
+        stageRef.current = "graded";
+        setStage("graded");
+      } catch {
+        hapticError();
+        // Keep the exercise usable during a provider outage. The next retry
+        // uses the device speech recognizer for this mounted exercise.
+        acousticDisabledRef.current = true;
+        setErrorMsg(t("exercise.pronunciation.assessment_error"));
+        stageRef.current = "idle";
+        setStage("idle");
+      }
+      return;
+    }
     try {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const sr = require("../../lib/speech-recognition");
@@ -399,6 +493,27 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           </View>
           <Text style={styles.feedbackText}>{t(feedbackKeyFor(graded.score))}</Text>
 
+          {graded.acoustic ? (
+            <View style={styles.acousticMetrics}>
+              <Metric
+                label={t("exercise.pronunciation.accuracy")}
+                value={graded.acoustic.accuracy}
+              />
+              <Metric
+                label={t("exercise.pronunciation.fluency")}
+                value={graded.acoustic.fluency}
+              />
+              <Metric
+                label={t("exercise.pronunciation.completeness")}
+                value={graded.acoustic.completeness}
+              />
+              <Metric
+                label={t("exercise.pronunciation.prosody")}
+                value={graded.acoustic.prosody}
+              />
+            </View>
+          ) : null}
+
           {/* Phoneme-level feedback — skor <85 ise gözükür.
               Türk için en zor fonemler (TH, V/W, AE, etc.) inline coaching.
               Bu Lafla'nın ELSA/Speak'e karşı moat'i — generic % değil,
@@ -475,7 +590,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           </Pressable>
         )}
 
-        {(stage === "starting" || stage === "listening") && (
+        {(stage === "starting" || stage === "listening" || stage === "assessing") && (
           <View
             style={styles.listeningBlock}
             accessibilityLiveRegion="polite"
@@ -489,20 +604,32 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
             <Text style={styles.listeningText}>
               {stage === "starting"
                 ? t("exercise.microphone_starting")
+                : stage === "assessing"
+                  ? t("exercise.pronunciation.assessing")
                 : t("exercise.listening")}
             </Text>
-            <Pressable
-              onPress={handleCancel}
-              style={({ pressed }) => [
-                styles.cancelBtn,
-                pressed && styles.cancelBtnPressed,
-              ]}
-              hitSlop={8}
-              accessibilityRole="button"
-              accessibilityLabel={t("exercise.cancel_listening")}
-            >
-              <Text style={styles.cancelBtnText}>{t("common.cancel")}</Text>
-            </Pressable>
+            {stage !== "assessing" ? (
+              <Pressable
+                onPress={handleCancel}
+                style={({ pressed }) => [
+                  styles.cancelBtn,
+                  pressed && styles.cancelBtnPressed,
+                ]}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel={
+                  acousticSessionRef.current
+                    ? t("exercise.pronunciation.finish_recording")
+                    : t("exercise.cancel_listening")
+                }
+              >
+                <Text style={styles.cancelBtnText}>
+                  {acousticSessionRef.current
+                    ? t("exercise.pronunciation.finish_recording")
+                    : t("common.cancel")}
+                </Text>
+              </Pressable>
+            ) : null}
           </View>
         )}
 
@@ -521,6 +648,16 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           </View>
         )}
       </View>
+    </View>
+  );
+}
+
+function Metric({ label, value }: { label: string; value: number | null }) {
+  if (value === null) return null;
+  return (
+    <View style={styles.metricItem}>
+      <Text style={styles.metricValue}>{value}</Text>
+      <Text style={styles.metricLabel}>{label}</Text>
     </View>
   );
 }
@@ -609,6 +746,32 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: tokens.text.secondary,
     lineHeight: 20,
+  },
+  acousticMetrics: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: tokens.spacing.base,
+    paddingTop: tokens.spacing.sm,
+  },
+  metricItem: {
+    minWidth: 76,
+    flexGrow: 1,
+    borderRadius: tokens.radius.sm,
+    backgroundColor: tokens.bg.surfaceContainer,
+    padding: tokens.spacing.base,
+    alignItems: "center",
+    gap: tokens.spacing.xs,
+  },
+  metricValue: {
+    color: tokens.text.primary,
+    fontSize: 18,
+    fontWeight: tokens.weight.bold,
+    fontVariant: ["tabular-nums"],
+  },
+  metricLabel: {
+    color: tokens.text.secondary,
+    fontSize: 11,
+    fontWeight: tokens.weight.semibold,
   },
 
   // Error toast
