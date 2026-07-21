@@ -99,7 +99,7 @@ Deletion is immediate (no soft-delete / 30-day grace).
 | Scene Count | 971 (CEFR-mapped A1–C2) |
 | Side-rail Modes | Phoneme Drill, Listen & Transcribe, Voice Journal |
 
-Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current candidate version: **v1.0.4** (remote build number auto-increments from 98).
+Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current candidate version: **v1.0.5** (remote build number auto-increments from 98).
 
 ---
 

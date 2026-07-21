@@ -248,7 +248,7 @@ speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation
 
 ---
 
-## 6. What's New (release notes) — v1.0.4
+## 6. What's New (release notes) — v1.0.5
 
 > **TR (primary):**
 
