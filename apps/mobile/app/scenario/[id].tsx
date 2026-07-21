@@ -131,6 +131,7 @@ import { tokens } from "../../theme";
 import type { AchievementDef } from "../../lib/achievements";
 import type { ExerciseResult, RoleplayMistake } from "../../lib/engine";
 import { assessRoleplayScore } from "../../lib/roleplay-assessment";
+import { captureException } from "../../lib/sentry";
 
 // 2026-05-24 — Content expansion (Phase 1C, Agent C). 4 → 7 phase.
 // Yeni faz veri yoksa (eski lesson) getNextPhase() o fazı atlar; flow eskisi
@@ -293,14 +294,18 @@ export default function ScenarioScreen() {
   // ile göster: "Mia · Arkadaş · 5. sahnen".
   const [npcRel, setNpcRel] = useState<NpcRelationship | null>(null);
   useEffect(() => {
+    let cancelled = false;
     (async () => {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const iap = require("../../lib/iap") as {
         isPremium: () => Promise<boolean>;
       };
       const p = await iap.isPremium().catch(() => false);
-      setIsPremiumState(p);
+      if (!cancelled) setIsPremiumState(p);
     })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
   // First-time scene overlay — shown once per scenario load, on initial entry
   // to the scene phase. Auto-dismisses after 1200ms or on tap.
@@ -311,12 +316,13 @@ export default function ScenarioScreen() {
   // effect so the scenario starts with the personalization context it needs;
   // both reads are best-effort (empty string / null on failure).
   useEffect(() => {
+    let cancelled = false;
     (async () => {
       try {
         const raw = await AsyncStorage.getItem(K_DISPLAY_NAME);
-        setDisplayName(sanitizeName(raw));
+        if (!cancelled) setDisplayName(sanitizeName(raw));
       } catch {
-        setDisplayName("");
+        if (!cancelled) setDisplayName("");
       }
       // 2026-05-25 — Phase 5D: userLevel resolve edildikten hemen sonra
       // adaptive setup filter'ı uygula. Level null ise filterSetupByLevel
@@ -328,8 +334,8 @@ export default function ScenarioScreen() {
       } catch {
         resolvedLevel = null;
       }
-      setUserLevel(resolvedLevel);
-      if (scenario) {
+      if (!cancelled) setUserLevel(resolvedLevel);
+      if (!cancelled && scenario) {
         setFilteredSetup(filterSetupByLevel(scenario.setup, resolvedLevel));
       }
       // Daily plan next-in-line lookup. Bu sahne kullanıcının bugünkü plan
@@ -338,9 +344,10 @@ export default function ScenarioScreen() {
       // verdict legacy navigate'e döner.
       if (scenario?.id) {
         try {
-          setNextInPlanScene(await getNextInPlan(scenario.id));
+          const nextScene = await getNextInPlan(scenario.id);
+          if (!cancelled) setNextInPlanScene(nextScene);
         } catch {
-          setNextInPlanScene(null);
+          if (!cancelled) setNextInPlanScene(null);
         }
       }
       // NPC relationship pre-fetch. Bu NPC daha önce karşıya geldiyse
@@ -353,34 +360,46 @@ export default function ScenarioScreen() {
             scenario.id,
           );
           const rel = await getRelationship(name, bucket);
-          setNpcRel(rel);
+          if (!cancelled) setNpcRel(rel);
         } catch {
-          setNpcRel(null);
+          if (!cancelled) setNpcRel(null);
         }
       }
     })();
+    return () => {
+      cancelled = true;
+    };
   }, [scenario?.id]);
 
   // On mount: decide roleplay mode based on previous attempts
   useEffect(() => {
     if (!scenario) return;
+    let cancelled = false;
     scenarioStartedAtRef.current = Date.now();
     completionIdRef.current = `scene:${scenario.id}:${scenarioStartedAtRef.current}`;
     (async () => {
-      const [resolvedMode, mastery] = await Promise.all([
-        getRoleplayMode(scenario.id),
-        getRoleplayMasteryState(scenario.id),
-      ]);
-      setRoleplayMode(resolvedMode);
-      void trackEvent("scenario_started", {
-        scenario_id: scenario.id,
-        skill_id: scenario.skill_id,
-        mode: scenario.mode,
-        scene_level: scenario.cefrLevel ?? "unknown",
-        estimated_minutes: scenario.estimated_minutes,
-        attempt_number: mastery.attempts + 1,
-        is_repeat: mastery.attempts > 0,
-      }).catch(() => {});
+      try {
+        const [resolvedMode, mastery] = await Promise.all([
+          getRoleplayMode(scenario.id),
+          getRoleplayMasteryState(scenario.id),
+        ]);
+        if (cancelled) return;
+        setRoleplayMode(resolvedMode);
+        void trackEvent("scenario_started", {
+          scenario_id: scenario.id,
+          skill_id: scenario.skill_id,
+          mode: scenario.mode,
+          scene_level: scenario.cefrLevel ?? "unknown",
+          estimated_minutes: scenario.estimated_minutes,
+          attempt_number: mastery.attempts + 1,
+          is_repeat: mastery.attempts > 0,
+        }).catch(() => {});
+      } catch (error) {
+        captureException(error, {
+          source: "scenario.loadRoleplayMode",
+          scenarioId: scenario.id,
+        });
+      }
     })();
     // 2026-05-24 — Sahne açılış sinyali. notifications.ts 6h "yarım kaldı"
     // bildirimini bu başlığı kullanarak kuracak; sahne tamamlanmazsa 6 saat
@@ -388,6 +407,9 @@ export default function ScenarioScreen() {
     void recordSceneOpen(
       scenario.title?.replace(/\n/g, " ") ?? "sahnen",
     ).catch(() => {});
+    return () => {
+      cancelled = true;
+    };
   }, [scenario]);
 
   useEffect(() => {

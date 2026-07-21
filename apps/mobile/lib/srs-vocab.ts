@@ -20,6 +20,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { trackEvent } from "./analytics";
+import { normalize, similarity } from "./engine";
 
 const K_QUEUE = "lafla.vocab.queue.v1";
 
@@ -72,11 +73,22 @@ async function readQueue(): Promise<QueueShape> {
 }
 
 async function writeQueue(q: QueueShape): Promise<void> {
-  try {
-    await AsyncStorage.setItem(K_QUEUE, JSON.stringify(q));
-  } catch {
-    // best effort — vocab queue loss is recoverable on next exercise
-  }
+  await AsyncStorage.setItem(K_QUEUE, JSON.stringify(q));
+}
+
+/** Grade active English recall without accepting unrelated short words. */
+export function evaluateVocabRecall(expected: string, answer: string): boolean {
+  const actual = normalize(answer);
+  if (!actual) return false;
+  const variants = expected
+    .split(/\s*(?:\/|;)\s*/)
+    .map(normalize)
+    .filter(Boolean);
+  return variants.some((variant) => {
+    if (actual === variant) return true;
+    const maxLength = Math.max(actual.length, variant.length);
+    return maxLength >= 6 && similarity(actual, variant) >= 0.9;
+  });
 }
 
 // ─── add ──────────────────────────────────────────────────────────────

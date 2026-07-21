@@ -17,7 +17,7 @@
 // tıklayınca paywall görür. "Tamamlanmamış" sayılmaz.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { isPremium } from "./iap";
+import { getPremiumStatus } from "./iap";
 import { localDayKey } from "./day-key";
 
 const K_FREE_DATE = "lafla.freeTier.date";
@@ -86,8 +86,8 @@ export async function getTodayCount(): Promise<number> {
  * Premium kullanıcıda no-op.
  */
 export async function incrementFreeTier(): Promise<void> {
-  const premium = await isPremium().catch(() => false);
-  if (premium) return;
+  const premium = await getPremiumStatus().catch(() => "unknown" as const);
+  if (premium !== "inactive") return;
   return serializeCounterWrite(async () => {
     const state = await readCounter();
     state.count += 1;
@@ -104,8 +104,8 @@ export async function incrementFreeTier(): Promise<void> {
  * Quota dolduktan sonra true.
  */
 export async function shouldGatePaywall(): Promise<boolean> {
-  const premium = await isPremium().catch(() => false);
-  if (premium) return false;
+  const premium = await getPremiumStatus().catch(() => "unknown" as const);
+  if (premium !== "inactive") return false;
   try {
     const state = await readCounter();
     return state.count >= FREE_DAILY_SCENE_QUOTA;
@@ -120,8 +120,8 @@ export async function shouldGatePaywall(): Promise<boolean> {
  * UI badges için ("Bugün 2 sahne kaldı") kullanılır.
  */
 export async function getRemainingToday(): Promise<number> {
-  const premium = await isPremium().catch(() => false);
-  if (premium) return Infinity;
+  const premium = await getPremiumStatus().catch(() => "unknown" as const);
+  if (premium !== "inactive") return Infinity;
   try {
     const state = await readCounter();
     return Math.max(0, FREE_DAILY_SCENE_QUOTA - state.count);

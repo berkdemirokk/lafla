@@ -36,6 +36,7 @@ import { isSupabaseConfigured, supabase } from "./supabase";
 // ------------------------------------------------------------
 
 export type PackageId = "monthly" | "yearly";
+export type PremiumStatus = "active" | "inactive" | "unknown";
 
 // IMPORTANT: This MUST match the entitlement identifier in the RevenueCat
 // dashboard exactly (case + spaces). Set to "Lafla Pro" to align with the
@@ -170,6 +171,13 @@ export async function syncRevenueCatSubscription(): Promise<void> {
 // ------------------------------------------------------------
 
 const K_MOCK = "lafla.premium.mock";
+const K_LAST_KNOWN = "lafla.premium.lastKnown.v1";
+const PREMIUM_OFFLINE_GRACE_MS = 72 * 60 * 60 * 1000;
+
+type LastKnownPremium = {
+  active: boolean;
+  checkedAt: string;
+};
 
 async function readMock(): Promise<MockState> {
   try {
@@ -191,6 +199,41 @@ async function writeMock(next: MockState): Promise<void> {
   }
 }
 
+async function readRecentActiveEntitlement(): Promise<boolean> {
+  try {
+    const raw = await AsyncStorage.getItem(K_LAST_KNOWN);
+    const parsed = parseSafe<Partial<LastKnownPremium>>(
+      raw,
+      {},
+      isObject,
+      { source: "iap.readRecentActiveEntitlement" },
+    );
+    if (parsed.active !== true || typeof parsed.checkedAt !== "string") {
+      return false;
+    }
+    const checkedAt = Date.parse(parsed.checkedAt);
+    const age = Date.now() - checkedAt;
+    return Number.isFinite(checkedAt) && age >= 0 && age <= PREMIUM_OFFLINE_GRACE_MS;
+  } catch {
+    return false;
+  }
+}
+
+async function writeLastKnownEntitlement(active: boolean): Promise<void> {
+  try {
+    await AsyncStorage.setItem(
+      K_LAST_KNOWN,
+      JSON.stringify({ active, checkedAt: new Date().toISOString() }),
+    );
+  } catch {
+    // Entitlement verification succeeded; cache persistence is best-effort.
+  }
+}
+
+async function unavailablePremiumStatus(): Promise<PremiumStatus> {
+  return (await readRecentActiveEntitlement()) ? "active" : "unknown";
+}
+
 // ------------------------------------------------------------
 // Dev helpers
 // ------------------------------------------------------------
@@ -205,7 +248,7 @@ export async function __setMockPremium(active: boolean): Promise<void> {
 
 export async function __clearMockPremium(): Promise<void> {
   try {
-    await AsyncStorage.removeItem(K_MOCK);
+    await AsyncStorage.multiRemove([K_MOCK, K_LAST_KNOWN]);
   } catch {
     // ignore
   }
@@ -231,17 +274,17 @@ export async function isLiveBilling(): Promise<boolean> {
  * Real SDK: Purchases.getCustomerInfo() → entitlements.premium.isActive.
  * Fallback: read lafla.premium.mock.
  */
-export async function isPremium(): Promise<boolean> {
+export async function getPremiumStatus(): Promise<PremiumStatus> {
   // Rewarded grant her şeyden önce — kullanıcı "bugün Pro" açmışsa hemen ver.
-  if (await isRewardedPremiumActive().catch(() => false)) return true;
+  if (await isRewardedPremiumActive().catch(() => false)) return "active";
 
   const live = await initIfNeeded();
   if (!live) {
     // In production the mock store is intentionally unreachable — see
-    // purchasePackage() for the matching guard. Treating a missing SDK as
-    // "not premium" is the safe failure mode.
-    if (!__DEV__) return false;
-    return (await readMock()).active;
+    // purchasePackage() for the matching guard. Preserve a recently verified
+    // active entitlement; otherwise report uncertainty to gating callers.
+    if (!__DEV__) return unavailablePremiumStatus();
+    return (await readMock()).active ? "active" : "inactive";
   }
 
   // Defensive: initIfNeeded() returning true means we configured the SDK at
@@ -249,17 +292,23 @@ export async function isPremium(): Promise<boolean> {
   // handle. Without this guard the next line throws "Cannot read properties
   // of null (reading 'getCustomerInfo')" which crashes the paywall screen.
   if (!_purchases) {
-    if (!__DEV__) return false;
-    return (await readMock()).active;
+    if (!__DEV__) return unavailablePremiumStatus();
+    return (await readMock()).active ? "active" : "inactive";
   }
 
   try {
     const info = await _purchases.getCustomerInfo();
-    return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    const active = Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    await writeLastKnownEntitlement(active);
+    return active ? "active" : "inactive";
   } catch {
-    if (!__DEV__) return false;
-    return (await readMock()).active;
+    if (!__DEV__) return unavailablePremiumStatus();
+    return (await readMock()).active ? "active" : "inactive";
   }
+}
+
+export async function isPremium(): Promise<boolean> {
+  return (await getPremiumStatus()) === "active";
 }
 
 /**
@@ -354,6 +403,7 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
       customerInfo?.entitlements?.active?.[PREMIUM_ENTITLEMENT],
     );
     if (active) {
+      await writeLastKnownEntitlement(true);
       await syncRevenueCatSubscription();
       // 2026-05-25 (B-PAY-3) — UI'a haber ver, AdBanner/scenario/freechat
       // mount'unu beklemeden refresh etsin.
@@ -413,6 +463,7 @@ export async function restorePurchasesDetailed(): Promise<RestoreResult> {
   try {
     const info = await _purchases.restorePurchases();
     const active = Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    await writeLastKnownEntitlement(active);
     await syncRevenueCatSubscription();
     if (active) notifyPremiumChange();
     return { ok: true, active };
@@ -426,6 +477,9 @@ export async function restorePurchasesDetailed(): Promise<RestoreResult> {
  * Set the RevenueCat user ID (call after sign-in to attribute purchases).
  */
 export async function setUserId(userId: string | null): Promise<void> {
+  if (!userId) {
+    await AsyncStorage.removeItem(K_LAST_KNOWN).catch(() => undefined);
+  }
   const live = await initIfNeeded();
   if (!live) return;
   // Defensive null-check (see isPremium for rationale).

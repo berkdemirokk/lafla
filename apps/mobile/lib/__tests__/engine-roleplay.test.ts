@@ -1,4 +1,8 @@
-import { evaluateRoleplayTurn } from "../engine";
+import {
+  evaluateRoleplayTurn,
+  evaluateTranslate,
+  matchPhrase,
+} from "../engine";
 
 describe("evaluateRoleplayTurn", () => {
   const patterns = ["(could|can) i (have|get) a coffee"];
@@ -49,5 +53,42 @@ describe("evaluateRoleplayTurn", () => {
         "I want a coffee, please.",
       ]),
     ).toMatchObject({ matched: false });
+  });
+
+  it("does not let a broad positive regex accept a negated response", () => {
+    expect(evaluateRoleplayTurn(["(yes|sure)"], "I'm not sure")).toMatchObject({
+      matched: false,
+    });
+  });
+
+  it("still accepts an explicitly authored negative response", () => {
+    expect(evaluateRoleplayTurn(["(no|not really)"], "No, thanks")).toEqual({
+      matched: true,
+      score: 100,
+    });
+  });
+
+  it("requires both intent anchors for a two-token model answer", () => {
+    expect(
+      evaluateRoleplayTurn([], "Friday please", ["Can we move it to Friday?"]),
+    ).toMatchObject({ matched: false });
+  });
+});
+
+describe("semantic polarity", () => {
+  it("never fuzzy-matches can and cannot as equivalent", () => {
+    expect(
+      matchPhrase({
+        user_text: "I can't attend tomorrow",
+        canonical: "I can attend tomorrow",
+        accepted_variants: [],
+      }),
+    ).toMatchObject({ matched: false, similarity: 0 });
+  });
+
+  it("marks a contradictory translation incorrect", () => {
+    expect(
+      evaluateTranslate("I want a coffee", [], "I don't want a coffee"),
+    ).toMatchObject({ correct: false, score: 0 });
   });
 });

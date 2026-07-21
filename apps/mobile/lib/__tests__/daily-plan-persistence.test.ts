@@ -5,6 +5,8 @@ import {
   getPlanProgress,
   incrementPlanProgress,
 } from "../daily-plan";
+import { SAMPLE_SCENES } from "../../data/scenes";
+import { saveLessonState } from "../local-progress";
 
 const PROGRESS_KEY = "lafla.dailyPlan.progress";
 
@@ -25,6 +27,25 @@ describe("daily plan persistence", () => {
     ]);
 
     await expect(getPlanProgress()).resolves.toMatchObject({ completed: 2 });
+  });
+
+  it("puts a due completed lesson back into the daily learning loop", async () => {
+    const dueScene = SAMPLE_SCENES[0]!;
+    await saveLessonState({
+      lesson_id: dueScene.lessonId,
+      completed_at: "2026-07-01T10:00:00.000Z",
+      next_review_at: "2026-07-02T10:00:00.000Z",
+      ease_factor: 2.5,
+      interval_days: 1,
+      consecutive_correct: 1,
+      total_attempts: 4,
+      total_correct: 3,
+      last_attempt_at: "2026-07-01T10:00:00.000Z",
+    });
+
+    const plan = await getOrCreateDailyPlan();
+
+    expect(plan[0]?.lessonId).toBe(dueScene.lessonId);
   });
 
   it("surfaces progress write failures", async () => {

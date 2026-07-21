@@ -1,10 +1,12 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const mockIsPremium = jest.fn(async () => false);
+const mockPremiumStatus = jest.fn(async () => "inactive");
 const mockNotifyPremiumChange = jest.fn();
 
 jest.mock("../iap", () => ({
   isPremium: () => mockIsPremium(),
+  getPremiumStatus: () => mockPremiumStatus(),
   notifyPremiumChange: () => mockNotifyPremiumChange(),
 }));
 
@@ -20,6 +22,7 @@ describe("entitlement persistence", () => {
     jest.restoreAllMocks();
     jest.clearAllMocks();
     mockIsPremium.mockResolvedValue(false);
+    mockPremiumStatus.mockResolvedValue("inactive");
     await AsyncStorage.clear();
   });
 
@@ -45,6 +48,15 @@ describe("entitlement persistence", () => {
     }
 
     await expect(shouldGatePaywall()).resolves.toBe(true);
+  });
+
+  it("does not charge quota or show a paywall while entitlement is unknown", async () => {
+    mockPremiumStatus.mockResolvedValue("unknown");
+
+    await incrementFreeTier();
+
+    await expect(AsyncStorage.getItem("lafla.freeTier.count")).resolves.toBeNull();
+    await expect(shouldGatePaywall()).resolves.toBe(false);
   });
 
   it("notifies premium listeners only after a rewarded grant is saved", async () => {

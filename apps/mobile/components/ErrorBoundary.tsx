@@ -173,7 +173,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: tokens.bg.onBackground,
+    backgroundColor: tokens.bg.app,
     paddingHorizontal: tokens.spacing.md,
     paddingVertical: tokens.spacing.lg,
     justifyContent: "center",
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: tokens.weight.extrabold,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     textAlign: "center",
     marginBottom: tokens.spacing.sm,
     letterSpacing: 0.3,
@@ -204,10 +204,10 @@ const styles = StyleSheet.create({
   debugBox: {
     width: "100%",
     maxHeight: 220,
-    backgroundColor: tokens.bg.inverseSurface,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
     borderRadius: tokens.radius.base,
     borderWidth: 1,
-    borderColor: tokens.bg.inverseSurfaceLight,
+    borderColor: tokens.border.outline,
     marginBottom: tokens.spacing.lg,
   },
   debugContent: {
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   },
   debugText: {
     fontSize: 12,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     fontFamily: "monospace",
     lineHeight: 16,
   },
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
   btnGhost: {
     backgroundColor: "transparent",
     borderWidth: 1,
-    borderColor: tokens.bg.inverseSurfaceLight,
+    borderColor: tokens.border.outline,
   },
   btnPressed: {
     opacity: 0.85,
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   btnGhostLabel: {
     fontSize: 16,
     fontWeight: tokens.weight.semibold,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     letterSpacing: 0.3,
   },
 });

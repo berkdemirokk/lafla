@@ -87,6 +87,18 @@ function combinedScore(a: string, b: string): number {
   return 0.65 * lev + 0.35 * tokenOverlap(a, b);
 }
 
+// Levenshtein distance is intentionally tolerant of small transcription
+// errors, but a missing negation is not a small error: "I can" and "I can't"
+// are only one character apart after normalization and have opposite meaning.
+// Keep polarity outside the fuzzy score so contradictory answers can never be
+// promoted to a correct match merely because their spelling is similar.
+const SEMANTIC_NEGATION =
+  /\b(no|not|never|dont|doesnt|didnt|cant|cannot|wont|isnt|arent|wasnt|werent|without)\b/i;
+
+function hasSemanticNegation(input: string): boolean {
+  return SEMANTIC_NEGATION.test(normalize(input));
+}
+
 function bandFromSimilarity(sim: number): Confidence {
   if (sim >= 0.95) return "high";
   if (sim >= 0.85) return "medium";
@@ -117,7 +129,13 @@ export function matchPhrase(input: {
   let bestSim = 0;
   let bestVar = candidates[0]!;
   for (const variant of candidates) {
-    const sim = combinedScore(normalizedInput, normalize(variant));
+    const normalizedVariant = normalize(variant);
+    const hasCompatiblePolarity =
+      hasSemanticNegation(normalizedInput) ===
+      hasSemanticNegation(normalizedVariant);
+    const sim = hasCompatiblePolarity
+      ? combinedScore(normalizedInput, normalizedVariant)
+      : 0;
     if (sim > bestSim) {
       bestSim = sim;
       bestVar = variant;
@@ -399,9 +417,6 @@ function stripFillers(input: string): string {
   return text.trim().replace(/\s+/g, " ");
 }
 
-const ROLEPLAY_NEGATION =
-  /\b(no|not|never|dont|doesnt|didnt|cant|cannot|wont|isnt|arent|wasnt|werent|without)\b/i;
-
 const ROLEPLAY_STOPWORDS = new Set([
   "a", "an", "the",
   "i", "im", "id", "ill", "ive", "me", "my", "mine",
@@ -463,7 +478,21 @@ const ROLEPLAY_SYNONYMS: Record<string, string> = {
 };
 
 function hasRoleplayNegation(input: string): boolean {
-  return ROLEPLAY_NEGATION.test(normalize(input));
+  return hasSemanticNegation(input);
+}
+
+function patternExpressesNegation(pattern: string): boolean {
+  // Turn regex syntax into token boundaries before checking. This catches
+  // authored alternatives such as `(no|not really)` without trying to infer
+  // arbitrary regular-expression semantics.
+  return hasSemanticNegation(pattern.replace(/[^a-zA-Z'’]+/g, " "));
+}
+
+function matchRoleplayPatterns(input: string, patterns: string[]): boolean {
+  const eligiblePatterns = hasRoleplayNegation(input)
+    ? patterns.filter(patternExpressesNegation)
+    : patterns;
+  return matchAgainstPatterns(input, eligiblePatterns);
 }
 
 function hasPoliteOrAckMarker(input: string): boolean {
@@ -521,13 +550,6 @@ function modelAnswerIntentScore(candidate: string, model: string): number {
 
   if (modelTokens.size === 2) {
     if (overlap === 2) return 0.86;
-    if (
-      overlap === 1 &&
-      candidateTokens.size <= 3 &&
-      hasPoliteOrAckMarker(candidate)
-    ) {
-      return 0.82;
-    }
     return 0;
   }
 
@@ -549,7 +571,7 @@ export function evaluateRoleplayTurn(
 
   // Pass 1: original input — backward compatible, catches patterns that
   // intentionally include filler ("oh, sure").
-  if (matchAgainstPatterns(trimmed, patterns)) {
+  if (matchRoleplayPatterns(trimmed, patterns)) {
     return { matched: true, score: 100 };
   }
 
@@ -557,7 +579,7 @@ export function evaluateRoleplayTurn(
   // surrounding fillers ("uh yeah, sure okay" → "sure" matches).
   const stripped = stripFillers(trimmed);
   if (stripped !== trimmed && stripped.length > 0) {
-    if (matchAgainstPatterns(stripped, patterns)) {
+    if (matchRoleplayPatterns(stripped, patterns)) {
       // Slight penalty (95 not 100) — user TECHNICALLY said the right
       // thing but filler-heavy. Encourages cleaner production over time.
       return { matched: true, score: 95 };

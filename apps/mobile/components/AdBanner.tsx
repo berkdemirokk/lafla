@@ -11,7 +11,7 @@ import {
   BannerAdSize,
 } from "react-native-google-mobile-ads";
 
-import { isPremium, subscribePremiumChange } from "../lib/iap";
+import { getPremiumStatus, subscribePremiumChange } from "../lib/iap";
 import { getBannerUnitId } from "../lib/ads";
 import { useTranslation } from "../lib/i18n";
 
@@ -22,8 +22,8 @@ export function AdBanner() {
   useEffect(() => {
     let cancelled = false;
     const refresh = async () => {
-      const premium = await isPremium().catch(() => false);
-      if (!cancelled) setShow(!premium);
+      const premium = await getPremiumStatus().catch(() => "unknown" as const);
+      if (!cancelled) setShow(premium === "inactive");
     };
     refresh();
     // 2026-05-25 (B-PAY-3) — purchase/rewarded grant sonrası global notify

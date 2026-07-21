@@ -1,11 +1,35 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { bumpModeFluency, bumpSkillMastery, saveLessonState } from "../local-progress";
+import {
+  bumpModeFluency,
+  bumpSkillMastery,
+  bumpStreak,
+  getLocalProfile,
+  saveLessonState,
+  setLocalProfile,
+} from "../local-progress";
 
 describe("local progress storage integrity", () => {
   beforeEach(async () => {
+    jest.useRealTimers();
     jest.clearAllMocks();
     await AsyncStorage.clear();
+  });
+
+  it("advances the streak across local midnight even when UTC date is unchanged", async () => {
+    await setLocalProfile({
+      current_streak: 4,
+      longest_streak: 4,
+      last_lesson_at: "2026-07-20T20:30:00.000Z",
+    });
+    jest.useFakeTimers().setSystemTime(new Date("2026-07-20T21:30:00.000Z"));
+
+    await bumpStreak();
+
+    await expect(getLocalProfile()).resolves.toMatchObject({
+      current_streak: 5,
+      longest_streak: 5,
+    });
   });
 
   it.each([

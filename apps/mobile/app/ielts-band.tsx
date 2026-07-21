@@ -31,26 +31,49 @@ import {
   PRO_MONTHLY_PRICE_COMPACT,
 } from "../lib/monetization";
 import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState } from "../components/AsyncScreenState";
 
 export default function IeltsBandScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const [premium, setPremium] = useState<boolean | null>(null);
   const [estimate, setEstimate] = useState<BandEstimate | null>(null);
+  const [loadStatus, setLoadStatus] = useState<"loading" | "ready" | "error">(
+    "loading",
+  );
+  const [reloadToken, setReloadToken] = useState(0);
 
   useEffect(() => {
+    let cancelled = false;
+    setLoadStatus("loading");
     (async () => {
-      const isP = await isPremium().catch(() => false);
-      setPremium(isP);
-      if (isP) {
-        const e = await estimateSpeakingBand();
-        setEstimate(e);
+      try {
+        const isP = await isPremium();
+        const nextEstimate = isP ? await estimateSpeakingBand() : null;
+        if (!cancelled) {
+          setPremium(isP);
+          setEstimate(nextEstimate);
+          setLoadStatus("ready");
+        }
+      } catch {
+        if (!cancelled) setLoadStatus("error");
       }
     })();
-  }, []);
+    return () => {
+      cancelled = true;
+    };
+  }, [reloadToken]);
 
-  if (premium === null) {
-    return <SafeAreaView style={styles.safe} edges={["top", "bottom"]} />;
+  if (loadStatus !== "ready" || premium === null) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState
+          status={loadStatus === "error" ? "error" : "loading"}
+          onRetry={() => setReloadToken((value) => value + 1)}
+        />
+      </SafeAreaView>
+    );
   }
 
   return (

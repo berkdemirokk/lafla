@@ -3,6 +3,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { isObject, isStringArray, parseSafe } from "./json-safe";
+import { localDayKey } from "./day-key";
 
 // ---------------------------------------------------------------------------
 // BUG-2 FIX: Simple promise-based mutex per key to prevent concurrent
@@ -147,10 +148,10 @@ export async function bumpSkillMastery(skillId: string, accuracy: number) {
   });
 }
 
-// BUG-4 FIX: Use UTC for date keys everywhere (matches free-tier.ts).
-// Prevents timezone-change exploits and cross-module inconsistency.
-function localDateStr(): string {
-  return new Date().toISOString().slice(0, 10);
+// User-visible daily activity and streaks share the local-midnight boundary
+// used by the daily plan and free-tier counter.
+function localDateStr(date = new Date()): string {
+  return localDayKey(date);
 }
 
 export async function bumpDailyActivity(xp: number) {
@@ -167,13 +168,13 @@ export async function bumpDailyActivity(xp: number) {
 
 export async function bumpStreak() {
   // Streak rule: if last_lesson_at was yesterday or today, ++ (today only counts once).
-  // If gap >= 2 days, reset to 1. Use UTC dates to match daily/free-tier keys.
+  // If gap >= 2 days, reset to 1. Use local calendar days for the UI contract.
   const profile = await getLocalProfile();
   const today = new Date();
   const todayStr = localDateStr();
   const last = profile.last_lesson_at;
   const lastDate = last ? new Date(last) : null;
-  const lastStr = lastDate ? lastDate.toISOString().slice(0, 10) : undefined;
+  const lastStr = lastDate ? localDateStr(lastDate) : undefined;
 
   let streak = profile.current_streak;
   if (!lastStr) {
@@ -190,16 +191,8 @@ export async function bumpStreak() {
     // Yeni: günler arası farkı tarihten (yıl/ay/gün) hesaplıyoruz —
     // saat bağımsız. midnight rollover ile tetiklenmeyi garantiler.
     const calendarDaysBetween = (a: Date, b: Date): number => {
-      const aStart = Date.UTC(
-        a.getUTCFullYear(),
-        a.getUTCMonth(),
-        a.getUTCDate(),
-      );
-      const bStart = Date.UTC(
-        b.getUTCFullYear(),
-        b.getUTCMonth(),
-        b.getUTCDate(),
-      );
+      const aStart = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+      const bStart = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
       return Math.round((bStart - aStart) / 86_400_000);
     };
     const daysAgo = lastDate ? calendarDaysBetween(lastDate, today) : 999;

@@ -25,13 +25,18 @@ import {
   getComfortLevels,
   type CefrLevel,
 } from "./cefr-level";
-import { getInterests, getCompletedLessonIds } from "./local-progress";
+import {
+  getAllLessonState,
+  getInterests,
+  getCompletedLessonIds,
+} from "./local-progress";
 import { interestsToModes } from "./interest-mapping";
 import { getSceneDisplayMinutes } from "./scene-duration";
 import { localDayKey } from "./day-key";
 
 const K_PLAN = "lafla.dailyPlan";
 const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
+const PLAN_VERSION = 2;
 
 let planProgressWriteChain: Promise<unknown> = Promise.resolve();
 
@@ -45,6 +50,7 @@ function serializePlanProgressWrite<T>(work: () => Promise<T>): Promise<T> {
 const PLAN_SIZE = 3;
 
 interface StoredPlan {
+  version?: number;
   /** Plan üretim tarihi (local YYYY-MM-DD). */
   date: string;
   /** Plan içindeki lessonId sırası. */
@@ -118,7 +124,7 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
     const raw = await AsyncStorage.getItem(K_PLAN);
     if (raw) {
       const stored = JSON.parse(raw) as StoredPlan;
-      if (stored.date === today) {
+      if (stored.date === today && stored.version === PLAN_VERSION) {
         const scenes = stored.lessonIds
           .map((id) => SAMPLE_SCENES.find((s) => s.lessonId === id))
           .filter((s): s is Scene => !!s);
@@ -131,22 +137,42 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
   }
 
   // 2. Üretim
-  const [cefr, interests, completed] = await Promise.all([
+  const [cefr, interests, completed, lessonStates] = await Promise.all([
     getCefrLevel(),
     getInterests(),
     getCompletedLessonIds(),
+    getAllLessonState(),
   ]);
+  const nowIso = new Date().toISOString();
+  const dueLessonIds = Object.values(lessonStates)
+    .filter(
+      (state) =>
+        Boolean(state.completed_at) &&
+        Boolean(state.next_review_at) &&
+        state.next_review_at! <= nowIso,
+    )
+    .sort((a, b) =>
+      (a.next_review_at ?? "").localeCompare(b.next_review_at ?? ""),
+    )
+    .map((state) => state.lesson_id);
 
   const interestModes =
     interests.length > 0 ? interestsToModes(interests) : null;
   const relevantLevels = cefr ? new Set(getComfortLevels(cefr)) : null;
 
   // Playable + uncompleted
-  const basePool = SAMPLE_SCENES.filter((s) => {
-    if (completed.has(s.lessonId)) return false;
-    if (!getScenario(s.lessonId)) return false;
-    return true;
-  });
+  const playablePool = SAMPLE_SCENES.filter((scene) =>
+    Boolean(getScenario(scene.lessonId)),
+  );
+  const basePool = playablePool.filter(
+    (scene) => !completed.has(scene.lessonId),
+  );
+  const sceneByLessonId = new Map(
+    playablePool.map((scene) => [scene.lessonId, scene] as const),
+  );
+  const duePool = dueLessonIds
+    .map((lessonId) => sceneByLessonId.get(lessonId))
+    .filter((scene): scene is Scene => Boolean(scene));
 
   let pool = basePool;
 
@@ -207,13 +233,30 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
   }
 
   // Skill diversity — same skill_id max 2
+  const dueLessonSet = new Set(duePool.map((scene) => scene.lessonId));
+  const poolLessonSet = new Set(pool.map((scene) => scene.lessonId));
+  const candidates = [
+    ...duePool.slice(0, 1),
+    ...pool.filter((scene) => !dueLessonSet.has(scene.lessonId)),
+    ...shuffle(
+      playablePool.filter(
+        (scene) =>
+          !dueLessonSet.has(scene.lessonId) &&
+          !poolLessonSet.has(scene.lessonId),
+      ),
+    ),
+  ];
+
   const skillCount: Record<string, number> = {};
   const picked: Scene[] = [];
-  for (const s of pool) {
+  const pickedLessonIds = new Set<string>();
+  for (const s of candidates) {
     if (picked.length >= PLAN_SIZE) break;
+    if (pickedLessonIds.has(s.lessonId)) continue;
     const c = skillCount[s.skillId] ?? 0;
     if (c >= 2) continue;
     skillCount[s.skillId] = c + 1;
+    pickedLessonIds.add(s.lessonId);
     picked.push(s);
   }
 
@@ -224,6 +267,7 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
     return [];
   }
   const plan: StoredPlan = {
+    version: PLAN_VERSION,
     date: today,
     lessonIds: picked.map((s) => s.lessonId),
   };
