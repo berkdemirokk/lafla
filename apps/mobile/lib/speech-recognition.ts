@@ -365,6 +365,8 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
         } catch {
           // listener throw ederse temizliği engelleme
         }
+      } else if (!finalEmitted && !opts.signal?.aborted) {
+        opts.onError(new Error("no speech detected"));
       }
       finishListening();
     });
@@ -376,6 +378,7 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
     // safety net olarak büyük tutuyoruz.
     const timeoutMs = opts.timeoutMs ?? 12000;
     activeTimeout = setTimeout(() => {
+      opts.onError(new Error("speech recognition timed out"));
       void stopListening();
     }, timeoutMs);
 

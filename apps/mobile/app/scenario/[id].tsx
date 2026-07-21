@@ -97,7 +97,6 @@ import {
 import {
   shouldGatePaywall,
   incrementFreeTier,
-  markLearningValueReached,
 } from "../../lib/free-tier";
 import { recordSceneCompletion } from "../../lib/scene-history";
 import { recordVocabFromScene } from "../../lib/vocab-book";
@@ -822,8 +821,7 @@ export default function ScenarioScreen() {
     // açılışında shouldGatePaywall true dönerse paywall'a yönlendirir.
     // intro/Match sahnesi sayılmaz (force-first ücretsiz pattern).
     if (!isIntro) {
-      void markLearningValueReached().catch(() => {});
-      incrementFreeTier().catch(() => {});
+      incrementFreeTier(completionIdRef.current).catch(() => {});
     }
 
     void recordSceneEvidence({
@@ -837,6 +835,7 @@ export default function ScenarioScreen() {
     // 2026-05-21 — Local history record (History sayfası için).
     // intro dahil her sahne kaydedilir — kullanıcı geçmişini görmek için.
     recordSceneCompletion({
+      completionId: completionIdRef.current,
       lessonId: scenario.id,
       title: scenario.title,
       mode: scenario.mode as SceneMode,

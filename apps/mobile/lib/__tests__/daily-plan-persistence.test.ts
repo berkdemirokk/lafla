@@ -46,6 +46,16 @@ describe("daily plan persistence", () => {
     const plan = await getOrCreateDailyPlan();
 
     expect(plan[0]?.lessonId).toBe(dueScene.lessonId);
+    await expect(getPlanProgress()).resolves.toMatchObject({
+      completed: 0,
+      completedLessonIds: [],
+    });
+
+    await incrementPlanProgress(dueScene.lessonId);
+    await expect(getPlanProgress()).resolves.toMatchObject({
+      completed: 1,
+      completedLessonIds: [dueScene.lessonId],
+    });
   });
 
   it("surfaces progress write failures", async () => {

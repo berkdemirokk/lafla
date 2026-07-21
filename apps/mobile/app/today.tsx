@@ -42,7 +42,6 @@ import Animated, {
 
 import {
   getLocalProfile,
-  getCompletedLessonIds,
   type LocalProfile,
 } from "../lib/local-progress";
 import {
@@ -80,6 +79,7 @@ import { showRewardedAd } from "../lib/ads";
 import { getMistakeDNA } from "../lib/mistake-dna";
 import { useTranslation, type UseTranslation } from "../lib/i18n";
 import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
+import { getActiveDaysLast7 } from "../lib/metrics";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -151,7 +151,7 @@ interface TodayState {
   planIsComplete: boolean;
   planRemainingScenes: Scene[];
   planFirstScene: Scene | null;
-  completedLessonIds: string[];
+  weeklyActiveDays: number;
   mistakeFocus: { label: string; recentCount: number } | null;
   // 2026-05-23 — Daily diary nudge state. Bugün entry yoksa Today'de
   // subtle bir banner gösterilir. Banner agresif değil — kullanıcı
@@ -184,7 +184,7 @@ const EMPTY: TodayState = {
   planIsComplete: false,
   planRemainingScenes: [],
   planFirstScene: null,
-  completedLessonIds: [],
+  weeklyActiveDays: 0,
   mistakeFocus: null,
   diaryWrittenToday: false,
   isPremiumActive: false,
@@ -304,12 +304,12 @@ export default function Today() {
   // is a `const` derived from `state`, not a function.
 
   const load = useCallback(async () => {
-    const [profile, completed, cefrLevel, nameRaw] =
+    const [profile, cefrLevel, nameRaw, weeklyActiveDays] =
       await Promise.all([
         getLocalProfile(),
-        getCompletedLessonIds(),
         getCefrLevel(),
         AsyncStorage.getItem(K_DISPLAY_NAME).catch(() => null),
+        getActiveDaysLast7().catch(() => 0),
       ]);
     const streakAtRisk =
       profile?.current_streak && profile.current_streak > 0
@@ -336,11 +336,13 @@ export default function Today() {
     const planSummary = summaryResult.status === "fulfilled" ? summaryResult.value : {
       total: 0,
       completed: 0,
+      completedLessonIds: [],
       estimatedMin: 0,
       isComplete: false,
     };
+    const planCompletedIds = new Set(planSummary.completedLessonIds);
     const planRemainingScenes = planScenes.filter(
-      (s) => !completed.has(s.lessonId),
+      (scene) => !planCompletedIds.has(scene.lessonId),
     );
     const planFirstScene =
       planRemainingScenes[0] ??
@@ -376,7 +378,7 @@ export default function Today() {
       planIsComplete: planSummary.isComplete,
       planRemainingScenes,
       planFirstScene,
-      completedLessonIds: Array.from(completed),
+      weeklyActiveDays,
       mistakeFocus: mistakeDna
         ? {
             label: mistakeDna.dominantLabelTr,
@@ -988,12 +990,12 @@ export default function Today() {
           <View style={styles.weeklyHeader}>
             <Text style={styles.weeklyLabel}>{t("today.weekly_progress")}</Text>
             <Text style={styles.weeklyCount}>
-              {t("today.days_of_seven", { count: String(Math.min(streak, 7)) })}
+              {t("today.days_of_seven", { count: String(state.weeklyActiveDays) })}
             </Text>
           </View>
           <View style={styles.weeklyDotsRow}>
             {Array.from({ length: 7 }).map((_, i) => {
-              const filled = i < Math.min(streak, 7);
+              const filled = i < state.weeklyActiveDays;
               return (
                 <View
                   key={i}

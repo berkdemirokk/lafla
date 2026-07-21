@@ -287,11 +287,13 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
 export async function getPlanProgress(): Promise<{
   completed: number;
   total: number;
+  completedLessonIds: string[];
 }> {
   const today = todayKey();
   const planScenes = await getOrCreateDailyPlan();
   const sig = planSigFrom(planScenes.map((s) => s.lessonId));
   let completed = 0;
+  let completedLessonIds: string[] = [];
   try {
     const raw = await AsyncStorage.getItem(K_PLAN_PROGRESS);
     if (raw) {
@@ -301,12 +303,25 @@ export async function getPlanProgress(): Promise<{
       // ama "5/5 tamam" görünür.
       if (p.date === today && (!p.planSig || p.planSig === sig)) {
         completed = p.completedCount;
+        completedLessonIds = Array.isArray(p.completedLessonIds)
+          ? p.completedLessonIds.filter((id) => sig.split("|").includes(id))
+          : [];
       }
     }
   } catch {
     // ignore
   }
-  return { completed: Math.min(completed, planScenes.length), total: planScenes.length };
+  const safeCompleted = Math.min(completed, planScenes.length);
+  if (completedLessonIds.length === 0 && safeCompleted > 0) {
+    completedLessonIds = planScenes
+      .slice(0, safeCompleted)
+      .map((scene) => scene.lessonId);
+  }
+  return {
+    completed: safeCompleted,
+    total: planScenes.length,
+    completedLessonIds,
+  };
 }
 
 /**
@@ -398,11 +413,12 @@ export async function getNextInPlan(
 export async function getPlanSummary(): Promise<{
   total: number;
   completed: number;
+  completedLessonIds: string[];
   estimatedMin: number;
   isComplete: boolean;
 }> {
   const plan = await getOrCreateDailyPlan();
-  const { completed } = await getPlanProgress();
+  const { completed, completedLessonIds } = await getPlanProgress();
   const total = plan.length;
   const remaining = total - completed;
   const estimatedMin =
@@ -414,6 +430,7 @@ export async function getPlanSummary(): Promise<{
   return {
     total,
     completed,
+    completedLessonIds,
     estimatedMin,
     isComplete: completed >= total && total > 0,
   };

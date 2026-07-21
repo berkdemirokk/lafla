@@ -260,7 +260,8 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
     if (!sr) {
       stageRef.current = "idle";
       setStage("idle");
-      onComplete(unavailablePronunciationResult("pronounce_phrase"));
+      if (onSkip) onSkip();
+      else onComplete(unavailablePronunciationResult("pronounce_phrase"));
       return;
     }
 
@@ -268,7 +269,8 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
     if (!available) {
       stageRef.current = "idle";
       setStage("idle");
-      onComplete(unavailablePronunciationResult("pronounce_phrase"));
+      if (onSkip) onSkip();
+      else onComplete(unavailablePronunciationResult("pronounce_phrase"));
       return;
     }
 

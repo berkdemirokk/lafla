@@ -20,6 +20,12 @@ describe("placement oral calibration", () => {
     expect(applyOralAdjustment("B2", speaking, listening)).toBe("A2");
   });
 
+  it("requires stronger speaking evidence for higher claimed levels", () => {
+    expect(applyOralAdjustment("A2", 55, 80)).toBe("A2");
+    expect(applyOralAdjustment("C1", 55, 80)).toBe("B2");
+    expect(applyOralAdjustment("C2", 50, 80)).toBe("B2");
+  });
+
   it("caps oral prompt persistence to two samples", () => {
     expect(appendOralScore([90, 80], 70)).toEqual([90, 80]);
     expect(normalizeOralScores([90, 80, 70], null)).toEqual([90, 80]);

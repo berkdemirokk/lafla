@@ -13,7 +13,6 @@ jest.mock("../iap", () => ({
 import {
   FREE_DAILY_SCENE_QUOTA,
   incrementFreeTier,
-  markLearningValueReached,
   shouldGatePaywall,
 } from "../free-tier";
 import { grantRewardedPremium } from "../rewarded";
@@ -35,6 +34,21 @@ describe("entitlement persistence", () => {
     ).resolves.toBe("2");
   });
 
+  it("does not charge the same scene twice for duplicate completion callbacks", async () => {
+    await Promise.all([
+      incrementFreeTier("scene-1"),
+      incrementFreeTier("scene-1"),
+    ]);
+
+    await expect(AsyncStorage.getItem("lafla.freeTier.count")).resolves.toBe("1");
+  });
+
+  it("charges separate completions of the same scene", async () => {
+    await incrementFreeTier("scene-1:attempt-1");
+    await incrementFreeTier("scene-1:attempt-2");
+    await expect(AsyncStorage.getItem("lafla.freeTier.count")).resolves.toBe("2");
+  });
+
   it("fails closed when the free-tier counter cannot be read", async () => {
     jest
       .spyOn(AsyncStorage, "getItem")
@@ -44,20 +58,11 @@ describe("entitlement persistence", () => {
   });
 
   it("gates once the durable daily quota is reached", async () => {
-    await markLearningValueReached();
     for (let index = 0; index < FREE_DAILY_SCENE_QUOTA; index += 1) {
       await incrementFreeTier();
     }
 
     await expect(shouldGatePaywall()).resolves.toBe(true);
-  });
-
-  it("does not gate before the learner receives a complete scene result", async () => {
-    for (let index = 0; index < FREE_DAILY_SCENE_QUOTA; index += 1) {
-      await incrementFreeTier();
-    }
-
-    await expect(shouldGatePaywall()).resolves.toBe(false);
   });
 
   it("does not charge quota or show a paywall while entitlement is unknown", async () => {

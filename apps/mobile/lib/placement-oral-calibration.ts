@@ -42,11 +42,20 @@ export function applyOralAdjustment(
   if (speakingScore === null && listeningScore === null) return mcqLevel;
 
   let drops = 0;
+  const speakingThreshold: Record<CefrLevel, number> = {
+    A1: 35,
+    A2: 45,
+    B1: 55,
+    B2: 65,
+    C1: 75,
+    C2: 82,
+  };
 
   if (speakingScore !== null) {
-    if (speakingScore < 30) {
+    const expected = speakingThreshold[mcqLevel];
+    if (speakingScore < expected - 20) {
       drops += 2;
-    } else if (speakingScore < 50) {
+    } else if (speakingScore < expected) {
       drops += 1;
     }
   }

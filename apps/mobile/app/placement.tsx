@@ -2,13 +2,13 @@
 //
 // Onboarding'in son adımı (self-report cefr) yerine veya onun "Test ile
 // belirle" CTA'sı arkasında. 12 MCQ adaptive (B1 ile başla, ±1 seviye),
-// sonra 2 speaking + 2 listening ile final calibration.
+// sonra 1 read-aloud + 1 open speaking + 2 listening ile final calibration.
 //
 // 2026-05-23 — CEFR audit fix #1: önceki versiyon SADECE okuma/grammar
 // MCQ test ediyordu. Bir speaking app için bu ölümcül bir gap'ti — Türk
 // öğrencisi grammar'ı pasif tanıyıp B1 alabiliyordu ama konuşamıyor, B1
 // sahneleri batırıyor, trust ilk gün kayboluyordu. Şimdi son iki adım
-// gerçek speaking (PronouncePhrase + phoneme grader) ve gerçek listening
+// gerçek speaking (read-aloud + spontaneous production) ve gerçek listening
 // (TTS audio + transcribe). Eğer her ikisinde de düşük puan alırsa
 // final level otomatik -1 band düşer ("okumana göre B1 idin ama dinleme
 // + konuşma A2 — sana A2 sahneleri sunuyoruz").
@@ -43,6 +43,7 @@ import { finalizeOnboarding } from "../lib/onboarding-finalize";
 import { getInterests } from "../lib/local-progress";
 import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
 import { PronouncePhrase } from "../components/exercises/PronouncePhrase";
+import { PlacementOpenResponse } from "../components/exercises/PlacementOpenResponse";
 import { ListenAndTranscribe } from "../components/exercises/ListenAndTranscribe";
 import type { ExerciseResult } from "../lib/engine";
 import { useTranslation } from "../lib/i18n";
@@ -65,10 +66,7 @@ import {
 } from "../lib/placement-oral-calibration";
 
 // ─── Speaking + listening prompts, indexed by the MCQ-derived level ─
-// Each level gets a CEFR-tuned phrase. PronouncePhrase grades phoneme-by-
-// phoneme via the Levenshtein-on-IPA pipeline; ListenAndTranscribe plays
-// via TTS then asks the user to type back. Both are well-tested existing
-// exercises — we're just wiring them into the placement flow.
+// Each level gets CEFR-tuned read-aloud, open-response, and listening prompts.
 
 const SPEAKING_PHRASES: Record<CefrLevel, Array<{ phrase: string; tr: string }>> = {
   A1: [
@@ -125,6 +123,15 @@ const SPEAKING_PHRASES: Record<CefrLevel, Array<{ phrase: string; tr: string }>>
       tr: "Durum buysa çerçeveyi tamamen yeniden kurmalıyız.",
     },
   ],
+};
+
+const OPEN_SPEAKING_PROMPTS: Record<CefrLevel, { prompt: string; tr: string }> = {
+  A1: { prompt: "Introduce yourself in two short sentences.", tr: "Kendini iki kısa cümleyle tanıt." },
+  A2: { prompt: "Describe what you normally do on a weekday.", tr: "Normal bir hafta içi gününde neler yaptığını anlat." },
+  B1: { prompt: "Tell us about a recent problem and how you solved it.", tr: "Yakın zamanda yaşadığın bir sorunu ve onu nasıl çözdüğünü anlat." },
+  B2: { prompt: "Give your opinion on remote work and support it with reasons.", tr: "Uzaktan çalışma hakkındaki fikrini nedenleriyle açıkla." },
+  C1: { prompt: "Explain a decision you changed after considering new evidence.", tr: "Yeni kanıtları değerlendirdikten sonra değiştirdiğin bir kararı açıkla." },
+  C2: { prompt: "Discuss a nuanced issue and acknowledge a reasonable counterargument.", tr: "Nüanslı bir konuyu tartış ve makul bir karşı görüşü de ele al." },
 };
 
 const LISTENING_PHRASES: Record<CefrLevel, Array<{ sentence: string; tr: string }>> = {
@@ -184,7 +191,7 @@ const LISTENING_PHRASES: Record<CefrLevel, Array<{ sentence: string; tr: string 
   ],
 };
 
-// Test phases. "mcq" → 12 MCQ adaptive; "speaking" → 2 PronouncePhrase
+// Test phases. "mcq" → 12 MCQ adaptive; "speaking" → read + open response
 // at MCQ-derived level; "listening" → 2 ListenAndTranscribe at same level;
 // "done" → result + handoff. Each phase has a single source of truth state
 // so back navigation never desyncs.
@@ -607,7 +614,8 @@ export default function PlacementScreen() {
       speakingScores.length,
       ORAL_PROMPT_COUNT - 1,
     );
-    const target = SPEAKING_PHRASES[mcqDerivedLevel][promptIndex];
+    const target = SPEAKING_PHRASES[mcqDerivedLevel][0];
+    const openPrompt = OPEN_SPEAKING_PROMPTS[mcqDerivedLevel];
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <ThemedStatusBar />
@@ -621,12 +629,21 @@ export default function PlacementScreen() {
           </Text>
         </View>
         <ScrollView contentContainerStyle={styles.body}>
-          <PronouncePhrase
-            phrase={target.phrase}
-            trHint={locale === "tr" ? target.tr : undefined}
-            onComplete={handleSpeakingComplete}
-            onSkip={handleSpeakingSkip}
-          />
+          {promptIndex === 0 ? (
+            <PronouncePhrase
+              phrase={target.phrase}
+              trHint={locale === "tr" ? target.tr : undefined}
+              onComplete={handleSpeakingComplete}
+              onSkip={handleSpeakingSkip}
+            />
+          ) : (
+            <PlacementOpenResponse
+              prompt={openPrompt.prompt}
+              trHint={locale === "tr" ? openPrompt.tr : undefined}
+              onComplete={handleSpeakingComplete}
+              onSkip={handleSpeakingSkip}
+            />
+          )}
         </ScrollView>
       </SafeAreaView>
     );

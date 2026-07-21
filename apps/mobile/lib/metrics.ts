@@ -20,6 +20,9 @@ import {
   type LessonStateLocal,
 } from "./local-progress";
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
+import { getPronHistory } from "./pronunciation-history";
+import { getVocabBook } from "./vocab-book";
+import { readHistory } from "./scene-history";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -62,8 +65,6 @@ export interface WeeklyReport {
 const K_DAILY = "lafla.daily";
 const K_FREECHAT_SESSION = "lafla.freechat.session";
 const K_FREECHAT_DAILY_PREFIX = "lafla.freechat.dailyCount.";
-const K_PRON_HISTORY = "lafla.pronunciation.history"; // optional, if grader writes it
-const K_WORDS_SEEN = "lafla.words.seen"; // optional, written by lessons when available
 
 // Heuristic averages — kept conservative.
 const AVG_SECONDS_PER_COACH_MESSAGE = 30;
@@ -176,80 +177,26 @@ async function countFreechatSessions7d(): Promise<number> {
 }
 
 // ---------------------------------------------------------------------------
-// Vocab estimation
+// Evidence-backed pronunciation, activity, and vocabulary metrics
 // ---------------------------------------------------------------------------
 
-async function estimateActiveVocab(
-  lessonStates: Record<string, LessonStateLocal>,
-): Promise<number> {
-  // Preferred path: a flat AsyncStorage of "words seen >= 2" maintained
-  // by lessons. Falls back to a heuristic based on attempt counts.
-  try {
-    const raw = await AsyncStorage.getItem(K_WORDS_SEEN);
-    if (raw) {
-      // Validator only checks outer object — the inner number test inside
-      // the loop is the real guard against `undefined` masquerading as a
-      // count when the blob has the wrong shape.
-      const parsed = parseSafe<Record<string, number>>(raw, {}, isObject, {
-        source: "metrics.estimateActiveVocab",
-      });
-      let n = 0;
-      for (const v of Object.values(parsed)) {
-        if (typeof v === "number" && v >= 2) n++;
-      }
-      if (n > 0) return n;
-    }
-  } catch {
-    // ignore — fall through to heuristic
-  }
-
-  // Heuristic: each completed lesson surfaces ~8 unique words; repeated
-  // attempts (total_attempts beyond the first) compound modestly.
-  let words = 0;
-  for (const state of Object.values(lessonStates)) {
-    if (state.completed_at) words += 8;
-    const extra = Math.max(0, state.total_attempts - 1);
-    words += Math.min(4, extra); // diminishing returns
-  }
-  return words;
+async function estimatePronunciationAvg(): Promise<number> {
+  const scores = await getPronHistory();
+  if (scores.length === 0) return 0;
+  return Math.round(
+    scores.reduce((sum, entry) => sum + entry.score, 0) / scores.length,
+  );
 }
 
-// ---------------------------------------------------------------------------
-// Pronunciation estimation
-// ---------------------------------------------------------------------------
+export async function getActiveDaysLast7(): Promise<number> {
+  return countActiveDaysWithin(await readDaily(), 7);
+}
 
-async function estimatePronunciationAvg(
-  lessonStates: Record<string, LessonStateLocal>,
-): Promise<number> {
-  // Preferred path: explicit pronunciation history written by the grader.
-  try {
-    const raw = await AsyncStorage.getItem(K_PRON_HISTORY);
-    if (raw) {
-      // Validator: array. The inner `.score ?? 0` already tolerates entries
-      // missing the score field, so per-entry validation here would be
-      // over-restrictive (would discard partially-shaped legacy entries
-      // that still have usable scores).
-      const parsed = parseSafe<Array<{ score: number; at?: string }>>(raw, [], isArray, {
-        source: "metrics.estimatePronunciationAvg",
-      });
-      if (parsed.length > 0) {
-        const sum = parsed.reduce((acc, e) => acc + (e.score ?? 0), 0);
-        return Math.round(sum / parsed.length);
-      }
-    }
-  } catch {
-    // ignore
-  }
-
-  // Heuristic: accuracy across lesson attempts maps to 0-100.
-  let totalCorrect = 0;
-  let totalAttempts = 0;
-  for (const state of Object.values(lessonStates)) {
-    totalCorrect += state.total_correct;
-    totalAttempts += state.total_attempts;
-  }
-  if (totalAttempts === 0) return 0;
-  return Math.round((totalCorrect / totalAttempts) * 100);
+async function getActualVocabCount(): Promise<number> {
+  const entries = await getVocabBook();
+  return new Set(
+    entries.map((entry) => entry.en.trim().toLocaleLowerCase("en")),
+  ).size;
 }
 
 // ---------------------------------------------------------------------------
@@ -352,13 +299,23 @@ export async function computeMetrics(): Promise<UserMetrics> {
     sceneByLesson.set(scene.lessonId, scene);
   }
 
+  const sceneHistory = await readHistory();
   let totalPracticeMinutes = 0;
   let scenesCompleted = 0;
-  for (const state of Object.values(lessonStates)) {
-    if (!state.completed_at) continue;
-    const scene = sceneByLesson.get(state.lesson_id);
-    totalPracticeMinutes += scene?.durationMin ?? FALLBACK_LESSON_MINUTES;
-    if (scene) scenesCompleted++;
+  if (sceneHistory.length > 0) {
+    for (const entry of sceneHistory) {
+      totalPracticeMinutes +=
+        sceneByLesson.get(entry.lessonId)?.durationMin ??
+        FALLBACK_LESSON_MINUTES;
+      scenesCompleted += 1;
+    }
+  } else {
+    for (const state of Object.values(lessonStates)) {
+      if (!state.completed_at) continue;
+      const scene = sceneByLesson.get(state.lesson_id);
+      totalPracticeMinutes += scene?.durationMin ?? FALLBACK_LESSON_MINUTES;
+      if (scene) scenesCompleted++;
+    }
   }
 
   // Coach chat minutes from message count × avg seconds.
@@ -366,8 +323,8 @@ export async function computeMetrics(): Promise<UserMetrics> {
     (coach.total * AVG_SECONDS_PER_COACH_MESSAGE) / 60,
   );
 
-  const activeVocabSize = await estimateActiveVocab(lessonStates);
-  const pronunciationAvg = await estimatePronunciationAvg(lessonStates);
+  const activeVocabSize = await getActualVocabCount();
+  const pronunciationAvg = await estimatePronunciationAvg();
 
   const daily = await readDaily();
   const consistencyDays7 = countActiveDaysWithin(daily, 7);
@@ -447,19 +404,30 @@ export async function getWeeklyReport(): Promise<WeeklyReport> {
   const coachSessions = await countFreechatSessions7d();
 
   // New vocab: rough estimate — each lesson surfaces ~8 unique words.
-  const newVocabAdded = thisWeek.lessons * 8;
+  const nextMon = new Date(thisMon);
+  nextMon.setDate(thisMon.getDate() + 7);
+  const vocab = await getVocabBook();
+  const newVocabAdded = vocab.filter((entry) => {
+    const addedAt = new Date(entry.addedAt).getTime();
+    return addedAt >= thisMon.getTime() && addedAt < nextMon.getTime();
+  }).length;
 
-  // Pronunciation delta: compare attempt-accuracy in this vs last week.
-  // Since we don't snapshot per-week, we synthesize from the activity
-  // ratio so the number trends sensibly.
-  let pronunciationDelta = 0;
-  if (lastWeek.lessons > 0) {
-    const ratio = thisWeek.lessons / lastWeek.lessons;
-    pronunciationDelta = Math.round((ratio - 1) * 5); // bounded by typical activity swings
-    pronunciationDelta = Math.max(-15, Math.min(15, pronunciationDelta));
-  } else if (thisWeek.lessons > 0) {
-    pronunciationDelta = 5;
-  }
+  const pronunciation = await getPronHistory();
+  const averageWithin = (start: Date, end: Date): number | null => {
+    const scores = pronunciation.filter((entry) => {
+      const at = new Date(entry.at).getTime();
+      return at >= start.getTime() && at < end.getTime();
+    });
+    return scores.length
+      ? scores.reduce((sum, entry) => sum + entry.score, 0) / scores.length
+      : null;
+  };
+  const thisPronunciation = averageWithin(thisMon, nextMon);
+  const lastPronunciation = averageWithin(lastMon, thisMon);
+  const pronunciationDelta =
+    thisPronunciation !== null && lastPronunciation !== null
+      ? Math.round(thisPronunciation - lastPronunciation)
+      : 0;
 
   const highlight_tr = buildWeeklyHighlight({
     daysActive: thisWeek.activeDays,
@@ -492,7 +460,7 @@ function buildWeeklyHighlight(args: {
     return "Bu hafta henüz pratik yok — bir sahneye başla, ısın.";
   }
   if (args.pronunciationDelta >= 5) {
-    return `Telaffuz skoru %${args.pronunciationDelta} yükseldi.`;
+    return `Telaffuz skoru ${args.pronunciationDelta} puan yükseldi.`;
   }
   if (args.coachSessions >= 3) {
     return `Konuşma koçuyla ${args.coachSessions} oturum — sohbet ritmi güçlü.`;
