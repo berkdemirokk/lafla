@@ -23,6 +23,7 @@ import {
   type ListRenderItemInfo,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
+  type ViewToken,
 } from "react-native";
 import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
@@ -137,6 +138,10 @@ export default function Home() {
   const listRef = useRef<FlatList<Scene>>(null);
   const lastIndexRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const viewabilityConfig = useRef({
+    itemVisiblePercentThreshold: 65,
+    minimumViewTime: 80,
+  }).current;
 
   // 2026-05-23 — Mode filter override.
   // Profile ekranındaki mod chip'leri "/home?mode=<key>" ile push eder.
@@ -304,19 +309,34 @@ export default function Home() {
     [cardHeight],
   );
 
+  const commitActiveIndex = useCallback((idx: number) => {
+    if (idx < 0 || idx === lastIndexRef.current) return;
+    lastIndexRef.current = idx;
+    setActiveIndex(idx);
+    try {
+      void Haptics.selectionAsync();
+    } catch {}
+  }, []);
+
+  const onViewableItemsChanged = useCallback(
+    ({ viewableItems }: { viewableItems: Array<ViewToken<Scene>> }) => {
+      const dominant = viewableItems.find(
+        (item) => item.isViewable && typeof item.index === "number",
+      );
+      if (typeof dominant?.index === "number") {
+        commitActiveIndex(dominant.index);
+      }
+    },
+    [commitActiveIndex],
+  );
+
   const onMomentumScrollEnd = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {
       const y = e.nativeEvent.contentOffset.y;
       const idx = Math.round(y / Math.max(cardHeight, 1));
-      if (idx !== lastIndexRef.current) {
-        lastIndexRef.current = idx;
-        setActiveIndex(idx);
-        try {
-          void Haptics.selectionAsync();
-        } catch {}
-      }
+      commitActiveIndex(idx);
     },
-    [cardHeight],
+    [cardHeight, commitActiveIndex],
   );
 
   return (
@@ -381,6 +401,8 @@ export default function Home() {
             windowSize={3}
             maxToRenderPerBatch={2}
             removeClippedSubviews
+            viewabilityConfig={viewabilityConfig}
+            onViewableItemsChanged={onViewableItemsChanged}
             onMomentumScrollEnd={onMomentumScrollEnd}
           />
         )}

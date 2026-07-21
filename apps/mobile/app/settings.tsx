@@ -524,13 +524,11 @@ export default function SettingsScreen() {
             })}
             value={reminderOn}
             onValueChange={handleReminderToggle}
-            isLast={!reminderOn && !sfxAvailable}
           />
           {reminderOn && (
             <ReminderHourPicker
               activeHour={reminderHour}
               onChange={handleReminderHourChange}
-              isLast={!sfxAvailable}
             />
           )}
           {sfxAvailable && (
@@ -540,9 +538,17 @@ export default function SettingsScreen() {
               description={t("settings.sfx.description")}
               value={sfxOn}
               onValueChange={handleSfxToggle}
-              isLast
             />
           )}
+          <Row
+            icon="🎙️"
+            label={t("settings.voice_diagnostics")}
+            onPress={() => {
+              hapticSelection();
+              router.push("/voice-diagnostics" as never);
+            }}
+            isLast
+          />
         </Section>
 
         {/* ===================== GİZLİLİK ===================== */}

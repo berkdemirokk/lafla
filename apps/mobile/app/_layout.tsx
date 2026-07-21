@@ -292,6 +292,7 @@ function ThemedRootNavigator() {
           <Stack.Screen name="paywall" />
           <Stack.Screen name="profile" />
           <Stack.Screen name="settings" />
+          <Stack.Screen name="voice-diagnostics" />
           <Stack.Screen name="diary" />
           <Stack.Screen name="voice-journal" />
           <Stack.Screen name="relationships" />

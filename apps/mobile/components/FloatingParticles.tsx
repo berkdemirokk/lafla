@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useMemo, useRef } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import { Animated, Easing, StyleSheet, View } from 'react-native';
 import { useReduceMotionPreference } from '../lib/use-reduce-motion-preference';
 
 // ---------------------------------------------------------------------------
@@ -11,7 +11,7 @@ interface FloatingParticlesProps {
   accentColor: string;
   /** When false the animation loops are never started – saves battery. */
   isActive?: boolean;
-  /** Number of bokeh circles to render (default 6). */
+  /** Number of bokeh circles to render (default 3). */
   particleCount?: number;
 }
 
@@ -29,9 +29,9 @@ interface ParticleConfig {
   driftX: number;
   /** Maximum vertical drift in pixels (±30). */
   driftY: number;
-  /** Resting (minimum) opacity value (0.08–0.15). */
+  /** Resting opacity value. */
   opacityMin: number;
-  /** Peak opacity value (0.18–0.25). */
+  /** Peak opacity value. */
   opacityMax: number;
 }
 
@@ -68,8 +68,8 @@ const buildConfigs = (count: number): ParticleConfig[] =>
     duration: Math.round(mapRange(deterministicRandom(i, 3), 15000, 25000)),
     driftX: mapRange(deterministicRandom(i, 4), -20, 20),
     driftY: mapRange(deterministicRandom(i, 5), -30, 30),
-    opacityMin: mapRange(deterministicRandom(i, 6), 0.08, 0.15),
-    opacityMax: mapRange(deterministicRandom(i, 7), 0.18, 0.25),
+    opacityMin: mapRange(deterministicRandom(i, 6), 0.035, 0.07),
+    opacityMax: mapRange(deterministicRandom(i, 7), 0.09, 0.14),
   }));
 
 // ---------------------------------------------------------------------------
@@ -79,7 +79,7 @@ const buildConfigs = (count: number): ParticleConfig[] =>
 const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   accentColor,
   isActive = true,
-  particleCount = 6,
+  particleCount = 3,
 }) => {
   const reduceMotion = useReduceMotionPreference();
   // Memoised configs so random values are stable across renders.
@@ -110,8 +110,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
           toValue: 1,
           duration: cfg.duration,
           useNativeDriver: true,
-          // Linear easing keeps the drift smooth & continuous.
-          easing: undefined, // default linear-ish; explicit undefined = linear
+          easing: Easing.linear,
         }),
       );
       anim.start();

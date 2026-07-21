@@ -419,6 +419,7 @@ export function RoleplayChat({
   // and app restarts. We default to false (audio on) because hearing native
   // pronunciation is core to the product — users have to opt OUT, not in.
   const [muted, setMuted] = useState(false);
+  const mutedRef = useRef(false);
   // Pending reaction prefix queued by the last user turn. Consumed by the
   // auto-show effect and prepended onto the next NPC message rendered into
   // `shown`. We carry it as state (not a ref) so React re-runs the effect
@@ -441,6 +442,11 @@ export function RoleplayChat({
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    mutedRef.current = muted;
+    if (muted) stopTts();
+  }, [muted]);
 
   // Hydrate voice input preference + STT availability probe. The order
   // matters: probe availability first, then read stored mode. If STT is
@@ -578,16 +584,15 @@ export function RoleplayChat({
       // Auto-speak the most recent NPC line after a short beat — UNLESS the
       // user has muted TTS, in which case we drop the side effect entirely.
       // The bubble still renders; only the audio is suppressed.
-      if (!muted) {
+      if (!mutedRef.current) {
         const last = newShown[newShown.length - 1]!.message;
         // 2026-05-23 — Audio audit fix: npcRole + setting'i speak()'e geçir.
         // Önceki versiyon sadece text geçiyordu — tts.ts'in pickVoiceId
         // fallback'i her NPC için vc_default kullanıyordu. Şimdi bundled
         // voice (vc_match / vc_friend / etc) doğru NPC için seçilir.
-        const t = setTimeout(
-          () => speak(last, { npcRole, setting }),
-          600,
-        );
+        const t = setTimeout(() => {
+          if (!mutedRef.current) speak(last, { npcRole, setting });
+        }, 600);
         return () => clearTimeout(t);
       }
     }
@@ -595,9 +600,8 @@ export function RoleplayChat({
     // self-gates by checking `turns[i].speaker === "npc"` and we advance
     // `turnIdx` past NPC turns, so re-running on `shown` changes would
     // just no-op anyway. Adding it would re-trigger on every user reply.
-    // `muted` is read for the speak() guard; including it would re-flush
-    // the same NPC block when the toggle flips, so we deliberately omit it
-    // and accept the stale-closure trade (mute applies to the NEXT block).
+    // mutedRef keeps the delayed TTS callback current without making mute
+    // toggles re-run this NPC flushing effect.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [turnIdx, turns, userName, pendingReaction, memoryPrompt]);
 

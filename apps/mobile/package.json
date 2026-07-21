@@ -19,6 +19,9 @@
     "asc:set-free:apply": "node ../../node_modules/tsx/dist/cli.mjs scripts/asc-set-app-free.ts -- --apply",
     "test": "node ../../node_modules/jest/bin/jest.js",
     "qa:content": "node ../../node_modules/tsx/dist/cli.mjs scripts/audit-roleplay-content.ts && node ../../node_modules/tsx/dist/cli.mjs scripts/audit-quality-gate.ts && node ../../node_modules/tsx/dist/cli.mjs scripts/audit-cefr-tags.ts --check",
+    "qa:visual": "node ../../node_modules/tsx/dist/cli.mjs scripts/audit-scene-visuals.ts",
+    "qa:perf": "node ../../node_modules/tsx/dist/cli.mjs scripts/audit-performance-budget.ts",
+    "qa:smoke": "node ../../node_modules/tsx/dist/cli.mjs scripts/audit-testflight-smoke.ts",
     "qa:linguist": "node ../../node_modules/tsx/dist/cli.mjs scripts/generate-linguist-review.ts",
     "qa:linguist:check": "node ../../node_modules/tsx/dist/cli.mjs scripts/generate-linguist-review.ts --check",
     "expo:check": "node ../../node_modules/expo/bin/cli install --check"

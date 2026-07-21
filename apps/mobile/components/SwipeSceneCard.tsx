@@ -302,27 +302,27 @@ function SwipeSceneCardImpl({
   });
   const imageScale = translateX.interpolate({
     inputRange: [-width, 0, width],
-    outputRange: [1.35, 1.25, 1.35],
+    outputRange: [1.16, 1.08, 1.16],
     extrapolate: "clamp",
   });
   const imageTranslateX = translateX.interpolate({
     inputRange: [-width, 0, width],
-    outputRange: [width * 0.12, 0, -width * 0.12],
+    outputRange: [width * 0.06, 0, -width * 0.06],
     extrapolate: "clamp",
   });
 
-  // Ken Burns interpolations - zoom, pan and tilt made clearly visible
+  // Ken Burns interpolations stay subtle so the subject remains visible.
   const kbScale = kenBurnsAnim.interpolate({
     inputRange: [0, 0.5, 1],
-    outputRange: [1, 1.15, 1],
+    outputRange: [1, 1.06, 1],
   });
   const kbTranslateX = kenBurnsAnim.interpolate({
     inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: [0, -35, 35, -35, 0],
+    outputRange: [0, -14, 14, -14, 0],
   });
   const kbTranslateY = kenBurnsAnim.interpolate({
     inputRange: [0, 0.33, 0.66, 1],
-    outputRange: [0, -25, 25, 0],
+    outputRange: [0, -10, 10, 0],
   });
 
   // Combine swipe and ambient transforms
@@ -478,6 +478,7 @@ function SwipeSceneCardImpl({
         <FloatingParticles
           accentColor={accent.text}
           isActive={isActive}
+          particleCount={3}
         />
 
         <View style={styles.cardInnerHighlight} pointerEvents="none" />
@@ -531,10 +532,10 @@ function SwipeSceneCardImpl({
 
           {/* Middle — big title */}
           <View style={styles.titleArea}>
-            <Text style={styles.title} numberOfLines={3}>
+            <Text style={styles.title} numberOfLines={4}>
               {displayTitle}
             </Text>
-            <Text style={styles.description} numberOfLines={3}>
+            <Text style={styles.description} numberOfLines={4}>
               {scene.description}
             </Text>
             <View style={styles.promiseBox}>
@@ -752,7 +753,7 @@ const styles = StyleSheet.create({
     lineHeight: 34,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
-    letterSpacing: -0.9,
+    letterSpacing: 0,
     textAlign: "center",
   },
   description: {

@@ -572,6 +572,17 @@ function themeFromSkillId(skill: string): VisualTheme | null {
 }
 
 function themeFromLessonId(lessonId: string | undefined): VisualTheme | null {
+  if (!lessonId) return null;
+  if (
+    lessonId.startsWith("career.b2.salary_negotiation") ||
+    lessonId.startsWith("career.b2.equity_negotiation")
+  ) {
+    return "work_interview";
+  }
+  if (lessonId.startsWith("career.b2.")) return "work_meeting";
+  if (lessonId === "story.erasmus.5") return "party";
+  if (lessonId === "story.nyc.8") return "bar";
+
   switch (lessonId) {
     case "daily.survival.a1.2":
       return "daily_conversation";
@@ -777,7 +788,7 @@ export function getVisualThemeForScene(scene: VisualScene): VisualTheme {
     return "work_remote";
   }
   if (
-    hasAny(skill, ["interview", "hire", "salary_neg", "career.b1", "career.b2", "mülakat", "iş görüşmesi"]) ||
+    hasAny(skill, ["interview", "hire", "salary_neg", "mülakat", "iş görüşmesi"]) ||
     hasAny(text, ["interview", "salary", "tell me about yourself", "mülakat", "iş görüşmesi", "maaş"]) ||
     hasWord(text, ["hr"])
   ) {

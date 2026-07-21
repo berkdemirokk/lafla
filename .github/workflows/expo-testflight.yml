@@ -109,6 +109,15 @@ jobs:
       - name: Verify linguist review sample
         run: pnpm --filter @lafla/mobile qa:linguist:check
 
+      - name: Audit scene visuals
+        run: pnpm --filter @lafla/mobile qa:visual
+
+      - name: Run mobile performance budget
+        run: pnpm --filter @lafla/mobile qa:perf
+
+      - name: Verify TestFlight smoke checklist
+        run: pnpm --filter @lafla/mobile qa:smoke
+
       - name: Verify Expo dependencies
         run: pnpm --filter @lafla/mobile expo:check && pnpm dlx expo-doctor@latest apps/mobile
 

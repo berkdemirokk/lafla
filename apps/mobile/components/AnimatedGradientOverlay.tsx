@@ -35,24 +35,26 @@ const AnimatedGradientOverlay: React.FC<AnimatedGradientOverlayProps> = ({
   isActive = true,
 }) => {
   const reduceMotion = useReduceMotionPreference();
-  // Pulse animation value (tint opacity: 0.10 → 0.22 → 0.10)
-  const pulseAnim = useRef(new Animated.Value(0.10)).current;
+  const washMin = 0.035;
+  const washMax =
+    mode === 'flirt' || mode === 'bar' || mode === 'order' ? 0.10 : 0.08;
+  const pulseAnim = useRef(new Animated.Value(washMin)).current;
 
   useEffect(() => {
     if (!isActive || reduceMotion) {
-      pulseAnim.setValue(0.10);
+      pulseAnim.setValue(washMin);
       return;
     }
 
     const loop = Animated.loop(
       Animated.sequence([
         Animated.timing(pulseAnim, {
-          toValue: 0.22,
+          toValue: washMax,
           duration: 4000,
           useNativeDriver: true,
         }),
         Animated.timing(pulseAnim, {
-          toValue: 0.10,
+          toValue: washMin,
           duration: 4000,
           useNativeDriver: true,
         }),
@@ -64,7 +66,7 @@ const AnimatedGradientOverlay: React.FC<AnimatedGradientOverlayProps> = ({
     return () => {
       loop.stop();
     };
-  }, [isActive, pulseAnim, reduceMotion]);
+  }, [isActive, pulseAnim, reduceMotion, washMax]);
 
   return (
     <View style={StyleSheet.absoluteFillObject} pointerEvents="none">
@@ -83,7 +85,7 @@ const AnimatedGradientOverlay: React.FC<AnimatedGradientOverlayProps> = ({
       {/* LAYER 2: Top Vignette
           A very soft top-down dark gradient to make header badges pop. */}
       <LinearGradient
-        colors={['rgba(0,0,0,0.5)', 'transparent']}
+        colors={['rgba(0,0,0,0.32)', 'transparent']}
         style={styles.topVignette}
       />
 
@@ -92,11 +94,11 @@ const AnimatedGradientOverlay: React.FC<AnimatedGradientOverlayProps> = ({
       <LinearGradient
         colors={[
           'transparent',
-          'rgba(0,0,0,0.4)',
-          'rgba(0,0,0,0.85)',
-          'rgba(0,0,0,0.95)',
+          'rgba(0,0,0,0.22)',
+          'rgba(0,0,0,0.68)',
+          'rgba(0,0,0,0.88)',
         ]}
-        locations={[0.0, 0.4, 0.8, 1.0]}
+        locations={[0.0, 0.42, 0.78, 1.0]}
         style={styles.bottomGradient}
       />
     </View>
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: '65%',
+    height: '54%',
   },
 });
 

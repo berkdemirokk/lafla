@@ -190,6 +190,58 @@ describe("scene visual theme mapping", () => {
       ),
     ).toBe("phone");
   });
+
+  it("does not force every career B2 scene into interview visuals", () => {
+    expect(
+      getVisualThemeForScene(
+        scene({
+          title: "Feedback giving peer",
+          description: "A teammate asked for feedback after a sprint review.",
+          mode: "work",
+          skillId: "career.b2",
+          lessonId: "career.b2.feedback_giving_peer.1",
+        }),
+      ),
+    ).toBe("work_meeting");
+
+    expect(
+      getVisualThemeForScene(
+        scene({
+          title: "Salary negotiation",
+          description: "Discuss compensation and benefits with a recruiter.",
+          mode: "work",
+          skillId: "career.b2",
+          lessonId: "career.b2.salary_negotiation.1",
+        }),
+      ),
+    ).toBe("work_interview");
+  });
+
+  it("lets story lesson IDs override broad story skill visuals", () => {
+    expect(
+      getVisualThemeForScene(
+        scene({
+          title: "ESN welcome party",
+          description: "Kalabalik bar. Yeni biriyle tanis.",
+          mode: "bar",
+          skillId: "story.erasmus",
+          lessonId: "story.erasmus.5",
+        }),
+      ),
+    ).toBe("party");
+
+    expect(
+      getVisualThemeForScene(
+        scene({
+          title: "Brooklyn bar",
+          description: "Williamsburg barinda arkadasla bulusma.",
+          mode: "bar",
+          skillId: "story.nyc",
+          lessonId: "story.nyc.8",
+        }),
+      ),
+    ).toBe("bar");
+  });
 });
 
 describe("scene cover source", () => {
