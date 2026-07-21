@@ -17,7 +17,7 @@
 //   EXPO_PUBLIC_SUPABASE_URL   — Supabase project URL (frontend, publish edilebilir)
 //   EXPO_PUBLIC_SUPABASE_ANON_KEY — Supabase anon key (frontend, publish edilebilir)
 //   EXPO_PUBLIC_REVENUECAT_IOS_KEY — RevenueCat public iOS SDK key
-//   SENTRY_AUTH_TOKEN          — sadece build/sourcemap upload; runtime'a değmez
+//   SENTRY_AUTH_TOKEN          — opsiyonel; sadece build/sourcemap upload, runtime'a değmez
 
 import type { ConfigContext, ExpoConfig } from "expo/config";
 
@@ -36,7 +36,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       EXPO_PUBLIC_SENTRY_DSN: process.env.EXPO_PUBLIC_SENTRY_DSN,
       EXPO_PUBLIC_REVENUECAT_IOS_KEY:
         process.env.EXPO_PUBLIC_REVENUECAT_IOS_KEY,
-      SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
     };
     const missing = Object.entries(requiredProductionValues)
       .filter(([, value]) => !value?.trim())
