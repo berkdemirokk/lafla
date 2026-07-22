@@ -443,7 +443,8 @@ function SwipeSceneCardImpl({
         {activeCoverSource ? (
           <AnimatedExpoImage
             source={activeCoverSource}
-            cachePolicy="disk"
+            cachePolicy="memory-disk"
+            transition={150}
             style={[
               StyleSheet.absoluteFillObject,
               {

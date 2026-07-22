@@ -54,9 +54,10 @@ export type VisualTheme =
 type VisualScene = Pick<Scene, "mode" | "skillId"> &
   Partial<Pick<Scene, "id" | "lessonId" | "title" | "description">>;
 
-// High-resolution (1600px width), optimized for premium mobile OLED screens (q=90)
+// 1200px is enough for a full-width @3x phone card while avoiding the data and
+// disk cost of loading 1600px/q90 assets for every swipe.
 const IMG = (photoId: string) =>
-  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1600&q=90`;
+  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1200&q=82`;
 
 const FALLBACK_BY_MODE: Record<SceneMode, VisualTheme> = {
   flirt: "date_cafe",

@@ -135,7 +135,7 @@ async function completeLessonInner(args: CompleteLessonArgs): Promise<Completion
     last_attempt_at: new Date().toISOString(),
   };
   await saveLocalLessonState(newLocal);
-  await bumpSkillMastery(args.skill_id, args.accuracy);
+  const updatedSkill = await bumpSkillMastery(args.skill_id, args.accuracy);
   await bumpDailyActivity(xpEarned);
   await bumpXp(xpEarned);
   await bumpStreak();
@@ -158,9 +158,10 @@ async function completeLessonInner(args: CompleteLessonArgs): Promise<Completion
     const skillMastery = {
         user_id: user.id,
         skill_id: args.skill_id,
-        mastery_score: args.accuracy,
-        lessons_completed: 1,
-        last_practiced_at: new Date().toISOString(),
+        mastery_score: updatedSkill.score,
+        lessons_completed: updatedSkill.lessons_completed,
+        last_practiced_at:
+          updatedSkill.last_practiced_at ?? new Date().toISOString(),
       };
     return {
       xp_earned: xpEarned,

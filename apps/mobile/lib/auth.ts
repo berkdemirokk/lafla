@@ -11,6 +11,7 @@ import * as SecureStore from "expo-secure-store";
 import { supabase } from "./supabase";
 import { setUserId as setRevenueCatUserId } from "./iap";
 import { clearAll as clearVoiceJournal } from "./voice-journal";
+import { synchronizeCloudProgress } from "./cloud-progress-sync";
 
 // 2026-05-25 — signOut sırasında temizlenecek user-data anahtarları.
 // signOut bu key'leri silmediği için: User1 onboarding bitirir →
@@ -104,6 +105,9 @@ async function cacheProfileLocally(profile: Profile | null): Promise<void> {
 export async function signUpWithEmail(email: string, password: string) {
   const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) throw error;
+  if (data.user && data.session) {
+    await synchronizeCloudProgress(data.user.id).catch(() => {});
+  }
   return data;
 }
 
@@ -118,6 +122,7 @@ export async function signInWithEmail(email: string, password: string) {
   // mount'ta server'dan okur. Returning user için "ilk frame boş ad" tradeoff
   // — kabul edilebilir, leak'ten iyi.
   await AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {});
+  if (data.user) await synchronizeCloudProgress(data.user.id).catch(() => {});
   return data;
 }
 
@@ -130,12 +135,16 @@ export async function signInWithApple(identityToken: string, nonce?: string) {
   if (error) throw error;
   // 2026-05-26 — Cross-user data leak fix: tüm USER_BOUND_KEYS temizle.
   await AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {});
+  if (data.user) await synchronizeCloudProgress(data.user.id).catch(() => {});
   return data;
 }
 
 export async function signOut() {
-  // Local user-bound storage'ı önce temizle ki Supabase callback'i bir sonraki
-  // mount'ı yanlış yere yönlendirmesin (B-AUTH-1).
+  const { error } = await supabase.auth.signOut();
+  if (error) throw error;
+
+  // Clear account-scoped files only after remote sign-out succeeds. Otherwise
+  // a temporary network error could leave the session active but erase data.
   await Promise.all([
     clearUserBoundLocalData(),
     setRevenueCatUserId(null).catch(() => {}),
@@ -143,8 +152,6 @@ export async function signOut() {
       SecureStore.deleteItemAsync(k).catch(() => {}),
     ),
   ]);
-  const { error } = await supabase.auth.signOut();
-  if (error) throw error;
 }
 
 export async function sendPasswordReset(email: string) {

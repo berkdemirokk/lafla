@@ -10,8 +10,64 @@ jobs:
   database-tests:
     uses: ./.github/workflows/supabase-test.yml
 
+  ios-e2e:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+          run_install: false
+      - name: Select latest Xcode
+        run: |
+          XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode*.app" | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE_APP/Contents/Developer"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Generate iOS project
+        working-directory: apps/mobile
+        run: pnpm exec expo prebuild --platform ios --clean --no-install
+      - name: Install CocoaPods
+        working-directory: apps/mobile/ios
+        run: pod install
+      - name: Build simulator app
+        working-directory: apps/mobile
+        run: |
+          xcodebuild \
+            -workspace ios/Lafla.xcworkspace \
+            -scheme Lafla \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath "$RUNNER_TEMP/lafla-derived" \
+            CODE_SIGNING_ALLOWED=NO \
+            -quiet
+      - name: Boot iOS Simulator
+        run: |
+          RUNTIME=$(xcrun simctl list runtimes --json | jq -r '.runtimes[] | select(.isAvailable and (.identifier | contains("iOS"))) | .identifier' | tail -n 1)
+          DEVICE_TYPE=$(xcrun simctl list devicetypes --json | jq -r '.devicetypes[] | select(.name | startswith("iPhone")) | .identifier' | tail -n 1)
+          DEVICE_ID=$(xcrun simctl create "Lafla CI" "$DEVICE_TYPE" "$RUNTIME")
+          xcrun simctl boot "$DEVICE_ID"
+          open -a Simulator
+          xcrun simctl bootstatus "$DEVICE_ID" -b
+          APP_PATH=$(find "$RUNNER_TEMP/lafla-derived/Build/Products/Release-iphonesimulator" -maxdepth 1 -name '*.app' | head -n 1)
+          test -n "$APP_PATH"
+          xcrun simctl install "$DEVICE_ID" "$APP_PATH"
+      - name: Install Maestro
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+      - name: Run Maestro iOS smoke
+        run: "$HOME/.maestro/bin/maestro test apps/mobile/.maestro/smoke.yaml"
+
   build-and-upload:
-    needs: database-tests
+    needs: [database-tests, ios-e2e]
     runs-on: macos-latest
     timeout-minutes: 90
     env:
@@ -180,7 +236,7 @@ jobs:
           echo "=== Deploying revenuecat-sync ==="
           supabase functions deploy revenuecat-sync --project-ref "$PROJECT_REF" --no-verify-jwt=false
           echo "=== Deploying pronunciation-assess ==="
-          supabase functions deploy pronunciation-assess --project-ref "$PROJECT_REF" --no-verify-jwt
+          supabase functions deploy pronunciation-assess --project-ref "$PROJECT_REF" --no-verify-jwt=false
 
       - name: Write App Store Connect API key
         run: |

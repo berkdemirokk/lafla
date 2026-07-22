@@ -325,9 +325,22 @@ async function transcribeFile(uri: string): Promise<string> {
     throw new Error("Speech recognition module not available");
   }
 
+  if (typeof mod.requestPermissionsAsync === "function") {
+    const permission = await mod.requestPermissionsAsync();
+    if (!permission?.granted) throw new Error("Speech recognition permission denied");
+  }
+
   return new Promise<string>((resolve, reject) => {
     let transcript = "";
     let completed = false;
+
+    const timeout = setTimeout(() => {
+      if (completed) return;
+      completed = true;
+      try { mod.abort?.(); } catch { /* ignore */ }
+      cleanup();
+      reject(new Error("Speech recognition timed out"));
+    }, 30_000);
 
     const resultListener = mod.addListener("result", (e: any) => {
       const text = e.results?.[0]?.transcript ?? "";
@@ -351,6 +364,7 @@ async function transcribeFile(uri: string): Promise<string> {
     });
 
     const cleanup = () => {
+      clearTimeout(timeout);
       try {
         resultListener.remove();
       } catch { /* ignore */ }
@@ -366,7 +380,7 @@ async function transcribeFile(uri: string): Promise<string> {
       mod.start({
         lang: "en-US",
         audioSource: { uri },
-        requiresOnDeviceRecognition: true,
+        requiresOnDeviceRecognition: false,
       });
     } catch (err) {
       if (!completed) {

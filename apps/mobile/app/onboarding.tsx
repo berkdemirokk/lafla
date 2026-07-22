@@ -471,7 +471,11 @@ export default function Onboarding() {
   };
 
   return (
-    <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+    <SafeAreaView
+      style={styles.safe}
+      edges={["top", "bottom"]}
+      testID="onboarding-screen"
+    >
       <ThemedStatusBar />
 
       <View style={styles.header}>

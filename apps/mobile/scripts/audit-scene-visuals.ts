@@ -74,8 +74,8 @@ for (const [theme, images] of themeImageEntries) {
     if (!image.startsWith("https://images.unsplash.com/")) {
       errors.push(`Theme ${theme} has a non-Unsplash image URL: ${image}`);
     }
-    if (!image.includes("w=1600") || !image.includes("q=90")) {
-      errors.push(`Theme ${theme} image is not using the 1600/q90 quality budget: ${image}`);
+    if (!image.includes("w=1200") || !image.includes("q=82")) {
+      errors.push(`Theme ${theme} image is not using the 1200/q82 mobile budget: ${image}`);
     }
     const rejected = rejectedPhotoIds.find((photoId) => image.includes(photoId));
     if (rejected) {

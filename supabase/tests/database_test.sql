@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap;
-select plan(15);
+select plan(19);
 
 create or replace function test_login(p_user_id uuid) returns void as $$
 begin
@@ -36,6 +36,23 @@ values
 on conflict (id) do nothing;
 
 select test_login('11111111-1111-1111-1111-111111111111');
+
+select ok(public.consume_pronunciation_quota(),
+  'authenticated user can consume pronunciation quota');
+
+select results_eq(
+  $$ select count(*)::bigint from public.pronunciation_rate_limits where user_id = '11111111-1111-1111-1111-111111111111' $$,
+  $$ select 0::bigint $$,
+  'authenticated user cannot read private pronunciation quota rows'
+);
+
+select lives_ok(
+  $$ select public.consume_pronunciation_quota() from generate_series(1, 11) $$,
+  'pronunciation quota permits the first twelve requests in a window'
+);
+
+select isnt(public.consume_pronunciation_quota(), true,
+  'pronunciation quota rejects the thirteenth request in a window');
 
 select lives_ok(
   $$ update public.profiles set display_name = 'Updated One' where id = '11111111-1111-1111-1111-111111111111' $$,

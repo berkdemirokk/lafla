@@ -55,6 +55,12 @@ export type LocalProfile = {
   interests: string[];
 };
 
+export type SkillMasteryLocal = {
+  score: number;
+  lessons_completed: number;
+  last_practiced_at?: string;
+};
+
 const DEFAULT_PROFILE: LocalProfile = {
   total_xp: 0,
   current_streak: 0,
@@ -125,7 +131,7 @@ export async function saveLessonState(state: LessonStateLocal) {
 }
 
 export async function getAllSkillMastery(): Promise<
-  Record<string, { score: number; lessons_completed: number }>
+  Record<string, SkillMasteryLocal>
 > {
   return readMap(K_SKILL_MASTERY);
 }
@@ -142,10 +148,19 @@ export async function bumpSkillMastery(skillId: string, accuracy: number) {
     all[skillId] = {
       score: newScore,
       lessons_completed: prev.lessons_completed + 1,
+      last_practiced_at: new Date().toISOString(),
     };
     await writeMap(K_SKILL_MASTERY, all);
     return all[skillId]!;
   });
+}
+
+export async function replaceLearningProgress(args: {
+  lessons: Record<string, LessonStateLocal>;
+  skills: Record<string, SkillMasteryLocal>;
+}): Promise<void> {
+  await withLock(K_LESSON_STATE, () => writeMap(K_LESSON_STATE, args.lessons));
+  await withLock(K_SKILL_MASTERY, () => writeMap(K_SKILL_MASTERY, args.skills));
 }
 
 // User-visible daily activity and streaks share the local-midnight boundary

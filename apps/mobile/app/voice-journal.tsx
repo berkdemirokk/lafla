@@ -26,6 +26,7 @@ import {
   Alert,
   TextInput,
   Platform,
+  Linking,
 } from "react-native";
 import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useFocusEffect, useRouter } from "expo-router";
@@ -45,6 +46,7 @@ import {
   updateEntryNote,
   markRecordingActive,
   markRecordingInactive,
+  analyzeEntry,
   type VoiceEntry,
 } from "../lib/voice-journal";
 import { useTranslation, type Locale } from "../lib/i18n";
@@ -86,7 +88,10 @@ export default function VoiceJournalScreen() {
   const router = useRouter();
   const { t, locale } = useTranslation();
   const [entries, setEntries] = useState<VoiceEntry[]>([]);
-  const [permission, setPermission] = useState<boolean | null>(null);
+  const [permission, setPermission] = useState<{
+    granted: boolean;
+    canAskAgain: boolean;
+  } | null>(null);
   const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
   // Recording state.
@@ -104,6 +109,7 @@ export default function VoiceJournalScreen() {
   // Optional note edit state.
   const [editNoteId, setEditNoteId] = useState<string | null>(null);
   const [noteInput, setNoteInput] = useState("");
+  const [analyzingId, setAnalyzingId] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     setStatus("loading");
@@ -122,15 +128,17 @@ export default function VoiceJournalScreen() {
     }, [load]),
   );
 
-  // Permission request — early so the user sees the prompt before they
-  // tap record. iOS shows the prompt only on the first attempt.
+  // Read permission without prompting. Ask only after an explicit record tap.
   useEffect(() => {
     void (async () => {
       try {
-        const { granted } = await Audio.requestPermissionsAsync();
-        setPermission(granted);
+        const current = await Audio.getPermissionsAsync();
+        setPermission({
+          granted: current.granted,
+          canAskAgain: current.canAskAgain,
+        });
       } catch {
-        setPermission(false);
+        setPermission({ granted: false, canAskAgain: true });
       }
     })();
     return () => {
@@ -148,12 +156,29 @@ export default function VoiceJournalScreen() {
   }, []);
 
   const startRecording = async () => {
-    if (permission === false) {
-      Alert.alert(
-        t("voice_journal.permission_title"),
-        t("voice_journal.permission_body"),
-      );
-      return;
+    if (!permission?.granted) {
+      const response = await Audio.requestPermissionsAsync().catch(() => null);
+      const next = {
+        granted: response?.granted === true,
+        canAskAgain: response?.canAskAgain !== false,
+      };
+      setPermission(next);
+      if (!next.granted) {
+        Alert.alert(
+          t("voice_journal.permission_title"),
+          t("voice_journal.permission_body"),
+          [
+            { text: t("common.cancel"), style: "cancel" },
+            ...(!next.canAskAgain
+              ? [{
+                  text: t("voice_journal.open_settings"),
+                  onPress: () => void Linking.openSettings().catch(() => {}),
+                }]
+              : []),
+          ],
+        );
+        return;
+      }
     }
     try {
       // 2026-05-26 (P0-A fix) — Audio session config'i TAM olmalı.
@@ -274,6 +299,23 @@ export default function VoiceJournalScreen() {
     }
   };
 
+  const handleAnalyze = async (entry: VoiceEntry) => {
+    if (analyzingId) return;
+    setAnalyzingId(entry.id);
+    try {
+      await analyzeEntry(entry.id);
+      await load();
+    } catch (error) {
+      captureException(error, { source: "voice-journal.analyze" });
+      Alert.alert(
+        t("voice_journal.analysis_error_title"),
+        t("voice_journal.analysis_error_body"),
+      );
+    } finally {
+      setAnalyzingId(null);
+    }
+  };
+
   const togglePlay = async (entry: VoiceEntry) => {
     // Aynı entry tekrar tap → durdur.
     if (playingId === entry.id) {
@@ -386,7 +428,6 @@ export default function VoiceJournalScreen() {
               isRecording && styles.recordBtnActive,
               pressed && styles.recordBtnPressed,
             ]}
-            disabled={permission === false}
             accessibilityRole="button"
             accessibilityLabel={isRecording ? t("voice_journal.stop") : t("voice_journal.new")}
           >
@@ -491,13 +532,40 @@ export default function VoiceJournalScreen() {
                       <Text style={styles.noteAddText}>+ {t("voice_journal.note_add")}</Text>
                     </Pressable>
                   )}
+                  {entry.analysis ? (
+                    <View style={styles.analysisBox}>
+                      <Text style={styles.analysisTranscript}>
+                        {entry.transcript || t("voice_journal.no_transcript")}
+                      </Text>
+                      <Text style={styles.analysisStats}>
+                        {t("voice_journal.analysis_stats", {
+                          wpm: String(entry.analysis.avgWordsPerMinute),
+                          fillers: String(entry.analysis.fillerWords),
+                        })}
+                      </Text>
+                    </View>
+                  ) : (
+                    <Pressable
+                      onPress={() => void handleAnalyze(entry)}
+                      disabled={analyzingId !== null}
+                      accessibilityRole="button"
+                      accessibilityLabel={t("voice_journal.analyze")}
+                      style={styles.analyzeBtn}
+                    >
+                      <Text style={styles.analyzeText}>
+                        {analyzingId === entry.id
+                          ? t("voice_journal.analyzing")
+                          : t("voice_journal.analyze")}
+                      </Text>
+                    </Pressable>
+                  )}
                 </View>
               );
             })}
           </View>
         )}
 
-        {permission === false && (
+        {permission?.granted === false && permission.canAskAgain === false && (
           <View style={styles.permWarn}>
             <Text style={styles.permWarnText}>
               {t("voice_journal.permission_warning")}
@@ -736,6 +804,34 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: tokens.text.tertiary,
     paddingLeft: 52,
+  },
+  analyzeBtn: {
+    alignSelf: "flex-start",
+    marginTop: 10,
+    marginLeft: 52,
+    paddingVertical: 8,
+  },
+  analyzeText: {
+    color: tokens.brand.primary,
+    fontSize: 13,
+    fontWeight: tokens.weight.bold,
+  },
+  analysisBox: {
+    marginTop: 10,
+    marginLeft: 52,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: tokens.border.light,
+    gap: 4,
+  },
+  analysisTranscript: {
+    color: tokens.text.secondary,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  analysisStats: {
+    color: tokens.text.tertiary,
+    fontSize: 12,
   },
 
   // ─── Permission warning ─────────────────────────────────────

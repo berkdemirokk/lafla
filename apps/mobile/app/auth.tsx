@@ -107,6 +107,7 @@ function PressScale({
   accessibilityLabel,
   accessibilityRole,
   hitSlop,
+  testID,
   children,
 }: {
   onPress: () => void;
@@ -115,6 +116,7 @@ function PressScale({
   accessibilityLabel?: string;
   accessibilityRole?: "button" | "link";
   hitSlop?: number;
+  testID?: string;
   children: React.ReactNode;
 }) {
   const scale = useSharedValue(1);
@@ -138,6 +140,7 @@ function PressScale({
       accessibilityRole={accessibilityRole ?? "button"}
       accessibilityLabel={accessibilityLabel}
       hitSlop={hitSlop}
+      testID={testID}
     >
       {children}
     </AnimatedPressable>
@@ -596,6 +599,7 @@ export default function Auth() {
           <PressScale
             style={styles.skipBtn}
             onPress={skipAuth}
+            testID="auth-skip"
             hitSlop={12}
             accessibilityRole="button"
             accessibilityLabel={t("auth.skip_label")}

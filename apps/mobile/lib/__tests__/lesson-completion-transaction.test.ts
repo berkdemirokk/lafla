@@ -81,4 +81,20 @@ describe("lesson completion transaction", () => {
     expect((await getLessonState(input.lesson_id))?.total_attempts).toBe(1);
     expect(mockEnqueueCloudProgress).toHaveBeenCalledTimes(2);
   });
+
+  it("queues cumulative skill mastery instead of overwriting with the last score", async () => {
+    mockGetSession.mockResolvedValue({
+      data: { session: { user: { id: "user-1" } } },
+    });
+    await completeLesson(input);
+    await completeLesson({
+      ...input,
+      accuracy: 0.6,
+      completion_id: "completion-2",
+    });
+
+    const queued = mockEnqueueCloudProgress.mock.calls.at(-1)?.[0];
+    expect(queued.skillMastery.lessons_completed).toBe(2);
+    expect(queued.skillMastery.mastery_score).toBeCloseTo(0.43);
+  });
 });

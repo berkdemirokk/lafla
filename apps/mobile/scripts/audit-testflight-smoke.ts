@@ -19,6 +19,10 @@ function readRequired(path: string): string {
 
 const checklistPath = join(mobileDir, "docs", "testflight-smoke-checklist.md");
 const checklist = readRequired(checklistPath);
+const maestroFlow = readRequired(join(mobileDir, ".maestro", "smoke.yaml"));
+for (const marker of ["auth-skip", "onboarding-screen"]) {
+  if (!maestroFlow.includes(marker)) errors.push(`Maestro smoke missing ${marker}`);
+}
 const requiredChecks = Array.from({ length: 14 }, (_, index) =>
   `SMOKE-${String(index + 1).padStart(2, "0")}`,
 );
@@ -74,6 +78,7 @@ const requiredWorkflowMarkers = [
   "Audit scene visuals",
   "Run mobile performance budget",
   "Verify TestFlight smoke checklist",
+  "Run Maestro iOS smoke",
   "Verify Expo dependencies",
   "Upload to TestFlight",
 ];

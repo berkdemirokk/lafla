@@ -11,11 +11,27 @@ function request(body: unknown, ip = "203.0.113.10"): Request {
 
 const wavBase64 = btoa("RIFF" + "0".repeat(80));
 
+const authenticated = {
+  authenticate: async () => "11111111-1111-1111-1111-111111111111",
+  consumeQuota: async () => true,
+};
+
+Deno.test("pronunciation assessment rejects anonymous requests", async () => {
+  const response = await handlePronunciationAssess(request({ action: "status" }), {
+    getEnv: () => "configured",
+    fetch,
+    authenticate: async () => null,
+    consumeQuota: async () => true,
+  });
+  assertEquals(response.status, 401);
+  assertEquals(await response.json(), { error: "unauthorized" });
+});
+
 Deno.test("pronunciation assessment fails closed without provider secrets", async () => {
   const response = await handlePronunciationAssess(request({
     referenceText: "Good morning.",
     audioBase64: wavBase64,
-  }), { getEnv: () => undefined, fetch });
+  }), { getEnv: () => undefined, fetch, ...authenticated });
   assertEquals(response.status, 503);
   assertEquals(await response.json(), { error: "provider_not_configured" });
 });
@@ -27,6 +43,7 @@ Deno.test("pronunciation assessment validates and normalizes provider scores", a
     audioBase64: wavBase64,
   }), {
     getEnv: (name) => name === "AZURE_SPEECH_KEY" ? "secret" : "westeurope",
+    ...authenticated,
     fetch: async (input) => {
       receivedUrl = String(input);
       return new Response(JSON.stringify({
@@ -64,7 +81,7 @@ Deno.test("pronunciation assessment validates and normalizes provider scores", a
 });
 
 Deno.test("pronunciation assessment rejects oversized or malformed input", async () => {
-  const deps = { getEnv: () => "configured", fetch };
+  const deps = { getEnv: () => "configured", fetch, ...authenticated };
   const missing = await handlePronunciationAssess(request({ referenceText: "Hi" }), deps);
   assertEquals(missing.status, 400);
   const invalidReference = await handlePronunciationAssess(request({
@@ -74,21 +91,17 @@ Deno.test("pronunciation assessment rejects oversized or malformed input", async
   assertEquals(invalidReference.status, 400);
 });
 
-Deno.test("pronunciation assessment rate limits repeated anonymous requests", async () => {
-  const rateLimits = new Map();
+Deno.test("pronunciation assessment enforces the persistent quota result", async () => {
   const deps = {
     getEnv: () => "configured",
     fetch,
-    now: () => 1_000,
-    rateLimits,
+    authenticate: async () => "11111111-1111-1111-1111-111111111111",
+    consumeQuota: async () => false,
   };
-  let response: Response | null = null;
-  for (let index = 0; index < 13; index += 1) {
-    response = await handlePronunciationAssess(
-      request({ referenceText: "Hi", audioBase64: wavBase64 }, "198.51.100.8"),
-      deps,
-    );
-  }
-  assertEquals(response?.status, 429);
-  assertEquals(await response?.json(), { error: "rate_limited" });
+  const response = await handlePronunciationAssess(
+    request({ referenceText: "Hi", audioBase64: wavBase64 }),
+    deps,
+  );
+  assertEquals(response.status, 429);
+  assertEquals(await response.json(), { error: "rate_limited" });
 });

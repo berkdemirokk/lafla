@@ -6,21 +6,11 @@ const CORS_HEADERS = {
 
 const MAX_AUDIO_BYTES = 1_500_000;
 const MAX_REFERENCE_LENGTH = 500;
-const RATE_LIMIT_WINDOW_MS = 60_000;
-const RATE_LIMIT_MAX_ASSESSMENTS = 12;
-
-interface RateLimitEntry {
-  windowStartedAt: number;
-  count: number;
-}
-
-const rateLimitStore = new Map<string, RateLimitEntry>();
-
 export interface PronunciationAssessDependencies {
   getEnv: (name: string) => string | undefined;
   fetch: typeof fetch;
-  now?: () => number;
-  rateLimits?: Map<string, RateLimitEntry>;
+  authenticate: (request: Request) => Promise<string | null>;
+  consumeQuota: (userId: string) => Promise<boolean>;
 }
 
 interface AzureWord {
@@ -69,41 +59,17 @@ function finiteScore(value: unknown): number | null {
     : null;
 }
 
-function clientKey(request: Request): string {
-  return (
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("cf-connecting-ip") ||
-    "unknown"
-  );
-}
-
-function isRateLimited(
-  request: Request,
-  now: number,
-  store: Map<string, RateLimitEntry>,
-): boolean {
-  const key = clientKey(request);
-  const current = store.get(key);
-  if (!current || now - current.windowStartedAt >= RATE_LIMIT_WINDOW_MS) {
-    store.set(key, { windowStartedAt: now, count: 1 });
-    return false;
-  }
-  if (current.count >= RATE_LIMIT_MAX_ASSESSMENTS) return true;
-  current.count += 1;
-  return false;
-}
-
 export async function handlePronunciationAssess(
   request: Request,
-  dependencies: PronunciationAssessDependencies = {
-    getEnv: (name) => Deno.env.get(name),
-    fetch,
-  },
+  dependencies: PronunciationAssessDependencies,
 ): Promise<Response> {
   if (request.method === "OPTIONS") {
     return new Response("ok", { headers: CORS_HEADERS });
   }
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405);
+
+  const userId = await dependencies.authenticate(request).catch(() => null);
+  if (!userId) return json({ error: "unauthorized" }, 401);
 
   let body: { action?: unknown; audioBase64?: unknown; referenceText?: unknown };
   try {
@@ -120,13 +86,8 @@ export async function handlePronunciationAssess(
   if (!speechKey || !speechRegion) {
     return json({ error: "provider_not_configured" }, 503);
   }
-  if (
-    isRateLimited(
-      request,
-      dependencies.now?.() ?? Date.now(),
-      dependencies.rateLimits ?? rateLimitStore,
-    )
-  ) {
+  const allowed = await dependencies.consumeQuota(userId).catch(() => false);
+  if (!allowed) {
     return json({ error: "rate_limited" }, 429);
   }
 

@@ -1,8 +1,7 @@
-// Lafla — Daily Plan (30 dk session loop).
+// Lafla — Daily Plan (8-12 minute session loop).
 //
 // 2026-05-21 — Engagement loop. Kullanıcı "1 sahne yapıp çıkıyor" pattern'ından
-// "5-7 sahne back-to-back oynuyor" pattern'ına çekilir. Talkpal/Speak gibi
-// rakiplerin "30 dk session" tutturma hedefine karşılık.
+// three focused scenes in one sitting without creating a long mandatory chain.
 //
 // Mekanik:
 //   1. Home'da girince: "Bugünün Planı: N sahne · X dk" banner
@@ -12,7 +11,7 @@
 //   5. Queue bitince "Bugünkü plan tamamlandı 🎉" özet
 //
 // Plan composition:
-//   - 5 sahne (CEFR ±1 + ilgi alanı filtreli, completed olmayanlar)
+//   - 3 sahne (CEFR ±1 + ilgi alanı filtreli, completed olmayanlar)
 //   - Skill çeşitliliği için aynı skill'den max 2 sahne
 //   - Deterministic per (user, day) — aynı gün açtıkça aynı plan
 //   - Yarına yeni plan (local YYYY-MM-DD seed)
@@ -335,7 +334,7 @@ export async function getPlanProgress(): Promise<{
       const p = JSON.parse(raw) as PlanProgress;
       // 2026-05-25 (B-EDGE-4) — Plan yeniden üretildiyse (signature mismatch)
       // progress'i geçersiz say. Aksi halde yeni 5 sahnenin hepsi yapılmamış
-      // ama "5/5 tamam" görünür.
+      // ama "3/3 tamam" görünür.
       if (p.date === today && (!p.planSig || p.planSig === sig)) {
         completed = p.completedCount;
         completedLessonIds = Array.isArray(p.completedLessonIds)
@@ -443,7 +442,7 @@ export async function getNextInPlan(
 }
 
 /**
- * UI helper — banner için. "5 sahne · 20 dk" gibi özet.
+ * UI helper — banner için. "3 sahne · 10 dk" gibi özet.
  */
 export async function getPlanSummary(): Promise<{
   total: number;

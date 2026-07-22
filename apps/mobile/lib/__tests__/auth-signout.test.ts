@@ -75,4 +75,16 @@ describe("signOut local isolation", () => {
     );
     expect(mockClearVoiceJournal).toHaveBeenCalledTimes(1);
   });
+
+  it("preserves local account data when remote sign-out fails", async () => {
+    await AsyncStorage.setItem("lafla.lessons", "valuable-progress");
+    mockSupabaseSignOut.mockResolvedValue({ error: new Error("offline") });
+
+    await expect(signOut()).rejects.toThrow("offline");
+
+    await expect(AsyncStorage.getItem("lafla.lessons"))
+      .resolves.toBe("valuable-progress");
+    expect(mockClearVoiceJournal).not.toHaveBeenCalled();
+    expect(mockRevenueCatUserId).not.toHaveBeenCalled();
+  });
 });
