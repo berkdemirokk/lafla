@@ -40,9 +40,10 @@ select test_login('11111111-1111-1111-1111-111111111111');
 select ok(public.consume_pronunciation_quota(),
   'authenticated user can consume pronunciation quota');
 
-select results_eq(
-  $$ select count(*)::bigint from public.pronunciation_rate_limits where user_id = '11111111-1111-1111-1111-111111111111' $$,
-  $$ select 0::bigint $$,
+select throws_ok(
+  $$ select count(*) from public.pronunciation_rate_limits $$,
+  '42501',
+  null,
   'authenticated user cannot read private pronunciation quota rows'
 );
 
