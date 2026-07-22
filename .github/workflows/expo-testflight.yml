@@ -50,9 +50,9 @@ jobs:
             -quiet
       - name: Boot iOS Simulator
         run: |
-          RUNTIME=$(xcrun simctl list runtimes --json | jq -r '.runtimes[] | select(.isAvailable and (.identifier | contains("iOS"))) | .identifier' | tail -n 1)
-          DEVICE_TYPE=$(xcrun simctl list devicetypes --json | jq -r '.devicetypes[] | select(.name | startswith("iPhone")) | .identifier' | tail -n 1)
-          DEVICE_ID=$(xcrun simctl create "Lafla CI" "$DEVICE_TYPE" "$RUNTIME")
+          DEVICE_ID=$(xcrun simctl list devices available --json | jq -r '[.devices[] | .[] | select(.isAvailable and (.name | startswith("iPhone")))] | last | .udid')
+          test -n "$DEVICE_ID"
+          test "$DEVICE_ID" != "null"
           xcrun simctl boot "$DEVICE_ID"
           open -a Simulator
           xcrun simctl bootstatus "$DEVICE_ID" -b
