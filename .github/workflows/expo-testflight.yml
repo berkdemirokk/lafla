@@ -12,7 +12,7 @@ jobs:
 
   ios-e2e:
     runs-on: macos-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -64,6 +64,8 @@ jobs:
           curl -Ls "https://get.maestro.mobile.dev" | bash
           echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
       - name: Run Maestro iOS smoke
+        env:
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 300000
         run: "$HOME/.maestro/bin/maestro test apps/mobile/.maestro/smoke.yaml"
 
   build-and-upload:
