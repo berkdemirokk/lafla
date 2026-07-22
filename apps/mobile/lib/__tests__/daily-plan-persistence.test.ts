@@ -4,6 +4,7 @@ import {
   getOrCreateDailyPlan,
   getPlanProgress,
   incrementPlanProgress,
+  selectWeakSkillLessonId,
 } from "../daily-plan";
 import { SAMPLE_SCENES } from "../../data/scenes";
 import { saveLessonState } from "../local-progress";
@@ -27,6 +28,28 @@ describe("daily plan persistence", () => {
     ]);
 
     await expect(getPlanProgress()).resolves.toMatchObject({ completed: 2 });
+  });
+
+  it("selects one scene from the learner's weakest practiced skill", () => {
+    const cafe = SAMPLE_SCENES.find((scene) => scene.skillId === "order.cafe")!;
+    const restaurant = SAMPLE_SCENES.find(
+      (scene) => scene.skillId === "order.restaurant",
+    )!;
+    expect(
+      selectWeakSkillLessonId([cafe, restaurant], {
+        "order.cafe": { score: 0.62, lessons_completed: 2 },
+        "order.restaurant": { score: 0.31, lessons_completed: 1 },
+      }),
+    ).toBe(restaurant.lessonId);
+  });
+
+  it("does not force mastered or unpracticed skills into the plan", () => {
+    const scene = SAMPLE_SCENES[0]!;
+    expect(
+      selectWeakSkillLessonId([scene], {
+        [scene.skillId]: { score: 0.9, lessons_completed: 4 },
+      }),
+    ).toBeNull();
   });
 
   it("puts a due completed lesson back into the daily learning loop", async () => {

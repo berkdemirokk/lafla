@@ -27,6 +27,7 @@ import {
 } from "./cefr-level";
 import {
   getAllLessonState,
+  getAllSkillMastery,
   getInterests,
   getCompletedLessonIds,
 } from "./local-progress";
@@ -36,7 +37,7 @@ import { localDayKey } from "./day-key";
 
 const K_PLAN = "lafla.dailyPlan";
 const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
-const PLAN_VERSION = 2;
+const PLAN_VERSION = 3;
 
 let planProgressWriteChain: Promise<unknown> = Promise.resolve();
 
@@ -91,6 +92,30 @@ function calibratedLevel(scene: Scene): CefrLevel | undefined {
   return getScenario(scene.lessonId)?.cefrLevel ?? scene.cefrLevel;
 }
 
+type SkillMasteryMap = Record<
+  string,
+  { score: number; lessons_completed: number }
+>;
+
+export function selectWeakSkillLessonId(
+  candidates: readonly Pick<Scene, "lessonId" | "skillId">[],
+  mastery: SkillMasteryMap,
+): string | null {
+  const weakSkills = Object.entries(mastery)
+    .filter(
+      ([, value]) =>
+        value.lessons_completed > 0 &&
+        Number.isFinite(value.score) &&
+        value.score < 0.75,
+    )
+    .sort((a, b) => a[1].score - b[1].score);
+  for (const [skillId] of weakSkills) {
+    const match = candidates.find((scene) => scene.skillId === skillId);
+    if (match) return match.lessonId;
+  }
+  return null;
+}
+
 /**
  * FNV-1a — deterministic shuffle seed (per-day per-user).
  * Username yok ise sadece date seed.
@@ -137,11 +162,12 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
   }
 
   // 2. Üretim
-  const [cefr, interests, completed, lessonStates] = await Promise.all([
+  const [cefr, interests, completed, lessonStates, skillMastery] = await Promise.all([
     getCefrLevel(),
     getInterests(),
     getCompletedLessonIds(),
     getAllLessonState(),
+    getAllSkillMastery(),
   ]);
   const nowIso = new Date().toISOString();
   const dueLessonIds = Object.values(lessonStates)
@@ -235,9 +261,18 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
   // Skill diversity — same skill_id max 2
   const dueLessonSet = new Set(duePool.map((scene) => scene.lessonId));
   const poolLessonSet = new Set(pool.map((scene) => scene.lessonId));
+  const weakSkillLessonId = selectWeakSkillLessonId(pool, skillMastery);
+  const weakSkillScene = weakSkillLessonId
+    ? pool.find((scene) => scene.lessonId === weakSkillLessonId)
+    : undefined;
   const candidates = [
     ...duePool.slice(0, 1),
-    ...pool.filter((scene) => !dueLessonSet.has(scene.lessonId)),
+    ...(weakSkillScene ? [weakSkillScene] : []),
+    ...pool.filter(
+      (scene) =>
+        !dueLessonSet.has(scene.lessonId) &&
+        scene.lessonId !== weakSkillLessonId,
+    ),
     ...shuffle(
       playablePool.filter(
         (scene) =>

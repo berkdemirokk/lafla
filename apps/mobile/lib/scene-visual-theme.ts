@@ -70,17 +70,16 @@ const FALLBACK_BY_MODE: Record<SceneMode, VisualTheme> = {
 
 export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
   airport: [
-    IMG("photo-1542291026-7eec264c27ff"), // modern terminal neon glow
-    IMG("photo-1490430657723-4d607c1503fc"), // airport sunset runway
+    IMG("photo-1490430657723-4d607c1503fc"), // departures board
     IMG("photo-1436491865332-7a61a109cc05"), // plane passenger window
     IMG("photo-1506012787146-f92b2d7d6d96"), // luxury airplane cabin
     IMG("photo-1530521954074-e64f6810b32d"), // luggage passport
     IMG("photo-1483450388369-9ed95738483c"), // night airport tarmac lights
   ],
   immigration: [
-    IMG("photo-1436491865332-7a61a109cc05"),
-    IMG("photo-1517400508447-f8dd518b86db"), // travel checkpoint
-    IMG("photo-1522071820081-009f0129c71c"), // official counter
+    IMG("photo-1454496406107-dc34337da8d6"), // passport and boarding pass
+    IMG("photo-1553697388-94e804e2f0f6"), // travellers holding passports
+    IMG("photo-1563463149242-bd378d9ab05c"), // passport control signage
   ],
   bar: [
     IMG("photo-1514362545857-3bc16c4c7d1b"), // bartender pouring cocktail
@@ -111,7 +110,6 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
   ],
   fastfood: [
     IMG("photo-1568901346375-23c9450c58cd"), // high quality burger
-    IMG("photo-1768204039041-bbb7adf98078"), // modern fastfood counter
     IMG("photo-1746023790231-d6d87d1dfeab"), // gourmet pizza slice
     IMG("photo-1763689389824-dd2cea2e5772"), // fries and diner style
   ],
@@ -123,17 +121,15 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
   delivery: [
     IMG("photo-1566576721346-d4a3b4eaeb55"), // courier close up
     IMG("photo-1586528116311-ad8dd3c8310d"), // delivery box parcel
-    IMG("photo-1768204039041-bbb7adf98078"), // takeout box delivery
   ],
   grocery: [
     IMG("photo-1542838132-92c53300491e"), // supermarket fresh alley
     IMG("photo-1579113800032-c38bd7635818"), // organic vegetables shop
-    IMG("photo-1607082348824-0a96f2a4b9da"), // checkout counter payment
   ],
   taxi: [
     IMG("photo-1449965408869-eaa3f722e40d"), // taxi passenger perspective
-    IMG("photo-1485291571150-772bcfc10da5"), // cab dashboard at night
-    IMG("photo-1503376780353-7e6692767b70"), // yellow cab nyc
+    IMG("photo-1628947733273-cdae71c9bfd3"), // city taxi cab
+    IMG("photo-1630717285906-29364ffacea0"), // yellow taxi on the street
   ],
   transit: [
     IMG("photo-1544620347-c4fd4a3d5957"), // modern bus interior/stop
@@ -163,25 +159,24 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1579684385127-1ef15d508118"), // clinic reception
   ],
   doctor: [
+    IMG("photo-1631815590058-860e4f83c1e8"), // blood-pressure consultation
+    IMG("photo-1666214278797-b2cc1b12be76"), // clinician explaining results
     IMG("photo-1576091160550-2173dba999ef"), // stethoscope checkup
-    IMG("photo-1580281658223-9b93f18ae9ae"), // doctor discussing with patient
-    IMG("photo-1530026405186-ed1f139313f8"), // modern hospital exam room
   ],
   dentist: [
     IMG("photo-1606811971618-4486d14f3f99"), // dentist office chair
-    IMG("photo-1588776814546-1ffcf47267a5"), // dental tools checkup
+    IMG("photo-1777331903190-341a3dd0441b"), // dentist and patient consultation
   ],
   optician: [
     IMG("photo-1574258495973-f010dfbb5371"), // glasses frames display
     IMG("photo-1511499767150-a48a237f0083"), // eye exam chart clinic
   ],
   vet: [
-    IMG("photo-1576201836106-db1758fd1c97"), // puppy veterinary checkup
-    IMG("photo-1583337130417-3346a1be7dee"), // cat in clinic exam
+    IMG("photo-1770836037275-38b44e4b101f"), // veterinarian treating a dog
+    IMG("photo-1770836037793-95bdbf190f71"), // dog examination in clinic
   ],
   emergency: [
     IMG("photo-1587745416684-47953f16f02f"), // flashing emergency lights
-    IMG("photo-1504439468489-c8920d796a29"), // hospital trauma room
     IMG("photo-1527613426441-4da17471b66d"), // ambulance interior
   ],
   shopping: [
@@ -220,11 +215,9 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1526506118085-60ce8714f8c5"), // modern treadmill rows
     IMG("photo-1605296867304-46d5465a13f1"), // athletic training weights
     IMG("photo-1517836357463-d25dfeac3438"), // fitness weights rack
-    IMG("photo-1540497077202-7c8a3999166f"), // yoga dumbbells aesthetic
   ],
   salon: [
     IMG("photo-1503951914875-452162b0f3f1"), // barber shop styling
-    IMG("photo-1585747860715-2ba37e788b70"), // beauty salon mirror
     IMG("photo-1521590832167-7bcbfaa6381f"), // hair cutting styling
     IMG("photo-1600948836101-f9ffda59d250"), // premium hair care products
   ],
@@ -239,7 +232,6 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1516321318423-f06f85e504b3"),
     IMG("photo-1580894894513-541e068a3e2b"), // call center setup
     IMG("photo-1497366216548-37526070297c"), // server hardware cabinet
-    IMG("photo-1504384308090-c894fdcc538d"), // tech helpdesk support
   ],
   ielts: [
     IMG("photo-1434030216411-0b793f4b4173"), // student workspace notebook
@@ -264,18 +256,15 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1495474472287-4d71bcdd2085"), // coffee cups phone
   ],
   date_cafe: [
-    IMG("photo-1516589178581-6cd7833ae3b2"), // happy couple laughing in cafe
+    IMG("photo-1769153662792-5510efba2d5d"), // two people talking in a cafe
+    IMG("photo-1764173039259-3cdf3d9a56e2"), // couples talking over coffee
     IMG("photo-1509042239860-f550ce710b93"), // warm coffee table sharing
     IMG("photo-1517248135467-4c7edcad34c4"), // dinner reservation date
     IMG("photo-1514362545857-3bc16c4c7d1b"), // cocktails date close up
-    IMG("photo-1464746133101-a2c3f88e0dd9"), // sunset date walk
-    IMG("photo-1522673607200-164d1b6ce486"), // dinner date fairy lights
   ],
   relationship: [
-    IMG("photo-1516589178581-6cd7833ae3b2"),
-    IMG("photo-1495474472287-4d71bcdd2085"),
-    IMG("photo-1517248135467-4c7edcad34c4"),
-    IMG("photo-1516450360452-9312f5e86fc7"), // romantic home date
+    IMG("photo-1769153662792-5510efba2d5d"), // face-to-face conversation
+    IMG("photo-1764173039259-3cdf3d9a56e2"), // relationship conversation
     IMG("photo-1518199266791-5375a83190b7"), // couple holding hands close up
   ],
   party: [
@@ -321,10 +310,10 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1515187029135-18ee286d815b"),
   ],
   daily_conversation: [
-    IMG("photo-1519501025264-65ba15a82390"), // cozy street cafe chatting
-    IMG("photo-1480714378408-67cf0d13bc1b"), // park walk chatting
-    IMG("photo-1501339847302-ac426a4a7cbb"), // talking over drinks
-    IMG("photo-1517248135467-4c7edcad34c4"), // dining conversations
+    IMG("photo-1769153662792-5510efba2d5d"), // cafe conversation
+    IMG("photo-1764173039259-3cdf3d9a56e2"), // friends talking at a table
+    IMG("photo-1522071820081-009f0129c71c"), // small group discussion
+    IMG("photo-1529156069898-49953e39b3ac"), // casual group conversation
   ],
   family: [
     IMG("photo-1511895426328-dc8714191300"), // parents child picnic
@@ -337,13 +326,12 @@ export const VISUAL_THEME_IMAGES: Record<VisualTheme, string[]> = {
     IMG("photo-1534438327276-14e5300c3a48"),
   ],
   weather: [
-    IMG("photo-1519501025264-65ba15a82390"),
-    IMG("photo-1480714378408-67cf0d13bc1b"),
-    IMG("photo-1477959858617-67f85cf4f1df"),
+    IMG("photo-1747907378400-7d77a8928f8b"), // rain on an umbrella
+    IMG("photo-1525490829609-d166ddb58678"), // sunny sky
+    IMG("photo-1419833173245-f59e1b93f9ee"), // dramatic clouds
   ],
   self_care: [
     IMG("photo-1506126613408-eca07ce68773"), // yoga breathing self care
-    IMG("photo-1526506118085-60ce8714f8c5"),
     IMG("photo-1495474472287-4d71bcdd2085"),
   ],
 };

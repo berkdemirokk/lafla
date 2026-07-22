@@ -82,6 +82,7 @@ export function estimateSpokenSeconds(responses: readonly string[]): number {
 }
 
 export function recordSceneEvidence(args: {
+  completionId?: string;
   sceneId: string;
   score: number;
   userResponses?: readonly string[];
@@ -91,9 +92,11 @@ export function recordSceneEvidence(args: {
 }): Promise<void> {
   const at = args.at ?? new Date();
   return append({
-    // React effects and native completion callbacks can occasionally fire
-    // twice. Keep intentional replays while collapsing a five-second burst.
-    id: `scene:${args.sceneId}:${Math.floor(at.getTime() / 5_000)}`,
+    // Use the mounted scenario's stable completion ID when available. The
+    // time bucket remains only for legacy callers without an ID.
+    id:
+      args.completionId ??
+      `scene:${args.sceneId}:${Math.floor(at.getTime() / 5_000)}`,
     kind: "scene",
     at: at.toISOString(),
     spokenSeconds: estimateSpokenSeconds(args.userResponses ?? []),

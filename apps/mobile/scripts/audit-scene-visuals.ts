@@ -8,6 +8,19 @@ import {
 
 const errors: string[] = [];
 
+const rejectedPhotoIds = [
+  "photo-1542291026-7eec264c27ff", // running shoe, previously tagged airport
+  "photo-1517400508447-f8dd518b86db", // stock display, previously immigration
+  "photo-1530026405186-ed1f139313f8", // clothing, previously doctor
+  "photo-1588776814546-1ffcf47267a5", // laptop, previously dentist
+  "photo-1768204039041-bbb7adf98078", // cat, previously fast food
+  "photo-1607082348824-0a96f2a4b9da", // office flat lay, previously grocery
+  "photo-1503376780353-7e6692767b70", // police car, previously taxi
+  "photo-1504439468489-c8920d796a29", // factory machinery, previously emergency
+  "photo-1540497077202-7c8a3999166f", // office, previously gym
+  "photo-1585747860715-2ba37e788b70", // restaurant, previously salon
+];
+
 const expectedThemes: Array<{
   lessonId: string;
   theme: VisualTheme;
@@ -54,8 +67,8 @@ const themeImageEntries = Object.entries(VISUAL_THEME_IMAGES) as Array<
   [VisualTheme, string[]]
 >;
 for (const [theme, images] of themeImageEntries) {
-  if (images.length === 0) {
-    errors.push(`Theme ${theme} has no images`);
+  if (images.length < 2) {
+    errors.push(`Theme ${theme} needs at least two reviewed images, found ${images.length}`);
   }
   for (const image of images) {
     if (!image.startsWith("https://images.unsplash.com/")) {
@@ -63,6 +76,10 @@ for (const [theme, images] of themeImageEntries) {
     }
     if (!image.includes("w=1600") || !image.includes("q=90")) {
       errors.push(`Theme ${theme} image is not using the 1600/q90 quality budget: ${image}`);
+    }
+    const rejected = rejectedPhotoIds.find((photoId) => image.includes(photoId));
+    if (rejected) {
+      errors.push(`Theme ${theme} still contains rejected visual ${rejected}`);
     }
   }
 }

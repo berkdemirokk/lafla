@@ -825,6 +825,7 @@ export default function ScenarioScreen() {
     }
 
     void recordSceneEvidence({
+      completionId: completionIdRef.current,
       sceneId: scenario.id,
       score: result.mastery_score ?? result.score,
       userResponses: result.user_responses,

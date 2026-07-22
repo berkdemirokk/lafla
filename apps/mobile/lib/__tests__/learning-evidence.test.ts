@@ -50,4 +50,20 @@ describe("learning evidence", () => {
     expect(summary.scoreChange).toBe(25);
     expect(summary.mistakeChange).toBe(-2);
   });
+
+  it("deduplicates one completion callback but keeps a real replay", async () => {
+    const shared = {
+      sceneId: "daily-cafe",
+      score: 70,
+      at: new Date("2026-07-20T12:00:00.000Z"),
+    };
+    await recordSceneEvidence({ ...shared, completionId: "attempt-1" });
+    await recordSceneEvidence({ ...shared, completionId: "attempt-1" });
+    await recordSceneEvidence({ ...shared, completionId: "attempt-2" });
+
+    const summary = await getWeeklyLearningEvidence(
+      new Date("2026-07-22T12:00:00.000Z"),
+    );
+    expect(summary.completedScenes).toBe(2);
+  });
 });
