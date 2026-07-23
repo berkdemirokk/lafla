@@ -53,6 +53,7 @@ jobs:
           DEVICE_ID=$(xcrun simctl list devices available --json | jq -r '[.devices[] | .[] | select(.isAvailable and (.name | startswith("iPhone")))] | last | .udid')
           test -n "$DEVICE_ID"
           test "$DEVICE_ID" != "null"
+          echo "IOS_SIMULATOR_UDID=$DEVICE_ID" >> "$GITHUB_ENV"
           xcrun simctl boot "$DEVICE_ID"
           open -a Simulator
           xcrun simctl bootstatus "$DEVICE_ID" -b
@@ -66,7 +67,9 @@ jobs:
       - name: Run Maestro iOS smoke
         env:
           MAESTRO_DRIVER_STARTUP_TIMEOUT: 300000
-        run: "$HOME/.maestro/bin/maestro test apps/mobile/.maestro/smoke.yaml"
+        run: |
+          "$HOME/.maestro/bin/maestro" --version
+          "$HOME/.maestro/bin/maestro" --device "$IOS_SIMULATOR_UDID" test apps/mobile/.maestro/smoke.yaml
 
   build-and-upload:
     needs: [database-tests, ios-e2e]
