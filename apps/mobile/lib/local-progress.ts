@@ -3,6 +3,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { isObject, isStringArray, parseSafe } from "./json-safe";
+import { localDayKey } from "./day-key";
 
 // ---------------------------------------------------------------------------
 // BUG-2 FIX: Simple promise-based mutex per key to prevent concurrent
@@ -54,6 +55,12 @@ export type LocalProfile = {
   interests: string[];
 };
 
+export type SkillMasteryLocal = {
+  score: number;
+  lessons_completed: number;
+  last_practiced_at?: string;
+};
+
 const DEFAULT_PROFILE: LocalProfile = {
   total_xp: 0,
   current_streak: 0,
@@ -74,11 +81,10 @@ async function readMap<T>(key: string): Promise<Record<string, T>> {
 }
 
 async function writeMap<T>(key: string, map: Record<string, T>) {
-  try {
-    await AsyncStorage.setItem(key, JSON.stringify(map));
-  } catch {
-    // ignore
-  }
+  // A failed progress write is not recoverable by pretending success. Let the
+  // caller decide whether to retry, queue, or surface an error; otherwise the
+  // verdict UI advances while lesson/XP/streak data silently disappears.
+  await AsyncStorage.setItem(key, JSON.stringify(map));
 }
 
 export async function getLocalProfile(): Promise<LocalProfile> {
@@ -125,7 +131,7 @@ export async function saveLessonState(state: LessonStateLocal) {
 }
 
 export async function getAllSkillMastery(): Promise<
-  Record<string, { score: number; lessons_completed: number }>
+  Record<string, SkillMasteryLocal>
 > {
   return readMap(K_SKILL_MASTERY);
 }
@@ -142,16 +148,25 @@ export async function bumpSkillMastery(skillId: string, accuracy: number) {
     all[skillId] = {
       score: newScore,
       lessons_completed: prev.lessons_completed + 1,
+      last_practiced_at: new Date().toISOString(),
     };
     await writeMap(K_SKILL_MASTERY, all);
     return all[skillId]!;
   });
 }
 
-// BUG-4 FIX: Use UTC for date keys everywhere (matches free-tier.ts).
-// Prevents timezone-change exploits and cross-module inconsistency.
-function localDateStr(): string {
-  return new Date().toISOString().slice(0, 10);
+export async function replaceLearningProgress(args: {
+  lessons: Record<string, LessonStateLocal>;
+  skills: Record<string, SkillMasteryLocal>;
+}): Promise<void> {
+  await withLock(K_LESSON_STATE, () => writeMap(K_LESSON_STATE, args.lessons));
+  await withLock(K_SKILL_MASTERY, () => writeMap(K_SKILL_MASTERY, args.skills));
+}
+
+// User-visible daily activity and streaks share the local-midnight boundary
+// used by the daily plan and free-tier counter.
+function localDateStr(date = new Date()): string {
+  return localDayKey(date);
 }
 
 export async function bumpDailyActivity(xp: number) {
@@ -168,13 +183,13 @@ export async function bumpDailyActivity(xp: number) {
 
 export async function bumpStreak() {
   // Streak rule: if last_lesson_at was yesterday or today, ++ (today only counts once).
-  // If gap >= 2 days, reset to 1. Use UTC dates to match daily/free-tier keys.
+  // If gap >= 2 days, reset to 1. Use local calendar days for the UI contract.
   const profile = await getLocalProfile();
   const today = new Date();
   const todayStr = localDateStr();
   const last = profile.last_lesson_at;
   const lastDate = last ? new Date(last) : null;
-  const lastStr = lastDate ? lastDate.toISOString().slice(0, 10) : undefined;
+  const lastStr = lastDate ? localDateStr(lastDate) : undefined;
 
   let streak = profile.current_streak;
   if (!lastStr) {
@@ -191,16 +206,8 @@ export async function bumpStreak() {
     // Yeni: günler arası farkı tarihten (yıl/ay/gün) hesaplıyoruz —
     // saat bağımsız. midnight rollover ile tetiklenmeyi garantiler.
     const calendarDaysBetween = (a: Date, b: Date): number => {
-      const aStart = Date.UTC(
-        a.getUTCFullYear(),
-        a.getUTCMonth(),
-        a.getUTCDate(),
-      );
-      const bStart = Date.UTC(
-        b.getUTCFullYear(),
-        b.getUTCMonth(),
-        b.getUTCDate(),
-      );
+      const aStart = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+      const bStart = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
       return Math.round((bStart - aStart) / 86_400_000);
     };
     const daysAgo = lastDate ? calendarDaysBetween(lastDate, today) : 999;

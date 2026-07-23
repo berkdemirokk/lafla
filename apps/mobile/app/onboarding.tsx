@@ -1,12 +1,9 @@
-// Lafla — Onboarding (4 adım, ~45 saniye, tamamen Türkçe, premium hareket).
+// Lafla — Onboarding (2 adım, tamamen Türkçe).
 //
-// Akış (2026-05-20 — track adımı söküldü):
-//   1. welcome    — Wordmark glow + tagline + "Başla"
-//   2. interests  — "Hangi sahneler senin için önemli?" → 6 chip, çoklu seçim,
-//                   en az 2 zorunlu → AsyncStorage `lafla.interests`
-//   3. name       — "Sana nasıl hitap edelim?" → opsiyonel, atlanabilir
-//                   → AsyncStorage `lafla.displayName`
-//   4. cefr       — "İngilizce seviyen?" → 6 kart (A1–C2) → setCefrLevel
+// Akış:
+//   1. interests  — "Hangi sahneler senin için önemli?" → çoklu seçim,
+//                   tek seçim yeterli → AsyncStorage `lafla.interests`
+//   2. cefr       — "İngilizce seviyen?" → 6 kart (A1–C2) → setCefrLevel
 //
 // 6 chip: Flört · İş · Bar · Havaalanı · Günlük · Sipariş. Her chip 1:1
 // SceneMode'a map'lenir (bkz. lib/interest-mapping.ts).
@@ -17,14 +14,13 @@
 //     onPressOut'ta spring ile 1.0'a döner.
 //   - ProgressDots aktif noktasının genişliği animasyonla artar (flex 1 → 2.4).
 //
-// "← Geri" üstte solda — welcome dışında. Bottom CTA: "Devam et" / "Başla" /
-// "Tamamla". Skip yalnız Name ve Interests'te görünür.
+// İlk adımda çıkış, ikinci adımda geri dönüş vardır.
 //
 // Akış bitince:
-//   - State diske yazılır (level, interests, displayName, onboarded=true).
+//   - State diske yazılır (level, interests, onboarded=true).
 //   - `onboarding_completed` analytics event'i atılır.
 //   - ATT izni istenir (value-after pattern); granted ise analytics re-init.
-//   - /home'a router.replace ile gidilir.
+//   - İlgi alanı ve seviyeye uygun ilk pratiğe gidilir.
 
 import { useEffect, useReducer, useRef, useState } from "react";
 import {
@@ -48,16 +44,16 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { requestAttOnce } from "../lib/att";
-import { FLAG_KEYS, getFeatureFlag } from "../lib/feature-flags";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
+import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
 import { parseSafe, isStringArray } from "../lib/json-safe";
 import {
   hapticImpact,
@@ -70,26 +66,18 @@ import {
   setOnboarded,
   setOnboardingStep,
 } from "../lib/onboarding-state";
+import { useTranslation } from "../lib/i18n";
 import { tokens } from "../theme";
 
 // ============================================================
 // TİPLER & SABİTLER
 // ============================================================
 
-// 2026-05-24 — "preview" adımı eklendi: welcome → preview → interests → name → cefr.
-// Önceki kullanıcı critique'i: "Lafla'nın ne yaptığını 4 setup ekranı sonra gör".
-// Şimdi 30 saniyelik static teaser (Match DM senaryosu + Türk hata + Lafla
-// correction reveal) ile value-first ilk izlenim. Lerna AI / Cal AI'ın
-// kullandığı kalıp.
+// Yeni kullanıcı yalnızca iki karar verir; ürün anlatımı ilk gerçek pratikte
+// yapılır. İsim ve tanıtım ekranları aktivasyonu geciktirmemeli.
 type OnboardingStep = "welcome" | "preview" | "interests" | "name" | "cefr";
 
-const STEP_ORDER: OnboardingStep[] = [
-  "welcome",
-  "preview",
-  "interests",
-  "name",
-  "cefr",
-];
+const STEP_ORDER: OnboardingStep[] = ["interests", "cefr"];
 
 // Persistence keys (yeni 4-adım akışı). Eski `lafla.user.name` anahtarı geçişte
 // temizlenir; yeni isim `lafla.displayName` altında tutulur. `lafla.track`
@@ -98,7 +86,7 @@ const STEP_ORDER: OnboardingStep[] = [
 const K_DISPLAY_NAME = "lafla.displayName";
 const K_LEGACY_NAME = "lafla.user.name";
 
-const MIN_INTERESTS = 2;
+const MIN_INTERESTS = 1;
 
 interface OnboardingState {
   step: OnboardingStep;
@@ -158,7 +146,7 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
 }
 
 const INITIAL: OnboardingState = {
-  step: "welcome",
+  step: "interests",
   interests: [],
   displayName: "",
 };
@@ -171,20 +159,20 @@ const INITIAL: OnboardingState = {
 interface InterestChoice {
   id: string;
   emoji: string;
-  label: string;
+  labelKey: string;
 }
 
 const LIFESTYLE_CHOICES: InterestChoice[] = [
-  { id: "flirt",   emoji: "💕", label: "Flört" },
-  { id: "work",    emoji: "💼", label: "İş" },
-  { id: "bar",     emoji: "🍻", label: "Bar" },
-  { id: "airport", emoji: "✈️", label: "Havaalanı" },
-  { id: "daily",   emoji: "☕", label: "Günlük" },
-  { id: "order",   emoji: "🍽️", label: "Sipariş" },
+  { id: "flirt",   emoji: "💕", labelKey: "interest.flirt" },
+  { id: "work",    emoji: "💼", labelKey: "interest.work" },
+  { id: "bar",     emoji: "🍻", labelKey: "interest.bar" },
+  { id: "airport", emoji: "✈️", labelKey: "interest.airport" },
+  { id: "daily",   emoji: "☕", labelKey: "interest.daily" },
+  { id: "order",   emoji: "🍽️", labelKey: "interest.order" },
 ];
 
 const EXAM_CHOICES: InterestChoice[] = [
-  { id: "ielts",   emoji: "🎓", label: "IELTS Speaking" },
+  { id: "ielts",   emoji: "🎓", labelKey: "interest.ielts" },
 ];
 
 const INTEREST_CHOICES: InterestChoice[] = [
@@ -196,46 +184,46 @@ const INTEREST_CHOICES: InterestChoice[] = [
 interface LevelChoice {
   emoji: string;
   cefr: CefrLevel;
-  label: string;
-  description: string;
+  labelKey: string;
+  descriptionKey: string;
 }
 
 const LEVEL_CHOICES: LevelChoice[] = [
   {
     emoji: "🌱",
     cefr: "A1",
-    label: "A1 — Başlangıç",
-    description: "Birkaç kelime biliyorum, cümle kurmak zor geliyor.",
+    labelKey: "level.A1.label",
+    descriptionKey: "level.A1.description",
   },
   {
     emoji: "🌿",
     cefr: "A2",
-    label: "A2 — Temel",
-    description: "Basit cümleleri anlıyorum, kısa diyaloglar kurabiliyorum.",
+    labelKey: "level.A2.label",
+    descriptionKey: "level.A2.description",
   },
   {
     emoji: "📖",
     cefr: "B1",
-    label: "B1 — Orta",
-    description: "Günlük konuları anlatabiliyorum, takıldığım yerler oluyor.",
+    labelKey: "level.B1.label",
+    descriptionKey: "level.B1.description",
   },
   {
     emoji: "🎯",
     cefr: "B2",
-    label: "B2 — Orta-üstü",
-    description: "İş ve sosyal hayatta rahatım; akıcılığımı geliştirmek istiyorum.",
+    labelKey: "level.B2.label",
+    descriptionKey: "level.B2.description",
   },
   {
     emoji: "🚀",
     cefr: "C1",
-    label: "C1 — İleri",
-    description: "Karmaşık konuları rahat tartışırım; nüansları cilalıyorum.",
+    labelKey: "level.C1.label",
+    descriptionKey: "level.C1.description",
   },
   {
     emoji: "🏆",
     cefr: "C2",
-    label: "C2 — Ustalık",
-    description: "Anadil seviyesine yakın; idiom ve jargon kovalıyorum.",
+    labelKey: "level.C2.label",
+    descriptionKey: "level.C2.description",
   },
 ];
 
@@ -245,32 +233,11 @@ const LEVEL_CHOICES: LevelChoice[] = [
 
 export default function Onboarding() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [state, dispatch] = useReducer(reducer, INITIAL);
   const [saving, setSaving] = useState(false);
   const [restored, setRestored] = useState(false);
-  // 2026-05-24 — A/B: preview step on/off. PostHog feature flag
-  // `onboarding_preview_enabled` (default true). B variant → handleWelcomeStart
-  // doğrudan interests'e atlar, preview skip edilir. Variant analytics'te
-  // her step_completed event'iyle birlikte gönderilir.
-  const [previewEnabled, setPreviewEnabled] = useState<boolean>(true);
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const enabled = await getFeatureFlag(FLAG_KEYS.ONBOARDING_PREVIEW, true);
-      if (!cancelled) {
-        setPreviewEnabled(enabled);
-        // Variant'i ilk gördüğümüz anda track — funnel analytics tarafında
-        // her kullanıcının hangi variant'ta olduğu net.
-        void trackEvent("onboarding_variant_assigned", {
-          flag: FLAG_KEYS.ONBOARDING_PREVIEW,
-          variant: enabled ? "A_preview" : "B_no_preview",
-        }).catch(() => {});
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const previewEnabled = false;
 
   // Diskten son adımı geri yükle (kullanıcı uygulamayı yarıda kapattıysa).
   useEffect(() => {
@@ -287,7 +254,7 @@ export default function Onboarding() {
       const validStep =
         savedStep && (STEP_ORDER as string[]).includes(savedStep)
           ? (savedStep as OnboardingStep)
-          : "welcome";
+          : "interests";
       const savedInterests = parseSafe<string[]>(
         rawInterests,
         [],
@@ -357,7 +324,12 @@ export default function Onboarding() {
   const handleInterestsContinue = async () => {
     if (state.interests.length < MIN_INTERESTS) return;
     hapticSelection();
-    await setInterests(state.interests).catch(() => {});
+    try {
+      await setInterests(state.interests);
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
+    }
     void trackEvent("onboarding_interests_selected", {
       interests: state.interests,
       count: state.interests.length,
@@ -377,7 +349,12 @@ export default function Onboarding() {
     // tamamını seçili kabul eder; kullanıcı plan + sürpriz görür ve
     // settings'ten daraltabilir.
     const allLifestyle = LIFESTYLE_CHOICES.map((c) => c.id);
-    await setInterests(allLifestyle).catch(() => {});
+    try {
+      await setInterests(allLifestyle);
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
+    }
     dispatch({ type: "SET_INTERESTS", interests: allLifestyle });
     void trackEvent("onboarding_step_skipped", {
       step: "interests",
@@ -390,16 +367,21 @@ export default function Onboarding() {
   const handleNameContinue = async () => {
     const trimmed = state.displayName.trim();
     hapticSelection();
+    try {
     if (trimmed.length > 0) {
-      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed);
       void trackEvent("onboarding_name_set", { length: trimmed.length }).catch(
         () => {},
       );
     } else {
-      await AsyncStorage.removeItem(K_DISPLAY_NAME).catch(() => {});
+      await AsyncStorage.removeItem(K_DISPLAY_NAME);
     }
     // Eski anahtar varsa temizle — tek kaynak: lafla.displayName.
-    await AsyncStorage.removeItem(K_LEGACY_NAME).catch(() => {});
+    await AsyncStorage.removeItem(K_LEGACY_NAME);
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
+    }
     dispatch({ type: "NEXT" });
   };
 
@@ -425,12 +407,17 @@ export default function Onboarding() {
     hapticImpact("light");
     // Onboarding state'ini disk'e kaydet (interests + displayName) —
     // placement screen onlara erişebilsin.
-    await setInterests(state.interests).catch(() => {});
-    const trimmed = state.displayName.trim();
-    if (trimmed.length > 0) {
-      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+    try {
+      await setInterests(state.interests);
+      const trimmed = state.displayName.trim();
+      if (trimmed.length > 0) {
+        await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed);
+      }
+      await setOnboardingStep("cefr");
+    } catch {
+      Alert.alert(t("onboarding.error_finalize_title"), t("onboarding.error_finalize_body"));
+      return;
     }
-    await setOnboardingStep("cefr").catch(() => {});
     void trackEvent("onboarding_placement_initiated").catch(() => {});
     router.replace("/placement" as never);
   };
@@ -453,9 +440,9 @@ export default function Onboarding() {
     } catch {
       setSaving(false);
       Alert.alert(
-        "Bir şey ters gitti",
-        "Seviyen kaydedilemedi. İnternetini kontrol edip tekrar dene.",
-        [{ text: "Tamam" }],
+        t("onboarding.error_finalize_title"),
+        t("onboarding.error_finalize_body"),
+        [{ text: t("common.done") }],
       );
       return;
     }
@@ -463,34 +450,33 @@ export default function Onboarding() {
     hapticSuccess();
     setSaving(false);
 
-    // 2026-05-20 — switch-trigger #1: force-first scene.
-    // Onboarding biter bitmez kullanıcıyı doğrudan home feed'e koymak
-    // yerine zorunlu bir "Match DM" sahnesi gösteriyoruz. Amaç: kullanıcı
-    // ilk 90 saniyede "evet bu ben" momentini yaşasın. Daha önce intro
-    // tamamlandıysa (`lafla.intro.match.completed=true`) bu adım atlanır
-    // ve home feed normal akar.
+    // İlk pratik kullanıcının seçtiği bağlam ve seviyeye uyar. Flört seçmeyen
+    // bir kullanıcı artık zorunlu olarak dating-app roleplay'ine düşmez.
     const introDone = await AsyncStorage.getItem(
       "lafla.intro.match.completed",
     ).catch(() => null);
     if (introDone === "true") {
       router.replace("/today" as never);
     } else {
-      router.replace("/scenario/intro.match.0.1?intro=true" as never);
+      const scenarioId = pickOnboardingScenarioId(state.interests, lvl);
+      router.replace(`/scenario/${scenarioId}?intro=true` as never);
     }
   };
 
   // ---------- Render ----------
-  const showBack = state.step !== "welcome" && !saving;
-  // 2026-05-25 — Welcome adımında "Geri" yerine "← Çıkış" göster.
-  // Yanlışlıkla onboarding'e giren user auth/today'e dönebilsin.
+  const showBack = currentIndex > 0 && !saving;
   const handleWelcomeExit = () => {
     hapticSelection();
     router.replace("/auth" as never);
   };
 
   return (
-    <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+    <SafeAreaView
+      style={styles.safe}
+      edges={["top", "bottom"]}
+      testID="onboarding-screen"
+    >
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         {showBack ? (
@@ -499,19 +485,19 @@ export default function Onboarding() {
             style={styles.headerBtn}
             hitSlop={16}
             accessibilityRole="button"
-            accessibilityLabel="Önceki adıma dön"
+            accessibilityLabel={t("common.back")}
           >
-            <Text style={styles.headerBtnText}>← Geri</Text>
+            <Text style={styles.headerBtnText}>{t("onboarding.back")}</Text>
           </Pressable>
-        ) : state.step === "welcome" ? (
+        ) : currentIndex === 0 ? (
           <Pressable
             onPress={handleWelcomeExit}
             style={styles.headerBtn}
             hitSlop={16}
             accessibilityRole="button"
-            accessibilityLabel="Çıkış yap, giriş ekranına dön"
+            accessibilityLabel={t("onboarding.exit_label")}
           >
-            <Text style={styles.headerBtnText}>← Çıkış</Text>
+            <Text style={styles.headerBtnText}>{t("onboarding.exit")}</Text>
           </Pressable>
         ) : (
           <View style={styles.headerBtn} />
@@ -779,6 +765,7 @@ const dotStyles = StyleSheet.create({
 // ============================================================
 
 function WelcomeStep({ onStart }: { onStart: () => void }) {
+  const { t } = useTranslation();
   // Wordmark için: gecikmeli scale-in + sürekli yumuşak nabız glow.
   // 2026-05-24 — glow target opacity 0.85 → 0.45 (gaming-poster→premium-neon).
   const wordmarkScale = useSharedValue(0.9);
@@ -827,25 +814,21 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
           </Animated.Text>
         </View>
         <Animated.View style={taglineStyle}>
-          <Text style={styles.welcomeTagline}>
-            Donma. Konuş.
-          </Text>
-          <Text style={styles.welcomeSubtagline}>
-            5 dakikada gerçek pratik — sahne sahne, ezber yok.
-          </Text>
+          <Text style={styles.welcomeTagline}>{t("onboarding.welcome.tagline")}</Text>
+          <Text style={styles.welcomeSubtagline}>{t("onboarding.welcome.subtitle")}</Text>
         </Animated.View>
       </View>
       <View style={styles.footer}>
         <AnimatedCta
-          label="Başla"
+          label={t("onboarding.welcome.start")}
           onPress={onStart}
-          accessibilityLabel="Onboarding'i başlat"
+          accessibilityLabel={t("onboarding.welcome.start_label")}
         />
         {/* 2026-05-23 — Apple Review 5.1.1: hesap oluşturma akışında
             privacy + terms linkleri zorunlu. Welcome ekranında "Başla"
             altında küçük link satırı. */}
         <View style={styles.privacyLinks}>
-          <Text style={styles.privacyPrefix}>Başlayarak şunları kabul edersin:</Text>
+          <Text style={styles.privacyPrefix}>{t("onboarding.welcome.terms_prefix")}</Text>
           <View style={styles.privacyRow}>
             <Pressable
               onPress={() =>
@@ -853,8 +836,9 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
               }
               hitSlop={6}
               accessibilityRole="link"
+              accessibilityLabel={t("auth.terms")}
             >
-              <Text style={styles.privacyLink}>Kullanım Koşulları</Text>
+              <Text style={styles.privacyLink}>{t("auth.terms")}</Text>
             </Pressable>
             <Text style={styles.privacyDot}> · </Text>
             <Pressable
@@ -863,8 +847,9 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
               }
               hitSlop={6}
               accessibilityRole="link"
+              accessibilityLabel={t("auth.privacy")}
             >
-              <Text style={styles.privacyLink}>Gizlilik Politikası</Text>
+              <Text style={styles.privacyLink}>{t("auth.privacy")}</Text>
             </Pressable>
           </View>
         </View>
@@ -886,6 +871,7 @@ function PreviewStep({
   onContinue: () => void;
   onSkip: () => void;
 }) {
+  const { t } = useTranslation();
   const headerOpacity = useSharedValue(0);
   const headerTranslate = useSharedValue(10);
   const npcOpacity = useSharedValue(0);
@@ -971,16 +957,16 @@ function PreviewStep({
     <StepContainer>
       <ScrollView contentContainerStyle={previewStyles.scroll}>
         <Animated.View style={headerStyle}>
-          <Text style={previewStyles.header}>Lafla nasıl çalışır?</Text>
+          <Text style={previewStyles.header}>{t("onboarding.preview.title")}</Text>
           <Text style={previewStyles.subtitle}>
-            Donduğun an, Türkçeye özel hata düzeltme — anında, sade.
+            {t("onboarding.preview.subtitle")}
           </Text>
         </Animated.View>
 
         <View style={previewStyles.chatWrap}>
           {/* NPC bubble */}
           <Animated.View style={[previewStyles.npcRow, npcStyle]}>
-            <Text style={previewStyles.npcLabel}>Match'ten mesaj</Text>
+            <Text style={previewStyles.npcLabel}>{t("onboarding.preview.match_label")}</Text>
             <View style={previewStyles.npcBubble}>
               <Text style={previewStyles.npcText}>
                 Hey, you&apos;ve been a stranger lately. Wanna grab a drink this
@@ -996,7 +982,7 @@ function PreviewStep({
                 Yes, I am go with you on Saturday
               </Text>
             </View>
-            <Text style={previewStyles.userLabel}>Donduğun an böyle yazıyorsun</Text>
+            <Text style={previewStyles.userLabel}>{t("onboarding.preview.mistake_label")}</Text>
           </Animated.View>
 
           {/* Correction card — Lafla'nın yaptığı iş */}
@@ -1012,8 +998,7 @@ function PreviewStep({
               </Text>
             </View>
             <Text style={previewStyles.correctionReason}>
-              Türkçe &quot;gideceğim&quot; → &quot;I am going&quot; değil.
-              Davet kabul için &quot;I&apos;d love to&quot; veya &quot;I&apos;ll&quot;.
+              {t("onboarding.preview.correction_reason")}
             </Text>
           </Animated.View>
         </View>
@@ -1023,16 +1008,16 @@ function PreviewStep({
           style={styles.linkRow}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Bu adımı atla"
+          accessibilityLabel={t("onboarding.preview.skip_label")}
         >
-          <Text style={styles.linkText}>Şimdilik atla →</Text>
+          <Text style={styles.linkText}>{t("onboarding.preview.skip")}</Text>
         </Pressable>
       </ScrollView>
       <View style={styles.footer}>
         <AnimatedCta
-          label="Devam et"
+          label={t("common.continue")}
           onPress={onContinue}
-          accessibilityLabel="Devam et"
+          accessibilityLabel={t("common.continue")}
         />
       </View>
     </StepContainer>
@@ -1165,7 +1150,7 @@ const previewStyles = StyleSheet.create({
 });
 
 // ============================================================
-// ADIM 2 — INTERESTS (6 chip, çoklu seçim, min 2)
+// ADIM 1 — INTERESTS (çoklu seçim, tek seçim yeterli)
 // ============================================================
 
 function InterestsStep({
@@ -1179,17 +1164,22 @@ function InterestsStep({
   onContinue: () => void;
   onSkip: () => void;
 }) {
+  const { t } = useTranslation();
   const canContinue = selected.length >= MIN_INTERESTS;
   const remaining = Math.max(0, MIN_INTERESTS - selected.length);
 
   return (
     <StepContainer>
       <ScrollView contentContainerStyle={styles.stepScroll}>
-        <Text style={styles.stepHeader}>Hangi sahneler senin için önemli?</Text>
+        <Text style={styles.stepHeader}>
+          {t("onboarding.interests.title")}
+        </Text>
         <Text style={styles.stepSubtitle}>
           {remaining > 0
-            ? `En az ${MIN_INTERESTS} tane seç — istediğin kadar ekleyebilirsin.`
-            : `Harika — ${selected.length} sahne seçtin.`}
+            ? t("onboarding.interests.need_one")
+            : t("onboarding.interests.selected_count", {
+                count: String(selected.length),
+              })}
         </Text>
 
         <View style={styles.chipGrid}>
@@ -1208,7 +1198,9 @@ function InterestsStep({
             sınav prep olarak konumlandırılıyor. */}
         <View style={styles.examDivider}>
           <View style={styles.examDividerLine} />
-          <Text style={styles.examDividerLabel}>SINAV HAZIRLIĞI?</Text>
+          <Text style={styles.examDividerLabel}>
+            {t("onboarding.interests.exam_divider")}
+          </Text>
           <View style={styles.examDividerLine} />
         </View>
 
@@ -1228,20 +1220,22 @@ function InterestsStep({
           style={styles.linkRow}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="İlgi alanı seçmeden devam et"
+          accessibilityLabel={t("onboarding.interests.skip_label")}
         >
-          <Text style={styles.linkText}>Şimdilik atla →</Text>
+          <Text style={styles.linkText}>
+            {t("onboarding.interests.skip")}
+          </Text>
         </Pressable>
       </ScrollView>
       <View style={styles.footer}>
         <AnimatedCta
-          label="Devam et"
+          label={t("common.continue_cta")}
           onPress={onContinue}
           disabled={!canContinue}
           accessibilityLabel={
             canContinue
-              ? "Devam et — ismini gir"
-              : `En az ${MIN_INTERESTS} ilgi alanı seç`
+              ? t("onboarding.interests.continue_label_ready")
+              : t("onboarding.interests.continue_label_blocked")
           }
         />
       </View>
@@ -1258,17 +1252,23 @@ function InterestChip({
   selected: boolean;
   onPress: () => void;
 }) {
+  const { t } = useTranslation();
+  const label = t(choice.labelKey);
   return (
     <PressScale
       onPress={onPress}
       style={[styles.chip, selected && styles.chipSelected]}
       accessibilityRole="checkbox"
-      accessibilityLabel={`${choice.label} — ${selected ? "seçili" : "seçili değil"}`}
+      accessibilityLabel={`${label} — ${
+        selected
+          ? t("onboarding.interests.selected")
+          : t("onboarding.interests.unselected")
+      }`}
       accessibilityState={{ checked: selected }}
     >
       <Text style={styles.chipEmoji}>{choice.emoji}</Text>
       <Text style={[styles.chipLabel, selected && styles.chipLabelSelected]}>
-        {choice.label}
+        {label}
       </Text>
     </PressScale>
   );
@@ -1289,6 +1289,7 @@ function NameStep({
   onContinue: () => void;
   onSkip: () => void;
 }) {
+  const { t } = useTranslation();
   const inputRef = useRef<TextInput | null>(null);
   useEffect(() => {
     const t = setTimeout(() => inputRef.current?.focus(), 280);
@@ -1301,10 +1302,9 @@ function NameStep({
         contentContainerStyle={styles.stepScroll}
         keyboardShouldPersistTaps="handled"
       >
-        <Text style={styles.stepHeader}>Sana nasıl hitap edelim?</Text>
+        <Text style={styles.stepHeader}>{t("onboarding.name.title")}</Text>
         <Text style={styles.stepSubtitle}>
-          Sahnelerdeki karakterler bu isimle seslenir. İstersen sonra
-          değiştirebilirsin.
+          {t("onboarding.name.subtitle")}
         </Text>
 
         <TextInput
@@ -1312,14 +1312,14 @@ function NameStep({
           style={styles.input}
           value={value}
           onChangeText={onChange}
-          placeholder="Adın"
+          placeholder={t("onboarding.name.placeholder")}
           placeholderTextColor={tokens.text.tertiary}
           autoCapitalize="words"
           autoCorrect={false}
           returnKeyType="done"
           maxLength={24}
           onSubmitEditing={onContinue}
-          accessibilityLabel="Adın — sahnelerde sana böyle hitap edilecek"
+          accessibilityLabel={t("onboarding.name.label")}
         />
 
         <Pressable
@@ -1327,16 +1327,18 @@ function NameStep({
           style={styles.linkRow}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="İsim girmeden devam et"
+          accessibilityLabel={t("onboarding.name.skip_label")}
         >
-          <Text style={styles.linkText}>Şimdilik atla →</Text>
+          <Text style={styles.linkText}>
+            {t("onboarding.interests.skip")}
+          </Text>
         </Pressable>
       </ScrollView>
       <View style={styles.footer}>
         <AnimatedCta
-          label="Devam et"
+          label={t("common.continue_cta")}
           onPress={onContinue}
-          accessibilityLabel="Devam et — seviyeni seç"
+          accessibilityLabel={t("onboarding.interests.continue_label_ready")}
         />
       </View>
     </StepContainer>
@@ -1357,12 +1359,13 @@ function CefrStep({
   /** 2026-05-21 — Adaptive placement test alternatifi. */
   onTakeTest: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <StepContainer>
       <ScrollView contentContainerStyle={styles.stepScroll}>
-        <Text style={styles.stepHeader}>İngilizce seviyen?</Text>
+        <Text style={styles.stepHeader}>{t("onboarding.cefr.title")}</Text>
         <Text style={styles.stepSubtitle}>
-          Test ile ölç (~6 dakika) veya kendin seç — zamanla otomatik ayarlanır.
+          {t("onboarding.cefr.subtitle")}
         </Text>
 
         {/* Placement test CTA — primary path. Lerna AI'da var, Lafla'da
@@ -1376,19 +1379,21 @@ function CefrStep({
             saving && styles.placementCtaDisabled,
           ]}
           accessibilityRole="button"
-          accessibilityLabel="6 dakikada adaptive İngilizce seviye testi"
+          accessibilityLabel={t("onboarding.cefr.test_label")}
         >
           <Text style={styles.placementCtaIcon}>🎯</Text>
           <View style={styles.placementCtaText}>
-            <Text style={styles.placementCtaTitle}>Test ile ölç</Text>
+            <Text style={styles.placementCtaTitle}>
+              {t("onboarding.cefr.test_title")}
+            </Text>
             <Text style={styles.placementCtaSub}>
-              12 soru + konuşma + dinleme · ~6 dakika
+              {t("onboarding.cefr.test_sub")}
             </Text>
           </View>
           <Text style={styles.placementCtaArrow}>›</Text>
         </Pressable>
 
-        <Text style={styles.orDivider}>YA DA KENDİN SEÇ</Text>
+        <Text style={styles.orDivider}>{t("onboarding.cefr.self_divider")}</Text>
 
         <View style={styles.levelGrid}>
           {LEVEL_CHOICES.map((choice) => (
@@ -1402,7 +1407,7 @@ function CefrStep({
         </View>
 
         {saving && (
-          <Text style={styles.savingText}>Hazırlanıyor…</Text>
+          <Text style={styles.savingText}>{t("onboarding.cefr.saving")}</Text>
         )}
       </ScrollView>
     </StepContainer>
@@ -1418,6 +1423,9 @@ function LevelCard({
   disabled: boolean;
   onPress: () => void;
 }) {
+  const { t } = useTranslation();
+  const label = t(choice.labelKey);
+  const description = t(choice.descriptionKey);
   return (
     <PressScale
       onPress={onPress}
@@ -1427,12 +1435,15 @@ function LevelCard({
         disabled && styles.levelCardDisabled,
       ]}
       accessibilityRole="button"
-      accessibilityLabel={`Seviyeni ${choice.label} olarak seç. ${choice.description}`}
+      accessibilityLabel={t("onboarding.cefr.level_label", {
+        level: label,
+        description,
+      })}
     >
       <Text style={styles.levelEmoji}>{choice.emoji}</Text>
       <View style={styles.levelText}>
-        <Text style={styles.levelCardTitle}>{choice.label}</Text>
-        <Text style={styles.levelCardDesc}>{choice.description}</Text>
+        <Text style={styles.levelCardTitle}>{label}</Text>
+        <Text style={styles.levelCardDesc}>{description}</Text>
       </View>
       <Text style={styles.levelArrow}>›</Text>
     </PressScale>

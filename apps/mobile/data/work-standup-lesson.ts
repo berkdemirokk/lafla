@@ -99,6 +99,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(no blockers|nothing blocking|all clear|smooth sailing|good on my end)",
             "(pr (is )?up|review needed|waiting on (review|qa))",
           ],
+          model_answers: ["Yesterday wrapped X. Today on Y. No blockers."],
           hint_tr:
             "Klasik: 'Yesterday wrapped X. Today on Y. No blockers.' Kisa + net.",
         },
@@ -116,6 +117,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(i'?ll )?(drop|post) (it|details) (in (the )?thread|in slack)",
             "(no worries|nothing else|that'?s it)",
           ],
+          model_answers: ["Thanks — actually one quick FYI: I'll drop details in the thread."],
           hint_tr:
             "Onay/ek not: 'Thanks — actually one quick FYI: I'll drop details in the thread.'",
         },
@@ -134,6 +136,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(no|nope)(,)? (i'?m good|all good)",
             "(actually|honestly) (yes|yeah)(,)? (would appreciate|that'?d help)",
           ],
+          model_answers: ["No, I'm good for now"],
           hint_tr:
             "Cevap: 'Yeah, would appreciate any eyes' veya 'No, I'm good for now'.",
         },
@@ -151,6 +154,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(thanks|thank you)(,)? (i'?ll )?(message|ping) (her|maya)",
             "(great|perfect)(,)? thanks",
           ],
+          model_answers: ["Perfect, I'll ping her after standup"],
           hint_tr:
             "Teşekkür: 'Thanks, appreciate it' veya 'Perfect, I'll ping her after standup'.",
         },
@@ -168,6 +172,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(all clear|all good|that'?s a wrap)",
             "(actually )?one more thing(,)? (.+)",
           ],
+          model_answers: ["No, that's it on my end"],
           hint_tr:
             "Bitir: 'No, that's it on my end' veya 'All good, thanks'.",
         },
@@ -642,6 +647,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(could use|need) (a pair|some help|a second pair of eyes)",
             "(can (anyone|someone) pair|anyone free to pair)",
           ],
+          model_answers: ["Blocked on token refresh — could use a pair after standup."],
           hint_tr:
             "Spesifik + cagri: 'Blocked on token refresh — could use a pair after standup.'",
         },
@@ -660,6 +666,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(i'?ll )?(drop|post|share) (the (error|trace|log)|details) (in (the )?thread|in slack)",
             "(see you (then|after|in a bit))",
           ],
+          model_answers: ["Appreciate it — let's take it offline. I'll drop the trace in the thread."],
           hint_tr:
             "Onay + offline'a tasi: 'Appreciate it — let's take it offline. I'll drop the trace in the thread.'",
         },
@@ -679,6 +686,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(hopefully|probably) (today|by tonight|by tomorrow)",
             "(let me know after pair|after our pair i'?ll have a better estimate)",
           ],
+          model_answers: ["EOD if pair goes well, otherwise tomorrow morning"],
           hint_tr:
             "Tahmin ver: 'EOD if pair goes well, otherwise tomorrow morning'. 'EOD' = End Of Day standartı. Belirsizlikten kaçma — somut zaman ver, kötü ihtimal de söyle.",
         },
@@ -698,6 +706,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(might )?(need to|have to) (sync about|talk about) .{0,40}",
             "(rest of the sprint |the rest )(is |looks |seems )?(fine|clear|smooth)",
           ],
+          model_answers: ["Stripe migration might get tricky — keeping an eye on it"],
           hint_tr:
             "Riskleri önceden flag'le: 'Stripe migration might get tricky — keeping an eye on it' veya 'Everything else looks fine'. Türk öğrenci 'risk yok' direkt çeviri yapar — burada 'no risks' garip; 'on track' veya 'clear' kullan.",
         },
@@ -717,6 +726,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(no worries|noted|copy that)",
             "(see you (in a bit|after standup|then))",
           ],
+          model_answers: ["Got it, see you after standup"],
           hint_tr:
             "Kısa onay: 'Will do — thanks again' veya 'Got it, see you after standup'. Türk: 'tamamdır' = 'got it / will do'. 'OK' tek başına yeterli ama soğuk; ekle.",
         },
@@ -1056,8 +1066,9 @@ export const workStandupLesson_33_3: BundledLesson = {
             "(waiting on|blocked on|need (review|input))",
             "(cc @|@mention|loop in @|fyi @)",
           ],
+          model_answers: ["✅ Shipped auth. 🚧 Working on payments. ⚠️ Waiting on review from @Mia."],
           hint_tr:
-            "Y/T/B + emoji + @mention. Kisa baslik formati — paragraf yazma.",
+            "Y/T/B + emoji + @mention. Örnek: '✅ Shipped auth. 🚧 Working on payments. ⚠️ Waiting on review from @Mia.'",
         },
         {
           speaker: "npc",
@@ -1074,6 +1085,7 @@ export const workStandupLesson_33_3: BundledLesson = {
             "(dropped|posted|added) (it|details|the (link|url|repro)) (in (the )?thread|above)",
             "(let'?s (move|continue) (this )?(in (the )?thread|offline))",
           ],
+          model_answers: ["Thanks — taking a look now. Continuing in thread."],
           hint_tr:
             "Onay + thread'e tasi: 'Thanks — taking a look now. Continuing in thread.'",
         },
@@ -1096,6 +1108,7 @@ export const workStandupLesson_33_3: BundledLesson = {
             "(no )?(nothing else|all good|that'?s it)( on my end)?",
             "(@\\w+|owner)(,)? (any chance|could you) (.+)",
           ],
+          model_answers: ["Yeah — blocked on design review from @maya, could use it by EOD tomorrow."],
           hint_tr:
             "Specific blocker + ask + owner: 'Yeah — blocked on design review from @maya, could use it by EOD tomorrow.' Veya 'Nothing else, all good.' Async'te @mention = aksiyon alabilir format.",
         },
@@ -1437,6 +1450,7 @@ export const workStandupLesson_33_4: BundledLesson = {
             "(want to make sure|so we can) (everyone gets|hear from everyone)",
             "(can we (set up|schedule) a (sync|follow[- ]up|deep dive))",
           ],
+          model_answers: ["Hate to interrupt — great convo, but let's circle back so we can hear from everyone."],
           hint_tr:
             "Yumusak kesme: 'Hate to interrupt — great convo, but let's circle back so we can hear from everyone.'",
         },
@@ -1454,6 +1468,7 @@ export const workStandupLesson_33_4: BundledLesson = {
             "(let'?s (move on|keep moving|finish up))",
             "(back to (standup|the queue)|who'?s up next)",
           ],
+          model_answers: ["Perfect — I'll drop a calendar invite today. Back to standup — who's next?"],
           hint_tr:
             "Cozum + ileri: 'Perfect — I'll drop a calendar invite today. Back to standup — who's next?'",
         },
@@ -1471,6 +1486,7 @@ export const workStandupLesson_33_4: BundledLesson = {
             "(15|20|30) (min|minutes) (should do it|tops)",
             "(if you can|could you) (drop|send) (the (repro|error|details)) (in dms?|in slack)",
           ],
+          model_answers: ["Yeah — happy to. 2pm works, drop the repro in DMs first, 20 min should do it."],
           hint_tr:
             "Yardım teklifi + when + scope: 'Yeah — happy to. 2pm works, drop the repro in DMs first, 20 min should do it.' Spesifik zaman + scope = saygılı yardım.",
         },
@@ -1808,6 +1824,7 @@ export const workStandupLesson_33_5: BundledLesson = {
             "(on|working on|focused on|tackling) \\w+ (today)?",
             "(no blockers|nothing blocking|all clear|good on my end|nothing on my end)",
           ],
+          model_answers: ["Shipped X. On Y today. No blockers."],
           hint_tr:
             "Baslik formati: 'Shipped X. On Y today. No blockers.' Cumle saymayi birak — baslik say.",
         },
@@ -1826,6 +1843,7 @@ export const workStandupLesson_33_5: BundledLesson = {
             "(i'?ll )?(drop|post) (the link|details) (in (the )?thread|in slack)",
             "(that'?s it|nothing else|good for now)",
           ],
+          model_answers: ["All good — actually, could use a quick review on the PR if anyone has a sec."],
           hint_tr:
             "Hayir/Evet+kucuk istek: 'All good — actually, could use a quick review on the PR if anyone has a sec.'",
         },
@@ -1843,6 +1861,7 @@ export const workStandupLesson_33_5: BundledLesson = {
             "(could use|need) (.+) (review|input|approval)",
             "(@\\w+|need (.+) from)(,)? (any chance|when (you'?re|you are) free)",
           ],
+          model_answers: ["Actually — blocked on the design review, need it from @maya by EOD."],
           hint_tr:
             "Specific blocker + ask + owner (veya temiz): 'Actually — blocked on the design review, need it from @maya by EOD.' Standup'ta sessizlik = sürpriz, erken bayrak = sağlıklı.",
         },
@@ -2139,6 +2158,7 @@ export const workStandupLesson_33_6: BundledLesson = {
             "(anyone have bandwidth|anyone (got|free)|could use (some )?help|need a pair)",
             "(15|20|30) (min|minutes)",
           ],
+          model_answers: ["On migration today, but blocked on the rollback step — anyone have bandwidth for 20?"],
           hint_tr:
             "Today + blocker + spesifik konu + bandwidth + sure: 'On migration today, but blocked on the rollback step — anyone have bandwidth for 20?'",
         },
@@ -2156,6 +2176,7 @@ export const workStandupLesson_33_6: BundledLesson = {
             "(i'?ll )?(drop|post|share) (the (trace|log|repro|details)|repro steps) (in (the )?thread|in slack|in your dms?)",
             "(after lunch works|ping me when (you'?re|ur) free|just (lmk|let me know))",
           ],
+          model_answers: ["Perfect — it's throwing 401 on refresh. I'll drop the trace in your DMs, ping me after lunch."],
           hint_tr:
             "Kabul + ozet + ipuclari thread'e: 'Perfect — it's throwing 401 on refresh. I'll drop the trace in your DMs, ping me after lunch.'",
         },
@@ -2173,6 +2194,7 @@ export const workStandupLesson_33_6: BundledLesson = {
             "(scope[- ]?wise|just on)(,)? (the (refresh|callback|token) (part|step|piece))",
             "(20|30) (min|minutes) (should (do it|be enough)|tops)",
           ],
+          model_answers: ["Thanks — seriously helpful. 1pm works, just on the token refresh piece. 20 min tops."],
           hint_tr:
             "Thanks + when + scope: 'Thanks — seriously helpful. 1pm works, just on the token refresh piece. 20 min tops.' Yardımı kabul ederken kapsam belirt = yardımcının zamanına saygı.",
         },
@@ -2469,6 +2491,7 @@ export const workStandupLesson_33_7: BundledLesson = {
             "((in|takes about) (3|5|10)|quick (5|3|two|3-?minute|5-?minute))",
             "(if (anyone|folks|people) (wants|are interested|want a look)|let me know if)",
           ],
+          model_answers: ["Yeah — wrapped the dashboard. Happy to demo in 5 if folks want a look."],
           hint_tr:
             "Olgu + davet + sure: 'Yeah — wrapped the dashboard. Happy to demo in 5 if folks want a look.'",
         },
@@ -2486,6 +2509,7 @@ export const workStandupLesson_33_7: BundledLesson = {
             "(grab|stay on|hang back|stick around)",
             "(it'?s )?(not much|nothing fancy|quick win|small win)",
           ],
+          model_answers: ["Sounds good — I'll share my screen right after we wrap. Nothing fancy, just a quick look."],
           hint_tr:
             "Kabul + plan: 'Sounds good — I'll share my screen right after we wrap. Nothing fancy, just a quick look.'",
         },
@@ -2503,6 +2527,7 @@ export const workStandupLesson_33_7: BundledLesson = {
             "(@\\w+|design|qa|product)(,)? (any chance|when you'?re free)",
             "(by (eod|tomorrow|friday)|this week)",
           ],
+          model_answers: ["All good — actually, could use design sign-off from @sarah by Friday on the next iteration."],
           hint_tr:
             "Specific blocker + ask + owner: 'All good — actually, could use design sign-off from @sarah by Friday on the next iteration.' Demo'dan sonra sıradaki adımın blocker'ını flag'le.",
         },
@@ -2792,6 +2817,7 @@ export const workStandupLesson_33_8: BundledLesson = {
             "(dropping|posting|sending) (an? )?(async )?update (in (slack|#eng|the channel)|to the channel)",
             "(no blockers|nothing blocking|all clear|will flag if anything comes up)",
           ],
+          model_answers: ["Heads up — skipping standup, focus block. Dropping async update in #eng. No blockers."],
           hint_tr:
             "Heads-up + sebep (opsiyonel) + soz: 'Heads up — skipping standup, focus block. Dropping async update in #eng. No blockers.'",
         },
@@ -2808,6 +2834,7 @@ export const workStandupLesson_33_8: BundledLesson = {
             "(the (update|details) covers it|it'?s all in the slack update)",
             "(thanks|appreciate it|thx) (for (the )?flex|for understanding)?",
           ],
+          model_answers: ["Nothing urgent — will ping if anything comes up. Thanks for the flex."],
           hint_tr:
             "Yok + safety net: 'Nothing urgent — will ping if anything comes up. Thanks for the flex.'",
         },
@@ -2825,6 +2852,7 @@ export const workStandupLesson_33_8: BundledLesson = {
             "(20|30) (min|minutes) (tops|should do it)",
             "(i'?ll )?(drop|share|send) (the (repro|details|trace)) (in (dms?|slack)) (first|before)",
           ],
+          model_answers: ["Seriously appreciate it — after lunch works. Just on the rollback step, 30 min tops. I'll drop details in DMs first."],
           hint_tr:
             "Thanks + when + scope: 'Seriously appreciate it — after lunch works. Just on the rollback step, 30 min tops. I'll drop details in DMs first.' Async kaçtım ama hala erişilebilirim sinyali.",
         },

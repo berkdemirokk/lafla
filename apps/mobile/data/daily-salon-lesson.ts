@@ -235,6 +235,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
             "a fade",
             "(low|mid|high) fade",
           ],
+          model_answers: ["I'd like a haircut"],
           hint_tr:
             "Ne istediğini söyle: 'Just a trim', 'A fade', 'I'd like a haircut'.",
         },
@@ -254,6 +255,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
             "shoulder length",
             "chin length",
           ],
+          model_answers: ["About two inches"],
           hint_tr:
             "Uzunluğu inch ile söyle: 'About two inches' veya 'Just the ends'.",
         },
@@ -272,6 +274,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
             "long layers",
             "just one length",
           ],
+          model_answers: ["Some layers, please"],
           hint_tr:
             "'Layers' (kat) ister misin? 'Some layers, please' veya 'One length, please'.",
         },
@@ -289,6 +292,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
             "(low maintenance|something easy)",
             "(i don'?t (style|do much))",
           ],
+          model_answers: ["Honestly, I just air-dry it"],
           hint_tr:
             "Şekillendirme: 'Honestly, I just air-dry it' veya 'Low maintenance, please'.",
         },
@@ -307,6 +311,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
             "(exactly what i (want|need))",
             "(thank you|thanks)",
           ],
+          model_answers: ["Yes, that sounds perfect — thank you!"],
           hint_tr:
             "Onayla: 'Yes, that sounds perfect — thank you!'",
         },
@@ -325,6 +330,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
             "(just (be )?gentle|careful) (around the ears|near my (ears|neckline))",
             "(nothing comes to mind)",
           ],
+          model_answers: ["No, nothing comes to mind"],
           hint_tr:
             "Cevap: 'Actually, yes — I have a cowlick at the crown' veya 'No, nothing comes to mind'.",
         },
@@ -771,6 +777,7 @@ export const dailySalonLesson_31_2: BundledLesson = {
             "cover (my )?(grays|greys|roots)",
             "match my natural (color|colour)",
           ],
+          model_answers: ["I'd like highlights"],
           hint_tr:
             "Ne istediğini söyle: 'I'd like highlights' / 'A root touch-up' / 'Balayage'.",
         },
@@ -790,6 +797,7 @@ export const dailySalonLesson_31_2: BundledLesson = {
             "(can|could) you recommend",
             "what (would|do) you recommend",
           ],
+          model_answers: ["Show me the chart, please"],
           hint_tr:
             "Kartı görmek istersen: 'Show me the chart, please' veya 'Can I see the swatches?'",
         },
@@ -808,6 +816,7 @@ export const dailySalonLesson_31_2: BundledLesson = {
             "(is|are) there (a |an )?alternative",
             "what (would|do) you (suggest|recommend)",
           ],
+          model_answers: ["Yes, that's fine"],
           hint_tr:
             "Beyazlatıcı (bleach) kabulü: 'Yes, that's fine' / 'I'd rather skip the bleach'.",
         },
@@ -1267,6 +1276,7 @@ export const dailySalonLesson_31_3: BundledLesson = {
             "(file|shape) them (square|almond|round|oval)",
             "the same as (last time|before)",
           ],
+          model_answers: ["Square shape, please"],
           hint_tr:
             "Şekli söyle: 'Almond, please' / 'Square shape, please' / 'Oval, please'.",
         },
@@ -1285,6 +1295,7 @@ export const dailySalonLesson_31_3: BundledLesson = {
             "no polish",
             "just (a )?(buff|file)",
           ],
+          model_answers: ["Gel"],
           hint_tr:
             "'Gel' (jel, uzun süreli) veya 'regular' (klasik oje) seç.",
         },
@@ -1303,6 +1314,7 @@ export const dailySalonLesson_31_3: BundledLesson = {
             "(something )?(neutral|natural|classic)",
             "(a )?french (manicure|tip)",
           ],
+          model_answers: ["A French manicure, please"],
           hint_tr:
             "Renk söyle: 'Nude, please' / 'A red, please' / 'A French manicure, please'.",
         },
@@ -1321,6 +1333,7 @@ export const dailySalonLesson_31_3: BundledLesson = {
             "(whichever|whatever) you (think|recommend|suggest)",
             "up to you",
           ],
+          model_answers: ["Push back, please"],
           hint_tr:
             "Cuticles için tercih: 'Push back, please' (it) veya 'Trim them, please' (kes).",
         },
@@ -1773,6 +1786,7 @@ export const dailySalonLesson_31_4: BundledLesson = {
             "I (have|get) (acne|breakouts|redness|irritation|dryness)",
             "(my )?main concern is",
           ],
+          model_answers: ["I have sensitive skin"],
           hint_tr:
             "Cilt tipini söyle: 'I have sensitive skin' / 'My skin is dry' / 'I get breakouts'.",
         },
@@ -1793,6 +1807,7 @@ export const dailySalonLesson_31_4: BundledLesson = {
             "(I'd like to|let's) start gentle",
             "what (do|would) you recommend",
           ],
+          model_answers: ["Let's skip the peel, please"],
           hint_tr:
             "Peel istemiyorsan: 'Let's skip the peel, please' veya 'Keep it gentle, please'.",
         },
@@ -1813,6 +1828,7 @@ export const dailySalonLesson_31_4: BundledLesson = {
             "not that I know of",
             "I don't think so",
           ],
+          model_answers: ["Not that I know of"],
           hint_tr:
             "Alerji yoksa: 'No allergies' / 'Not that I know of'. Veya: 'Please avoid fragrance'.",
         },
@@ -2273,6 +2289,7 @@ export const dailySalonLesson_31_5: BundledLesson = {
             "scissor on top",
             "(short|tight) on the sides",
           ],
+          model_answers: ["Fade on the sides, scissor on top"],
           hint_tr:
             "Talebini söyle: 'Just a trim' / 'A low fade' / 'Fade on the sides, scissor on top'.",
         },
@@ -2290,6 +2307,7 @@ export const dailySalonLesson_31_5: BundledLesson = {
             "(whatever|whichever) (looks|works) (best|good)",
             "up to you",
           ],
+          model_answers: ["Number two, please"],
           hint_tr:
             "Numara seç: 'Number two, please' / 'A skin fade' / 'Not too short'.",
         },
@@ -2307,6 +2325,7 @@ export const dailySalonLesson_31_5: BundledLesson = {
             "(about )?(half an |an |one |two )?inch (off|shorter)",
             "(same|similar) length",
           ],
+          model_answers: ["Scissor on top, keep the length"],
           hint_tr:
             "Üstü tarif et: 'Scissor on top, keep the length' veya 'Take an inch off the top'.",
         },
@@ -2726,6 +2745,7 @@ export const dailySalonLesson_31_6: BundledLesson = {
             "(layered cut|layers) and (highlights|color)",
             "(I'm )?thinking (a |some )?(layered|highlights)",
           ],
+          model_answers: ["A layered cut, please"],
           hint_tr:
             "İstediğini söyle: 'A layered cut, please' / 'Layers and some highlights'.",
         },
@@ -2745,6 +2765,7 @@ export const dailySalonLesson_31_6: BundledLesson = {
             "(something|similar) to this",
             "like (this|the picture)",
           ],
+          model_answers: ["Could I show you a picture?"],
           hint_tr:
             "Fotoğraf göster: 'Could I show you a picture?' / 'Here's a reference photo.'",
         },
@@ -2764,6 +2785,7 @@ export const dailySalonLesson_31_6: BundledLesson = {
             "(bold|bright)( please)?",
             "what (do|would) you recommend",
           ],
+          model_answers: ["Something natural — nothing dramatic"],
           hint_tr:
             "Yoğunluğu söyle: 'Something natural — nothing dramatic' veya 'Bold and bright, please'.",
         },
@@ -3181,6 +3203,7 @@ export const dailySalonLesson_31_7: BundledLesson = {
             "(not really|not sure)(,)? (could|can) I (see|look at)",
             "I('m|'ve been) thinking (a |an |something )?(nude|red|pink|neutral)",
           ],
+          model_answers: ["Could I see the colors?"],
           hint_tr:
             "Önce kartı iste: 'Could I see the colors?' / 'Show me the swatches, please.'",
         },
@@ -3200,6 +3223,7 @@ export const dailySalonLesson_31_7: BundledLesson = {
             "(work|office)[ -]?friendly",
             "what (do|would) you recommend",
           ],
+          model_answers: ["A soft nude"],
           hint_tr:
             "Talebini söyle: 'Something neutral' / 'A soft nude' / 'Nothing too bright'.",
         },
@@ -3218,6 +3242,7 @@ export const dailySalonLesson_31_7: BundledLesson = {
             "(I like|love) (this|that) one",
             "(what|how) about (this|that)",
           ],
+          model_answers: ["The middle one, please"],
           hint_tr:
             "Seç: 'Let's try this one' / 'The middle one, please' / 'I'll go with that.'",
         },
@@ -3634,6 +3659,7 @@ export const dailySalonLesson_31_8: BundledLesson = {
             "(by |with )?cash",
             "(do you take|accept) (apple pay|google pay|contactless)",
           ],
+          model_answers: ["I'll pay by card"],
           hint_tr:
             "Ödeme yöntemini söyle: 'Card, please' / 'I'll pay by card' / 'Cash, please'.",
         },
@@ -3653,6 +3679,7 @@ export const dailySalonLesson_31_8: BundledLesson = {
             "I'll (tip|leave) (in )?cash",
             "(twenty|fifteen|eighteen) on the card",
           ],
+          model_answers: ["I'll add twenty percent on the card"],
           hint_tr:
             "Bahşiş kararı: 'I'll add twenty percent on the card' veya 'Twenty percent, please'.",
         },
@@ -3672,6 +3699,7 @@ export const dailySalonLesson_31_8: BundledLesson = {
             "let me check (my )?(calendar|schedule)",
             "(I'll|let me) call later",
           ],
+          model_answers: ["Yes, same time next month, please"],
           hint_tr:
             "Randevu kabul et: 'Yes, same time next month, please' veya 'Could I book in four weeks?'",
         },

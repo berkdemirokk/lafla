@@ -96,6 +96,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
             "(at (acme|name)|at my (current|present) (role|company))",
             "(next chapter|looking to|drawn to your team)",
           ],
+          model_answers: ["Backend eng, 5 years. Currently leading payments at Acme. Drawn to your team for FinTech depth."],
           hint_tr:
             "60 saniyelik: 'Backend eng, 5 years. Currently leading payments at Acme. Drawn to your team for FinTech depth.'",
         },
@@ -113,6 +114,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
             "(specifically (impressed|moved) by)",
             "(want to (work on|tackle|build)) (\\w+)",
           ],
+          model_answers: ["Two reasons — read your eng blog on X, plus the FinTech focus matches my goals."],
           hint_tr:
             "Spesifik sebep: 'Two reasons — read your eng blog on X, plus the FinTech focus matches my goals.'",
         },
@@ -131,6 +133,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
             "(we (shipped|launched|reduced|increased)) (.+) by (.+)",
             "(stack|tech) (was|included) (.+)",
           ],
+          model_answers: ["At Acme I led the payments migration — context, what I did, impact in numbers"],
           hint_tr:
             "STAR formatı: 'At Acme I led the payments migration — context, what I did, impact in numbers'.",
         },
@@ -149,6 +152,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
             "(managing (stakeholders|expectations)|communicating)",
             "(i (had to|ended up)) (.+)",
           ],
+          model_answers: ["Honestly, the hardest part was aligning three teams on the migration timing"],
           hint_tr:
             "Zorluk: 'Honestly, the hardest part was aligning three teams on the migration timing'.",
         },
@@ -167,6 +171,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
             "(what (are|do) the (next|biggest) (priorities|challenges))",
             "(save (those|them) for the end|happy to (save|defer))",
           ],
+          model_answers: ["What does success look like in the first 90 days?"],
           hint_tr:
             "Soru: 'Yeah, curious about the team structure' veya 'What does success look like in the first 90 days?'",
         },
@@ -622,6 +627,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
             "(stepped up|took (incident|the) command|took ownership)",
             "(resolved in|recovered in|shipped in) (\\d+ )(minutes?|hours?|days?)",
           ],
+          model_answers: ["Last quarter — prod incident. Team froze. I took incident command. Resolved in 30 minutes."],
           hint_tr:
             "STAR ac: 'Last quarter — prod incident. Team froze. I took incident command. Resolved in 30 minutes.'",
         },
@@ -640,6 +646,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
             "(decision (point|tree)|escalation criteria)",
             "(when (we|i) (saw|hit) (\\w+))",
           ],
+          model_answers: ["Opened war room, assigned roles, status every 10 min, escalation criteria clear."],
           hint_tr:
             "Aksiyonlari detayla: 'Opened war room, assigned roles, status every 10 min, escalation criteria clear.'",
         },
@@ -659,6 +666,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
             "(took the (first|biggest) (action|step) (visibly|out loud))",
             "(acknowledged (the )?(stakes|pressure|stress) (then )?moved to action)",
           ],
+          model_answers: ["First thing — I named the problem out loud and said we'd seen something similar before. That calmed the room"],
           hint_tr:
             "Tone-setting öncelik: 'First thing — I named the problem out loud and said we'd seen something similar before. That calmed the room' veya 'I slowed the pace, took the first visible action'. Türk öğrenci 'kontrolü ele alma' = 'taking control' (saldırgan) vs 'taking the lead' (sağlıklı).",
         },
@@ -678,6 +686,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
             "(my mistake|the lesson) was .{0,50}",
             "(more proactive |earlier )?(updates to|comms with) (stakeholders|leadership)",
           ],
+          model_answers: ["In hindsight, I should've looped in product earlier — they heard it from customers first"],
           hint_tr:
             "Özeleştiri net: 'In hindsight, I should've looped in product earlier — they heard it from customers first'. C1 ifade: 'in hindsight'. Türk: 'geriye dönüp baktığımda' = 'looking back / in hindsight'.",
         },
@@ -697,6 +706,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
             "(it became (the )?template|we now use that playbook) for (future incidents|prod fires)",
             "(more importantly )?(no one (burned out|left|quit)) after",
           ],
+          model_answers: ["In our retro, the team said the comms cadence kept them calm — it became our playbook"],
           hint_tr:
             "Sonuç + feedback: 'In our retro, the team said the comms cadence kept them calm — it became our playbook' veya 'My manager specifically called out the war room structure'. Türk: 'olumlu geri bildirim aldım' = 'got positive feedback' (kısa).",
         },
@@ -1021,6 +1031,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
             "(what does success|how do you measure (success|impact))",
             "(at the (3|6) month mark|in the first \\w+ months)",
           ],
+          model_answers: ["Yes — three questions. First: what does success look like at 6 months?"],
           hint_tr:
             "Aktar: 'Yes — three questions. First: what does success look like at 6 months?'",
         },
@@ -1038,6 +1049,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
             "(what (keeps|are) you up at night|biggest unknown)",
             "(team (dynamic|grappling with|fighting against))",
           ],
+          model_answers: ["Helpful. Second — what's the team's biggest current challenge?"],
           hint_tr:
             "2. soru: 'Helpful. Second — what's the team's biggest current challenge?'",
         },
@@ -1363,6 +1375,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
             "(looking to (land|come in)|aiming for) (closer to|around|at) (\\d+k|180)",
             "(flexibility|room to (move|negotiate)) (on (base|comp|equity))",
           ],
+          model_answers: ["Thanks — excited about role. Based on market, looking closer to 180k."],
           hint_tr:
             "Cerceve: 'Thanks — excited about role. Based on market, looking closer to 180k.'",
         },
@@ -1381,6 +1394,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
             "(want to (move forward|land here|join the team))",
             "(timing wise|comfortable timing|need to decide by)",
           ],
+          model_answers: ["Open to equity / signing bonus too — want to make this work."],
           hint_tr:
             "Esnek: 'Open to equity / signing bonus too — want to make this work.'",
         },
@@ -1706,6 +1720,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
             "(without (direct )?authority|across teams|cross-functional)",
             "(senior (engineer|stakeholder|pm)|director|peer team)",
           ],
+          model_answers: ["Last quarter — needed to convince a senior eng to adopt new auth pattern. No formal authority over them."],
           hint_tr:
             "Situation ac: 'Last quarter — needed to convince a senior eng to adopt new auth pattern. No formal authority over them.'",
         },
@@ -1724,6 +1739,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
             "(over (coffee|a call|a 1-1)|in a (small|focused) meeting)",
             "(found common (ground|priorities)|aligned on (the )?goal)",
           ],
+          model_answers: ["First listened — understood their concerns. Then built a prototype + data. Walked them through over coffee."],
           hint_tr:
             "Action listele: 'First listened — understood their concerns. Then built a prototype + data. Walked them through over coffee.'",
         },
@@ -1742,6 +1758,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
             "(took away|takeaway|lesson (learned|was))",
             "(now (apply|use) (this|the)|since then|going forward)",
           ],
+          model_answers: ["They signed off — shipped in 6 weeks, 25% faster auth. Takeaway: always prototype before debate."],
           hint_tr:
             "Result + Takeaway: 'They signed off — shipped in 6 weeks, 25% faster auth. Takeaway: always prototype before debate.'",
         },
@@ -2029,6 +2046,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
             "(base|on base)",
             "(flexible|open|depends) (on|depending) (the )?(full|total) (package|comp|compensation)",
           ],
+          model_answers: ["Based on market data, target range is 170-190 base — flexible on total package."],
           hint_tr:
             "Cerceve + range: 'Based on market data, target range is 170-190 base — flexible on total package.'",
         },
@@ -2047,6 +2065,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
             "(want to (move forward|land here)|excited about the role)",
             "(growth opportunities|long.term|impact)",
           ],
+          model_answers: ["Current comp around 165 + competing process. Want growth — that's why the upper end."],
           hint_tr:
             "Ust ucu destekle: 'Current comp around 165 + competing process. Want growth — that's why the upper end.'",
         },
@@ -2064,6 +2083,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
             "(timing wise|in terms of timing|when would)",
             "(next (steps|round)|move forward with)",
           ],
+          model_answers: ["Sounds great — open to level placement discussion. Want to make this work."],
           hint_tr:
             "Kapanis pozitif: 'Sounds great — open to level placement discussion. Want to make this work.'",
         },
@@ -2350,6 +2370,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
             "(details|edge cases|the (right|perfect) (solution|approach))",
             "(slowed|cost me|impacted) (velocity|speed|the team)",
           ],
+          model_answers: ["Honestly — I used to over-polish. Cost team velocity."],
           hint_tr:
             "Gercek zayiflik ac: 'Honestly — I used to over-polish. Cost team velocity.' Klise yok.",
         },
@@ -2368,6 +2389,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
             "(weekly (retro|check|review)|1-1 with my (manager|tech lead))",
             "(forces? me to|keeps? me honest|catches me when)",
           ],
+          model_answers: ["Past 6 months — kanban + weekly retros. Forces me to ship instead of polish."],
           hint_tr:
             "Sistem: 'Past 6 months — kanban + weekly retros. Forces me to ship instead of polish.'",
         },
@@ -2386,6 +2408,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
             "(feedback (from|in) (my manager|1-1s|retros))",
             "(still (working on|catching myself)|not (perfect|fully there))",
           ],
+          model_answers: ["Cycle time down 30%. Feedback from manager confirms. Still catching myself sometimes."],
           hint_tr:
             "Olc + alcakgonullu: 'Cycle time down 30%. Feedback from manager confirms. Still catching myself sometimes.'",
         },
@@ -2673,6 +2696,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
             "(at (the )?(3|6|90.day|first \\d+) (month|day))",
             "(in this role|for this position)",
           ],
+          model_answers: ["Yes — three questions. First: what does success look like at the 6-month mark in this role?"],
           hint_tr:
             "1. soru ac: 'Yes — three questions. First: what does success look like at the 6-month mark in this role?'",
         },
@@ -2690,6 +2714,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
             "(how is feedback|feedback style|how do you (give|handle) feedback)",
             "(disagreements|conflict|push.back|tough conversations)",
           ],
+          model_answers: ["Helpful. Second — what's the team culture like, especially around feedback and disagreement?"],
           hint_tr:
             "2. kultur sorusu: 'Helpful. Second — what's the team culture like, especially around feedback and disagreement?'",
         },
@@ -2704,9 +2729,10 @@ export const workInterviewLesson_14_8: BundledLesson = {
             "(love that|sounds great|that resonates|aligns with how i work)",
             "(last|final|third) (question|one)",
             "(biggest (challenge|blocker|tension)|what keeps you up|honest (challenge|surprise))",
-            "(the team|you|right now|currently) (facing|grappling with|fighting))?",
+            "(the team|you|right now|currently) (facing|grappling with|fighting)?",
             "(help me understand|curious about)",
           ],
+          model_answers: ["Love that. Final one — what's the biggest challenge the team's facing right now?"],
           hint_tr:
             "3. challenge: 'Love that. Final one — what's the biggest challenge the team's facing right now?'",
         },

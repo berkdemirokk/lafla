@@ -248,6 +248,7 @@ export const cefrA1SurvivalLesson_1: BundledLesson = {
             "(fine|good|okay)(,)?( thanks| thank you)?",
             "good morning(,)? i'?m (fine|good)",
           ],
+          model_answers: ["Good morning. I'm fine, thanks."],
           hint_tr: "Selamı iade et + nasıl olduğunu söyle: 'Good morning. I'm fine, thanks.'",
         },
         {
@@ -262,6 +263,7 @@ export const cefrA1SurvivalLesson_1: BundledLesson = {
             "and you\\?",
             "i'?m (fine|good)(,)?( and you)?",
           ],
+          model_answers: ["I'm good. And you?"],
           hint_tr: "Cevap ver, geri sor: 'I'm good. And you?'",
         },
         {
@@ -276,6 +278,7 @@ export const cefrA1SurvivalLesson_1: BundledLesson = {
             "thanks",
             "good day",
           ],
+          model_answers: ["Thank you. Have a nice day."],
           hint_tr: "Vedalaş: 'Thank you. Have a nice day.'",
         },
         {
@@ -637,6 +640,7 @@ export const cefrA1SurvivalLesson_2: BundledLesson = {
             "(hi|hello) sarah",
             "nice to meet you",
           ],
+          model_answers: ["Hi Sarah, I'm [name]. Nice to meet you."],
           hint_tr: "İsmini söyle: 'Hi Sarah, I'm [name]. Nice to meet you.'",
         },
         {
@@ -652,6 +656,7 @@ export const cefrA1SurvivalLesson_2: BundledLesson = {
             "turkey(,)?( and you)?",
             "(i'?m from )?(istanbul|ankara|izmir)",
           ],
+          model_answers: ["I'm from Istanbul, Turkey."],
           hint_tr: "'I'm from Turkey.' İstersen şehir de ekle: 'I'm from Istanbul, Turkey.'",
         },
         {
@@ -667,6 +672,7 @@ export const cefrA1SurvivalLesson_2: BundledLesson = {
             "no(,)? (i'?ve been here|second time)",
             "(yes|no)(,)?( first time)?",
           ],
+          model_answers: ["No, I've been here before."],
           hint_tr: "Kısa cevap: 'Yes, my first time' veya 'No, I've been here before.'",
         },
         {
@@ -1038,6 +1044,7 @@ export const cefrA1SurvivalLesson_3: BundledLesson = {
             "my apologies",
             "(i'?m )?really sorry",
           ],
+          model_answers: ["I'm so sorry."],
           hint_tr: "Özür dile: 'Sorry' veya 'I'm so sorry.'",
         },
         {
@@ -1052,6 +1059,7 @@ export const cefrA1SurvivalLesson_3: BundledLesson = {
             "(can|could) you help me",
             "i'?m looking for",
           ],
+          model_answers: ["Excuse me, where is the bread?"],
           hint_tr: "'Yes, where is the water?' veya 'Excuse me, where is the bread?'",
         },
         {
@@ -1066,6 +1074,7 @@ export const cefrA1SurvivalLesson_3: BundledLesson = {
             "thank you (so |very )?much",
             "thanks a lot",
           ],
+          model_answers: ["Thanks so much."],
           hint_tr: "Teşekkür et: 'Thank you' veya 'Thanks so much.'",
         },
         {
@@ -1432,6 +1441,7 @@ export const cefrA1SurvivalLesson_4: BundledLesson = {
             "(do you have|what'?s) the time",
             "sorry(,)? what time",
           ],
+          model_answers: ["what time is it?"],
           hint_tr: "Önce 'Excuse me', sonra 'what time is it?'",
         },
         {
@@ -1446,6 +1456,7 @@ export const cefrA1SurvivalLesson_4: BundledLesson = {
             "(thank you|thanks)(,)?( so much| a lot)?",
             "ten o'?clock(,)?( thank you| thanks)?",
           ],
+          model_answers: ["Thank you."],
           hint_tr: "Teşekkür et: 'Thank you.' veya 'Thanks.'",
         },
         {
@@ -1460,6 +1471,7 @@ export const cefrA1SurvivalLesson_4: BundledLesson = {
             "(yes|yeah)(,)? (number )?(5|five)",
             "no(,)?( number )?\\d+",
           ],
+          model_answers: ["No, number 7."],
           hint_tr: "Kısa cevap: 'Yes' veya 'No, number 7.'",
         },
         {
@@ -1830,6 +1842,7 @@ export const cefrA1SurvivalLesson_5: BundledLesson = {
             "(can|could) you repeat",
             "(more |a bit )?slowly(,)? please",
           ],
+          model_answers: ["Sorry, I don't understand. Can you repeat?"],
           hint_tr: "'Sorry, I don't understand. Can you repeat?' veya 'Slowly, please.'",
         },
         {
@@ -1845,6 +1858,7 @@ export const cefrA1SurvivalLesson_5: BundledLesson = {
             "thanks(,)?( i got it)?",
             "(okay|ok)(,)? thank you",
           ],
+          model_answers: ["B22, fifteen minutes. Thank you."],
           hint_tr: "Anladığını göster: 'B22, fifteen minutes. Thank you.'",
         },
         {
@@ -1859,6 +1873,7 @@ export const cefrA1SurvivalLesson_5: BundledLesson = {
             "thank you very much",
             "have a good day",
           ],
+          model_answers: ["Thanks, have a good day."],
           hint_tr: "Veda: 'Thank you.' veya 'Thanks, have a good day.'",
         },
       ],
@@ -2219,6 +2234,7 @@ export const cefrA1SurvivalLesson_6: BundledLesson = {
             "(can|could) i (have|get) a coffee",
             "(i'?d like|i want) a coffee",
           ],
+          model_answers: ["Can I have a coffee, please?"],
           hint_tr: "'One coffee, please' veya 'Can I have a coffee, please?'",
         },
         {
@@ -2233,6 +2249,7 @@ export const cefrA1SurvivalLesson_6: BundledLesson = {
             "(can|could) i (have|get) (this one|that one)",
             "(one of|a) (cake|cookie|muffin)",
           ],
+          model_answers: ["This one, please."],
           hint_tr: "Vitrindeki şeyi göster: 'This one, please.'",
         },
         {
@@ -2247,6 +2264,7 @@ export const cefrA1SurvivalLesson_6: BundledLesson = {
             "thank you",
             "(card|cash)( please)?",
           ],
+          model_answers: ["Here you go."],
           hint_tr: "Parayı uzat: 'Here you go.' Veya kartla: 'Card, please.'",
         },
         {
@@ -2613,6 +2631,7 @@ export const cefrA1SurvivalLesson_7: BundledLesson = {
             "hello(,)?",
             "(excuse me|sorry) where is",
           ],
+          model_answers: ["Excuse me"],
           hint_tr: "Önce 'Excuse me' diyerek başla.",
         },
         {
@@ -2627,6 +2646,7 @@ export const cefrA1SurvivalLesson_7: BundledLesson = {
             "(can|could) you tell me where the bus stop",
             "is there a bus stop",
           ],
+          model_answers: ["Where is the bus stop?"],
           hint_tr: "'Where is the bus stop?'",
         },
         {
@@ -2641,6 +2661,7 @@ export const cefrA1SurvivalLesson_7: BundledLesson = {
             "(thank you|thanks)( so much| very much| a lot)?",
             "(straight|right)(,)? thank you",
           ],
+          model_answers: ["Thank you very much."],
           hint_tr: "Teşekkür et: 'Thank you very much.'",
         },
         {
@@ -3008,6 +3029,7 @@ export const cefrA1SurvivalLesson_8: BundledLesson = {
             "i don'?t feel well",
             "(help|excuse me)(,)? i'?m sick",
           ],
+          model_answers: ["Excuse me"],
           hint_tr: "Önce 'Excuse me' veya 'Help'. Sonra 'I'm sick.'",
         },
         {
@@ -3023,6 +3045,7 @@ export const cefrA1SurvivalLesson_8: BundledLesson = {
             "(please )?call an ambulance",
             "i need (a doctor|help|an ambulance)",
           ],
+          model_answers: ["I'm sick. Please call an ambulance."],
           hint_tr: "'I'm sick. Please call an ambulance.'",
         },
         {
@@ -3037,6 +3060,7 @@ export const cefrA1SurvivalLesson_8: BundledLesson = {
             "(i have )?(a headache|stomach pain|chest pain)",
             "(here|right here)",
           ],
+          model_answers: ["My head hurts."],
           hint_tr: "Vücut yerini söyle: 'My head hurts.' veya 'My stomach.'",
         },
         {
@@ -3050,6 +3074,7 @@ export const cefrA1SurvivalLesson_8: BundledLesson = {
             "thanks",
             "thank you (so |very )?much",
           ],
+          model_answers: ["Thank you so much."],
           hint_tr: "Teşekkür et: 'Thank you so much.'",
         },
       ],
@@ -3409,6 +3434,7 @@ export const cefrA1SurvivalLesson_9: BundledLesson = {
             "it'?s \\w+",
             "\\w+",
           ],
+          model_answers: ["My name is [name]."],
           hint_tr: "'My name is [name].'",
         },
         {
@@ -3423,6 +3449,7 @@ export const cefrA1SurvivalLesson_9: BundledLesson = {
             "spelled? [a-z]+",
             "[a-z]-[a-z]-[a-z]",
           ],
+          model_answers: ["B, E, R, K"],
           hint_tr: "Harf harf: 'B, E, R, K' — Türk isimleri için kritik.",
         },
         {
@@ -3436,6 +3463,7 @@ export const cefrA1SurvivalLesson_9: BundledLesson = {
             "[0-9 -]{7,}",
             "(five|six|seven|eight|nine|one|two|three|four|zero) ",
           ],
+          model_answers: ["My number is five five five, one two three four."],
           hint_tr: "'My number is five five five, one two three four.'",
         },
         {
@@ -3449,6 +3477,7 @@ export const cefrA1SurvivalLesson_9: BundledLesson = {
             "thanks",
             "thank you (so |very )?much",
           ],
+          model_answers: ["Thank you."],
           hint_tr: "Teşekkür et: 'Thank you.'",
         },
       ],
@@ -3810,6 +3839,7 @@ export const cefrA1SurvivalLesson_10: BundledLesson = {
             "(excuse me|hi|hello)(,)?",
             "(can|could) you help me",
           ],
+          model_answers: ["Excuse me"],
           hint_tr: "'Excuse me' ile başla.",
         },
         {
@@ -3824,6 +3854,7 @@ export const cefrA1SurvivalLesson_10: BundledLesson = {
             "i need a pharmacy",
             "(a |the )?pharmacy near",
           ],
+          model_answers: ["Is there a pharmacy near here?"],
           hint_tr: "'Is there a pharmacy near here?' veya 'Where is the pharmacy?'",
         },
         {
@@ -3838,6 +3869,7 @@ export const cefrA1SurvivalLesson_10: BundledLesson = {
             "(and|also)(,)? (a |is there a )?(good )?restaurant",
             "(where'?s|where is) a (good )?restaurant",
           ],
+          model_answers: ["And where is a good restaurant?"],
           hint_tr: "Teşekkür et, sonra: 'And where is a good restaurant?'",
         },
         {
@@ -3852,6 +3884,7 @@ export const cefrA1SurvivalLesson_10: BundledLesson = {
             "thank you (so |very )?much",
             "thanks(,)? have a nice day",
           ],
+          model_answers: ["Thank you so much."],
           hint_tr: "Veda: 'Thank you so much.'",
         },
         {
@@ -4262,6 +4295,7 @@ export const cefrA1SurvivalLesson_11: BundledLesson = {
             "(can|could) you help me",
             "sorry(,)?",
           ],
+          model_answers: ["Excuse me"],
           hint_tr: "'Excuse me' ile başla.",
         },
         {
@@ -4276,6 +4310,7 @@ export const cefrA1SurvivalLesson_11: BundledLesson = {
             "(can|could) i use the (bathroom|restroom)",
             "(bathroom|restroom)(,)? please",
           ],
+          model_answers: ["Where is the bathroom?"],
           hint_tr: "'Where is the bathroom?' veya 'Restroom, please?'",
         },
         {
@@ -4291,6 +4326,7 @@ export const cefrA1SurvivalLesson_11: BundledLesson = {
             "(can i have|what'?s) the wifi password",
             "wifi password(,)? please",
           ],
+          model_answers: ["Thanks. And the wifi password, please?"],
           hint_tr: "Teşekkür et + wifi sor: 'Thanks. And the wifi password, please?'",
         },
         {
@@ -4305,6 +4341,7 @@ export const cefrA1SurvivalLesson_11: BundledLesson = {
             "thank you (so |very )?much",
             "thanks a lot",
           ],
+          model_answers: ["Thank you so much."],
           hint_tr: "Teşekkür et: 'Thank you so much.'",
         },
       ],
@@ -4724,6 +4761,7 @@ export const cefrA1SurvivalLesson_12: BundledLesson = {
             "(could|can) you repeat( that)?",
             "(slowly|more slowly)(,)? please",
           ],
+          model_answers: ["Sorry, I don't understand. Could you repeat?"],
           hint_tr: "'Sorry, I don't understand. Could you repeat?' veya 'Slowly, please.'",
         },
         {
@@ -4738,6 +4776,7 @@ export const cefrA1SurvivalLesson_12: BundledLesson = {
             "i'?m learning english",
             "(one more time|once more)(,)? please",
           ],
+          model_answers: ["Slowly, please. I'm learning English."],
           hint_tr: "Daha yavaş iste: 'Slowly, please. I'm learning English.'",
         },
         {
@@ -4753,6 +4792,7 @@ export const cefrA1SurvivalLesson_12: BundledLesson = {
             "(okay|ok)(,)? (thank you|thanks)",
             "(two blocks|left)(,)?( thank you| thanks)?",
           ],
+          model_answers: ["Two blocks, left. Thank you!"],
           hint_tr: "Anladığını göster + teşekkür et: 'Two blocks, left. Thank you!'",
         },
         {
@@ -5176,6 +5216,7 @@ export const cefrA1SurvivalLesson_13: BundledLesson = {
             "(sure|okay|ok)(,)? (please|thanks)?",
             "yes",
           ],
+          model_answers: ["Yes, please."],
           hint_tr: "Kibarca kabul et: 'Yes, please.'",
         },
         {
@@ -5191,6 +5232,7 @@ export const cefrA1SurvivalLesson_13: BundledLesson = {
             "maybe later",
             "not (now|today)(,)? thanks",
           ],
+          model_answers: ["No, thank you."],
           hint_tr: "Kibarca reddet: 'No, thank you.' veya 'Maybe later.'",
         },
         {
@@ -5206,6 +5248,7 @@ export const cefrA1SurvivalLesson_13: BundledLesson = {
             "(can|could) i (have|get) the (check|bill)",
             "no(,)? that'?s all",
           ],
+          model_answers: ["No, thank you. Just the check, please."],
           hint_tr: "'No, thank you. Just the check, please.'",
         },
         {
@@ -5631,6 +5674,7 @@ export const cefrA1SurvivalLesson_14: BundledLesson = {
             "(there'?s|there is) an emergency",
             "(please )?send (a doctor|an ambulance|help)",
           ],
+          model_answers: ["Help! Someone is hurt. Send an ambulance."],
           hint_tr: "Net ol: 'Help! Someone is hurt. Send an ambulance.'",
         },
         {
@@ -5646,6 +5690,7 @@ export const cefrA1SurvivalLesson_14: BundledLesson = {
             "(in front of|outside) [a-z]+",
             "[0-9]+ \\w+ (street|avenue|road)",
           ],
+          model_answers: ["On Park Street."],
           hint_tr: "Yerini söyle: 'On Park Street.' veya 'Outside the hotel.'",
         },
         {
@@ -5661,6 +5706,7 @@ export const cefrA1SurvivalLesson_14: BundledLesson = {
             "(please )?(hurry|come quickly|come fast)",
             "(he|she) needs a doctor",
           ],
+          model_answers: ["A man fell. He needs a doctor. Please hurry."],
           hint_tr: "'A man fell. He needs a doctor. Please hurry.'",
         },
         {
@@ -5675,6 +5721,7 @@ export const cefrA1SurvivalLesson_14: BundledLesson = {
             "thanks",
             "(okay|ok)(,)? (i will|i'?ll stay)",
           ],
+          model_answers: ["Okay, thank you."],
           hint_tr: "'Okay, thank you.'",
         },
       ],

@@ -17,9 +17,8 @@
 //   • B (false)        → welcome → interests → name → cefr (preview yok)
 
 import Constants from "expo-constants";
-import { Platform } from "react-native";
-
-import { getAttStatus } from "./att";
+import { isAnalyticsEnabled } from "./analytics";
+// First-party experiments do not use advertising identifiers.
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let _phClient: any = null;
@@ -45,13 +44,9 @@ async function ensureClient(): Promise<void> {
   if (_phClient) return;
   if (_initInProgress) return _initInProgress;
   if (!hasUsableKey()) return;
+  if (!(await isAnalyticsEnabled())) return;
 
-  // ATT gate — denied users → no PostHog → return null silently.
-  if (Platform.OS === "ios") {
-    const att = await getAttStatus().catch(() => "denied" as const);
-    if (att !== "granted") return;
-  }
-
+  // Experiments are first-party product behavior and use no advertising ID.
   _initInProgress = (async () => {
     try {
       // eslint-disable-next-line @typescript-eslint/no-require-imports

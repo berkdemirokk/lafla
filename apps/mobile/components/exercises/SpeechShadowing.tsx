@@ -7,12 +7,13 @@
 // 4. Auto-advance after a 1s beat.
 //
 // Speech recognition is loaded defensively — if the native module is
-// missing (Expo Go, simulator, or just not installed yet) we mark the
-// phrase as skipped with score 100 so the lesson still flows.
+// missing (Expo Go, simulator, or just not installed yet) the phrase is
+// unassessed; skipped attempts never inflate the score.
 
 import { useEffect, useRef, useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { tokens } from "../../theme";
+import { summarizePronunciationAttempts } from "../../lib/pronunciation-session";
 import { speak, stop as stopSpeak } from "../../lib/tts";
 import {
   isAvailable as srIsAvailable,
@@ -28,6 +29,7 @@ import { PhonemeFeedback } from "../PhonemeFeedback";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { pushPronScore } from "../../lib/pronunciation-history";
 import type { ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 type Phase = "speaking" | "listening" | "feedback";
 
@@ -53,6 +55,7 @@ export function SpeechShadowing({
   trTranslations,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [idx, setIdx] = useState(0);
   const [phase, setPhase] = useState<Phase>("speaking");
   const [lastScore, setLastScore] = useState<number | null>(null);
@@ -90,30 +93,24 @@ export function SpeechShadowing({
   };
 
   const finishExercise = (finalResults: PhraseResult[]) => {
-    const avg =
-      finalResults.length === 0
-        ? 0
-        : Math.round(
-            finalResults.reduce((s, r) => s + r.score, 0) /
-              finalResults.length,
-          );
-    const skippedAll = finalResults.every((r) => r.skipped);
+    const summary = summarizePronunciationAttempts(finalResults);
     // 2026-05-23 — CEFR fix v2: SADECE pronunciation-history'e yaz.
     // Eski recordCefrProgress çağrısı kaldırıldı — scene verdict zaten
     // bu egzersizin skorunu averaged scene score üzerinden CEFR'a feed
     // ediyor. Çift yazma = level 2-3× hızlı yükseliyordu (audit teyit).
     // Skipped session (STT yok) credit verilmez.
-    if (!skippedAll && avg > 0) {
-      void pushPronScore(avg, "speech_shadowing").catch(() => {});
+    if (summary.evaluatedCount > 0 && summary.score > 0) {
+      void pushPronScore(summary.score, "speech_shadowing").catch(() => {});
     }
     onComplete({
       exercise_id: "speech_shadowing",
       exercise_type: "speech_shadowing",
-      correct: avg >= 60,
-      score: avg,
-      feedback: skippedAll
-        ? "Konuşma tanıma kullanılamadı — atlandı."
-        : `${finalResults.length} cümle tekrar ettin · ortalama ${avg}/100.`,
+      correct: summary.correct,
+      score: summary.score,
+      feedback:
+        summary.evaluatedCount === 0
+          ? "Konuşma tanıma kullanılamadı — puan verilmeden atlandı."
+          : `${summary.evaluatedCount} cümle değerlendirildi · ortalama ${summary.score}/100${summary.skippedCount > 0 ? ` · ${summary.skippedCount} tur atlandı` : ""}.`,
     });
   };
 
@@ -140,7 +137,7 @@ export function SpeechShadowing({
     if (gradedRef.current) return;
     gradedRef.current = true;
 
-    let score = 100;
+    let score = 0;
     if (!skipped && current) {
       const g = gradePronunciation(current, heardRef.current);
       score = g.score;
@@ -289,7 +286,7 @@ export function SpeechShadowing({
       exercise_type: "speech_shadowing",
       correct: false,
       score: 50,
-      feedback: "Atlandı.",
+      feedback: t("exercise.skipped"),
     });
   };
 
@@ -297,10 +294,10 @@ export function SpeechShadowing({
 
   const stateLabel =
     phase === "speaking"
-      ? "Dinliyor"
+      ? t("exercise.listening")
       : phase === "listening"
-        ? "🎤 Şimdi sen tekrarla"
-        : "Bitti";
+        ? t("exercise.repeat_now")
+        : t("exercise.finished");
   const stateIcon =
     phase === "speaking" ? "◯" : phase === "listening" ? "🎤" : "✓";
 
@@ -318,7 +315,7 @@ export function SpeechShadowing({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Tekrar Et</Text>
+      <Text style={styles.prompt}>{t("exercise.shadowing.title")}</Text>
 
       <View style={styles.dotsRow}>
         {phrases.map((_, i) => (
@@ -335,7 +332,7 @@ export function SpeechShadowing({
 
       <View style={[styles.heroCard, cardFlash]}>
         <Text style={styles.phrase}>{current ?? ""}</Text>
-        {trCurrent ? <Text style={styles.tr}>{trCurrent}</Text> : null}
+        {locale === "tr" && trCurrent ? <Text style={styles.tr}>{trCurrent}</Text> : null}
       </View>
 
       <View style={styles.stateRow}>
@@ -356,8 +353,13 @@ export function SpeechShadowing({
       <View style={styles.spacer} />
 
       <View style={styles.footer}>
-        <Pressable style={styles.skipBtn} onPress={onSkipAll}>
-          <Text style={styles.skipLabel}>Atla</Text>
+        <Pressable
+          style={styles.skipBtn}
+          onPress={onSkipAll}
+          accessibilityRole="button"
+          accessibilityLabel={t("exercise.shadowing.skip_label")}
+        >
+          <Text style={styles.skipLabel}>{t("common.skip")}</Text>
         </Pressable>
       </View>
     </View>
@@ -404,12 +406,12 @@ const styles = StyleSheet.create({
     marginBottom: tokens.spacing.md,
   },
   cardFlashGood: {
-    borderColor: tokens.brand.primaryFixed,
-    backgroundColor: "rgba(246, 255, 0, 0.18)",
+    borderColor: tokens.semantic.success,
+    backgroundColor: tokens.semantic.successContainer,
   },
   cardFlashOkay: {
-    borderColor: tokens.semantic.successContainer,
-    backgroundColor: tokens.semantic.successContainer,
+    borderColor: tokens.semantic.warning,
+    backgroundColor: tokens.semantic.warningContainer,
   },
   cardFlashMiss: {
     borderColor: tokens.semantic.error,

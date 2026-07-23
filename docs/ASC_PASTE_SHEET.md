@@ -73,15 +73,15 @@ All countries with Turkey as primary
 
 **Localized Description TR:**
 ```
-Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini ve kişisel zayıflık raporu.
+Tüm 971 sahneye erişim, sınırsız tekrar, yönlendirmeli telaffuz pratiği, IELTS Band tahmini ve kişisel zayıflık raporu.
 ```
 
 **Localized Description EN:**
 ```
-All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report.
+All 971 scenes unlocked, unlimited replays, guided pronunciation practice, IELTS Band estimate, personal weakness report.
 ```
 
-**Price:** TR Tier 30 — `₺99` (Apple auto-localizes other countries)
+**Price:** TR Tier 30 — `₺99/ay` (Apple auto-localizes other countries)
 
 ---
 
@@ -101,15 +101,15 @@ All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS B
 
 **Localized Description TR:**
 ```
-Yıllık plan — aylığa göre %16 tasarruf. Tüm 935 sahneye erişim, sınırsız tekrar, IELTS Band tahmini ve kişisel zayıflık raporu.
+Yıllık plan — aylığa göre %16 tasarruf. Tüm 971 sahneye erişim, sınırsız tekrar, IELTS Band tahmini ve kişisel zayıflık raporu.
 ```
 
 **Localized Description EN:**
 ```
-Yearly plan — 16% savings vs monthly. All 935 scenes unlocked, unlimited replays, IELTS Band estimate, personal weakness report.
+Yearly plan — 16% savings vs monthly. All 971 scenes unlocked, unlimited replays, IELTS Band estimate, personal weakness report.
 ```
 
-**Price:** TR Tier 200 — `₺999` (Apple auto-localizes other countries)
+**Price:** TR Tier 200 — `₺999/yıl` (Apple auto-localizes other countries)
 
 > **RevenueCat dashboard adımı (ASC tarafı bittikten sonra):**
 > - Offering: `default`
@@ -197,12 +197,12 @@ Stop freezing. Speak. Turkish hints.
 
 ### Promotional Text (TR)
 ```
-Lafla geldi. 7 mod, 935 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçe ipuçlu hata feedback. Flörtten mülakata, donma. Konuş.
+Lafla geldi. 7 mod, 971 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçe ipuçlu hata feedback. Flörtten mülakata, donma. Konuş.
 ```
 
 ### Promotional Text (EN)
 ```
-Lafla just launched. 7 modes, 935 scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.
+Lafla just launched. 7 modes, 971 scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.
 ```
 
 ### Keywords (TR)
@@ -226,7 +226,7 @@ Her sahne 60 saniyenin altında. Telefonun kasarsa kasasın — Lafla beklemiyor
 ✨ NE BULURSUN
 
 🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking
-🎬 935 gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası
+🎬 971 gerçek sahne — A1 başlangıçtan C2 ileri seviyeye CEFR haritası
 🎙️ Phoneme Drill — Türk kulağı için zor sesleri (th, æ, v/w) targetli alıştırmalar
 🎧 Dinleme + yazım modu — sessiz ortamda da pratik yap
 🇹🇷 Türkçeye özel hata yakalama — article eksik, "I am go" hatası, "make picture" tuzakları
@@ -237,7 +237,7 @@ Her sahne 60 saniyenin altında. Telefonun kasarsa kasasın — Lafla beklemiyor
 
 🤔 BU UYGULAMA NEDİR?
 
-Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — 935 gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Hiçbir cevabın internete gönderilmiyor.
+Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — 971 gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Cevapların Lafla sunucularına gönderilmez; sesli giriş iOS konuşma tanıma sistemi tarafından işlenebilir.
 
 🚀 NEDEN LAFLA?
 
@@ -253,9 +253,9 @@ Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açık
 
 💎 LAFLA PRO ÜYELİK
 
-Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
+Tüm 971 sahneye erişim, sınırsız tekrar, yönlendirmeli telaffuz pratiği, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
 
-📋 Fiyat: ₺99/ay veya ₺999/yıl (yıllık planda %16 tasarruf)
+📋 Aylık ve yıllık planlar mevcut. App Store satın alma ekranı onaydan önce kesin yerel fiyatı ve faturalama dönemini gösterir.
 🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin
 ⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir
 📜 Şartlar: https://berkdemirokk.github.io/lafla/terms.html · Gizlilik: https://berkdemirokk.github.io/lafla/privacy.html
@@ -272,7 +272,7 @@ Every scene runs under 60 seconds. Real moments, real corrections, sub-3-second 
 ✨ WHAT YOU GET
 
 🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking
-🎬 935 real scenarios — CEFR-mapped from A1 to C1
+🎬 971 real scenarios — CEFR-mapped from A1 to C2
 🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse (th, æ, v/w)
 🎧 Listen & Transcribe — practice in silent environments too
 🇹🇷 Turkish-tailored error feedback — dropped articles, "I am go" mistakes, "make picture" traps
@@ -283,7 +283,7 @@ Every scene runs under 60 seconds. Real moments, real corrections, sub-3-second 
 
 🤔 WHAT IS THIS?
 
-Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — 935 real scenarios, all pre-authored, zero runtime AI hallucination. Nothing you type or say leaves your device.
+Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — 971 real scenarios, all pre-authored, zero runtime AI hallucination. Answers are not sent to Lafla servers; voice input may be processed by iOS Speech Recognition.
 
 🚀 WHY LAFLA?
 
@@ -299,9 +299,9 @@ Every scene targets these specific traps. Every correction is explained in Turki
 
 💎 LAFLA PRO MEMBERSHIP
 
-All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.
+All 971 scenes unlocked, unlimited replays, guided pronunciation practice, IELTS Band estimate, personal weakness report, advanced progress dashboard.
 
-📋 Pricing: ₺99/month or ₺999/year (16% savings on annual)
+📋 Monthly and yearly plans are available. The App Store purchase sheet shows the exact localized price and billing period before confirmation.
 🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions
 ⏰ Renewal continues at the end of each period unless cancelled
 📜 Terms: https://berkdemirokk.github.io/lafla/terms.html · Privacy: https://berkdemirokk.github.io/lafla/privacy.html
@@ -314,7 +314,7 @@ Support: berkkdemirok@gmail.com
 Lafla — ilk sürüm. Konuş, çalış.
 
 🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS
-🎬 935 oynanabilir sahne — A1'den C1'e CEFR ile haritalı
+🎬 971 oynanabilir sahne — A1'den C2'ye CEFR ile haritalı
 🎙️ Phoneme Drill — Türk kulağı için zor sesleri targetli alıştır
 🎧 Dinle + yaz modu — sessiz ortamda da pratik
 🇹🇷 Türkçeye özel hata geri bildirimi (article, doğrudan çeviri tuzakları)
@@ -331,7 +331,7 @@ Geri bildirim: berkkdemirok@gmail.com
 Lafla — first launch. Speak. Work.
 
 🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS
-🎬 935 scenarios playable at launch — CEFR-mapped A1 to C1
+🎬 971 scenarios playable at launch — CEFR-mapped A1 to C2
 🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse
 🎧 Listen & Transcribe — practice in silent environments
 🇹🇷 Turkish-tailored error feedback (articles, direct-translation traps)
@@ -347,8 +347,8 @@ Feedback: berkkdemirok@gmail.com
 
 | Field | Value |
 |---|---|
-| Support URL | `https://berkdemirokk.github.io/` |
-| Marketing URL | `https://berkdemirokk.github.io/` |
+| Support URL | `https://berkdemirokk.github.io/lafla/` |
+| Marketing URL | `https://berkdemirokk.github.io/lafla/` |
 | Privacy Policy URL | `https://berkdemirokk.github.io/lafla/privacy.html` |
 
 ---
@@ -399,9 +399,9 @@ Lafla is a Turkish-first English speaking-practice app. The home feed is gated b
 
 Two iOS permissions (Microphone, Speech Recognition) are requested lazily — only when the user first taps a voice exercise, not on first launch. Denying either still leaves the rest of the app usable; we present a graceful "go to Settings" prompt.
 
-Two In-App Purchases ship: `lafla.premium.monthly` (₺99/mo) and `lafla.premium.yearly` (₺999/yr) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.
+Two In-App Purchases ship: `lafla.premium.monthly` and `lafla.premium.yearly` — both via RevenueCat. The App Store purchase sheet shows the exact localized price and billing period before confirmation. Restore Purchases is reachable from both the paywall and Settings.
 
-App Tracking Transparency (ATT) prompt is shown after onboarding completes (Apple HIG: prompt at first meaningful value moment, not on launch). AdMob initialization is sequenced after ATT response. PostHog analytics are gated by ATT — denied users get zero tracking.
+App Tracking Transparency (ATT) prompt is requested from the root app shell before AdMob initialization. PostHog analytics are gated by ATT — denied users get zero tracking.
 
 Two side-rail practice modes exist for silent environments:
 - Phoneme Drill (/phoneme-drill): targeted pronunciation alıştırması for hard sounds
@@ -411,7 +411,7 @@ Voice Journal (/voice-journal): users can record up to 2-minute audio entries; s
 
 Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → immediate deletion via Supabase edge function. No 30-day grace.
 
-No runtime LLM. All NPC dialogue and feedback is pre-authored TypeScript; runtime "smart conversation" uses a deterministic mini-Markov model for bridge phrases (lib/npc-bridge.ts), not an external API. Voice Journal audio never leaves the device.
+The 971 guided scenarios are pre-authored and scored on-device. Free Chat, Emergency English, and custom-scenario generation also run on-device with deterministic intent, entity, and conversation-state rules. Text entered in those tools is not sent to an AI provider or Lafla server. Input/output safety filters are applied locally. Voice Journal audio remains local.
 
 Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: berkkdemirok@gmail.com (Istanbul business hours, <4h response).
 ```

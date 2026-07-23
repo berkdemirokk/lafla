@@ -73,10 +73,9 @@ type LoadingDotsProps = {
 
 ### Where to use it
 
-- **AI chat / "AI is thinking…"** Show next to or under the NPC
-  avatar/bubble while the LLM call is in flight. Pair with the brand
-  secondary color on dark NPC bubbles
-  (`<LoadingDots color={tokens.text.inverseOnSurface} />`).
+- **Local generation.** For operations that include a storage read or content
+  compilation, show a brief neutral "Preparing…" state. Do not imply that a
+  remote model is thinking; Free Chat and Real Life generation are on-device.
 - **Network requests.** Inline indicator for "submitting…", "fetching
   next scene…" etc. — anywhere `ActivityIndicator` would feel too
   generic and a full `Skeleton` would be overkill.
@@ -89,7 +88,7 @@ import { LoadingDots } from "@/components/LoadingDots";
 function ThinkingBubble() {
   return (
     <View style={{ flexDirection: "row", gap: 8, alignItems: "center" }}>
-      <Text>AI düşünüyor</Text>
+      <Text>Yanıt hazırlanıyor</Text>
       <LoadingDots />
     </View>
   );

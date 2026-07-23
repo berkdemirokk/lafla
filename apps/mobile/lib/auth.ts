@@ -9,6 +9,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SecureStore from "expo-secure-store";
 import { supabase } from "./supabase";
+import { setUserId as setRevenueCatUserId } from "./iap";
+import { clearAll as clearVoiceJournal } from "./voice-journal";
+import { synchronizeCloudProgress } from "./cloud-progress-sync";
 
 // 2026-05-25 — signOut sırasında temizlenecek user-data anahtarları.
 // signOut bu key'leri silmediği için: User1 onboarding bitirir →
@@ -28,9 +31,30 @@ const USER_BOUND_KEYS = [
   K_DISPLAY_NAME,
   K_INTERESTS,
 ];
-const SECURE_STORE_USER_KEYS = [
-  "lafla.apple.credentials.v1",
-];
+const SECURE_STORE_USER_KEYS = ["lafla.apple.credentials.v1"];
+const DEVICE_SCOPED_KEYS = new Set([
+  "lafla.analytics.optout",
+  "lafla.att.requested.v1",
+  "lafla.locale",
+  "lafla.roleplay.inputMode",
+  "lafla.settings.autoSpeak",
+  "lafla.settings.themePreference",
+  "lafla.sfx.enabled",
+  "lafla.tts.muted",
+]);
+
+async function clearUserBoundLocalData(): Promise<void> {
+  // Voice files live outside AsyncStorage; delete them while their index is
+  // still available, then clear the remaining account-scoped keys.
+  await clearVoiceJournal().catch(() => {});
+  const keys = await AsyncStorage.getAllKeys().catch(() => []);
+  const userKeys = keys.filter(
+    (key) => key.startsWith("lafla.") && !DEVICE_SCOPED_KEYS.has(key),
+  );
+  if (userKeys.length > 0) {
+    await AsyncStorage.multiRemove(userKeys).catch(() => {});
+  }
+}
 
 export type Profile = {
   id: string;
@@ -44,6 +68,11 @@ export type Profile = {
   longest_streak: number;
   last_lesson_at: string | null;
 };
+
+type EditableProfileFields = Pick<
+  Profile,
+  "display_name" | "interests" | "onboarding_completed_at"
+>;
 
 async function cacheProfileLocally(profile: Profile | null): Promise<void> {
   if (!profile) return;
@@ -76,17 +105,24 @@ async function cacheProfileLocally(profile: Profile | null): Promise<void> {
 export async function signUpWithEmail(email: string, password: string) {
   const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) throw error;
+  if (data.user && data.session) {
+    await synchronizeCloudProgress(data.user.id).catch(() => {});
+  }
   return data;
 }
 
 export async function signInWithEmail(email: string, password: string) {
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
   if (error) throw error;
   // 2026-05-26 — Cross-user data leak fix: önceki kullanıcının displayName +
   // interests'i de temizle. Server profile authoritative; today/profile ilk
   // mount'ta server'dan okur. Returning user için "ilk frame boş ad" tradeoff
   // — kabul edilebilir, leak'ten iyi.
   await AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {});
+  if (data.user) await synchronizeCloudProgress(data.user.id).catch(() => {});
   return data;
 }
 
@@ -99,20 +135,23 @@ export async function signInWithApple(identityToken: string, nonce?: string) {
   if (error) throw error;
   // 2026-05-26 — Cross-user data leak fix: tüm USER_BOUND_KEYS temizle.
   await AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {});
+  if (data.user) await synchronizeCloudProgress(data.user.id).catch(() => {});
   return data;
 }
 
 export async function signOut() {
-  // Local user-bound storage'ı önce temizle ki Supabase callback'i bir sonraki
-  // mount'ı yanlış yere yönlendirmesin (B-AUTH-1).
+  const { error } = await supabase.auth.signOut();
+  if (error) throw error;
+
+  // Clear account-scoped files only after remote sign-out succeeds. Otherwise
+  // a temporary network error could leave the session active but erase data.
   await Promise.all([
-    AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {}),
+    clearUserBoundLocalData(),
+    setRevenueCatUserId(null).catch(() => {}),
     ...SECURE_STORE_USER_KEYS.map((k) =>
       SecureStore.deleteItemAsync(k).catch(() => {}),
     ),
   ]);
-  const { error } = await supabase.auth.signOut();
-  if (error) throw error;
 }
 
 export async function sendPasswordReset(email: string) {
@@ -123,7 +162,9 @@ export async function sendPasswordReset(email: string) {
 }
 
 export async function getCurrentProfile(): Promise<Profile | null> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return null;
   const { data, error } = await supabase
     .from("profiles")
@@ -131,7 +172,10 @@ export async function getCurrentProfile(): Promise<Profile | null> {
     .eq("id", user.id)
     .single();
   if (error) {
-    console.warn("[Lafla] getCurrentProfile error:", error.message);
+    if (__DEV__) {
+      // eslint-disable-next-line no-console
+      console.warn("[Lafla] getCurrentProfile error:", error.message);
+    }
     return null;
   }
   const profile = data as Profile;
@@ -139,8 +183,10 @@ export async function getCurrentProfile(): Promise<Profile | null> {
   return profile;
 }
 
-export async function updateProfile(updates: Partial<Profile>) {
-  const { data: { user } } = await supabase.auth.getUser();
+export async function updateProfile(updates: Partial<EditableProfileFields>) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) throw new Error("Not authenticated");
   const { data, error } = await supabase
     .from("profiles")
@@ -156,7 +202,9 @@ export async function completeOnboarding(
   interests: string[],
   displayName?: string,
 ) {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return null; // anonymous mode — local-only
   const trimmedName = displayName?.trim();
   return updateProfile({

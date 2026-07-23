@@ -101,6 +101,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
             "(open to (hearing|being wrong)|hear me out)",
             "(worried about|concern is|risk i see)",
           ],
+          model_answers: ["I'd push back a bit — can I share my thinking?"],
           hint_tr:
             "Saygili acilis: 'I'd push back a bit — can I share my thinking?'",
         },
@@ -118,6 +119,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
             "(rather (finish|wrap up|land) (auth|payment))",
             "(visibility (later|once done)|stronger story)",
           ],
+          model_answers: ["Auth migration is blocking 3 teams — dashboard is visible but less urgent."],
           hint_tr:
             "Spesifik trade-off: 'Auth migration is blocking 3 teams — dashboard is visible but less urgent.'",
         },
@@ -135,6 +137,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
             "(happy to (run|own|tackle) either)",
             "(let me know|sleep on it|whenever)",
           ],
+          model_answers: ["Thanks for hearing me out — your call ultimately. Happy to run either."],
           hint_tr:
             "Kapanis: 'Thanks for hearing me out — your call ultimately. Happy to run either.'",
         },
@@ -566,6 +569,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
             "(have you considered|what about|wondering about)",
             "(context (provider|api)|hook (pattern)?|composition)",
           ],
+          model_answers: ["Pushing back here — singleton breaks test isolation. Have you considered a context provider?"],
           hint_tr:
             "Net karsi cikis: 'Pushing back here — singleton breaks test isolation. Have you considered a context provider?'",
         },
@@ -584,6 +588,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
             "(team (convention|style|preference))",
             "(rest of the codebase|how we (do|handle) (state|auth))",
           ],
+          model_answers: ["Fair, but reset teardown adds overhead — and rest of codebase uses contexts. Consistency win?"],
           hint_tr:
             "Karsi argumana yanit: 'Fair, but reset teardown adds overhead — and rest of codebase uses contexts. Consistency win?'",
         },
@@ -913,6 +918,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
             "(assuming|if we (accept|take))",
             "(margin (story|bleed)|cost (per user|of retention))",
           ],
+          model_answers: ["Let me steelman your view — assuming free tier bleeds margin without converting, then yes, kill it."],
           hint_tr:
             "Once steelman: 'Let me steelman your view — assuming free tier bleeds margin without converting, then yes, kill it.'",
         },
@@ -931,6 +937,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
             "(without free tier|kill it and|trade-off)",
             "(cac (will|would) spike|paid channels?)",
           ],
+          model_answers: ["What if we're wrong about conversion being the right metric? Free tier feeds organic acquisition — CAC would spike."],
           hint_tr:
             "Karsit: 'What if we're wrong about conversion being the right metric? Free tier feeds organic acquisition — CAC would spike.'",
         },
@@ -947,6 +954,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
             "(then (revisit|reconvene|decide)|next week|after data)",
             "(open to (either|killing it|whatever)|let the data decide)",
           ],
+          model_answers: ["Sounds good — let's pull CAC by channel, then revisit. Open to either path."],
           hint_tr:
             "Kapanis: 'Sounds good — let's pull CAC by channel, then revisit. Open to either path.'",
         },
@@ -1276,6 +1284,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
             "(open to (changing|reconsidering)|happy to be wrong)",
             "(if you (bring|see|find)|when new data)",
           ],
+          model_answers: ["Let me sit with this — looks like we're at an impasse. Agree to disagree for now, open to changing my mind."],
           hint_tr:
             "Park: 'Let me sit with this — looks like we're at an impasse. Agree to disagree for now, open to changing my mind.'",
         },
@@ -1294,6 +1303,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
             "(load test|benchmark|prod data)",
             "(would (shift|flip|change) (me|my view))",
           ],
+          model_answers: ["If we hit X scale, or deploy coupling becomes the bottleneck — that'd shift me."],
           hint_tr:
             "Spesifik kanit: 'If we hit X scale, or deploy coupling becomes the bottleneck — that'd shift me.'",
         },
@@ -1311,6 +1321,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
             "(appreciate the (back and forth|debate|honesty))",
             "(beer|coffee|lunch)?",
           ],
+          model_answers: ["Sounds good. Appreciate the back and forth — let's grab coffee this week regardless."],
           hint_tr:
             "Iliski koru: 'Sounds good. Appreciate the back and forth — let's grab coffee this week regardless.'",
         },
@@ -1640,6 +1651,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
             "(onboarding|signup|first-time user) (bug|issue|drop-off)",
             "(churning|losing users|drop-off)",
           ],
+          model_answers: ["I see where you're coming from, but let me offer a different angle — onboarding bug is bleeding users."],
           hint_tr:
             "Once empati: 'I see where you're coming from, but let me offer a different angle — onboarding bug is bleeding users.'",
         },
@@ -1658,6 +1670,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
             "(retention|funnel|drop-off) (drop|spike|hit)",
             "(few hundred|silent users)",
           ],
+          model_answers: ["Fair point — but silent churn is bigger than vocal users. Numbers show 30% drop at onboarding."],
           hint_tr:
             "Karsit veri: 'Fair point — but silent churn is bigger than vocal users. Numbers show 30% drop at onboarding.'",
         },
@@ -1674,6 +1687,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
             "(dark mode (next sprint|right after|queued up))",
             "(ship both|sequence them|tag-team)",
           ],
+          model_answers: ["Appreciate you hearing me out — dark mode goes right after, promise."],
           hint_tr:
             "Kapanis + iliski: 'Appreciate you hearing me out — dark mode goes right after, promise.'",
         },
@@ -1966,6 +1980,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
             "(worried about|concern (is|about)|risk i see)",
             "(transaction|joins?|consistency|acid|relational)",
           ],
+          model_answers: ["Hear me out — I might be missing context, but I'm worried about the transactional consistency story."],
           hint_tr:
             "Acilis: 'Hear me out — I might be missing context, but I'm worried about the transactional consistency story.'",
         },
@@ -1984,6 +1999,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
             "(months? to (migrate|move|rewrite))",
             "(scale (problem|issue) (is|might be) (read|elsewhere))",
           ],
+          model_answers: ["Fair — but billing has 7 cross-collection joins. Mongo joins are 10x slower at scale. Plus team learning curve."],
           hint_tr:
             "Spesifik teknik veri: 'Fair — but billing has 7 cross-collection joins. Mongo joins are 10x slower at scale. Plus team learning curve.'",
         },
@@ -2002,6 +2018,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
             "(before we commit|first|let me run)",
             "(your call (ultimately|in the end)|final call yours)",
           ],
+          model_answers: ["Appreciate you asking — I'd benchmark read replicas + sharding on Postgres first. Your call ultimately."],
           hint_tr:
             "Alternatif + saygi: 'Appreciate you asking — I'd benchmark read replicas + sharding on Postgres first. Your call ultimately.'",
         },
@@ -2300,6 +2317,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
             "(push (notification|notif)|email blast|campaign)",
             "(timing|same week|stacking|all at once)",
           ],
+          model_answers: ["Hard agree on dark mode launch, less sure on stacking push + email blast same week."],
           hint_tr:
             "Nuanced: 'Hard agree on dark mode launch, less sure on stacking push + email blast same week.'",
         },
@@ -2318,6 +2336,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
             "(data shows|last campaign|q1 data)",
             "(what if|could we|how about) (we )?(spaced|staggered|sequenced)",
           ],
+          model_answers: ["Fair, but notification fatigue is real — Q1 data showed unsubscribe spike. What if we staggered them?"],
           hint_tr:
             "Veri + alternatif: 'Fair, but notification fatigue is real — Q1 data showed unsubscribe spike. What if we staggered them?'",
         },
@@ -2335,6 +2354,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
             "(before (the next|email)|in between)",
             "(thanks for (the )?(flex|listening|adapting))",
           ],
+          model_answers: ["Exactly. Measure engagement after each push — thanks for the flex on timing."],
           hint_tr:
             "Onay + minnet: 'Exactly. Measure engagement after each push — thanks for the flex on timing.'",
         },
@@ -2626,6 +2646,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
             "(business (need|impact)|marketing (lock|window))",
             "(real|legit|valid)",
           ],
+          model_answers: ["Let's find common ground — we both want quality AND we both feel the marketing pressure. Both legit."],
           hint_tr:
             "Kopru kur: 'Let's find common ground — we both want quality AND we both feel the marketing pressure. Both legit.'",
         },
@@ -2644,6 +2665,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
             "(48 hours|2 days|buffer)",
             "(table the (debate|details|specifics)|park (the )?details)",
           ],
+          model_answers: ["What if we shipped behind a feature flag Friday — 10% rollout, full launch Monday after weekend monitoring?"],
           hint_tr:
             "Alternatif: 'What if we shipped behind a feature flag Friday — 10% rollout, full launch Monday after weekend monitoring?'",
         },
@@ -2661,6 +2683,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
             "(fresh eyes|after sleep|with coffee)",
             "(walk away (aligned|with)|good (place|spot) to (stop|leave))",
           ],
+          model_answers: ["Exactly. Let's table the rollout details and circle back tomorrow with fresh eyes."],
           hint_tr:
             "Kapanis + iliski: 'Exactly. Let's table the rollout details and circle back tomorrow with fresh eyes.'",
         },

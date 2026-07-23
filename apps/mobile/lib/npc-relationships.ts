@@ -23,6 +23,15 @@ import { isObject, parseSafe } from "./json-safe";
 
 const K_REL = "lafla.npc.relationships";
 
+export interface NpcEpisode {
+  scenarioId: string;
+  title: string;
+  mode: string;
+  outcome: "goal_met" | "close" | "retry";
+  userSummary?: string;
+  occurredAt: string;
+}
+
 export interface NpcRelationship {
   /** Composite identity key: `${bucket}:${name}` — "barista:Mia",
    *  "romantic:Sam". 2026-05-23 fix: name alone collided because pools
@@ -41,6 +50,8 @@ export interface NpcRelationship {
   firstMet: string;
   /** Hangi modlarda karşılaştığın — UI'da "Bar + Cafe" tarzı renderler. */
   modes: string[];
+  /** Last three completed conversations with this character. */
+  episodes?: NpcEpisode[];
 }
 
 export type RelationshipTier = "acquaintance" | "friend" | "close";
@@ -92,7 +103,18 @@ function isRelationship(x: unknown): x is NpcRelationship {
     typeof o.sceneCount === "number" &&
     typeof o.lastInteraction === "string" &&
     typeof o.firstMet === "string" &&
-    Array.isArray(o.modes)
+    Array.isArray(o.modes) &&
+    (o.episodes === undefined ||
+      (Array.isArray(o.episodes) &&
+        o.episodes.every(
+          (episode) =>
+            isObject(episode) &&
+            typeof episode.scenarioId === "string" &&
+            typeof episode.title === "string" &&
+            typeof episode.mode === "string" &&
+            typeof episode.outcome === "string" &&
+            typeof episode.occurredAt === "string",
+        )))
   );
 }
 
@@ -129,6 +151,7 @@ export async function recordInteraction(args: {
   npcName: string;
   npcBucket: string;
   mode: string;
+  episode?: Omit<NpcEpisode, "occurredAt" | "mode">;
 }): Promise<NpcRelationship> {
   const name = args.npcName.trim();
   const bucket = args.npcBucket.trim() || "generic";
@@ -159,6 +182,16 @@ export async function recordInteraction(args: {
       sceneCount: existing.sceneCount + 1,
       lastInteraction: now,
       modes,
+      episodes: args.episode
+        ? [
+            {
+              ...args.episode,
+              mode: args.mode,
+              occurredAt: now,
+            },
+            ...(existing.episodes ?? []),
+          ].slice(0, 3)
+        : existing.episodes,
     };
     list[idx] = updated;
     await writeAll(list);
@@ -173,10 +206,37 @@ export async function recordInteraction(args: {
     lastInteraction: now,
     firstMet: now,
     modes: [args.mode],
+    episodes: args.episode
+      ? [
+          {
+            ...args.episode,
+            mode: args.mode,
+            occurredAt: now,
+          },
+        ]
+      : [],
   };
   list.push(created);
   await writeAll(list);
   return created;
+}
+
+export function memoryPromptForRelationship(
+  relationship: NpcRelationship | null,
+): string | null {
+  const last = relationship?.episodes?.[0];
+  if (!last) return null;
+  const mode = last.mode.toLowerCase();
+  if (/work|career|interview|meeting/.test(mode)) {
+    return "Good to see you again — I remember you were preparing for an important work conversation.";
+  }
+  if (/flirt|date|social|friend/.test(mode)) {
+    return "Good to see you again — I remember we talked about your plans last time.";
+  }
+  if (/travel|airport|hotel/.test(mode)) {
+    return "Welcome back — I remember you were sorting out a travel situation last time.";
+  }
+  return "Good to see you again — I remember our last conversation.";
 }
 
 /**

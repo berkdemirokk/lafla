@@ -225,6 +225,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(empire state|times square|grand central)",
             "(walking distance|how far|on foot)",
           ],
+          model_answers: ["Excuse me — could you point me toward Empire State?"],
           hint_tr:
             "Saygili ac: 'Excuse me — could you point me toward Empire State?'",
         },
@@ -242,6 +243,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(should i (take the|consider)|is it faster to (subway|cab))",
             "(thank you|thanks (so much|a lot)|appreciate (it|the help))",
           ],
+          model_answers: ["Got it — south on 7th, 10 blocks. Thanks!"],
           hint_tr:
             "Onayla + tesekkur: 'Got it — south on 7th, 10 blocks. Thanks!'",
         },
@@ -261,6 +263,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(do i need a (metrocard|ticket)|how do i pay)",
             "(walk sounds (fine|good)|i'?ll walk it)",
           ],
+          model_answers: ["Oh, that's easier — N or R, got it"],
           hint_tr:
             "Subway alternatif: 'Oh, that's easier — N or R, got it' veya 'Walk sounds fine, thanks'. Türk: 'metro' kelimesi NYC'de 'subway'; Londra'da 'tube' veya 'underground'. ABD'de 'metro' Washington DC dışında yaygın değil.",
         },
@@ -280,6 +283,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(any (good )?(food|coffee) (spots|places)) (nearby|near (there|empire))",
             "(should i walk or take the subway|honestly which is faster)",
           ],
+          model_answers: ["Yes, I see it — perfect, thanks!"],
           hint_tr:
             "Onay + ek soru: 'Yes, I see it — perfect, thanks!' veya 'Any good coffee spots near Empire State?'. Türk öğrenci 'görüyorum' direkt çevirisi 'I'm seeing' yapay; doğal: 'I see it' (simple).",
         },
@@ -299,6 +303,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(weather'?s perfect|the weather'?s holding)( so i'?ll walk)?",
             "(walk it is)(,)? (thanks (so much|again))",
           ],
+          model_answers: ["Walk it is then — thanks so much, have a good day"],
           hint_tr:
             "Kapanış: 'Walk it is then — thanks so much, have a good day' veya 'Appreciate the help'. Türk: 'iyi günler' kapanış için 'have a good one' veya 'have a good day' (ABD); UK'de 'cheers' da olur.",
         },
@@ -745,6 +750,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
             "(could you (walk me|describe the route|help me))",
             "(coming from|currently at)",
           ],
+          model_answers: ["Hi — staying at your hotel. Maps isn't working — could you walk me through directions?"],
           hint_tr:
             "Net ac: 'Hi — staying at your hotel. Maps isn't working — could you walk me through directions?'",
         },
@@ -763,6 +769,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
             "(landmark|sign|store)",
             "(how far|how long)",
           ],
+          model_answers: ["Near Grand Central — by the big clock."],
           hint_tr:
             "Konum ver: 'Near Grand Central — by the big clock.'",
         },
@@ -1216,6 +1223,7 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
             "(am i (close|near|far)|how far)",
             "(could you (help me|put me back on track|set me right))",
           ],
+          model_answers: ["Excuse me — turned around, trying to find Times Square."],
           hint_tr:
             "Saygili ac: 'Excuse me — turned around, trying to find Times Square.'",
         },
@@ -1234,6 +1242,7 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
             "(thank you|thanks so much)",
             "(life saver|so helpful)",
           ],
+          model_answers: ["Appreciate that — which way do I walk back?"],
           hint_tr:
             "Cozum sor: 'Appreciate that — which way do I walk back?'",
         },
@@ -1689,6 +1698,7 @@ export const dailyDirectionsLesson_16_5: BundledLesson = {
             "(point me|tell me|help me|show me|direct me)",
             "(brooklyn bridge|the bridge|to the bridge)",
           ],
+          model_answers: ["Excuse me — my GPS is sending me in circles. Could you point me to Brooklyn Bridge?"],
           hint_tr:
             "Saygılı aç + sorun belirt: 'Excuse me — my GPS is sending me in circles. Could you point me to Brooklyn Bridge?'",
         },
@@ -1706,6 +1716,7 @@ export const dailyDirectionsLesson_16_5: BundledLesson = {
             "(any (landmark|sign)|how (do i|will i) know)",
             "(thanks|thank you|appreciate)",
           ],
+          model_answers: ["Three blocks down — and then? Do I turn somewhere?"],
           hint_tr:
             "Onayla + detay iste: 'Three blocks down — and then? Do I turn somewhere?'",
         },
@@ -1722,6 +1733,7 @@ export const dailyDirectionsLesson_16_5: BundledLesson = {
             "(thanks (so much|a lot|a million)|appreciate (it|the help)|life saver)",
             "(have a (good|nice|great) (one|day))",
           ],
+          model_answers: ["Duane Reade, then left — thanks so much, you're a life saver!"],
           hint_tr:
             "Tekrarla + içten teşekkür: 'Duane Reade, then left — thanks so much, you're a life saver!'",
         },
@@ -2139,6 +2151,7 @@ export const dailyDirectionsLesson_16_6: BundledLesson = {
             "(turn|take a) (right|left)",
             "(at the (light|intersection|corner|stop sign))",
           ],
+          model_answers: ["Sure! Go straight three blocks, then take a right at the light."],
           hint_tr:
             "Net + adım adım: 'Sure! Go straight three blocks, then take a right at the light.'",
         },
@@ -2155,6 +2168,7 @@ export const dailyDirectionsLesson_16_6: BundledLesson = {
             "(across from|next to|right by)",
             "(can'?t miss it|hard to miss|big building)",
           ],
+          model_answers: ["You'll see a big CVS sign on your left — can't miss it!"],
           hint_tr:
             "Landmark ver: 'You'll see a big CVS sign on your left — can't miss it!'",
         },
@@ -2170,6 +2184,7 @@ export const dailyDirectionsLesson_16_6: BundledLesson = {
             "(have a (good|nice|great) (one|day))",
             "(good luck|enjoy)",
           ],
+          model_answers: ["No problem — have a good one!"],
           hint_tr:
             "Sıcak kapanış: 'No problem — have a good one!'",
         },
@@ -2583,6 +2598,7 @@ export const dailyDirectionsLesson_16_7: BundledLesson = {
             "(atm|cash machine|cashpoint)",
             "(nearby|around here|close by|within walking distance)",
           ],
+          model_answers: ["Hi — quick question, is there an ATM nearby?"],
           hint_tr:
             "Kibar aç + spesifik sor: 'Hi — quick question, is there an ATM nearby?'",
         },
@@ -2599,6 +2615,7 @@ export const dailyDirectionsLesson_16_7: BundledLesson = {
             "(coffee shop|starbucks|cafe|place (to|for) coffee)",
             "(nearby|around here|close|in this area)",
           ],
+          model_answers: ["Perfect — and is there a coffee shop nearby?"],
           hint_tr:
             "Geçiş yap + ikinci ihtiyaç: 'Perfect — and is there a coffee shop nearby?'",
         },
@@ -2615,6 +2632,7 @@ export const dailyDirectionsLesson_16_7: BundledLesson = {
             "(better coffee|nicer|quieter|local one)",
             "(thanks|thank you|appreciate it)",
           ],
+          model_answers: ["Which one do you recommend? Thanks so much!"],
           hint_tr:
             "Tavsiye iste + teşekkür: 'Which one do you recommend? Thanks so much!'",
         },
@@ -3025,6 +3043,7 @@ export const dailyDirectionsLesson_16_8: BundledLesson = {
             "(do i (take|need)|should i take|goes)",
             "(to (brooklyn|williamsburg|coney island)|for brooklyn)",
           ],
+          model_answers: ["Excuse me, which train do I take to Brooklyn?"],
           hint_tr:
             "Net + kibar: 'Excuse me, which train do I take to Brooklyn?'",
         },
@@ -3040,6 +3059,7 @@ export const dailyDirectionsLesson_16_8: BundledLesson = {
             "(i'?m (going|headed) to|trying to get to)",
             "(my stop is|the address is)",
           ],
+          model_answers: ["I'm going to Williamsburg — Bedford Avenue."],
           hint_tr:
             "Konum spesifik ver: 'I'm going to Williamsburg — Bedford Avenue.'",
         },
@@ -3057,6 +3077,7 @@ export const dailyDirectionsLesson_16_8: BundledLesson = {
             "(downtown|uptown)",
             "(thanks|thank you|appreciate it)",
           ],
+          model_answers: ["Downtown L, direct — which platform? Thanks!"],
           hint_tr:
             "Detayla onayla: 'Downtown L, direct — which platform? Thanks!'",
         },

@@ -4,7 +4,7 @@
 
 import { useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Animated, {
@@ -18,11 +18,19 @@ import Animated, {
 } from "react-native-reanimated";
 import { useSession } from "../lib/useSession";
 import { getCurrentProfile } from "../lib/auth";
+import { useTranslation } from "../lib/i18n";
 import { tokens } from "../theme";
+import {
+  consumePendingNotificationRoute,
+  waitForNotificationBootstrap,
+} from "../lib/notification-routing";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 export default function Splash() {
   const router = useRouter();
+  const { t } = useTranslation();
   const { session, loading } = useSession();
+  const reduceMotion = useReduceMotionPreference();
   // 2026-05-25 (B-AUTH-3) — decide() setTimeout ile skip() Pressable arasında
   // race: kullanıcı 300ms reveal sırasında ekrana dokunursa hem skip hem
   // decide router.replace tetikliyordu → expo-router'da çift navigation,
@@ -46,6 +54,16 @@ export default function Splash() {
   const haloPulse = useSharedValue(0); // wordmark halo glow
 
   useEffect(() => {
+    if (reduceMotion) {
+      wordmarkOpacity.value = 1;
+      wordmarkScale.value = 1;
+      wordmarkRotate.value = 0;
+      accentScale.value = 1;
+      taglineOpacity.value = 1;
+      taglineFloat.value = 0;
+      haloPulse.value = 0;
+      return;
+    }
     wordmarkOpacity.value = withTiming(1, { duration: 280 });
     wordmarkScale.value = withTiming(1, {
       duration: 380,
@@ -92,6 +110,7 @@ export default function Splash() {
     wordmarkScale,
     wordmarkRotate,
     haloPulse,
+    reduceMotion,
   ]);
 
   // perspective 800 → kart "ekranın arkasından öne geliyor" hissi.
@@ -138,7 +157,9 @@ export default function Splash() {
       // splash sonsuza dek "Dokun, devam et" gösteriyordu (skip de no-op).
       // Yeni: navigation hedefini hesapla, sonra flag set + router.replace
       // ATOMIC çağır. Hata path'i de defensive olarak /auth'a düşer.
-      let target: "/today" | "/onboarding" | "/auth" = "/auth";
+      await waitForNotificationBootstrap();
+      const pendingNotificationRoute = consumePendingNotificationRoute();
+      let target: string = "/auth";
       if (session) {
         // 2026-05-25 — Signed-in user için SERVER profili authoritative.
         let profileOnboarded = false;
@@ -154,7 +175,9 @@ export default function Splash() {
             // ignore — onboarded false kalır, en kötü onboarding'e gider
           }
         }
-        target = profileOnboarded ? "/today" : "/onboarding";
+        target = profileOnboarded
+          ? pendingNotificationRoute ?? "/today"
+          : "/onboarding";
       }
       // Skip() yarışı: hedef hesaplandı, set + replace ATOMIC.
       if (routedRef.current) return; // skip() bu sırada öne geçtiyse no-op
@@ -171,15 +194,21 @@ export default function Splash() {
   const skip = async () => {
     if (loading) return;
     if (routedRef.current) return; // decide() öne geçtiyse no-op
+    await waitForNotificationBootstrap();
+    const pendingNotificationRoute = consumePendingNotificationRoute();
     if (session) {
-      let target: "/today" | "/onboarding" = "/onboarding";
+      let target: string = "/onboarding";
       try {
         const profile = await getCurrentProfile();
-        target = profile?.onboarding_completed_at ? "/today" : "/onboarding";
+        target = profile?.onboarding_completed_at
+          ? pendingNotificationRoute ?? "/today"
+          : "/onboarding";
       } catch {
         try {
           const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-          target = localOnboarded === "true" ? "/today" : "/onboarding";
+          target = localOnboarded === "true"
+            ? pendingNotificationRoute ?? "/today"
+            : "/onboarding";
         } catch {
           target = "/onboarding";
         }
@@ -195,8 +224,16 @@ export default function Splash() {
   };
 
   return (
-    <Pressable style={styles.container} onPress={skip}>
-      <StatusBar style="light" />
+    <Pressable
+      style={styles.container}
+      onPress={skip}
+      disabled={loading}
+      accessibilityRole="button"
+      accessibilityLabel={t("splash.accessibility_label")}
+      accessibilityHint={t("splash.accessibility_hint")}
+      accessibilityState={{ disabled: loading, busy: loading }}
+    >
+      <ThemedStatusBar />
 
       <View style={styles.center}>
         {/* Halo glow ring — wordmark'ın arkasında 3D depth katmanı.
@@ -210,12 +247,12 @@ export default function Splash() {
         </Animated.Text>
         <Animated.View style={[styles.accentLine, accentStyle]} />
         <Animated.Text style={[styles.tagline, taglineStyle]}>
-          Konuş, çalış.
+          {t("splash.tagline")}
         </Animated.Text>
       </View>
 
       <View style={styles.bottomHint}>
-        <Text style={styles.hintText}>Dokun, devam et</Text>
+        <Text style={styles.hintText}>{t("splash.tap_to_continue")}</Text>
       </View>
     </Pressable>
   );

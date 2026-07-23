@@ -318,17 +318,38 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
     example_right: "Let's take a photo.",
     reason_tr:
       "Türkçe 'fotoğraf çekmek' → İngilizce 'take a photo'. 'make' yanlış kalque.",
-    weight: 4,
+    weight: 5,
   },
   {
     id: "open-light",
     category: "phrasal-verb",
-    detector: /\b(open|close)\s+(the\s+)?(light|lights|tv|television|radio|computer|fan|ac|air\s+conditioner|music)\b/i,
+    detector: /\bopen\s+(the\s+)?(light|lights|tv|television|radio|computer|fan|ac|air\s+conditioner)\b/i,
     description_tr: "'open the light' yerine 'turn on'",
     example_wrong: "Can you open the light?",
     example_right: "Can you turn on the light?",
     reason_tr:
       "Türkçe 'açmak' → İngilizce 'turn on/off' for electronics. 'open' sadece fiziksel kapı/kutu için.",
+    weight: 5,
+  },
+  {
+    id: "close-light",
+    category: "phrasal-verb",
+    detector: /\bclose\s+(the\s+)?(light|lights|tv|television|radio|computer|fan|ac|air\s+conditioner)\b/i,
+    description_tr: "'close the light' yerine 'turn off'",
+    example_wrong: "Can you close the light?",
+    example_right: "Can you turn off the light?",
+    reason_tr:
+      "Elektronik cihazları kapatırken 'turn off' kullanılır. 'Close' kapı, pencere ve kutu gibi fiziksel nesneler içindir.",
+    weight: 5,
+  },
+  {
+    id: "open-music",
+    category: "phrasal-verb",
+    detector: /\bopen\s+(?:(?:the|some)\s+)?music\b/i,
+    description_tr: "'open music' yerine 'play music'",
+    example_wrong: "Can you open some music?",
+    example_right: "Can you play some music?",
+    reason_tr: "Müzik başlatmak için 'play music' kullanılır.",
     weight: 4,
   },
   {
@@ -432,14 +453,14 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
   },
   {
     id: "explain-me",
-    category: "missing-aux",
-    detector: /\b(explain|explains|explained|describe|describes|described|suggest|suggests|suggested|recommend|recommends|recommended)\s+(me|him|her|us|them)\s+\w+/i,
+    category: "preposition",
+    detector: /\b(explain|explains|explained|describe|describes|described)\s+(me|him|her|us|them)\s+\w+/i,
     description_tr: "'explain me' yerine 'explain to me'",
     example_wrong: "Can you explain me this?",
     example_right: "Can you explain this to me?",
     reason_tr:
       "Bu fiiller indirekt nesneyi 'to' ile alır: 'explain TO me', 'describe TO me'.",
-    weight: 3,
+    weight: 4,
   },
 
   // ----- SUBJECT-VERB / MISSING AUX -----
@@ -547,7 +568,7 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
   {
     id: "actual-current",
     category: "false-cognate",
-    detector: /\bmy\s+actual\s+(job|address|girlfriend|boyfriend|company|salary)\b/i,
+    detector: /\b(?:my\s+actual\s+(?:job|address|girlfriend|boyfriend|company|salary)|actual\s+(?:year|month|week|situation|government|president|state))\b/i,
     description_tr: "'actual' ≠ 'şimdiki'",
     example_wrong: "My actual job is boring.",
     example_right: "My current job is boring.",
@@ -713,9 +734,9 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
   },
 
   // ===========================================================
-  // 2026-05-20 — Adım 8 BÜYÜK EXPANSION (native review pending)
-  // 59 → ~125 pattern hedefi. AI-first pass, "TODO native-review"
-  // işaretli olanlar yayın öncesi insan onayından geçer.
+  // 2026-05-20 — Adım 8 BÜYÜK EXPANSION
+  // 59 → ~125 pattern. Shipped patterns must pass the content quality gate
+  // in scripts/audit-quality-gate.ts before release.
   // ===========================================================
 
   // ----- TR DIRECT TRANSLATION TRAPS (en sık Türk hataları) -----
@@ -740,17 +761,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
     reason_tr:
       "Türkçe '-den korkmak' → İngilizce 'afraid OF'. 'From' yerine 'of'.",
     weight: 4,
-  },
-  {
-    id: "make-photo",
-    category: "phrasal-verb",
-    detector: /\bmake\s+(a\s+)?photos?\b/i,
-    description_tr: "'make a photo' (yanlış) → 'take a photo'",
-    example_wrong: "Can you make a photo?",
-    example_right: "Can you take a photo?",
-    reason_tr:
-      "Türkçe 'fotoğraf çekmek/yapmak' → İngilizce 'TAKE a photo'. Her zaman 'take'.",
-    weight: 5,
   },
   {
     id: "make-shower",
@@ -803,17 +813,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
     example_right: "I'll make a decision tomorrow.",
     reason_tr: "Karar VERMEK → 'MAKE a decision'. Türkçe 'yapmak' yanıltıcı.",
     weight: 3,
-  },
-  {
-    id: "open-light",
-    category: "phrasal-verb",
-    detector: /\b(open|close)\s+the\s+(light|lights|TV|radio|computer)\b/i,
-    description_tr: "'open the light' (yanlış) → 'turn on the light'",
-    example_wrong: "Open the light, please.",
-    example_right: "Turn on the light, please.",
-    reason_tr:
-      "Türkçe 'ışığı aç/kapat' → İngilizce 'TURN ON/OFF the light'. 'Open/close' fiziksel kapı/pencere için.",
-    weight: 5,
   },
   {
     id: "look-movie",
@@ -1039,16 +1038,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
     weight: 4,
   },
   {
-    id: "listen-music",
-    category: "preposition",
-    detector: /\blisten\s+(music|the\s+music|songs|the\s+song)\b/i,
-    description_tr: "'listen music' (yanlış) → 'listen to music'",
-    example_wrong: "I like to listen music.",
-    example_right: "I like to listen to music.",
-    reason_tr: "'Listen TO' her zaman 'to' alır.",
-    weight: 4,
-  },
-  {
     id: "wait-someone",
     category: "preposition",
     detector: /\bwait\s+(me|you|him|her|us|them)\b/i,
@@ -1186,16 +1175,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
       "3. tekil şahıs (he/she/it) present simple'da fiil -s alır. 'He goes', 'She likes', 'It works'.",
     weight: 5,
   },
-  {
-    id: "people-is",
-    category: "subject-verb",
-    detector: /\bpeople\s+(is|was)\b/i,
-    description_tr: "'people is' (yanlış) → 'people are'",
-    example_wrong: "People is crazy.",
-    example_right: "People are crazy.",
-    reason_tr: "'People' çoğul. 'Person' tekil → 'is'. 'People' her zaman 'are'.",
-    weight: 4,
-  },
 
   // ----- COMMON CALQUES -----
   {
@@ -1230,17 +1209,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
     weight: 4,
   },
   {
-    id: "explain-me",
-    category: "preposition",
-    detector: /\bexplain\s+(me|him|her|us|them|you)\s+/i,
-    description_tr: "'explain me' (yanlış) → 'explain to me'",
-    example_wrong: "Can you explain me this?",
-    example_right: "Can you explain this to me?",
-    reason_tr:
-      "Türkçe 'bana açıkla' direkt obje yapısı; İngilizcede 'explain TO someone'.",
-    weight: 4,
-  },
-  {
     id: "say-me",
     category: "preposition",
     detector: /\bsay\s+(me|him|her|us|them)\s+/i,
@@ -1264,17 +1232,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
   },
 
   // ----- FALSE FRIENDS -----
-  {
-    id: "actual-current",
-    category: "false-friend",
-    detector: /\bactual\s+(year|month|week|situation|government|president|state)\b/i,
-    description_tr: "'actual = aktüel/güncel' yanlış. → 'current'",
-    example_wrong: "The actual situation is bad.",
-    example_right: "The current situation is bad.",
-    reason_tr:
-      "İngilizce 'actual' = 'gerçek'. Türkçe 'aktüel/güncel' için 'current' kullan.",
-    weight: 3,
-  },
   {
     id: "eventually-eventually",
     category: "false-friend",
@@ -1357,7 +1314,6 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
     weight: 4,
   },
 
-  // ----- TODO native-review (henüz native İngilizce öğretmeni filtreleyecek) -----
 ];
 
 // ---------------------------------------------------------------------------
@@ -1376,13 +1332,8 @@ export function detectMistakes(
   if (!text) return [];
 
   const hits: { patternId: string; matchedSubstring: string }[] = [];
-  // 2026-05-26 (P0 audit fix) — MISTAKE_PATTERNS listesinde 7 duplicate id
-  // tespit edildi (make-photo, open-light, listen-music, explain-me,
-  // people-is, actual-current, make-decision*). Aynı patternId'nin iki
-  // farklı detector ile aynı text'i match etmesi `hits[]`'i şişiriyor →
-  // mistake-tracker recordUserText tek hatayı 2 kez sayıyor → IELTS
-  // grammar score ve drill priorities bozulur. Runtime dedupe: bir
-  // patternId için ilk match yeterli.
+  // Pattern IDs are kept unique by a contract test. Runtime dedupe remains a
+  // defensive guard for malformed future content loaded outside this module.
   const seenIds = new Set<string>();
 
   for (const pattern of MISTAKE_PATTERNS) {
@@ -1414,9 +1365,7 @@ export function detectMistakes(
  * Lookup helper — UI components use this to print description / example
  * pairs once they have a patternId from the tracker.
  *
- * 2026-05-26 — `.find` ilk match'i döner; duplicate id'lerden ilki kullanılır
- * (genelde daha eski tanımlanan, ya da daha yüksek weight'li olanı). Bu UI
- * için tutarlı sonuç verir — drift olursa pattern listesi cleanup edilmeli.
+ * IDs are unique, so `.find` is an unambiguous lookup.
  */
 export function getPattern(patternId: string): MistakePattern | undefined {
   return MISTAKE_PATTERNS.find((p) => p.id === patternId);

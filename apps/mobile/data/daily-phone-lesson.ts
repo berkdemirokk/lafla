@@ -225,6 +225,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
             "(account number|phone number) (is|ends in)",
             "(verify (identity)|confirm)",
           ],
+          model_answers: ["Hi, calling about a charge I don't recognize. My number ends in 8742."],
           hint_tr:
             "Net: 'Hi, calling about a charge I don't recognize. My number ends in 8742.'",
         },
@@ -243,6 +244,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
             "(getting back to|so about) (the issue|the charge|my bill)",
             "(october 5|date)",
           ],
+          model_answers: ["Sure — last 4 is 1234. So the charge from Oct 5..."],
           hint_tr:
             "Doğrula + konuya don: 'Sure — last 4 is 1234. So the charge from Oct 5...'",
         },
@@ -686,6 +688,7 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
             "(insurance (questions|verification))",
             "(do you take|cover)",
           ],
+          model_answers: ["Hi, I'd like to schedule a cleaning. New patient."],
           hint_tr:
             "Net: 'Hi, I'd like to schedule a cleaning. New patient.'",
         },
@@ -704,6 +707,7 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
             "(arrival time|how early|forms)",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Tuesday 2pm works. Do you take Aetna?"],
           hint_tr:
             "Sec + sor: 'Tuesday 2pm works. Do you take Aetna?'",
         },
@@ -1157,6 +1161,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
             "(reservation|booking|appointment) (for friday|tomorrow night)",
             "(call me back|give me a call|reach me)",
           ],
+          model_answers: ["Hi, this is Berk calling about Friday's reservation."],
           hint_tr:
             "Standart: 'Hi, this is Berk calling about Friday's reservation.'",
         },
@@ -1175,6 +1180,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
             "(text or call works|either works|whichever)",
             "(thanks|appreciate (it|the help))",
           ],
+          model_answers: ["Want to change table from 4 to 6 people. Reach me at 555-1234, text or call."],
           hint_tr:
             "Detay + iletisim: 'Want to change table from 4 to 6 people. Reach me at 555-1234, text or call.'",
         },
@@ -1632,6 +1638,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
             "(billing|fatura|a charge|my account|invoice)",
             "(issue|problem|question)",
           ],
+          model_answers: ["Hi, this is Berk — calling about a billing issue on my account."],
           hint_tr:
             "Tanit + konu: 'Hi, this is Berk — calling about a billing issue on my account.'",
         },
@@ -1647,6 +1654,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
             "(thanks|appreciate it|thank you)",
             "(i'?ll hold|happy to hold|go ahead)",
           ],
+          model_answers: ["Sure, I'll hold. Thanks."],
           hint_tr:
             "Kabul + tesekkur: 'Sure, I'll hold. Thanks.'",
         },
@@ -2069,6 +2077,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
             "(appointment|randevu|booking|cleaning|checkup)",
             "(next (week|tuesday|friday)|tomorrow|monday)",
           ],
+          model_answers: ["Hi, this is Berk calling about my appointment next Tuesday."],
           hint_tr:
             "Acilis: 'Hi, this is Berk calling about my appointment next Tuesday.'",
         },
@@ -2086,6 +2095,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
             "(\\d{3}-?\\d{4}|555-?\\d+)",
             "(thanks|appreciate it|thank you)",
           ],
+          model_answers: ["Need to reschedule. Please call back at 555-3344. Thanks."],
           hint_tr:
             "Sebep + numara + tesekkur: 'Need to reschedule. Please call back at 555-3344. Thanks.'",
         },
@@ -2499,6 +2509,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
             "(is this|am i speaking (with|to)|is that)",
             "(luigi'?s|the restaurant|\\w+'s)",
           ],
+          model_answers: ["Hi, is this Luigi's restaurant?"],
           hint_tr:
             "Aradigin yeri dogrula: 'Hi, is this Luigi's restaurant?'",
         },
@@ -2515,6 +2526,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
             "(sorry (to bother|about that|for the trouble)|apologies for the trouble)",
             "(have a good (one|day)|take care|enjoy your (day|evening))",
           ],
+          model_answers: ["Oh sorry — I have the wrong number. Apologies for the trouble. Have a good one."],
           hint_tr:
             "Ozur + kibar bitir: 'Oh sorry — I have the wrong number. Apologies for the trouble. Have a good one.'",
         },
@@ -2934,6 +2946,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
             "(could you (say that|repeat|go over that)|can you (say|repeat))",
             "(again|one more time|the last (part|bit))",
           ],
+          model_answers: ["Sorry, you're breaking up — could you say that again?"],
           hint_tr:
             "Sorunu acikla + tekrar iste: 'Sorry, you're breaking up — could you say that again?'",
         },
@@ -2950,6 +2963,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
             "(if (we|i) (lose|get cut off|get disconnected)|in case (we|the line) drops)?",
             "(call (you|me) (right )?back|i'?ll ring (you|back)|let me call)",
           ],
+          model_answers: ["Yes, got it — thanks. If we lose signal again I'll call you right back."],
           hint_tr:
             "Onayla + yedek plan: 'Yes, got it — thanks. If we lose signal again I'll call you right back.'",
         },

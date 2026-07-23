@@ -14,7 +14,7 @@
 //   1. Create RevenueCat project — get iOS public SDK key
 //   2. In App Store Connect → My Apps → Lafla → Subscriptions:
 //      - Create Subscription Group "Lafla Premium"
-//      - Create two products: lafla.premium.monthly (149 TL), lafla.premium.yearly (999 TL)
+//      - Create two products: lafla.premium.monthly (₺99/ay), lafla.premium.yearly (₺999/yıl)
 //   3. In RevenueCat dashboard:
 //      - Add iOS app with bundle id com.lafla.app
 //      - Create Entitlement "Lafla Pro" (must match PREMIUM_ENTITLEMENT below)
@@ -29,12 +29,14 @@ import Constants from "expo-constants";
 import { captureException, captureMessage } from "./sentry";
 import { isObject, parseSafe } from "./json-safe";
 import { isRewardedPremiumActive } from "./rewarded";
+import { isSupabaseConfigured, supabase } from "./supabase";
 
 // ------------------------------------------------------------
 // Types — stable contract with callers.
 // ------------------------------------------------------------
 
 export type PackageId = "monthly" | "yearly";
+export type PremiumStatus = "active" | "inactive" | "unknown";
 
 // IMPORTANT: This MUST match the entitlement identifier in the RevenueCat
 // dashboard exactly (case + spaces). Set to "Lafla Pro" to align with the
@@ -63,6 +65,7 @@ type MockState = {
 let _purchases: any = null;
 let _initialized = false;
 let _initFailed = false;
+let _initPromise: Promise<boolean> | null = null;
 
 function loadSdk(): // eslint-disable-next-line @typescript-eslint/no-explicit-any
 any | null {
@@ -89,44 +92,41 @@ function getApiKey(): string | null {
 
 async function initIfNeeded(): Promise<boolean> {
   if (_initialized) return _purchases !== null;
-  _initialized = true;
+  if (_initPromise) return _initPromise;
 
-  const Purchases = loadSdk();
-  if (!Purchases) return false;
+  _initPromise = (async () => {
+    const Purchases = loadSdk();
+    if (!Purchases) return false;
 
-  const key = getApiKey();
-  if (!key) {
-    if (__DEV__) {
-      // eslint-disable-next-line no-console
-      console.debug("[Lafla iap] No RevenueCat key — falling back to mock");
-    } else {
-      // 2026-05-25 (B-PAY-12) — Production'da key olmadan başlatma silent
-      // free tier'a düşmek demek; aylarca fark edilmez. Sentry'e P1 sinyal.
-      captureMessage(
-        "iap.no_revenuecat_key_in_production",
-        "warning",
-      );
+    const key = getApiKey();
+    if (!key) {
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.debug("[Lafla iap] No RevenueCat key — falling back to mock");
+      } else {
+        captureMessage("iap.no_revenuecat_key_in_production", "warning");
+      }
+      return false;
     }
-    _initFailed = true;
-    _purchases = null;
-    return false;
-  }
+
+    try {
+      await Purchases.configure({ apiKey: key });
+      _initialized = true;
+      return true;
+    } catch (err) {
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.warn("[Lafla iap] configure() failed:", err);
+      }
+      captureException(err, { source: "iap.initIfNeeded" });
+      return false;
+    }
+  })();
 
   try {
-    await Purchases.configure({ apiKey: key });
-    return true;
-  } catch (err) {
-    if (__DEV__) {
-      // eslint-disable-next-line no-console
-      console.warn("[Lafla iap] configure() failed:", err);
-    }
-    // A misconfigured RevenueCat SDK silently demotes every user to the
-    // mock plan — surface this so we can see it in prod instead of
-    // discovering it via "why is nobody paying?".
-    captureException(err, { source: "iap.initIfNeeded" });
-    _initFailed = true;
-    _purchases = null;
-    return false;
+    return await _initPromise;
+  } finally {
+    _initPromise = null;
   }
 }
 
@@ -156,11 +156,28 @@ export function notifyPremiumChange(): void {
   }
 }
 
+export async function syncRevenueCatSubscription(): Promise<void> {
+  if (!isSupabaseConfigured) return;
+  const { error } = await supabase.functions.invoke("revenuecat-sync", {
+    method: "POST",
+  });
+  if (error) {
+    captureException(error, { source: "iap.syncRevenueCatSubscription" });
+  }
+}
+
 // ------------------------------------------------------------
 // Mock storage helpers (fallback when SDK unavailable).
 // ------------------------------------------------------------
 
 const K_MOCK = "lafla.premium.mock";
+const K_LAST_KNOWN = "lafla.premium.lastKnown.v1";
+const PREMIUM_OFFLINE_GRACE_MS = 72 * 60 * 60 * 1000;
+
+type LastKnownPremium = {
+  active: boolean;
+  checkedAt: string;
+};
 
 async function readMock(): Promise<MockState> {
   try {
@@ -182,6 +199,41 @@ async function writeMock(next: MockState): Promise<void> {
   }
 }
 
+async function readRecentActiveEntitlement(): Promise<boolean> {
+  try {
+    const raw = await AsyncStorage.getItem(K_LAST_KNOWN);
+    const parsed = parseSafe<Partial<LastKnownPremium>>(
+      raw,
+      {},
+      isObject,
+      { source: "iap.readRecentActiveEntitlement" },
+    );
+    if (parsed.active !== true || typeof parsed.checkedAt !== "string") {
+      return false;
+    }
+    const checkedAt = Date.parse(parsed.checkedAt);
+    const age = Date.now() - checkedAt;
+    return Number.isFinite(checkedAt) && age >= 0 && age <= PREMIUM_OFFLINE_GRACE_MS;
+  } catch {
+    return false;
+  }
+}
+
+async function writeLastKnownEntitlement(active: boolean): Promise<void> {
+  try {
+    await AsyncStorage.setItem(
+      K_LAST_KNOWN,
+      JSON.stringify({ active, checkedAt: new Date().toISOString() }),
+    );
+  } catch {
+    // Entitlement verification succeeded; cache persistence is best-effort.
+  }
+}
+
+async function unavailablePremiumStatus(): Promise<PremiumStatus> {
+  return (await readRecentActiveEntitlement()) ? "active" : "unknown";
+}
+
 // ------------------------------------------------------------
 // Dev helpers
 // ------------------------------------------------------------
@@ -196,7 +248,7 @@ export async function __setMockPremium(active: boolean): Promise<void> {
 
 export async function __clearMockPremium(): Promise<void> {
   try {
-    await AsyncStorage.removeItem(K_MOCK);
+    await AsyncStorage.multiRemove([K_MOCK, K_LAST_KNOWN]);
   } catch {
     // ignore
   }
@@ -222,17 +274,17 @@ export async function isLiveBilling(): Promise<boolean> {
  * Real SDK: Purchases.getCustomerInfo() → entitlements.premium.isActive.
  * Fallback: read lafla.premium.mock.
  */
-export async function isPremium(): Promise<boolean> {
+export async function getPremiumStatus(): Promise<PremiumStatus> {
   // Rewarded grant her şeyden önce — kullanıcı "bugün Pro" açmışsa hemen ver.
-  if (await isRewardedPremiumActive().catch(() => false)) return true;
+  if (await isRewardedPremiumActive().catch(() => false)) return "active";
 
   const live = await initIfNeeded();
   if (!live) {
     // In production the mock store is intentionally unreachable — see
-    // purchasePackage() for the matching guard. Treating a missing SDK as
-    // "not premium" is the safe failure mode.
-    if (!__DEV__) return false;
-    return (await readMock()).active;
+    // purchasePackage() for the matching guard. Preserve a recently verified
+    // active entitlement; otherwise report uncertainty to gating callers.
+    if (!__DEV__) return unavailablePremiumStatus();
+    return (await readMock()).active ? "active" : "inactive";
   }
 
   // Defensive: initIfNeeded() returning true means we configured the SDK at
@@ -240,17 +292,23 @@ export async function isPremium(): Promise<boolean> {
   // handle. Without this guard the next line throws "Cannot read properties
   // of null (reading 'getCustomerInfo')" which crashes the paywall screen.
   if (!_purchases) {
-    if (!__DEV__) return false;
-    return (await readMock()).active;
+    if (!__DEV__) return unavailablePremiumStatus();
+    return (await readMock()).active ? "active" : "inactive";
   }
 
   try {
     const info = await _purchases.getCustomerInfo();
-    return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    const active = Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    await writeLastKnownEntitlement(active);
+    return active ? "active" : "inactive";
   } catch {
-    if (!__DEV__) return false;
-    return (await readMock()).active;
+    if (!__DEV__) return unavailablePremiumStatus();
+    return (await readMock()).active ? "active" : "inactive";
   }
+}
+
+export async function isPremium(): Promise<boolean> {
+  return (await getPremiumStatus()) === "active";
 }
 
 /**
@@ -313,11 +371,28 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
       return { ok: false, error: "No current offering configured" };
     }
 
-    // Map our PackageId to RevenueCat's identifiers
+    // Map our PackageId to RevenueCat's package types and identifiers. The
+    // dashboard has historically used both RevenueCat defaults ($rc_monthly /
+    // $rc_annual) and plain aliases (monthly / yearly); accept both so a
+    // correct StoreKit product is not missed because of dashboard naming.
+    const packageAliases =
+      id === "monthly"
+        ? new Set(["monthly", "$rc_monthly"])
+        : new Set(["yearly", "annual", "$rc_annual"]);
     const pkg =
       id === "monthly"
-        ? current.monthly ?? current.availablePackages?.find((p: { identifier: string }) => p.identifier === "$rc_monthly")
-        : current.annual ?? current.availablePackages?.find((p: { identifier: string }) => p.identifier === "$rc_annual");
+        ? current.monthly ??
+          current.availablePackages?.find(
+            (p: { identifier?: string; packageType?: string }) =>
+              packageAliases.has(String(p.identifier ?? "").toLowerCase()) ||
+              packageAliases.has(String(p.packageType ?? "").toLowerCase()),
+          )
+        : current.annual ??
+          current.availablePackages?.find(
+            (p: { identifier?: string; packageType?: string }) =>
+              packageAliases.has(String(p.identifier ?? "").toLowerCase()) ||
+              packageAliases.has(String(p.packageType ?? "").toLowerCase()),
+          );
 
     if (!pkg) {
       return { ok: false, error: `Package ${id} not found in offering` };
@@ -328,6 +403,8 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
       customerInfo?.entitlements?.active?.[PREMIUM_ENTITLEMENT],
     );
     if (active) {
+      await writeLastKnownEntitlement(true);
+      await syncRevenueCatSubscription();
       // 2026-05-25 (B-PAY-3) — UI'a haber ver, AdBanner/scenario/freechat
       // mount'unu beklemeden refresh etsin.
       notifyPremiumChange();
@@ -386,6 +463,8 @@ export async function restorePurchasesDetailed(): Promise<RestoreResult> {
   try {
     const info = await _purchases.restorePurchases();
     const active = Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    await writeLastKnownEntitlement(active);
+    await syncRevenueCatSubscription();
     if (active) notifyPremiumChange();
     return { ok: true, active };
   } catch (err: unknown) {
@@ -398,6 +477,9 @@ export async function restorePurchasesDetailed(): Promise<RestoreResult> {
  * Set the RevenueCat user ID (call after sign-in to attribute purchases).
  */
 export async function setUserId(userId: string | null): Promise<void> {
+  if (!userId) {
+    await AsyncStorage.removeItem(K_LAST_KNOWN).catch(() => undefined);
+  }
   const live = await initIfNeeded();
   if (!live) return;
   // Defensive null-check (see isPremium for rationale).
@@ -405,6 +487,7 @@ export async function setUserId(userId: string | null): Promise<void> {
   try {
     if (userId) {
       await _purchases.logIn(userId);
+      await syncRevenueCatSubscription();
     } else {
       await _purchases.logOut();
     }

@@ -1,14 +1,14 @@
 // Placement — adaptive CEFR test (2026-05-21, +speaking/listening 2026-05-23).
 //
 // Onboarding'in son adımı (self-report cefr) yerine veya onun "Test ile
-// belirle" CTA'sı arkasında. 10 MCQ adaptive (B1 ile başla, ±1 seviye),
-// sonra 1 zorunlu speaking + 1 zorunlu listening ile final calibration.
+// belirle" CTA'sı arkasında. 12 MCQ adaptive (B1 ile başla, ±1 seviye),
+// sonra 1 read-aloud + 1 open speaking + 2 listening ile final calibration.
 //
 // 2026-05-23 — CEFR audit fix #1: önceki versiyon SADECE okuma/grammar
 // MCQ test ediyordu. Bir speaking app için bu ölümcül bir gap'ti — Türk
 // öğrencisi grammar'ı pasif tanıyıp B1 alabiliyordu ama konuşamıyor, B1
 // sahneleri batırıyor, trust ilk gün kayboluyordu. Şimdi son iki adım
-// gerçek speaking (PronouncePhrase + phoneme grader) ve gerçek listening
+// gerçek speaking (read-aloud + spontaneous production) ve gerçek listening
 // (TTS audio + transcribe). Eğer her ikisinde de düşük puan alırsa
 // final level otomatik -1 band düşer ("okumana göre B1 idin ama dinleme
 // + konuşma A2 — sana A2 sahneleri sunuyoruz").
@@ -28,7 +28,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -41,9 +41,13 @@ import { type CefrLevel } from "../lib/cefr-level";
 import { trackEvent } from "../lib/analytics";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
 import { getInterests } from "../lib/local-progress";
+import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
 import { PronouncePhrase } from "../components/exercises/PronouncePhrase";
+import { PlacementOpenResponse } from "../components/exercises/PlacementOpenResponse";
 import { ListenAndTranscribe } from "../components/exercises/ListenAndTranscribe";
 import type { ExerciseResult } from "../lib/engine";
+import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState } from "../components/AsyncScreenState";
 import {
   PLACEMENT_QUESTION_COUNT,
   computeFinalLevel,
@@ -52,63 +56,143 @@ import {
   pickQuestionFromLevel,
   type PlacementQuestion,
 } from "../data/cefr-placement-bank";
+import {
+  ORAL_PROMPT_COUNT,
+  ORAL_SKIPPED_SCORE,
+  appendOralScore,
+  applyOralAdjustment,
+  averageOralScores,
+  normalizeOralScores,
+} from "../lib/placement-oral-calibration";
 
 // ─── Speaking + listening prompts, indexed by the MCQ-derived level ─
-// Each level gets a CEFR-tuned phrase. PronouncePhrase grades phoneme-by-
-// phoneme via the Levenshtein-on-IPA pipeline; ListenAndTranscribe plays
-// via TTS then asks the user to type back. Both are well-tested existing
-// exercises — we're just wiring them into the placement flow.
+// Each level gets CEFR-tuned read-aloud, open-response, and listening prompts.
 
-const SPEAKING_PHRASES: Record<CefrLevel, { phrase: string; tr: string }> = {
-  A1: { phrase: "Hello, my name is Alex.", tr: "Merhaba, benim adım Alex." },
-  A2: {
-    phrase: "I usually go to work by bus.",
-    tr: "Genelde işe otobüsle giderim.",
-  },
-  B1: {
-    phrase: "I'd like to know more about your weekend.",
-    tr: "Hafta sonun hakkında daha çok bilgi almak isterim.",
-  },
-  B2: {
-    phrase: "If I had known earlier, I would have prepared something.",
-    tr: "Daha önce bilseydim bir şeyler hazırlardım.",
-  },
-  C1: {
-    phrase: "On balance, the proposal warrants further consideration.",
-    tr: "Genel olarak, öneri daha fazla değerlendirilmeyi hak ediyor.",
-  },
-  C2: {
-    phrase: "Were it not for the complications, the project would have wrapped up.",
-    tr: "Komplikasyonlar olmasaydı proje tamamlanmış olacaktı.",
-  },
+const SPEAKING_PHRASES: Record<CefrLevel, Array<{ phrase: string; tr: string }>> = {
+  A1: [
+    { phrase: "Hello, my name is Alex.", tr: "Merhaba, benim adım Alex." },
+    { phrase: "I need a ticket, please.", tr: "Bir bilete ihtiyacım var." },
+  ],
+  A2: [
+    {
+      phrase: "I usually go to work by bus.",
+      tr: "Genelde işe otobüsle giderim.",
+    },
+    {
+      phrase: "Could you repeat that more slowly?",
+      tr: "Bunu daha yavaş tekrar eder misin?",
+    },
+  ],
+  B1: [
+    {
+      phrase: "I'd like to know more about your weekend.",
+      tr: "Hafta sonun hakkında daha çok bilgi almak isterim.",
+    },
+    {
+      phrase: "I can explain the problem if you have a minute.",
+      tr: "Bir dakikan varsa problemi açıklayabilirim.",
+    },
+  ],
+  B2: [
+    {
+      phrase: "If I had known earlier, I would have prepared something.",
+      tr: "Daha önce bilseydim bir şeyler hazırlardım.",
+    },
+    {
+      phrase: "The deadline is tight, but we can still make it work.",
+      tr: "Teslim tarihi sıkışık ama bunu yine de halledebiliriz.",
+    },
+  ],
+  C1: [
+    {
+      phrase: "On balance, the proposal warrants further consideration.",
+      tr: "Genel olarak, öneri daha fazla değerlendirilmeyi hak ediyor.",
+    },
+    {
+      phrase: "I would push back on that assumption for two reasons.",
+      tr: "Bu varsayıma iki nedenle itiraz ederdim.",
+    },
+  ],
+  C2: [
+    {
+      phrase: "Were it not for the complications, the project would have wrapped up.",
+      tr: "Komplikasyonlar olmasaydı proje tamamlanmış olacaktı.",
+    },
+    {
+      phrase: "That being the case, we should revise the framing entirely.",
+      tr: "Durum buysa çerçeveyi tamamen yeniden kurmalıyız.",
+    },
+  ],
 };
 
-const LISTENING_PHRASES: Record<CefrLevel, { sentence: string; tr: string }> = {
-  A1: { sentence: "Where is the bathroom?", tr: "Tuvalet nerede?" },
-  A2: {
-    sentence: "Could I have a cup of coffee, please?",
-    tr: "Bir fincan kahve alabilir miyim, lütfen?",
-  },
-  B1: {
-    sentence: "Could you tell me where the nearest pharmacy is?",
-    tr: "Bana en yakın eczanenin nerede olduğunu söyler misin?",
-  },
-  B2: {
-    sentence: "I'm afraid the meeting has been postponed.",
-    tr: "Maalesef toplantı ertelendi.",
-  },
-  C1: {
-    sentence: "In hindsight, we should have allocated more resources.",
-    tr: "Geriye dönüp bakınca daha çok kaynak ayırmalıydık.",
-  },
-  C2: {
-    sentence: "Were the data to prove inconclusive, we'd revisit our assumptions.",
-    tr: "Veri yetersiz çıkarsa varsayımlarımızı tekrar gözden geçireceğiz.",
-  },
+const OPEN_SPEAKING_PROMPTS: Record<CefrLevel, { prompt: string; tr: string }> = {
+  A1: { prompt: "Introduce yourself in two short sentences.", tr: "Kendini iki kısa cümleyle tanıt." },
+  A2: { prompt: "Describe what you normally do on a weekday.", tr: "Normal bir hafta içi gününde neler yaptığını anlat." },
+  B1: { prompt: "Tell us about a recent problem and how you solved it.", tr: "Yakın zamanda yaşadığın bir sorunu ve onu nasıl çözdüğünü anlat." },
+  B2: { prompt: "Give your opinion on remote work and support it with reasons.", tr: "Uzaktan çalışma hakkındaki fikrini nedenleriyle açıkla." },
+  C1: { prompt: "Explain a decision you changed after considering new evidence.", tr: "Yeni kanıtları değerlendirdikten sonra değiştirdiğin bir kararı açıkla." },
+  C2: { prompt: "Discuss a nuanced issue and acknowledge a reasonable counterargument.", tr: "Nüanslı bir konuyu tartış ve makul bir karşı görüşü de ele al." },
 };
 
-// Test phases. "mcq" → 10 MCQ adaptive; "speaking" → 1 PronouncePhrase
-// at MCQ-derived level; "listening" → 1 ListenAndTranscribe at same level;
+const LISTENING_PHRASES: Record<CefrLevel, Array<{ sentence: string; tr: string }>> = {
+  A1: [
+    { sentence: "Where is the bathroom?", tr: "Tuvalet nerede?" },
+    { sentence: "I am from Turkey.", tr: "Türkiye'den geliyorum." },
+  ],
+  A2: [
+    {
+      sentence: "Could I have a cup of coffee, please?",
+      tr: "Bir fincan kahve alabilir miyim, lütfen?",
+    },
+    {
+      sentence: "The bus leaves in ten minutes.",
+      tr: "Otobüs on dakika içinde kalkıyor.",
+    },
+  ],
+  B1: [
+    {
+      sentence: "Could you tell me where the nearest pharmacy is?",
+      tr: "Bana en yakın eczanenin nerede olduğunu söyler misin?",
+    },
+    {
+      sentence: "I missed the train because the platform changed.",
+      tr: "Peron değiştiği için treni kaçırdım.",
+    },
+  ],
+  B2: [
+    {
+      sentence: "I'm afraid the meeting has been postponed.",
+      tr: "Maalesef toplantı ertelendi.",
+    },
+    {
+      sentence: "We need to clarify the scope before we agree to the timeline.",
+      tr: "Takvimi kabul etmeden önce kapsamı netleştirmeliyiz.",
+    },
+  ],
+  C1: [
+    {
+      sentence: "In hindsight, we should have allocated more resources.",
+      tr: "Geriye dönüp bakınca daha çok kaynak ayırmalıydık.",
+    },
+    {
+      sentence: "The evidence is persuasive, albeit somewhat limited.",
+      tr: "Kanıt ikna edici ama biraz sınırlı.",
+    },
+  ],
+  C2: [
+    {
+      sentence: "Were the data to prove inconclusive, we'd revisit our assumptions.",
+      tr: "Veri yetersiz çıkarsa varsayımlarımızı tekrar gözden geçireceğiz.",
+    },
+    {
+      sentence: "Had it not been for that caveat, I would have endorsed it outright.",
+      tr: "O çekince olmasaydı bunu doğrudan desteklerdim.",
+    },
+  ],
+};
+
+// Test phases. "mcq" → 12 MCQ adaptive; "speaking" → read + open response
+// at MCQ-derived level; "listening" → 2 ListenAndTranscribe at same level;
 // "done" → result + handoff. Each phase has a single source of truth state
 // so back navigation never desyncs.
 type Phase = "mcq" | "speaking" | "listening" | "done";
@@ -133,8 +217,10 @@ interface PersistedPlacement {
   currentLevel: CefrLevel;
   usedIds: string[]; // Set serialize edilmiyor — array olarak yaz/oku
   mcqDerivedLevel: CefrLevel | null;
-  speakingScore: number | null;
-  listeningScore: number | null;
+  speakingScore?: number | null;
+  listeningScore?: number | null;
+  speakingScores?: number[];
+  listeningScores?: number[];
   finalLevel: CefrLevel | null;
 }
 
@@ -159,6 +245,7 @@ function nextAdaptiveLevel(
 
 export default function PlacementScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [currentLevel, setCurrentLevel] = useState<CefrLevel>("B1");
   const [usedIds, setUsedIds] = useState<Set<string>>(new Set());
@@ -172,13 +259,21 @@ export default function PlacementScreen() {
   const [mcqDerivedLevel, setMcqDerivedLevel] = useState<CefrLevel | null>(
     null,
   );
-  const [speakingScore, setSpeakingScore] = useState<number | null>(null);
-  const [listeningScore, setListeningScore] = useState<number | null>(null);
+  const [speakingScores, setSpeakingScores] = useState<number[]>([]);
+  const [listeningScores, setListeningScores] = useState<number[]>([]);
   const [finalLevel, setFinalLevel] = useState<CefrLevel | null>(null);
   const [saving, setSaving] = useState(false);
   // 2026-05-21 — adaptive transition feedback. Sonraki soru daha kolay
   // veya zor olursa kullanıcıya açıklayalım. Boş string → render edilmez.
   const [adaptiveHint, setAdaptiveHint] = useState<string | null>(null);
+  const speakingScore = useMemo(
+    () => averageOralScores(speakingScores),
+    [speakingScores],
+  );
+  const listeningScore = useMemo(
+    () => averageOralScores(listeningScores),
+    [listeningScores],
+  );
 
   // Bir kez seç — turn boyunca aynı soru
   const current: PlacementQuestion | null = useMemo(() => {
@@ -222,8 +317,12 @@ export default function PlacementScreen() {
         setUsedIds(new Set(saved.usedIds ?? []));
         setQuestionNonce((n) => n + 1);
         setMcqDerivedLevel(saved.mcqDerivedLevel);
-        setSpeakingScore(saved.speakingScore);
-        setListeningScore(saved.listeningScore);
+        setSpeakingScores(
+          normalizeOralScores(saved.speakingScores, saved.speakingScore),
+        );
+        setListeningScores(
+          normalizeOralScores(saved.listeningScores, saved.listeningScore),
+        );
         setFinalLevel(saved.finalLevel);
         void trackEvent("placement_resumed", { phase: saved.phase }).catch(
           () => {},
@@ -252,6 +351,8 @@ export default function PlacementScreen() {
       mcqDerivedLevel,
       speakingScore,
       listeningScore,
+      speakingScores,
+      listeningScores,
       finalLevel,
     };
     void AsyncStorage.setItem(
@@ -266,6 +367,8 @@ export default function PlacementScreen() {
     mcqDerivedLevel,
     speakingScore,
     listeningScore,
+    speakingScores,
+    listeningScores,
     finalLevel,
   ]);
 
@@ -319,8 +422,8 @@ export default function PlacementScreen() {
       setAdaptiveHint(
         nextLevel !== current.level
           ? isCorrect
-            ? `Bunu kolay yaptın — biraz zorlaştırıyoruz ⤴︎`
-            : `Bu zor geldi, basitleştiriyoruz ⤵︎`
+            ? t("placement.adaptive_harder")
+            : t("placement.adaptive_easier")
           : null,
       );
       setCurrentLevel(nextLevel);
@@ -335,21 +438,35 @@ export default function PlacementScreen() {
   // test gets free reuse of phoneme grader + TTS + STT pipelines.
 
   const handleSpeakingComplete = (result: ExerciseResult) => {
-    setSpeakingScore(result.score);
+    const nextScores = appendOralScore(speakingScores, result.score);
+    setSpeakingScores(nextScores);
     void trackEvent("placement_speaking_completed", {
       score: result.score,
+      scores: nextScores,
+      prompt_number: nextScores.length,
+      prompt_total: ORAL_PROMPT_COUNT,
       mcq_level: mcqDerivedLevel,
     }).catch(() => {});
-    setPhase("listening");
+    if (nextScores.length >= ORAL_PROMPT_COUNT) setPhase("listening");
   };
 
   const handleListeningComplete = (result: ExerciseResult) => {
-    setListeningScore(result.score);
+    const nextScores = appendOralScore(listeningScores, result.score);
+    setListeningScores(nextScores);
+    void trackEvent("placement_listening_completed", {
+      score: result.score,
+      scores: nextScores,
+      prompt_number: nextScores.length,
+      prompt_total: ORAL_PROMPT_COUNT,
+      mcq_level: mcqDerivedLevel,
+    }).catch(() => {});
+    if (nextScores.length < ORAL_PROMPT_COUNT) return;
+    const finalListeningScore = averageOralScores(nextScores);
     // Now we have all three signals — compute the adjusted final level.
     const adjusted = applyOralAdjustment(
       mcqDerivedLevel ?? "A1",
       speakingScore,
-      result.score,
+      finalListeningScore,
     );
     setFinalLevel(adjusted);
     setPhase("done");
@@ -357,38 +474,57 @@ export default function PlacementScreen() {
       final_level: adjusted,
       mcq_level: mcqDerivedLevel,
       speaking_score: speakingScore,
-      listening_score: result.score,
+      speaking_scores: speakingScores,
+      listening_score: finalListeningScore,
+      listening_scores: nextScores,
     }).catch(() => {});
   };
 
   // 2026-05-25 (B-SCN-15) — Speaking + listening skip handlers.
   // Mic permission reddedildiyse / TTS çalışmazsa kullanıcı placement'ın
   // 80%'ini bitirmiş halde stuck olmasın diye opt-in skip kapısı.
-  // Skip = neutral default skor (50) yaz, kalan akışı bozma. applyOralAdjustment
-  // her iki skor da <50 olursa MCQ seviyesini bir alt band'e indiriyor;
-  // 50 default'u "noise" olarak değerlendirir, MCQ skoru korunur.
+  // Skip is not neutral: no oral evidence should not preserve a high MCQ level.
+  // Use a soft synthetic miss so permission/TTS failures do not trap the user,
+  // but the final level is still conservative.
   const handleSpeakingSkip = () => {
-    setSpeakingScore(50);
+    const nextScores = appendOralScore(speakingScores, ORAL_SKIPPED_SCORE);
+    setSpeakingScores(nextScores);
     void trackEvent("placement_speaking_skipped", {
       mcq_level: mcqDerivedLevel,
+      synthetic_score: ORAL_SKIPPED_SCORE,
+      scores: nextScores,
+      prompt_number: nextScores.length,
+      prompt_total: ORAL_PROMPT_COUNT,
     }).catch(() => {});
-    setPhase("listening");
+    if (nextScores.length >= ORAL_PROMPT_COUNT) setPhase("listening");
   };
 
   const handleListeningSkip = () => {
-    const neutralScore = 50;
-    setListeningScore(neutralScore);
+    const nextScores = appendOralScore(listeningScores, ORAL_SKIPPED_SCORE);
+    setListeningScores(nextScores);
+    void trackEvent("placement_listening_skipped", {
+      mcq_level: mcqDerivedLevel,
+      synthetic_score: ORAL_SKIPPED_SCORE,
+      scores: nextScores,
+      prompt_number: nextScores.length,
+      prompt_total: ORAL_PROMPT_COUNT,
+    }).catch(() => {});
+    if (nextScores.length < ORAL_PROMPT_COUNT) return;
+    const finalListeningScore = averageOralScores(nextScores);
     const adjusted = applyOralAdjustment(
       mcqDerivedLevel ?? "A1",
       speakingScore,
-      neutralScore,
+      finalListeningScore,
     );
     setFinalLevel(adjusted);
     setPhase("done");
-    void trackEvent("placement_listening_skipped", {
+    void trackEvent("placement_completed", {
+      final_level: adjusted,
       mcq_level: mcqDerivedLevel,
       speaking_score: speakingScore,
-      final_level: adjusted,
+      speaking_scores: speakingScores,
+      listening_score: finalListeningScore,
+      listening_scores: nextScores,
     }).catch(() => {});
   };
 
@@ -396,6 +532,7 @@ export default function PlacementScreen() {
     if (!finalLevel || saving) return;
     setSaving(true);
     hapticSuccess();
+    let selectedInterests: string[] = [];
 
     // 2026-05-23 — audit fix: K_PLACEMENT_STATE'i ÖNCE değil SONRA sil.
     // Önceki versiyon finalizeOnboarding'den ÖNCE remove ediyordu —
@@ -414,6 +551,7 @@ export default function PlacementScreen() {
         getInterests().catch(() => [] as string[]),
         AsyncStorage.getItem("lafla.displayName").catch(() => null),
       ]);
+      selectedInterests = interests;
       await finalizeOnboarding({
         level: finalLevel,
         interests,
@@ -423,9 +561,9 @@ export default function PlacementScreen() {
     } catch (e) {
       setSaving(false);
       Alert.alert(
-        "Bir şey ters gitti",
-        "Seviyen kaydedilemedi. İnternetini kontrol edip tekrar dene.",
-        [{ text: "Tamam" }],
+        t("common.error_title"),
+        t("placement.save_error"),
+        [{ text: t("common.ok") }],
       );
       return;
     }
@@ -433,14 +571,18 @@ export default function PlacementScreen() {
     // Finalize başarılı — şimdi atomik temizlik. Restore state'i sil.
     void AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});
 
-    // Intro Match zorunlu sahne (Switch-1) — placement sonrası da aynı kural
+    // Placement yolunda da ilk pratik seçilen bağlama göre belirlenir.
     const introDone = await AsyncStorage.getItem(
       "lafla.intro.match.completed",
     ).catch(() => null);
     if (introDone === "true") {
       router.replace("/today" as never);
     } else {
-      router.replace("/scenario/intro.match.0.1?intro=true" as never);
+      const scenarioId = pickOnboardingScenarioId(
+        selectedInterests,
+        finalLevel,
+      );
+      router.replace(`/scenario/${scenarioId}?intro=true` as never);
     }
   };
 
@@ -449,25 +591,59 @@ export default function PlacementScreen() {
   const progress = history.length;
   const total = PLACEMENT_QUESTION_COUNT;
 
+  const recoverPlacement = async () => {
+    await AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});
+    setHistory([]);
+    setCurrentLevel("B1");
+    setUsedIds(new Set());
+    setSelectedIdx(null);
+    setRevealed(false);
+    setMcqDerivedLevel(null);
+    setSpeakingScores([]);
+    setListeningScores([]);
+    setFinalLevel(null);
+    setAdaptiveHint(null);
+    setPhase("mcq");
+    setQuestionNonce((nonce) => nonce + 1);
+    void trackEvent("placement_recovered").catch(() => {});
+  };
+
   // ─── speaking phase ─────────────────────────────────────────
   if (phase === "speaking" && mcqDerivedLevel) {
-    const target = SPEAKING_PHRASES[mcqDerivedLevel];
+    const promptIndex = Math.min(
+      speakingScores.length,
+      ORAL_PROMPT_COUNT - 1,
+    );
+    const target = SPEAKING_PHRASES[mcqDerivedLevel][0];
+    const openPrompt = OPEN_SPEAKING_PROMPTS[mcqDerivedLevel];
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Konuşma testi</Text>
+          <Text style={styles.headerTitle}>{t("placement.speaking_title")}</Text>
           <Text style={styles.headerSub}>
-            Bu cümleyi sesli oku — telaffuzun seviye tahmininin son ayağı.
+            {t("placement.speaking_body", {
+              current: String(promptIndex + 1),
+              total: String(ORAL_PROMPT_COUNT),
+            })}
           </Text>
         </View>
         <ScrollView contentContainerStyle={styles.body}>
-          <PronouncePhrase
-            phrase={target.phrase}
-            trHint={target.tr}
-            onComplete={handleSpeakingComplete}
-            onSkip={handleSpeakingSkip}
-          />
+          {promptIndex === 0 ? (
+            <PronouncePhrase
+              phrase={target.phrase}
+              trHint={locale === "tr" ? target.tr : undefined}
+              onComplete={handleSpeakingComplete}
+              onSkip={handleSpeakingSkip}
+            />
+          ) : (
+            <PlacementOpenResponse
+              prompt={openPrompt.prompt}
+              trHint={locale === "tr" ? openPrompt.tr : undefined}
+              onComplete={handleSpeakingComplete}
+              onSkip={handleSpeakingSkip}
+            />
+          )}
         </ScrollView>
       </SafeAreaView>
     );
@@ -475,20 +651,27 @@ export default function PlacementScreen() {
 
   // ─── listening phase ────────────────────────────────────────
   if (phase === "listening" && mcqDerivedLevel) {
-    const target = LISTENING_PHRASES[mcqDerivedLevel];
+    const promptIndex = Math.min(
+      listeningScores.length,
+      ORAL_PROMPT_COUNT - 1,
+    );
+    const target = LISTENING_PHRASES[mcqDerivedLevel][promptIndex];
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Dinleme testi</Text>
+          <Text style={styles.headerTitle}>{t("placement.listening_title")}</Text>
           <Text style={styles.headerSub}>
-            Cümleyi dinle ve duyduğunu yaz. Son adım.
+            {t("placement.listening_body", {
+              current: String(promptIndex + 1),
+              total: String(ORAL_PROMPT_COUNT),
+            })}
           </Text>
         </View>
         <ScrollView contentContainerStyle={styles.body}>
           <ListenAndTranscribe
             sentence={target.sentence}
-            trHint={target.tr}
+            trHint={locale === "tr" ? target.tr : undefined}
             onComplete={handleListeningComplete}
             onSkip={handleListeningSkip}
           />
@@ -502,32 +685,30 @@ export default function PlacementScreen() {
   if (phase === "done" && finalLevel) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <Text style={styles.doneEmoji}>🎯</Text>
-          <Text style={styles.doneTitle}>Seviyen ölçüldü</Text>
+          <Text style={styles.doneTitle}>{t("placement.done_title")}</Text>
           <View style={styles.levelHero}>
             <Text style={styles.levelHeroText}>{finalLevel}</Text>
           </View>
           <Text style={styles.doneSub}>
-            {levelDescription(finalLevel)}
+            {t(`placement.level.${finalLevel}`)}
           </Text>
           {/* If the oral checks demoted the user from their MCQ level we
               surface a one-line explanation. Better to admit "we adjusted"
               than to silently disagree with the user's own intuition. */}
           {mcqDerivedLevel && mcqDerivedLevel !== finalLevel ? (
             <Text style={styles.doneAdjustment}>
-              📖 Okuma: {mcqDerivedLevel} · 🎙️ Konuşma & dinleme:{" "}
-              {finalLevel} — sahneler {finalLevel}'den başlar, pratik
-              ettikçe yukarı çıkar.
+              {t("placement.adjustment", { reading: mcqDerivedLevel, oral: finalLevel })}
             </Text>
           ) : null}
           <Text style={styles.doneFoot}>
-            Sahneler bu seviyeden başlar. Yanlış mı? Ayarlar'dan değiştirebilirsin.
+            {t("placement.done_foot")}
           </Text>
           <View style={styles.doneFooter}>
             <Button
-              label={saving ? "..." : "Anasayfa"}
+              label={saving ? "…" : t("placement.home")}
               onPress={handleAccept}
               disabled={saving}
               stacked
@@ -540,11 +721,18 @@ export default function PlacementScreen() {
 
   // ─── question render ────────────────────────────────────────
 
-  if (!current) return null;
+  if (!current) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState status="error" onRetry={() => void recoverPlacement()} />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Header — progress + escape hatch */}
       <View style={styles.header}>
@@ -557,12 +745,12 @@ export default function PlacementScreen() {
             onPress={() => {
               hapticSelection();
               Alert.alert(
-                "Testten çık",
-                "İlerleme silinecek. Seviyeni kendin de seçebilirsin.",
+                t("placement.exit_title"),
+                t("placement.exit_body"),
                 [
-                  { text: "Devam et", style: "cancel" },
+                  { text: t("placement.continue_test"), style: "cancel" },
                   {
-                    text: "Çık",
+                    text: t("placement.exit"),
                     style: "destructive",
                     onPress: async () => {
                       await AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(
@@ -577,11 +765,11 @@ export default function PlacementScreen() {
             hitSlop={12}
             style={styles.headerCancel}
             accessibilityRole="button"
-            accessibilityLabel="Testten çık"
+            accessibilityLabel={t("placement.exit_title")}
           >
-            <Text style={styles.headerCancelText}>← Çık</Text>
+            <Text style={styles.headerCancelText}>← {t("placement.exit")}</Text>
           </Pressable>
-          <Text style={styles.headerTitle}>Seviye testi</Text>
+          <Text style={styles.headerTitle}>{t("placement.title")}</Text>
           <View style={styles.headerCancel} />
         </View>
         <View style={styles.dotsRow}>
@@ -608,7 +796,7 @@ export default function PlacementScreen() {
           </View>
         )}
         <Text style={styles.prompt}>{current.prompt}</Text>
-        {current.prompt_tr ? (
+        {locale === "tr" && current.prompt_tr ? (
           <Text style={styles.promptTr}>{current.prompt_tr}</Text>
         ) : null}
 
@@ -649,7 +837,7 @@ export default function PlacementScreen() {
         </View>
 
         {/* Explanation — sadece revealed sonrası */}
-        {revealed && (
+        {revealed && locale === "tr" && (
           <View style={styles.explainBox}>
             <Text style={styles.explainText}>{current.explanation_tr}</Text>
           </View>
@@ -658,7 +846,7 @@ export default function PlacementScreen() {
 
       <View style={styles.footer}>
         <Button
-          label={revealed ? "Sıradaki ›" : "Cevapla"}
+          label={revealed ? t("placement.next") : t("placement.answer")}
           onPress={revealed ? () => {} : handleConfirm}
           disabled={selectedIdx === null || revealed}
           stacked
@@ -679,9 +867,9 @@ export default function PlacementScreen() {
  * that mismatch and demote the level so day-1 scenes don't drown them.
  *
  * Rule:
- *   - BOTH speaking AND listening < 50 → MCQ level − 1 (clamped at A1)
- *   - Either one alone failing is treated as noise (one-off mis-read,
- *     STT glitch, or unfamiliar accent). We keep the MCQ level.
+ *   - Speaking < 30 → two drops, speaking < 50 → one drop.
+ *   - Listening < 50 → one drop. Skips are synthetic 35s, so skipping both
+ *     oral checks cannot preserve a high MCQ-only result.
  *   - When both are ≥ 50 we trust the MCQ result fully.
  *
  * The asymmetry is intentional: we'd rather start a B1 user at A2 by
@@ -689,40 +877,6 @@ export default function PlacementScreen() {
  * via PROGRESS_HIGH inside cefr-level.ts) than start an A2 at B1 and
  * have them churn.
  */
-function applyOralAdjustment(
-  mcqLevel: CefrLevel,
-  speakingScore: number | null,
-  listeningScore: number | null,
-): CefrLevel {
-  if (speakingScore === null && listeningScore === null) return mcqLevel;
-
-  let drops = 0;
-
-  if (speakingScore !== null) {
-    if (speakingScore < 30) {
-      drops += 2;
-    } else if (speakingScore < 50) {
-      drops += 1;
-    }
-  }
-
-  if (listeningScore !== null) {
-    if (listeningScore < 30) {
-      drops += 1;
-    }
-  }
-
-  // Clamp drops to maximum of 2 levels to not overly demote the user
-  const finalDrops = Math.min(drops, 2);
-
-  let adjustedLevel = mcqLevel;
-  for (let i = 0; i < finalDrops; i++) {
-    adjustedLevel = nextLevelDown(adjustedLevel);
-  }
-
-  return adjustedLevel;
-}
-
 function levelDescription(l: CefrLevel): string {
   switch (l) {
     case "A1":

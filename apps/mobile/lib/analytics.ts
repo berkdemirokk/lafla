@@ -20,8 +20,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
-import { Platform } from "react-native";
-import { getAttStatus } from "./att";
+// Product analytics is first-party and controlled by the in-app opt-out.
 
 // ---------------------------------------------------------------------------
 // Types
@@ -100,19 +99,8 @@ export async function initAnalytics(): Promise<void> {
         return;
       }
 
-      // Apple ATT gate (Guideline 5.1.2). Do NOT initialize PostHog before
-      // the user has granted tracking permission. Pre-grant we stay in
-      // no-op mode; once ATT resolves with "granted" the onboarding flow
-      // calls initAnalytics() again and we proceed.
-      if (Platform.OS === "ios") {
-        const att = await getAttStatus();
-        if (att !== "granted") {
-          devLog("init", `ATT not granted (${att}) — staying in no-op mode`);
-          optedOut = true;
-          return;
-        }
-      }
-
+      // First-party learning analytics is governed by the in-app opt-out.
+      // ATT remains scoped to advertising identifiers in lib/att.ts.
       // Lazy require so Metro doesn't fail when the dep isn't installed yet.
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const mod = require("posthog-react-native") as
@@ -230,12 +218,9 @@ export async function getDistinctId(): Promise<string | null> {
 // ---------------------------------------------------------------------------
 
 export async function setAnalyticsEnabled(enabled: boolean): Promise<void> {
-  optedOut = !enabled;
-  try {
-    await AsyncStorage.setItem(K_OPTOUT, optedOut ? "true" : "false");
-  } catch {
-    // ignore
-  }
+  const nextOptedOut = !enabled;
+  await AsyncStorage.setItem(K_OPTOUT, nextOptedOut ? "true" : "false");
+  optedOut = nextOptedOut;
   try {
     if (!client) return;
     if (enabled) {

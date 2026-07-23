@@ -1,21 +1,22 @@
 // Review — vocab SRS session screen.
 //
-// Anki-style flashcard:
-//   1. Türkçe kelime gösterilir
-//   2. Kullanıcı "Cevabı gör" basar
-//   3. İngilizce karşılık gösterilir + ses oyna
-//   4. 4 button: "Hatırlamadım / Zor / Tamam / Kolay"
-//   5. HLR algoritması yeni half-life'ı hesaplar, sonraki item'a geç
+// Active-recall flashcard:
+//   1. Türkçe ipucu gösterilir, İngilizce cevap kullanıcıdan istenir.
+//   2. Cevap cihazda değerlendirilir; sonra doğru karşılık ve ses açılır.
+//   3. Ölçülen sonuç HLR aralığını günceller; öz-bildirim puanı şişiremez.
 //
 // Session bitince: özet (kaç doğru / yanlış, kaç gün sonra tekrar)
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   Pressable,
   ScrollView,
+  Alert,
+  Keyboard,
+  TextInput,
 } from "react-native";
 import Animated, {
   Easing,
@@ -24,7 +25,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
@@ -34,74 +35,87 @@ import { Button } from "../components/Button";
 import {
   getDueVocab,
   recordVocabReview,
-  type Recall,
+  evaluateVocabRecall,
   type VocabItem,
 } from "../lib/srs-vocab";
 import { speak } from "../lib/tts";
 import { trackEvent } from "../lib/analytics";
+import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 interface SessionStats {
   total: number;
-  easy: number;
   ok: number;
-  hard: number;
   forgot: number;
 }
 
 export default function ReviewScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [items, setItems] = useState<VocabItem[]>([]);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [savingRecall, setSavingRecall] = useState(false);
+  const [answer, setAnswer] = useState("");
+  const [recallCorrect, setRecallCorrect] = useState<boolean | null>(null);
   const [stats, setStats] = useState<SessionStats>({
     total: 0,
-    easy: 0,
     ok: 0,
-    hard: 0,
     forgot: 0,
   });
 
   // Card flip animation — reveal sırasında card sallanır
   const flip = useSharedValue(0);
 
-  useEffect(() => {
-    (async () => {
+  const load = useCallback(async () => {
+    setStatus("loading");
+    try {
       const due = await getDueVocab({ limit: 30 });
       setItems(due);
       setStats((s) => ({ ...s, total: due.length }));
+      setStatus("ready");
       void trackEvent("vocab_review_session_start", {
         due_count: due.length,
       }).catch(() => {});
-    })();
+    } catch {
+      setStatus("error");
+    }
   }, []);
+  useEffect(() => { void load(); }, [load]);
 
   const current = items[idx] ?? null;
 
   const handleReveal = () => {
-    if (revealed) return;
+    if (revealed || !current || !answer.trim()) return;
+    setRecallCorrect(evaluateVocabRecall(current.word, answer));
     setRevealed(true);
+    Keyboard.dismiss();
     void Haptics.selectionAsync().catch(() => {});
     flip.value = withSequence(
       withTiming(1, { duration: 220, easing: Easing.out(Easing.cubic) }),
       withTiming(0, { duration: 0 }),
     );
     // İngilizce kelimeyi auto-speak
-    if (current) {
-      setTimeout(() => speak(current.word).catch(() => {}), 250);
-    }
+    setTimeout(() => speak(current.word).catch(() => {}), 250);
   };
 
-  const handleRecall = async (r: Recall) => {
-    if (!current) return;
+  const handleRecall = async (r: "ok" | "forgot") => {
+    if (!current || savingRecall) return;
+    setSavingRecall(true);
     void Haptics.impactAsync(
-      r === "easy"
-        ? Haptics.ImpactFeedbackStyle.Light
-        : r === "forgot"
-          ? Haptics.ImpactFeedbackStyle.Heavy
-          : Haptics.ImpactFeedbackStyle.Medium,
+      r === "forgot"
+        ? Haptics.ImpactFeedbackStyle.Heavy
+        : Haptics.ImpactFeedbackStyle.Light,
     ).catch(() => {});
-    await recordVocabReview(current.id, r).catch(() => {});
+    try {
+      await recordVocabReview(current.id, r);
+    } catch {
+      Alert.alert(t("common.error_title"), t("common.load_error_body"));
+      setSavingRecall(false);
+      return;
+    }
     setStats((s) => ({
       ...s,
       [r]: s[r] + 1,
@@ -115,7 +129,10 @@ export default function ReviewScreen() {
     } else {
       setIdx(idx + 1);
       setRevealed(false);
+      setAnswer("");
+      setRecallCorrect(null);
     }
+    setSavingRecall(false);
   };
 
   const cardFlipStyle = useAnimatedStyle(() => ({
@@ -127,19 +144,25 @@ export default function ReviewScreen() {
   }));
 
   // ─── empty queue ─────────────────────────────────────────────────
+  if (status !== "ready") {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      </SafeAreaView>
+    );
+  }
+
   if (items.length === 0 && !finished) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.empty}>
           <Text style={styles.emptyEmoji}>📚</Text>
-          <Text style={styles.emptyTitle}>Bugünlük tekrar yok</Text>
-          <Text style={styles.emptySub}>
-            Yeni kelime öğrenmek için bir sahne aç. Tekrarlar otomatik olarak
-            burada belirir.
-          </Text>
+          <Text style={styles.emptyTitle}>{t("review.empty_title")}</Text>
+          <Text style={styles.emptySub}>{t("review.empty_body")}</Text>
           <Button
-            label="Anasayfa"
+            label={t("review.home")}
             onPress={() => router.replace("/today" as never)}
             stacked
           />
@@ -152,23 +175,21 @@ export default function ReviewScreen() {
   if (finished) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <Text style={styles.doneEmoji}>✨</Text>
-          <Text style={styles.doneTitle}>Tekrar tamamlandı</Text>
+          <Text style={styles.doneTitle}>{t("review.done")}</Text>
           <View style={styles.doneStats}>
-            <DoneRow label="Toplam" value={String(stats.total)} accent={tokens.text.primary} />
-            <DoneRow label="Kolay" value={String(stats.easy)} accent={tokens.brand.tertiary} />
-            <DoneRow label="Tamam" value={String(stats.ok)} accent={tokens.brand.primary} />
-            <DoneRow label="Zor" value={String(stats.hard)} accent={tokens.semantic.warning} />
-            <DoneRow label="Hatırlamadım" value={String(stats.forgot)} accent={tokens.semantic.error} />
+            <DoneRow label={t("review.total")} value={String(stats.total)} accent={tokens.text.primary} />
+            <DoneRow label={t("review.remembered")} value={String(stats.ok)} accent={tokens.brand.tertiary} />
+            <DoneRow label={t("review.forgot")} value={String(stats.forgot)} accent={tokens.semantic.error} />
           </View>
           <Text style={styles.doneFootnote}>
-            Hatırlamadığın kelimeler yarın yine gelir. Kolayların 3-5 gün sonra.
+            {t("review.footnote")}
           </Text>
           <View style={{ marginTop: 24, width: "100%" }}>
             <Button
-              label="Anasayfa"
+              label={t("review.home")}
               onPress={() => router.replace("/today" as never)}
               stacked
             />
@@ -179,11 +200,18 @@ export default function ReviewScreen() {
   }
 
   // ─── active card ────────────────────────────────────────────────
-  if (!current) return null;
+  if (!current) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState status="error" onRetry={() => void load()} />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Header — progress + back */}
       <View style={styles.header}>
@@ -192,9 +220,9 @@ export default function ReviewScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
-          <Text style={styles.backText}>← Geri</Text>
+          <Text style={styles.backText}>← {t("common.back")}</Text>
         </Pressable>
         <Text style={styles.progress}>
           {idx + 1} / {items.length}
@@ -215,7 +243,7 @@ export default function ReviewScreen() {
               <Pressable
                 onPress={() => speak(current.word).catch(() => {})}
                 accessibilityRole="button"
-                accessibilityLabel={`${current.word} — sesli dinle`}
+                accessibilityLabel={t("review.listen_label", { word: current.word })}
               >
                 <Text style={styles.backWord}>{current.word} 🔊</Text>
               </Pressable>
@@ -223,36 +251,48 @@ export default function ReviewScreen() {
           )}
         </Animated.View>
 
-        {/* CTA: reveal veya 4 recall button */}
+        {/* Active production first; reveal and schedule only after grading. */}
         {!revealed ? (
           <View style={styles.revealBtnWrap}>
-            <Button label="Cevabı gör" onPress={handleReveal} stacked />
+            <TextInput
+              value={answer}
+              onChangeText={setAnswer}
+              onSubmitEditing={handleReveal}
+              placeholder={t("review.answer_placeholder")}
+              placeholderTextColor={tokens.text.tertiary}
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="done"
+              accessibilityLabel={t("review.answer_label")}
+              style={styles.answerInput}
+            />
+            <Button
+              label={t("review.check")}
+              onPress={handleReveal}
+              disabled={!answer.trim()}
+              stacked
+            />
           </View>
         ) : (
-          <View style={styles.recallGrid}>
-            <RecallBtn
-              label="Hatırlamadım"
-              hint="< 1 gün"
-              accent={tokens.semantic.error}
-              onPress={() => handleRecall("forgot")}
-            />
-            <RecallBtn
-              label="Zor"
-              hint="yarın"
-              accent={tokens.semantic.warning}
-              onPress={() => handleRecall("hard")}
-            />
-            <RecallBtn
-              label="Tamam"
-              hint="2-3 gün"
-              accent={tokens.brand.primary}
-              onPress={() => handleRecall("ok")}
-            />
-            <RecallBtn
-              label="Kolay"
-              hint="5-7 gün"
-              accent={tokens.brand.tertiary}
-              onPress={() => handleRecall("easy")}
+          <View style={styles.recallResult}>
+            <Text
+              accessibilityLiveRegion="polite"
+              style={[
+                styles.recallResultText,
+                {
+                  color: recallCorrect
+                    ? tokens.semantic.success
+                    : tokens.semantic.error,
+                },
+              ]}
+            >
+              {recallCorrect ? t("review.correct") : t("review.incorrect")}
+            </Text>
+            <Button
+              label={t("common.continue")}
+              onPress={() => handleRecall(recallCorrect ? "ok" : "forgot")}
+              disabled={savingRecall}
+              stacked
             />
           </View>
         )}
@@ -262,34 +302,6 @@ export default function ReviewScreen() {
 }
 
 // ─── sub components ──────────────────────────────────────────────────
-
-function RecallBtn({
-  label,
-  hint,
-  accent,
-  onPress,
-}: {
-  label: string;
-  hint: string;
-  accent: string;
-  onPress: () => void;
-}) {
-  return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.recallBtn,
-        { borderColor: accent },
-        pressed && styles.recallBtnPressed,
-      ]}
-      accessibilityRole="button"
-      accessibilityLabel={`${label} — sonraki tekrar ${hint}`}
-    >
-      <Text style={[styles.recallLabel, { color: accent }]}>{label}</Text>
-      <Text style={styles.recallHint}>{hint}</Text>
-    </Pressable>
-  );
-}
 
 function DoneRow({
   label,
@@ -391,37 +403,26 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 16,
   },
-  recallGrid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10,
-    marginTop: 16,
-  },
-  recallBtn: {
-    flexGrow: 1,
-    flexBasis: "48%",
-    paddingVertical: 16,
-    paddingHorizontal: 12,
+  answerInput: {
+    minHeight: 52,
+    paddingHorizontal: 16,
     borderRadius: tokens.radius.base,
     borderWidth: 1.5,
-    backgroundColor: tokens.bg.surfaceContainerLow,
-    alignItems: "center",
-    gap: 4,
-  },
-  recallBtnPressed: {
-    opacity: 0.85,
-    transform: [{ scale: 0.97 }],
-  },
-  recallLabel: {
-    fontSize: 15,
-    fontWeight: tokens.weight.extrabold,
-    letterSpacing: 0.2,
-  },
-  recallHint: {
-    fontSize: 11,
-    color: tokens.text.tertiary,
+    borderColor: tokens.border.outline,
+    backgroundColor: tokens.bg.surfaceContainer,
+    color: tokens.text.primary,
+    fontSize: 17,
     fontWeight: tokens.weight.semibold,
-    letterSpacing: 0.3,
+    marginBottom: 12,
+  },
+  recallResult: {
+    gap: 12,
+    marginTop: 16,
+  },
+  recallResultText: {
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: tokens.weight.extrabold,
   },
 
   // empty

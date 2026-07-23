@@ -114,18 +114,14 @@ async function _recordCefrProgressInner(
   // 1) Erosion: practice yapıldığında önce decay'i uygula, sonra +delta.
   //    User gerçek durumda — son hafta ihmal varsa banner zaten görmüştü;
   //    şimdi bu sahne ile hem decay'i absorb hem yeni ilerleme alıyor.
-  await applyDecayIfDue();
+  await _applyDecayIfDueInner();
 
   // Önceki kesirli ilerleme (decay sonrası)
   let before = 0;
-  try {
-    const raw = await AsyncStorage.getItem(K_CEFR_PROGRESS);
-    if (raw) {
-      const n = parseFloat(raw);
-      if (!Number.isNaN(n) && n >= 0 && n <= 1) before = n;
-    }
-  } catch {
-    // Best effort.
+  const raw = await AsyncStorage.getItem(K_CEFR_PROGRESS);
+  if (raw) {
+    const n = parseFloat(raw);
+    if (!Number.isNaN(n) && n >= 0 && n <= 1) before = n;
   }
 
   const delta =
@@ -142,23 +138,23 @@ async function _recordCefrProgressInner(
       toLevel = next;
       after = rawAfter - 1; // taşan kadar yeni level'a aktarılır
       bumped = true;
-      // Yeni level set + certificate award (cert side-effect swallowed)
-      await setCefrLevel(next);
-      await onLevelAdvanced(next).catch(() => {});
     } else {
       // C2 — daha yukarısı yok. Progress 1'de tutulur.
       after = 1;
     }
   }
 
-  try {
-    await AsyncStorage.setItem(K_CEFR_PROGRESS, after.toFixed(4));
-    // Practice tarihi güncelle — bir sonraki decay hesabının base'i.
-    await AsyncStorage.setItem(K_LAST_PRACTICE_AT, new Date().toISOString());
-    // Recent decay UI hint'ini sıfırla — practice yaptın, decay banner inmeli
-    await AsyncStorage.removeItem(K_RECENT_DECAY).catch(() => {});
-  } catch {
-    // Best effort.
+  const writes: [string, string][] = [
+    [K_CEFR_PROGRESS, after.toFixed(4)],
+    [K_LAST_PRACTICE_AT, new Date().toISOString()],
+  ];
+  if (bumped) writes.push([K_CEFR_LEVEL, toLevel]);
+  await AsyncStorage.multiSet(writes);
+  // Recent decay is only a transient UI hint; core progress above is durable.
+  await AsyncStorage.removeItem(K_RECENT_DECAY).catch(() => {});
+  if (bumped) {
+    void trackEvent("level_set", { level: toLevel }).catch(() => {});
+    await onLevelAdvanced(toLevel).catch(() => {});
   }
 
   const scenesToNext = Math.max(
@@ -220,7 +216,16 @@ async function getDaysSincePractice(): Promise<number | null> {
  * Idempotent: bir kere uygulandıktan sonra K_LAST_PRACTICE_AT ileri sarılır,
  * tekrar çağrılırsa muaf gün hesabı 0 döner.
  */
-export async function applyDecayIfDue(): Promise<DecayResult> {
+export function applyDecayIfDue(): Promise<DecayResult> {
+  const job = cefrWriteChain.then(
+    () => _applyDecayIfDueInner(),
+    () => _applyDecayIfDueInner(),
+  );
+  cefrWriteChain = job.catch(() => undefined);
+  return job;
+}
+
+async function _applyDecayIfDueInner(): Promise<DecayResult> {
   const fromLevel = await getCefrLevel();
   if (!fromLevel) {
     return {
@@ -269,14 +274,10 @@ export async function applyDecayIfDue(): Promise<DecayResult> {
 
   // Mevcut progress
   let before = 0;
-  try {
-    const raw = await AsyncStorage.getItem(K_CEFR_PROGRESS);
-    if (raw) {
-      const n = parseFloat(raw);
-      if (!Number.isNaN(n) && n >= 0 && n <= 1) before = n;
-    }
-  } catch {
-    // ignore
+  const raw = await AsyncStorage.getItem(K_CEFR_PROGRESS);
+  if (raw) {
+    const n = parseFloat(raw);
+    if (!Number.isNaN(n) && n >= 0 && n <= 1) before = n;
   }
 
   // Decay miktarı — grace period sonrası gün × per-day, haftalık cap'le
@@ -295,22 +296,21 @@ export async function applyDecayIfDue(): Promise<DecayResult> {
       levelDropped = true;
       // Yeni seviyede progress 1 + after (negatif) = 1 - excess
       after = Math.max(0, 1 + after);
-      await setCefrLevel(prevLevel);
     } else {
       // A1'deyiz, daha aşağı düşemez — 0'da clamp
       after = 0;
     }
   }
 
-  // Kaydet
-  try {
-    await AsyncStorage.setItem(K_CEFR_PROGRESS, after.toFixed(4));
-    // K_LAST_PRACTICE_AT ileri sar — bir sonraki decay base'i bugün
-    await AsyncStorage.setItem(K_LAST_PRACTICE_AT, new Date().toISOString());
-    // Recent decay UI hint — home banner'da gözükür
-    await AsyncStorage.setItem(K_RECENT_DECAY, decayApplied.toFixed(4));
-  } catch {
-    // Best effort.
+  const writes: [string, string][] = [
+    [K_CEFR_PROGRESS, after.toFixed(4)],
+    [K_LAST_PRACTICE_AT, new Date().toISOString()],
+    [K_RECENT_DECAY, decayApplied.toFixed(4)],
+  ];
+  if (levelDropped && newLevel) writes.push([K_CEFR_LEVEL, newLevel]);
+  await AsyncStorage.multiSet(writes);
+  if (levelDropped && newLevel) {
+    void trackEvent("level_set", { level: newLevel }).catch(() => {});
   }
 
   void trackEvent("cefr_decay_applied", {
@@ -382,11 +382,9 @@ export async function getCefrLevel(): Promise<CefrLevel | null> {
 }
 
 export async function setCefrLevel(level: CefrLevel): Promise<void> {
-  try {
-    await AsyncStorage.setItem(K_CEFR_LEVEL, level);
-  } catch {
-    // ignore
-  }
+  // CEFR is core learning state. Callers must know when persistence fails;
+  // otherwise the UI can advance while the next launch silently loses level.
+  await AsyncStorage.setItem(K_CEFR_LEVEL, level);
   void trackEvent("level_set", { level }).catch(() => {});
 }
 
@@ -415,6 +413,18 @@ export function getRelevantLevels(userLevel: CefrLevel): CefrLevel[] {
   const lo = Math.max(0, idx - 1);
   const hi = Math.min(CEFR_LEVELS.length - 1, idx + 1);
   return CEFR_LEVELS.slice(lo, hi + 1);
+}
+
+/**
+ * Levels safe for a daily success loop. Stretch content remains discoverable
+ * in the scene feed, but the daily plan never surprises a learner with a
+ * scene above their current level.
+ */
+export function getComfortLevels(userLevel: CefrLevel): CefrLevel[] {
+  const idx = CEFR_LEVELS.indexOf(userLevel);
+  if (idx <= 0) return ["A1"];
+  if (userLevel === "C2") return ["B2", "C1", "C2"];
+  return CEFR_LEVELS.slice(Math.max(0, idx - 1), idx + 1);
 }
 
 /**
@@ -533,7 +543,7 @@ export function bandFor(userLevel: CefrLevel): CefrLevel[] {
 }
 
 /**
- * Setup vocab'ı user level'a göre sıralayıp cap 12 uygular.
+ * Setup vocab'ı user level'a göre sıralayıp üç hedef kalıpla sınırlar.
  *
  * Kurallar:
  *   - userLevel null (henüz seçilmemiş) → ilk 12 vocab (untouched)
@@ -552,7 +562,7 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
   setup: readonly T[],
   userLevel: CefrLevel | null,
 ): T[] {
-  if (!userLevel) return setup.slice(0, 12);
+  if (!userLevel) return setup.slice(0, 2);
 
   const acceptableBands = bandFor(userLevel);
   const exact = setup.filter((s) => s.cefr_band === userLevel);
@@ -567,5 +577,5 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
     (s) => s.cefr_band && !acceptableBands.includes(s.cefr_band),
   );
 
-  return [...exact, ...nearby, ...untagged, ...remaining].slice(0, 12);
+  return [...exact, ...nearby, ...untagged, ...remaining].slice(0, 2);
 }

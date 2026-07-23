@@ -1,22 +1,23 @@
 // Lafla — Scenario engine. The pivot from "Duolingo lesson" to "real conversation."
 //
-// 2026-05-24 — Content expansion (Phase 1, Agent B). Scenario yapısı genişledi:
-// vocab-only "tanıt-geç" setup'tan, ~10 dakikalık kademeli pratiğe. Phases:
+// Her senaryo kısa bir öğrenme döngüsü olarak hazırlanır:
 //
-//   1. SETUP-1: Vocab teaching (up to 12 vocab_tile)
-//   2. SETUP-2: Sentence Pattern + Dialogue Gap (setupExtra)
-//   3. DRILL: translate / fill_blank / word_order / spot_mistake / thinking_trap
-//   4. PRE-SCENE: Listen-Respond rehearsal (max 3 turn)
-//   5. SCENE: Roleplay chat
-//   6. RECALL: Verdict öncesi son recall_quiz (varsa 1 tane)
-//   7. VERDICT: Fluency score + next-review schedule
-//
-// Eski lesson dosyaları yeni egzersiz tiplerini içermeyebilir — bu durumda
-// setupExtra / preScene boş array, recallQuiz null olur ve UI bunları
-// gracefully skip eder.
+//   1. SETUP: En fazla 3 hedef kelime/kalıp
+//   2. DRILL: En fazla 2 kontrollü alıştırma
+//   3. SCENE: Destekli roleplay
+//   4. VERDICT: Sonuç + sonraki tekrar
 
 import { allLessons, type BundledLesson } from "../data/lessons";
-import { SAMPLE_SCENES, type CefrLevel } from "../data/scenes";
+import {
+  LESSON_LEVEL_OVERRIDES,
+  SAMPLE_SCENES,
+  type CefrLevel,
+} from "../data/scenes";
+import { normalizeRoleplayPatterns } from "./roleplay-pattern";
+import {
+  calibrateScenarioLevel,
+  calibrateSessionMinutes,
+} from "./cefr-calibrator";
 
 // 2026-05-21 — scenario-level CEFR adaptation. Each Scenario inherits the
 // `cefrLevel` of its matching Scene (data/scenes.ts). RoleplayChat reads
@@ -28,6 +29,9 @@ import { SAMPLE_SCENES, type CefrLevel } from "../data/scenes";
 const _lessonLevelMap = new Map<string, CefrLevel>();
 for (const s of SAMPLE_SCENES) {
   if (s.cefrLevel) _lessonLevelMap.set(s.lessonId, s.cefrLevel);
+}
+for (const [lessonId, level] of Object.entries(LESSON_LEVEL_OVERRIDES)) {
+  _lessonLevelMap.set(lessonId, level);
 }
 
 export interface SetupPhrase {
@@ -48,6 +52,7 @@ export interface SceneTurn {
   speaker: "npc" | "user";
   message?: string;
   acceptable_patterns?: string[];
+  model_answers?: string[];
   hint_tr?: string;
 }
 
@@ -99,6 +104,52 @@ export interface Scenario {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyExercise = any;
 
+export const MAX_SETUP_ITEMS = 2;
+export const MAX_CONTROLLED_PRACTICE_ITEMS = 1;
+export const MAX_ROLEPLAY_USER_TURNS = 2;
+
+export function limitRoleplayTurns<T extends SceneTurn>(
+  turns: readonly T[],
+  maxUserTurns = MAX_ROLEPLAY_USER_TURNS,
+): T[] {
+  const limited: T[] = [];
+  let userTurns = 0;
+
+  for (let index = 0; index < turns.length; index += 1) {
+    const turn = turns[index]!;
+    if (turn.speaker === "user") {
+      if (userTurns >= maxUserTurns) {
+        // Preserve the first authored closing acknowledgement after the
+        // omitted turn. This keeps a short scene from ending abruptly on the
+        // learner's message or on an unanswered NPC question.
+        const closingNpc = turns
+          .slice(index + 1)
+          .find(
+            (candidate) =>
+              candidate.speaker === "npc" &&
+              !/[?？]\s*$/.test(candidate.message ?? ""),
+          );
+        if (closingNpc) limited.push(closingNpc);
+        break;
+      }
+      userTurns += 1;
+    }
+    limited.push(turn);
+  }
+
+  // A final NPC question without a following user turn makes the scene feel
+  // broken, whether it came from truncation or malformed authored content.
+  const last = limited[limited.length - 1];
+  if (
+    last?.speaker === "npc" &&
+    /[?？]\s*$/.test(last.message ?? "")
+  ) {
+    limited.pop();
+  }
+
+  return limited;
+}
+
 function modeOf(skillId: string): string {
   return skillId.split(".")[0] ?? "general";
 }
@@ -129,16 +180,11 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   const exercises = lesson.exercises as AnyExercise[];
 
   const vocabTiles = exercises.filter((e) => e.type === "vocab_tile");
-  const sentencePatterns = exercises.filter(
-    (e) => e.type === "sentence_pattern",
-  );
-  const dialogueGaps = exercises.filter((e) => e.type === "dialogue_gap");
-  const listenResponds = exercises.filter((e) => e.type === "listen_respond");
-  const recallQuizzes = exercises.filter((e) => e.type === "recall_quiz");
   const roleplay = exercises.find((e) => e.type === "roleplay_chat");
 
   // A scenario MUST have a roleplay. Skip lessons without one.
   if (!roleplay) return null;
+  const limitedRoleplayTurns = limitRoleplayTurns(roleplay.turns);
 
   // 2026-05-25 — Phase 5D: cap 12 → 25. Adaptive filtering UI tarafında
   // (filterSetupByLevel) yapılıyor — burada tüm pool'u Setup'a getiriyoruz ki
@@ -153,27 +199,18 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
     cefr_band: v.cefr_band as CefrLevel | undefined,
   }));
 
-  // Setup-2: pattern + dialogue gap (order preserved from lesson file).
-  const setupExtra = [...sentencePatterns, ...dialogueGaps];
-
-  // Pre-scene rehearsal: en fazla 3 listen_respond.
-  const preScene = listenResponds.slice(0, 3);
-
-  // Verdict öncesi recall (varsa).
-  const recallQuiz = recallQuizzes[0] ?? null;
-
-  // Drill phase'te kullanılacak warmups. setup/setupExtra/preScene/recallQuiz/
-  // roleplay'de tüketilen tipleri çıkar; thinking_trap dahil kalan her şey
-  // drill'e düşer.
+  // Tek oturumda çok sayıda farklı egzersiz tipi göstermek öğrenme hedefini
+  // dağıtıyordu. Veri sırasını koruyarak yalnızca iki kontrollü pratik seç.
+  // Recall ayrı bir tekrar oturumunun işi; aynı sahnenin sonuna eklenmez.
   const consumedTypes = new Set([
     "vocab_tile",
     "roleplay_chat",
-    "sentence_pattern",
-    "dialogue_gap",
-    "listen_respond",
     "recall_quiz",
+    "recap_quiz",
   ]);
-  const warmups = exercises.filter((e) => !consumedTypes.has(e.type));
+  const warmups = exercises
+    .filter((e) => !consumedTypes.has(e.type))
+    .slice(0, MAX_CONTROLLED_PRACTICE_ITEMS);
 
   return {
     id: lesson.id,
@@ -181,17 +218,29 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
     mode: modeOf(lesson.skill_id),
     title: lesson.title,
     description: lesson.description ?? "",
-    estimated_minutes: lesson.estimated_minutes ?? 3,
-    cefrLevel: _lessonLevelMap.get(lesson.id),
+    estimated_minutes: calibrateSessionMinutes(lesson.estimated_minutes ?? 3),
+    cefrLevel: calibrateScenarioLevel(
+      _lessonLevelMap.get(lesson.id),
+      limitedRoleplayTurns,
+    ),
     setup,
-    setupExtra,
-    preScene,
-    recallQuiz,
+    setupExtra: [],
+    preScene: [],
+    recallQuiz: null,
     scene: {
       description: roleplay.scenario_description,
       npc_role: roleplay.npc_role,
       setting: roleplay.setting,
-      turns: roleplay.turns,
+      turns: limitedRoleplayTurns.map((turn) =>
+        turn.speaker === "user"
+          ? {
+              ...turn,
+              acceptable_patterns: normalizeRoleplayPatterns(
+                turn.acceptable_patterns ?? [],
+              ),
+            }
+          : turn,
+      ),
     },
     warmups,
   };
@@ -199,17 +248,22 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
 
 // Cached all scenarios — built once from the lesson registry.
 let _scenariosCache: Scenario[] | null = null;
+let _scenarioByIdCache: Map<string, Scenario> | null = null;
 
 export function allScenarios(): Scenario[] {
   if (_scenariosCache) return _scenariosCache;
   _scenariosCache = allLessons
     .map(lessonToScenario)
     .filter((s): s is Scenario => s !== null);
+  _scenarioByIdCache = new Map(
+    _scenariosCache.map((scenario) => [scenario.id, scenario]),
+  );
   return _scenariosCache;
 }
 
 export function getScenario(id: string): Scenario | null {
-  return allScenarios().find((s) => s.id === id) ?? null;
+  if (!_scenarioByIdCache) allScenarios();
+  return _scenarioByIdCache?.get(id) ?? null;
 }
 
 export function getScenariosByMode(mode: string): Scenario[] {

@@ -7,6 +7,7 @@ import { Button } from "../Button";
 import { tokens } from "../../theme";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { evaluateWordOrder, type ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   scrambledTokens: string[];
@@ -21,6 +22,7 @@ export function WordOrder({
   trTranslation,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   // Shuffle tokens once
   const initialOrder = useMemo(
     () =>
@@ -63,8 +65,8 @@ export function WordOrder({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Sırala</Text>
-      <Text style={styles.trHint}>"{trTranslation}"</Text>
+      <Text style={styles.prompt}>{t("exercise.word_order.title")}</Text>
+      {locale === "tr" && <Text style={styles.trHint}>"{trTranslation}"</Text>}
 
       {/* Built sentence area */}
       <View
@@ -74,7 +76,7 @@ export function WordOrder({
         ]}
       >
         {built.length === 0 ? (
-          <Text style={styles.builtPlaceholder}>Kelimeleri sırayla seç...</Text>
+          <Text style={styles.builtPlaceholder}>{t("exercise.word_order.placeholder")}</Text>
         ) : (
           built.map((b) => (
             <Pressable
@@ -82,6 +84,9 @@ export function WordOrder({
               onPress={() => removeFromBuild(b)}
               style={styles.builtToken}
               disabled={!!result}
+              accessibilityRole="button"
+              accessibilityLabel={t("exercise.word_order.remove_word", { word: b.token })}
+              accessibilityState={{ disabled: Boolean(result) }}
             >
               <Text style={styles.builtTokenText}>{b.token}</Text>
             </Pressable>
@@ -97,6 +102,9 @@ export function WordOrder({
             onPress={() => addToBuild(a)}
             style={styles.bankToken}
             disabled={!!result}
+            accessibilityRole="button"
+            accessibilityLabel={t("exercise.word_order.add_word", { word: a.token })}
+            accessibilityState={{ disabled: Boolean(result) }}
           >
             <Text style={styles.bankTokenText}>{a.token}</Text>
           </Pressable>
@@ -113,14 +121,14 @@ export function WordOrder({
           <Text style={styles.feedbackTitle}>
             {result.correct
               ? `✓ ${result.score}/100`
-              : `✗ Doğrusu: "${correctSentence}"`}
+              : t("exercise.correct_answer_quoted", { answer: correctSentence })}
           </Text>
         </View>
       )}
 
       <View style={styles.footer}>
         <Button
-          label={result ? "Devam et →" : "Kontrol et"}
+          label={result ? `${t("common.continue")} →` : t("exercise.check")}
           onPress={result ? () => onComplete(result) : submit}
           disabled={!result && !canSubmit}
         />

@@ -53,6 +53,7 @@ export const airportLesson_44_21: BundledLesson = {
             "(the kiosk|machine) (keeps )?(rejecting|saying error)",
             "(could you )?help me check in",
           ],
+          model_answers: ["The kiosk isn't reading my passport"],
           hint_tr:
             "Sorun anlat: 'The kiosk isn't reading my passport'.",
         },
@@ -70,6 +71,7 @@ export const airportLesson_44_21: BundledLesson = {
             "(yes)(,)? (electronic|chip) passport",
             "(yes)(,)? (e-passport from turkey)",
           ],
+          model_answers: ["Yes, Turkish passport — e-passport"],
           hint_tr:
             "Onayla: 'Yes, Turkish passport — e-passport'.",
         },
@@ -87,6 +89,7 @@ export const airportLesson_44_21: BundledLesson = {
             "(thank you so much|life saver)",
             "(thanks)(,)? (i was getting (stressed|worried))",
           ],
+          model_answers: ["Thanks, much easier"],
           hint_tr:
             "Tesekkur: 'Thanks, much easier'.",
         },
@@ -104,6 +107,7 @@ export const airportLesson_44_21: BundledLesson = {
             "(only )?one (suitcase|bag)",
             "(no checked bags|just a carry-on)",
           ],
+          model_answers: ["One checked bag"],
           hint_tr:
             "Bagaj: 'One checked bag' veya 'Two suitcases'.",
         },
@@ -121,6 +125,7 @@ export const airportLesson_44_21: BundledLesson = {
             "(both )?(if possible)",
             "(printed)(,)? (just in case)",
           ],
+          model_answers: ["Printed, please"],
           hint_tr:
             "Boarding pass: 'Printed, please' (yedek icin guvenli).",
         },
@@ -258,6 +263,7 @@ export const airportLesson_44_22: BundledLesson = {
             "(i thought it was )?(twenty-three|23) kilos",
             "(only two kilos over)\\?\\s*(that'?s a lot)",
           ],
+          model_answers: ["Could I repack to avoid the fee?"],
           hint_tr:
             "Itiraz: 'Could I repack to avoid the fee?'",
         },
@@ -275,6 +281,7 @@ export const airportLesson_44_22: BundledLesson = {
             "(thanks)(,)? (let me try)",
             "(i'?ll be (quick|right back))",
           ],
+          model_answers: ["Thanks, I'll do that"],
           hint_tr:
             "Yeniden duzenle: 'Thanks, I'll do that'.",
         },
@@ -292,6 +299,7 @@ export const airportLesson_44_22: BundledLesson = {
             "(thanks)(,)? (i'?ll be quick)",
             "(thank you so much)",
           ],
+          model_answers: ["Be right back, two minutes"],
           hint_tr:
             "Acele: 'Be right back, two minutes'.",
         },
@@ -309,6 +317,7 @@ export const airportLesson_44_22: BundledLesson = {
             "(thanks for the patience|life saver)",
             "(appreciate the help)",
           ],
+          model_answers: ["Thanks — eighty dollars saved!"],
           hint_tr:
             "Sevin: 'Thanks — eighty dollars saved!'",
         },
@@ -446,6 +455,7 @@ export const airportLesson_44_23: BundledLesson = {
             "(can my )?(miles|status) (be added|count)",
             "(my )?frequent flyer (number is|is) (\\w+)",
           ],
+          model_answers: ["Could you add my frequent flyer number?"],
           hint_tr:
             "Ekle: 'Could you add my frequent flyer number?'",
         },
@@ -463,6 +473,7 @@ export const airportLesson_44_23: BundledLesson = {
             "(starts with (\\w+))",
             "(it'?s )?(under my name|in the app)",
           ],
+          model_answers: ["It's [number]"],
           hint_tr:
             "Numarayi soyle: 'It's [number]'.",
         },
@@ -480,6 +491,7 @@ export const airportLesson_44_23: BundledLesson = {
             "(perfect|yes please)",
             "(i didn'?t know that|that would be amazing)",
           ],
+          model_answers: ["Yes, please!"],
           hint_tr:
             "Avantaj: 'Yes, please!'. Gold = lounge erisimi.",
         },
@@ -497,6 +509,7 @@ export const airportLesson_44_23: BundledLesson = {
             "(appreciate it)",
             "(thanks)(,)? (good to know)",
           ],
+          model_answers: ["Thank you so much!"],
           hint_tr:
             "Sukran: 'Thank you so much!'",
         },
@@ -635,6 +648,7 @@ export const airportLesson_44_24: BundledLesson = {
             "(do you (offer|have)) halal options",
             "(can i (switch|change)) my meal",
           ],
+          model_answers: ["Can I request a halal meal?"],
           hint_tr:
             "Ozel yemek: 'Can I request a halal meal?'. Turkler icin halal yaygin.",
         },
@@ -652,6 +666,7 @@ export const airportLesson_44_24: BundledLesson = {
             "(thank you for trying)",
             "(i'?ll wait)",
           ],
+          model_answers: ["Thanks for checking"],
           hint_tr:
             "Sakin: 'Thanks for checking'.",
         },
@@ -669,6 +684,7 @@ export const airportLesson_44_24: BundledLesson = {
             "(you'?re the best|thanks a million)",
             "(thank you for taking the time)",
           ],
+          model_answers: ["Thank you so much, life saver!"],
           hint_tr:
             "Sukran: 'Thank you so much, life saver!'",
         },
@@ -686,6 +702,7 @@ export const airportLesson_44_24: BundledLesson = {
             "(appreciate it|all good)",
             "(thank you)",
           ],
+          model_answers: ["Perfect, thanks again"],
           hint_tr:
             "Onayla: 'Perfect, thanks again'.",
         },
@@ -833,6 +850,7 @@ export const airportLesson_44_25: BundledLesson = {
             "(yes)(,)? (everything documented|all my paperwork)",
             "(yeah)(,)? (she'?s in cabin|under the seat)",
           ],
+          model_answers: ["Yes, this is my cat"],
           hint_tr:
             "Onayla: 'Yes, this is my cat'.",
         },
@@ -850,6 +868,7 @@ export const airportLesson_44_25: BundledLesson = {
             "(yes)(,)? (vaccinations and (rabies|microchip)) (documented|here)",
             "(i have everything|all the documents)",
           ],
+          model_answers: ["Cabin, here's the health certificate"],
           hint_tr:
             "Evrak: 'Cabin, here's the health certificate'.",
         },
@@ -867,6 +886,7 @@ export const airportLesson_44_25: BundledLesson = {
             "(yeah)(,)? (microchipped (last year|when she was a kitten))",
             "(it'?s the (line|number) below)",
           ],
+          model_answers: ["Yes, number's on the certificate"],
           hint_tr:
             "Onayla: 'Yes, number's on the certificate'.",
         },
@@ -884,6 +904,7 @@ export const airportLesson_44_25: BundledLesson = {
             "(here you go)",
             "(tap to pay|contactless)",
           ],
+          model_answers: ["Card, here you go"],
           hint_tr:
             "Ode: 'Card, here you go'.",
         },
@@ -1032,6 +1053,7 @@ export const airportLesson_44_26: BundledLesson = {
             "(i was traveling|i'?m going) (for erasmus|to study)",
             "(how much is the fee)\\??",
           ],
+          model_answers: ["It's mostly gifts — lokum and Turkish coffee for my host family"],
           hint_tr:
             "Aciklik: 'It's mostly gifts — lokum and Turkish coffee for my host family'.",
         },
@@ -1049,6 +1071,7 @@ export const airportLesson_44_26: BundledLesson = {
             "(could i (repack|rearrange))",
             "(what if i (take out|remove) some items)",
           ],
+          model_answers: ["Could I move some items to my carry-on?"],
           hint_tr:
             "Itiraz: 'Could I move some items to my carry-on?'",
         },
@@ -1066,6 +1089,7 @@ export const airportLesson_44_26: BundledLesson = {
             "(be right back|two minutes)",
             "(thanks for the option)",
           ],
+          model_answers: ["Thanks, I'll try"],
           hint_tr:
             "Dene: 'Thanks, I'll try'.",
         },
@@ -1083,6 +1107,7 @@ export const airportLesson_44_26: BundledLesson = {
             "(appreciate the tip)",
             "(noted|got it)",
           ],
+          model_answers: ["Thanks for the heads up — I'll move clothes instead"],
           hint_tr:
             "Bilgi al: 'Thanks for the heads up — I'll move clothes instead'.",
         },
@@ -1222,6 +1247,7 @@ export const airportLesson_44_27: BundledLesson = {
             "(i was told my )?terminal (changed|switched)",
             "(my flight is at|leaving from) (\\w+)(,)? (where'?s that)",
           ],
+          model_answers: ["Which terminal for my connecting flight to [city]?"],
           hint_tr:
             "Bilgi sor: 'Which terminal for my connecting flight to [city]?'",
         },
@@ -1239,6 +1265,7 @@ export const airportLesson_44_27: BundledLesson = {
             "(thanks)(,)? (which way to D32)",
             "(any other way|can i walk)",
           ],
+          model_answers: ["How long does the shuttle take?"],
           hint_tr:
             "Sure: 'How long does the shuttle take?'",
         },
@@ -1256,6 +1283,7 @@ export const airportLesson_44_27: BundledLesson = {
             "(should i hurry|need to run)",
             "(thanks)(,)? (i'?ll go now)",
           ],
+          model_answers: ["Perfect, heading there now"],
           hint_tr:
             "Hareket: 'Perfect, heading there now'.",
         },
@@ -1273,6 +1301,7 @@ export const airportLesson_44_27: BundledLesson = {
             "(perfect)",
             "(thanks)(,)? (you'?ve been a big help)",
           ],
+          model_answers: ["Thank you so much, appreciate the help"],
           hint_tr:
             "Tesekkur: 'Thank you so much, appreciate the help'.",
         },
@@ -1411,6 +1440,7 @@ export const airportLesson_44_28: BundledLesson = {
             "(i have priority pass|gold status)",
             "(can i (pay|enter) without a card)",
           ],
+          model_answers: ["Here's my Priority Pass"],
           hint_tr:
             "Kart goster: 'Here's my Priority Pass'.",
         },
@@ -1428,6 +1458,7 @@ export const airportLesson_44_28: BundledLesson = {
             "(any cheaper |day pass) options",
             "(actually )?(forty is fine|i'?ll pay)",
           ],
+          model_answers: ["Okay, I'll pay"],
           hint_tr:
             "Kabul: 'Okay, I'll pay'.",
         },
@@ -1445,6 +1476,7 @@ export const airportLesson_44_28: BundledLesson = {
             "(do you have (turkish |coffee))\\??",
             "(thanks for the info)",
           ],
+          model_answers: ["Do you have coffee?"],
           hint_tr:
             "Sor: 'Do you have coffee?'",
         },
@@ -1462,6 +1494,7 @@ export const airportLesson_44_28: BundledLesson = {
             "(appreciate it)",
             "(grateful for the info)",
           ],
+          model_answers: ["Thank you, amazing"],
           hint_tr:
             "Tesekkur: 'Thank you, amazing'.",
         },
@@ -1600,6 +1633,7 @@ export const airportLesson_44_29: BundledLesson = {
             "(can i use the fast lane)",
             "(here'?s my boarding pass)",
           ],
+          model_answers: ["Here you go — do I have TSA Pre-check?"],
           hint_tr:
             "Goster: 'Here you go — do I have TSA Pre-check?'",
         },
@@ -1617,6 +1651,7 @@ export const airportLesson_44_29: BundledLesson = {
             "(no problem)(,)? (where'?s the standard line)",
             "(does it work for international flights)",
           ],
+          model_answers: ["How do I get TSA Pre-check?"],
           hint_tr:
             "Bilgi al: 'How do I get TSA Pre-check?'",
         },
@@ -1634,6 +1669,7 @@ export const airportLesson_44_29: BundledLesson = {
             "(thanks for the info)",
             "(might be worth it)",
           ],
+          model_answers: ["Does it work for non-residents?"],
           hint_tr:
             "Devam: 'Does it work for non-residents?'",
         },
@@ -1651,6 +1687,7 @@ export const airportLesson_44_29: BundledLesson = {
             "(thank you so much)",
             "(makes sense|got it)",
           ],
+          model_answers: ["Thanks for the info"],
           hint_tr:
             "Tesekkur: 'Thanks for the info'.",
         },
@@ -1789,6 +1826,7 @@ export const airportLesson_44_30: BundledLesson = {
             "(my parents and i|our family) (need to sit together)",
             "(is there a way to seat us together)",
           ],
+          model_answers: ["Could we be seated together?"],
           hint_tr:
             "Iste: 'Could we be seated together?'",
         },
@@ -1806,6 +1844,7 @@ export const airportLesson_44_30: BundledLesson = {
             "(any chance for an exit row|window row of four)",
             "(if not at check-in)(,)? (could we ask the gate)",
           ],
+          model_answers: ["My mom doesn't speak English — could we ask the gate?"],
           hint_tr:
             "Israr: 'My mom doesn't speak English — could we ask the gate?'",
         },
@@ -1823,6 +1862,7 @@ export const airportLesson_44_30: BundledLesson = {
             "(what'?s the gate number)\\??",
             "(thanks for the tip)",
           ],
+          model_answers: ["Thanks for trying — what's the gate number?"],
           hint_tr:
             "Tesekkur: 'Thanks for trying — what's the gate number?'",
         },
@@ -1840,6 +1880,7 @@ export const airportLesson_44_30: BundledLesson = {
             "(appreciate the help)",
             "(thanks again)",
           ],
+          model_answers: ["Thanks, we'll head there now"],
           hint_tr:
             "Bitir: 'Thanks, we'll head there now'.",
         },
@@ -1983,6 +2024,7 @@ export const airportLesson_44_31: BundledLesson = {
             "(i'?d like to sit next to|sit with) my family",
             "(excuse me)(,)? (any chance we could swap)",
           ],
+          model_answers: ["Would you mind swapping seats? My mother-in-law is over there"],
           hint_tr:
             "Yumusak: 'Would you mind swapping seats? My mother-in-law is over there'. Türk: 'kayinvalide' = mother-in-law.",
         },
@@ -2000,6 +2042,7 @@ export const airportLesson_44_31: BundledLesson = {
             "(let me show you|just behind you)",
             "(here'?s the boarding pass|same row over)",
           ],
+          model_answers: ["It's row 14, aisle seat"],
           hint_tr:
             "Koltuk: 'It's row 14, aisle seat'.",
         },
@@ -2017,6 +2060,7 @@ export const airportLesson_44_31: BundledLesson = {
             "(it'?s a middle|honestly a middle)(,)? (sorry)",
             "(yes)(,)? (just two rows up)",
           ],
+          model_answers: ["Yes, aisle seat — same as yours"],
           hint_tr:
             "Acik ol: 'Yes, aisle seat — same as yours'. Aldatma.",
         },
@@ -2034,6 +2078,7 @@ export const airportLesson_44_31: BundledLesson = {
             "(thanks)(,)? (means a lot)",
             "(thank you|appreciate it)",
           ],
+          model_answers: ["Thank you so much, really appreciate it"],
           hint_tr:
             "Sukran: 'Thank you so much, really appreciate it'.",
         },
@@ -2172,6 +2217,7 @@ export const airportLesson_44_32: BundledLesson = {
             "(any chance) (i could move|to take that row)",
             "(if no one'?s sitting there)(,)? (could i move)",
           ],
+          model_answers: ["Could I move to that empty row?"],
           hint_tr:
             "Iste: 'Could I move to that empty row?'",
         },
@@ -2189,6 +2235,7 @@ export const airportLesson_44_32: BundledLesson = {
             "(sounds good)",
             "(thanks)(,)? (appreciate it)",
           ],
+          model_answers: ["Got it, I'll wait"],
           hint_tr:
             "Anladim: 'Got it, I'll wait'.",
         },
@@ -2206,6 +2253,7 @@ export const airportLesson_44_32: BundledLesson = {
             "(no thanks)(,)? (just the seat)",
             "(maybe a (blanket|pillow))",
           ],
+          model_answers: ["I'm good, thanks"],
           hint_tr:
             "Hayir: 'I'm good, thanks'.",
         },
@@ -2223,6 +2271,7 @@ export const airportLesson_44_32: BundledLesson = {
             "(thanks)(,)? (much appreciated)",
             "(thank you so much)",
           ],
+          model_answers: ["Thank you, much appreciated"],
           hint_tr:
             "Tesekkur: 'Thank you, much appreciated'.",
         },
@@ -2362,6 +2411,7 @@ export const airportLesson_44_33: BundledLesson = {
             "(no apology needed|she'?s a baby)",
             "(it'?s okay)(,)? (i can'?t imagine flying with a baby)",
           ],
+          model_answers: ["No worries — babies cry, it's fine"],
           hint_tr:
             "Empati: 'No worries — babies cry, it's fine'.",
         },
@@ -2379,6 +2429,7 @@ export const airportLesson_44_33: BundledLesson = {
             "(do you need (anything|help))\\??",
             "(takeoff is the hardest part)",
           ],
+          model_answers: ["Have you tried a pacifier?"],
           hint_tr:
             "Yardim: 'Have you tried a pacifier?'",
         },
@@ -2396,6 +2447,7 @@ export const airportLesson_44_33: BundledLesson = {
             "(let me know if you need anything)",
             "(traveling with a baby is hard)",
           ],
+          model_answers: ["Of course — let me know if you need anything"],
           hint_tr:
             "Kibar: 'Of course — let me know if you need anything'.",
         },
@@ -2413,6 +2465,7 @@ export const airportLesson_44_33: BundledLesson = {
             "(hope she settles soon)",
             "(it'?s all good)",
           ],
+          model_answers: ["Hope she settles soon"],
           hint_tr:
             "Bitis: 'Hope she settles soon'.",
         },
@@ -2562,6 +2615,7 @@ export const airportLesson_44_34: BundledLesson = {
             "(some water|some ginger ale) (please)",
             "(i need a sick bag|i feel like (throwing up|vomiting))",
           ],
+          model_answers: ["I'm feeling air sick — could I get a sick bag?"],
           hint_tr:
             "Soyle: 'I'm feeling air sick — could I get a sick bag?'",
         },
@@ -2579,6 +2633,7 @@ export const airportLesson_44_34: BundledLesson = {
             "(thank you|appreciate the help)",
             "(thanks)(,)? (much better than what i had)",
           ],
+          model_answers: ["Thank you, appreciate it"],
           hint_tr:
             "Tesekkur: 'Thank you, appreciate it'.",
         },
@@ -2596,6 +2651,7 @@ export const airportLesson_44_34: BundledLesson = {
             "(thanks|breathing slowly)(,)? (better)",
             "(stable|just need to ride it out)",
           ],
+          model_answers: ["Just queasy — breathing slowly helps"],
           hint_tr:
             "Anlat: 'Just queasy — breathing slowly helps'.",
         },
@@ -2613,6 +2669,7 @@ export const airportLesson_44_34: BundledLesson = {
             "(thanks)(,)? (i'?ll wait a bit)",
             "(yes please|maybe a small dose)",
           ],
+          model_answers: ["I'll see how it goes"],
           hint_tr:
             "Sec: 'I'll see how it goes' veya 'Maybe a small dose'.",
         },
@@ -2752,6 +2809,7 @@ export const airportLesson_44_35: BundledLesson = {
             "(i'?m gonna try to sleep|trying to rest)",
             "(could i get some ear plugs and a sleep mask)",
           ],
+          model_answers: ["Could I have an extra blanket and a sleep mask?"],
           hint_tr:
             "Iste: 'Could I have an extra blanket and a sleep mask?'",
         },
@@ -2769,6 +2827,7 @@ export const airportLesson_44_35: BundledLesson = {
             "(actually yes|yes please)",
             "(perfect)(,)? (earplugs too)",
           ],
+          model_answers: ["Yes, earplugs too please"],
           hint_tr:
             "Devam: 'Yes, earplugs too please'.",
         },
@@ -2786,6 +2845,7 @@ export const airportLesson_44_35: BundledLesson = {
             "(some water and a juice)",
             "(no)(,)? (i'?m ready to sleep)",
           ],
+          model_answers: ["Just water, please"],
           hint_tr:
             "Icecek: 'Just water, please'.",
         },
@@ -2803,6 +2863,7 @@ export const airportLesson_44_35: BundledLesson = {
             "(thanks)(,)? (good night)",
             "(thanks for the help)",
           ],
+          model_answers: ["Thank you, appreciate it"],
           hint_tr:
             "Tesekkur: 'Thank you, appreciate it'.",
         },
@@ -2941,6 +3002,7 @@ export const airportLesson_44_36: BundledLesson = {
             "(the entertainment screen)( isn'?t working)?",
             "(no sound|i don'?t get any audio)",
           ],
+          model_answers: ["The audio isn't working"],
           hint_tr:
             "Sorun: 'The audio isn't working'.",
         },
@@ -2958,6 +3020,7 @@ export const airportLesson_44_36: BundledLesson = {
             "(maybe the jack is broken)",
             "(let me try (again|once more))",
           ],
+          model_answers: ["Yes, several times — nothing"],
           hint_tr:
             "Cevap: 'Yes, several times — nothing'.",
         },
@@ -2975,6 +3038,7 @@ export const airportLesson_44_36: BundledLesson = {
             "(could you also reset the screen|the screen also froze)",
             "(thanks for trying)",
           ],
+          model_answers: ["Sure, thanks for trying"],
           hint_tr:
             "Kabul: 'Sure, thanks for trying'.",
         },
@@ -2992,6 +3056,7 @@ export const airportLesson_44_36: BundledLesson = {
             "(thanks|appreciate it)",
             "(yes)(,)? (sound is back)",
           ],
+          model_answers: ["Works now, thank you!"],
           hint_tr:
             "Sonuc: 'Works now, thank you!'",
         },
@@ -3131,6 +3196,7 @@ export const airportLesson_44_37: BundledLesson = {
             "(is there a way to (move forward|change seats))",
             "(i'?m worried about my connecting flight)",
           ],
+          model_answers: ["I have a tight connection — could I deplane first?"],
           hint_tr:
             "Soyle: 'I have a tight connection — could I deplane first?'",
         },
@@ -3148,6 +3214,7 @@ export const airportLesson_44_37: BundledLesson = {
             "(boarding has already started|boarding soon)",
             "(barely an hour|just fifty minutes)",
           ],
+          model_answers: ["It's at 3:15, less than an hour"],
           hint_tr:
             "Sure: 'It's at 3:15, less than an hour'.",
         },
@@ -3165,6 +3232,7 @@ export const airportLesson_44_37: BundledLesson = {
             "(thanks for understanding)",
             "(you'?re the best|thanks a million)",
           ],
+          model_answers: ["Thank you so much, life saver!"],
           hint_tr:
             "Sukran: 'Thank you so much, life saver!'",
         },
@@ -3182,6 +3250,7 @@ export const airportLesson_44_37: BundledLesson = {
             "(thanks again)",
             "(perfect)(,)? (i'?ll move fast)",
           ],
+          model_answers: ["Got it, I'll move fast"],
           hint_tr:
             "Hizla: 'Got it, I'll move fast'.",
         },
@@ -3330,6 +3399,7 @@ export const airportLesson_44_38: BundledLesson = {
             "(should i write turkey or republic of turkey)",
             "(thanks)(,)? (this is my first time)",
           ],
+          model_answers: ["Could you help me fill this out?"],
           hint_tr:
             "Yardim: 'Could you help me fill this out?'",
         },
@@ -3347,6 +3417,7 @@ export const airportLesson_44_38: BundledLesson = {
             "(where do i list my flight number)\\??",
             "(my address|i don'?t have a us address)(,)? (what do i write)",
           ],
+          model_answers: ["I have a Turkish passport — do I write Turkey?"],
           hint_tr:
             "Sor: 'I have a Turkish passport — do I write Turkey?'",
         },
@@ -3364,6 +3435,7 @@ export const airportLesson_44_38: BundledLesson = {
             "(any food i need to declare)",
             "(thanks)(,)? (this is helpful)",
           ],
+          model_answers: ["Should I declare the lokum?"],
           hint_tr:
             "Devam: 'Should I declare the lokum?'",
         },
@@ -3381,6 +3453,7 @@ export const airportLesson_44_38: BundledLesson = {
             "(thanks for the tip)",
             "(appreciate the advice)",
           ],
+          model_answers: ["Thanks, better to be safe"],
           hint_tr:
             "Kabul: 'Thanks, better to be safe'.",
         },
@@ -3524,6 +3597,7 @@ export const airportLesson_44_39: BundledLesson = {
             "(how long until it'?s over)\\??",
             "(i don'?t love turbulence)",
           ],
+          model_answers: ["A bit nervous — is this normal?"],
           hint_tr:
             "Kabullen: 'A bit nervous — is this normal?'",
         },
@@ -3541,6 +3615,7 @@ export const airportLesson_44_39: BundledLesson = {
             "(thank you)(,)? (helps to hear that)",
             "(okay)(,)? (i'?ll try to relax)",
           ],
+          model_answers: ["Okay, that's reassuring"],
           hint_tr:
             "Sakinlik: 'Okay, that's reassuring'.",
         },
@@ -3558,6 +3633,7 @@ export const airportLesson_44_39: BundledLesson = {
             "(could you check on me in a few minutes)",
             "(thanks)(,)? (just talking helps)",
           ],
+          model_answers: ["Maybe some tea, please"],
           hint_tr:
             "Iste: 'Maybe some tea, please'.",
         },
@@ -3575,6 +3651,7 @@ export const airportLesson_44_39: BundledLesson = {
             "(thanks)(,)? (much better now)",
             "(thank you for checking in)",
           ],
+          model_answers: ["Thank you, appreciate it"],
           hint_tr:
             "Tesekkur: 'Thank you, appreciate it'.",
         },
@@ -3714,6 +3791,7 @@ export const airportLesson_44_40: BundledLesson = {
             "(coffee with milk and sugar please)",
             "(what'?s available|what do you have)",
           ],
+          model_answers: ["Coffee please, with milk and sugar"],
           hint_tr:
             "Iste: 'Coffee please, with milk and sugar'.",
         },
@@ -3731,6 +3809,7 @@ export const airportLesson_44_40: BundledLesson = {
             "(what do you have|whatever you have)",
             "(yes|sure)(,)? (something light)",
           ],
+          model_answers: ["I'll take some pretzels"],
           hint_tr:
             "Sec: 'I'll take some pretzels'.",
         },
@@ -3748,6 +3827,7 @@ export const airportLesson_44_40: BundledLesson = {
             "(only thirty minutes|that flew by)",
             "(thanks)(,)? (i'?ll get my things ready)",
           ],
+          model_answers: ["On time?"],
           hint_tr:
             "Sohbet: 'On time?' veya 'I'll get ready'.",
         },
@@ -3765,6 +3845,7 @@ export const airportLesson_44_40: BundledLesson = {
             "(thanks for the update)",
             "(thanks)(,)? (looking forward to landing)",
           ],
+          model_answers: ["Great, thanks for the update"],
           hint_tr:
             "Bitir: 'Great, thanks for the update'.",
         },
@@ -3918,6 +3999,7 @@ export const airportLesson_44_41: BundledLesson = {
             "(my luggage came (damaged|broken))",
             "(this side of the bag is (cracked|dented))",
           ],
+          model_answers: ["My bag is damaged — the wheel is broken"],
           hint_tr:
             "Anlat: 'My bag is damaged — the wheel is broken'.",
         },
@@ -3935,6 +4017,7 @@ export const airportLesson_44_41: BundledLesson = {
             "(could i get compensation|how much for compensation)",
             "(can i get a new bag)",
           ],
+          model_answers: ["What's the process?"],
           hint_tr:
             "Bilgi al: 'What's the process?'",
         },
@@ -3952,6 +4035,7 @@ export const airportLesson_44_41: BundledLesson = {
             "(could you send it (to my hotel|to istanbul))",
             "(actually )?(compensation might work better)",
           ],
+          model_answers: ["Compensation might work better — I'm only here a few days"],
           hint_tr:
             "Sec: 'Compensation might work better — I'm only here a few days'.",
         },
@@ -3969,6 +4053,7 @@ export const airportLesson_44_41: BundledLesson = {
             "(thanks for the options)",
             "(let me check with my family|let me ask my husband)",
           ],
+          model_answers: ["I'll take the compensation"],
           hint_tr:
             "Karar: 'I'll take the compensation'.",
         },
@@ -4111,6 +4196,7 @@ export const airportLesson_44_42: BundledLesson = {
             "(only (lokum|gifts) for family)",
             "(some duty-free i bought)",
           ],
+          model_answers: ["Just some lokum and gifts"],
           hint_tr:
             "Sade: 'No, nothing to declare' veya dürüst: 'Just some lokum and gifts'.",
         },
@@ -4128,6 +4214,7 @@ export const airportLesson_44_42: BundledLesson = {
             "(i have two cartons)(,)? (is that too many)\\??",
             "(just a few packs)",
           ],
+          model_answers: ["Just one carton — under the limit"],
           hint_tr:
             "Belirt: 'Just one carton — under the limit'.",
         },
@@ -4145,6 +4232,7 @@ export const airportLesson_44_42: BundledLesson = {
             "(no food)",
             "(packaged sweets only)",
           ],
+          model_answers: ["Some lokum — gifts for family"],
           hint_tr:
             "Anlat: 'Some lokum — gifts for family'.",
         },
@@ -4162,6 +4250,7 @@ export const airportLesson_44_42: BundledLesson = {
             "(let me open it)",
             "(here it is)",
           ],
+          model_answers: ["Of course, here you go"],
           hint_tr:
             "Kabul: 'Of course, here you go'.",
         },
@@ -4287,6 +4376,7 @@ export const airportLesson_44_43: BundledLesson = {
             "(what'?s the exchange rate today)",
             "(\\d+ dollars to euros please)",
           ],
+          model_answers: ["I need some euros — what's the rate?"],
           hint_tr:
             "Iste: 'I need some euros — what's the rate?'",
         },
@@ -4304,6 +4394,7 @@ export const airportLesson_44_43: BundledLesson = {
             "(what'?s the total i'?d get for (\\d+))",
             "(is there a better place nearby)",
           ],
+          model_answers: ["Is there a better place nearby?"],
           hint_tr:
             "Pazarlik: 'Is there a better place nearby?'",
         },
@@ -4321,6 +4412,7 @@ export const airportLesson_44_43: BundledLesson = {
             "(could you do just (\\d+))( for now)",
             "(i'?ll just take a small amount)",
           ],
+          model_answers: ["Thanks — I'll wait for an ATM"],
           hint_tr:
             "Kabul: 'Thanks — I'll wait for an ATM'.",
         },
@@ -4338,6 +4430,7 @@ export const airportLesson_44_43: BundledLesson = {
             "(thanks again)",
             "(thank you for the help)",
           ],
+          model_answers: ["Thanks for the tip!"],
           hint_tr:
             "Tesekkur: 'Thanks for the tip!'",
         },
@@ -4464,6 +4557,7 @@ export const airportLesson_44_44: BundledLesson = {
             "(which (door|stop)) is hotel shuttle pickup",
             "(how do i get to my hotel shuttle)",
           ],
+          model_answers: ["Where do I find the hotel shuttle?"],
           hint_tr:
             "Sor: 'Where do I find the hotel shuttle?'",
         },
@@ -4481,6 +4575,7 @@ export const airportLesson_44_44: BundledLesson = {
             "(i'?m at the (\\w+))",
             "(an airport hotel|airport marriott)",
           ],
+          model_answers: ["I'm at the Hilton"],
           hint_tr:
             "Soyle: 'The Marriott' veya 'I'm at the Hilton'.",
         },
@@ -4498,6 +4593,7 @@ export const airportLesson_44_44: BundledLesson = {
             "(thanks for the directions)",
             "(thank you so much)",
           ],
+          model_answers: ["Got it — which way is Door 4?"],
           hint_tr:
             "Yon: 'Got it — which way is Door 4?'",
         },
@@ -4515,6 +4611,7 @@ export const airportLesson_44_44: BundledLesson = {
             "(thanks for the help)",
             "(thanks)(,)? (heading there now)",
           ],
+          model_answers: ["Got it, heading there now"],
           hint_tr:
             "Tesekkur: 'Got it, heading there now'.",
         },
@@ -4639,6 +4736,7 @@ export const airportLesson_44_45: BundledLesson = {
             "(do i need a (day pass|single ticket))",
             "(can i pay with (card|cash))",
           ],
+          model_answers: ["I need a ticket to the city center"],
           hint_tr:
             "Soyle: 'I need a ticket to the city center'.",
         },
@@ -4656,6 +4754,7 @@ export const airportLesson_44_45: BundledLesson = {
             "(how do i pay)",
             "(i'?ll get the day pass)(,)? (i'?m exploring)",
           ],
+          model_answers: ["Day pass please — I'm exploring"],
           hint_tr:
             "Sec: 'Day pass please — I'm exploring'.",
         },
@@ -4673,6 +4772,7 @@ export const airportLesson_44_45: BundledLesson = {
             "(do you take (mobile|apple pay))",
             "(card please)",
           ],
+          model_answers: ["Card please"],
           hint_tr:
             "Ode: 'Card please' veya 'Cash'.",
         },
@@ -4690,6 +4790,7 @@ export const airportLesson_44_45: BundledLesson = {
             "(thanks for the help)",
             "(thank you)",
           ],
+          model_answers: ["Got it — which way is Platform 2?"],
           hint_tr:
             "Sonraki: 'Got it — which way is Platform 2?'",
         },
@@ -4815,6 +4916,7 @@ export const airportLesson_44_46: BundledLesson = {
             "(of course)(,)? (only personal items)",
             "(yes)",
           ],
+          model_answers: ["Of course, here you go"],
           hint_tr:
             "Kabul: 'Of course, here you go'.",
         },
@@ -4832,6 +4934,7 @@ export const airportLesson_44_46: BundledLesson = {
             "(those are |these are )?(turkish desserts|traditional sweets)",
             "(gifts|presents)(,)? (not for sale)",
           ],
+          model_answers: ["This is just lokum — gifts for friends"],
           hint_tr:
             "Aciklik: 'This is just lokum — gifts for friends'.",
         },
@@ -4849,6 +4952,7 @@ export const airportLesson_44_46: BundledLesson = {
             "(small (gift|portion) boxes)",
             "(\\d+)(,)? (each (250g|under a pound))",
           ],
+          model_answers: ["Four boxes — gifts for friends"],
           hint_tr:
             "Sayi: 'Four boxes — gifts for friends'.",
         },
@@ -4866,6 +4970,7 @@ export const airportLesson_44_46: BundledLesson = {
             "(no other food)",
             "(also some (turkish coffee|tea))(,)? (for the same friends)",
           ],
+          model_answers: ["Some Turkish coffee too — for the same friends"],
           hint_tr:
             "Ekle: 'Some Turkish coffee too — for the same friends'.",
         },
@@ -4993,6 +5098,7 @@ export const airportLesson_44_47: BundledLesson = {
             "(i'?m waiting (at|by) (\\w+))",
             "(amca|uncle)(,)? (i'?ve been waiting)",
           ],
+          model_answers: ["I'm at arrivals, waiting"],
           hint_tr:
             "Anlat: 'I'm at arrivals, waiting'.",
         },
@@ -5010,6 +5116,7 @@ export const airportLesson_44_47: BundledLesson = {
             "(i'?ll grab (something to eat|a coffee))",
             "(i'?ll wait|i'?m fine waiting)",
           ],
+          model_answers: ["No worries — should I take a taxi?"],
           hint_tr:
             "Cevap: 'No worries — should I take a taxi?'",
         },
@@ -5027,6 +5134,7 @@ export const airportLesson_44_47: BundledLesson = {
             "(thanks)(,)? (i'?ll be there)",
             "(no rush|take your time)",
           ],
+          model_answers: ["Got it — I'll wait at Coffee Bean"],
           hint_tr:
             "Kabul: 'Got it — I'll wait at Coffee Bean'.",
         },
@@ -5044,6 +5152,7 @@ export const airportLesson_44_47: BundledLesson = {
             "(love you|amca)(,)? (drive safe)",
             "(thanks)(,)? (i'?ll be at coffee bean)",
           ],
+          model_answers: ["Drive safe, amca!"],
           hint_tr:
             "Bitir: 'Drive safe, amca!' Türk: 'amca' = uncle, sicak hitap.",
         },
@@ -5170,6 +5279,7 @@ export const airportLesson_44_48: BundledLesson = {
             "(\\w+)(,)? (turkish passport)",
             "(reservation under (\\w+))",
           ],
+          model_answers: ["It's Yilmaz"],
           hint_tr:
             "Soyad soyle: 'It's Yilmaz' (Türk soyadi).",
         },
@@ -5187,6 +5297,7 @@ export const airportLesson_44_48: BundledLesson = {
             "(i'?ll take it|full insurance please)",
             "(any (basic|cheaper) option)",
           ],
+          model_answers: ["What does my credit card cover?"],
           hint_tr:
             "Sigorta: 'What does my credit card cover?'",
         },
@@ -5204,6 +5315,7 @@ export const airportLesson_44_48: BundledLesson = {
             "(let me check my phone|let me check)",
             "(yes|sure)(,)? (full coverage)",
           ],
+          model_answers: ["I'll take full"],
           hint_tr:
             "Sec: 'I'll take full' veya 'Basic is fine'.",
         },
@@ -5221,6 +5333,7 @@ export const airportLesson_44_48: BundledLesson = {
             "(google maps will work)",
             "(no thanks|phone'?s enough)",
           ],
+          model_answers: ["GPS please — no roaming"],
           hint_tr:
             "Sec: 'Phone is fine' veya 'GPS please — no roaming'.",
         },
@@ -5348,6 +5461,7 @@ export const airportLesson_44_49: BundledLesson = {
             "(anywhere with |is there a) halal option",
             "(any (lighter|simple) food|not fast food)",
           ],
+          model_answers: ["Any Turkish or Mediterranean food?"],
           hint_tr:
             "Sor: 'Any Turkish or Mediterranean food?'",
         },
@@ -5365,6 +5479,7 @@ export const airportLesson_44_49: BundledLesson = {
             "(any (turkish coffee|tea) places)",
             "(thanks for the recommendation)",
           ],
+          model_answers: ["Amazing — how do I get there?"],
           hint_tr:
             "Tepki: 'Amazing — how do I get there?'",
         },
@@ -5382,6 +5497,7 @@ export const airportLesson_44_49: BundledLesson = {
             "(perfect|will head there now)",
             "(thanks)(,)? (much appreciated)",
           ],
+          model_answers: ["Do they serve Turkish coffee?"],
           hint_tr:
             "Detay: 'Do they serve Turkish coffee?'",
         },
@@ -5399,6 +5515,7 @@ export const airportLesson_44_49: BundledLesson = {
             "(can'?t wait)",
             "(thanks)(,)? (this saved my layover)",
           ],
+          model_answers: ["Amazing — baklava is my favorite!"],
           hint_tr:
             "Sevin: 'Amazing — baklava is my favorite!'",
         },
@@ -5535,6 +5652,7 @@ export const airportLesson_44_50: BundledLesson = {
             "(this airport is huge|i'?m overwhelmed)",
             "(could you point me to (gate (\\w+)|the train))",
           ],
+          model_answers: ["I'm totally lost — where's Gate B22?"],
           hint_tr:
             "Yardim iste: 'I'm totally lost — where's Gate B22?'",
         },
@@ -5552,6 +5670,7 @@ export const airportLesson_44_50: BundledLesson = {
             "(my boarding pass says|here'?s my boarding pass)",
             "(\\w+) (gate (\\w+))",
           ],
+          model_answers: ["Terminal F, Gate 22"],
           hint_tr:
             "Belirt: 'Terminal F, Gate 22'.",
         },
@@ -5569,6 +5688,7 @@ export const airportLesson_44_50: BundledLesson = {
             "(thanks)(,)? (heading there now)",
             "(any signs|easy to find)",
           ],
+          model_answers: ["How long will it take?"],
           hint_tr:
             "Sure: 'How long will it take?'",
         },
@@ -5586,6 +5706,7 @@ export const airportLesson_44_50: BundledLesson = {
             "(thanks)(,)? (really appreciate it)",
             "(perfect|got it)",
           ],
+          model_answers: ["Thank you so much, life saver!"],
           hint_tr:
             "Tesekkur: 'Thank you so much, life saver!'",
         },

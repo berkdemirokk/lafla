@@ -101,6 +101,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
             "(it (made|shut|caused)|the (impact|effect|result))",
             "(hesitant|uncomfortable|shut down|didn't speak)",
           ],
+          model_answers: ["Quick feedback — in yesterday's review, when you cut Berk off, he got hesitant to speak up."],
           hint_tr:
             "SBI acilis: 'Quick feedback — in yesterday's review, when you cut Berk off, he got hesitant to speak up.'",
         },
@@ -118,6 +119,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
             "(next time|going forward|in future)",
             "(let people (finish|wrap up)|hear them out|wait for the gap)",
           ],
+          model_answers: ["Totally get the intent — just wanted to flag the impact. Next time, let folks wrap up first?"],
           hint_tr:
             "Niyeti tanı, etkiyi vurgula: 'Totally get the intent — just wanted to flag the impact. Next time, let folks wrap up first?'",
         },
@@ -134,6 +136,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
             "(rest is (going well|solid)|good (otherwise|overall))",
             "(let's (revisit|check back)|in a couple weeks)",
           ],
+          model_answers: ["That's the main one — appreciate you hearing it. Let's revisit in 2 weeks."],
           hint_tr:
             "Kapan: 'That's the main one — appreciate you hearing it. Let's revisit in 2 weeks.'",
         },
@@ -553,6 +556,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
             "(quality (dip|drop|slip)|seeing (a drop|slipping))",
             "(bugs (slipping|getting through)|missed (the|review))",
           ],
+          model_answers: ["Can I be candid? I'm seeing a quality dip in the last few PRs."],
           hint_tr:
             "Acik acilis: 'Can I be candid? I'm seeing a quality dip in the last few PRs.'",
         },
@@ -571,6 +575,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
             "(quality bar|standard|expectations)",
             "(can't (slip|drop)|need to (hold|maintain))",
           ],
+          model_answers: ["Appreciate the context — load matters. That said, the quality bar still needs to hold."],
           hint_tr:
             "Tanıma + standardı tut: 'Appreciate the context — load matters. That said, the quality bar still needs to hold.'",
         },
@@ -588,6 +593,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
             "(pair (review|on|with)|second set of eyes)",
             "(let's (revisit|check back|sync) (in|next))",
           ],
+          model_answers: ["Let's figure it out — can we scope down this sprint? Pair review on the trickier ones?"],
           hint_tr:
             "Aksiyon: 'Let's figure it out — can we scope down this sprint? Pair review on the trickier ones?'",
         },
@@ -918,6 +924,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
             "(payment|auth|api) (outage|incident|fire|prod)",
             "(saved us|prevented|kept (the|us) (alive|out of))",
           ],
+          model_answers: ["Quick shoutout to Maya for jumping on the Saturday payment outage — saved us a Sunday firefight."],
           hint_tr:
             "Spesifik shoutout: 'Quick shoutout to Maya for jumping on the Saturday payment outage — saved us a Sunday firefight.'",
         },
@@ -935,6 +942,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
             "(the (calm|cool|professionalism)|how you (handled|ran))",
             "(team (saw|noticed) too|everyone (saw|appreciated))",
           ],
+          model_answers: ["Seriously, that was above and beyond — the way you ran the incident was a standard for the team."],
           hint_tr:
             "Sunma'yi reddet: 'Seriously, that was above and beyond — the way you ran the incident was a standard for the team.'",
         },
@@ -1272,6 +1280,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
             "(experiment|try|test)",
             "(scope|focus on|narrow)",
           ],
+          model_answers: ["Love that — what do you think would help most? Let's pick one thing to try."],
           hint_tr:
             "Daveti geri ver: 'Love that — what do you think would help most? Let's pick one thing to try.'",
         },
@@ -1290,6 +1299,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
             "(let's (revisit|circle back|check in)|in (2 weeks?|two weeks?))",
             "(see how it('s|s) (tracking|going|landing))",
           ],
+          model_answers: ["Love it — let's commit to pair review on anything over 200 lines. Let's revisit in 2 weeks and see how it's tracking."],
           hint_tr:
             "Aksiyon + takip: 'Love it — let's commit to pair review on anything over 200 lines. Let's revisit in 2 weeks and see how it's tracking.'",
         },
@@ -1306,6 +1316,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
             "(end of (1:1|the sync|our next))",
             "(thanks for being open|appreciate (you|the openness))",
           ],
+          model_answers: ["Yep — I'll send the invite. Appreciate you being open to this."],
           hint_tr:
             "Kapat: 'Yep — I'll send the invite. Appreciate you being open to this.'",
         },
@@ -1633,6 +1644,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
             "(yesterday('s)?|the) (board|exec|leadership) (deck|presentation|meeting)",
             "(was on fire|landed|moved the needle|nailed it|killed it)",
           ],
+          model_answers: ["Quick shoutout — yesterday's board deck was on fire."],
           hint_tr:
             "Spesifik acilis: 'Quick shoutout — yesterday's board deck was on fire.'",
         },
@@ -1649,6 +1661,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
             "(won (the cfo|her|him) over|sealed it|got (her|him) on board|turned (the room|her))",
             "(framing|narrative|story arc|how you (set up|opened))",
           ],
+          model_answers: ["Couldn't tell — specifically the revenue slide is what won the CFO over. The framing was sharp."],
           hint_tr:
             "Spesifik git: 'Couldn't tell — specifically the revenue slide is what won the CFO over. The framing was sharp.'",
         },
@@ -1665,6 +1678,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
             "(want to see more|keep doing that|that('s| is) the bar)",
             "(when you (own|drive) (an|the) (exec|board) (deck|story))",
           ],
+          model_answers: ["That rigor showed — keep doing that. That's the bar for exec decks."],
           hint_tr:
             "Davranisi pekistir: 'That rigor showed — keep doing that. That's the bar for exec decks.'",
         },
@@ -1961,6 +1975,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
             "(strength|what('s| is) working|where you('re| are) (winning|crushing|strong))",
             "(research (is|was) (deep|solid|rigorous)|data (rigor|depth)|details (are|were) tight)",
           ],
+          model_answers: ["Read the doc end to end — strength is the research depth, data rigor is real."],
           hint_tr:
             "Once gercek guc: 'Read the doc end to end — strength is the research depth, data rigor is real.'",
         },
@@ -1977,6 +1992,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
             "(exec summary|tldr|tl;dr|top of (the )?doc)",
             "(tighter|sharper|30 seconds|conclusion up front|takeaway)",
           ],
+          model_answers: ["One thing to level up — tighter exec summary at the top. 30 seconds to the takeaway."],
           hint_tr:
             "Gelistirme — TEK sey, spesifik: 'One thing to level up — tighter exec summary at the top. 30 seconds to the takeaway.'",
         },
@@ -1993,6 +2009,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
             "(then|after that|below) (the (detail|rigor|backup))",
             "(bluf|bottom line up front|conclusion first)",
           ],
+          model_answers: ["Conclusion up front — reader lands the take in 30 seconds. Then the detail backs it up. BLUF style."],
           hint_tr:
             "Spesifik teknik: 'Conclusion up front — reader lands the take in 30 seconds. Then the detail backs it up. BLUF style.'",
         },
@@ -2009,6 +2026,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
             "(your (signature|trademark)|signature (work|output)|the standard)",
             "(genuinely|honestly|cidden) (excited|looking forward)",
           ],
+          model_answers: ["Crack that and these docs become your signature work — genuinely excited to see the next version."],
           hint_tr:
             "Vizyonla kapan: 'Crack that and these docs become your signature work — genuinely excited to see the next version.'",
         },
@@ -2306,6 +2324,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
             "(last 3 sprints|three sprints in a row|past few sprints)",
             "(prs|tickets|work) (missed|slipped past|came in past) (deadline|sprint end)",
           ],
+          model_answers: ["I want to flag something — here's what I'm noticing: PRs have missed the deadline 3 sprints in a row."],
           hint_tr:
             "Yumusak ama net acilis: 'I want to flag something — here's what I'm noticing: PRs have missed the deadline 3 sprints in a row.'",
         },
@@ -2322,6 +2341,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
             "(from (your side|where you sit)|your take|your read)",
             "(no (judgment|assumptions)|not (assuming|jumping))",
           ],
+          model_answers: ["Appreciate the honesty — I want to understand. What's going on from your side? No assumptions."],
           hint_tr:
             "Davet et: 'Appreciate the honesty — I want to understand. What's going on from your side? No assumptions.'",
         },
@@ -2338,6 +2358,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
             "(stuck (silently|alone)|sitting (alone|silently) with (it|a problem)) (is|hurts) (worse|the issue)",
             "(let's (fix|change|sort) (how|the))",
           ],
+          model_answers: ["Thanks for naming that. Asking for help isn't weakness — being stuck silently is the real issue. Let's change how that works."],
           hint_tr:
             "Sorunu cozumle: 'Thanks for naming that. Asking for help isn't weakness — being stuck silently is the real issue. Let's change how that works.'",
         },
@@ -2355,6 +2376,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
             "(scope|break down|smaller tickets|chunk down)",
             "(let's (revisit|circle back|check in) (in|after))",
           ],
+          model_answers: ["Two things — 2-hour stuck rule + I'll break tickets down with you. Let's check in after next sprint."],
           hint_tr:
             "Aksiyon + takip: 'Two things — 2-hour stuck rule + I'll break tickets down with you. Let's check in after next sprint.'",
         },
@@ -2652,6 +2674,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
             "(error (layer|handling)|retry (logic)?|the structure)",
             "(clean|tight|testable|readable|easy to follow)",
           ],
+          model_answers: ["Loved how you handled the error layer — clean and testable."],
           hint_tr:
             "Once gercek ovgu: 'Loved how you handled the error layer — clean and testable.'",
         },
@@ -2668,6 +2691,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
             "(pull(ing)? (it|this) (out|into)|extract(ing)?|hook|util|helper)",
             "(reuse|other (call sites|places)|elsewhere)",
           ],
+          model_answers: ["One thought — have you considered pulling the retry into a hook? Other call sites could reuse it."],
           hint_tr:
             "Soru-oneri: 'One thought — have you considered pulling the retry into a hook? Other call sites could reuse it.'",
         },
@@ -2684,6 +2708,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
             "(keep this (small|tight|focused)|don't (block|hold) (the|this) merge)",
             "(if it's (quick|easy)|if it doesn't (blow up|bloat))",
           ],
+          model_answers: ["Your call — happy with follow-up if it bloats this PR. Don't block the merge."],
           hint_tr:
             "Karari ona birak: 'Your call — happy with follow-up if it bloats this PR. Don't block the merge.'",
         },

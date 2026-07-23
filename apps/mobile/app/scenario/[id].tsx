@@ -41,11 +41,13 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../../components/ThemedStatusBar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { pushRoute, replaceRoute } from "../../lib/routes";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useTranslation } from "../../lib/i18n";
+import { useReduceMotionPreference } from "../../lib/use-reduce-motion-preference";
 
 import { Button } from "../../components/Button";
 import { SpeakerButton } from "../../components/SpeakerButton";
@@ -63,6 +65,7 @@ import { DialogueGap } from "../../components/exercises/DialogueGap";
 import { ListenRespond } from "../../components/exercises/ListenRespond";
 import { ThinkingTrap } from "../../components/exercises/ThinkingTrap";
 import { RecallQuiz } from "../../components/exercises/RecallQuiz";
+import { MultipleChoice } from "../../components/exercises/MultipleChoice";
 import { AchievementToast } from "../../components/AchievementToast";
 import { StreakMilestoneModal } from "../../components/StreakMilestoneModal";
 import {
@@ -73,7 +76,6 @@ import {
 import { trackEvent } from "../../lib/analytics";
 import {
   getScenario,
-  computeSceneFluency,
   type Scenario,
   type SetupPhrase,
 } from "../../lib/scenario";
@@ -87,7 +89,7 @@ import {
 import { ShareCard } from "../../components/ShareCard";
 import { captureRef } from "react-native-view-shot";
 import * as Sharing from "expo-sharing";
-import { completeLesson, recordAttempt } from "../../lib/srs";
+import { completeLesson } from "../../lib/srs";
 import {
   getNextInPlan,
   incrementPlanProgress,
@@ -102,24 +104,35 @@ import {
   recordInteraction,
   getRelationship,
   tierFor,
+  memoryPromptForRelationship,
   type NpcRelationship,
 } from "../../lib/npc-relationships";
 import { nameAndBucketForNpc } from "../../lib/npc-names";
 import type { SceneMode } from "../../data/scenes";
 import {
   bumpModeFluency,
-  getLessonState,
   getLocalProfile,
 } from "../../lib/local-progress";
-import type { RoleplayMode } from "../../components/exercises/RoleplayChat";
+import type { RoleplayMode } from "../../lib/roleplay-progression";
+import {
+  getRoleplayMode,
+  getRoleplayMasteryState,
+  recordRoleplayMastery,
+} from "../../lib/roleplay-mastery";
 import { recordLessonCompletion } from "../../lib/daily-quests";
 import { checkUnlocksAfterLesson } from "../../lib/achievements";
 import { speak } from "../../lib/tts";
+import { modelAnswersForTurn } from "../../lib/roleplay-model";
+import { recordProgressComparison } from "../../lib/progress-comparison";
 import { hapticImpact, hapticSuccess } from "../../lib/feedback";
+import { markHomeTutorialSeen } from "../../lib/tutorial-state";
 import { allScenarios } from "../../lib/scenario";
 import { tokens } from "../../theme";
 import type { AchievementDef } from "../../lib/achievements";
-import type { ExerciseResult } from "../../lib/engine";
+import type { ExerciseResult, RoleplayMistake } from "../../lib/engine";
+import { assessRoleplayScore } from "../../lib/roleplay-assessment";
+import { captureException } from "../../lib/sentry";
+import { recordSceneEvidence } from "../../lib/learning-evidence";
 
 // 2026-05-24 — Content expansion (Phase 1C, Agent C). 4 → 7 phase.
 // Yeni faz veri yoksa (eski lesson) getNextPhase() o fazı atlar; flow eskisi
@@ -225,15 +238,17 @@ export default function ScenarioScreen() {
     intro?: string;
   }>();
   const router = useRouter();
+  const { t } = useTranslation();
   const scenario = id ? getScenario(id) : null;
-  // 2026-05-20 switch-trigger #1: ?intro=true onboarding sonrası force-first
-  // sahneden gelir. VERDICT bittiğinde "Devam" home yerine paywall'a gider
-  // ve `lafla.intro.match.completed` true yazılır — bir daha tetiklenmez.
+  // ?intro=true onboarding sonrası ilk pratikten gelir. Tamamlanınca işaretlenir
+  // ve kullanıcı satış kesintisi olmadan Bugün ekranına döner.
   const isIntro = intro === "true";
   // 2026-05-25 (B-PAY-9) — Paywall'a tek seferlik navigation; quota guard
   // ile hard-mode click gibi paralel tetikleyicilerin duplicate router
   // replace etmesini önler.
   const paywallNavRef = useRef(false);
+  const scenarioStartedAtRef = useRef(Date.now());
+  const completionIdRef = useRef(`scene:${Date.now()}:${Math.random().toString(36).slice(2)}`);
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
@@ -280,14 +295,18 @@ export default function ScenarioScreen() {
   // ile göster: "Mia · Arkadaş · 5. sahnen".
   const [npcRel, setNpcRel] = useState<NpcRelationship | null>(null);
   useEffect(() => {
+    let cancelled = false;
     (async () => {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const iap = require("../../lib/iap") as {
         isPremium: () => Promise<boolean>;
       };
       const p = await iap.isPremium().catch(() => false);
-      setIsPremiumState(p);
+      if (!cancelled) setIsPremiumState(p);
     })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
   // First-time scene overlay — shown once per scenario load, on initial entry
   // to the scene phase. Auto-dismisses after 1200ms or on tap.
@@ -298,12 +317,13 @@ export default function ScenarioScreen() {
   // effect so the scenario starts with the personalization context it needs;
   // both reads are best-effort (empty string / null on failure).
   useEffect(() => {
+    let cancelled = false;
     (async () => {
       try {
         const raw = await AsyncStorage.getItem(K_DISPLAY_NAME);
-        setDisplayName(sanitizeName(raw));
+        if (!cancelled) setDisplayName(sanitizeName(raw));
       } catch {
-        setDisplayName("");
+        if (!cancelled) setDisplayName("");
       }
       // 2026-05-25 — Phase 5D: userLevel resolve edildikten hemen sonra
       // adaptive setup filter'ı uygula. Level null ise filterSetupByLevel
@@ -315,8 +335,8 @@ export default function ScenarioScreen() {
       } catch {
         resolvedLevel = null;
       }
-      setUserLevel(resolvedLevel);
-      if (scenario) {
+      if (!cancelled) setUserLevel(resolvedLevel);
+      if (!cancelled && scenario) {
         setFilteredSetup(filterSetupByLevel(scenario.setup, resolvedLevel));
       }
       // Daily plan next-in-line lookup. Bu sahne kullanıcının bugünkü plan
@@ -325,9 +345,10 @@ export default function ScenarioScreen() {
       // verdict legacy navigate'e döner.
       if (scenario?.id) {
         try {
-          setNextInPlanScene(await getNextInPlan(scenario.id));
+          const nextScene = await getNextInPlan(scenario.id);
+          if (!cancelled) setNextInPlanScene(nextScene);
         } catch {
-          setNextInPlanScene(null);
+          if (!cancelled) setNextInPlanScene(null);
         }
       }
       // NPC relationship pre-fetch. Bu NPC daha önce karşıya geldiyse
@@ -340,36 +361,66 @@ export default function ScenarioScreen() {
             scenario.id,
           );
           const rel = await getRelationship(name, bucket);
-          setNpcRel(rel);
+          if (!cancelled) setNpcRel(rel);
         } catch {
-          setNpcRel(null);
+          if (!cancelled) setNpcRel(null);
         }
       }
     })();
+    return () => {
+      cancelled = true;
+    };
   }, [scenario?.id]);
 
   // On mount: decide roleplay mode based on previous attempts
   useEffect(() => {
     if (!scenario) return;
+    let cancelled = false;
+    scenarioStartedAtRef.current = Date.now();
+    completionIdRef.current = `scene:${scenario.id}:${scenarioStartedAtRef.current}`;
     (async () => {
-      const state = await getLessonState(scenario.id);
-      const attempts = state?.total_attempts ?? 0;
-      if (attempts >= 2) setRoleplayMode("free");
-      else if (attempts === 1) setRoleplayMode("hinted");
-      else setRoleplayMode("multi-choice");
+      try {
+        const [resolvedMode, mastery] = await Promise.all([
+          getRoleplayMode(scenario.id),
+          getRoleplayMasteryState(scenario.id),
+        ]);
+        if (cancelled) return;
+        setRoleplayMode(resolvedMode);
+        void trackEvent("scenario_started", {
+          scenario_id: scenario.id,
+          skill_id: scenario.skill_id,
+          mode: scenario.mode,
+          scene_level: scenario.cefrLevel ?? "unknown",
+          estimated_minutes: scenario.estimated_minutes,
+          attempt_number: mastery.attempts + 1,
+          is_repeat: mastery.attempts > 0,
+        }).catch(() => {});
+      } catch (error) {
+        captureException(error, {
+          source: "scenario.loadRoleplayMode",
+          scenarioId: scenario.id,
+        });
+      }
     })();
-    void trackEvent("scenario_started", {
-      scenario_id: scenario.id,
-      skill_id: scenario.skill_id,
-      mode: scenario.mode,
-    }).catch(() => {});
     // 2026-05-24 — Sahne açılış sinyali. notifications.ts 6h "yarım kaldı"
     // bildirimini bu başlığı kullanarak kuracak; sahne tamamlanmazsa 6 saat
     // sonra "X sahnen yarım kaldı" push'u atar.
     void recordSceneOpen(
       scenario.title?.replace(/\n/g, " ") ?? "sahnen",
     ).catch(() => {});
+    return () => {
+      cancelled = true;
+    };
   }, [scenario]);
+
+  useEffect(() => {
+    if (!scenario) return;
+    void trackEvent("scenario_phase_entered", {
+      scenario_id: scenario.id,
+      phase,
+      elapsed_ms: Date.now() - scenarioStartedAtRef.current,
+    }).catch(() => {});
+  }, [phase, scenario]);
 
   // 2026-05-21 — Free-tier paywall gate.
   // intro (force-first Match) → her zaman geç, ilk değer öncesi paywall yok
@@ -408,6 +459,9 @@ export default function ScenarioScreen() {
     days: number;
   }>({ visible: false, days: 0 });
   const savedRef = useRef(false);
+  const [progressSaveStatus, setProgressSaveStatus] = useState<
+    "idle" | "saving" | "saved" | "error"
+  >("idle");
 
   // Auto-speak the current setup phrase
   useEffect(() => {
@@ -434,12 +488,18 @@ export default function ScenarioScreen() {
       return;
     }
     savedRef.current = true;
-    const accuracy = sceneResult.score / 100;
+    setProgressSaveStatus("saving");
+    const masteryScore = sceneResult.mastery_score ?? sceneResult.score;
+    const accuracy = masteryScore / 100;
     void trackEvent("scenario_completed", {
       scenario_id: scenario.id,
       skill_id: scenario.skill_id,
       mode: scenario.mode,
       score: sceneResult.score,
+      mastery_score: masteryScore,
+      assisted_turns: sceneResult.assisted_turns ?? 0,
+      duration_ms: Date.now() - scenarioStartedAtRef.current,
+      low_pressure: !hardMode,
     }).catch(() => {});
     // 2026-05-24 — Sahne tamamlandı: 6h "yarım kaldı" bildirimini iptal et,
     // dropoff zincirini (24h streak / 3d challenge / 7d gone) yeniden zamanla.
@@ -450,21 +510,28 @@ export default function ScenarioScreen() {
       // were already true beforehand. completeLesson() below will mutate
       // current_streak, total_xp and last_lesson_at via local-progress.
       await getLocalProfile().catch(() => null);
-      await completeLesson({
-        lesson_id: scenario.id,
-        skill_id: scenario.skill_id,
-        accuracy,
-        exercises_completed: 1,
-      }).catch(() => {});
-      await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
-      await recordLessonCompletion({
-        xpEarned: 20 + Math.round(accuracy * 30),
-        isRoleplay: true,
-      }).catch(() => {});
+      try {
+        await completeLesson({
+          lesson_id: scenario.id,
+          skill_id: scenario.skill_id,
+          accuracy,
+          exercises_completed: 1,
+          completion_id: completionIdRef.current,
+        });
+        setProgressSaveStatus("saved");
+        await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
+        await recordLessonCompletion({
+          xpEarned: 20 + Math.round(accuracy * 30),
+          isRoleplay: true,
+        }).catch(() => {});
+      } catch {
+        setProgressSaveStatus("error");
+        return;
+      }
       // checkUnlocksAfterLesson is idempotent — already-earned achievements
       // are filtered out of the return set, so re-runs after retries are safe.
       const earned = await checkUnlocksAfterLesson(
-        sceneResult.score,
+        masteryScore,
         scenario.mode,
       ).catch(() => [] as AchievementDef[]);
       if (earned.length > 0) {
@@ -575,6 +642,29 @@ export default function ScenarioScreen() {
     })();
   }, [phase, sceneResult, scenario, isIntro, filteredSetup]);
 
+  const retryProgressSave = async () => {
+    if (!scenario || !sceneResult || progressSaveStatus === "saving") return;
+    setProgressSaveStatus("saving");
+    const accuracy = (sceneResult.mastery_score ?? sceneResult.score) / 100;
+    try {
+      await completeLesson({
+        lesson_id: scenario.id,
+        skill_id: scenario.skill_id,
+        accuracy,
+        exercises_completed: 1,
+        completion_id: completionIdRef.current,
+      });
+      setProgressSaveStatus("saved");
+      await bumpModeFluency(scenario.mode, accuracy).catch(() => {});
+      await recordLessonCompletion({
+        xpEarned: 20 + Math.round(accuracy * 30),
+        isRoleplay: true,
+      }).catch(() => {});
+    } catch {
+      setProgressSaveStatus("error");
+    }
+  };
+
   // Drain achievement queue — when the active toast clears, slide the next
   // queued unlock in. We also auto-advance after 2s when there are multiple
   // pending so a backlog of unlocks doesn't sit waiting at ~3.5s each.
@@ -595,14 +685,26 @@ export default function ScenarioScreen() {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <View style={styles.notFound}>
-          <Text style={styles.notFoundTitle}>Sahne bulunamadı</Text>
-          <Button label="Geri" onPress={() => router.back()} />
+          <Text style={styles.notFoundTitle}>{t("scenario.not_found")}</Text>
+          <Button label={t("common.back")} onPress={() => router.back()} />
         </View>
       </SafeAreaView>
     );
   }
 
-  const onExitConfirmed = () => router.back();
+  const onExitConfirmed = () => {
+    if (phase !== "verdict") {
+      void trackEvent("scenario_abandoned", {
+        scenario_id: scenario.id,
+        phase,
+        elapsed_ms: Date.now() - scenarioStartedAtRef.current,
+        setup_index: setupIdx,
+        drill_index: drillIdx,
+        pre_scene_index: preSceneIdx,
+      }).catch(() => {});
+    }
+    router.back();
+  };
   const handleExit = () => {
     // SETUP is safe to abandon outright — nothing persisted yet, no scene
     // started. VERDICT is post-save, also safe. DRILL, SCENE, and the new
@@ -613,11 +715,11 @@ export default function ScenarioScreen() {
       return;
     }
     Alert.alert(
-      "Sahneden çık?",
-      "Sahneden çıkmak istediğine emin misin? İlerlemen kaydedilmeyecek.",
+      t("scenario.exit_title"),
+      t("scenario.exit_body"),
       [
-        { text: "Devam et", style: "cancel" },
-        { text: "Çık", style: "destructive", onPress: onExitConfirmed },
+        { text: t("common.continue"), style: "cancel" },
+        { text: t("scenario.exit_cta"), style: "destructive", onPress: onExitConfirmed },
       ],
     );
   };
@@ -702,13 +804,10 @@ export default function ScenarioScreen() {
 
   const onSceneComplete = (result: ExerciseResult) => {
     setSceneResult(result);
-    recordAttempt({
-      exercise_id: `${scenario.id}.scene`,
-      lesson_id: scenario.id,
-      skill_id: scenario.skill_id,
-      exercise_type: "roleplay_chat",
-      is_correct: result.score >= 60,
-    }).catch(() => {});
+    void recordRoleplayMastery(
+      scenario.id,
+      result.mastery_score ?? result.score,
+    ).catch(() => {});
     // Daily plan progress — sadece bu sahne planın bir parçasıysa artar.
     // (getNextInPlan null değilse veya scenario.id planda son sahneyse de
     // sayılır; tek artırım, "Bugünün planı: 5 sahne · 20 dk" başlangıcının
@@ -722,17 +821,43 @@ export default function ScenarioScreen() {
     // açılışında shouldGatePaywall true dönerse paywall'a yönlendirir.
     // intro/Match sahnesi sayılmaz (force-first ücretsiz pattern).
     if (!isIntro) {
-      incrementFreeTier().catch(() => {});
+      incrementFreeTier(completionIdRef.current).catch(() => {});
     }
+
+    void recordSceneEvidence({
+      completionId: completionIdRef.current,
+      sceneId: scenario.id,
+      score: result.mastery_score ?? result.score,
+      userResponses: result.user_responses,
+      assistedTurns: result.assisted_turns,
+      mistakeCount: result.mistakes?.length ?? 0,
+    }).catch(() => {});
 
     // 2026-05-21 — Local history record (History sayfası için).
     // intro dahil her sahne kaydedilir — kullanıcı geçmişini görmek için.
     recordSceneCompletion({
+      completionId: completionIdRef.current,
       lessonId: scenario.id,
       title: scenario.title,
       mode: scenario.mode as SceneMode,
       score: result.score,
     }).catch(() => {});
+
+    const firstUserTurn = scenario.scene.turns.find(
+      (turn) => turn.speaker === "user",
+    );
+    const firstResponse = result.user_responses?.[0];
+    const coachedResponse = firstUserTurn
+      ? modelAnswersForTurn(firstUserTurn)[0]
+      : undefined;
+    if (firstResponse && coachedResponse) {
+      void recordProgressComparison({
+        scenarioId: scenario.id,
+        scenarioTitle: scenario.title.replace(/\n/g, " "),
+        userText: firstResponse,
+        coachedText: coachedResponse,
+      });
+    }
 
     // 2026-05-21 — Vocab book record. Sahnenin vocab_tile'ları kişisel
     // defter'e eklenir. Dedupe edilir (aynı sahne tekrar oynanırsa
@@ -761,6 +886,17 @@ export default function ScenarioScreen() {
           npcName: name,
           npcBucket: bucket,
           mode: scenario.mode,
+          episode: {
+            scenarioId: scenario.id,
+            title: scenario.title.replace(/\n/g, " "),
+            outcome:
+              result.score >= 80
+                ? "goal_met"
+                : result.score >= 50
+                  ? "close"
+                  : "retry",
+            userSummary: result.user_responses?.[0]?.slice(0, 140),
+          },
         }).catch(() => {});
       }
     } catch {
@@ -773,17 +909,30 @@ export default function ScenarioScreen() {
   };
 
   const nextScenario = findNextScenario(scenario.skill_id, scenario.id);
+  const phaseProgress =
+    phase === "setup" || phase === "setup-extra"
+      ? { now: 1, text: t("scenario.progress.setup") }
+      : phase === "drill" || phase === "pre-scene"
+        ? { now: 2, text: t("scenario.progress.drill") }
+        : phase === "scene"
+          ? { now: 3, text: t("scenario.progress.scene") }
+          : { now: 4, text: t("scenario.progress.finish") };
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <View style={styles.header}>
-          <Pressable onPress={handleExit} style={styles.exitBtn}>
-            <Text style={styles.exitText}>← Geri</Text>
+          <Pressable
+            onPress={handleExit}
+            style={styles.exitBtn}
+            accessibilityRole="button"
+            accessibilityLabel={t("scenario.exit_label")}
+          >
+            <Text style={styles.exitText}>← {t("common.back")}</Text>
           </Pressable>
           {/* 2026-05-24 — 7-fazlı yeni akışı 4 dot'a kondense ettik
               (kullanıcıya 7 dot karıştırır):
@@ -791,7 +940,13 @@ export default function ScenarioScreen() {
                 Dot 2 (Alıştırma): drill + pre-scene
                 Dot 3 (Sahne): scene
                 Dot 4 (Bitiş): recall + verdict */}
-          <View style={styles.phaseDots}>
+          <View
+            style={styles.phaseDots}
+            accessible
+            accessibilityRole="progressbar"
+            accessibilityLabel={t("scenario.progress_label")}
+            accessibilityValue={{ min: 1, max: 4, ...phaseProgress }}
+          >
             <PhaseDot
               active={phase === "setup" || phase === "setup-extra"}
               done={
@@ -858,8 +1013,16 @@ export default function ScenarioScreen() {
                     pressed && { opacity: 0.85 },
                     isPremiumState === null && { opacity: 0.5 },
                   ]}
-                  accessibilityRole="switch"
-                  accessibilityState={{ checked: hardMode, disabled: isPremiumState === null }}
+                  accessibilityRole={isPremiumState === true ? "switch" : "button"}
+                  accessibilityLabel={
+                    isPremiumState === true
+                      ? t("scenario.hard_mode")
+                      : t("scenario.hard_mode_locked_label")
+                  }
+                  accessibilityState={{
+                    checked: isPremiumState === true ? hardMode : undefined,
+                    disabled: isPremiumState === null,
+                  }}
                 >
                   <Text
                     style={[
@@ -868,10 +1031,10 @@ export default function ScenarioScreen() {
                     ]}
                   >
                     {isPremiumState === false
-                      ? "🔒 🔥 HARD MODE · Lafla Pro ile aç"
+                      ? t("scenario.hard_mode_locked")
                       : hardMode
-                        ? "🔥 HARD MODE açık — no hint, ×0.85 puan"
-                        : "🔥 Hard Mode dene · Premium"}
+                        ? t("scenario.hard_mode_on")
+                        : t("scenario.hard_mode_try")}
                   </Text>
                 </Pressable>
               )}
@@ -888,14 +1051,20 @@ export default function ScenarioScreen() {
               <View style={styles.drillWrap}>
                 <View style={styles.drillHeader}>
                   <Text style={styles.drillLabel}>
-                    YAPI · {setupExtraIdx + 1}/{scenario.setupExtra.length}
+                    {t("scenario.structure")} · {setupExtraIdx + 1}/{scenario.setupExtra.length}
                   </Text>
-                  <Pressable onPress={() => goToNextPhase("setup-extra")} hitSlop={8}>
-                    <Text style={styles.drillSkip}>Atla</Text>
+                  <Pressable
+                    onPress={() => goToNextPhase("setup-extra")}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                    accessibilityLabel={t("scenario.skip_structure_label")}
+                  >
+                    <Text style={styles.drillSkip}>{t("common.skip")}</Text>
                   </Pressable>
                 </View>
                 <View style={styles.drillBody}>
                   <DrillRenderer
+                    key={`setup-extra-${scenario.id}-${setupExtraIdx}-${scenario.setupExtra[setupExtraIdx]!.type}`}
                     exercise={scenario.setupExtra[setupExtraIdx]!}
                     onComplete={advanceSetupExtra}
                   />
@@ -907,14 +1076,20 @@ export default function ScenarioScreen() {
             <View style={styles.drillWrap}>
               <View style={styles.drillHeader}>
                 <Text style={styles.drillLabel}>
-                  ALIŞTIRMA · {drillIdx + 1}/{scenario.warmups.length}
+                  {t("scenario.exercise")} · {drillIdx + 1}/{scenario.warmups.length}
                 </Text>
-                <Pressable onPress={skipDrill} hitSlop={8}>
-                  <Text style={styles.drillSkip}>Sahneye atla</Text>
+                <Pressable
+                  onPress={skipDrill}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                  accessibilityLabel={t("scenario.skip_exercise_label")}
+                >
+                  <Text style={styles.drillSkip}>{t("scenario.skip_to_scene")}</Text>
                 </Pressable>
               </View>
               <View style={styles.drillBody}>
                 <DrillRenderer
+                  key={`drill-${scenario.id}-${drillIdx}-${scenario.warmups[drillIdx]!.type}`}
                   exercise={scenario.warmups[drillIdx]!}
                   onComplete={advanceDrill}
                 />
@@ -931,14 +1106,20 @@ export default function ScenarioScreen() {
               <View style={styles.drillWrap}>
                 <View style={styles.drillHeader}>
                   <Text style={styles.drillLabel}>
-                    HAZIRLIK · {preSceneIdx + 1}/{scenario.preScene.length}
+                    {t("scenario.preparation")} · {preSceneIdx + 1}/{scenario.preScene.length}
                   </Text>
-                  <Pressable onPress={() => goToNextPhase("pre-scene")} hitSlop={8}>
-                    <Text style={styles.drillSkip}>Sahneye atla</Text>
+                  <Pressable
+                    onPress={() => goToNextPhase("pre-scene")}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                    accessibilityLabel={t("scenario.skip_preparation_label")}
+                  >
+                    <Text style={styles.drillSkip}>{t("scenario.skip_to_scene")}</Text>
                   </Pressable>
                 </View>
                 <View style={styles.drillBody}>
                   <DrillRenderer
+                    key={`pre-scene-${scenario.id}-${preSceneIdx}-${scenario.preScene[preSceneIdx]!.type}`}
                     exercise={scenario.preScene[preSceneIdx]!}
                     onComplete={advancePreScene}
                   />
@@ -965,11 +1146,13 @@ export default function ScenarioScreen() {
                         styles.npcRelTierFriend,
                     ]}
                   >
-                    {tierFor(npcRel.sceneCount).labelTr}
+                    {t(`relationship.tier.${tierFor(npcRel.sceneCount).tier}`)}
                   </Text>
                   <Text style={styles.npcRelSep}>·</Text>
                   <Text style={styles.npcRelCount}>
-                    {npcRel.sceneCount + 1}. sahnen
+                    {t("scenario.relationship_scene_count", {
+                      count: String(npcRel.sceneCount + 1),
+                    })}
                   </Text>
                 </View>
               )}
@@ -985,6 +1168,9 @@ export default function ScenarioScreen() {
                 sceneLevel={scenario.cefrLevel}
                 userLevel={userLevel ?? undefined}
                 hardMode={hardMode}
+                lowPressure={!hardMode}
+                memoryPrompt={memoryPromptForRelationship(npcRel) ?? undefined}
+                estimatedMinutes={scenario.estimated_minutes}
               />
             </View>
           )}
@@ -997,13 +1183,19 @@ export default function ScenarioScreen() {
           {phase === "recall" && scenario.recallQuiz && (
             <View style={styles.drillWrap}>
               <View style={styles.drillHeader}>
-                <Text style={styles.drillLabel}>HATIRLAMA</Text>
-                <Pressable onPress={advanceRecall} hitSlop={8}>
-                  <Text style={styles.drillSkip}>Atla</Text>
+                <Text style={styles.drillLabel}>{t("scenario.recall")}</Text>
+                <Pressable
+                  onPress={advanceRecall}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                  accessibilityLabel={t("scenario.skip_recall_label")}
+                >
+                  <Text style={styles.drillSkip}>{t("common.skip")}</Text>
                 </Pressable>
               </View>
               <View style={styles.drillBody}>
                 <DrillRenderer
+                  key={`recall-${scenario.id}-${scenario.recallQuiz.type}`}
                   exercise={scenario.recallQuiz}
                   onComplete={advanceRecall}
                 />
@@ -1022,17 +1214,20 @@ export default function ScenarioScreen() {
                   ? nextInPlanScene.title.replace(/\n/g, " ")
                   : null
               }
+              progressSaveStatus={progressSaveStatus}
+              onRetrySave={() => void retryProgressSave()}
               onContinue={() => {
                 // Switch-trigger #1 — force-first intro scene biterse:
                 // 1) "completed" flag yaz (bir daha tetiklenmez)
-                // 2) Paywall'a yönlendir (kullanıcı ilk skoru ile Lafla Pro
-                //    teklifini görür — value-first, value-after pattern)
+                // 2) Bugün ekranına dön. İlk başarıdan hemen sonra satış
+                //    ekranı göstermek öğrenme ivmesini kesiyordu.
                 if (isIntro) {
                   void AsyncStorage.setItem(
                     "lafla.intro.match.completed",
                     "true",
                   ).catch(() => {});
-                  replaceRoute(router, "/paywall?from=intro");
+                  void markHomeTutorialSeen().catch(() => {});
+                  replaceRoute(router, "/today");
                   return;
                 }
                 // 2026-05-21 — Daily Plan auto-advance.
@@ -1146,7 +1341,18 @@ function DrillRenderer({
   exercise: any;
   onComplete: (r: ExerciseResult) => void;
 }) {
+  const { t } = useTranslation();
   switch (exercise.type) {
+    case "multiple_choice":
+      return (
+        <MultipleChoice
+          question={exercise.question}
+          options={exercise.options}
+          correctIndex={exercise.correct_index}
+          explanation={exercise.tr_explanation}
+          onComplete={onComplete}
+        />
+      );
     case "fill_blank":
       return (
         <FillBlank
@@ -1282,8 +1488,9 @@ function DrillRenderer({
       onComplete({
         exercise_id: exercise.type === "recap_quiz" ? "skipped" : `unknown_${exercise.type}`,
         exercise_type: exercise.type,
-        correct: true,
-        score: 100,
+        correct: false,
+        score: 0,
+        feedback: t("scenario.exercise_unsupported"),
       });
       return null;
   }
@@ -1329,7 +1536,7 @@ function PhaseDot({ active, done }: { active: boolean; done: boolean }) {
   }));
 
   return (
-    <View style={phaseStyles.dot}>
+    <View style={phaseStyles.dot} importantForAccessibility="no">
       <Animated.View
         style={[phaseStyles.dotLayer, phaseStyles.dotDone, doneStyle]}
       />
@@ -1361,6 +1568,7 @@ function SetupView({
   total: number;
   onNext: () => void;
 }) {
+  const { t, locale } = useTranslation();
   // Spring-in entrance for the hero on every step. Re-mounts are forced
   // by the outer `key` (set on the SetupView call site) so this effect
   // runs cleanly for each vocab item rather than relying on dep tracking.
@@ -1422,7 +1630,7 @@ function SetupView({
     <ScrollView contentContainerStyle={setupStyles.content}>
       <View style={setupStyles.labelRow}>
         <Text style={setupStyles.label}>
-          KURULUM · {stepIndex + 1}/{total}
+          {t("scenario.setup")} · {stepIndex + 1}/{total}
         </Text>
         {phrase.cefr_band ? (
           <View style={setupStyles.levelBadge}>
@@ -1431,25 +1639,29 @@ function SetupView({
         ) : null}
       </View>
 
-      <Pressable onPress={replayAudio} accessibilityRole="button">
+      <Pressable
+        onPress={replayAudio}
+        accessibilityRole="button"
+        accessibilityLabel={t("scenario.listen_again")}
+      >
         <Animated.View style={[setupStyles.hero, heroStyle]}>
           <View style={setupStyles.wordRow}>
             <Text style={setupStyles.word}>{phrase.en}</Text>
             <SpeakerButton text={phrase.en} size="lg" />
           </View>
           <View style={setupStyles.divider} />
-          <Text style={setupStyles.tr}>{phrase.tr}</Text>
+          {locale === "tr" && <Text style={setupStyles.tr}>{phrase.tr}</Text>}
         </Animated.View>
       </Pressable>
 
       {phrase.example && (
         <Animated.View style={[setupStyles.exampleBox, exampleStyle]}>
           <View style={setupStyles.exampleHeader}>
-            <Text style={setupStyles.exampleLabel}>Örnek kullanım</Text>
+            <Text style={setupStyles.exampleLabel}>{t("scenario.example_usage")}</Text>
             <SpeakerButton text={phrase.example} size="sm" />
           </View>
           <Text style={setupStyles.exampleEn}>"{phrase.example}"</Text>
-          {phrase.example_tr && (
+          {locale === "tr" && phrase.example_tr && (
             <Text style={setupStyles.exampleTr}>"{phrase.example_tr}"</Text>
           )}
         </Animated.View>
@@ -1457,7 +1669,11 @@ function SetupView({
 
       <View style={setupStyles.footer}>
         <GlowingCta
-          label={stepIndex + 1 >= total ? "Hazırım" : "Devam"}
+          label={
+            stepIndex + 1 >= total
+              ? t("scenario.ready")
+              : t("common.continue")
+          }
           onPress={onNext}
         />
       </View>
@@ -1475,9 +1691,15 @@ function GlowingCta({
   label: string;
   onPress: () => void;
 }) {
+  const reduceMotion = useReduceMotionPreference();
   const glow = useSharedValue(0.35);
 
   useEffect(() => {
+    if (reduceMotion) {
+      cancelAnimation(glow);
+      glow.value = 0.35;
+      return;
+    }
     glow.value = withRepeat(
       withSequence(
         withTiming(0.9, {
@@ -1495,7 +1717,7 @@ function GlowingCta({
     return () => {
       cancelAnimation(glow);
     };
-  }, [glow]);
+  }, [glow, reduceMotion]);
 
   const glowStyle = useAnimatedStyle(() => ({
     opacity: glow.value,
@@ -1524,6 +1746,7 @@ function GlowingCta({
 // ============================================================
 
 function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
+  const { t } = useTranslation();
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(12);
 
@@ -1551,11 +1774,16 @@ function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
       style={[introStyles.overlay, overlayStyle]}
       pointerEvents="box-none"
     >
-      <Pressable onPress={onDismiss} style={introStyles.fill}>
+      <Pressable
+        onPress={onDismiss}
+        style={introStyles.fill}
+        accessibilityRole="button"
+        accessibilityLabel={t("scenario.scene_intro_label")}
+      >
         <Animated.View style={[introStyles.card, cardStyle]}>
-          <Text style={introStyles.label}>SAHNE</Text>
-          <Text style={introStyles.title}>Konuşma başlıyor</Text>
-          <Text style={introStyles.body}>Hazırsan başla.</Text>
+          <Text style={introStyles.label}>{t("scenario.scene")}</Text>
+          <Text style={introStyles.title}>{t("scenario.scene_intro_title")}</Text>
+          <Text style={introStyles.body}>{t("scenario.scene_intro_body")}</Text>
         </Animated.View>
       </Pressable>
     </Animated.View>
@@ -1592,8 +1820,10 @@ function VerdictView({
   userName,
   onContinue,
   planNextLabel,
+  progressSaveStatus,
+  onRetrySave,
 }: {
-  scenario: { mode: string; title: string };
+  scenario: Scenario;
   sceneResult: ExerciseResult;
   hasNext: boolean;
   /**
@@ -1605,140 +1835,98 @@ function VerdictView({
   userName: string;
   onContinue: () => void;
   /**
-   * 2026-05-21 — Daily Plan auto-advance copy.
-   * Plan sırasında bir sonraki sahne varsa başlığı buraya gelir. VerdictView
-   * 3s countdown gösterip otomatik onContinue tetikler. null ise legacy
-   * davranış: manuel "Devam" butonu.
+   * Daily Plan next-action copy. Plan sırasında bir sonraki sahne varsa
+   * başlığı buraya gelir. Geçiş manuel kalır; sonuç ekranı otomatik kapanmaz.
    */
   planNextLabel: string | null;
+  progressSaveStatus: "idle" | "saving" | "saved" | "error";
+  onRetrySave: () => void;
 }) {
+  const { t, locale } = useTranslation();
   // Share card ref — view-shot ile capture edilir. Off-screen pozisyonda
   // render edilir (görünmez ama mounted), kullanıcı "Skoru paylaş"a basınca
   // captureRef + expo-sharing zincirine alınır.
   const shareCardRef = useRef<View>(null);
   const [sharing, setSharing] = useState(false);
-  const router = useRouter();
 
-  // 2026-05-21 — Premium gate: deep feedback. Free kullanıcı locked
-  // preview görür, premium gerçek hata listesi + alternatif öner.
-  const [premium, setPremium] = useState<boolean | null>(null);
-  const [topMistakes, setTopMistakes] = useState<
-    Array<{ matched: string; reason_tr: string; correct_example: string }>
-  >([]);
-  useEffect(() => {
-    (async () => {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const iap = require("../../lib/iap") as {
-        isPremium: () => Promise<boolean>;
-      };
-      const isP = await iap.isPremium().catch(() => false);
-      setPremium(isP);
-      if (isP) {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        const tracker = require("../../lib/mistake-tracker") as {
-          getTopMistakes: (n: number) => Promise<Array<{
-            patternId: string;
-            count: number;
-          }>>;
-        };
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        const patterns = require("../../lib/mistake-patterns") as {
-          getPattern: (id: string) => {
-            reason_tr: string;
-            example_right: string;
-            example_wrong?: string;
-          } | undefined;
-        };
-        const top = await tracker.getTopMistakes(3).catch(() => []);
-        const enriched = top
-          .map((m) => {
-            const pat = patterns.getPattern(m.patternId);
-            // 2026-05-25 (B-SCN-2) — example_wrong yoksa user'a regex string'i
-            // ("^i am\s+go") gösterme. Bu kaydı tamamen at, kalan top mistakes
-            // dolar dolmaz görünür.
-            if (!pat || !pat.example_wrong) return null;
-            return {
-              matched: pat.example_wrong,
-              reason_tr: pat.reason_tr,
-              correct_example: pat.example_right,
-            };
-          })
-          .filter((x): x is NonNullable<typeof x> => !!x);
-        setTopMistakes(enriched);
-      }
-    })();
-  }, []);
-  // 2026-05-21 — Daily Plan auto-advance countdown.
-  // 2026-05-25 — 3s → 5s. Skor count-up (900ms) + CEFR delta animasyonu
-  // (950+700ms) tamamlanmadan countdown başlıyordu → kullanıcı skoru
-  // okuyamadan sıradaki sahneye fırlatılıyordu. 5s ile rahat okuma süresi.
-  // planNextLabel varsa kullanıcı 5-4-3-2-1 sayar ve otomatik bir sonraki
-  // sahneye geçer. "Şimdi git" butonuyla atlanabilir; "Mola al" pause eder.
-  const [autoCountdown, setAutoCountdown] = useState<number | null>(
-    planNextLabel ? 5 : null,
+  // Temel hata açıklaması öğrenmenin parçasıdır; abonelik özelliği değildir.
+  const [topMistakes, setTopMistakes] = useState<RoleplayMistake[]>(
+    sceneResult.mistakes ?? [],
   );
   useEffect(() => {
-    if (autoCountdown === null) return;
-    if (autoCountdown <= 0) {
-      onContinue();
+    if ((sceneResult.mistakes?.length ?? 0) > 0) {
+      setTopMistakes((sceneResult.mistakes ?? []).slice(0, 1));
       return;
     }
-    const t = setTimeout(() => setAutoCountdown((n) => (n ?? 0) - 1), 1000);
-    return () => clearTimeout(t);
-  }, [autoCountdown, onContinue]);
-  const { band } = computeSceneFluency([sceneResult.score]);
-  // Verdict copy varies by band AND by whether we have a name to address
-  // the user with. The personalized variants change the leading clause to
-  // "Aferin {name}," (high) or "{name}," (mid/low) and keep the rest of
-  // the sentence identical. Falls back to the original generic copy when
-  // userName is empty so first-launch users still see something sensible.
+    (async () => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const tracker = require("../../lib/mistake-tracker") as {
+        getTopMistakes: (n: number) => Promise<Array<{
+          patternId: string;
+          count: number;
+        }>>;
+      };
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const patterns = require("../../lib/mistake-patterns") as {
+        getPattern: (id: string) => {
+          reason_tr: string;
+          example_right: string;
+          example_wrong?: string;
+        } | undefined;
+      };
+      const top = await tracker.getTopMistakes(1).catch(() => []);
+      const enriched = top
+        .map((m) => {
+          const pat = patterns.getPattern(m.patternId);
+          if (!pat || !pat.example_wrong) return null;
+          return {
+            matched: pat.example_wrong,
+            reason_tr: pat.reason_tr,
+            correct_example: pat.example_right,
+          };
+        })
+        .filter((x): x is NonNullable<typeof x> => !!x);
+      setTopMistakes(enriched);
+    })();
+  }, [sceneResult.mistakes]);
+  // Learning flow should not auto-push the learner away from the result screen.
+  // The previous countdown moved to the next plan item after a few seconds,
+  // often before the user could read the correction. Keep the next action
+  // explicit and user-controlled.
+  const assessment = assessRoleplayScore(sceneResult.score);
+  const masteryAssessment = assessRoleplayScore(
+    sceneResult.mastery_score ?? sceneResult.score,
+  );
+  const assessmentLabel = t(`scenario.assessment.${assessment}`);
   const verdictMsg = (() => {
-    if (userName) {
-      if (band === "high") {
-        return `Aferin ${userName}, bu sahneyi artık akıcı yürütüyorsun.`;
-      }
-      if (band === "mid") {
-        return `${userName}, sağlam başlangıç. Sahne ileride tekrar gelecek.`;
-      }
-      return `${userName}, bir tur daha kazandırır. Sahne yarın yine planda.`;
+    const prefix = userName ? `${userName}, ` : "";
+    if (assessment === "goal_met") {
+      return t("scenario.verdict.goal_met", { prefix });
     }
-    if (band === "high") return "Bu sahneyi artık akıcı yürütüyorsun.";
-    if (band === "mid")
-      return "Sağlam başlangıç. Sahne ileride tekrar gelecek.";
-    return "Bir tur daha kazandırır. Sahne yarın yine planda.";
+    if (assessment === "close") {
+      return t("scenario.verdict.close", { prefix });
+    }
+    return t("scenario.verdict.retry", { prefix });
   })();
-
-  // Count-up animation — score climbs from 0 to its final value over ~900ms.
-  // setInterval on RAF-ish cadence keeps it readable without Reanimated; the
-  // verdict screen is short-lived enough that a plain interval is acceptable.
-  const [displayedScore, setDisplayedScore] = useState(0);
-  useEffect(() => {
-    const target = sceneResult.score;
-    if (target <= 0) {
-      setDisplayedScore(0);
-      return;
-    }
-    const steps = 40;
-    const stepMs = 22;
-    let i = 0;
-    const id = setInterval(() => {
-      i += 1;
-      // Ease-out curve so the climb decelerates as it approaches the target.
-      const t = Math.min(1, i / steps);
-      const eased = 1 - Math.pow(1 - t, 3);
-      const value = Math.round(target * eased);
-      setDisplayedScore(value);
-      if (i >= steps) clearInterval(id);
-    }, stepMs);
-    return () => clearInterval(id);
-  }, [sceneResult.score]);
+  const targetResponses =
+    sceneResult.target_responses ??
+    scenario.scene.turns
+      .filter((turn) => turn.speaker === "user")
+      .map((turn) => modelAnswersForTurn(turn)[0])
+      .filter((answer): answer is string => Boolean(answer));
+  const coachTurns = (sceneResult.user_responses ?? [])
+    .map((response, index) => ({
+      response: response.trim(),
+      target: targetResponses[index],
+    }))
+    .filter((turn) => turn.response || turn.target);
 
   // "Level achieved" pulse on the score card once the count-up finishes.
   // Only triggers at score ≥ 75 so it stays a meaningful reward rather
   // than a default flourish that fires every verdict.
   const pulse = useSharedValue(1);
   useEffect(() => {
-    if (sceneResult.score < 75) return;
+    if (assessment !== "goal_met") return;
     // Wait for the count-up to finish (≈900ms) before pulsing so the
     // user reads the final number first.
     pulse.value = withDelay(
@@ -1751,7 +1939,7 @@ function VerdictView({
     return () => {
       cancelAnimation(pulse);
     };
-  }, [sceneResult.score, pulse]);
+  }, [assessment, pulse]);
 
   const pulseStyle = useAnimatedStyle(() => ({
     transform: [{ scale: pulse.value }],
@@ -1759,7 +1947,7 @@ function VerdictView({
 
   // Confetti is rare and rewarding — only at ≥90. We seed five emojis
   // with randomized horizontal offset, delay, drift, and final translateY.
-  const showConfetti = sceneResult.score >= 90;
+  const showConfetti = assessment === "goal_met";
 
   // 2026-05-20 — switch-trigger #3: CEFR delta animation.
   // recordCefrProgress sahne sonunda çağrılır → before/after döner.
@@ -1780,11 +1968,11 @@ function VerdictView({
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let intervalId: ReturnType<typeof setInterval> | null = null;
     (async () => {
-      // 2026-05-25 (B-SCN-19) — "Sahneyi bitir" ile 0 puanlı verdict'e ulaşan
-      // kullanıcı CEFR ilerlemesi alıyordu (PROGRESS_LOW 0.005). Min 30
-      // puan eşiği: gerçekten denemiş olmayanın CEFR'e katkısı olmasın.
-      if (sceneResult.score < 30) return;
-      const d = await recordCefrProgress(sceneResult.score).catch(() => null);
+      // Yalnızca hedef kalıpları gerçekten karşılandığında CEFR ilerlet.
+      if (masteryAssessment !== "goal_met") return;
+      const d = await recordCefrProgress(
+        sceneResult.mastery_score ?? sceneResult.score,
+      ).catch(() => null);
       if (cancelled || !d) return;
       setCefrDelta(d);
       // Animate from before → after over ~700ms starting after the score count-up
@@ -1813,20 +2001,24 @@ function VerdictView({
       if (timeoutId) clearTimeout(timeoutId);
       if (intervalId) clearInterval(intervalId);
     };
-  }, [sceneResult.score]);
+  }, [masteryAssessment, sceneResult.mastery_score, sceneResult.score]);
 
   return (
     <ScrollView contentContainerStyle={verdictStyles.content}>
-      <Text style={verdictStyles.title}>Sahne tamamlandı</Text>
+      <Text style={verdictStyles.title}>{t("scenario.verdict.title")}</Text>
       <Text style={verdictStyles.msg}>{verdictMsg}</Text>
 
       <Animated.View style={[verdictStyles.scoreCard, pulseStyle]}>
         {/* 2026-05-23 premium: inner highlight, "iOS button bevel" tactile
             depth. Verdict en kritik psikolojik moment — premium feedback. */}
         <View style={verdictStyles.scoreCardHighlight} pointerEvents="none" />
-        <Text style={verdictStyles.scoreLabel}>Akıcılık</Text>
-        <Text style={verdictStyles.scoreNum}>{displayedScore}</Text>
-        <Text style={verdictStyles.scoreOf}>/ 100</Text>
+        <Text style={verdictStyles.scoreLabel}>{t("scenario.verdict.result")}</Text>
+        <Text
+          style={verdictStyles.scoreResult}
+          accessibilityLiveRegion="polite"
+        >
+          {assessmentLabel}
+        </Text>
       </Animated.View>
 
       {/* CEFR delta — switch-trigger #3.
@@ -1836,7 +2028,9 @@ function VerdictView({
       {cefrDelta && displayedProgress !== null && (
         <View style={verdictStyles.cefrCard}>
           <Text style={verdictStyles.cefrLabel}>
-            {cefrDelta.bumped ? "✨ Seviye atladın" : "İlerleme"}
+            {cefrDelta.bumped
+              ? t("scenario.verdict.level_up")
+              : t("scenario.verdict.progress")}
           </Text>
           <Text style={verdictStyles.cefrValue}>
             {cefrDelta.bumped
@@ -1845,10 +2039,13 @@ function VerdictView({
           </Text>
           <Text style={verdictStyles.cefrSub}>
             {cefrDelta.bumped
-              ? `${cefrDelta.toLevel} seviyesine ilk adımı attın.`
+              ? t("scenario.verdict.level_first_step", { level: cefrDelta.toLevel })
               : cefrDelta.toLevel === "C2"
-                ? "C2 ustalık — en üst seviye."
-                : `${nextLevelLabel(cefrDelta.toLevel)}'ye ${cefrDelta.scenesToNext} sahne kaldı.`}
+                ? t("scenario.verdict.c2_mastery")
+                : t("scenario.verdict.scenes_to_next", {
+                    level: nextLevelLabel(cefrDelta.toLevel),
+                    count: String(cefrDelta.scenesToNext),
+                  })}
           </Text>
         </View>
       )}
@@ -1859,40 +2056,77 @@ function VerdictView({
         </View>
       </View>
 
-      {sceneResult.feedback && (
+      {coachTurns.length > 0 && (
+        <View style={verdictStyles.takeawayCard}>
+          <Text style={verdictStyles.takeawayLabel}>{t("scenario.verdict.coach_summary")}</Text>
+          <Text style={verdictStyles.takeawayIntro}>{t("scenario.verdict.coach_intro")}</Text>
+          {coachTurns.map((turn, index) => (
+            <View
+              key={`${index}-${turn.target ?? turn.response}`}
+              style={verdictStyles.coachTurnCard}
+            >
+              <Text style={verdictStyles.takeawaySmallLabel}>
+                {t("scenario.verdict.turn", { count: String(index + 1) })}
+              </Text>
+              {turn.response ? (
+                <View style={verdictStyles.takeawayLine}>
+                  <Text style={verdictStyles.takeawaySmallLabel}>
+                    {t("scenario.verdict.your_answer")}
+                  </Text>
+                  <Text style={verdictStyles.takeawayUser}>
+                    “{turn.response}”
+                  </Text>
+                </View>
+              ) : null}
+              {turn.target ? (
+                <View style={verdictStyles.takeawayLine}>
+                  <View style={verdictStyles.takeawayTargetHeader}>
+                    <Text style={verdictStyles.takeawaySmallLabel}>
+                      {t("scenario.verdict.natural_version")}
+                    </Text>
+                    <Pressable
+                      onPress={() => speak(turn.target!)}
+                      accessibilityRole="button"
+                      accessibilityLabel={t("scenario.verdict.listen_turn", {
+                        count: String(index + 1),
+                      })}
+                      hitSlop={8}
+                    >
+                      <Text style={verdictStyles.takeawayListen}>{t("scenario.verdict.listen")}</Text>
+                    </Pressable>
+                  </View>
+                  <Text style={verdictStyles.takeawayTarget}>
+                    “{turn.target}”
+                  </Text>
+                </View>
+              ) : null}
+            </View>
+          ))}
+        </View>
+      )}
+
+      {locale === "tr" && sceneResult.feedback && (
         <Text style={verdictStyles.feedback}>{sceneResult.feedback}</Text>
       )}
 
-      {/* 2026-05-21 — Premium deep feedback. Free user'da locked preview,
-          premium user'da gerçek hata analizi + alternatif. */}
-      {premium === false && (
-        <Pressable
-          onPress={() =>
-            pushRoute(router, "/paywall?from=verdict-feedback")
-          }
-          style={({ pressed }) => [
-            verdictStyles.feedbackLocked,
-            pressed && { opacity: 0.85 },
-          ]}
-          accessibilityRole="button"
-          accessibilityLabel="Lafla Pro ile detaylı analiz"
-        >
-          <Text style={verdictStyles.feedbackLockedLabel}>
-            🔒 LAFLA PRO — DETAYLI ANALİZ
-          </Text>
-          <Text style={verdictStyles.feedbackLockedText}>
-            Hangi cümlede ne yanlıştı, doğrusu neydi — premium'da göreceksin.
-          </Text>
-        </Pressable>
+      {(sceneResult.assisted_turns ?? 0) > 0 && (
+        <Text style={verdictStyles.feedback}>
+          {t("scenario.verdict.assisted", {
+            count: String(sceneResult.assisted_turns),
+          })}
+        </Text>
       )}
-      {premium === true && topMistakes.length > 0 && (
+
+      {topMistakes.length > 0 && (
         <View style={verdictStyles.feedbackPremium}>
           <Text style={verdictStyles.feedbackPremiumLabel}>
-            🔍 EN ÇOK TEKRARLAYAN HATAN
+            {t("scenario.verdict.focus")}
           </Text>
           {topMistakes.map((m, i) => (
             <View key={i} style={verdictStyles.mistakeRow}>
-              <Text style={verdictStyles.mistakeReason}>{m.reason_tr}</Text>
+              <Text style={verdictStyles.mistakeReason}>
+                {locale === "tr" ? m.reason_tr : t("learning.mistake_fallback_en")}
+              </Text>
               <View style={verdictStyles.mistakeFix}>
                 <Text style={verdictStyles.mistakeWrong}>✗ {m.matched}</Text>
                 <Text style={verdictStyles.mistakeRight}>✓ {m.correct_example}</Text>
@@ -1903,44 +2137,41 @@ function VerdictView({
       )}
 
       <View style={verdictStyles.footer}>
-        {/* 2026-05-21 — Daily Plan: planNextLabel varsa "3s sonra sıradaki"
-            countdown. Aksi takdirde eski davranış: tek dokunuşlu Devam. */}
-        {planNextLabel && autoCountdown !== null ? (
-          <View>
-            <Button
-              label={
-                autoCountdown > 0
-                  ? `Sıradaki: ${planNextLabel} (${autoCountdown}s)`
-                  : `Sıradaki: ${planNextLabel}`
-              }
-              onPress={() => {
-                setAutoCountdown(null);
-                onContinue();
-              }}
-              stacked
-            />
+        {progressSaveStatus === "saving" && (
+          <Text style={verdictStyles.saveStatus} accessibilityLiveRegion="polite">
+            {t("scenario.progress_saving")}
+          </Text>
+        )}
+        {progressSaveStatus === "error" && (
+          <View style={verdictStyles.saveError} accessibilityLiveRegion="assertive">
+            <Text style={verdictStyles.saveErrorText}>{t("scenario.progress_save_error")}</Text>
             <Pressable
-              onPress={() => setAutoCountdown(null)}
-              style={verdictStyles.pauseLink}
-              hitSlop={10}
+              onPress={onRetrySave}
               accessibilityRole="button"
-              accessibilityLabel="Otomatik geçişi durdur"
+              accessibilityLabel={t("common.try_again")}
+              style={verdictStyles.saveRetry}
             >
-              <Text style={verdictStyles.pauseLinkText}>⏸ Mola al</Text>
+              <Text style={verdictStyles.saveRetryText}>{t("common.try_again")}</Text>
             </Pressable>
           </View>
-        ) : (
-          <Button
-            label={hasNext ? "Sıradaki sahne" : "Akışa dön"}
-            onPress={onContinue}
-            stacked
-          />
         )}
+        <Button
+          label={
+            planNextLabel
+              ? t("scenario.verdict.next_named", { title: planNextLabel })
+              : hasNext
+                ? t("scenario.verdict.next_scene")
+                : t("scenario.verdict.back_today")
+          }
+          onPress={onContinue}
+          disabled={progressSaveStatus !== "saved"}
+          stacked
+        />
         {/* Skoru paylaş — Adım 5 (2026-05-20).
             2026-05-25 — Skor >= 60 olmadıkça gösterme. Düşük skoru paylaş
             CTA'sı kullanıcıya başarısızlığı suratına sokuyordu. Sadece
             kullanıcı kendini iyi hissedeceği skor seviyesinde göster. */}
-        {sceneResult.score >= 60 && (
+        {assessment === "goal_met" && (
         <View style={verdictStyles.shareRow}>
           <Pressable
             onPress={async () => {
@@ -1963,19 +2194,19 @@ function VerdictView({
                 if (available) {
                   await Sharing.shareAsync(uri, {
                     mimeType: "image/png",
-                    dialogTitle: "Skoru paylaş",
+                    dialogTitle: t("scenario.verdict.share_success"),
                   });
                   void trackEvent("share_score_completed", {
                     score: sceneResult.score,
                   }).catch(() => {});
                 } else {
                   Alert.alert(
-                    "Paylaşım yok",
-                    "Bu cihazda paylaşım servisi mevcut değil.",
+                    t("scenario.verdict.share_unavailable_title"),
+                    t("scenario.verdict.share_unavailable_body"),
                   );
                 }
               } catch {
-                Alert.alert("Hata", "Skor kartı oluşturulamadı.");
+                Alert.alert(t("common.error"), t("scenario.verdict.share_card_error"));
               } finally {
                 setSharing(false);
               }
@@ -1987,10 +2218,12 @@ function VerdictView({
               sharing && verdictStyles.shareBtnDisabled,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Skoru sosyal medyada paylaş"
+            accessibilityLabel={t("scenario.verdict.share_score_label")}
           >
             <Text style={verdictStyles.shareBtnText}>
-              {sharing ? "Hazırlanıyor..." : "📸 Skoru paylaş"}
+              {sharing
+                ? t("scenario.verdict.preparing")
+                : t("scenario.verdict.share_success_cta")}
             </Text>
           </Pressable>
 
@@ -2001,13 +2234,10 @@ function VerdictView({
           <Pressable
             onPress={async () => {
               const shareUrl = `https://berkdemirokk.github.io/lafla/?scene=${encodeURIComponent(scenarioIdForShare(scenario.title))}`;
-              const scoreLine =
-                sceneResult.score >= 75
-                  ? `${sceneResult.score}/100 aldım 💪`
-                  : sceneResult.score >= 50
-                    ? `${sceneResult.score}/100 — fena değil`
-                    : `Sen daha iyisini yaparsın 😄`;
-              const message = `Lafla'da bu sahneyi denedim, ${scoreLine} — sen de bak: ${shareUrl}`;
+              const message = t("scenario.verdict.friend_message", {
+                title: scenario.title.replace(/\n/g, " "),
+                url: shareUrl,
+              });
               try {
                 await Share.share({
                   message,
@@ -2025,9 +2255,9 @@ function VerdictView({
               pressed && verdictStyles.shareBtnPressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Bu sahneyi WhatsApp'ta arkadaşına gönder"
+            accessibilityLabel={t("scenario.verdict.send_friend_label")}
           >
-            <Text style={verdictStyles.shareBtnText}>💬 Arkadaşına gönder</Text>
+            <Text style={verdictStyles.shareBtnText}>{t("scenario.verdict.send_friend")}</Text>
           </Pressable>
         </View>
         )}
@@ -2045,7 +2275,7 @@ function VerdictView({
       >
         <ShareCard
           ref={shareCardRef}
-          score={sceneResult.score}
+          assessment={assessmentLabel}
           cefrLevel={cefrDelta?.toLevel ?? null}
           cefrProgress={cefrDelta?.after ?? 0}
           sceneTitle={scenario.title}
@@ -2562,11 +2792,13 @@ const verdictStyles = StyleSheet.create({
     fontFamily: tokens.font.sans,
   },
   scoreCard: {
-    flexDirection: "row",
-    alignItems: "baseline",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: tokens.brand.secondary,
     paddingHorizontal: 36,
-    paddingVertical: 28,
+    paddingTop: 40,
+    paddingBottom: 24,
+    minHeight: 120,
     borderRadius: tokens.radius.lg,
     marginBottom: tokens.spacing.md,
     gap: 4,
@@ -2605,23 +2837,13 @@ const verdictStyles = StyleSheet.create({
     right: 0,
     textAlign: "center",
   },
-  // Score hero — verdict'in odak elemanı. Display font + glow text-shadow
-  // ile premium tactile depth. letterSpacing tightened for SG Bold.
-  scoreNum: {
-    fontSize: 64,
-    fontWeight: tokens.weight.black,
+  scoreResult: {
+    fontSize: 30,
     color: tokens.brand.primary,
-    letterSpacing: -1.6,
+    fontWeight: tokens.weight.black,
     fontFamily: tokens.font.display,
-    textShadowColor: tokens.brand.primary,
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 14,
-  },
-  scoreOf: {
-    fontSize: 22,
-    color: tokens.text.secondaryFixedDim,
-    fontWeight: tokens.weight.bold,
-    fontFamily: tokens.font.display,
+    textAlign: "center",
+    paddingHorizontal: 20,
   },
   // CEFR delta card (switch-trigger #3, 2026-05-20).
   // Skor count-up'tan sonra 950ms gecikme ile beliren mini kart.
@@ -2692,6 +2914,66 @@ const verdictStyles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: tokens.spacing.md,
   },
+  takeawayCard: {
+    width: "100%",
+    padding: 16,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    marginBottom: tokens.spacing.md,
+    gap: 12,
+  },
+  takeawayLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+    letterSpacing: 1.4,
+  },
+  takeawayIntro: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    lineHeight: 18,
+  },
+  coachTurnCard: {
+    padding: 12,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainerLowest,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    gap: 10,
+  },
+  takeawayLine: {
+    gap: 4,
+  },
+  takeawayTargetHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  takeawaySmallLabel: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    fontWeight: tokens.weight.bold,
+  },
+  takeawayListen: {
+    fontSize: 12,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.extrabold,
+  },
+  takeawayUser: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    lineHeight: 18,
+    fontStyle: "italic",
+  },
+  takeawayTarget: {
+    fontSize: 15,
+    color: tokens.text.primary,
+    lineHeight: 21,
+    fontWeight: tokens.weight.extrabold,
+  },
   // 2026-05-21 — Premium deep feedback gate
   feedbackLocked: {
     width: "100%",
@@ -2753,6 +3035,38 @@ const verdictStyles = StyleSheet.create({
     width: "100%",
     marginTop: "auto",
     gap: 10,
+  },
+  saveStatus: {
+    color: tokens.text.secondary,
+    fontSize: 13,
+    lineHeight: 18,
+    textAlign: "center",
+  },
+  saveError: {
+    gap: 10,
+    padding: 14,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.semantic.error,
+    backgroundColor: tokens.semantic.errorContainer,
+  },
+  saveErrorText: {
+    color: tokens.semantic.error,
+    fontSize: 13,
+    lineHeight: 18,
+    textAlign: "center",
+  },
+  saveRetry: {
+    minHeight: 44,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.semantic.error,
+  },
+  saveRetryText: {
+    color: tokens.text.onPrimary,
+    fontSize: 14,
+    fontWeight: tokens.weight.extrabold,
   },
   // 2026-05-21 — auto-advance pause hint. Daily plan countdown bar altında
   // tek satır küçük link: "⏸ Mola al". Tıklayınca countdown durur, kullanıcı

@@ -100,6 +100,11 @@ export async function getPronCount(): Promise<number> {
   return list.length;
 }
 
+/** Timestamped scores for honest weekly comparisons and progress charts. */
+export async function getPronHistory(): Promise<PronScoreEntry[]> {
+  return readList();
+}
+
 /**
  * Debug / settings → "Reset progress" entry point.
  */

@@ -163,6 +163,7 @@ export const cafeLesson_1_1: BundledLesson = {
             "good morning,? (a |i'?d like a )(coffee|latte|americano)",
             "morning,? (a |i'?d like a )(coffee|latte|americano)",
           ],
+          model_answers: ["Could I have a coffee, please?"],
           hint_tr:
             "Kibar sipariş: 'Could I have a coffee, please?' Türk öğrenci espressoyu küçük sanır — kafenin standardını sor.",
         },
@@ -179,6 +180,7 @@ export const cafeLesson_1_1: BundledLesson = {
             "medium,? please",
             "a small one",
           ],
+          model_answers: ["Small one, thanks"],
           hint_tr: "Boyut: 'Medium, please' veya 'Small one, thanks'.",
         },
         {
@@ -193,6 +195,7 @@ export const cafeLesson_1_1: BundledLesson = {
             "to go(,)? thanks",
             "for here(,)? thank you",
           ],
+          model_answers: ["For here"],
           hint_tr: "'For here' = burada içerim. 'To go' = paket.",
         },
         {
@@ -209,6 +212,7 @@ export const cafeLesson_1_1: BundledLesson = {
             "(yes|sure)(,)? (a |one )?(croissant|muffin|cookie|pastry|bagel)",
             "(could|can) i (also |)?(get|have) a (croissant|muffin|cookie|bagel)",
           ],
+          model_answers: ["Sure, a croissant too, please"],
           hint_tr:
             "Hayır: 'No thanks, that's it'. Evet: 'Sure, a croissant too, please'.",
         },
@@ -225,6 +229,7 @@ export const cafeLesson_1_1: BundledLesson = {
             "i('ll|'d like to) pay (by |with )?(card|cash|apple pay)",
             "do you (take|accept) apple pay",
           ],
+          model_answers: ["Apple Pay, if that works"],
           hint_tr: "Ödeme: 'Card, please' veya 'Apple Pay, if that works'.",
         },
         {
@@ -577,6 +582,7 @@ export const cafeLesson_1_2: BundledLesson = {
             "(latte|cappuccino|flat white|americano|espresso), please",
             "what.{0,30}(recommend|popular|best)",
           ],
+          model_answers: ["Could I have a [drink], please?"],
           hint_tr:
             "İstediğin içeceği söyle: 'Could I have a [drink], please?'",
         },
@@ -592,6 +598,7 @@ export const cafeLesson_1_2: BundledLesson = {
             "medium please",
             "make it (a )?(small|medium|large)",
           ],
+          model_answers: ["I'll take [size]"],
           hint_tr: "Boyutu söyle: '[Size], please' veya 'I'll take [size]'.",
         },
         {
@@ -609,6 +616,7 @@ export const cafeLesson_1_2: BundledLesson = {
             "(hot|iced) for me",
             "iced sounds (good|great)",
           ],
+          model_answers: ["Hot, please"],
           hint_tr:
             "Sıcak mı buzlu mu? 'Hot, please' veya 'Iced, please'. Türk öğrenci sıcak espressoyu küçük sanır — Türkiye'deki gibi normal bardak değil, çok küçük fincan gelir.",
         },
@@ -626,6 +634,7 @@ export const cafeLesson_1_2: BundledLesson = {
             "(no milk|black|none)",
             "(whatever|whatever you have) is fine",
           ],
+          model_answers: ["Oat milk, please"],
           hint_tr:
             "Süt tercihi: 'Oat milk, please' veya 'Whole is fine'. Sütsüz istiyorsan: 'Black, please'.",
         },
@@ -643,6 +652,7 @@ export const cafeLesson_1_2: BundledLesson = {
             "under [a-z]+",
             "[a-z]+,? thanks",
           ],
+          model_answers: ["Berk — B, E, R, K"],
           hint_tr:
             "İsmini söyle. Türk ismiyse hecele: 'Berk — B, E, R, K'. Yoksa barista yanlış yazar.",
         },
@@ -1098,6 +1108,7 @@ export const cafeLesson_1_3: BundledLesson = {
             "with (oat|almond|soy|whole|skim)",
             "no milk",
           ],
+          model_answers: ["[Type] milk, please"],
           hint_tr: "Süt çeşidini söyle: '[Type] milk, please'.",
         },
         {
@@ -1116,6 +1127,7 @@ export const cafeLesson_1_3: BundledLesson = {
             "i'm good",
             "no thank you",
           ],
+          model_answers: ["No sugar"],
           hint_tr: "Şeker durumu: 'No sugar', 'One sugar', 'No thanks'.",
         },
         {
@@ -1133,6 +1145,7 @@ export const cafeLesson_1_3: BundledLesson = {
             "(actually )?yes,? (please|that sounds good)",
             "extra shot,? please",
           ],
+          model_answers: ["Sure, an extra shot, please"],
           hint_tr:
             "Ekstra shot iste ya da reddet: 'Sure, an extra shot, please' veya 'No thanks, I'm good'. Türk öğrenci espresso'yu küçük sanır — bir shot zaten güçlü, ikincisi opsiyonel.",
         },
@@ -1151,6 +1164,7 @@ export const cafeLesson_1_3: BundledLesson = {
             "hot,? (please|thank you)",
             "(let'?s go with|go with) (hot|iced)",
           ],
+          model_answers: ["Iced sounds good"],
           hint_tr:
             "Hava sıcaksa 'Iced, please'. Yoksa 'Hot, please'. 'Sounds good' eklersen çok doğal: 'Iced sounds good'.",
         },
@@ -1168,6 +1182,7 @@ export const cafeLesson_1_3: BundledLesson = {
             "under [a-z]+( please)?",
             "you can write [a-z]+",
           ],
+          model_answers: ["Berk — B-E-R-K"],
           hint_tr:
             "İsmini söyle. Türk ismiyse yavaşça hecele: 'Berk — B-E-R-K'. Baristalar Türkçe isimleri hep yanlış yazar; hecele kurtul.",
         },
@@ -1629,6 +1644,7 @@ export const cafeLesson_1_4: BundledLesson = {
             "that('ll| will) be (it|all)",
             "no, thanks",
           ],
+          model_answers: ["No thanks"],
           hint_tr:
             "Hayır demek için: 'No thanks', 'That's it', 'I'm good'.",
         },
@@ -1645,6 +1661,7 @@ export const cafeLesson_1_4: BundledLesson = {
             "take-away",
             "(for here|to go|take away)( please)?",
           ],
+          model_answers: ["For here"],
           hint_tr: "İki seçenek: 'For here' (burada) veya 'To go' (paket).",
         },
         {
@@ -1663,6 +1680,7 @@ export const cafeLesson_1_4: BundledLesson = {
             "credit card",
             "i'll pay (with )?(card|cash)",
           ],
+          model_answers: ["Do you take Apple Pay?"],
           hint_tr:
             "Ödeme: 'Card, please', 'Cash, please', 'Do you take Apple Pay?'",
         },
@@ -1678,6 +1696,7 @@ export const cafeLesson_1_4: BundledLesson = {
             "(my name is|name is|i'm|i am) [a-z]+",
             "under [a-z]+",
           ],
+          model_answers: ["Berk — B, E, R, K"],
           hint_tr:
             "İsmini söyle. Türk ismiyse hecele: 'Berk — B, E, R, K'.",
         },
@@ -2123,6 +2142,7 @@ export const cafeLesson_1_5: BundledLesson = {
             "(could|can) i (get|have) a latte with (oat|soy|almond) milk",
             "a latte (with|using) (oat|soy|almond)",
           ],
+          model_answers: ["Can I get a latte with [milk type]?"],
           hint_tr:
             "Latte sipariş et, sütü modifiye et: 'Can I get a latte with [milk type]?'",
         },
@@ -2139,6 +2159,7 @@ export const cafeLesson_1_5: BundledLesson = {
             "(could|can) i (get|have) (oat|almond|soy|coconut)",
             "with (oat|almond|soy|coconut)",
           ],
+          model_answers: ["Oat milk, please"],
           hint_tr:
             "Bir bitkisel süt seç: 'Oat milk, please' veya 'I'll take soy'.",
         },
@@ -2155,6 +2176,7 @@ export const cafeLesson_1_5: BundledLesson = {
             "with (an )?extra shot",
             "and (an )?extra shot( please)?",
           ],
+          model_answers: ["Could I get an extra shot?"],
           hint_tr:
             "Daha sert istiyorsan: 'Could I get an extra shot?' veya 'Make it a double'.",
         },
@@ -2573,6 +2595,7 @@ export const cafeLesson_1_6: BundledLesson = {
             "i'?m (doing )?(good|great|fine|well)",
             "(can't|cant) complain",
           ],
+          model_answers: ["Not bad, how about you?"],
           hint_tr:
             "Kısa pozitif cevap + iade: 'Good, thanks. You?' veya 'Not bad, how about you?'",
         },
@@ -2588,6 +2611,7 @@ export const cafeLesson_1_6: BundledLesson = {
             "(a |an )?(latte|cappuccino|americano|coffee|espresso|flat white)",
             "i('ll|d like) take",
           ],
+          model_answers: ["Could I have a [drink], please?"],
           hint_tr:
             "Siparişe geç: 'Could I have a [drink], please?'",
         },
@@ -3014,6 +3038,7 @@ export const cafeLesson_1_7: BundledLesson = {
             "(sorry|excuse me).{0,30}this (has|isn'?t)",
             "(i'?m sorry|sorry).{0,40}soy",
           ],
+          model_answers: ["Excuse me, I asked for soy milk"],
           hint_tr:
             "Yumuşak başla: 'Sorry, I think there's a mix-up...' veya 'Excuse me, I asked for soy milk'.",
         },
@@ -3030,6 +3055,7 @@ export const cafeLesson_1_7: BundledLesson = {
             "yeah(,)? soy",
             "correct(,)? soy milk",
           ],
+          model_answers: ["Yes, soy milk"],
           hint_tr: "Doğrula: 'Yes, soy milk' veya 'That's right'.",
         },
         {
@@ -3045,6 +3071,7 @@ export const cafeLesson_1_7: BundledLesson = {
             "no big deal",
             "thank you so much",
           ],
+          model_answers: ["No problem, thank you"],
           hint_tr:
             "Yumuşak kapat: 'Thanks, no worries' veya 'No problem, thank you'.",
         },
@@ -3477,6 +3504,7 @@ export const cafeLesson_1_8: BundledLesson = {
             "yes(,)?.{0,15}(carrier|tray|holder)",
             "can i (get|have) a tray",
           ],
+          model_answers: ["Could I get a cup carrier, please?"],
           hint_tr:
             "Taşıyıcı iste: 'Could I get a cup carrier, please?'",
         },
@@ -3493,6 +3521,7 @@ export const cafeLesson_1_8: BundledLesson = {
             "(could|can) you add (some |a few )?napkins",
             "extra napkins too",
           ],
+          model_answers: ["Could I get some extra napkins, please?"],
           hint_tr:
             "Peçete iste: 'Could I get some extra napkins, please?'",
         },
@@ -3509,6 +3538,7 @@ export const cafeLesson_1_8: BundledLesson = {
             "that('d| would) be (great|perfect|helpful)",
             "(please|thanks)",
           ],
+          model_answers: ["That'd be great, thanks"],
           hint_tr:
             "Pozitif onay: 'Yes, please' veya 'That'd be great, thanks'.",
         },

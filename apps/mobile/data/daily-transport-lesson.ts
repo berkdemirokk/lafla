@@ -224,6 +224,7 @@ export const dailyTransportLesson_17_1: BundledLesson = {
             "(thanks|appreciate it)",
             "(quick stop|short ride)",
           ],
+          model_answers: ["Hey — headed to Times Square. Thanks!"],
           hint_tr:
             "Sicak ac: 'Hey — headed to Times Square. Thanks!'",
         },
@@ -242,6 +243,7 @@ export const dailyTransportLesson_17_1: BundledLesson = {
             "(little chilly|bit warm)",
             "(playlist sounds great|love this music)",
           ],
+          model_answers: ["Works for me. Mind cracking the window?"],
           hint_tr:
             "Casual: 'Works for me. Mind cracking the window?'",
         },
@@ -261,6 +263,7 @@ export const dailyTransportLesson_17_1: BundledLesson = {
             "(been here (a few (years|months)|since))",
             "(visiting (family|friends|for a wedding))",
           ],
+          model_answers: ["Live around here actually, been here two years"],
           hint_tr:
             "Kısa hayat hikayesi: 'Just visiting for a conference, three days' veya 'Live around here actually, been here two years'. Türk: 'Türkiye'denim' = 'I'm from Türkiye' (en doğal); 'originally from' eklersen şu an yaşadığın yer farklı demek.",
         },
@@ -280,6 +283,7 @@ export const dailyTransportLesson_17_1: BundledLesson = {
             "(nothing crazy|nothing too wild|low-key trip)",
             "(any recommendations|got any tips for) (where i should go|good food|things to do)",
           ],
+          model_answers: ["Mostly work, but might catch a Broadway show"],
           hint_tr:
             "Plan paylaş veya öneri iste: 'Mostly work, but might catch a Broadway show' veya 'Any tips for good food nearby?'. Türk öğrenci 'tavsiye' direkt 'advice' yapar ama burada 'tips' veya 'recommendations' daha yaygın.",
         },
@@ -299,6 +303,7 @@ export const dailyTransportLesson_17_1: BundledLesson = {
             "(46th )?(noted|got it)",
             "(i'?ll (check it out|swing by|try it tonight))",
           ],
+          model_answers: ["Perfect — what's it called?"],
           hint_tr:
             "Öneri kabul: 'Perfect — what's it called?' veya 'Noted, thanks for the tip'. Türk öğrenci 'mükemmel' = 'perfect' direkt çevirir; 'good to know' veya 'noted' daha doğal.",
         },
@@ -744,6 +749,7 @@ export const dailyTransportLesson_17_2: BundledLesson = {
             "(brooklyn|queens|union square|grand central|times square)",
             "(transfer|switch|direct)",
           ],
+          model_answers: ["Excuse me — does this train go to Brooklyn directly?"],
           hint_tr:
             "Saygili: 'Excuse me — does this train go to Brooklyn directly?'",
         },
@@ -761,6 +767,7 @@ export const dailyTransportLesson_17_2: BundledLesson = {
             "(life saver|so helpful)",
             "(have a (good|great) (day|one))",
           ],
+          model_answers: ["Perfect — thank you so much!"],
           hint_tr:
             "Onayla: 'Perfect — thank you so much!'",
         },
@@ -1209,6 +1216,7 @@ export const dailyTransportLesson_17_3: BundledLesson = {
             "(downtown|midtown|times square|manhattan|the city)",
             "(options|alternatives|recommendations)",
           ],
+          model_answers: ["Hi, just landed — what's the best way to downtown?"],
           hint_tr:
             "Net acilis: 'Hi, just landed — what's the best way to downtown?'",
         },
@@ -1227,6 +1235,7 @@ export const dailyTransportLesson_17_3: BundledLesson = {
             "(how often (does it run|do they come))",
             "(any (luggage|bag) restrictions)",
           ],
+          model_answers: ["Thanks — AirTrain sounds right. Where do I catch it?"],
           hint_tr:
             "Sec: 'Thanks — AirTrain sounds right. Where do I catch it?'",
         },
@@ -1679,6 +1688,7 @@ export const dailyTransportLesson_17_4: BundledLesson = {
             "(\\w+ airline|flight from \\w+)",
             "(missing|lost|delayed)",
           ],
+          model_answers: ["Hi, my checked bag didn't come out. Could I file a claim?"],
           hint_tr:
             "Net: 'Hi, my checked bag didn't come out. Could I file a claim?'",
         },
@@ -1697,6 +1707,7 @@ export const dailyTransportLesson_17_4: BundledLesson = {
             "(travel essentials|toiletries|change of clothes) (allowance|reimbursement)",
             "(claim number|reference number) (i can (use|track))",
           ],
+          model_answers: ["Here you go. Any idea when? Will it ship to my hotel?"],
           hint_tr:
             "Cozum + sor: 'Here you go. Any idea when? Will it ship to my hotel?'",
         },
@@ -2146,6 +2157,7 @@ export const dailyTransportLesson_17_5: BundledLesson = {
             "(around here|in this area|nearby)",
             "(first time|just visiting|tourist)",
           ],
+          model_answers: ["Excuse me — where's the nearest subway station?"],
           hint_tr:
             "Saygili açılış: 'Excuse me — where's the nearest subway station?'",
         },
@@ -2164,6 +2176,7 @@ export const dailyTransportLesson_17_5: BundledLesson = {
             "(at the (turnstile|gate)|to get in)",
             "(omny|metrocard|need to (buy|pick up))",
           ],
+          model_answers: ["Thanks! Can I just tap with Apple Pay at the turnstile?"],
           hint_tr:
             "Devam: 'Thanks! Can I just tap with Apple Pay at the turnstile?'",
         },
@@ -2575,6 +2588,7 @@ export const dailyTransportLesson_17_6: BundledLesson = {
             "(times square|central park|downtown|midtown|the airport|brooklyn)",
             "(or do i (need|have to) (take|switch|transfer))",
           ],
+          model_answers: ["Excuse me — does this bus go to Times Square?"],
           hint_tr:
             "Net acılış: 'Excuse me — does this bus go to Times Square?'",
         },
@@ -2592,6 +2606,7 @@ export const dailyTransportLesson_17_6: BundledLesson = {
             "(roughly|any idea|approximately) (how (long|often|frequent))",
             "(makes sense|that helps)",
           ],
+          model_answers: ["Got it — thanks! When's the next M5?"],
           hint_tr:
             "Bilgi al + teşekkür: 'Got it — thanks! When's the next M5?'",
         },
@@ -3003,6 +3018,7 @@ export const dailyTransportLesson_17_7: BundledLesson = {
             "(which (platform|track)|where (do i|do we) (board|catch it))",
             "(any update|what'?s going on)",
           ],
+          model_answers: ["Excuse me — I missed the announcement. Train to Boston — which platform?"],
           hint_tr:
             "Net + sebep: 'Excuse me — I missed the announcement. Train to Boston — which platform?'",
         },
@@ -3021,6 +3037,7 @@ export const dailyTransportLesson_17_7: BundledLesson = {
             "(should i (head over|go now)|enough time)",
             "(announcement (board|screen)|where to (check|watch))",
           ],
+          model_answers: ["Got it, thanks. Any estimate when it'll board?"],
           hint_tr:
             "Takip: 'Got it, thanks. Any estimate when it'll board?'",
         },
@@ -3433,6 +3450,7 @@ export const dailyTransportLesson_17_8: BundledLesson = {
             "(i'?m (getting off|standing|fine|happy to stand))",
             "(no worries|no problem|happy to)",
           ],
+          model_answers: ["Excuse me — would you like my seat?"],
           hint_tr:
             "Saygılı teklif: 'Excuse me — would you like my seat?'",
         },
@@ -3450,6 +3468,7 @@ export const dailyTransportLesson_17_8: BundledLesson = {
             "(no worries|no problem|don'?t mention it|my pleasure)",
             "(next stop|in (a |the )?(minute|few stops))",
           ],
+          model_answers: ["Of course — please, take it. I'm getting off soon."],
           hint_tr:
             "Onayla: 'Of course — please, take it. I'm getting off soon.'",
         },

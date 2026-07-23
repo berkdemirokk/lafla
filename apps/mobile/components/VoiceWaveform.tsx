@@ -35,6 +35,8 @@ import Animated, {
   type SharedValue,
 } from "react-native-reanimated";
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 export interface VoiceWaveformProps {
   /**
@@ -56,6 +58,8 @@ export interface VoiceWaveformProps {
   style?: StyleProp<ViewStyle>;
   /** A11y label override; defaults to a generic "Ses dalgası". */
   accessibilityLabel?: string;
+  /** Hide purely decorative ambient waveforms from screen readers. */
+  decorative?: boolean;
 }
 
 const MIN_BARS = 3;
@@ -70,8 +74,12 @@ export function VoiceWaveform({
   barWidth = 3,
   gap = 4,
   style,
-  accessibilityLabel = "Ses dalgası",
+  accessibilityLabel,
+  decorative = false,
 }: VoiceWaveformProps) {
+  const { t } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
+  const resolvedAccessibilityLabel = accessibilityLabel ?? t("accessibility.voice_waveform");
   const barCount = Math.max(MIN_BARS, Math.min(MAX_BARS, Math.floor(bars)));
   const minH = Math.max(2, Math.round(height * 0.18));
   const maxH = height;
@@ -82,7 +90,11 @@ export function VoiceWaveform({
   const driver = useSharedValue(0);
 
   useEffect(() => {
-    if (amplitude === undefined) {
+    if (reduceMotion) {
+      driver.value = amplitude === undefined
+        ? 0.35
+        : Math.max(0, Math.min(1, amplitude));
+    } else if (amplitude === undefined) {
       // Idle: loop a smooth back-and-forth so bars breathe even in silence.
       driver.value = 0;
       driver.value = withRepeat(
@@ -107,13 +119,16 @@ export function VoiceWaveform({
       // a screen the user has navigated away from.
       cancelAnimation(driver);
     };
-  }, [amplitude, driver]);
+  }, [amplitude, driver, reduceMotion]);
 
   return (
     <View
       style={[styles.row, { height, gap }, style]}
-      accessibilityRole="image"
-      accessibilityLabel={accessibilityLabel}
+      accessible={!decorative}
+      accessibilityElementsHidden={decorative}
+      importantForAccessibility={decorative ? "no-hide-descendants" : "auto"}
+      accessibilityRole={decorative ? undefined : "image"}
+      accessibilityLabel={decorative ? undefined : resolvedAccessibilityLabel}
     >
       {Array.from({ length: barCount }).map((_, i) => (
         <Bar

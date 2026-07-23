@@ -95,6 +95,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
             "(lean toward|favor|prefer) (option|approach) (a|b|the second)",
             "(happy to|let me) (walk (you|through)|explain (why|reasoning))",
           ],
+          model_answers: ["My take: lean toward option B — happy to walk through reasoning."],
           hint_tr:
             "Net + hazir: 'My take: lean toward option B — happy to walk through reasoning.'",
         },
@@ -113,6 +114,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
             "(maintainability|scalability|cost|user experience) (wise|side)",
             "(happy to|can) (share (data|the doc|details))",
           ],
+          model_answers: ["Three reasons: user data, maintainability, cost — can share the doc."],
           hint_tr:
             "Yapilandirilmis sav: 'Three reasons: user data, maintainability, cost — can share the doc.'",
         },
@@ -131,6 +133,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
             "(roughly|about|around) (.+) (per (sprint|quarter|month))",
             "(happy to|i can) (model|estimate) the (cost|numbers)",
           ],
+          model_answers: ["Fair point — short-term yes, but long-term we save on maintenance."],
           hint_tr:
             "Karşıt görüşü kabul et + cevap ver: 'Fair point — short-term yes, but long-term we save on maintenance.'",
         },
@@ -149,6 +152,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
             "(that'?s|thats) (all|it) from me",
             "(no|nothing) (else|more) from (my )?(side|end)",
           ],
+          model_answers: ["I can drop the breakdown in Slack after this"],
           hint_tr:
             "Kapanış teklifi: 'I can drop the breakdown in Slack after this' veya 'Nothing else from my side'.",
         },
@@ -166,6 +170,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
             "(perfect|got it|noted)",
             "(i'?ll (have|share) (it|the doc) (by|before))",
           ],
+          model_answers: ["On it — will post by EOD"],
           hint_tr:
             "Onayla: 'On it — will post by EOD' veya 'Sounds good, thanks!'",
         },
@@ -626,6 +631,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
             "(different (read|view|angle))",
             "(could (be missing|i (be )?wrong)|might be off)",
           ],
+          model_answers: ["Hate to push back but I see it differently — can I share?"],
           hint_tr:
             "Yumusak ac: 'Hate to push back but I see it differently — can I share?'",
         },
@@ -644,6 +650,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
             "(could we|what if) (we (try|consider|test))",
             "(happy to|let me) (be wrong|own this|prove it)",
           ],
+          model_answers: ["Data shows X — could we test approach B first?"],
           hint_tr:
             "Argumen ile: 'Data shows X — could we test approach B first?'",
         },
@@ -663,6 +670,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
             "(might )?(end up |create )?(tech debt|rework|more work) (later|down the line)",
             "(in hindsight|long term)(,)? .{0,50}",
           ],
+          model_answers: ["Totally agree on speed, but the trade-off is tech debt later"],
           hint_tr:
             "Acknowledge + counter: 'Totally agree on speed, but the trade-off is tech debt later'. Türk: 'aceleyle koyup sonra tamir etmek' = 'short-term win, long-term cost'. C1 ifade: 'in hindsight'.",
         },
@@ -682,6 +690,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
             "(let'?s )?(do )?(both|a hybrid|the middle ground)",
             "(my suggestion|i'?d suggest)(,)? .{0,50}",
           ],
+          model_answers: ["Scope it down — launch core, iterate next sprint"],
           hint_tr:
             "Çözüm öner: 'Scope it down — launch core, iterate next sprint' veya 'Could we phase it?'. Türk: 'kapsamı daraltmak' = 'scope down'. 'Phase it' = aşamalandırmak.",
         },
@@ -701,6 +710,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
             "(after this |before eod )?(i can|i'?ll) ping (product|the pm)",
             "(qa|product|design) (input|opinion) (would help|matters here)",
           ],
+          model_answers: ["I'd loop in product before we cut anything — they own the roadmap"],
           hint_tr:
             "Stakeholder belirle: 'I'd loop in product before we cut anything — they own the roadmap' veya 'A quick sync with QA, then product'. Türk: 'haberdar etmek' = 'loop in'. Modern iş İngilizcesi.",
         },
@@ -1033,6 +1043,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
             "(not sure|wasn'?t sure) (i (caught|followed|got) (that|it))",
             "(say more|elaborate|unpack)",
           ],
+          model_answers: ["Quick check — can you walk me through the queue part again?"],
           hint_tr:
             "Spesifik iste: 'Quick check — can you walk me through the queue part again?'",
         },
@@ -1050,6 +1061,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
             "(thanks|appreciate the|thank you for) (the walkthrough|patience)",
             "(perfect|crystal|clear now)",
           ],
+          model_answers: ["Got it — thanks. Quick follow up: what happens on retry?"],
           hint_tr:
             "Anlayinca onayla: 'Got it — thanks. Quick follow up: what happens on retry?'",
         },
@@ -1067,6 +1079,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
             "(i'?ll (read it|dig in|review it) (after|today|tonight))",
             "(any (additional|other) (resources|docs) (would help|are useful))",
           ],
+          model_answers: ["Yes — that'd be super helpful. I'll dig in tonight. Thanks for the walkthrough."],
           hint_tr:
             "Onay + teşekkür + sonraki adım: 'Yes — that'd be super helpful. I'll dig in tonight. Thanks for the walkthrough.' Doc + audience check için 'in the channel' = takım için paylaşım.",
         },
@@ -1391,6 +1404,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
             "(any (final|last) (thoughts|questions))",
             "(anything (missing|to add|else))",
           ],
+          model_answers: ["Before we wrap — quick recap of action items?"],
           hint_tr:
             "Toparla: 'Before we wrap — quick recap of action items?'",
         },
@@ -1408,6 +1422,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
             "(circle back|reconvene|sync) (next week|on monday|in a few days)",
             "(any (blockers|concerns)|anything to flag)",
           ],
+          model_answers: ["API → Ali, tests → Berk, Friday EOD. Will capture in doc."],
           hint_tr:
             "Detayli ozet: 'API → Ali, tests → Berk, Friday EOD. Will capture in doc.'",
         },
@@ -1425,6 +1440,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
             "(quick check)(,)? (any (concerns|risks|dependencies)) (i'?m missing|to flag)",
             "(friday delivery|the dates) (work|are realistic) (for everyone)?",
           ],
+          model_answers: ["All good — if anyone has concerns, flag in chat now, otherwise silence is consent."],
           hint_tr:
             "Sessizlik = onay vs sessizlik = endişe ayrımı: 'All good — if anyone has concerns, flag in chat now, otherwise silence is consent.' Türk öğrenci 'no objections' der ama dependency'leri sormaz; ekle.",
         },
@@ -1749,6 +1765,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
             "(back-?to-?back) (today|all (day|morning))",
             "(what (did i|have i) miss|where are we|caught up)",
           ],
+          model_answers: ["Sorry I'm late — previous call ran over. What did I miss?"],
           hint_tr:
             "Kisa ac: 'Sorry I'm late — previous call ran over. What did I miss?'",
         },
@@ -1767,6 +1784,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
             "(carry on|please continue|don'?t (let me|mind me))",
             "(scroll back|share (the link|notes) after)",
           ],
+          model_answers: ["Thanks for the catch-up — I'll stay on mute and jump in if I have questions."],
           hint_tr:
             "Toparla: 'Thanks for the catch-up — I'll stay on mute and jump in if I have questions.'",
         },
@@ -1784,6 +1802,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
             "(ready to|happy to) (weigh in|share|cover that)",
             "(let me know|just )?ping me (when|the moment) (we'?re )?(at|on) (that|staging)",
           ],
+          model_answers: ["Got it — thanks for the heads up. I'll jump in when we get to staging."],
           hint_tr:
             "Heads-up'a teşekkür + ready signal: 'Got it — thanks for the heads up. I'll jump in when we get to staging.' Pasif izleyici değil, hazır katılımcı.",
         },
@@ -2071,6 +2090,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
             "(if i (could|may))",
             "(just one (thing|point|add))",
           ],
+          model_answers: ["Sorry to jump in — building on Sarah's point, quick thought."],
           hint_tr:
             "Yumusak ac: 'Sorry to jump in — building on Sarah's point, quick thought.'",
         },
@@ -2089,6 +2109,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
             "(worth (a (mention|look|flag))|should be on the table)",
             "(happy to|let me) (drop (it|a note) in (chat|the doc))",
           ],
+          model_answers: ["Sarah's point resonates — want to extend it: performance angle. Happy to drop a note in chat."],
           hint_tr:
             "Net devam: 'Sarah's point resonates — want to extend it: performance angle. Happy to drop a note in chat.'",
         },
@@ -2106,6 +2127,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
             "(or |either)? (sarah and i|together with sarah) (could pair on it|can split it)",
             "(will (share|drop|post) (it )?(in (slack|the doc)|in the channel))",
           ],
+          model_answers: ["Happy to own it — I'll write up by Friday EOD and loop Sarah for review."],
           hint_tr:
             "Sahiplenme + deadline + dependency: 'Happy to own it — I'll write up by Friday EOD and loop Sarah for review.' Action item alma = lider sinyali.",
         },
@@ -2394,6 +2416,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
             "(let me (play that back|read that back))",
             "(can you (share|drop) (the (link|doc|diagram)) (in chat))",
           ],
+          model_answers: ["Audio cut out — could you walk me through the retry logic part again?"],
           hint_tr:
             "Spesifik + sebep: 'Audio cut out — could you walk me through the retry logic part again?'",
         },
@@ -2412,6 +2435,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
             "(any (max|cap) on retries|after (how many|n) attempts)",
             "(thanks for|appreciate the (patience|walkthrough|detail))",
           ],
+          model_answers: ["So worker fails → back to queue with exponential backoff. Is there a max retry cap?"],
           hint_tr:
             "Play back: 'So worker fails → back to queue with exponential backoff. Is there a max retry cap?'",
         },
@@ -2429,6 +2453,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
             "(thanks again|appreciate the (patience|walkthrough|detail))",
             "(i'?ll (review|catch up on) (the doc|the diagram) (after|tonight))",
           ],
+          model_answers: ["Actually one more — what's the alert threshold on the DLQ?"],
           hint_tr:
             "Net kapanış veya ek soru: 'Nothing else — that covers it. Thanks for the walkthrough!' veya 'Actually one more — what's the alert threshold on the DLQ?' Sessiz kalma; doğrula veya sor.",
         },
@@ -2716,6 +2741,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
             "(want to make sure|just to confirm) (we'?re all on the same page|alignment)",
             "(can i (own|take))",
           ],
+          model_answers: ["To recap, the next steps are: design Wed, review Fri. Let me drop this in Slack."],
           hint_tr:
             "Aktif ozet: 'To recap, the next steps are: design Wed, review Fri. Let me drop this in Slack.'",
         },
@@ -2734,6 +2760,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
             "(does that work|sound good|are we good)",
             "(if (anyone|you|anybody) (has|sees)) (issues|concerns|questions)",
           ],
+          model_answers: ["I'll own the API docs — Friday EOD, Slack drop. Any concerns?"],
           hint_tr:
             "Sahipligi al + tarih + kanal: 'I'll own the API docs — Friday EOD, Slack drop. Any concerns?'",
         },
@@ -2751,6 +2778,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
             "(design (sign[- ]off|review)|legal (review|approval)|qa (signoff|pass)) (still pending|in progress)",
             "(if (.+) slips|worst case)(,)? (.+) (could push|might extend)",
           ],
+          model_answers: ["Good catch — waiting on design sign-off, if that slips by Wed we'll need to push Friday by a day."],
           hint_tr:
             "Deadline + dependency: 'Good catch — waiting on design sign-off, if that slips by Wed we'll need to push Friday by a day.' Türk öğrenci 'no problem' der; dürüst risk ifadesi = güvenilir senior sinyali.",
         },

@@ -29,17 +29,29 @@ const SUPABASE_URL =
 const SUPABASE_ANON_KEY =
   Constants.expoConfig?.extra?.supabaseAnonKey ?? process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? "";
 
-if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+const FALLBACK_SUPABASE_URL = "https://lafla-offline.supabase.co";
+const FALLBACK_SUPABASE_ANON_KEY = "offline-anon-key";
+
+if (__DEV__ && (!SUPABASE_URL || !SUPABASE_ANON_KEY)) {
+  // eslint-disable-next-line no-console
   console.warn("[Lafla] Supabase URL or anon key missing — auth/persistence disabled.");
 }
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  auth: {
-    storage: AsyncStorage,
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: false,
-  },
-});
-
 export const isSupabaseConfigured = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
+
+// createClient("", "") throws during module import. A missing Supabase config
+// should disable network-backed features, not crash the app before fallback
+// screens can render. Call sites must still check isSupabaseConfigured before
+// auth/RPC flows that require the backend.
+export const supabase = createClient(
+  isSupabaseConfigured ? SUPABASE_URL : FALLBACK_SUPABASE_URL,
+  isSupabaseConfigured ? SUPABASE_ANON_KEY : FALLBACK_SUPABASE_ANON_KEY,
+  {
+    auth: {
+      storage: AsyncStorage,
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: false,
+    },
+  },
+);

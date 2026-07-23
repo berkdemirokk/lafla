@@ -35,6 +35,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
 import { supabase } from "./supabase";
 import { captureException, captureMessage } from "./sentry";
+import { synchronizeCloudProgress } from "./cloud-progress-sync";
 
 // 2026-05-23 — Apple Sign-In token exchange edge function endpoint.
 // Backend supabase/functions/apple-token-exchange'i çağırır.
@@ -223,7 +224,7 @@ export async function signInWithApple(): Promise<AppleAuthResult> {
   // Sign Supabase. Nonce omitted — expo-apple-authentication does not surface
   // the raw nonce, and Supabase verifies the token against Apple's public key
   // regardless. Add `nonce` here if you switch to a manual native module.
-  const { error: sbError } = await supabase.auth.signInWithIdToken({
+  const { data: sbData, error: sbError } = await supabase.auth.signInWithIdToken({
     provider: "apple",
     token: identityToken,
   });
@@ -242,6 +243,9 @@ export async function signInWithApple(): Promise<AppleAuthResult> {
     "lafla.displayName",
     "lafla.interests",
   ]).catch(() => {});
+  if (sbData.user) {
+    await synchronizeCloudProgress(sbData.user.id).catch(() => {});
+  }
 
   // Cache PII for repeat sign-ins (Apple won't resend it).
   await storeAppleCredentials({ appleUserId, email });

@@ -7,6 +7,7 @@ import { SpeakerButton } from "../SpeakerButton";
 import { tokens } from "../../theme";
 import { hapticForScore } from "../../lib/feedback";
 import { evaluateTranslate, type ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   source: string;
@@ -25,6 +26,7 @@ export function Translate({
   trHint,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
   // 2026-05-26 (P1 audit fix) — double-tap guard. setResult queue'da
@@ -43,7 +45,7 @@ export function Translate({
   return (
     <View style={styles.container}>
       <View style={styles.promptRow}>
-        <Text style={styles.prompt}>Çevir</Text>
+        <Text style={styles.prompt}>{t("exercise.translate.title")}</Text>
         {direction === "en_to_tr" && (
           <SpeakerButton text={source} size="md" />
         )}
@@ -52,7 +54,7 @@ export function Translate({
       {result && result.correct && (
         <View style={styles.answerSpeakerRow}>
           <SpeakerButton text={target} size="sm" />
-          <Text style={styles.answerHint}>Doğru telaffuz</Text>
+          <Text style={styles.answerHint}>{t("exercise.correct_pronunciation")}</Text>
         </View>
       )}
 
@@ -62,7 +64,9 @@ export function Translate({
           result && (result.correct ? styles.inputOk : styles.inputMiss),
         ]}
         placeholder={
-          direction === "tr_to_en" ? "İngilizce yaz..." : "Türkçe yaz..."
+          direction === "tr_to_en"
+            ? t("exercise.write_english")
+            : t("exercise.write_turkish")
         }
         placeholderTextColor={tokens.text.secondary}
         value={input}
@@ -71,6 +75,11 @@ export function Translate({
         editable={!result}
         autoCapitalize="sentences"
         autoCorrect={false}
+        accessibilityLabel={
+          direction === "tr_to_en"
+            ? t("exercise.translate_to_english")
+            : t("exercise.translate_to_turkish")
+        }
       />
 
       {result && (
@@ -91,11 +100,15 @@ export function Translate({
         </View>
       )}
 
-      {!result && trHint && <Text style={styles.hint}>💡 {trHint}</Text>}
+      {!result && trHint && (
+        <Text style={styles.hint}>
+          💡 {locale === "tr" ? trHint : t("learning.hint_fallback_en")}
+        </Text>
+      )}
 
       <View style={styles.footer}>
         <Button
-          label={result ? "Devam et →" : "Kontrol et"}
+          label={result ? `${t("common.continue")} →` : t("exercise.check")}
           onPress={result ? () => onComplete(result) : submit}
           disabled={!result && !input.trim()}
         />
@@ -162,9 +175,9 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.base,
   },
   feedbackOk: {
-    backgroundColor: "rgba(246, 255, 0, 0.12)",
+    backgroundColor: tokens.semantic.successContainer,
     borderWidth: 1,
-    borderColor: tokens.brand.primaryFixed,
+    borderColor: tokens.semantic.success,
   },
   feedbackMiss: {
     backgroundColor: tokens.semantic.errorContainer,

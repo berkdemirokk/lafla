@@ -11,31 +11,59 @@
 // certificates, ielts-band, vocab-book, weakness-report. Yeni ekran
 // eklerken bu listeyi güncel tut.
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Stack, router } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
 import * as Notifications from "expo-notifications";
-import { Text as RNText, TextInput as RNTextInput } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { useFonts } from "expo-font";
 import {
-  useFonts,
-  SpaceGrotesk_500Medium,
-  SpaceGrotesk_600SemiBold,
-  SpaceGrotesk_700Bold,
-} from "@expo-google-fonts/space-grotesk";
-import {
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-} from "@expo-google-fonts/inter";
+  StyleSheet,
+  Text,
+  View,
+  AppState,
+} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { SpaceGrotesk_500Medium } from "@expo-google-fonts/space-grotesk/500Medium";
+import { SpaceGrotesk_600SemiBold } from "@expo-google-fonts/space-grotesk/600SemiBold";
+import { SpaceGrotesk_700Bold } from "@expo-google-fonts/space-grotesk/700Bold";
+import { Inter_400Regular } from "@expo-google-fonts/inter/400Regular";
+import { Inter_500Medium } from "@expo-google-fonts/inter/500Medium";
+import { Inter_600SemiBold } from "@expo-google-fonts/inter/600SemiBold";
+import { Inter_700Bold } from "@expo-google-fonts/inter/700Bold";
+import { Inter_800ExtraBold } from "@expo-google-fonts/inter/800ExtraBold";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
 import { initAds } from "../lib/ads";
 import { requestAttOnce } from "../lib/att";
-import { tokens } from "../theme";
+import { ThemeProvider, tokens, useAppTheme } from "../theme";
+import { hydrateThemePreference } from "../lib/theme-preference";
+import { hydrateLocale } from "../lib/i18n";
+import { flushCloudProgressOutbox } from "../lib/cloud-progress-outbox";
+import {
+  markNotificationBootstrapComplete,
+  routeFromNotificationDeepLink,
+  setPendingNotificationRoute,
+} from "../lib/notification-routing";
+
+const K_LAST_OPEN_DAY = "lafla.analytics.lastOpenDay";
+const K_LAST_NOTIFICATION_RESPONSE = "lafla.notifications.lastResponse";
+
+function localDayKey(date: Date): string {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function daysBetweenKeys(previous: string | null, current: string): number | null {
+  if (!previous) return null;
+  const parse = (key: string) => {
+    const [year, month, day] = key.split("-").map(Number);
+    return Date.UTC(year ?? 0, (month ?? 1) - 1, day ?? 1);
+  };
+  const diff = Math.round((parse(current) - parse(previous)) / 86_400_000);
+  return Number.isFinite(diff) && diff >= 0 ? diff : null;
+}
 
 // 2026-05-24 — Font load gate.
 // Theme tokens (theme/index.ts) referans veriyor:
@@ -55,29 +83,15 @@ SplashScreen.preventAutoHideAsync().catch(() => {
   /* no-op — preventAutoHideAsync may reject if hide already called (Fast Refresh) */
 });
 
-// 2026-05-24 — Dynamic Type clamp.
-// iOS XXL erişilebilirlik metin boyutu varsayılan olarak 1.7x büyütür; kartlar
-// + chip'ler + paywall fiyatları bu boyutta kırılıyordu. 1.4x cap ile çoğu
-// layout'u koruyup gözü zayıf kullanıcı için de okunabilir kalıyoruz. Uygulama
-// genelinde tek satır default — her Text/TextInput'u tek tek override etmek
-// yerine. Bireysel override (ör. hero başlığı) lokal prop ile yapılabilir.
-const TEXT_MAX_SCALE = 1.4;
-// RN Text/TextInput defaultProps API'si TypeScript'te declare edilmiyor ama
-// runtime'da çalışıyor. Bilinen pattern (React Native 0.79).
-type DefaultPropable = { defaultProps?: Record<string, unknown> };
-const _Text = RNText as unknown as DefaultPropable;
-_Text.defaultProps = { ..._Text.defaultProps, maxFontSizeMultiplier: TEXT_MAX_SCALE };
-const _TextInput = RNTextInput as unknown as DefaultPropable;
-_TextInput.defaultProps = {
-  ..._TextInput.defaultProps,
-  maxFontSizeMultiplier: TEXT_MAX_SCALE,
-};
+const LAUNCH_FALLBACK_MS = 1200;
 
 // Initialize once at module load so the SDK is live before any render —
 // crashes during the very first frame are still captured.
 initSentry();
 
 export default function RootLayout() {
+  const [preferencesReady, setPreferencesReady] = useState(false);
+  const [showLaunchFallback, setShowLaunchFallback] = useState(false);
   const [fontsLoaded, fontError] = useFonts({
     SpaceGrotesk_500Medium,
     SpaceGrotesk_600SemiBold,
@@ -89,13 +103,46 @@ export default function RootLayout() {
     Inter_800ExtraBold,
   });
 
+  const canRenderApp = (fontsLoaded || fontError) && preferencesReady;
+
   useEffect(() => {
-    if (fontsLoaded || fontError) {
+    if (canRenderApp || showLaunchFallback) {
       // Font yüklenemediyse splash'i yine de kapat — system font ile devam.
       // (App'in launch'ı font hatasıyla bloklanmasın.)
       SplashScreen.hideAsync().catch(() => {});
     }
-  }, [fontsLoaded, fontError]);
+  }, [canRenderApp, showLaunchFallback]);
+
+  useEffect(() => {
+    if (canRenderApp) return;
+    const timeout = setTimeout(() => {
+      setShowLaunchFallback(true);
+    }, LAUNCH_FALLBACK_MS);
+    return () => clearTimeout(timeout);
+  }, [canRenderApp]);
+
+  useEffect(() => {
+    let cancelled = false;
+    void Promise.all([
+      hydrateThemePreference().catch(() => "system" as const),
+      hydrateLocale(),
+    ])
+      .finally(() => {
+        if (!cancelled) setPreferencesReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (state) => {
+      if (state === "active") {
+        void flushCloudProgressOutbox().catch(() => {});
+      }
+    });
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     // Defensive: also run on mount in case the module-level call was a no-op
@@ -105,7 +152,22 @@ export default function RootLayout() {
     void (async () => {
       try {
         await initAnalytics();
-        await trackEvent("app_opened");
+        const today = localDayKey(new Date());
+        const previous = await AsyncStorage.getItem(K_LAST_OPEN_DAY).catch(
+          () => null,
+        );
+        const daysSinceLastOpen = daysBetweenKeys(previous, today);
+        await trackEvent("app_opened", {
+          days_since_last_open: daysSinceLastOpen ?? -1,
+          next_day_return: daysSinceLastOpen === 1,
+        });
+        if (daysSinceLastOpen !== null && daysSinceLastOpen >= 1) {
+          await trackEvent("app_returned", {
+            days_since_last_open: daysSinceLastOpen,
+            next_day_return: daysSinceLastOpen === 1,
+          });
+        }
+        await AsyncStorage.setItem(K_LAST_OPEN_DAY, today).catch(() => {});
       } catch {
         // ignore — analytics is non-critical
       }
@@ -134,11 +196,29 @@ export default function RootLayout() {
     // yutuyordu → kullanıcı bildirime bassa hiçbir yere gitmiyordu. Yeni:
     // exponential retry (200ms → 500ms → 1200ms → 2500ms) ile router hazır
     // olana kadar dene. Hâlâ fail ederse silent fail (worst case /today).
-    const sub = Notifications.addNotificationResponseReceivedListener((r) => {
+    const routeNotification = async (
+      r: Notifications.NotificationResponse,
+      coldLaunch: boolean,
+    ) => {
       try {
-        const link = r.notification.request.content.data?.deepLink;
-        if (typeof link !== "string" || !link.startsWith("lafla://")) return;
-        const path = link.replace(/^lafla:\/\//, "/");
+        const responseId = r.notification.request.identifier;
+        const previousId = await AsyncStorage.getItem(
+          K_LAST_NOTIFICATION_RESPONSE,
+        ).catch(() => null);
+        if (responseId && responseId === previousId) return;
+        const path = routeFromNotificationDeepLink(
+          r.notification.request.content.data?.deepLink,
+        );
+        if (!path) return;
+        if (responseId) {
+          await AsyncStorage.setItem(K_LAST_NOTIFICATION_RESPONSE, responseId).catch(
+            () => {},
+          );
+        }
+        if (coldLaunch) {
+          setPendingNotificationRoute(path);
+          return;
+        }
         const retries = [200, 500, 1200, 2500];
         let attempted = 0;
         const tryPush = () => {
@@ -155,31 +235,53 @@ export default function RootLayout() {
       } catch {
         // bozuk payload — yut
       }
+    };
+    void Notifications.getLastNotificationResponseAsync()
+      .then((response) => {
+        if (response) return routeNotification(response, true);
+      })
+      .catch(() => {})
+      .finally(markNotificationBootstrapComplete);
+    const sub = Notifications.addNotificationResponseReceivedListener((r) => {
+      void routeNotification(r, false);
     });
     return () => sub.remove();
   }, []);
 
   // Splash kapanana kadar (ya font hazır ya da yüklenemedi) UI gösterme —
   // yarım font tipografisi flash yapması önlenir.
-  if (!fontsLoaded && !fontError) {
-    return null;
+  if (!canRenderApp) {
+    return showLaunchFallback ? <LaunchFallback /> : null;
   }
 
   return (
-    <SafeAreaProvider>
+    <ThemeProvider>
+      <ThemedRootNavigator />
+    </ThemeProvider>
+  );
+}
+
+function ThemedRootNavigator() {
+  const { colors, scheme } = useAppTheme();
+
+  return (
+    <SafeAreaProvider
+      style={{ flex: 1, backgroundColor: colors.bg.app }}
+    >
       <ErrorBoundary>
         <Stack
           screenOptions={{
             headerShown: false,
-            contentStyle: { backgroundColor: tokens.bg.app },
+            contentStyle: { backgroundColor: colors.bg.app },
             animation: "fade",
           }}
         >
           <Stack.Screen
             name="index"
-            options={{ contentStyle: { backgroundColor: tokens.bg.onBackground } }}
+            options={{ contentStyle: { backgroundColor: colors.bg.onBackground } }}
           />
           <Stack.Screen name="auth" />
+          <Stack.Screen name="reset-password" />
           <Stack.Screen name="onboarding" />
           <Stack.Screen name="home" />
           <Stack.Screen name="scenario/[id]" />
@@ -190,6 +292,7 @@ export default function RootLayout() {
           <Stack.Screen name="paywall" />
           <Stack.Screen name="profile" />
           <Stack.Screen name="settings" />
+          <Stack.Screen name="voice-diagnostics" />
           <Stack.Screen name="diary" />
           <Stack.Screen name="voice-journal" />
           <Stack.Screen name="relationships" />
@@ -201,8 +304,43 @@ export default function RootLayout() {
           <Stack.Screen name="ielts-band" />
           <Stack.Screen name="vocab-book" />
           <Stack.Screen name="weakness-report" />
+          <Stack.Screen name="mistake-coach" />
+          <Stack.Screen name="real-life" />
+          <Stack.Screen name="progress-compare" />
+          <Stack.Screen name="accent-lab" />
         </Stack>
       </ErrorBoundary>
+      <StatusBar style={scheme === "dark" ? "light" : "dark"} />
     </SafeAreaProvider>
   );
 }
+
+function LaunchFallback() {
+  return (
+    <View style={stylesLaunch.root}>
+      <Text style={stylesLaunch.wordmark}>Lafla</Text>
+      <View style={stylesLaunch.accent} />
+    </View>
+  );
+}
+
+const stylesLaunch = StyleSheet.create({
+  root: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: tokens.bg.app,
+  },
+  wordmark: {
+    color: tokens.text.primary,
+    fontSize: 56,
+    fontWeight: "800",
+  },
+  accent: {
+    width: 56,
+    height: 2,
+    marginTop: 12,
+    borderRadius: 1,
+    backgroundColor: tokens.brand.primary,
+  },
+});

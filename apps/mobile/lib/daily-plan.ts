@@ -1,8 +1,7 @@
-// Lafla — Daily Plan (30 dk session loop).
+// Lafla — Daily Plan (8-12 minute session loop).
 //
 // 2026-05-21 — Engagement loop. Kullanıcı "1 sahne yapıp çıkıyor" pattern'ından
-// "5-7 sahne back-to-back oynuyor" pattern'ına çekilir. Talkpal/Speak gibi
-// rakiplerin "30 dk session" tutturma hedefine karşılık.
+// three focused scenes in one sitting without creating a long mandatory chain.
 //
 // Mekanik:
 //   1. Home'da girince: "Bugünün Planı: N sahne · X dk" banner
@@ -12,30 +11,47 @@
 //   5. Queue bitince "Bugünkü plan tamamlandı 🎉" özet
 //
 // Plan composition:
-//   - 5 sahne (CEFR ±1 + ilgi alanı filtreli, completed olmayanlar)
+//   - 3 sahne (CEFR ±1 + ilgi alanı filtreli, completed olmayanlar)
 //   - Skill çeşitliliği için aynı skill'den max 2 sahne
 //   - Deterministic per (user, day) — aynı gün açtıkça aynı plan
-//   - Yarına yeni plan (Date.toDateString seed)
+//   - Yarına yeni plan (local YYYY-MM-DD seed)
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
 import { getScenario } from "./scenario";
 import {
   getCefrLevel,
-  getRelevantLevels,
+  getComfortLevels,
   type CefrLevel,
 } from "./cefr-level";
-import { getInterests, getCompletedLessonIds } from "./local-progress";
+import {
+  getAllLessonState,
+  getAllSkillMastery,
+  getInterests,
+  getCompletedLessonIds,
+} from "./local-progress";
 import { interestsToModes } from "./interest-mapping";
+import { getSceneDisplayMinutes } from "./scene-duration";
+import { localDayKey } from "./day-key";
 
 const K_PLAN = "lafla.dailyPlan";
 const K_PLAN_PROGRESS = "lafla.dailyPlan.progress";
+const PLAN_VERSION = 3;
 
-/** Plan boyutu — 5 sahne × ~4 dk = ~20 dk + araya vocab tekrar ile 28-30 dk. */
-const PLAN_SIZE = 5;
+let planProgressWriteChain: Promise<unknown> = Promise.resolve();
+
+function serializePlanProgressWrite<T>(work: () => Promise<T>): Promise<T> {
+  const job = planProgressWriteChain.then(work, work);
+  planProgressWriteChain = job.catch(() => undefined);
+  return job;
+}
+
+/** Three independent 2–4 minute sessions; no long mandatory lesson chain. */
+const PLAN_SIZE = 3;
 
 interface StoredPlan {
-  /** Plan üretim tarihi (toDateString). */
+  version?: number;
+  /** Plan üretim tarihi (local YYYY-MM-DD). */
   date: string;
   /** Plan içindeki lessonId sırası. */
   lessonIds: string[];
@@ -68,7 +84,35 @@ function planSigFrom(lessonIds: readonly string[]): string {
 }
 
 function todayKey(): string {
-  return new Date().toDateString();
+  return localDayKey();
+}
+
+function calibratedLevel(scene: Scene): CefrLevel | undefined {
+  return getScenario(scene.lessonId)?.cefrLevel ?? scene.cefrLevel;
+}
+
+type SkillMasteryMap = Record<
+  string,
+  { score: number; lessons_completed: number }
+>;
+
+export function selectWeakSkillLessonId(
+  candidates: readonly Pick<Scene, "lessonId" | "skillId">[],
+  mastery: SkillMasteryMap,
+): string | null {
+  const weakSkills = Object.entries(mastery)
+    .filter(
+      ([, value]) =>
+        value.lessons_completed > 0 &&
+        Number.isFinite(value.score) &&
+        value.score < 0.75,
+    )
+    .sort((a, b) => a[1].score - b[1].score);
+  for (const [skillId] of weakSkills) {
+    const match = candidates.find((scene) => scene.skillId === skillId);
+    if (match) return match.lessonId;
+  }
+  return null;
 }
 
 /**
@@ -104,11 +148,11 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
     const raw = await AsyncStorage.getItem(K_PLAN);
     if (raw) {
       const stored = JSON.parse(raw) as StoredPlan;
-      if (stored.date === today) {
+      if (stored.date === today && stored.version === PLAN_VERSION) {
         const scenes = stored.lessonIds
           .map((id) => SAMPLE_SCENES.find((s) => s.lessonId === id))
           .filter((s): s is Scene => !!s);
-        if (scenes.length >= 3) return scenes;
+        if (scenes.length >= PLAN_SIZE) return scenes.slice(0, PLAN_SIZE);
         // Hasarlı plan — yeniden üret
       }
     }
@@ -117,22 +161,43 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
   }
 
   // 2. Üretim
-  const [cefr, interests, completed] = await Promise.all([
+  const [cefr, interests, completed, lessonStates, skillMastery] = await Promise.all([
     getCefrLevel(),
     getInterests(),
     getCompletedLessonIds(),
+    getAllLessonState(),
+    getAllSkillMastery(),
   ]);
+  const nowIso = new Date().toISOString();
+  const dueLessonIds = Object.values(lessonStates)
+    .filter(
+      (state) =>
+        Boolean(state.completed_at) &&
+        Boolean(state.next_review_at) &&
+        state.next_review_at! <= nowIso,
+    )
+    .sort((a, b) =>
+      (a.next_review_at ?? "").localeCompare(b.next_review_at ?? ""),
+    )
+    .map((state) => state.lesson_id);
 
   const interestModes =
     interests.length > 0 ? interestsToModes(interests) : null;
-  const relevantLevels = cefr ? new Set(getRelevantLevels(cefr)) : null;
+  const relevantLevels = cefr ? new Set(getComfortLevels(cefr)) : null;
 
   // Playable + uncompleted
-  const basePool = SAMPLE_SCENES.filter((s) => {
-    if (completed.has(s.lessonId)) return false;
-    if (!getScenario(s.lessonId)) return false;
-    return true;
-  });
+  const playablePool = SAMPLE_SCENES.filter((scene) =>
+    Boolean(getScenario(scene.lessonId)),
+  );
+  const basePool = playablePool.filter(
+    (scene) => !completed.has(scene.lessonId),
+  );
+  const sceneByLessonId = new Map(
+    playablePool.map((scene) => [scene.lessonId, scene] as const),
+  );
+  const duePool = dueLessonIds
+    .map((lessonId) => sceneByLessonId.get(lessonId))
+    .filter((scene): scene is Scene => Boolean(scene));
 
   let pool = basePool;
 
@@ -149,7 +214,10 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
 
   if (relevantLevels) {
     const levelWithinInterest = interestPool.filter(
-      (s) => !s.cefrLevel || relevantLevels.has(s.cefrLevel),
+      (s) => {
+        const level = calibratedLevel(s);
+        return !level || relevantLevels.has(level);
+      },
     );
     if (levelWithinInterest.length >= PLAN_SIZE) {
       pool = levelWithinInterest;
@@ -160,7 +228,10 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
       pool = interestPool;
     } else {
       const levelOnly = basePool.filter(
-        (s) => !s.cefrLevel || relevantLevels.has(s.cefrLevel),
+        (s) => {
+          const level = calibratedLevel(s);
+          return !level || relevantLevels.has(level);
+        },
       );
       pool = levelOnly.length >= PLAN_SIZE ? levelOnly : basePool;
     }
@@ -187,13 +258,39 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
   }
 
   // Skill diversity — same skill_id max 2
+  const dueLessonSet = new Set(duePool.map((scene) => scene.lessonId));
+  const poolLessonSet = new Set(pool.map((scene) => scene.lessonId));
+  const weakSkillLessonId = selectWeakSkillLessonId(pool, skillMastery);
+  const weakSkillScene = weakSkillLessonId
+    ? pool.find((scene) => scene.lessonId === weakSkillLessonId)
+    : undefined;
+  const candidates = [
+    ...duePool.slice(0, 1),
+    ...(weakSkillScene ? [weakSkillScene] : []),
+    ...pool.filter(
+      (scene) =>
+        !dueLessonSet.has(scene.lessonId) &&
+        scene.lessonId !== weakSkillLessonId,
+    ),
+    ...shuffle(
+      playablePool.filter(
+        (scene) =>
+          !dueLessonSet.has(scene.lessonId) &&
+          !poolLessonSet.has(scene.lessonId),
+      ),
+    ),
+  ];
+
   const skillCount: Record<string, number> = {};
   const picked: Scene[] = [];
-  for (const s of pool) {
+  const pickedLessonIds = new Set<string>();
+  for (const s of candidates) {
     if (picked.length >= PLAN_SIZE) break;
+    if (pickedLessonIds.has(s.lessonId)) continue;
     const c = skillCount[s.skillId] ?? 0;
     if (c >= 2) continue;
     skillCount[s.skillId] = c + 1;
+    pickedLessonIds.add(s.lessonId);
     picked.push(s);
   }
 
@@ -204,6 +301,7 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
     return [];
   }
   const plan: StoredPlan = {
+    version: PLAN_VERSION,
     date: today,
     lessonIds: picked.map((s) => s.lessonId),
   };
@@ -223,26 +321,41 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
 export async function getPlanProgress(): Promise<{
   completed: number;
   total: number;
+  completedLessonIds: string[];
 }> {
   const today = todayKey();
   const planScenes = await getOrCreateDailyPlan();
   const sig = planSigFrom(planScenes.map((s) => s.lessonId));
   let completed = 0;
+  let completedLessonIds: string[] = [];
   try {
     const raw = await AsyncStorage.getItem(K_PLAN_PROGRESS);
     if (raw) {
       const p = JSON.parse(raw) as PlanProgress;
       // 2026-05-25 (B-EDGE-4) — Plan yeniden üretildiyse (signature mismatch)
       // progress'i geçersiz say. Aksi halde yeni 5 sahnenin hepsi yapılmamış
-      // ama "5/5 tamam" görünür.
+      // ama "3/3 tamam" görünür.
       if (p.date === today && (!p.planSig || p.planSig === sig)) {
         completed = p.completedCount;
+        completedLessonIds = Array.isArray(p.completedLessonIds)
+          ? p.completedLessonIds.filter((id) => sig.split("|").includes(id))
+          : [];
       }
     }
   } catch {
     // ignore
   }
-  return { completed: Math.min(completed, planScenes.length), total: planScenes.length };
+  const safeCompleted = Math.min(completed, planScenes.length);
+  if (completedLessonIds.length === 0 && safeCompleted > 0) {
+    completedLessonIds = planScenes
+      .slice(0, safeCompleted)
+      .map((scene) => scene.lessonId);
+  }
+  return {
+    completed: safeCompleted,
+    total: planScenes.length,
+    completedLessonIds,
+  };
 }
 
 /**
@@ -252,30 +365,39 @@ export async function getPlanProgress(): Promise<{
  * çağrı no-op. Plan signature mismatch'inde progress reset.
  */
 export async function incrementPlanProgress(lessonId?: string): Promise<void> {
-  const today = todayKey();
-  const planScenes = await getOrCreateDailyPlan();
-  if (planScenes.length === 0) return;
-  const planLessonIds = planScenes.map((s) => s.lessonId);
-  if (lessonId && !planLessonIds.includes(lessonId)) {
-    return;
-  }
-  const sig = planSigFrom(planLessonIds);
-  let progress: PlanProgress = {
-    date: today,
-    completedCount: 0,
-    completedLessonIds: [],
-    planSig: sig,
-    lastCompletedAt: new Date().toISOString(),
-  };
-  try {
+  return serializePlanProgressWrite(async () => {
+    const today = todayKey();
+    const planScenes = await getOrCreateDailyPlan();
+    if (planScenes.length === 0) return;
+    const planLessonIds = planScenes.map((s) => s.lessonId);
+    if (lessonId && !planLessonIds.includes(lessonId)) {
+      return;
+    }
+    const sig = planSigFrom(planLessonIds);
+    let progress: PlanProgress = {
+      date: today,
+      completedCount: 0,
+      completedLessonIds: [],
+      planSig: sig,
+      lastCompletedAt: new Date().toISOString(),
+    };
     const raw = await AsyncStorage.getItem(K_PLAN_PROGRESS);
     if (raw) {
-      const p = JSON.parse(raw) as PlanProgress;
+      let p: PlanProgress | null = null;
+      try {
+        p = JSON.parse(raw) as PlanProgress;
+      } catch {
+        // Corrupt progress is recoverable and will be replaced below. Storage
+        // read failures still propagate before this point to prevent overwrite.
+      }
       // Plan değişmediyse aynı progress objesini taşı.
-      if (p.date === today && (!p.planSig || p.planSig === sig)) {
+      if (p?.date === today && (!p.planSig || p.planSig === sig)) {
         progress = {
           date: today,
-          completedCount: p.completedCount ?? 0,
+          completedCount:
+            Number.isFinite(p.completedCount) && p.completedCount >= 0
+              ? Math.floor(p.completedCount)
+              : 0,
           completedLessonIds: Array.isArray(p.completedLessonIds)
             ? p.completedLessonIds
             : [],
@@ -284,29 +406,23 @@ export async function incrementPlanProgress(lessonId?: string): Promise<void> {
         };
       }
     }
-  } catch {
-    // ignore
-  }
-  if (lessonId) {
-    if (progress.completedLessonIds?.includes(lessonId)) {
-      // Already counted — no-op.
-      return;
+    if (lessonId) {
+      if (progress.completedLessonIds?.includes(lessonId)) {
+        // Already counted — no-op.
+        return;
+      }
+      progress.completedLessonIds = [
+        ...(progress.completedLessonIds ?? []),
+        lessonId,
+      ];
     }
-    progress.completedLessonIds = [
-      ...(progress.completedLessonIds ?? []),
-      lessonId,
-    ];
-  }
-  progress.completedCount = Math.min(
-    planScenes.length,
-    (progress.completedCount ?? 0) + 1,
-  );
-  progress.lastCompletedAt = new Date().toISOString();
-  try {
+    progress.completedCount = Math.min(
+      planScenes.length,
+      (progress.completedCount ?? 0) + 1,
+    );
+    progress.lastCompletedAt = new Date().toISOString();
     await AsyncStorage.setItem(K_PLAN_PROGRESS, JSON.stringify(progress));
-  } catch {
-    // best effort
-  }
+  });
 }
 
 /**
@@ -326,22 +442,29 @@ export async function getNextInPlan(
 }
 
 /**
- * UI helper — banner için. "5 sahne · 20 dk" gibi özet.
+ * UI helper — banner için. "3 sahne · 10 dk" gibi özet.
  */
 export async function getPlanSummary(): Promise<{
   total: number;
   completed: number;
+  completedLessonIds: string[];
   estimatedMin: number;
   isComplete: boolean;
 }> {
   const plan = await getOrCreateDailyPlan();
-  const { completed } = await getPlanProgress();
+  const { completed, completedLessonIds } = await getPlanProgress();
   const total = plan.length;
-  // Ortalama 4 dk/sahne (durationMin 5 ama ekstra UI/verdict overhead düş)
-  const estimatedMin = Math.max(1, (total - completed) * 4);
+  const remaining = total - completed;
+  const estimatedMin =
+    remaining === 0
+      ? 0
+      : plan
+          .slice(completed)
+          .reduce((sum, scene) => sum + getSceneDisplayMinutes(scene), 0);
   return {
     total,
     completed,
+    completedLessonIds,
     estimatedMin,
     isComplete: completed >= total && total > 0,
   };

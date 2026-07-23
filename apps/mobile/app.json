@@ -2,24 +2,22 @@
   "expo": {
     "name": "Lafla",
     "slug": "lafla",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "lafla",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": false,
     "platforms": [
       "ios"
     ],
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
+    "locales": {
+      "en": "./native-locales/en.json",
+      "tr": "./native-locales/tr.json"
     },
     "ios": {
       "bundleIdentifier": "com.lafla.app",
       "supportsTablet": false,
-      "buildNumber": "21",
       "usesAppleSignIn": true,
       "infoPlist": {
         "CFBundleLocalizations": [
@@ -34,13 +32,11 @@
       "privacyManifests": {
         "NSPrivacyTracking": true,
         "NSPrivacyTrackingDomains": [
-          "eu.i.posthog.com",
           "googleadservices.com",
           "googlesyndication.com",
           "doubleclick.net",
           "google-analytics.com",
-          "app-measurement.com",
-          "o447951.ingest.sentry.io"
+          "app-measurement.com"
         ],
         "NSPrivacyAccessedAPITypes": [
           {
@@ -72,6 +68,19 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F7F7FA",
+          "resizeMode": "contain",
+          "dark": {
+            "backgroundColor": "#000000",
+            "image": "./assets/icon.png"
+          },
+          "imageWidth": 180
+        }
+      ],
+      "./plugins/with-fmt-xcode26-fix",
       "expo-secure-store",
       "expo-av",
       "expo-file-system",

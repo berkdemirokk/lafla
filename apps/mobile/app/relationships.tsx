@@ -16,7 +16,7 @@ import {
   Pressable,
   ScrollView,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -28,6 +28,8 @@ import {
   type NpcRelationship,
   type RelationshipTier,
 } from "../lib/npc-relationships";
+import { useTranslation, type Locale } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 // Tier → görsel hint. Pembe accent yakına ayrıldı (en derin ilişki),
 // cyan arkadaşa (mid), nötr tanıdığa (yüzeysel).
@@ -59,37 +61,33 @@ function avatarEmojiFor(name: string): string {
   return "👤";
 }
 
-function formatRelativeDate(iso: string): string {
-  const t = new Date(iso).getTime();
+function formatRelativeDate(iso: string, locale: Locale): string {
+  const timestamp = new Date(iso).getTime();
   const now = Date.now();
-  const diffHours = (now - t) / (3600 * 1000);
-  if (diffHours < 1) return "az önce";
-  if (diffHours < 24) return `${Math.floor(diffHours)} saat önce`;
+  const formatter = new Intl.RelativeTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { numeric: "auto" });
+  const diffHours = (now - timestamp) / (3600 * 1000);
+  if (diffHours < 1) return formatter.format(0, "hour");
+  if (diffHours < 24) return formatter.format(-Math.floor(diffHours), "hour");
   const diffDays = Math.floor(diffHours / 24);
-  if (diffDays < 7) return `${diffDays} gün önce`;
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)} hafta önce`;
-  return `${Math.floor(diffDays / 30)} ay önce`;
+  if (diffDays < 7) return formatter.format(-diffDays, "day");
+  if (diffDays < 30) return formatter.format(-Math.floor(diffDays / 7), "week");
+  return formatter.format(-Math.floor(diffDays / 30), "month");
 }
-
-const MODE_LABEL: Record<string, string> = {
-  flirt: "Flört",
-  work: "İş",
-  bar: "Bar",
-  airport: "Havaalanı",
-  daily: "Günlük",
-  order: "Sipariş",
-  ielts: "IELTS",
-};
 
 export default function RelationshipsScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [relationships, setRelationships] = useState<NpcRelationship[]>([]);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
   const load = useCallback(async () => {
-    const all = await getAllRelationships().catch(
-      () => [] as NpcRelationship[],
-    );
-    setRelationships(all);
+    setStatus("loading");
+    try {
+      setRelationships(await getAllRelationships());
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
 
   useFocusEffect(
@@ -101,7 +99,7 @@ export default function RelationshipsScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Header */}
       <View style={styles.header}>
@@ -110,33 +108,30 @@ export default function RelationshipsScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>İlişkilerim</Text>
+        <Text style={styles.headerTitle}>{t("relationships.title")}</Text>
         <View style={{ width: 40 }} />
       </View>
 
-      <ScrollView
+      {status !== "ready" ? (
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      ) : <ScrollView
         contentContainerStyle={styles.scroll}
         showsVerticalScrollIndicator={false}
       >
         {relationships.length === 0 ? (
           <View style={styles.emptyState}>
             <Text style={styles.emptyEmoji}>👥</Text>
-            <Text style={styles.emptyTitle}>Henüz tanıştığın kimse yok</Text>
-            <Text style={styles.emptyText}>
-              Sahneler tamamladıkça karşılaştığın NPC'ler burada birikecek.
-              Aynı kişiyle tekrar konuşunca ilişki seviyesi yükselir —
-              Tanıdık → Arkadaş → Yakın.
-            </Text>
+            <Text style={styles.emptyTitle}>{t("relationships.empty_title")}</Text>
+            <Text style={styles.emptyText}>{t("relationships.empty_body")}</Text>
           </View>
         ) : (
           <>
             <Text style={styles.intro}>
-              {relationships.length} kişiyle konuştun. Tekrar gördüğün NPC'ler
-              seni hatırlar.
+              {t("relationships.intro", { count: String(relationships.length) })}
             </Text>
             {relationships.map((rel) => {
               const info = tierFor(rel.sceneCount);
@@ -159,15 +154,15 @@ export default function RelationshipsScreen() {
                       </Text>
                     </View>
                     <Text style={[styles.tierLabel, { color: accent }]}>
-                      {info.labelTr}
+                      {t(`relationships.tier.${info.tier}`)}
                     </Text>
                     <Text style={styles.subtext}>
-                      {rel.sceneCount} sahne · {formatRelativeDate(rel.lastInteraction)}
+                      {t("relationships.scene_count", { count: String(rel.sceneCount) })} · {formatRelativeDate(rel.lastInteraction, locale)}
                     </Text>
                     {rel.modes.length > 0 && (
                       <Text style={styles.modesText}>
                         {rel.modes
-                          .map((m) => MODE_LABEL[m] ?? m)
+                          .map((m) => t(`mode.${m}`))
                           .join(" · ")}
                       </Text>
                     )}
@@ -177,7 +172,7 @@ export default function RelationshipsScreen() {
             })}
           </>
         )}
-      </ScrollView>
+      </ScrollView>}
     </SafeAreaView>
   );
 }

@@ -239,6 +239,7 @@ export const cefrA2DailyLesson_supermarket: BundledLesson = {
             "(could you tell me|do you know).{0,20}where",
             "where (is|are) the",
           ],
+          model_answers: ["Sorry, where is the ___?"],
           hint_tr:
             "Hepsini bulduysan 'Yes, thanks'; bir şey aradıysan 'Sorry, where is the ___?'",
         },
@@ -255,6 +256,7 @@ export const cefrA2DailyLesson_supermarket: BundledLesson = {
             "(could i have|can i get) (a |the )?(paper|plastic) bag",
             "(also|and).{0,30}(bag|receipt)",
           ],
+          model_answers: ["Could I have a paper bag, please?"],
           hint_tr:
             "'Thanks' + ihtiyacın varsa 'Could I have a paper bag, please?'",
         },
@@ -270,6 +272,7 @@ export const cefrA2DailyLesson_supermarket: BundledLesson = {
             "(i'?ll take|i'?d like) (a )?(paper|plastic)",
             "paper bag",
           ],
+          model_answers: ["Paper, please"],
           hint_tr: "'Paper, please' veya 'Plastic, please'.",
         },
         {
@@ -285,6 +288,7 @@ export const cefrA2DailyLesson_supermarket: BundledLesson = {
             "credit card",
             "(do you take|can i use) apple pay",
           ],
+          model_answers: ["Card, please"],
           hint_tr: "'Card, please' veya 'Cash, please'.",
         },
         {
@@ -655,6 +659,7 @@ export const cefrA2DailyLesson_pharmacy: BundledLesson = {
             "i('m| am) not feeling well",
             "do you have (something|anything) for",
           ],
+          model_answers: ["Do you have something for ___?"],
           hint_tr: "'I have a headache' veya 'Do you have something for ___?'",
         },
         {
@@ -670,6 +675,7 @@ export const cefrA2DailyLesson_pharmacy: BundledLesson = {
             "(started|it started) (this morning|yesterday|last night)",
             "(about |around )?\\d+ (hours?|days?)",
           ],
+          model_answers: ["It started this morning"],
           hint_tr:
             "Süreyi söyle: 'Since yesterday' veya 'For two days' veya 'It started this morning'.",
         },
@@ -686,6 +692,7 @@ export const cefrA2DailyLesson_pharmacy: BundledLesson = {
             "(i'?ve taken it|i take it sometimes)",
             "(i'?m not sure|i don'?t (know|remember))",
           ],
+          model_answers: ["Yes, I have"],
           hint_tr:
             "Daha önce kullandıysan 'Yes, I have'; kullanmadıysan 'No, never'.",
         },
@@ -702,6 +709,7 @@ export const cefrA2DailyLesson_pharmacy: BundledLesson = {
             "(yes,?|also,?).{0,20}(throat|cough|lozenges)",
             "do you have (anything|something) for",
           ],
+          model_answers: ["No, thanks — that's it"],
           hint_tr: "'No, thanks — that's it' veya 'Yes, also something for ___'.",
         },
         {
@@ -1067,6 +1075,7 @@ export const cefrA2DailyLesson_doctor: BundledLesson = {
             "i('ve| have) had .{0,20} (since|for)",
             "(my (throat|head|stomach)) (hurts|is sore)",
           ],
+          model_answers: ["I have a fever and a sore throat"],
           hint_tr: "'I have a fever and a sore throat' gibi net bir başlangıç.",
         },
         {
@@ -1081,6 +1090,7 @@ export const cefrA2DailyLesson_doctor: BundledLesson = {
             "it started (yesterday|last night|this morning)",
             "(about |around )?\\d+ days?",
           ],
+          model_answers: ["For two days"],
           hint_tr: "'Since yesterday' veya 'For two days'.",
         },
         {
@@ -1095,6 +1105,7 @@ export const cefrA2DailyLesson_doctor: BundledLesson = {
             "(it'?s|it gets) worse when i",
             "(yes|no), (especially|particularly) when",
           ],
+          model_answers: ["It hurts when I swallow"],
           hint_tr: "'It hurts when I swallow' veya 'Swallowing makes it worse'.",
         },
         {
@@ -1109,6 +1120,7 @@ export const cefrA2DailyLesson_doctor: BundledLesson = {
             "i('ve| have) been taking",
             "only (water|tea|rest)",
           ],
+          model_answers: ["No, not yet"],
           hint_tr: "'I took some ibuprofen' veya 'No, not yet'.",
         },
         {
@@ -1124,6 +1136,7 @@ export const cefrA2DailyLesson_doctor: BundledLesson = {
             "go ahead",
             "yes(,? please)?",
           ],
+          model_answers: ["Sure, thank you"],
           hint_tr: "'Sure, thank you' veya 'Okay, go ahead'.",
         },
         {
@@ -1487,6 +1500,7 @@ export const cefrA2DailyLesson_taxi: BundledLesson = {
             "(the )?(train station|airport|central station|hotel)",
             "to (the )?(train station|airport)",
           ],
+          model_answers: ["Could you take me to the train station, please?"],
           hint_tr: "'Could you take me to the train station, please?'",
         },
         {
@@ -1502,6 +1516,7 @@ export const cefrA2DailyLesson_taxi: BundledLesson = {
             "(i'?m in a (bit of a )?(rush|hurry)|i('m| am) running late)",
             "up to you",
           ],
+          model_answers: ["No preference, you decide"],
           hint_tr: "'Fastest, please' veya 'No preference, you decide'.",
         },
         {
@@ -1516,6 +1531,7 @@ export const cefrA2DailyLesson_taxi: BundledLesson = {
             "is there (any|much) traffic",
             "how long.{0,20}(usually|normally)",
           ],
+          model_answers: ["Sounds good, thank you"],
           hint_tr: "'Sounds good, thank you' veya 'Okay, that's fine'.",
         },
         {
@@ -1531,6 +1547,7 @@ export const cefrA2DailyLesson_taxi: BundledLesson = {
             "(you can drop me|drop me off) (here|at the entrance)",
             "anywhere on (the )?right",
           ],
+          model_answers: ["Here is fine, thank you"],
           hint_tr: "'Here is fine, thank you' veya 'Right at the entrance, please'.",
         },
         {
@@ -1545,6 +1562,7 @@ export const cefrA2DailyLesson_taxi: BundledLesson = {
             "(card|cash)( please)?",
             "(could i (get|have)|can i have) (a )?receipt",
           ],
+          model_answers: ["Here's $20, keep the change"],
           hint_tr: "'Here's $20, keep the change' veya 'Card, please'.",
         },
         {
@@ -1911,6 +1929,7 @@ export const cefrA2DailyLesson_hotel: BundledLesson = {
             "(checking in|i'?d like to check in)",
             "(under the name of|under) [a-z]+",
           ],
+          model_answers: ["Hi, I have a reservation under the name of [ad]"],
           hint_tr:
             "'Hi, I have a reservation under the name of [ad]' — temiz bir giriş.",
         },
@@ -1927,6 +1946,7 @@ export const cefrA2DailyLesson_hotel: BundledLesson = {
             "(here'?s my (passport|id))",
             "one (moment|second)",
           ],
+          model_answers: ["Of course, here's my passport"],
           hint_tr: "'Sure, here you go' veya 'Of course, here's my passport'.",
         },
         {
@@ -1942,6 +1962,7 @@ export const cefrA2DailyLesson_hotel: BundledLesson = {
             "(could i|can i) (get|have) (a )?twin",
             "is (it|that) possible to (change|switch)",
           ],
+          model_answers: ["Could I have a twin room instead?"],
           hint_tr:
             "Doğruysa 'Yes, that's right'; değiştirmek istersen 'Could I have a twin room instead?'",
         },
@@ -1958,6 +1979,7 @@ export const cefrA2DailyLesson_hotel: BundledLesson = {
             "(what time|when) does breakfast (start|end)",
             "(could you tell me|do you know) the wifi",
           ],
+          model_answers: ["What's the wifi password, please?"],
           hint_tr:
             "'What's the wifi password, please?' veya 'What time does breakfast end?'",
         },
@@ -1974,6 +1996,7 @@ export const cefrA2DailyLesson_hotel: BundledLesson = {
             "(could you|can you) repeat",
             "sorry, the (network|password) (again|one more time)",
           ],
+          model_answers: ["Thank you so much"],
           hint_tr: "'Thank you so much' veya 'Sorry, the password again?'",
         },
         {
@@ -2344,6 +2367,7 @@ export const cefrA2DailyLesson_shopping: BundledLesson = {
             "(could you tell me|do you know) how much",
             "how much is",
           ],
+          model_answers: ["Sorry, how much is this shirt?"],
           hint_tr:
             "İlgilendiğin şeyi sor: 'Sorry, how much is this shirt?'",
         },
@@ -2359,6 +2383,7 @@ export const cefrA2DailyLesson_shopping: BundledLesson = {
             "(do you have it in|do you have a) (medium|large|small)",
             "(actually|first).{0,20}(medium|large|small)",
           ],
+          model_answers: ["Do you have it in medium first?"],
           hint_tr:
             "Denemek için 'Yes, please' veya 'Do you have it in medium first?'",
         },
@@ -2374,6 +2399,7 @@ export const cefrA2DailyLesson_shopping: BundledLesson = {
             "i('m| am) usually a (medium|large|small)",
             "i('m| am) not sure",
           ],
+          model_answers: ["Do you have it in large?"],
           hint_tr: "'A medium, please' veya 'Do you have it in large?'",
         },
         {
@@ -2388,6 +2414,7 @@ export const cefrA2DailyLesson_shopping: BundledLesson = {
             "(could i also (try|see)|i'?ll also try)",
             "(thanks|thank you), (i'?ll be|i'?ll just be) (a minute|right back)",
           ],
+          model_answers: ["Thank you, I'll be a minute"],
           hint_tr: "'Thanks so much' veya 'Thank you, I'll be a minute'.",
         },
         {
@@ -2753,6 +2780,7 @@ export const cefrA2DailyLesson_datetime: BundledLesson = {
             "(how about|what about) (monday|tuesday|wednesday|thursday|friday)",
             "(any day|most days) (works|is fine)",
           ],
+          model_answers: ["I'm free Wednesday and Thursday"],
           hint_tr:
             "'Yes! How about Tuesday?' veya 'I'm free Wednesday and Thursday'.",
         },
@@ -2768,6 +2796,7 @@ export const cefrA2DailyLesson_datetime: BundledLesson = {
             "(\\d+|three|four|five|six)( pm| in the afternoon)?",
             "(in the )?(morning|afternoon|evening)",
           ],
+          model_answers: ["At 4 in the afternoon?"],
           hint_tr: "'How about 3 pm?' veya 'At 4 in the afternoon?'",
         },
         {
@@ -2782,6 +2811,7 @@ export const cefrA2DailyLesson_datetime: BundledLesson = {
             "(the )?(starbucks|cafe|coffee shop) (on|near|by) [a-z'\\- ]+",
             "(you (decide|choose)|up to you|wherever)",
           ],
+          model_answers: ["How about the cafe on Main Street?"],
           hint_tr: "'How about the cafe on Main Street?' veya 'Up to you'.",
         },
         {
@@ -2796,6 +2826,7 @@ export const cefrA2DailyLesson_datetime: BundledLesson = {
             "(can'?t wait|looking forward)",
             "(see you|catch you) (then|tuesday)",
           ],
+          model_answers: ["See you Tuesday at 3!"],
           hint_tr: "'See you Tuesday at 3!' veya 'Sounds great, see you then!'",
         },
       ],
@@ -3156,6 +3187,7 @@ export const cefrA2DailyLesson_weather: BundledLesson = {
             "(my hands|i)('m| am)? (freezing|frozen)",
             "(it'?s|it is) (so |really |very )?cold",
           ],
+          model_answers: ["Yeah, it really is"],
           hint_tr: "'Yeah, it really is' veya 'Tell me about it!'",
         },
         {
@@ -3171,6 +3203,7 @@ export const cefrA2DailyLesson_weather: BundledLesson = {
             "(the forecast (said|says))",
             "(i checked|i saw).{0,20}(forecast|weather)",
           ],
+          model_answers: ["I hope not, I forgot my coat"],
           hint_tr:
             "'Maybe — the forecast said snow' veya 'I hope not, I forgot my coat'.",
         },
@@ -3187,6 +3220,7 @@ export const cefrA2DailyLesson_weather: BundledLesson = {
             "(just )?(running errands|meeting (a friend|someone))",
             "(into )?(town|the city|the centre|the center)",
           ],
+          model_answers: ["I'm meeting a friend downtown"],
           hint_tr: "'To work' veya 'I'm meeting a friend downtown'.",
         },
         {
@@ -3200,6 +3234,7 @@ export const cefrA2DailyLesson_weather: BundledLesson = {
             "(have a good (one|day)|take care)",
             "(thanks|thank you)",
           ],
+          model_answers: ["You too — take care!"],
           hint_tr: "'Thanks, you too!' veya 'You too — take care!'",
         },
       ],
@@ -3561,6 +3596,7 @@ export const cefrA2DailyLesson_lost: BundledLesson = {
             "(could you|can you) help me",
             "i('m| am) looking for",
           ],
+          model_answers: ["Yes, please — I think I'm lost"],
           hint_tr:
             "'Yes, please — I think I'm lost' veya 'Sorry, I'm looking for ___'.",
         },
@@ -3577,6 +3613,7 @@ export const cefrA2DailyLesson_lost: BundledLesson = {
             "(do you know where|where is) [a-z'\\- ]+",
             "to (the )?[a-z'\\- ]+",
           ],
+          model_answers: ["I'm trying to get to the hotel"],
           hint_tr: "'The metro station' veya 'I'm trying to get to the hotel'.",
         },
         {
@@ -3592,6 +3629,7 @@ export const cefrA2DailyLesson_lost: BundledLesson = {
             "(could you|can you) repeat",
             "(thanks|thank you)(,? (so much|a lot))?",
           ],
+          model_answers: ["Could you repeat that?"],
           hint_tr:
             "Tekrar et: 'Straight, then right at the lights — got it'. Yoksa 'Could you repeat that?'",
         },
@@ -3607,6 +3645,7 @@ export const cefrA2DailyLesson_lost: BundledLesson = {
             "(really |i really )?appreciate it",
             "have a (good|great) (day|one)",
           ],
+          model_answers: ["Thank you so much — you're a lifesaver!"],
           hint_tr: "'Thank you so much — you're a lifesaver!'",
         },
         {
@@ -3973,6 +4012,7 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
             "to [a-z'\\- ]+( please)?",
             "(boston|paris|london|new york|chicago)",
           ],
+          model_answers: ["I'd like a return ticket to Paris"],
           hint_tr:
             "'A one-way to Boston, please' veya 'I'd like a return ticket to Paris'.",
         },
@@ -3989,6 +4029,7 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
             "(around |about |at )?\\d+(:\\d\\d)? ?(am|pm)?",
             "(this (morning|afternoon|evening)|tonight|tomorrow (morning|afternoon|evening))",
           ],
+          model_answers: ["What time is the next train?"],
           hint_tr:
             "'What time is the next train?' veya 'Around 3 pm if possible'.",
         },
@@ -4005,6 +4046,7 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
             "(let'?s do|i'?ll take) (the )?\\d+:\\d\\d",
             "how long is the (trip|journey)",
           ],
+          model_answers: ["Let's do the later one"],
           hint_tr: "'The 2:45, please' veya 'Let's do the later one'.",
         },
         {
@@ -4019,6 +4061,7 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
             "(by |with )?(credit )?card",
             "(do you take|can i use) apple pay",
           ],
+          model_answers: ["Card, please"],
           hint_tr: "'Card, please' veya 'Cash, please'.",
         },
         {
@@ -4033,6 +4076,7 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
             "(great|perfect)( thanks)?",
             "(have a good (one|day))",
           ],
+          model_answers: ["Thanks so much!"],
           hint_tr: "'Thanks so much!' veya 'Perfect, thank you!'",
         },
       ],
@@ -4445,6 +4489,7 @@ export const cefrA2DailyLesson_weatherLikes: BundledLesson = {
             "(it'?s|it is) (so |really )?(nice|beautiful|lovely)",
             "(i'?m|i am) really enjoying",
           ],
+          model_answers: ["Yes, I love sunny days!"],
           hint_tr: "'Yes, I love sunny days!' veya 'It's really lovely'.",
         },
         {
@@ -4459,6 +4504,7 @@ export const cefrA2DailyLesson_weatherLikes: BundledLesson = {
             "i (love|like) (summer|winter) (better|more)",
             "(definitely|honestly) (summer|winter)",
           ],
+          model_answers: ["Summer is my favorite"],
           hint_tr: "'I prefer summer' veya 'Summer is my favorite'.",
         },
         {
@@ -4473,6 +4519,7 @@ export const cefrA2DailyLesson_weatherLikes: BundledLesson = {
             "(because |')?(it'?s|i can) (warm|swim|go out|relax)",
             "(in turkey|back home).{0,30}(summer|warm|sunny)",
           ],
+          model_answers: ["I don't like the cold"],
           hint_tr: "'I don't like the cold' veya 'I love the sun'.",
         },
         {
@@ -4487,6 +4534,7 @@ export const cefrA2DailyLesson_weatherLikes: BundledLesson = {
             "i (don'?t|can) (understand|see why)",
             "(do you|where do you) (ski|snowboard)",
           ],
+          model_answers: ["Really? That's nice"],
           hint_tr: "'Really? That's nice' veya 'Do you ski?'",
         },
       ],
@@ -4900,6 +4948,7 @@ export const cefrA2DailyLesson_hobbies: BundledLesson = {
             "(it depends|depends on the day)",
             "i (love|like) (to )?(read|cook|run|swim|paint)",
           ],
+          model_answers: ["I usually go to the gym"],
           hint_tr:
             "'I usually go to the gym' veya 'I often cook at home'.",
         },
@@ -4915,6 +4964,7 @@ export const cefrA2DailyLesson_hobbies: BundledLesson = {
             "(my hobby is|my hobbies are)",
             "i (play|do) (tennis|football|guitar|yoga|chess)",
           ],
+          model_answers: ["Yes, I love cooking"],
           hint_tr: "'Yes, I love cooking' veya 'I play tennis'.",
         },
         {
@@ -4929,6 +4979,7 @@ export const cefrA2DailyLesson_hobbies: BundledLesson = {
             "(on weekends|on (mondays|tuesdays|saturdays))",
             "(\\d+) times (a|per) week",
           ],
+          model_answers: ["Twice a week"],
           hint_tr: "'Twice a week' veya 'On weekends'.",
         },
         {
@@ -4943,6 +4994,7 @@ export const cefrA2DailyLesson_hobbies: BundledLesson = {
             "(at home|at the gym|at a club)",
             "i (go|play) (with|at) [a-z'\\- ]+",
           ],
+          model_answers: ["To the gym near my house"],
           hint_tr: "'To the gym near my house' veya 'At a club downtown'.",
         },
         {
@@ -5367,6 +5419,7 @@ export const cefrA2DailyLesson_family: BundledLesson = {
             "i('m| am) (the )?(only child|oldest|youngest)",
             "(i've got|i have) [a-z\\- ]+ (brothers?|sisters?)",
           ],
+          model_answers: ["Yes, I have two brothers"],
           hint_tr: "'Yes, I have two brothers' veya 'I have one sister'.",
         },
         {
@@ -5381,6 +5434,7 @@ export const cefrA2DailyLesson_family: BundledLesson = {
             "(one is|both are) (older|younger)",
             "(she|he) is \\d+ years (older|younger)",
           ],
+          model_answers: ["My sister is older than me"],
           hint_tr: "'My sister is older than me' veya 'They are both younger'.",
         },
         {
@@ -5395,6 +5449,7 @@ export const cefrA2DailyLesson_family: BundledLesson = {
             "(we live together|with my parents)",
             "(my (brother|sister) lives) in",
           ],
+          model_answers: ["We all live in Istanbul"],
           hint_tr: "'We all live in Istanbul' veya 'My brother lives in Ankara'.",
         },
         {
@@ -5409,6 +5464,7 @@ export const cefrA2DailyLesson_family: BundledLesson = {
             "(we|i) (see|visit) (them|each other) (every|on)",
             "(only|just) (on holidays|sometimes|when i can)",
           ],
+          model_answers: ["Not often — only on holidays"],
           hint_tr: "'Yes, every weekend' veya 'Not often — only on holidays'.",
         },
         {
@@ -5831,6 +5887,7 @@ export const cefrA2DailyLesson_morningRoutine: BundledLesson = {
             "(usually|normally) (at )?\\d+",
             "around \\d+( a\\.?m\\.?)?",
           ],
+          model_answers: ["I get up at 7"],
           hint_tr: "'I get up at 7' veya 'Usually around 7 a.m.'",
         },
         {
@@ -5845,6 +5902,7 @@ export const cefrA2DailyLesson_morningRoutine: BundledLesson = {
             "i (drink|make) (coffee|tea)",
             "i check my phone",
           ],
+          model_answers: ["First, I take a shower"],
           hint_tr: "'First, I take a shower' veya 'I make coffee'.",
         },
         {
@@ -5859,6 +5917,7 @@ export const cefrA2DailyLesson_morningRoutine: BundledLesson = {
             "i have (breakfast|eggs|toast|tea|coffee) (at home|with my family)",
             "(usually|sometimes) (yes|no)",
           ],
+          model_answers: ["Yes, I have breakfast with my family"],
           hint_tr:
             "'Yes, I have breakfast with my family' veya 'No, I grab something on the way'.",
         },
@@ -5874,6 +5933,7 @@ export const cefrA2DailyLesson_morningRoutine: BundledLesson = {
             "i (start|go to) work at \\d+",
             "at \\d+ o'?clock",
           ],
+          model_answers: ["I leave for work at 8"],
           hint_tr: "'I leave for work at 8' veya 'Around 8:15'.",
         },
         {
@@ -5888,6 +5948,7 @@ export const cefrA2DailyLesson_morningRoutine: BundledLesson = {
             "i (drive|walk|cycle)",
             "i go (by|on) [a-z\\- ]+",
           ],
+          model_answers: ["I take the metro"],
           hint_tr: "'I take the metro' veya 'By bus' veya 'I walk'.",
         },
         {

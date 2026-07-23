@@ -121,6 +121,7 @@ export const professionalC1Lesson_1: BundledLesson = {
             "(point to|signal|suggest) (a recovery|improvement|reacceleration|inflection)",
             "(happy to|let me) (walk you through|share|take you through) (the (detail|numbers|underlying))",
           ],
+          model_answers: ["Appreciate the direct question. For context, the miss is concentrated in one segment — leading indicators point to recovery. Happy to walk you through the detail."],
           hint_tr:
             "Aç: kabul + bağlam + öncü göstergeler. 'Appreciate the direct question. For context, the miss is concentrated in one segment — leading indicators point to recovery. Happy to walk you through the detail.'",
         },
@@ -139,6 +140,7 @@ export const professionalC1Lesson_1: BundledLesson = {
             "(early signal|early read|early indication) (is|suggests|is encouraging)",
             "(by (year-end|q2|next cycle)|in the next (60|90) days)",
           ],
+          model_answers: ["Fair callout. SMB softened in November on competitive pricing; we've since repriced. Early read is encouraging — expect normalization by Q2."],
           hint_tr:
             "Kabul + ne değişti + ne yaptık + sinyal. 'Fair callout. SMB softened in November on competitive pricing; we've since repriced. Early read is encouraging — expect normalization by Q2.'",
         },
@@ -157,6 +159,7 @@ export const professionalC1Lesson_1: BundledLesson = {
             "(offset by|absorbed through|covered by) (volume|mix|operating leverage|efficiency)",
             "(we modeled this|the assumption is in plan|already in our q2 guidance)",
           ],
+          model_answers: ["With respect, I'd push back — the reprice is surgical, tier-specific. Margin drag is 30-40 bps, absorbed through mix. Already in our Q2 model."],
           hint_tr:
             "Itiraz et + veri ver. 'With respect, I'd push back — the reprice is surgical, tier-specific. Margin drag is 30-40 bps, absorbed through mix. Already in our Q2 model.'",
         },
@@ -175,6 +178,7 @@ export const professionalC1Lesson_1: BundledLesson = {
             "(would come back to (the board|you) (immediately|within (\\d+ )?(weeks|days)))",
             "(want to make sure (the board|you) (hears|sees) (it )?early)",
           ],
+          model_answers: ["Fair question. The signal I'd watch is net retention slipping below 105. We have a tripwire — I'd come back to the board within two weeks."],
           hint_tr:
             "Şeffaflık + tripwire. 'Fair question. The signal I'd watch is net retention slipping below 105. We have a tripwire — I'd come back to the board within two weeks.'",
         },
@@ -609,6 +613,7 @@ export const professionalC1Lesson_2: BundledLesson = {
             "(one (number|decision|ask) (that matters|i need|from you))",
             "(elevating this (to you )?because|reason this hits your desk)",
           ],
+          model_answers: ["Thanks — I'll keep it tight. Headline: 90-day ship on the migration. Elevating this to you because I need one decision."],
           hint_tr:
             "Aç: 'Thanks — I'll keep it tight. Headline: 90-day ship on the migration. Elevating this to you because I need one decision.'",
         },
@@ -627,6 +632,7 @@ export const professionalC1Lesson_2: BundledLesson = {
             "(\\$\\d+m|\\d+m? in (stalled|blocked|pent-up) (deals|revenue|pipeline))",
             "(unblocks?|releases?|frees up) (the day we (go live|ship|launch))",
           ],
+          model_answers: ["Free up the adjacent team for six weeks. Without it, we slip to Q4 — $4M in stalled deals unblock on go-live."],
           hint_tr:
             "Tek karar + maliyet: 'Free up the adjacent team for six weeks. Without it, we slip to Q4 — $4M in stalled deals unblock on go-live.'",
         },
@@ -645,6 +651,7 @@ export const professionalC1Lesson_2: BundledLesson = {
             "(net-net|on balance|the trade is) (clear|positive|worth it)",
             "(modeled both (paths|options)|put the (math|trade) (on paper|together))",
           ],
+          model_answers: ["Fair question. Their Q3 slips one sprint. I've already aligned with their VP — they're on board. Net-net the trade is clear."],
           hint_tr:
             "Şeffaf trade: 'Fair question. Their Q3 slips one sprint. I've already aligned with their VP — they're on board. Net-net the trade is clear.'",
         },
@@ -661,6 +668,7 @@ export const professionalC1Lesson_2: BundledLesson = {
             "(thanks for|appreciate) (the (call|decision|fast turn)|moving on this)",
             "(one-pager|brief|summary) (today|this afternoon)",
           ],
+          model_answers: ["On it — one-pager in your inbox by noon. Appreciate the fast turn."],
           hint_tr:
             "Kapanış: 'On it — one-pager in your inbox by noon. Appreciate the fast turn.'",
         },
@@ -960,6 +968,7 @@ export const professionalC1Lesson_3: BundledLesson = {
             "(\\d+ (years|decades)|since (\\d{4}|i started))",
             "(most (talks|panels|sessions) (will|tell you))",
           ],
+          model_answers: ["I'll be honest — most talks here will tell you AI changes everything. I'm going to make a different claim."],
           hint_tr:
             "Aç: 'I'll be honest — most talks here will tell you AI changes everything. I'm going to make a different claim.'",
         },
@@ -978,6 +987,7 @@ export const professionalC1Lesson_3: BundledLesson = {
             "(what i'?m about to say comes from|every claim here is grounded in|i'?ve seen this play out)",
             "(scars|hard-won|the hard way|trial and error)",
           ],
+          model_answers: ["Over fifteen years I've built three companies, two exits. What I'm about to say comes from scars, not slides."],
           hint_tr:
             "Credibility: 'Over fifteen years I've built three companies, two exits. What I'm about to say comes from scars, not slides.'",
         },
@@ -995,6 +1005,7 @@ export const professionalC1Lesson_3: BundledLesson = {
             "(applicable on monday|usable next week|something you can act on)",
             "(if you only remember one thing|the headline is|the one idea is)",
           ],
+          model_answers: ["Here's what I want to leave you with — three lessons you can act on Monday. The headline: most companies are solving the wrong problem."],
           hint_tr:
             "Değer: 'Here's what I want to leave you with — three lessons you can act on Monday. The headline: most companies are solving the wrong problem.'",
         },
@@ -1299,6 +1310,7 @@ export const professionalC1Lesson_4: BundledLesson = {
             "(took down|impacted|affected|the platform was unavailable)",
             "(for (\\d+ )?(minutes|hours)|approximately \\d+)",
           ],
+          model_answers: ["I want to start with a clear account. At 14:02 today, a deploy regression took the platform down for 47 minutes. Here's what we know."],
           hint_tr:
             "Aç: 'I want to start with a clear account. At 14:02 today, a deploy regression took the platform down for 47 minutes. Here's what we know.'",
         },
@@ -1317,6 +1329,7 @@ export const professionalC1Lesson_4: BundledLesson = {
             "(i'?m (sorry|the one accountable))",
             "(to (customers|users|our team) — (we owe you|i owe you) (better|an apology))",
           ],
+          model_answers: ["We take full ownership — no excuses, no blame on vendors. The fault sits inside our controls. To our customers: we owe you better."],
           hint_tr:
             "Sahiplen: 'We take full ownership — no excuses, no blame on vendors. The fault sits inside our controls. To our customers: we owe you better.'",
         },
@@ -1335,6 +1348,7 @@ export const professionalC1Lesson_4: BundledLesson = {
             "(\\d+ (enterprise|strategic) (accounts|customers) (have (reached out|escalated|asked for)))",
             "(account team (is|has been) (in (touch|direct contact)|on the phones))",
           ],
+          model_answers: ["Direct exposure — SLA credits around $1.2M. Three enterprise accounts have escalated. Account team is on the phones now. Larger churn risk — too early to size."],
           hint_tr:
             "Şeffaf finans: 'Direct exposure — SLA credits around $1.2M. Three enterprise accounts have escalated. Account team is on the phones now. Larger churn risk — too early to size.'",
         },
@@ -1354,6 +1368,7 @@ export const professionalC1Lesson_4: BundledLesson = {
             "(to prevent recurrence|so this doesn'?t happen again|structural (fix|change))",
             "(deploy gate|canary|gradual rollout|automated rollback)",
           ],
+          model_answers: ["Three things. One: deploy freeze, rolled back. Two: post-mortem published within 72 hours. Three: structural change — canary deploys and automated rollback by end of next sprint."],
           hint_tr:
             "Plan: 'Three things. One: deploy freeze, rolled back. Two: post-mortem published within 72 hours. Three: structural change — canary deploys and automated rollback by end of next sprint.'",
         },
@@ -1372,6 +1387,7 @@ export const professionalC1Lesson_4: BundledLesson = {
             "(updates? (every|on)) (\\d+ ?(hours|days)|cadence|tomorrow)",
             "(my (inbox|door|line) (is open|stays open))",
           ],
+          model_answers: ["Last thing — today fell short. But we're the company that owns it and learns publicly. Updates every 24 hours until closure. My inbox is open."],
           hint_tr:
             "Kapat: 'Last thing — today fell short. But we're the company that owns it and learns publicly. Updates every 24 hours until closure. My inbox is open.'",
         },
@@ -1671,6 +1687,7 @@ export const professionalC1Lesson_5: BundledLesson = {
             "(in the works for (months|several quarters))",
             "(let me put (this|that) in context|what'?s actually behind (this|it) is)",
           ],
+          model_answers: ["Appreciate the question. I'd push back on the framing — this wasn't abrupt. Succession was in the works for months. Let me put it in context."],
           hint_tr:
             "Kabul + çerçeve düzelt: 'Appreciate the question. I'd push back on the framing — this wasn't abrupt. Succession was in the works for months. Let me put it in context.'",
         },
@@ -1689,6 +1706,7 @@ export const professionalC1Lesson_5: BundledLesson = {
             "(no (executive|leader) (deserves|should) (a leaked|a premature) (departure|announcement))",
             "(the (right|standard) sequence is (find|secure) the replacement, then announce)",
           ],
+          model_answers: ["Fair callout. Succession by its nature happens out of public view. The moment we locked the successor we disclosed immediately. The standard sequence is — find the replacement, then announce."],
           hint_tr:
             "Kabul + standart prosedür savun: 'Fair callout. Succession by its nature happens out of public view. The moment we locked the successor we disclosed immediately. The standard sequence is — find the replacement, then announce.'",
         },
@@ -1704,10 +1722,11 @@ export const professionalC1Lesson_5: BundledLesson = {
             "(short-?term (price action|moves|volatility))",
             "(reflects? (uncertainty|the gap until people see))",
             "(over the (long term|next several quarters|cycle))",
-            "(track record|fundamentals|the business itself|the underlying))",
+            "(track record|fundamentals|the business itself|the underlying)",
             "(what i'?m focused on|what we (control|can speak to))",
             "(investor day|earnings call|upcoming update)",
           ],
+          model_answers: ["I won't argue with short-term moves — they reflect uncertainty. What I'm focused on is the fundamentals, and we'll lay them out at investor day."],
           hint_tr:
             "Köprü: 'I won't argue with short-term moves — they reflect uncertainty. What I'm focused on is the fundamentals, and we'll lay them out at investor day.'",
         },
@@ -1726,6 +1745,7 @@ export const professionalC1Lesson_5: BundledLesson = {
             "(the (board|new cfo|leadership team) is (fully aligned|in lockstep))",
             "(upcoming (investor day|earnings|guidance) (will speak to|spells out|details))",
           ],
+          model_answers: ["I won't get into specifics out of respect for a departing colleague. What I can say: strategy is locked, the board is aligned. Investor day will speak to the detail."],
           hint_tr:
             "'No comment' yerine bridge: 'I won't get into specifics out of respect for a departing colleague. What I can say: strategy is locked, the board is aligned. Investor day will speak to the detail.'",
         },
@@ -1744,6 +1764,7 @@ export const professionalC1Lesson_5: BundledLesson = {
             "(elevates|sharpens|accelerates)",
             "(the next (chapter|leg|phase))",
           ],
+          model_answers: ["One-line: we're operationally stronger than the headlines suggest, and the new CFO sharpens the next chapter."],
           hint_tr:
             "Tek satır kapanış: 'One-line: we're operationally stronger than the headlines suggest, and the new CFO sharpens the next chapter.'",
         },
@@ -2043,6 +2064,7 @@ export const professionalC1Lesson_6: BundledLesson = {
             "(thesis (overlap|fit|intersection))",
             "(if we'?re aligned|if there'?s fit|if this lands)",
           ],
+          model_answers: ["Thanks — I'll keep it tight. First, want to qualify: are you active at Series B, and does our space fit your thesis?"],
           hint_tr:
             "Aç: 'Thanks — I'll keep it tight. First, want to qualify: are you active at Series B, and does our space fit your thesis?'",
         },
@@ -2062,6 +2084,7 @@ export const professionalC1Lesson_6: BundledLesson = {
             "(capital efficient|burn (multiple|of)|months of runway)",
             "(\\d+ (employees|fte|team))",
           ],
+          model_answers: ["$8M ARR, growing 140% YoY, NDR 138%, GM 78%, burn multiple 0.6, 32 FTE."],
           hint_tr:
             "Snapshot: '$8M ARR, growing 140% YoY, NDR 138%, GM 78%, burn multiple 0.6, 32 FTE.' — sayı + birim + büyüme.",
         },
@@ -2080,6 +2103,7 @@ export const professionalC1Lesson_6: BundledLesson = {
             "(years to (replicate|catch (up|the data)))",
             "(\\d+x (better|faster|cheaper) than (the incumbent|alternatives))",
           ],
+          model_answers: ["Three layers — proprietary data from 4 years of usage; deep workflow integration (12-month switching cost); 4x faster than incumbents on our core workflow."],
           hint_tr:
             "Moat: 'Three layers — proprietary data from 4 years of usage; deep workflow integration (12-month switching cost); 4x faster than incumbents on our core workflow.'",
         },
@@ -2097,8 +2121,9 @@ export const professionalC1Lesson_6: BundledLesson = {
             "(use of (funds|proceeds)|capital deployment)",
             "(\\d+% (into|toward) (gtm|go-to-market|product|engineering|hiring))",
             "(international (expansion|entry)|enterprise (motion|tier))",
-            "(\\d+ (months|years) of (runway|runway to (cashflow|profitability))))",
+            "(\\d+ (months|years) of (runway|runway to (cashflow|profitability)))",
           ],
+          model_answers: ["Targeting $25M Series B. 60% GTM expansion (enterprise + EMEA), 30% product, 10% reserve. 30 months runway to $40M ARR."],
           hint_tr:
             "Round + use: 'Targeting $25M Series B. 60% GTM expansion (enterprise + EMEA), 30% product, 10% reserve. 30 months runway to $40M ARR.'",
         },
@@ -2118,6 +2143,7 @@ export const professionalC1Lesson_6: BundledLesson = {
             "(if there'?s interest|if you'?d like to go deeper)",
             "(send (the deck|materials|the data room)|book a (longer|deeper) (meeting|partner conversation))",
           ],
+          model_answers: ["Tight process — 6 firms, partner meetings next week, term sheets target end of month, close by Q2. If interested, can send the deck today and book partner meeting."],
           hint_tr:
             "Process: 'Tight process — 6 firms, partner meetings next week, term sheets target end of month, close by Q2. If interested, can send the deck today and book partner meeting.'",
         },
@@ -2422,6 +2448,7 @@ export const professionalC1Lesson_7: BundledLesson = {
             "(anchored at|sit at) (14|14\\.5)",
             "(this isn'?t (positioning|posturing|a starting figure)|we'?ve done the work)",
           ],
+          model_answers: ["Appreciate the directness — let me be equally candid. 12 doesn't get us there. Anchored at 14.5 based on the comp set; this isn't posturing."],
           hint_tr:
             "Anchor savun: 'Appreciate the directness — let me be equally candid. 12 doesn't get us there. Anchored at 14.5 based on the comp set; this isn't posturing.'",
         },
@@ -2440,6 +2467,7 @@ export const professionalC1Lesson_7: BundledLesson = {
             "(is it (a (specific concern|line item|model)|the headline figure))",
             "(structure (could|might) close the gap|where could structure help)",
           ],
+          model_answers: ["I'd hate for this to come apart over a 2.5 turn delta. Help me understand the board's constraint — is it the headline number, or the structure?"],
           hint_tr:
             "Yumuşat + keşfet: 'I'd hate for this to come apart over a 2.5 turn delta. Help me understand the board's constraint — is it the headline number, or the structure?'",
         },
@@ -2459,6 +2487,7 @@ export const professionalC1Lesson_7: BundledLesson = {
             "(over (\\d+ )?(years|months|the (next|first) (12|18|24))) ",
             "(downside protects you|optionality on both sides|aligns incentives)",
           ],
+          model_answers: ["That helps. Let me propose: headline at 12, plus a 3-turn earnout over 24 months on revenue milestones. Downside protects you, upside captures us."],
           hint_tr:
             "Yapı çözüm: 'That helps. Let me propose: headline at 12, plus a 3-turn earnout over 24 months on revenue milestones. Downside protects you, upside captures us.'",
         },
@@ -2478,6 +2507,7 @@ export const professionalC1Lesson_7: BundledLesson = {
             "(we'?re (close|aligned on the shape)|the shape is right)",
             "(want to (lock this|get this done)|both want (this|the deal))",
           ],
+          model_answers: ["I hear you. 12 is too tight. Split the difference at 18 months, quarterly milestones — gives both sides visibility. We're close on shape."],
           hint_tr:
             "Split: 'I hear you. 12 is too tight. Split the difference at 18 months, quarterly milestones — gives both sides visibility. We're close on shape.'",
         },
@@ -2495,6 +2525,7 @@ export const professionalC1Lesson_7: BundledLesson = {
             "(my team can (have|turn) (the term sheet|markups) (by|in) (24 hours|tomorrow))",
             "(want to (close this|get to signature) by (friday|month-?end|the end of the))",
           ],
+          model_answers: ["Appreciate it. On board approval, my team can turn the term sheet in 24 hours. Want to be at signature by month-end."],
           hint_tr:
             "Kapat: 'Appreciate it. On board approval, my team can turn the term sheet in 24 hours. Want to be at signature by month-end.'",
         },
@@ -2794,6 +2825,7 @@ export const professionalC1Lesson_8: BundledLesson = {
             "(what i'?m hearing from each of you)",
             "(correct me where i'?m off|push back if i miss it)",
           ],
+          model_answers: ["Let's pause. I hear each of you — this is legitimate on every side. Let me play back what I'm hearing. Correct me where I'm off."],
           hint_tr:
             "Reset + nötr: 'Let's pause. I hear each of you — this is legitimate on every side. Let me play back what I'm hearing. Correct me where I'm off.'",
         },
@@ -2807,11 +2839,12 @@ export const professionalC1Lesson_8: BundledLesson = {
           acceptable_patterns: [
             "(marketing|on (the )?marketing side) (needs|is asking for|requires) (predictability|a (firm|locked) date|notice)",
             "(engineering|on (the )?engineering side) (needs|is asking for|requires) (a freeze|stability|the time to (ship|test|debug))",
-            "(product|on (the )?product side) (is trying to|needs to|sits in the middle))",
+            "(product|on (the )?product side) (is trying to|needs to|sits in the middle)",
             "(none of (those|these) are (wrong|in conflict at root|unreasonable))",
             "(the actual (tension|conflict) is (timing|sequence|notice window))",
             "(am i (capturing it|hearing it right|missing anything))",
           ],
+          model_answers: ["Marketing needs predictability and notice. Engineering needs a freeze to ship quality. Product is trying to bridge both. The actual tension is the notice window. Am I capturing it?"],
           hint_tr:
             "Pozisyonları adlandır: 'Marketing needs predictability and notice. Engineering needs a freeze to ship quality. Product is trying to bridge both. The actual tension is the notice window. Am I capturing it?'",
         },
@@ -2829,9 +2862,10 @@ export const professionalC1Lesson_8: BundledLesson = {
             "(commit to a (locked|hard) (freeze|date) (today|this week))",
             "(\\d+-?day notice window|guaranteed)",
             "(if (we|eng) slip|in the event of (a )?slippage)",
-            "(escalation (path|trigger|gate)|automatic (notice|trigger) to))",
+            "(escalation (path|trigger|gate)|automatic (notice|trigger) to)",
             "(does that work for (each of you|the room|everyone))",
           ],
+          model_answers: ["Let me try to land this. Hard freeze locked today. Marketing gets 14-day notice — guaranteed. If eng slips, automatic notice triggers. Does that work for the room?"],
           hint_tr:
             "Yapı: 'Let me try to land this. Hard freeze locked today. Marketing gets 14-day notice — guaranteed. If eng slips, automatic notice triggers. Does that work for the room?'",
         },
@@ -2848,9 +2882,10 @@ export const professionalC1Lesson_8: BundledLesson = {
             "(by (eod|tomorrow|friday)|within 48 hours)",
             "(want to (write this up|document|capture this))",
             "(one-?pager|memo|decision (memo|doc))",
-            "(circulate (it|the doc) (to all parties|for sign-?off|today)))",
+            "(circulate (it|the doc) (to all parties|for sign-?off|today))",
             "(check-?ins? (monthly|every two weeks|at the gates))",
           ],
+          model_answers: ["Fair ask. I'll take the freeze to exec by EOD — you have cover. Will write up the decision memo tonight, circulate for sign-off. Monthly check-ins at the gates."],
           hint_tr:
             "Sahiplen: 'Fair ask. I'll take the freeze to exec by EOD — you have cover. Will write up the decision memo tonight, circulate for sign-off. Monthly check-ins at the gates.'",
         },
@@ -3150,6 +3185,7 @@ export const professionalC1Lesson_9: BundledLesson = {
             "(i'?m raising this because|the reason i'?m bringing this up|i'?m sharing this because)",
             "(want (this|you) to (succeed|work|land well)|respect what you'?ve built)",
           ],
+          model_answers: ["Thanks for the time. There's something I want to raise — won't be easy to hear, but I'd be doing you a disservice not to. I want this to work for you."],
           hint_tr:
             "Aç: 'Thanks for the time. There's something I want to raise — won't be easy to hear, but I'd be doing you a disservice not to. I want this to work for you.'",
         },
@@ -3169,6 +3205,7 @@ export const professionalC1Lesson_9: BundledLesson = {
             "(it'?s starting to (affect|show up in)|morale|trust|engagement)",
             "(\\d+ (people|folks|individuals) have mentioned)",
           ],
+          model_answers: ["In the last three reviews, junior PMs got cut off mid-thought. Three different people have mentioned it to me. It's showing up in morale."],
           hint_tr:
             "Kanıt + sonuç: 'In the last three reviews, junior PMs got cut off mid-thought. Three different people have mentioned it to me. It's showing up in morale.'",
         },
@@ -3183,11 +3220,12 @@ export const professionalC1Lesson_9: BundledLesson = {
             "(i (hear|appreciate|see) (you|that))",
             "(it'?s not (an indictment|a verdict|the whole story))",
             "(specific moments|pattern|tendency under pressure)",
-            "(under (pressure|time pressure|stress)|in tight reviews|when the clock is tight))",
+            "(under (pressure|time pressure|stress)|in tight reviews|when the clock is tight)",
             "(easy to (miss|not see|overlook) (in real-?time|in the moment))",
             "(none of us see (it|ourselves|the impact) (clearly|in real time))",
             "(want to (offer|share) what i'?m hearing|wanted you to (hear it from me|have the chance))",
           ],
+          model_answers: ["I hear you. It's not the whole story — it's a pattern under tight reviews. Easy to miss in real time. Wanted you to hear it from me before it became something bigger."],
           hint_tr:
             "Yumuşat ama geri çekilme: 'I hear you. It's not the whole story — it's a pattern under tight reviews. Easy to miss in real time. Wanted you to hear it from me before it became something bigger.'",
         },
@@ -3200,12 +3238,13 @@ export const professionalC1Lesson_9: BundledLesson = {
           speaker: "user",
           acceptable_patterns: [
             "(one (simple|practical|concrete) thing|a small (shift|tweak|practice))",
-            "(pause (after|before|for a beat)|count to three|sit with))",
+            "(pause (after|before|for a beat)|count to three|sit with)",
             "(let (the junior|the question) (land|finish|breathe))",
             "(check-?in (after|at the end of meetings)|loop back (privately|after))",
             "(ask (the room|folks) (what'?s missing|who hasn'?t spoken|who else))",
             "(name (the dynamic|it explicitly)|model it (out loud|publicly))",
           ],
+          model_answers: ["One simple thing — when a junior raises a point, pause for a beat. Let it land. Ask"],
           hint_tr:
             "Pratik öneri: 'One simple thing — when a junior raises a point, pause for a beat. Let it land. Ask 'who else has a read' before reacting. Small shift, big read.'",
         },
@@ -3224,6 +3263,7 @@ export const professionalC1Lesson_9: BundledLesson = {
             "(i'?ve (got|have) your back|in your corner)",
             "(rooting for (you|this to land))",
           ],
+          model_answers: ["Appreciate you hearing it. Sit with it — no rush. I've got your back. Happy to check in in a few weeks."],
           hint_tr:
             "Kapat: 'Appreciate you hearing it. Sit with it — no rush. I've got your back. Happy to check in in a few weeks.'",
         },
@@ -3522,6 +3562,7 @@ export const professionalC1Lesson_10: BundledLesson = {
             "(my (counsel|attorney|lawyer) is (present|on the line))",
             "(happy to (proceed|cooperate|engage))",
           ],
+          model_answers: ["Yes, I understand and consent to the recording. My counsel is present. Happy to proceed."],
           hint_tr:
             "Onay: 'Yes, I understand and consent to the recording. My counsel is present. Happy to proceed.'",
         },
@@ -3540,6 +3581,7 @@ export const professionalC1Lesson_10: BundledLesson = {
             "(before (confirming|stating|answering on) (a specific quote|exact wording))",
             "(want my (answer|response) to be precise)",
           ],
+          model_answers: ["To the best of my recollection, the October 12 meeting did occur, but I don't recall the exact wording. I'd want to review the meeting notes before confirming a specific quote. I want to be precise."],
           hint_tr:
             "Temkin: 'To the best of my recollection, the October 12 meeting did occur, but I don't recall the exact wording. I'd want to review the meeting notes before confirming a specific quote. I want to be precise.'",
         },
@@ -3551,13 +3593,14 @@ export const professionalC1Lesson_10: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(the performance (record|history|documentation|review) (speaks to that|is (the (right|authoritative) source))",
+            "(the performance (record|history|documentation|review) (speaks to that|is (the (right|authoritative) source)))",
             "(formal (reviews|performance documentation|written feedback))",
             "(in the (file|hr record|documentation))",
             "(i would (defer to|point to|refer to) (the (written record|performance file|formal documentation)))",
             "(rather than (speak to|characterize) (it )?from memory|i don'?t want to (paraphrase|generalize))",
             "(can speak to specifics (from )?the documentation (with you|together))",
           ],
+          model_answers: ["The performance record is the authoritative source. I'd refer to the formal documentation rather than characterize from memory. Happy to walk through specifics from the record."],
           hint_tr:
             "Belgeye yönlendir: 'The performance record is the authoritative source. I'd refer to the formal documentation rather than characterize from memory. Happy to walk through specifics from the record.'",
         },
@@ -3576,6 +3619,7 @@ export const professionalC1Lesson_10: BundledLesson = {
             "(don'?t want to (generalize|paraphrase|speak in (broad|general) terms))",
             "(in (recorded|formal) (settings|interviews))",
           ],
+          model_answers: ["I'd want to distinguish general impressions from specific incidents. If you point me to particular instances, I'd address those — I don't want to generalize in a recorded setting."],
           hint_tr:
             "Spesifik ol: 'I'd want to distinguish general impressions from specific incidents. If you point me to particular instances, I'd address those — I don't want to generalize in a recorded setting.'",
         },
@@ -3594,6 +3638,7 @@ export const professionalC1Lesson_10: BundledLesson = {
             "(after (reviewing|the chance to review) (the (documentation|relevant materials|notes)))",
             "(want to be (helpful|cooperative) (and )?accurate)",
           ],
+          model_answers: ["Appreciate the question. Nothing substantive to add at this point. I'd reserve the right to supplement after reviewing the documentation. Want to be both cooperative and accurate."],
           hint_tr:
             "Kapanış: 'Appreciate the question. Nothing substantive to add at this point. I'd reserve the right to supplement after reviewing the documentation. Want to be both cooperative and accurate.'",
         },
@@ -3906,6 +3951,7 @@ export const professionalC1Lesson_11: BundledLesson = {
             "(within (our )?scenario planning|in our planning envelope|within the planning band)",
             "(our north star remains|the north star is still|north star unchanged)",
           ],
+          model_answers: ["Let me frame it. Q3 highlights include record NRR, two new verticals, and margin expansion. On the headwinds front, EMEA softened — within our scenario planning. Our north star remains durable, capital-efficient growth."],
           hint_tr:
             "Açılış triptiği: 'Let me frame it. Q3 highlights include record NRR, two new verticals, and margin expansion. On the headwinds front, EMEA softened — within our scenario planning. Our north star remains durable, capital-efficient growth.'",
         },
@@ -3924,6 +3970,7 @@ export const professionalC1Lesson_11: BundledLesson = {
             "(operating margin would have (cleared|exceeded|come in at))",
             "(underlying (business|run-rate) is (stronger|healthier) than the headline)",
           ],
+          model_answers: ["Fair push. Three drivers — mix shift into higher-tier, pricing discipline, and operating leverage. Were it not for FX drag, margin would have cleared 32. Underlying business is stronger than the headline suggests."],
           hint_tr:
             "Subjunctive + drivers: 'Fair push. Three drivers — mix shift into higher-tier, pricing discipline, and operating leverage. Were it not for FX drag, margin would have cleared 32. Underlying business is stronger than the headline suggests.'",
         },
@@ -3943,6 +3990,7 @@ export const professionalC1Lesson_11: BundledLesson = {
             "(we'?ve (already )?(deployed|launched|repriced|stood up))",
             "(by (q4|year-end|the next read)|tripwire (is|set at))",
           ],
+          model_answers: ["Honest read — predominantly cyclical, sector-wide. But I'd be doing the board a disservice if I didn't flag a share dynamic in mid-market. We've already repriced; tripwire set at NRR below 108 by year-end."],
           hint_tr:
             "Şeffaf çerçeveleme: 'Honest read — predominantly cyclical, sector-wide. But I'd be doing the board a disservice if I didn't flag a share dynamic in mid-market. We've already repriced; tripwire set at NRR below 108 by year-end.'",
         },
@@ -3962,6 +4010,7 @@ export const professionalC1Lesson_11: BundledLesson = {
             "(by (q1|the next meeting|the january session))",
             "(north star (filter|test|lens))",
           ],
+          model_answers: ["The one decision — capital allocation for the next twelve months. Without committing prematurely, I'd come back to the board with a structured paper by Q1, run through the north star filter."],
           hint_tr:
             "Stratejik kapanış: 'The one decision — capital allocation for the next twelve months. Without committing prematurely, I'd come back to the board with a structured paper by Q1, run through the north star filter.'",
         },
@@ -4279,6 +4328,7 @@ export const professionalC1Lesson_12: BundledLesson = {
             "(an? (acquisition|deal|process) (per se|specifically))",
             "(think of (this|tonight) as|treat (this|tonight) as) (a (structured exploration|conversation|first sounding))",
           ],
+          model_answers: ["Appreciate the directness. Without committing prematurely, we're exploring strategic options. It would be premature to characterise this as an acquisition per se — think of tonight as a structured exploration."],
           hint_tr:
             "Yumuşak açılış: 'Appreciate the directness. Without committing prematurely, we're exploring strategic options. It would be premature to characterise this as an acquisition per se — think of tonight as a structured exploration.'",
         },
@@ -4299,6 +4349,7 @@ export const professionalC1Lesson_12: BundledLesson = {
             "(we might have broached (this|the conversation) earlier|would have raised this sooner)",
             "(under the right structure|with the right framing|in the right form)",
           ],
+          model_answers: ["Fair push. What's on our mind is the strategic fit. Your platform sits naturally alongside ours. Had the timing been different, we might have broached this earlier — under the right structure, a deeper conversation feels right."],
           hint_tr:
             "Bir adım açıl: 'Fair push. What's on our mind is the strategic fit. Your platform sits naturally alongside ours. Had the timing been different, we might have broached this earlier — under the right structure, a deeper conversation feels right.'",
         },
@@ -4318,6 +4369,7 @@ export const professionalC1Lesson_12: BundledLesson = {
             "(give both sides (an off-ramp|optionality|the ability to walk))",
             "(no leak risk|tight (perimeter|circle)|need-to-know basis)",
           ],
+          model_answers: ["Thoughtful frame. Mutual NDA first, then 4 to 6 weeks of two-way diligence. No exclusivity until structure clarity. Your board kept in the loop in parallel. Tight perimeter, off-ramp on both sides."],
           hint_tr:
             "Yapı çiz: 'Thoughtful frame. Mutual NDA first, then 4 to 6 weeks of two-way diligence. No exclusivity until structure clarity. Your board kept in the loop in parallel. Tight perimeter, off-ramp on both sides.'",
         },
@@ -4337,6 +4389,7 @@ export const professionalC1Lesson_12: BundledLesson = {
             "(not in (anchor|number) territory tonight|wouldn'?t want to anchor over dinner)",
             "(your evening (isn'?t|wouldn'?t be) wasted)",
           ],
+          model_answers: ["It would be premature to anchor a number tonight. Without prejudicing the conversation, public comparables suggest we're in a live zone. Your evening is not being wasted — I just wouldn't want to anchor over a dinner."],
           hint_tr:
             "Değerleme hedge: 'It would be premature to anchor a number tonight. Without prejudicing the conversation, public comparables suggest we're in a live zone. Your evening is not being wasted — I just wouldn't want to anchor over a dinner.'",
         },
@@ -4354,6 +4407,7 @@ export const professionalC1Lesson_12: BundledLesson = {
             "(your team can (lead|run) the (drafting|first pass))",
             "(look forward to (the next|a deeper) (sounding|conversation|sit-down))",
           ],
+          model_answers: ["Grateful for the openness. Mutual NDA in your inbox by Wednesday — tight circle on our side. Happy for your team to lead the drafting. Look forward to the deeper sounding."],
           hint_tr:
             "Kapanış: 'Grateful for the openness. Mutual NDA in your inbox by Wednesday — tight circle on our side. Happy for your team to lead the drafting. Look forward to the deeper sounding.'",
         },
@@ -4667,6 +4721,7 @@ export const professionalC1Lesson_13: BundledLesson = {
             "(this is on me|the misread is mine|that accountability sits with me)",
             "(if i could have absorbed (this|it) without affecting (the team|you), i would have)",
           ],
+          model_answers: ["You deserve a straight answer. The honest one — we saw the softening in Q2, but I misread how long it would last. This is on me. If I could have absorbed it without affecting the team, I would have."],
           hint_tr:
             "Sorumluluk üstlen: 'You deserve a straight answer. The honest one — we saw the softening in Q2, but I misread how long it would last. This is on me. If I could have absorbed it without affecting the team, I would have.'",
         },
@@ -4686,6 +4741,7 @@ export const professionalC1Lesson_13: BundledLesson = {
             "(your record (here|over ten years) is (exemplary|strong|undisputed))",
             "(this isn'?t a verdict on (you|your value|your work))",
           ],
+          model_answers: ["Fair question. I won't dodge it. The criteria were role consolidation and forward-looking capability mix, not performance. Your ten-year record is undisputed. This isn't a verdict on you."],
           hint_tr:
             "Şeffaf kriter + onur: 'Fair question. I won't dodge it. The criteria were role consolidation and forward-looking capability mix, not performance. Your ten-year record is undisputed. This isn't a verdict on you.'",
         },
@@ -4705,6 +4761,7 @@ export const professionalC1Lesson_13: BundledLesson = {
             "(my (network|rolodex|introductions) (is|are) yours|i'?ll (open|put) every door (i can|open for you))",
             "(you can (use|put) my name (and number|directly) on (your )?cv)",
           ],
+          model_answers: ["You're owed specifics. Six months of severance, accelerated equity, healthcare through end of year, dedicated outplacement coach. My network is yours — put my name directly on your CV."],
           hint_tr:
             "Somut + cömert: 'You're owed specifics. Six months of severance, accelerated equity, healthcare through end of year, dedicated outplacement coach. My network is yours — put my name directly on your CV.'",
         },
@@ -4724,6 +4781,7 @@ export const professionalC1Lesson_13: BundledLesson = {
             "(transparency (now|from this point on)|monthly (updates|reads))",
             "(no more (surprises|blindsides)|no second (round|wave) (without|in absence of))",
           ],
+          model_answers: ["Tell them what you saw — don't soften it for me. It would be premature to ask for trust. What they can count on is monthly transparent updates and no second wave without us being straight first."],
           hint_tr:
             "İnce sorumluluk: 'Tell them what you saw — don't soften it for me. It would be premature to ask for trust. What they can count on is monthly transparent updates and no second wave without us being straight first.'",
         },
@@ -4741,6 +4799,7 @@ export const professionalC1Lesson_13: BundledLesson = {
             "(at any (point|stage|hour))",
             "(this conversation (matters|stays with me|i won'?t forget))",
           ],
+          model_answers: ["Thank you for staying — you didn't have to. My door stays open at any hour. This conversation stays with me."],
           hint_tr:
             "Kapanış: 'Thank you for staying — you didn't have to. My door stays open at any hour. This conversation stays with me.'",
         },
@@ -5054,6 +5113,7 @@ export const professionalC1Lesson_14: BundledLesson = {
             "(commissioning|standing up|engaging) (an? (independent|external) (review|investigation|inquiry|counsel))",
             "(without prejudging (the (investigation|review|inquiry|process))|won'?t prejudge)",
           ],
+          model_answers: ["Thank you for being on the call. Let me be unequivocal — we take this seriously. Effective immediately, the program is suspended and we are commissioning an independent external review. Without prejudging the investigation, we will be transparent."],
           hint_tr:
             "Açılış: 'Thank you for being on the call. Let me be unequivocal — we take this seriously. Effective immediately, the program is suspended and we are commissioning an independent external review. Without prejudging the investigation, we will be transparent.'",
         },
@@ -5072,6 +5132,7 @@ export const professionalC1Lesson_14: BundledLesson = {
             "(accountability for (the system|the culture|what happens (under|on) my watch) (sits|rests) with me)",
             "(the independent review will (look at|examine|address) (escalation|what was known|when))",
           ],
+          model_answers: ["Fair question. To my knowledge I was not personally aware of the specifics. But I won't shelter behind that — accountability for what happens on my watch sits with me. The independent review will examine what was known and when."],
           hint_tr:
             "Kişisel bilgi + sistemik sorumluluk: 'Fair question. To my knowledge I was not personally aware of the specifics. But I won't shelter behind that — accountability for what happens on my watch sits with me. The independent review will examine what was known and when.'",
         },
@@ -5091,6 +5152,7 @@ export const professionalC1Lesson_14: BundledLesson = {
             "(we will act on them (publicly|in the open|transparently))",
             "(the bar (i hold us to|we are accountable to) is higher than)",
           ],
+          model_answers: ["It would be premature to characterise the culture either way without the review. What I won't do is dismiss the question. If the review surfaces systemic drivers, we will act on them publicly. The bar I hold us to is higher than the law alone."],
           hint_tr:
             "Etiketten kaç + taahhüt: 'It would be premature to characterise the culture either way without the review. What I won't do is dismiss the question. If the review surfaces systemic drivers, we will act on them publicly. The bar I hold us to is higher than the law alone.'",
         },
@@ -5111,6 +5173,7 @@ export const professionalC1Lesson_14: BundledLesson = {
             "(we are committing to (publish|share) (the (findings|substantive findings|core findings))|findings will be published)",
             "(in a form that doesn'?t (compromise|prejudice) (witnesses|individuals|the process))",
           ],
+          model_answers: ["Let me take those one at a time. On disciplinary action — I won't prejudge individuals; where findings warrant, consequences will follow at every level, including my own. On publication — we are committing to share the substantive findings, in a form that protects witnesses."],
           hint_tr:
             "İki ayır: 'Let me take those one at a time. On disciplinary action — I won't prejudge individuals; where findings warrant, consequences will follow at every level, including my own. On publication — we are committing to share the substantive findings, in a form that protects witnesses.'",
         },
@@ -5131,6 +5194,7 @@ export const professionalC1Lesson_14: BundledLesson = {
             "(if (the findings|the review) (conclude|find) (i fell short|my conduct fell short))",
             "(i will (act on that|step aside|do the right thing) (myself|without prompting))",
           ],
+          model_answers: ["A question I've sat with. Had it broken earlier, I would have acted on what I knew. Whether I remain CEO isn't my call alone — that's the board's judgement. What I can commit to is this: if the findings conclude my conduct fell short, I will act on that without prompting."],
           hint_tr:
             "Sorumluluğun keskin köşesi: 'A question I've sat with. Had it broken earlier, I would have acted on what I knew. Whether I remain CEO isn't my call alone — that's the board's judgement. What I can commit to is this: if the findings conclude my conduct fell short, I will act on that without prompting.'",
         },

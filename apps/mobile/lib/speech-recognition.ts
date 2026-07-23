@@ -21,6 +21,7 @@
 // available / unavailable branches.
 
 import { Audio } from "expo-av";
+import { captureException } from "./sentry";
 import { stop as stopTts } from "./tts";
 
 type SpeechResultEvent = {
@@ -89,7 +90,7 @@ let restorePlaybackAfterEnd = false;
 // ki driver tarafında drift olmasın. interruption + Android flag'ları tts.ts'in
 // ensureAudioModeForTts() bloğuyla birebir aynı — yalnız allowsRecordingIOS
 // farklı, çünkü tek değişen oydu.
-async function setAudioSessionForRecording(): Promise<void> {
+async function setAudioSessionForRecording(): Promise<boolean> {
   try {
     await Audio.setAudioModeAsync({
       playsInSilentModeIOS: true,
@@ -100,9 +101,13 @@ async function setAudioSessionForRecording(): Promise<void> {
       shouldDuckAndroid: true,
       playThroughEarpieceAndroid: false,
     });
-  } catch {
-    // Best effort — başarısız olursa STT yine deneyecek, native modül
-    // kendi error event'i ile sinyalleyecek.
+    return true;
+  } catch (err) {
+    captureException(err, {
+      module: "speech-recognition",
+      stage: "setAudioSessionForRecording",
+    });
+    return false;
   }
 }
 
@@ -117,8 +122,11 @@ async function setAudioSessionForPlayback(): Promise<void> {
       shouldDuckAndroid: true,
       playThroughEarpieceAndroid: false,
     });
-  } catch {
-    // ignore — TTS path zaten kendi setAudioModeAsync'ini deneyecek
+  } catch (err) {
+    captureException(err, {
+      module: "speech-recognition",
+      stage: "setAudioSessionForPlayback",
+    });
   }
 }
 
@@ -162,10 +170,29 @@ export async function isAvailable(): Promise<boolean> {
 // 2026-05-26 — Permission status detail (canAskAgain) için extended interface.
 // "Don't Allow" basan kullanıcı bir daha dialog göremez — UI'da Settings'e
 // CTA göstermek için ayrım gerekli.
-type PermissionStatus = {
+export type PermissionStatus = {
   granted: boolean;
   canAskAgain: boolean;
 };
+
+export async function getPermissionStatus(): Promise<PermissionStatus> {
+  const mod = loadModule();
+  if (!mod || typeof mod.getPermissionsAsync !== "function") {
+    return { granted: false, canAskAgain: Boolean(mod) };
+  }
+  try {
+    const res = (await mod.getPermissionsAsync()) as {
+      granted?: boolean;
+      canAskAgain?: boolean;
+    };
+    return {
+      granted: Boolean(res?.granted),
+      canAskAgain: res?.canAskAgain !== false,
+    };
+  } catch {
+    return { granted: false, canAskAgain: false };
+  }
+}
 
 export async function requestPermission(): Promise<boolean> {
   const status = await requestPermissionStatus();
@@ -271,7 +298,11 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
       // ignore
     }
 
-    await setAudioSessionForRecording();
+    const audioSessionReady = await setAudioSessionForRecording();
+    if (!audioSessionReady) {
+      opts.onError(new Error("speech recognition audio session failed"));
+      return;
+    }
     restorePlaybackAfterEnd = true;
 
     if (opts.signal?.aborted) {
@@ -334,6 +365,8 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
         } catch {
           // listener throw ederse temizliği engelleme
         }
+      } else if (!finalEmitted && !opts.signal?.aborted) {
+        opts.onError(new Error("no speech detected"));
       }
       finishListening();
     });
@@ -345,6 +378,7 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
     // safety net olarak büyük tutuyoruz.
     const timeoutMs = opts.timeoutMs ?? 12000;
     activeTimeout = setTimeout(() => {
+      opts.onError(new Error("speech recognition timed out"));
       void stopListening();
     }, timeoutMs);
 

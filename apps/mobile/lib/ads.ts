@@ -36,7 +36,7 @@ import mobileAds, {
   type RequestOptions,
 } from "react-native-google-mobile-ads";
 
-import { isPremium } from "./iap";
+import { getPremiumStatus } from "./iap";
 import { grantRewardedPremium } from "./rewarded";
 import { trackEvent } from "./analytics";
 import { captureMessage } from "./sentry";
@@ -145,8 +145,8 @@ let _loadingInterstitial = false;
  * görmüş, "Devam et" basmış olur → ads geçişi natural).
  */
 export async function onScenarioComplete(): Promise<void> {
-  const premium = await isPremium().catch(() => false);
-  if (premium) return;
+  const premium = await getPremiumStatus().catch(() => "unknown" as const);
+  if (premium !== "inactive") return;
   if (!_initialized) await initAds();
 
   _scenarioCount += 1;
@@ -245,9 +245,15 @@ export async function showRewardedAd(): Promise<RewardedResult> {
     return { ok: false, reason: "Reklam zaten yükleniyor" };
   }
   // Premium kullanıcı için CTA gösterilmemeli ama defensive guard.
-  const premium = await isPremium().catch(() => false);
-  if (premium) {
+  const premium = await getPremiumStatus().catch(() => "unknown" as const);
+  if (premium === "active") {
     return { ok: false, reason: "Zaten premium aktif" };
+  }
+  if (premium === "unknown") {
+    return {
+      ok: false,
+      reason: "Premium durumu doğrulanamadı. Bağlantını kontrol edip tekrar dene.",
+    };
   }
   if (!_initialized) await initAds();
 

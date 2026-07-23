@@ -119,6 +119,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
             "(170|175|180|185|closer to)",
             "(is there (any |some )?(flexibility|room|movement))",
           ],
+          model_answers: ["Thanks — based on market, I was hoping closer to 175. Is there flexibility?"],
           hint_tr:
             "Tesekkur + data referansi + spesifik rakam: 'Thanks — based on market, I was hoping closer to 175. Is there flexibility?'",
         },
@@ -135,6 +136,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
             "(170 to 185|range of|landing at)",
             "(equity (story|grant)|total comp|TC)",
           ],
+          model_answers: ["Talked to peers at comparable companies + Levels.fyi shows 170-185 for this level."],
           hint_tr:
             "Konkret kaynaklar: 'Talked to peers at comparable companies + Levels.fyi shows 170-185 for this level.'",
         },
@@ -151,6 +153,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
             "(could we (get to|land at|do)|what about|how about) (172|173|175)",
             "(equity|sign-on|signing bonus) (to help|to bridge|to close)",
           ],
+          model_answers: ["Could we land at 173 — or 170 with a sign-on to close the gap?"],
           hint_tr:
             "Daha da yukari it veya equity/sign-on ekle: 'Could we land at 173 — or 170 with a sign-on to close the gap?'",
         },
@@ -167,6 +170,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
             "(could (i|we) (get|see) (something|that) in writing|written offer)",
             "(let me (think|sit with|sleep on)|24 hours|by tomorrow)",
           ],
+          model_answers: ["That would work — could I see it in writing?"],
           hint_tr:
             "Net cevap: 'That would work — could I see it in writing?' veya '24 saatte kesin cevap.'",
         },
@@ -562,6 +566,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
             "(specific (example|situation|moment)|concrete (example|case))",
             "(did you have|was there|any moment that)",
           ],
+          model_answers: ["Thanks — help me understand, was there a specific situation you had in mind?"],
           hint_tr:
             "Tesekkur + spesifik ornek iste: 'Thanks — help me understand, was there a specific situation you had in mind?'",
         },
@@ -578,6 +583,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
             "(weekly (sync|update|note)|status doc|broadcast)",
             "(could you (share|tell me)|help me see) (what good|what better) looks like",
           ],
+          model_answers: ["Fair — that said, I did send weekly notes. Could you share what better looks like to you?"],
           hint_tr:
             "Kismi kabul + counter-context: 'Fair — that said, I did send weekly notes. Could you share what better looks like to you?'",
         },
@@ -594,6 +600,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
             "(proactive (risk|comms)|earlier (loop|sync))",
             "(check in (in|after) (a month|6 weeks|Q1)|revisit)",
           ],
+          model_answers: ["Got it — going to focus on proactive risk flags. Could we check in in 6 weeks?"],
           hint_tr:
             "Aksiyon + takip: 'Got it — going to focus on proactive risk flags. Could we check in in 6 weeks?'",
         },
@@ -610,6 +617,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
             "(owned|drove|led) (the )?(Q2|alignment)",
             "(another (example|case)|different moment)",
           ],
+          model_answers: ["I'd see Q2 a bit differently — I drove that alignment. Was there a different moment in mind?"],
           hint_tr:
             "Yumusak pushback: 'I'd see Q2 a bit differently — I drove that alignment. Was there a different moment in mind?'",
         },
@@ -871,6 +879,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
             "(start with|open with) (the (positive|strong)|what('s| is) working)",
             "(strong year|really impressed by|great work on)",
           ],
+          model_answers: ["Thanks for making time — wanted to share a few things. Start with what's working."],
           hint_tr:
             "Sicak baslangic: 'Thanks for making time — wanted to share a few things. Start with what's working.'",
         },
@@ -885,6 +894,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
             "(was (really|incredibly) strong|landed (well|cleanly)|impressed by)",
             "(stakeholder|cross-functional|exec) (alignment|comms|relationships)",
           ],
+          model_answers: ["The Q2 launch work was incredibly strong — exec alignment was clean."],
           hint_tr:
             "Spesifik pozitif: 'The Q2 launch work was incredibly strong — exec alignment was clean.'",
         },
@@ -902,6 +912,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
             "(decisions (got made|landed) without|team missed|lost your)",
             "(senior (perspective|read|take|view))",
           ],
+          model_answers: ["One area to grow — noticed in Q3 planning you stepped back, team lost your senior read."],
           hint_tr:
             "SBI: 'One area to grow — noticed in Q3 planning you stepped back, team lost your senior read.'",
         },
@@ -918,6 +929,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
             "(senior (in the room|signal|weight)|people look to you)",
             "(would love to see|would help if|what would help)",
           ],
+          model_answers: ["That's fair — that said, people look to you as a senior in the room. Would love to see you speak up earlier."],
           hint_tr:
             "Validate sonra steer: 'That's fair — that said, people look to you as a senior in the room. Would love to see you speak up earlier.'",
         },
@@ -933,6 +945,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
             "(first 10 (minutes|min)|opening)",
             "(check in|catch up|revisit) (next month|in 6 weeks|q1)",
           ],
+          model_answers: ["Maybe commit to raising your view in the first 10 minutes — check in next month?"],
           hint_tr:
             "Konkret aksiyon + takip: 'Maybe commit to raising your view in the first 10 minutes — check in next month?'",
         },
@@ -1199,6 +1212,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
             "(my (thinking|read|reasoning|take))",
             "(open to (hearing|being wrong)|hear me out)",
           ],
+          model_answers: ["I'd push back a bit — can I walk you through my thinking?"],
           hint_tr:
             "Yumusak acilis: 'I'd push back a bit — can I walk you through my thinking?'",
         },
@@ -1214,6 +1228,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
             "(building (the wrong|something off)|risk of (waste|missing))",
             "(what (signal|data) we (have|are seeing))",
           ],
+          model_answers: ["Customer research isn't done — risk of building the wrong cut."],
           hint_tr:
             "Spesifik gerekce: 'Customer research isn't done — risk of building the wrong cut.'",
         },
@@ -1231,6 +1246,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
             "(parallel (track|path)|in parallel)",
             "(same (date|deadline|launch))",
           ],
+          model_answers: ["2-week research sprint in parallel — keeps the date."],
           hint_tr:
             "Alternatif: '2-week research sprint in parallel — keeps the date.'",
         },
@@ -1246,6 +1262,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
             "(rope in (research|user research|UXR)|partner with)",
             "(by (friday|end of (next )?week)|status (sync|update))",
           ],
+          model_answers: ["Happy to run it — will rope in UXR, status sync Friday."],
           hint_tr:
             "Sahiplen: 'Happy to run it — will rope in UXR, status sync Friday.'",
         },
@@ -1261,6 +1278,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
             "(thanks for (hearing|considering)|appreciate (you|the trust))",
             "(your call|ultimately your)",
           ],
+          model_answers: ["On it — thanks for hearing me out. Your call ultimately."],
           hint_tr:
             "Kapanis: 'On it — thanks for hearing me out. Your call ultimately.'",
         },
@@ -1526,6 +1544,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
             "(this (cycle|review|round))",
             "(happy to walk (you )?through|share the case)",
           ],
+          model_answers: ["Wanted to put my name forward for senior this cycle. Happy to walk through the case."],
           hint_tr:
             "Net acilis: 'Wanted to put my name forward for senior this cycle. Happy to walk through the case.'",
         },
@@ -1543,6 +1562,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
             "(coordinated|aligned|partnered with) (three|3) (teams|squads)",
             "(error rate|p99|latency).{0,30}(40|down|drop)",
           ],
+          model_answers: ["Two quarters at level — owned auth migration end-to-end across three teams, error rate down 40%."],
           hint_tr:
             "ZAMAN + SCOPE + IMPACT: 'Two quarters at level — owned auth migration end-to-end across three teams, error rate down 40%.'",
         },
@@ -1559,6 +1579,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
             "(led (the )?(design review|architecture (review|forum))|drove (cross-team|org-wide))",
             "(rfc|tech spec|design doc).{0,20}(adopted|landed|shipped)",
           ],
+          model_answers: ["Mentoring two juniors + ran the platform design review — RFC adopted across three squads."],
           hint_tr:
             "Sayisal influence: 'Mentoring two juniors + ran the platform design review — RFC adopted across three squads.'",
         },
@@ -1575,6 +1596,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
             "(by (end of week|friday|monday)|in a few days)",
             "(peer feedback|sponsors|reviewers)",
           ],
+          model_answers: ["This cycle is right. Sending you an impact one-pager by Friday + lining up peer feedback."],
           hint_tr:
             "Konkret sonraki adim: 'This cycle is right. Sending you an impact one-pager by Friday + lining up peer feedback.'",
         },
@@ -1841,6 +1863,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
             "(want to (hear|get) both|both sides|both perspectives)",
             "(maya('s| is) (turn|view) next|then maya)",
           ],
+          model_answers: ["Let's take the heat down — I hear you. Want both perspectives — Maya, you're next."],
           hint_tr:
             "Kolaylastirici acilis: 'Let's take the heat down — I hear you. Want both perspectives — Maya, you're next.'",
         },
@@ -1857,6 +1880,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
             "(quality (product|launch)|good experience|right thing for users)",
             "(question is (how|the path)|disagreement is on)",
           ],
+          model_answers: ["Thanks both. You want the same thing — quality launch. The question is the path."],
           hint_tr:
             "Yeniden cerceve: 'Thanks both. You want the same thing — quality launch. The question is the path.'",
         },
@@ -1873,6 +1897,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
             "(end of (today|day|eod)|by (tomorrow|noon))",
             "(user (feedback|testing) (into|in) (next sprint|v2)|defer (changes|those) to v2)",
           ],
+          model_answers: ["How about spec freeze by EOD — user testing feedback goes into v2."],
           hint_tr:
             "Konkret oneri: 'How about spec freeze by EOD — user testing feedback goes into v2.'",
         },
@@ -1889,6 +1914,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
             "(what (do you need|would help|do you want))",
             "(parking lot|v2 list|next sprint backlog)",
           ],
+          model_answers: ["Maya — works for you? What goes into the v2 parking lot?"],
           hint_tr:
             "Maya'yi celp: 'Maya — works for you? What goes into the v2 parking lot?'",
         },
@@ -1905,6 +1931,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
             "(check in (friday|end of week)|sync (in (2|two) days|tomorrow))",
             "(spec freeze|v2 list).{0,30}(in writing|on (the )?doc|written down)",
           ],
+          model_answers: ["Thanks both — let's write it up. Sync Friday on v2 list."],
           hint_tr:
             "Kapanis + takip: 'Thanks both — let's write it up. Sync Friday on v2 list.'",
         },
@@ -2170,6 +2197,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
             "(on the (date|timeline|six (weeks|wks)))",
             "(can we (chat|talk|sync) (for|about) (a sec|the trade-off))",
           ],
+          model_answers: ["Thanks for the heads-up — want to flag a risk on the 6 weeks. Can we sync?"],
           hint_tr:
             "Sicak baslangic + sinyal: 'Thanks for the heads-up — want to flag a risk on the 6 weeks. Can we sync?'",
         },
@@ -2185,6 +2213,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
             "(8 (or |to )?(9 )?weeks|two extra weeks)",
             "(scope as (it is|currently)|with current scope)",
           ],
+          model_answers: ["6 wks tight with current scope — honest ETA is 8-9."],
           hint_tr:
             "Spesifik: '6 wks tight with current scope — honest ETA is 8-9.'",
         },
@@ -2202,6 +2231,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
             "(cut scope|drop (the )?(SSO|reporting|filters)|defer (feature|module))",
             "(skip (QA|polish|the audit)|ship rough)",
           ],
+          model_answers: ["If date is locked — we'd cut SSO and reporting, or skip QA. Which?"],
           hint_tr:
             "Trade-off ver: 'If date is locked — we'd cut SSO and reporting, or skip QA. Which?'",
         },
@@ -2218,6 +2248,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
             "(qa (coverage )?(on (sso|auth)|the critical path))",
             "(written down|i('ll| will) (update|adjust) the (plan|spec|roadmap))",
           ],
+          model_answers: ["Works — reporting goes to v1.1. I'll update the plan."],
           hint_tr:
             "Onayla + dokumante et: 'Works — reporting goes to v1.1. I'll update the plan.'",
         },
@@ -2233,6 +2264,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
             "(thanks for (hearing|listening|considering))",
             "(your call|appreciate (the trust|you backing))",
           ],
+          model_answers: ["On it — thanks for hearing me out."],
           hint_tr:
             "Kapanis: 'On it — thanks for hearing me out.'",
         },
@@ -2493,6 +2525,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
             "(want to (hand|put) (this|the migration) (to|over to|on) you)",
             "(think you('re| are) ready|good fit|right person)",
           ],
+          model_answers: ["Thanks for jumping in — want to put the migration on you. Think you're ready."],
           hint_tr:
             "Sicak baslangic: 'Thanks for jumping in — want to put the migration on you. Think you're ready.'",
         },
@@ -2508,6 +2541,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
             "(working (prototype|migration)|fully migrated)",
             "(by (end of (month|q1|quarter))|eom|by next month)",
           ],
+          model_answers: ["You're the DRI. Outcome I need: working migration by EOM."],
           hint_tr:
             "Outcome ver: 'You're the DRI. Outcome I need: working migration by EOM.'",
         },
@@ -2525,6 +2559,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
             "(loop me in (on|when)|escalate (on|when))",
             "(infra (cost|spend)|security|breaks (something|prod))",
           ],
+          model_answers: ["Weekly 15 min sync + async status doc. Loop me in on infra cost or security."],
           hint_tr:
             "Kadans + escalation: 'Weekly 15 min sync + async status doc. Loop me in on infra cost or security.'",
         },
@@ -2541,6 +2576,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
             "(my read isn't (always|guaranteed)|i can be wrong|don't (default to|just) agree)",
             "(slack|ping|grab me)",
           ],
+          model_answers: ["Escalate same day if blocked. If you disagree — push back, my read isn't always right."],
           hint_tr:
             "Disagreement davet et: 'Escalate same day if blocked. If you disagree — push back, my read isn't always right.'",
         },
@@ -2558,6 +2594,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
             "(no production downtime|zero downtime|backward compatible)",
             "(write it (up|down)|doc|plan).{0,20}(by (friday|end of week))",
           ],
+          model_answers: ["Hard constraint — zero downtime. Send me a plan by Friday."],
           hint_tr:
             "Kisitlar net: 'Hard constraint — zero downtime. Send me a plan by Friday.'",
         },
@@ -2822,6 +2859,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
             "(last day|final day|notice)",
             "(august 15|in (4|four) weeks|4 weeks notice)",
           ],
+          model_answers: ["Wanted to let you know — I've made the decision to move on. Last day August 15."],
           hint_tr:
             "Net + sicak: 'Wanted to let you know — I've made the decision to move on. Last day August 15.'",
         },
@@ -2839,6 +2877,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
             "(nothing about (the team|you|the manager)|not (a culture|a comp) thing)",
             "(time for|right time to) (move|take the step)",
           ],
+          model_answers: ["Combination — really about the next chapter for me. Not a team or comp issue."],
           hint_tr:
             "Acik ama spesifik degil: 'Combination — really about the next chapter for me. Not a team or comp issue.'",
         },
@@ -2855,6 +2894,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
             "(not (a comp|a title|a number) thing|isn't about (the money|title))",
             "(want to make this (clean|right)|focus on (handoff|transition))",
           ],
+          model_answers: ["Means a lot — decision is final. Not about comp. Want to focus on clean handoff."],
           hint_tr:
             "Kapali ama sicak: 'Means a lot — decision is final. Not about comp. Want to focus on clean handoff.'",
         },
@@ -2872,6 +2912,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
             "(week (3|3-4)|last (two|2) (weeks|wks)) (interview (cover|coverage)|review (cover|coverage))",
             "(introducing|warm intro|handoff) (stakeholder|partner|clients)",
           ],
+          model_answers: ["W1 docs, W2 shadow with successor, W3-4 stakeholder handoffs."],
           hint_tr:
             "Konkret plan: 'W1 docs, W2 shadow with successor, W3-4 stakeholder handoffs.'",
         },
@@ -2888,6 +2929,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
             "(stay (in touch|connected)|keep (in touch|the door))",
             "(announcement (timing|together)|when (and how|do) (we|i) tell the team)",
           ],
+          model_answers: ["Would mean a lot to stay in touch + LinkedIn rec. Let's align on team announcement."],
           hint_tr:
             "Iki istek: 'Would mean a lot to stay in touch + LinkedIn rec. Let's align on team announcement.'",
         },
@@ -3155,6 +3197,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
             "(decision is (firm|final|made)|hasn't changed)",
             "(want to be (upfront|straight|honest))",
           ],
+          model_answers: ["Really appreciate this — genuinely flattered. Decision is firm. Want to be upfront."],
           hint_tr:
             "Sicak + kesin: 'Really appreciate this — genuinely flattered. Decision is firm. Want to be upfront.'",
         },
@@ -3171,6 +3214,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
             "(about what('s| is) ahead|about (the next chapter|where i('m| am) going))",
             "(not (the push from here|escape)|pull forward)",
           ],
+          model_answers: ["Not about comp or title. It's about the next chapter — the pull forward."],
           hint_tr:
             "Reddet REASON ile: 'Not about comp or title. It's about the next chapter — the pull forward.'",
         },
@@ -3187,6 +3231,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
             "(don't want to (keep|go) (back and forth|relitigating))",
             "(closing this (conversation|chapter)|moving forward)",
           ],
+          model_answers: ["I hear you — decision is firm. Don't want to keep going back and forth."],
           hint_tr:
             "Tekrar net: 'I hear you — decision is firm. Don't want to keep going back and forth.'",
         },
@@ -3204,6 +3249,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
             "(linkedin|reference|recommendation)",
             "(door (open|stays open) (both ways)?|never know)",
           ],
+          model_answers: ["Means a lot — focus on clean handoff. Want to stay in touch. Door stays open both ways."],
           hint_tr:
             "Sicak kapanis: 'Means a lot — focus on clean handoff. Want to stay in touch. Door stays open both ways.'",
         },
@@ -3219,6 +3265,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
             "(been (a privilege|formative|a real chapter)|shaped how i)",
             "(send (over|across) (the (transition|handoff) plan|the doc)|by (friday|tomorrow))",
           ],
+          model_answers: ["Truly grateful — been a real chapter. Sending the transition plan by Friday."],
           hint_tr:
             "Son cumle: 'Truly grateful — been a real chapter. Sending the transition plan by Friday.'",
         },
@@ -3488,6 +3535,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
             "(driving|spearheading|leading) (growth|cross[- ]functional|launches)",
             "(40%|north star|activation|b2b saas)",
           ],
+          model_answers: ["Senior PM spearheading cross-functional growth — driving activation as north star."],
           hint_tr:
             "Net rol + impact verb + metrik: 'Senior PM spearheading cross-functional growth — driving activation as north star.'",
         },
@@ -3504,6 +3552,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
             "(across|in|over) (three|3) (markets|countries|segments)",
             "(b2b saas|enterprise|smb|mid[- ]market)",
           ],
+          model_answers: ["Right — 40% activation lift across three markets, B2B SaaS."],
           hint_tr:
             "Spesifik metrik: 'Right — 40% activation lift across three markets, B2B SaaS.' Soyutluk yok, sayi koy.",
         },
@@ -3520,6 +3569,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
             "(delivered|shipped|drove) (40%|measurable|outsized)",
             "(known for|reputation for|where i (shine|thrive))",
           ],
+          model_answers: ["Over the past three years I spearheaded cross-functional launches and delivered 40% growth."],
           hint_tr:
             "About acilisi: 'Over the past three years I spearheaded cross-functional launches and delivered 40% growth.' Verb-strong, metrik.",
         },
@@ -3536,6 +3586,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
             "(adjacent terms|related keywords|ATS-friendly)",
             "(under (skills|about)|in (the )?headline|throughout)",
           ],
+          model_answers: ["Probably not — need to weave platform and API into headline and skills."],
           hint_tr:
             "ATS gercegi: 'Probably not — need to weave platform and API into headline and skills.' Recruiter algoritmasi keyword arar.",
         },
@@ -3552,6 +3603,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
             "(partnering with|alongside) (eng|design|leadership)",
             "(unlocked|enabled|drove) (\\$|\\d+%) (revenue|growth|adoption)",
           ],
+          model_answers: ["Spearheaded re-platforming with eng + design — cut latency 60%, unlocked $2M ARR."],
           hint_tr:
             "Bullet formula: 'Spearheaded re-platforming with eng + design — cut latency 60%, unlocked $2M ARR.'",
         },
@@ -3825,6 +3877,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
             "(then|after that|next).{0,40}(mid[- ]?level|ICs|builders)",
             "(culture|operating rhythm|rituals) (last|finally|after that)",
           ],
+          model_answers: ["Three phases — senior leads first, then mid-level builders, then operating rituals."],
           hint_tr:
             "Frame ile basla: 'Three phases — senior leads first, then mid-level builders, then operating rituals.' Listele, somutlasir.",
         },
@@ -3842,6 +3895,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
             "(my (last|previous) company|at \\w+( inc| corp)?|in my (last|previous) role)",
             "(scaled (from )?(\\d+) to (\\d+)|grew (\\d+x|\\d+ to \\d+)|tripled the team)",
           ],
+          model_answers: ["If I'd loaded juniors first, I'd have been micromanaging. At my last company I scaled 8 to 24 senior-first."],
           hint_tr:
             "Counterfactual + ornek: 'If I'd loaded juniors first, I'd have been micromanaging. At my last company I scaled 8 to 24 senior-first.'",
         },
@@ -3859,6 +3913,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
             "(accountability|hold(ing)? the line|outcomes)",
             "(what vs how|the 'what'.{0,20}'how'|set the what)",
           ],
+          model_answers: ["Three pillars: clarity, autonomy, accountability. I set the what — team owns the how."],
           hint_tr:
             "Standart frame: 'Three pillars: clarity, autonomy, accountability. I set the what — team owns the how.'",
         },
@@ -3876,6 +3931,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
             "(disagree (and )?commit|move forward together|align (and )?execute)",
             "(my (last|previous) (call|decision)|specific (case|moment))",
           ],
+          model_answers: ["I welcome it — steel-man their case. If they're right, change. If not, disagree-and-commit together."],
           hint_tr:
             "Modern senior leader cevabi: 'I welcome it — steel-man their case. If they're right, change. If not, disagree-and-commit together.'",
         },
@@ -3892,6 +3948,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
             "(days 60[- ]?90|month three|third month) .{0,40}(roadmap (reset|v2|revision)|hiring (plan|kickoff)|ship)",
             "(no big moves|won('t| not) (rewrite|reshape) (anything|the plan))",
           ],
+          model_answers: ["First 30 listen, 30-60 synthesize north star, 60-90 roadmap reset and hiring plan."],
           hint_tr:
             "30-60-90 klasigi: 'First 30 listen, 30-60 synthesize north star, 60-90 roadmap reset and hiring plan.'",
         },
@@ -4164,6 +4221,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
             "(equity (story|side|piece)|RSU)",
             "(refresh|growth|year (3|three|four|4))",
           ],
+          model_answers: ["Thanks — I was targeting 420 total comp. Equity story is where I'd push."],
           hint_tr:
             "Total comp framework ile counter: 'Thanks — I was targeting 420 total comp. Equity story is where I'd push.'",
         },
@@ -4181,6 +4239,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
             "(cliff|vest(ing)? (schedule|terms))",
             "(if i (delivered|hit|outperform)|on top performance|tied to)",
           ],
+          model_answers: ["Push grant to 800 + year-two refresh. Tie to performance."],
           hint_tr:
             "Equity'yi park et: 'Push grant to 800 + year-two refresh. Tie to performance.' Base degil, RSU + refresh.",
         },
@@ -4198,6 +4257,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
             "(double trigger|change of control|acceleration on)",
             "(refresh (commitment|guarantee|in writing)|year (2|two|3))",
           ],
+          model_answers: ["Walk me through the schedule. Monthly vest? Cliff stays? Double trigger on change of control?"],
           hint_tr:
             "Sorgula: 'Walk me through the schedule. Monthly vest? Cliff stays? Double trigger on change of control?'",
         },
@@ -4214,6 +4274,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
             "(refresh|year (2|two|3|three)) (commitment|guarantee|in writing)",
             "(15% to 20%|bump (the )?bonus|target bonus to 20)",
           ],
+          model_answers: ["That's closer — could we also lock in a year-two refresh commitment in writing?"],
           hint_tr:
             "Bir adim daha: 'That's closer — could we also lock in a year-two refresh commitment in writing?'",
         },
@@ -4231,6 +4292,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
             "(verbal yes|happy to commit|that works)",
             "(in writing|written offer|sent over)",
           ],
+          model_answers: ["Performance-gated works. That puts me at ~410 annualized. Verbal yes — send it in writing?"],
           hint_tr:
             "Hesapla, kapat: 'Performance-gated works. That puts me at ~410 annualized. Verbal yes — send it in writing?'",
         },
@@ -4503,6 +4565,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
             "(owns|anchors|carries) (stakeholder alignment|alignment across)",
             "(translates|bridges|converts) (technical|complex)",
           ],
+          model_answers: ["Top strength — consistently drives velocity by 25%, owns stakeholder alignment, translates technical decisions cleanly."],
           hint_tr:
             "Imza formul: 'Top strength — consistently drives velocity by 25%, owns stakeholder alignment, translates technical decisions cleanly.'",
         },
@@ -4520,6 +4583,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
             "(without (her|sarah)|had she not|if she hadn'?t)",
             "(would('ve| have) (slipped|missed|landed))",
           ],
+          model_answers: ["In Q3 migration, when scope shifted, Sarah held alignment. Without her, we'd have slipped two weeks."],
           hint_tr:
             "Spesifik moment + counterfactual: 'In Q3 migration, when scope shifted, Sarah held alignment. Without her, we'd have slipped two weeks.'",
         },
@@ -4536,6 +4600,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
             "(cross[- ]team|to leadership|in (broader|wider) forums)",
             "(her (insight|read|take)s? .{0,20}(don't (always )?reach|stay in (the )?room))",
           ],
+          model_answers: ["One area to level up — making her strategic thinking more visible to leadership. Her insights don't always reach the broader room."],
           hint_tr:
             "Yumusak format: 'One area to level up — making her strategic thinking more visible to leadership. Her insights don't always reach the broader room.'",
         },
@@ -4552,6 +4617,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
             "(her (strategic|cross[- ]team) (memos|write[- ]ups|posts)|publishing (more|her thinking))",
             "(specific behavior|concrete habit|observable)",
           ],
+          model_answers: ["Fair flag — reframe as behavior: publish more strategic write-ups cross-team. Concrete, not personality."],
           hint_tr:
             "Bias sinyaline duyarli: 'Fair flag — reframe as behavior: publish more strategic write-ups cross-team. Concrete, not personality.'",
         },
@@ -4568,6 +4634,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
             "(if she'?d had the (title|scope)|with the next level scope)",
             "(would('ve| have) (already|landed))",
           ],
+          model_answers: ["Strong yes — operating one level up already. If she'd had the title in Q3, the cross-org call would have landed faster."],
           hint_tr:
             "Promo recommendation: 'Strong yes — operating one level up already. If she'd had the title in Q3, the cross-org call would have landed faster.'",
         },

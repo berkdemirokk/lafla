@@ -87,6 +87,18 @@ function combinedScore(a: string, b: string): number {
   return 0.65 * lev + 0.35 * tokenOverlap(a, b);
 }
 
+// Levenshtein distance is intentionally tolerant of small transcription
+// errors, but a missing negation is not a small error: "I can" and "I can't"
+// are only one character apart after normalization and have opposite meaning.
+// Keep polarity outside the fuzzy score so contradictory answers can never be
+// promoted to a correct match merely because their spelling is similar.
+const SEMANTIC_NEGATION =
+  /\b(no|not|never|dont|doesnt|didnt|cant|cannot|wont|isnt|arent|wasnt|werent|without)\b/i;
+
+function hasSemanticNegation(input: string): boolean {
+  return SEMANTIC_NEGATION.test(normalize(input));
+}
+
 function bandFromSimilarity(sim: number): Confidence {
   if (sim >= 0.95) return "high";
   if (sim >= 0.85) return "medium";
@@ -117,7 +129,13 @@ export function matchPhrase(input: {
   let bestSim = 0;
   let bestVar = candidates[0]!;
   for (const variant of candidates) {
-    const sim = combinedScore(normalizedInput, normalize(variant));
+    const normalizedVariant = normalize(variant);
+    const hasCompatiblePolarity =
+      hasSemanticNegation(normalizedInput) ===
+      hasSemanticNegation(normalizedVariant);
+    const sim = hasCompatiblePolarity
+      ? combinedScore(normalizedInput, normalizedVariant)
+      : 0;
     if (sim > bestSim) {
       bestSim = sim;
       bestVar = variant;
@@ -181,11 +199,27 @@ export interface BundledLesson {
   exercises: ReadonlyArray<Record<string, unknown>>;
 }
 
+export interface RoleplayMistake {
+  matched: string;
+  reason_tr: string;
+  correct_example: string;
+}
+
 export interface ExerciseResult {
   exercise_id: string;
   exercise_type: string;
   correct: boolean;
   score: number;
+  /** First-attempt independent performance, with guided support capped. */
+  mastery_score?: number;
+  /** Roleplay turns completed with choices, hints, or immediate repair. */
+  assisted_turns?: number;
+  /** Mistakes detected in this completed roleplay, in encounter order. */
+  mistakes?: RoleplayMistake[];
+  /** Final learner response for each completed roleplay turn. */
+  user_responses?: string[];
+  /** Authored natural target response for each completed roleplay turn. */
+  target_responses?: string[];
   feedback?: string;
 }
 
@@ -338,8 +372,8 @@ export function evaluateWordOrder(
  *
  * Grading:
  *   - empty / single stray char       → 0
- *   - 1-2 English-ish words           → 30 (you attempted something)
- *   - 3+ English-ish words            → 60 (substantive attempt)
+ *   - 1-2 English-ish words           → 20 (short attempt, not correctness)
+ *   - 3+ English-ish words            → 50 (substantive attempt, not correctness)
  *   - full acceptable_pattern match   → 100
  *
  * Scene fluency banding (computeSceneFluency) still segments low/mid/high
@@ -383,16 +417,161 @@ function stripFillers(input: string): string {
   return text.trim().replace(/\s+/g, " ");
 }
 
+const ROLEPLAY_STOPWORDS = new Set([
+  "a", "an", "the",
+  "i", "im", "id", "ill", "ive", "me", "my", "mine",
+  "you", "your", "yours",
+  "he", "she", "it", "we", "they", "them", "us",
+  "am", "is", "are", "was", "were", "be", "been", "being",
+  "do", "does", "did",
+  "can", "could", "would", "will", "shall", "may", "might",
+  "to", "for", "of", "in", "on", "at", "by", "with", "from",
+  "about", "as", "and", "or", "but",
+  "this", "that", "these", "those", "there", "here",
+  "just", "really", "very", "so", "well", "then", "now",
+  "too", "also", "please",
+]);
+
+const ROLEPLAY_SYNONYMS: Record<string, string> = {
+  ok: "yes",
+  okay: "yes",
+  yep: "yes",
+  yup: "yes",
+  yeah: "yes",
+  sure: "yes",
+  absolutely: "yes",
+  thanks: "thank",
+  appreciated: "thank",
+  appreciate: "thank",
+  sorry: "apologize",
+  apologies: "apologize",
+  apologize: "apologize",
+  apologise: "apologize",
+  reschedule: "move",
+  postpone: "move",
+  pushed: "move",
+  push: "move",
+  moved: "move",
+  moving: "move",
+  delay: "late",
+  delayed: "late",
+  traffic: "traffic",
+  stuck: "late",
+  held: "late",
+  meet: "see",
+  meeting: "see",
+  call: "phone",
+  calling: "phone",
+  text: "message",
+  dm: "message",
+  assist: "help",
+  helping: "help",
+  purchase: "buy",
+  buying: "buy",
+  grab: "get",
+  take: "get",
+  taking: "get",
+  need: "need",
+  must: "need",
+  want: "want",
+  like: "want",
+};
+
+function hasRoleplayNegation(input: string): boolean {
+  return hasSemanticNegation(input);
+}
+
+function patternExpressesNegation(pattern: string): boolean {
+  // Turn regex syntax into token boundaries before checking. This catches
+  // authored alternatives such as `(no|not really)` without trying to infer
+  // arbitrary regular-expression semantics.
+  return hasSemanticNegation(pattern.replace(/[^a-zA-Z'’]+/g, " "));
+}
+
+function matchRoleplayPatterns(input: string, patterns: string[]): boolean {
+  const eligiblePatterns = hasRoleplayNegation(input)
+    ? patterns.filter(patternExpressesNegation)
+    : patterns;
+  return matchAgainstPatterns(input, eligiblePatterns);
+}
+
+function hasPoliteOrAckMarker(input: string): boolean {
+  return /\b(please|thanks?|thank you|sure|yes|yeah|yep|ok|okay|absolutely)\b/i.test(
+    input,
+  );
+}
+
+function normalizeIntentToken(token: string): string | null {
+  let normalized = ROLEPLAY_SYNONYMS[token] ?? token;
+  if (normalized.length > 5 && normalized.endsWith("ing")) {
+    normalized = normalized.slice(0, -3);
+  } else if (normalized.length > 4 && normalized.endsWith("ed")) {
+    normalized = normalized.slice(0, -2);
+  } else if (normalized.length > 4 && normalized.endsWith("s")) {
+    normalized = normalized.slice(0, -1);
+  }
+  normalized = ROLEPLAY_SYNONYMS[normalized] ?? normalized;
+  if (ROLEPLAY_STOPWORDS.has(normalized)) return null;
+  if (normalized.length < 2) return null;
+  return normalized;
+}
+
+function roleplayIntentTokens(input: string): Set<string> {
+  return new Set(
+    normalize(input)
+      .split(" ")
+      .map(normalizeIntentToken)
+      .filter((token): token is string => Boolean(token)),
+  );
+}
+
+function modelAnswerIntentScore(candidate: string, model: string): number {
+  if (hasRoleplayNegation(candidate) !== hasRoleplayNegation(model)) return 0;
+
+  const candidateTokens = roleplayIntentTokens(candidate);
+  const modelTokens = roleplayIntentTokens(model);
+  if (candidateTokens.size === 0 || modelTokens.size === 0) return 0;
+
+  let overlap = 0;
+  for (const token of candidateTokens) {
+    if (modelTokens.has(token)) overlap += 1;
+  }
+  if (overlap === 0) return 0;
+
+  const modelCoverage = overlap / modelTokens.size;
+  const candidateCoverage = overlap / candidateTokens.size;
+
+  if (modelTokens.size === 1) {
+    return overlap === 1 &&
+      (candidateTokens.size === 1 || hasPoliteOrAckMarker(candidate))
+      ? 0.82
+      : 0;
+  }
+
+  if (modelTokens.size === 2) {
+    if (overlap === 2) return 0.86;
+    return 0;
+  }
+
+  if (overlap >= 2 && modelCoverage >= 0.5) return 0.86;
+  if (overlap >= 2 && modelCoverage >= 0.4 && candidateCoverage >= 0.6) {
+    return 0.82;
+  }
+  if (overlap >= 3 && modelCoverage >= 0.35) return 0.8;
+  return 0;
+}
+
 export function evaluateRoleplayTurn(
   patterns: string[],
   input: string,
+  modelAnswers: string[] = [],
 ): { matched: boolean; score: number } {
   const trimmed = input.trim();
   if (!trimmed) return { matched: false, score: 0 };
 
   // Pass 1: original input — backward compatible, catches patterns that
   // intentionally include filler ("oh, sure").
-  if (matchAgainstPatterns(trimmed, patterns)) {
+  if (matchRoleplayPatterns(trimmed, patterns)) {
     return { matched: true, score: 100 };
   }
 
@@ -400,16 +579,52 @@ export function evaluateRoleplayTurn(
   // surrounding fillers ("uh yeah, sure okay" → "sure" matches).
   const stripped = stripFillers(trimmed);
   if (stripped !== trimmed && stripped.length > 0) {
-    if (matchAgainstPatterns(stripped, patterns)) {
+    if (matchRoleplayPatterns(stripped, patterns)) {
       // Slight penalty (95 not 100) — user TECHNICALLY said the right
       // thing but filler-heavy. Encourages cleaner production over time.
       return { matched: true, score: 95 };
     }
   }
 
+  // Natural wording can be valid without matching a hand-authored regex.
+  // Compare only against explicit model answers from the lesson hint; this
+  // adds tolerance without declaring arbitrary long text correct.
+  if (modelAnswers.length > 0) {
+    const candidates =
+      stripped.length > 0 && stripped !== trimmed
+        ? [trimmed, stripped]
+        : [trimmed];
+
+    for (const candidate of candidates) {
+      const compatibleModels = modelAnswers.filter(
+        (model) => hasRoleplayNegation(model) === hasRoleplayNegation(candidate),
+      );
+      if (compatibleModels.length > 0) {
+        const modelMatch = matchPhrase({
+          user_text: candidate,
+          accepted_variants: compatibleModels,
+        });
+        if (modelMatch.matched) {
+          return { matched: true, score: 90 };
+        }
+        const intentScore = Math.max(
+          ...compatibleModels.map((model) =>
+            modelAnswerIntentScore(candidate, model),
+          ),
+        );
+        if (intentScore >= 0.8) {
+          return { matched: true, score: Math.round(intentScore * 100) };
+        }
+      }
+    }
+  }
+
   const words = trimmed.split(/\s+/).filter((w) => w.length >= 2);
-  if (words.length >= 3) return { matched: false, score: 60 };
-  if (words.length >= 1) return { matched: false, score: 30 };
+  // Word count proves effort, not semantic correctness. Keep unmatched
+  // attempts below the success threshold so the UI can teach + retry instead
+  // of reporting a plausible-looking but false "60/100 correct" result.
+  if (words.length >= 3) return { matched: false, score: 50 };
+  if (words.length >= 1) return { matched: false, score: 20 };
 
   return { matched: false, score: 0 };
 }

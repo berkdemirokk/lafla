@@ -7,6 +7,7 @@ import { SpeakerButton } from "../SpeakerButton";
 import { tokens } from "../../theme";
 import { hapticForScore } from "../../lib/feedback";
 import { evaluateSpotMistake, type ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   incorrectSentence: string;
@@ -21,6 +22,7 @@ export function SpotMistake({
   trExplanation,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
   // 2026-05-26 (P1 audit fix) — double-tap guard (haptic + evaluate çift fire).
@@ -42,10 +44,10 @@ export function SpotMistake({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Hatayı bul ve düzelt</Text>
+      <Text style={styles.prompt}>{t("exercise.spot_mistake.title")}</Text>
 
       <View style={styles.errorBox}>
-        <Text style={styles.errorLabel}>❌ Hatalı</Text>
+        <Text style={styles.errorLabel}>{t("exercise.incorrect")}</Text>
         <Text style={styles.errorText}>{incorrectSentence}</Text>
       </View>
 
@@ -54,7 +56,7 @@ export function SpotMistake({
           styles.input,
           result && (result.correct ? styles.inputOk : styles.inputMiss),
         ]}
-        placeholder="Doğrusunu yaz..."
+        placeholder={t("exercise.write_correction")}
         placeholderTextColor={tokens.text.secondary}
         value={input}
         onChangeText={setInput}
@@ -62,6 +64,7 @@ export function SpotMistake({
         editable={!result}
         autoCapitalize="sentences"
         autoCorrect={false}
+        accessibilityLabel={t("exercise.correct_sentence_label")}
       />
 
       {result && (
@@ -75,19 +78,21 @@ export function SpotMistake({
             <Text style={styles.feedbackTitle}>
               {result.correct
                 ? `✓ ${result.score}/100`
-                : `✗ Doğrusu: "${correctSentence}"`}
+                : t("exercise.correct_answer_quoted", { answer: correctSentence })}
             </Text>
             <SpeakerButton text={correctSentence} size="sm" />
           </View>
           {trExplanation && (
-            <Text style={styles.feedbackText}>{trExplanation}</Text>
+            <Text style={styles.feedbackText}>
+              {locale === "tr" ? trExplanation : t("learning.explanation_fallback_en")}
+            </Text>
           )}
         </View>
       )}
 
       <View style={styles.footer}>
         <Button
-          label={result ? "Devam et →" : "Kontrol et"}
+          label={result ? `${t("common.continue")} →` : t("exercise.check")}
           onPress={result ? () => onComplete(result) : submit}
           disabled={!result && !input.trim()}
         />
@@ -146,9 +151,9 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.base,
   },
   feedbackOk: {
-    backgroundColor: "rgba(246, 255, 0, 0.12)",
+    backgroundColor: tokens.semantic.successContainer,
     borderWidth: 1,
-    borderColor: tokens.brand.primaryFixed,
+    borderColor: tokens.semantic.success,
   },
   feedbackMiss: {
     backgroundColor: tokens.semantic.errorContainer,

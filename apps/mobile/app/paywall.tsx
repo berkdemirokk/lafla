@@ -12,13 +12,13 @@
 // the displayed discount always matches the App Store reality (no risk of
 // Apple 3.1.1 misrepresentation if user re-prices in App Store Connect).
 //
-// Exam Pass ($99 one-time) was removed from this build because no real
+// Exam Pass one-time purchase was removed from this build because no real
 // non-consumable IAP product is configured in App Store Connect yet; shipping
 // it bound to the yearly subscription would have been IAP misrepresentation
 // (Apple Guideline 3.1.1). It will return as a separate non-consumable IAP
 // in a later release once the App Store Connect product is provisioned.
 //
-// The displayed $9.99 price is a marketing fallback; the live App Store
+// The displayed local price is a marketing fallback; the live App Store
 // price string from RevenueCat's getOffering() overrides it when available.
 //
 // Trial copy ("İlk 7 gün ücretsiz") is intentionally OMITTED here. A trial
@@ -33,7 +33,7 @@
 // invented quotes pre-launch, which is dishonest and risks store review.
 // Counts updated 2026-05-20 after the 6-mode radical cut.
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -45,6 +45,7 @@ import {
   Linking,
 } from "react-native";
 import Animated, {
+  cancelAnimation,
   Easing,
   useAnimatedStyle,
   useSharedValue,
@@ -53,7 +54,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { trackEvent } from "../lib/analytics";
@@ -78,6 +79,16 @@ import {
   SCENE_COUNT_DISPLAY,
 } from "../lib/scene-counts";
 import { useSession } from "../lib/useSession";
+import {
+  IELTS_MOCK_TEST_PRICE_DISPLAY,
+  PRO_MONTHLY_PRICE_COMPACT,
+  PRO_MONTHLY_PRICE_DISPLAY,
+  PRO_MONTHLY_PRICE_MICROS,
+  PRO_YEARLY_PRICE_DISPLAY,
+  PRO_YEARLY_PRICE_MICROS,
+} from "../lib/monetization";
+import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 // Live price shape — both tiers carry priceAmountMicros so we can compute
 // the discount on the fly without trusting a hardcoded percentage.
@@ -93,53 +104,54 @@ type LivePrices = { monthly: LivePrice; yearly: LivePrice };
 // Fallback display prices when RevenueCat is unavailable (Expo Go, init
 // failure, etc). Keep them roughly aligned with the App Store Connect
 // products so the marketing copy never disagrees with the live tier.
-const FALLBACK_MONTHLY = "₺99 / ay";
-const FALLBACK_YEARLY = "₺999 / yıl";
+const FALLBACK_MONTHLY = PRO_MONTHLY_PRICE_DISPLAY;
+const FALLBACK_YEARLY = PRO_YEARLY_PRICE_DISPLAY;
 // Used to compute the fallback discount badge before the live offering
 // resolves. Once live prices arrive, we recompute from micros.
-const FALLBACK_MONTHLY_MICROS = 99_000_000; // ₺99 in micros
-const FALLBACK_YEARLY_MICROS = 999_000_000; // ₺999 in micros
+const FALLBACK_MONTHLY_MICROS = PRO_MONTHLY_PRICE_MICROS;
+const FALLBACK_YEARLY_MICROS = PRO_YEARLY_PRICE_MICROS;
 
 // Feature row — premium icon library (2026-05-23 — brand audit fix).
 // Emoji'den semantic IconName'e migrate edildi. Paywall conversion-critical
 // surface — premium icon = premium perception = +conversion.
 interface FeatureRow {
   icon: IconName;
-  title: string;
-  subtitle?: string;
+  titleKey: string;
+  subtitleKey: string;
 }
 
 const FEATURES: FeatureRow[] = [
   {
     icon: "target",
-    title: `${MODE_COUNT} mod, gerçek hayat`,
-    subtitle:
-      "Flört · İş · Bar · Havaalanı · Günlük · Sipariş · IELTS — donduğun her an.",
+    titleKey: "paywall.feature.modes_title",
+    subtitleKey: "paywall.feature.modes_subtitle",
   },
   {
     icon: "mic",
-    title: "Native ses ile konuş",
-    subtitle: "Türkçe konuşana özel pronunciation feedback.",
+    titleKey: "paywall.feature.voice_title",
+    subtitleKey: "paywall.feature.voice_subtitle",
   },
   {
     icon: "infinite",
-    title: "Sınırsız sahne pratiği",
-    subtitle: `Günde 5 dakika, ${SCENE_COUNT_DISPLAY} sahne arasından senin için seçilmiş.`,
+    titleKey: "paywall.feature.unlimited_title",
+    subtitleKey: "paywall.feature.unlimited_subtitle",
   },
   {
     icon: "trending",
-    title: "IELTS Band tahmini + zayıflık raporu",
-    subtitle: "Hangi cümlede ne yanlıştı, hangi hatayı tekrar yapıyorsun.",
+    titleKey: "paywall.feature.ielts_title",
+    subtitleKey: "paywall.feature.ielts_subtitle",
   },
   {
     icon: "shield",
-    title: "Streak shield + Hard Mode",
-    subtitle: "Yoğun bir gün streak'i kırmasın; ciddi pratik için zorlaştır.",
+    titleKey: "paywall.feature.streak_title",
+    subtitleKey: "paywall.feature.streak_subtitle",
   },
 ];
 
 export default function PaywallScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   // 2026-05-26 — Anonymous user (auth.tsx → "Atla") restore'u cross-device
   // çalışamaz çünkü RC user ID yok. Banner ile uyar, satın almadan önce
   // hesap açmaya yönlendir. Apple 3.1.1 risk azaltıcı.
@@ -178,6 +190,7 @@ export default function PaywallScreen() {
   // monthly via the toggle.
   const [selectedPackage, setSelectedPackage] = useState<PackageId>("yearly");
   const [loading, setLoading] = useState(false);
+  const purchaseInFlightRef = useRef(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [, setLive] = useState<boolean | null>(null);
   // 2026-05-25 (B-PAY-7) — Offering fetch fail durumunda kullanıcıya retry
@@ -251,6 +264,17 @@ export default function PaywallScreen() {
   }, []);
 
   useEffect(() => {
+    if (reduceMotion) {
+      cancelAnimation(ctaScale);
+      heroOpacity.value = 1;
+      heroTranslate.value = 0;
+      cardOpacity.value = 1;
+      cardTranslate.value = 0;
+      featuresOpacity.value = 1;
+      proofOpacity.value = 1;
+      ctaScale.value = 1;
+      return;
+    }
     // Staggered entrance — hero → card → features → proof.
     heroOpacity.value = withTiming(1, {
       duration: 360,
@@ -303,6 +327,7 @@ export default function PaywallScreen() {
     featuresOpacity,
     proofOpacity,
     ctaScale,
+    reduceMotion,
   ]);
 
   const heroStyle = useAnimatedStyle(() => ({
@@ -324,21 +349,23 @@ export default function PaywallScreen() {
   }));
 
   const handlePurchase = async (selected: PackageId) => {
+    if (purchaseInFlightRef.current) return;
     // 2026-05-25 (B-PAY-7) — Offering fetch fail durumda CTA tıklatma;
     // kullanıcı yanlış/eksik fiyat üzerine alım deneyemesin.
     if (offeringFailed) {
       hapticImpact("light");
       Alert.alert(
-        "Fiyat yüklenemedi",
-        "İnternet bağlantını kontrol edip tekrar dene.",
+        t("paywall.alert.price_title"),
+        t("paywall.alert.network_body"),
         [
-          { text: "Yeniden dene", onPress: () => void loadOffering() },
-          { text: "Kapat", style: "cancel" },
+          { text: t("common.try_again"), onPress: () => void loadOffering() },
+          { text: t("common.cancel"), style: "cancel" },
         ],
       );
       return;
     }
     hapticImpact("medium");
+    purchaseInFlightRef.current = true;
     setLoading(true);
     void trackEvent("purchase_initiated", { plan: selected }).catch(() => {});
     // Sentry breadcrumb: ödeme akışı başladı. Apple Sandbox / Sandbox tester
@@ -349,14 +376,9 @@ export default function PaywallScreen() {
       data: { plan: selected, fromIntro: isFromIntro },
     });
     try {
-      // 10sn timeout — RC SDK hang ederse setLoading(false) hiç çağrılmazdı,
-      // CTA disabled kalırdı. Promise.race + reject ile finally garantili.
-      const result = await Promise.race([
-        purchasePackage(selected),
-        new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error("Zaman aşımı — tekrar dene")), 10000),
-        ),
-      ]);
+      // StoreKit is user-driven and cannot be cancelled safely by a JS timer.
+      // Wait for RevenueCat's definitive success, cancel, or error result.
+      const result = await purchasePackage(selected);
       if (result.ok) {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});
@@ -377,17 +399,18 @@ export default function PaywallScreen() {
         reason: result.error ?? "unknown",
       }).catch(() => {});
       Alert.alert(
-        "Satın alma başarısız",
-        result.error ?? "Bir şeyler ters gitti. Lütfen tekrar dene.",
+        t("paywall.alert.purchase_failed_title"),
+        result.error ?? t("paywall.alert.purchase_failed_body"),
       );
     } catch (e: unknown) {
-      const msg = e instanceof Error ? e.message : "Bilinmeyen hata";
+      const msg = e instanceof Error ? e.message : t("paywall.alert.unknown_error");
       void trackEvent("purchase_failed", {
         plan: selected,
         reason: msg,
       }).catch(() => {});
-      Alert.alert("Hata", msg);
+      Alert.alert(t("common.error"), msg);
     } finally {
+      purchaseInFlightRef.current = false;
       setLoading(false);
     }
   };
@@ -405,6 +428,8 @@ export default function PaywallScreen() {
   };
 
   const handleRestore = async () => {
+    if (purchaseInFlightRef.current) return;
+    purchaseInFlightRef.current = true;
     hapticImpact("light");
     setLoading(true);
     try {
@@ -413,23 +438,27 @@ export default function PaywallScreen() {
       const result = await restorePurchasesDetailed();
       if (!result.ok) {
         Alert.alert(
-          "Geri yükleme başarısız",
-          "İnternet bağlantını kontrol edip tekrar dene.",
+          t("settings.alert.restore_failed_title"),
+          t("settings.alert.restore_failed_body"),
         );
         return;
       }
       if (result.active) {
         hapticSuccess();
-        Alert.alert("Geri yüklendi", "Premium özellikler tekrar aktif.");
+        Alert.alert(
+          t("settings.alert.restore_success_title"),
+          t("settings.alert.restore_success_body"),
+        );
       } else {
         Alert.alert(
-          "Aktif abonelik bulunamadı",
-          "Bu Apple ID üzerinde aktif bir Lafla aboneliği bulamadık.",
+          t("settings.alert.restore_none_title"),
+          t("settings.alert.restore_none_body"),
         );
       }
     } catch {
-      Alert.alert("Hata", "Geri yükleme başarısız.");
+      Alert.alert(t("common.error"), t("settings.alert.restore_failed_body"));
     } finally {
+      purchaseInFlightRef.current = false;
       setLoading(false);
     }
   };
@@ -464,40 +493,47 @@ export default function PaywallScreen() {
   const cardPrice = isYearly ? yearlyPriceStr : monthlyPriceStr;
   // 2026-05-24 — aylık seçili altyazı sadelik: "Aylık abonelik" duplikasyonu
   // yerine "Esnek, istediğin zaman dur" → kullanıcı esnekliği görür.
-  const cardPriceLocal = isYearly ? yearlyPerMonthDisplay : "Esnek, istediğin zaman dur";
-  const cardEyebrow = isYearly ? "Yıllık abonelik" : "Aylık abonelik";
+  const cardPriceLocal = isYearly
+    ? yearlyPerMonthDisplay
+    : t("paywall.monthly_flexible");
+  const cardEyebrow = isYearly
+    ? t("paywall.yearly_subscription")
+    : t("paywall.monthly_subscription");
   const cardReassurance = isYearly
-    ? "İstediğin zaman iptal et · iOS Ayarlar'dan tek dokunuş · Apple ID ile fatura"
-    : "İstediğin zaman iptal et · iOS Ayarlar'dan tek dokunuş";
+    ? t("paywall.yearly_reassurance")
+    : t("paywall.monthly_reassurance");
 
   // Trial: aktif seçili plana göre, yoksa diğer plandan oku. Sadece >0 gün
   // olduğunda göster.
   const activeTrialDays = isYearly
-    ? livePrices.yearly?.trialDays ?? livePrices.monthly?.trialDays
-    : livePrices.monthly?.trialDays ?? livePrices.yearly?.trialDays;
+    ? livePrices.yearly?.trialDays
+    : livePrices.monthly?.trialDays;
   const trialAvailable = activeTrialDays != null && activeTrialDays > 0;
   const trialLabel = trialAvailable
-    ? `İlk ${activeTrialDays} gün ücretsiz`
+    ? t("paywall.trial_label", { days: String(activeTrialDays) })
     : null;
 
   const ctaLabel = loading
     ? "..."
     : trialAvailable
-      ? `${activeTrialDays} gün ücretsiz dene`
+      ? t("paywall.trial_cta", { days: String(activeTrialDays) })
       : isYearly
-        ? "Yıllık aboneliği başlat"
-        : "Aylık aboneliği başlat";
+        ? t("paywall.start_yearly")
+        : t("paywall.start_monthly");
+  const renewalPeriodLabel = isYearly
+    ? t("paywall.period_yearly")
+    : t("paywall.period_monthly");
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
           onPress={handleClose}
           style={styles.closeBtn}
           accessibilityRole="button"
-          accessibilityLabel={isFromIntro ? "Şimdilik atla" : "Kapat"}
+          accessibilityLabel={isFromIntro ? t("paywall.skip_for_now") : t("paywall.close")}
         >
           <Text style={styles.closeText}>×</Text>
         </Pressable>
@@ -511,58 +547,45 @@ export default function PaywallScreen() {
         <Animated.View style={[styles.hero, heroStyle]}>
           {isFromIeltsBand ? (
             <>
-              <Text style={styles.title}>IELTS Band Tahmini{"\n"}sadece ₺99/ay.</Text>
-              <Text style={styles.subtitle}>
-                Mock test merkezi ₺500. Lafla Pro aboneliği aylık ₺99 — sınırsız
-                tahmin + detaylı analiz + sınırsız sahne.
-              </Text>
+              <Text style={styles.title}>{t("paywall.hero.ielts_title", {
+                price: PRO_MONTHLY_PRICE_COMPACT,
+              })}</Text>
+              <Text style={styles.subtitle}>{t("paywall.hero.ielts_subtitle", {
+                mockPrice: IELTS_MOCK_TEST_PRICE_DISPLAY,
+                price: PRO_MONTHLY_PRICE_COMPACT,
+              })}</Text>
             </>
           ) : isFromHardMode ? (
             <>
-              <Text style={styles.title}>🔥 Hard Mode{"\n"}gerçek sınav zorluğu.</Text>
-              <Text style={styles.subtitle}>
-                No hint, ×0.85 puan çarpanı. C1/C2 hedefi için: pratiği zorlaştır,
-                sınavda rahatla. Lafla Pro ile aç.
-              </Text>
+              <Text style={styles.title}>{t("paywall.hero.hard_title")}</Text>
+              <Text style={styles.subtitle}>{t("paywall.hero.hard_subtitle")}</Text>
             </>
           ) : isFromWeakness ? (
             <>
-              <Text style={styles.title}>Hangi hatayı tekrar{"\n"}tekrar yapıyorsun?</Text>
-              <Text style={styles.subtitle}>
-                Lafla Pro son 30 günde yakaladığın hataları sıralar. Top 5 zayıflık
-                + doğru karşılıkları + drill önerisi.
-              </Text>
+              <Text style={styles.title}>{t("paywall.hero.weakness_title")}</Text>
+              <Text style={styles.subtitle}>{t("paywall.hero.weakness_subtitle")}</Text>
             </>
           ) : isFromVerdict ? (
             <>
-              <Text style={styles.title}>Hangi cümlede{"\n"}ne yanlıştı?</Text>
-              <Text style={styles.subtitle}>
-                Lafla Pro sahneni cümle cümle ayrıştırır: senin Türk hatalarına
-                özel "yanlış → doğru" rehberi.
-              </Text>
+              <Text style={styles.title}>{t("paywall.hero.verdict_title")}</Text>
+              <Text style={styles.subtitle}>{t("paywall.hero.verdict_subtitle")}</Text>
             </>
           ) : isFromQuota ? (
             <>
-              <Text style={styles.title}>Bugün için 3 sahne bitti.</Text>
-              <Text style={styles.subtitle}>
-                Yarın sıfırlanır. Veya Lafla Pro ile bugün sınırsız devam et —
-                reklamsız, plansız.
-              </Text>
+              <Text style={styles.title}>{t("paywall.hero.quota_title")}</Text>
+              <Text style={styles.subtitle}>{t("paywall.hero.quota_subtitle")}</Text>
             </>
           ) : (
             <>
-              <Text style={styles.title}>Donma. Konuş.</Text>
-              <Text style={styles.subtitle}>
-                5 dakikada gerçek pratik. Türkçe düşünen birine göre yazılmış
-                hata feedback'i — anında.
-              </Text>
+              <Text style={styles.title}>{t("paywall.hero.default_title")}</Text>
+              <Text style={styles.subtitle}>{t("paywall.hero.default_subtitle")}</Text>
             </>
           )}
         </Animated.View>
 
         {/* 2026-05-26 — Anonymous (hesapsız) user uyarısı.
-            Satın almadan önce hesap açmaya yönlendir; aksi halde yeni
-            cihazda Restore Purchases çalışmaz (Apple 3.1.1 expectation). */}
+            Hesap, abonelik eşleştirmesini daha güvenli yapar; ancak kullanıcı
+            hesapsız satın almayı da Apple ID üzerinden restore edebilir. */}
         {isAnonymous && (
           <Animated.View style={[styles.anonNotice, cardStyle]}>
             <Icon
@@ -571,13 +594,8 @@ export default function PaywallScreen() {
               color={tokens.brand.tertiary}
             />
             <View style={styles.anonNoticeBody}>
-              <Text style={styles.anonNoticeTitle}>
-                Önce hesap aç — sonra abone ol
-              </Text>
-              <Text style={styles.anonNoticeText}>
-                Hesap açmadan satın alırsan abonelik bu cihaza bağlı kalır;
-                yeni cihazda geri yükleyemezsin.
-              </Text>
+              <Text style={styles.anonNoticeTitle}>{t("paywall.account_title")}</Text>
+              <Text style={styles.anonNoticeText}>{t("paywall.account_body")}</Text>
               <Pressable
                 onPress={() => {
                   hapticImpact("light");
@@ -585,9 +603,9 @@ export default function PaywallScreen() {
                 }}
                 hitSlop={8}
                 accessibilityRole="button"
-                accessibilityLabel="Hesap aç ya da giriş yap"
+                accessibilityLabel={t("paywall.account_cta_label")}
               >
-                <Text style={styles.anonNoticeLink}>Hesap aç / giriş yap →</Text>
+                <Text style={styles.anonNoticeLink}>{t("paywall.account_cta")}</Text>
               </Pressable>
             </View>
           </Animated.View>
@@ -611,7 +629,7 @@ export default function PaywallScreen() {
             ]}
             accessibilityRole="button"
             accessibilityState={{ selected: !isYearly }}
-            accessibilityLabel="Aylık plan"
+            accessibilityLabel={t("paywall.monthly_plan")}
           >
             <Text
               style={[
@@ -619,7 +637,7 @@ export default function PaywallScreen() {
                 !isYearly && styles.toggleSegmentTextActive,
               ]}
             >
-              Aylık
+              {t("paywall.monthly")}
             </Text>
           </Pressable>
           <Pressable
@@ -638,8 +656,8 @@ export default function PaywallScreen() {
             accessibilityState={{ selected: isYearly }}
             accessibilityLabel={
               showDiscountBadge
-                ? `Yıllık plan, yüzde ${discountPct} indirim`
-                : "Yıllık plan"
+                ? t("paywall.yearly_plan_discount", { percent: String(discountPct) })
+                : t("paywall.yearly_plan")
             }
           >
             <Text
@@ -648,7 +666,7 @@ export default function PaywallScreen() {
                 isYearly && styles.toggleSegmentTextActive,
               ]}
             >
-              Yıllık
+              {t("paywall.yearly")}
             </Text>
             {showDiscountBadge && (
               <View style={styles.discountBadge}>
@@ -677,9 +695,9 @@ export default function PaywallScreen() {
                     edildiyse Apple 3.1.1 misrepresentation flag riski. */}
                 {isYearly
                   ? showDiscountBadge
-                    ? "EN İYİ DEĞER"
-                    : "YILLIK"
-                  : "ESNEK"}
+                    ? t("paywall.best_value")
+                    : t("paywall.yearly_badge")
+                  : t("paywall.flexible_badge")}
               </Text>
             </View>
           </View>
@@ -701,7 +719,7 @@ export default function PaywallScreen() {
         {/* FEATURES */}
         <Animated.View style={[styles.featureList, featuresStyle]}>
           {FEATURES.map((f) => (
-            <View key={f.title} style={styles.feature}>
+            <View key={f.titleKey} style={styles.feature}>
               <View style={styles.iconCircle}>
                 <View style={styles.iconCircleGlow} pointerEvents="none" />
                 <Icon
@@ -711,10 +729,12 @@ export default function PaywallScreen() {
                 />
               </View>
               <View style={styles.featureCopy}>
-                <Text style={styles.featureTitle}>{f.title}</Text>
-                {f.subtitle && (
-                  <Text style={styles.featureSubtitle}>{f.subtitle}</Text>
-                )}
+                <Text style={styles.featureTitle}>{t(f.titleKey, {
+                  modes: String(MODE_COUNT),
+                })}</Text>
+                <Text style={styles.featureSubtitle}>{t(f.subtitleKey, {
+                  scenes: SCENE_COUNT_DISPLAY,
+                })}</Text>
               </View>
             </View>
           ))}
@@ -729,21 +749,21 @@ export default function PaywallScreen() {
           <View style={styles.proofRow}>
             <View style={styles.proofStat}>
               <Text style={styles.proofNumber}>{MODE_COUNT_DISPLAY}</Text>
-              <Text style={styles.proofLabel}>mod</Text>
+              <Text style={styles.proofLabel}>{t("paywall.modes_label")}</Text>
             </View>
             <View style={styles.proofDivider} />
             <View style={styles.proofStat}>
               <Text style={styles.proofNumber}>{SCENE_COUNT_DISPLAY}</Text>
-              <Text style={styles.proofLabel}>sahne</Text>
+              <Text style={styles.proofLabel}>{t("paywall.scenes_label")}</Text>
             </View>
             <View style={styles.proofDivider} />
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumberAccent}>3 sn</Text>
-              <Text style={styles.proofLabel}>geri bildirim</Text>
+              <Text style={styles.proofNumberAccent}>{t("paywall.feedback_time")}</Text>
+              <Text style={styles.proofLabel}>{t("paywall.feedback_label")}</Text>
             </View>
           </View>
           <Text style={styles.proofCaption}>
-            Hazır içerik. Bekleme yok. Konuş, anında dön.
+            {t("paywall.proof_caption")}
           </Text>
         </Animated.View>
 
@@ -778,18 +798,15 @@ export default function PaywallScreen() {
             disabled={loading}
             hitSlop={8}
             accessibilityRole="button"
-            accessibilityLabel="Satın alımları geri yükle"
+            accessibilityLabel={t("paywall.restore")}
           >
-            <Text style={styles.restoreText}>Satın alımları geri yükle</Text>
+            <Text style={styles.restoreText}>{t("paywall.restore")}</Text>
           </Pressable>
 
           {/* FOOTER — disclaimer + links, ordered by visual weight */}
-          <Text style={styles.disclaimer}>
-            Abonelik, yenileme tarihinden en az 24 saat önce iptal edilmediği
-            sürece görüntülenen fiyat üzerinden aylık otomatik yenilenir. Ödeme,
-            onayda Apple ID hesabınızdan tahsil edilir. iOS Ayarlar → Apple ID →
-            Abonelikler yolundan yönetebilir veya iptal edebilirsiniz.
-          </Text>
+          <Text style={styles.disclaimer}>{t("paywall.disclaimer", {
+            period: renewalPeriodLabel,
+          })}</Text>
 
           <View style={styles.termsLinks}>
             <Pressable
@@ -798,9 +815,9 @@ export default function PaywallScreen() {
               }
               hitSlop={8}
               accessibilityRole="link"
-              accessibilityLabel="Kullanım koşulları"
+              accessibilityLabel={t("auth.terms")}
             >
-              <Text style={styles.termsLink}>Kullanım Koşulları</Text>
+              <Text style={styles.termsLink}>{t("auth.terms")}</Text>
             </Pressable>
             <Text style={styles.termsDot}> · </Text>
             <Pressable
@@ -811,9 +828,9 @@ export default function PaywallScreen() {
               }
               hitSlop={8}
               accessibilityRole="link"
-              accessibilityLabel="Gizlilik politikası"
+              accessibilityLabel={t("auth.privacy")}
             >
-              <Text style={styles.termsLink}>Gizlilik Politikası</Text>
+              <Text style={styles.termsLink}>{t("auth.privacy")}</Text>
             </Pressable>
           </View>
         </View>
@@ -951,7 +968,7 @@ const styles = StyleSheet.create({
     left: 1,
     right: 1,
     height: 1,
-    backgroundColor: "rgba(255, 255, 255, 0.18)",
+    backgroundColor: tokens.border.outline,
     borderTopLeftRadius: tokens.radius.lg,
     borderTopRightRadius: tokens.radius.lg,
   },

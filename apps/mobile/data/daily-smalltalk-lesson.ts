@@ -225,6 +225,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
             "(hanging in there|surviving|getting (through|by))",
             "(any (good )?(plans|weekend))",
           ],
+          model_answers: ["Hey Sarah, how's your week so far? Crazy weather, right?"],
           hint_tr:
             "Standart: 'Hey Sarah, how's your week so far? Crazy weather, right?'",
         },
@@ -242,6 +243,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
             "(hope it (gets|picks) (better|up))",
             "(have a (good|great) one|see you (around|later))",
           ],
+          model_answers: ["Same here. Need coffee. Have a good one!"],
           hint_tr:
             "Sicak kapat: 'Same here. Need coffee. Have a good one!'",
         },
@@ -260,6 +262,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
             "(you|how about you)\\?",
             "(yours|your weekend)\\?",
           ],
+          model_answers: ["Honestly, nothing crazy — just relaxed. You?"],
           hint_tr:
             "Hafta sonu: 'Honestly, nothing crazy — just relaxed. You?'",
         },
@@ -278,6 +281,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
             "(maybe (after|later)|rain check)",
             "(can'?t today|wish i could)",
           ],
+          model_answers: ["Yeah, I'm in — meet you in the break room"],
           hint_tr:
             "Onay: 'Yeah, I'm in — meet you in the break room' veya 'Rain check, slammed today'.",
         },
@@ -295,6 +299,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
             "(coming|on my way)",
             "(perfect|great|cool)",
           ],
+          model_answers: ["Sounds good, see you there"],
           hint_tr:
             "Onayla: 'Sounds good, see you there' veya 'Take your time, no rush'.",
         },
@@ -740,6 +745,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
             "(running on time|behind schedule|delayed)",
             "(hope (you'?re|things) (well|good))",
           ],
+          model_answers: ["Hey — busy in here. Been waiting long?"],
           hint_tr:
             "Saygili ac: 'Hey — busy in here. Been waiting long?'",
         },
@@ -757,6 +763,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
             "(hope it goes (well|smoothly) for you)",
             "(have a (good|great) (rest of your )?(day|appointment))",
           ],
+          model_answers: ["That's rough. I'm in for a routine checkup. Hope yours goes well!"],
           hint_tr:
             "Empati + paylas: 'That's rough. I'm in for a routine checkup. Hope yours goes well!'",
         },
@@ -776,6 +783,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
             "(better than|at least it'?s not) (the er|the emergency room)",
             "(tell me about it|right)(,)? (the wait )?(is the worst|always like this)",
           ],
+          model_answers: ["Yeah, the wait is always long — good thing I brought my book"],
           hint_tr:
             "Empati + paylaşılan deneyim: 'Yeah, the wait is always long — good thing I brought my book' veya 'Tell me about it'. Türk: 'eyvallah' = direkt çevirisi yok; 'tell me about it' tam karşılık.",
         },
@@ -795,6 +803,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
             "(i (like|trust) (the )?(doctor|the staff|this place))",
             "(came on a (recommendation|referral) from (a friend|my insurance))",
           ],
+          model_answers: ["Been with them for three years, I trust the doctor"],
           hint_tr:
             "Doctor/practice tarihçen: 'Been with them for three years, I trust the doctor' veya 'Actually new here — first visit'. Türk: 'eczacı' (pharmacist) ile karıştırma; doctor = doktor, dentist = diş hekimi.",
         },
@@ -814,6 +823,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
             "(might have to (cancel my afternoon|push my afternoon back))",
             "(see you on the other side)",
           ],
+          model_answers: ["Fingers crossed — hope you get in soon, have a good day"],
           hint_tr:
             "Sıcak kapanış: 'Fingers crossed — hope you get in soon, have a good day' veya 'See you on the other side'. Türk: 'kolay gelsin' = direkt çevirisi yok; 'good luck' + 'have a good day' karışımı en yakın.",
         },
@@ -1258,9 +1268,10 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
             "(anyway|hey listen)",
             "(i should (let you go|get going|head out)|gotta run|need to (run|head))",
             "(running (late|out of time)|next thing|meeting)",
-            "(was (great|so good|amazing)) (seeing|catching up|chatting))",
+            "(was (great|so good|amazing)) (seeing|catching up|chatting)",
             "(let'?s (grab|do) (coffee|drinks|lunch) (soon|sometime))",
           ],
+          model_answers: ["Anyway, gotta run — was great catching up. Coffee soon?"],
           hint_tr:
             "Saygili kapat: 'Anyway, gotta run — was great catching up. Coffee soon?'",
         },
@@ -1278,6 +1289,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
             "(take care|stay (well|good))",
             "(see you (soon|then|next week))",
           ],
+          model_answers: ["Perfect — text me. Take care!"],
           hint_tr:
             "Onayla: 'Perfect — text me. Take care!'",
         },
@@ -1729,6 +1741,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
             "(isn'?t it|right|huh)",
             "(going up|which floor)",
           ],
+          model_answers: ["Hey, how's it going? Beautiful day, isn't it?"],
           hint_tr:
             "Sicak ac: 'Hey, how's it going? Beautiful day, isn't it?'",
         },
@@ -1746,6 +1759,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
             "(have a (good|great) (one|day|evening)|take it easy|catch you later)",
             "(see you (around|later))",
           ],
+          model_answers: ["Pretty good, just heading home. Have a good one!"],
           hint_tr:
             "Mini detay + sicak veda: 'Pretty good, just heading home. Have a good one!'",
         },
@@ -2156,6 +2170,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
             "(do you (like|enjoy) (it|driving|the job))",
             "(where (are you|you) from originally)",
           ],
+          model_answers: ["Hey, how's your shift going? Been busy tonight?"],
           hint_tr:
             "Saygili ac: 'Hey, how's your shift going? Been busy tonight?'",
         },
@@ -2173,6 +2188,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
             "(any (good|crazy) stories|interesting passengers)",
             "(how (long|many) have you been driving)",
           ],
+          model_answers: ["Just heading to dinner. Do you do this full time?"],
           hint_tr:
             "Detay + geri soru: 'Just heading to dinner. Do you do this full time?'",
         },
@@ -2582,6 +2598,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
             "(crazy|wild|interesting|great) (keynote|panel|talk)",
             "(how'?s the conference (going|treating you))",
           ],
+          model_answers: ["Hey, so what brings you here? That keynote was wild, right?"],
           hint_tr:
             "Saygili ac: 'Hey, so what brings you here? That keynote was wild, right?'",
         },
@@ -2599,6 +2616,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
             "(love to (keep in touch|connect)|mind if we (swap|exchange) (linkedin|info))",
             "(grab (a )?coffee|catch up later)",
           ],
+          model_answers: ["Same! I work in fintech. What about you?"],
           hint_tr:
             "Common ground + meslek + LinkedIn: 'Same! I work in fintech. What about you?'",
         },
@@ -3009,6 +3027,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
             "(what'?s (his|her|their) name)",
             "(how old|what breed|is (he|she|it|they))",
           ],
+          model_answers: ["Aw, what a sweetie! What's their name?"],
           hint_tr:
             "Ovgu + isim sor: 'Aw, what a sweetie! What's their name?'",
         },
@@ -3026,6 +3045,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
             "(what (breed|kind|mix) is she|is she a (mix|rescue|golden|lab))",
             "(such a good (girl|boy)|hi luna)",
           ],
+          model_answers: ["Luna! Great name. Is she friendly? Mind if I pet her?"],
           hint_tr:
             "Isim tekrarla + izin sor: 'Luna! Great name. Is she friendly? Mind if I pet her?'",
         },

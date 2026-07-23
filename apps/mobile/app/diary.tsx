@@ -27,7 +27,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Animated, {
@@ -51,18 +51,15 @@ import {
   setTodayEntry,
   type DiaryEntry,
 } from "../lib/daily-diary";
+import { useTranslation, type Locale } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 // 2026-05-24 — Diary milestone celebration. Kullanıcı 3/7/30 gün üst üste
 // (last N gün count) entry yazdığında inline pill fade-in olur, 3 saniye
 // görünür, fade-out. Persist edilen "claimed" set sayesinde aynı milestone
 // tekrar gösterilmez.
 const K_DIARY_CLAIMED = "lafla.diary.milestones.claimed";
-const DIARY_MILESTONES: Array<{ days: number; copy: string }> = [
-  { days: 3, copy: "3 günlük seri ✨" },
-  { days: 7, copy: "1 hafta günlük ✨" },
-  { days: 30, copy: "1 ay günlük ✨" },
-  { days: 100, copy: "100 günlük seri ✨" },
-];
+const DIARY_MILESTONES = [3, 7, 30, 100] as const;
 
 async function getClaimedMilestones(): Promise<Set<number>> {
   try {
@@ -87,27 +84,15 @@ async function claimMilestone(days: number): Promise<void> {
 
 const MAX_CHARS = 200;
 
-function formatDate(dateKey: string): string {
-  // YYYY-MM-DD → "12 Mart"
+function formatDate(dateKey: string, locale: Locale): string {
   const [y, m, d] = dateKey.split("-");
   if (!y || !m || !d) return dateKey;
-  const months = [
-    "Ocak",
-    "Şubat",
-    "Mart",
-    "Nisan",
-    "Mayıs",
-    "Haziran",
-    "Temmuz",
-    "Ağustos",
-    "Eylül",
-    "Ekim",
-    "Kasım",
-    "Aralık",
-  ];
-  const monthIdx = parseInt(m, 10) - 1;
-  if (monthIdx < 0 || monthIdx >= 12) return dateKey;
-  return `${parseInt(d, 10)} ${months[monthIdx]}`;
+  const date = new Date(Number(y), Number(m) - 1, Number(d), 12);
+  if (Number.isNaN(date.getTime())) return dateKey;
+  return new Intl.DateTimeFormat(locale === "tr" ? "tr-TR" : "en-US", {
+    day: "numeric",
+    month: "long",
+  }).format(date);
 }
 
 function isToday(dateKey: string): boolean {
@@ -118,11 +103,13 @@ function isToday(dateKey: string): boolean {
 
 export default function DiaryScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [input, setInput] = useState("");
   const [editing, setEditing] = useState(false);
   const [todayEntry, setTodayEntryState] = useState<DiaryEntry | null>(null);
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
   const [saving, setSaving] = useState(false);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
   // 2026-05-24 — Celebration pill state. Hidden by default; save sonrası
   // milestone hit'inde set edilir, 3 saniye sonra otomatik temizlenir.
   const [celebrationCopy, setCelebrationCopy] = useState<string | null>(null);
@@ -149,14 +136,17 @@ export default function DiaryScreen() {
   }));
 
   const load = useCallback(async () => {
-    const [today, all] = await Promise.all([
-      getTodayEntry().catch(() => null),
-      getAllEntries().catch(() => [] as DiaryEntry[]),
-    ]);
-    setTodayEntryState(today);
-    setEntries(all);
-    setInput(today?.text ?? "");
-    setEditing(today === null);
+    setStatus("loading");
+    try {
+      const [today, all] = await Promise.all([getTodayEntry(), getAllEntries()]);
+      setTodayEntryState(today);
+      setEntries(all);
+      setInput(today?.text ?? "");
+      setEditing(today === null);
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
 
   useFocusEffect(
@@ -186,14 +176,14 @@ export default function DiaryScreen() {
       if (!wasUpdate) {
         try {
           const claimed = await getClaimedMilestones();
-          for (const m of DIARY_MILESTONES) {
-            if (claimed.has(m.days)) continue;
-            const count = await getEntryCountLastDays(m.days);
-            if (count >= m.days) {
-              setCelebrationCopy(m.copy);
-              await claimMilestone(m.days);
+          for (const days of DIARY_MILESTONES) {
+            if (claimed.has(days)) continue;
+            const count = await getEntryCountLastDays(days);
+            if (count >= days) {
+              setCelebrationCopy(t("diary.milestone", { days: String(days) }));
+              await claimMilestone(days);
               void trackEvent("diary_milestone_celebrated", {
-                days: m.days,
+                days,
               }).catch(() => {});
               break; // Bir milestone yeter; aynı save'de iki birden yakalanmasın.
             }
@@ -224,7 +214,7 @@ export default function DiaryScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Milestone celebration pill — header altında floating overlay.
           pointerEvents: none → kullanıcı altındaki içeriği tıklayabilsin. */}
@@ -246,15 +236,17 @@ export default function DiaryScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>Günlüğüm</Text>
+        <Text style={styles.headerTitle}>{t("diary.title")}</Text>
         <View style={{ width: 40 }} />
       </View>
 
-      <KeyboardAvoidingView
+      {status !== "ready" ? (
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      ) : <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
         keyboardVerticalOffset={Platform.OS === "ios" ? 8 : 0}
@@ -266,10 +258,11 @@ export default function DiaryScreen() {
         >
           {/* Bugünün entry'si — büyük, hero card */}
           <View style={styles.todayCard}>
-            <Text style={styles.todayLabel}>BUGÜN</Text>
+            <Text style={styles.todayLabel}>{t("diary.today")}</Text>
             <Text style={styles.todayDate}>
               {formatDate(
                 `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, "0")}-${String(new Date().getDate()).padStart(2, "0")}`,
+                locale,
               )}
             </Text>
 
@@ -278,7 +271,7 @@ export default function DiaryScreen() {
                 <TextInput
                   value={input}
                   onChangeText={(t) => setInput(t.slice(0, MAX_CHARS))}
-                  placeholder="Bugün ne yaptın? İngilizce 1 cümle..."
+                  placeholder={t("diary.placeholder")}
                   placeholderTextColor={tokens.text.tertiary}
                   style={styles.input}
                   multiline
@@ -286,6 +279,7 @@ export default function DiaryScreen() {
                   maxLength={MAX_CHARS}
                   autoFocus={!todayEntry}
                   editable={!saving}
+                  accessibilityLabel={t("diary.input_label")}
                 />
                 <Text style={styles.charCount}>
                   {input.length}/{MAX_CHARS}
@@ -297,14 +291,14 @@ export default function DiaryScreen() {
                       style={styles.cancelBtn}
                       hitSlop={8}
                       accessibilityRole="button"
-                      accessibilityLabel="İptal"
+                      accessibilityLabel={t("common.cancel")}
                     >
-                      <Text style={styles.cancelBtnText}>İptal</Text>
+                      <Text style={styles.cancelBtnText}>{t("common.cancel")}</Text>
                     </Pressable>
                   )}
                   <View style={{ flex: 1 }}>
                     <Button
-                      label={saving ? "..." : "Kaydet"}
+                      label={saving ? "..." : t("diary.save")}
                       onPress={handleSave}
                       disabled={!input.trim() || saving}
                       stacked
@@ -320,9 +314,9 @@ export default function DiaryScreen() {
                   style={styles.editBtn}
                   hitSlop={8}
                   accessibilityRole="button"
-                  accessibilityLabel="Düzenle"
+                  accessibilityLabel={t("diary.edit")}
                 >
-                  <Text style={styles.editBtnText}>Düzenle</Text>
+                  <Text style={styles.editBtnText}>{t("diary.edit")}</Text>
                 </Pressable>
               </>
             )}
@@ -331,12 +325,12 @@ export default function DiaryScreen() {
           {/* Geçmiş entry'ler — timeline */}
           {pastEntries.length > 0 && (
             <View style={styles.timelineSection}>
-              <Text style={styles.timelineHeader}>Geçmiş</Text>
+              <Text style={styles.timelineHeader}>{t("diary.history")}</Text>
               {pastEntries.map((entry) => (
                 <View key={entry.date} style={styles.entryRow}>
                   <View style={styles.entryDateCol}>
                     <Text style={styles.entryDate}>
-                      {formatDate(entry.date)}
+                      {formatDate(entry.date, locale)}
                     </Text>
                   </View>
                   <View style={styles.entryTextCol}>
@@ -350,8 +344,7 @@ export default function DiaryScreen() {
           {pastEntries.length === 0 && !editing && todayEntry && (
             <View style={styles.emptyHint}>
               <Text style={styles.emptyHintText}>
-                Yarın aynı saatte tekrar gel — geçmiş cümlelerin burada
-                birikecek.
+                {t("diary.return_hint")}
               </Text>
             </View>
           )}
@@ -359,13 +352,12 @@ export default function DiaryScreen() {
           {pastEntries.length === 0 && !todayEntry && editing && (
             <View style={styles.emptyHint}>
               <Text style={styles.emptyHintText}>
-                İlk cümlen burada başlar. Türkçe değil — İngilizce yazmaya
-                çalış. Yanlış olsa da olur, sonra düzelirsin.
+                {t("diary.first_hint")}
               </Text>
             </View>
           )}
         </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAvoidingView>}
     </SafeAreaView>
   );
 }

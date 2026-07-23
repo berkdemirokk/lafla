@@ -22,7 +22,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import { pushRoute } from "../lib/routes";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Animated, {
@@ -42,8 +42,6 @@ import Animated, {
 
 import {
   getLocalProfile,
-  getCompletedLessonIds,
-  getInterests,
   type LocalProfile,
 } from "../lib/local-progress";
 import {
@@ -52,14 +50,6 @@ import {
   type CefrLevel,
 } from "../lib/cefr-level";
 import { isStreakAtRisk } from "../lib/streak-shield";
-import {
-  getDailyExclusive,
-  isDailyExclusiveCompleted,
-} from "../lib/daily-exclusive";
-import {
-  ensureSurpriseSceneIfPending,
-  consumeSurprise,
-} from "../lib/variable-reward";
 import {
   getDueCount as getVocabDueCount,
   getDueMinutes as getVocabDueMinutes,
@@ -70,15 +60,15 @@ import {
   hasSeenHomeTutorial,
   markHomeTutorialSeen,
 } from "../lib/tutorial-state";
-import { interestsToModes } from "../lib/interest-mapping";
 import { TutorialOverlay } from "../components/TutorialOverlay";
 import { AdBanner } from "../components/AdBanner";
 import { VoiceWaveform } from "../components/VoiceWaveform";
 import { Icon } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
-import type { Scene, SceneMode } from "../data/scenes";
+import { type Scene } from "../data/scenes";
 import { SCENE_COUNT_DISPLAY } from "../lib/scene-counts";
+import { getSceneDisplayMinutes } from "../lib/scene-duration";
 import { recordActive } from "../lib/notifications";
 import { isPremium } from "../lib/iap";
 import {
@@ -86,28 +76,47 @@ import {
   getRewardedExpiresAt,
 } from "../lib/rewarded";
 import { showRewardedAd } from "../lib/ads";
+import { getMistakeDNA } from "../lib/mistake-dna";
+import { useTranslation, type UseTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
+import { getActiveDaysLast7 } from "../lib/metrics";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
-function greetingFor(hour: number): string {
-  if (hour >= 6 && hour < 12) return "Günaydın";
-  if (hour >= 12 && hour < 18) return "İyi günler";
-  if (hour >= 18 && hour < 22) return "İyi akşamlar";
-  return "İyi geceler";
+const CORE_TRUST_PROMISES: ReadonlyArray<{
+  labelKey: string;
+  detailKey: string;
+}> = [
+  { labelKey: "today.trust.one", detailKey: "today.trust.one_detail" },
+  { labelKey: "today.trust.level", detailKey: "today.trust.level_detail" },
+  { labelKey: "today.trust.calm", detailKey: "today.trust.calm_detail" },
+];
+
+function compactSceneTitle(scene: Scene | null, fallback: string): string {
+  return scene?.title.replace(/\n/g, " ") ?? fallback;
+}
+
+function greetingFor(hour: number, t: UseTranslation["t"]): string {
+  if (hour >= 6 && hour < 12) return t("today.greeting.morning");
+  if (hour >= 12 && hour < 18) return t("today.greeting.day");
+  if (hour >= 18 && hour < 22) return t("today.greeting.evening");
+  return t("today.greeting.night");
 }
 
 // 2026-05-24 — Rewarded grant bitiş zamanına kalan süreyi kısa-format döner.
 // "23 sa 47 dk" / "5 sa" / "12 dk" / "2 dk altı" gibi human-readable.
-function formatTimeUntil(target: Date): string {
+function formatTimeUntil(target: Date, locale: "tr" | "en"): string {
   const diffMs = target.getTime() - Date.now();
-  if (diffMs <= 0) return "0 dk";
+  const minute = locale === "tr" ? "dk" : "min";
+  const hour = locale === "tr" ? "sa" : "hr";
+  if (diffMs <= 0) return `0 ${minute}`;
   const totalMin = Math.floor(diffMs / 60000);
-  if (totalMin < 2) return "2 dk altı";
+  if (totalMin < 2) return locale === "tr" ? "2 dk altı" : "under 2 min";
   const hours = Math.floor(totalMin / 60);
   const mins = totalMin % 60;
-  if (hours === 0) return `${mins} dk`;
-  if (mins === 0) return `${hours} sa`;
-  return `${hours} sa ${mins} dk`;
+  if (hours === 0) return `${mins} ${minute}`;
+  if (mins === 0) return `${hours} ${hour}`;
+  return `${hours} ${hour} ${mins} ${minute}`;
 }
 
 function sanitizeName(raw: string | null | undefined): string {
@@ -133,17 +142,17 @@ interface TodayState {
   erosionDecay: number;
   erosionDaysIdle: number;
   erosionDroppedLevel: CefrLevel | null;
-  surprise: Scene | null;
   vocabDue: number;
   vocabDueMin: number;
-  daily: Scene | null;
-  dailyCompleted: boolean;
   // Plan
   planTotal: number;
   planCompleted: number;
   planEstimatedMin: number;
   planIsComplete: boolean;
+  planRemainingScenes: Scene[];
   planFirstScene: Scene | null;
+  weeklyActiveDays: number;
+  mistakeFocus: { label: string; recentCount: number } | null;
   // 2026-05-23 — Daily diary nudge state. Bugün entry yoksa Today'de
   // subtle bir banner gösterilir. Banner agresif değil — kullanıcı
   // istediği zaman atlar.
@@ -167,16 +176,16 @@ const EMPTY: TodayState = {
   erosionDecay: 0,
   erosionDaysIdle: 0,
   erosionDroppedLevel: null,
-  surprise: null,
   vocabDue: 0,
   vocabDueMin: 0,
-  daily: null,
-  dailyCompleted: false,
   planTotal: 0,
   planCompleted: 0,
   planEstimatedMin: 0,
   planIsComplete: false,
+  planRemainingScenes: [],
   planFirstScene: null,
+  weeklyActiveDays: 0,
+  mistakeFocus: null,
   diaryWrittenToday: false,
   isPremiumActive: false,
   rewardedActive: false,
@@ -185,8 +194,11 @@ const EMPTY: TodayState = {
 
 export default function Today() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
   const [state, setState] = useState<TodayState>(EMPTY);
   const [showTutorial, setShowTutorial] = useState(false);
+  const [planLoadFailed, setPlanLoadFailed] = useState(false);
 
   // ─── Ambient animations ──────────────────────────────────────────────
   // Two independent shared-value drivers. They start once on mount and
@@ -196,6 +208,11 @@ export default function Today() {
   const streakPulse = useSharedValue(0);
 
   useEffect(() => {
+    if (reduceMotion) {
+      cancelAnimation(heroPulse);
+      heroPulse.value = 0;
+      return;
+    }
     // Hero halo: slow 2.2s sin breath. Goes 0→1→0 forever. Drives shadow
     // opacity + radius so the pink glow gently pumps without distracting.
     heroPulse.value = withRepeat(
@@ -209,7 +226,7 @@ export default function Today() {
     return () => {
       cancelAnimation(heroPulse);
     };
-  }, [heroPulse]);
+  }, [heroPulse, reduceMotion]);
 
   const heroGlowStyle = useAnimatedStyle(() => ({
     shadowOpacity: 0.32 + heroPulse.value * 0.42, // 0.32 → 0.74
@@ -287,16 +304,13 @@ export default function Today() {
   // is a `const` derived from `state`, not a function.
 
   const load = useCallback(async () => {
-    const [profile, completed, cefrLevel, interests, nameRaw] =
+    const [profile, cefrLevel, nameRaw, weeklyActiveDays] =
       await Promise.all([
         getLocalProfile(),
-        getCompletedLessonIds(),
         getCefrLevel(),
-        getInterests(),
         AsyncStorage.getItem(K_DISPLAY_NAME).catch(() => null),
+        getActiveDaysLast7().catch(() => 0),
       ]);
-    const interestModes: SceneMode[] | null =
-      interests.length > 0 ? interestsToModes(interests) : null;
     const streakAtRisk =
       profile?.current_streak && profile.current_streak > 0
         ? await isStreakAtRisk(profile.last_lesson_at ?? undefined).catch(
@@ -308,37 +322,36 @@ export default function Today() {
       daysIdle: 0,
       newLevel: null as CefrLevel | null,
     }));
-    const daily = await getDailyExclusive({
-      cefrLevel,
-      interestModes,
-    }).catch(() => null);
-    const dailyCompletedId = await isDailyExclusiveCompleted(completed).catch(
-      () => null,
-    );
-    const surprise = await ensureSurpriseSceneIfPending({
-      completedLessonIds: completed,
-      interestModes: interestModes ?? null,
-    }).catch(() => null);
     const [vocabDue, vocabDueMin] = await Promise.all([
       getVocabDueCount().catch(() => 0),
       getVocabDueMinutes().catch(() => 0),
     ]);
-    const [planScenes, planSummary] = await Promise.all([
-      getOrCreateDailyPlan().catch(() => [] as Scene[]),
-      getPlanSummary().catch(() => ({
-        total: 0,
-        completed: 0,
-        estimatedMin: 0,
-        isComplete: false,
-      })),
+    const [planResult, summaryResult] = await Promise.allSettled([
+      getOrCreateDailyPlan(),
+      getPlanSummary(),
     ]);
+    const planFailed = planResult.status === "rejected" || summaryResult.status === "rejected";
+    setPlanLoadFailed(planFailed);
+    const planScenes = planResult.status === "fulfilled" ? planResult.value : [];
+    const planSummary = summaryResult.status === "fulfilled" ? summaryResult.value : {
+      total: 0,
+      completed: 0,
+      completedLessonIds: [],
+      estimatedMin: 0,
+      isComplete: false,
+    };
+    const planCompletedIds = new Set(planSummary.completedLessonIds);
+    const planRemainingScenes = planScenes.filter(
+      (scene) => !planCompletedIds.has(scene.lessonId),
+    );
     const planFirstScene =
-      planScenes.find((s) => !completed.has(s.lessonId)) ??
+      planRemainingScenes[0] ??
       planScenes[0] ??
       null;
     const tutorialSeen = await hasSeenHomeTutorial().catch(() => true);
     // Diary today entry — defansif, hata olsa bile Today crash etmesin.
     const diaryToday = await getTodayEntry().catch(() => null);
+    const mistakeDna = await getMistakeDNA(21).catch(() => null);
     // 2026-05-24 — Rewarded ad / premium status.
     const [isPremiumActive, rewardedActive, rewardedExpiresAt] =
       await Promise.all([
@@ -357,16 +370,21 @@ export default function Today() {
       erosionDecay: erosion.decayAmount,
       erosionDaysIdle: Math.floor(erosion.daysIdle),
       erosionDroppedLevel: erosion.newLevel,
-      surprise,
       vocabDue,
       vocabDueMin,
-      daily,
-      dailyCompleted: !!dailyCompletedId,
       planTotal: planSummary.total,
       planCompleted: planSummary.completed,
       planEstimatedMin: planSummary.estimatedMin,
       planIsComplete: planSummary.isComplete,
+      planRemainingScenes,
       planFirstScene,
+      weeklyActiveDays,
+      mistakeFocus: mistakeDna
+        ? {
+            label: mistakeDna.dominantLabelTr,
+            recentCount: mistakeDna.items[0]?.recentCount ?? 0,
+          }
+        : null,
       diaryWrittenToday: diaryToday !== null,
       isPremiumActive,
       rewardedActive,
@@ -407,14 +425,21 @@ export default function Today() {
   );
 
   const streak = state.profile?.current_streak ?? 0;
-  const remainingInPlan = Math.max(0, state.planTotal - state.planCompleted);
+  const selectedCoreScene = state.planFirstScene;
+  const selectedCoreFromPlan = Boolean(
+    selectedCoreScene &&
+      state.planRemainingScenes.some(
+        (scene) => scene.lessonId === selectedCoreScene.lessonId,
+      ),
+  );
+  const selectedCoreDuration = getSceneDisplayMinutes(selectedCoreScene);
 
   // 2026-05-24 — Streak heartbeat sadece streak > 0 iken çalışsın. Önceki
   // versiyon mount'ta loop'u her zaman başlatıyordu; chip render edilmese
   // bile shared value loop CPU/battery harcıyordu. Şimdi: streak değiştikçe
   // loop start/stop.
   useEffect(() => {
-    if (streak <= 0) {
+    if (streak <= 0 || reduceMotion) {
       cancelAnimation(streakPulse);
       streakPulse.value = 0;
       return;
@@ -439,7 +464,7 @@ export default function Today() {
     return () => {
       cancelAnimation(streakPulse);
     };
-  }, [streak, streakPulse]);
+  }, [streak, streakPulse, reduceMotion]);
 
   // 2026-05-25 — 2×2 action grid. Önceki "banner cap 2" logic'i kaldırıldı.
   // Şimdi 4 tile hep görünür: Kelime tekrarı / Sürpriz / Günün özeli / Günlük.
@@ -452,8 +477,6 @@ export default function Today() {
         ? "99+"
         : String(state.vocabDue)
       : null;
-  const surpriseBadge = state.surprise ? "•" : null;
-  const dailyBadge = state.dailyCompleted ? "✓" : state.daily ? "•" : null;
   const diaryBadge = state.diaryWrittenToday ? "✓" : null;
 
   // Empty state — plan yoksa ve done değilse (state hydrated ama plan boş).
@@ -480,13 +503,13 @@ export default function Today() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Top bar */}
       <View style={styles.topBar}>
         <View style={styles.topBarLeft}>
           <Text style={styles.greeting} numberOfLines={1} adjustsFontSizeToFit>
-            {greetingFor(state.hour)}
+            {greetingFor(state.hour, t)}
             {state.displayName ? `, ${state.displayName}` : ""}
           </Text>
         </View>
@@ -498,7 +521,7 @@ export default function Today() {
               pressed && styles.pressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Liderlik Tablosunu Aç"
+            accessibilityLabel={t("today.open_leaderboard")}
             hitSlop={8}
           >
             <Icon name="trophy" size={20} color={tokens.brand.tertiary} />
@@ -507,7 +530,7 @@ export default function Today() {
             <Animated.View
               style={[styles.streakChip, streakStyle]}
               accessibilityRole="text"
-              accessibilityLabel={`${streak} günlük seri`}
+              accessibilityLabel={t("today.streak_days", { count: String(streak) })}
             >
               <Text
                 style={styles.streakChipText}
@@ -527,30 +550,13 @@ export default function Today() {
         onScroll={onScroll}
         scrollEventThrottle={16}
       >
-        {/* HERO — Daily Plan (en güçlü CTA) */}
-        {/*
-          Option E layout:
-            • Outer Animated.View — handles the pulsing pink halo. backgroundColor +
-              borderRadius live here so iOS draws shadow correctly. overflow:hidden
-              clips the backdrop to the rounded shape; iOS still renders the shadow
-              outside those bounds, so the halo survives.
-            • HeroBackdrop — absolute-fill dual waveform (pink dense bass + cyan
-              sparse melody) with pointerEvents:none so it never steals touches.
-            • Inner Pressable — transparent surface, owns padding + content + ripple.
-        */}
+        {/* CORE LOOP v2 — tek ana karar: bugün İngilizce nerede lazım? */}
         {state.planFirstScene && !state.planIsComplete ? (
-          // Outer wrapper applies the 3D press tilt + persistent halo.
-          // We split into two Animated.View layers so the tilt transform
-          // doesn't conflict with the halo's shadow animation (combining
-          // perspective + animated shadowOpacity on a single view causes
-          // iOS to flicker on first press).
           <Animated.View style={heroPressStyle}>
             <Animated.View
               entering={FadeInDown.duration(420)}
-              style={[styles.heroFrame, heroGlowStyle]}
+              style={[styles.coreFrame, heroGlowStyle]}
             >
-              {/* Premium inner highlight — 1px üst kenarda ışık yansıması.
-                  Apple buton bevel'ı tarzı, tactile depth. */}
               <View
                 style={styles.heroInnerHighlight}
                 pointerEvents="none"
@@ -569,7 +575,7 @@ export default function Today() {
                     gap={8}
                     height={92}
                     color={tokens.brand.primary}
-                    accessibilityLabel=""
+                    decorative
                   />
                 </Animated.View>
                 {/* Top cyan moves slower (-16px) — depth layering */}
@@ -585,38 +591,111 @@ export default function Today() {
                     gap={12}
                     height={58}
                     color={tokens.brand.tertiary}
-                    accessibilityLabel=""
+                    decorative
                   />
                 </Animated.View>
               </View>
-              <Pressable
-                onPress={() => {
-                  // BUG-5 FIX: guard null planFirstScene
-                  const scene = state.planFirstScene;
-                  if (scene) {
-                    pushRoute(router, `/scenario/${scene.lessonId}`);
-                  } else {
-                    pushRoute(router, "/home");
-                  }
-                }}
-                onPressIn={onHeroPressIn}
-                onPressOut={onHeroPressOut}
-                style={styles.heroPressable}
-                accessibilityRole="button"
-                accessibilityLabel={`Bugünün planı: ${remainingInPlan} sahne kaldı`}
-              >
-                <Text style={styles.planLabel}>
-                  {state.planCompleted > 0
-                    ? `▶ DEVAM ET (${state.planCompleted}/${state.planTotal})`
-                    : "▶ BUGÜNÜN PLANI"}
+              <View style={styles.coreContent}>
+                <View style={styles.coreTopRow}>
+                  <Text style={styles.coreEyebrow}>
+                    {t("today.hero_eyebrow")}
+                  </Text>
+                  <View style={styles.coreTimeBadge}>
+                    <Text style={styles.coreTimeBadgeText}>
+                      ~{selectedCoreDuration} {t("today.minute_short")}
+                    </Text>
+                  </View>
+                </View>
+
+                <Text style={styles.coreTitle}>{t("today.hero_title")}</Text>
+                <Text style={styles.coreSub}>
+                  {t("today.hero_subtitle")}
                 </Text>
-                <Text style={styles.planTitle}>
-                  {remainingInPlan} sahne · ~{state.planEstimatedMin} dk
-                </Text>
-                <Text style={styles.planSub} numberOfLines={1}>
-                  Sıradaki: {state.planFirstScene.title.replace(/\n/g, " ")}
-                </Text>
-              </Pressable>
+
+                <View style={styles.coreTrustRail}>
+                  {CORE_TRUST_PROMISES.map((promise) => (
+                    <View key={promise.labelKey} style={styles.coreTrustPill}>
+                      <Text style={styles.coreTrustLabel}>{t(promise.labelKey)}</Text>
+                      <Text style={styles.coreTrustDetail}>
+                        {t(promise.detailKey)}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
+
+                <Pressable
+                  onPress={() => {
+                    const scene = selectedCoreScene;
+                    if (scene) {
+                      pushRoute(router, `/scenario/${scene.lessonId}`);
+                    } else {
+                      pushRoute(router, "/home");
+                    }
+                  }}
+                  onPressIn={onHeroPressIn}
+                  onPressOut={onHeroPressOut}
+                  style={({ pressed }) => [
+                    styles.corePrimaryCta,
+                    pressed && styles.pressed,
+                  ]}
+                  accessibilityRole="button"
+                  accessibilityLabel={t("today.start_scene", {
+                    scene: compactSceneTitle(selectedCoreScene, t("today.scene_fallback")),
+                  })}
+                >
+                  <View style={styles.corePrimaryText}>
+                    <Text style={styles.corePrimaryLabel}>
+                      {t("today.start_short_rehearsal", {
+                        minutes: String(selectedCoreDuration),
+                      })}
+                    </Text>
+                    <Text style={styles.corePrimarySub} numberOfLines={1}>
+                      {selectedCoreFromPlan
+                        ? t("today.from_plan")
+                        : t("today.for_context")}: {" "}
+                      {compactSceneTitle(selectedCoreScene, t("today.scene_fallback"))}
+                    </Text>
+                  </View>
+                  <Icon
+                    name="chevronRight"
+                    size={22}
+                    color={tokens.text.onPrimary}
+                  />
+                </Pressable>
+
+                <View style={styles.coreQuickRow}>
+                  <Pressable
+                    onPress={() => pushRoute(router, "/real-life")}
+                    style={({ pressed }) => [
+                      styles.coreQuickAction,
+                      pressed && styles.pressed,
+                    ]}
+                    accessibilityRole="button"
+                    accessibilityLabel={t("today.open_emergency")}
+                  >
+                    <Text style={styles.coreQuickTitle}>{t("today.emergency_title")}</Text>
+                    <Text style={styles.coreQuickSub} numberOfLines={1}>
+                      {t("today.emergency_subtitle")}
+                    </Text>
+                  </Pressable>
+                  <Pressable
+                    onPress={() => pushRoute(router, "/mistake-coach")}
+                    style={({ pressed }) => [
+                      styles.coreQuickAction,
+                      pressed && styles.pressed,
+                    ]}
+                    accessibilityRole="button"
+                    accessibilityLabel={t("today.open_mistake_coach")}
+                  >
+                    <Text style={styles.coreQuickTitle}>{t("today.mistake_dna")}</Text>
+                    <Text style={styles.coreQuickSub} numberOfLines={1}>
+                      {state.mistakeFocus
+                        ? t("today.mistake_today", { mistake: state.mistakeFocus.label })
+                        : t("today.mistake_locked")}
+                    </Text>
+                  </Pressable>
+                </View>
+              </View>
             </Animated.View>
           </Animated.View>
         ) : state.planIsComplete ? (
@@ -625,9 +704,9 @@ export default function Today() {
             style={[styles.planDone, planDoneGlowStyle]}
           >
             <Text style={styles.planDoneEmoji}>🎉</Text>
-            <Text style={styles.planDoneTitle}>Bugünün planı tamam</Text>
+            <Text style={styles.planDoneTitle}>{t("today.plan_done_title")}</Text>
             <Text style={styles.planDoneSub}>
-              Yarın yeni 5 sahne hazırlanır. Akış'tan ekstra sahne yapabilirsin.
+              {t("today.plan_done_subtitle")}
             </Text>
           </Animated.View>
         ) : showEmptyState ? (
@@ -637,11 +716,22 @@ export default function Today() {
             entering={FadeInDown.duration(420)}
             style={styles.emptyState}
           >
-            <Text style={styles.emptyTitle}>Hadi başlayalım</Text>
-            <Text style={styles.emptySub}>
-              Henüz bir plan yok. Akış'tan ilk sahneni seç, gerisi
-              kendiliğinden gelir.
+            <Text style={styles.emptyTitle}>
+              {planLoadFailed ? t("common.load_error_title") : t("today.empty_title")}
             </Text>
+            <Text style={styles.emptySub}>
+              {planLoadFailed ? t("common.load_error_body") : t("today.empty_subtitle")}
+            </Text>
+            {planLoadFailed ? (
+              <Pressable
+                onPress={() => void load()}
+                style={({ pressed }) => [styles.emptyCta, pressed && styles.pressed]}
+                accessibilityRole="button"
+                accessibilityLabel={t("common.try_again")}
+              >
+                <Text style={styles.emptyCtaText}>{t("common.try_again")}</Text>
+              </Pressable>
+            ) : null}
             <Pressable
               onPress={() => pushRoute(router, "/home")}
               style={({ pressed }) => [
@@ -649,9 +739,9 @@ export default function Today() {
                 pressed && styles.pressed,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Akış'ı aç"
+              accessibilityLabel={t("today.open_feed")}
             >
-              <Text style={styles.emptyCtaText}>Akış'ı aç</Text>
+              <Text style={styles.emptyCtaText}>{t("today.open_feed")}</Text>
             </Pressable>
           </Animated.View>
         ) : null}
@@ -663,7 +753,7 @@ export default function Today() {
             <View style={styles.warningBanner}>
               <Icon name="streak" size={14} color={tokens.semantic.warning} />
               <Text style={styles.warningText}>
-                Streak risk altında — 1 sahne kurtarır
+                {t("today.streak_risk")}
               </Text>
             </View>
           </Animated.View>
@@ -676,12 +766,18 @@ export default function Today() {
                   size={12}
                   color={tokens.semantic.error}
                 />
-                <Text style={styles.erosionLabel}>CEFR İLERLEMEN GERİLİYOR</Text>
+              <Text style={styles.erosionLabel}>{t("today.erosion_title")}</Text>
               </View>
               <Text style={styles.erosionText}>
                 {state.erosionDroppedLevel
-                  ? `${state.erosionDaysIdle} gün ara — ${state.erosionDroppedLevel}'e düştün.`
-                  : `${state.erosionDaysIdle} gün ara — −${state.erosionDecay.toFixed(2)} aşındı.`}
+                  ? t("today.erosion_level_drop", {
+                      days: String(state.erosionDaysIdle),
+                      level: state.erosionDroppedLevel,
+                    })
+                  : t("today.erosion_decay", {
+                      days: String(state.erosionDaysIdle),
+                      amount: state.erosionDecay.toFixed(2),
+                    })}
               </Text>
             </View>
           </Animated.View>
@@ -702,8 +798,8 @@ export default function Today() {
             accessibilityRole="button"
             accessibilityLabel={
               state.vocabDue > 0
-                ? `Kelime tekrarı: ${state.vocabDue} kelime`
-                : "Kelime tekrarı"
+                ? t("today.vocab_due", { count: String(state.vocabDue) })
+                : t("today.vocab_review")
             }
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
@@ -730,29 +826,16 @@ export default function Today() {
               ) : null}
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>PRATİK</Text>
-              <Text style={styles.tileTitle}>Kelime</Text>
+              <Text style={styles.tileEyebrow}>{t("today.practice")}</Text>
+              <Text style={styles.tileTitle}>{t("today.vocabulary")}</Text>
             </View>
           </Pressable>
 
           <Pressable
-            onPress={async () => {
-              if (state.surprise) {
-                const id = state.surprise.lessonId;
-                await consumeSurprise().catch(() => {});
-                pushRoute(router, `/scenario/${id}`);
-              } else {
-                // Sürpriz hazır değil — kullanıcıyı Akış'a yönlendir.
-                pushRoute(router, "/home");
-              }
-            }}
+            onPress={() => pushRoute(router, "/accent-lab")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
-            accessibilityLabel={
-              state.surprise
-                ? `Sürpriz sahne: ${state.surprise.title.replace(/\n/g, " ")}`
-                : "Sürpriz — Akış'tan keşfet"
-            }
+            accessibilityLabel={t("today.open_accent_lab")}
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
             <View
@@ -769,35 +852,20 @@ export default function Today() {
                   { backgroundColor: tokens.brand.tertiarySoft },
                 ]}
               >
-                <Icon name="surprise" size={22} color={tokens.brand.tertiary} />
+                <Icon name="message" size={22} color={tokens.brand.tertiary} />
               </View>
-              {surpriseBadge ? (
-                <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
-                  <Text style={styles.tileBadgeText}>{surpriseBadge}</Text>
-                </View>
-              ) : null}
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>KEŞFET</Text>
-              <Text style={styles.tileTitle}>Sürpriz</Text>
+              <Text style={styles.tileEyebrow}>{t("today.listening")}</Text>
+              <Text style={styles.tileTitle}>{t("today.accent_lab")}</Text>
             </View>
           </Pressable>
 
           <Pressable
-            onPress={() => {
-              if (state.daily) {
-                pushRoute(router, `/scenario/${state.daily.lessonId}`);
-              } else {
-                pushRoute(router, "/home");
-              }
-            }}
+            onPress={() => pushRoute(router, "/progress-compare")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
-            accessibilityLabel={
-              state.daily
-                ? `Bugün için: ${state.daily.title.replace(/\n/g, " ")}`
-                : "Günün özel sahnesi"
-            }
+            accessibilityLabel={t("today.open_progress_compare")}
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
             <View
@@ -815,20 +883,18 @@ export default function Today() {
                 ]}
               >
                 <Icon
-                  name={state.dailyCompleted ? "checkmark" : "target"}
+                  name="trending"
                   size={22}
                   color={tokens.brand.tertiary}
                 />
               </View>
-              {dailyBadge ? (
-                <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
-                  <Text style={styles.tileBadgeText}>{dailyBadge}</Text>
-                </View>
-              ) : null}
+              <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
+                <Text style={styles.tileBadgeText}>{t("today.voice")}</Text>
+              </View>
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>ÖZEL</Text>
-              <Text style={styles.tileTitle}>Günün Özeli</Text>
+              <Text style={styles.tileEyebrow}>{t("today.progress")}</Text>
+              <Text style={styles.tileTitle}>{t("today.before_after")}</Text>
             </View>
           </Pressable>
 
@@ -838,8 +904,8 @@ export default function Today() {
             accessibilityRole="button"
             accessibilityLabel={
               state.diaryWrittenToday
-                ? "Bugünün günlük cümlesi yazıldı"
-                : "Bugünün cümlesini yazmak için günlüğü aç"
+                ? t("today.diary_done")
+                : t("today.open_diary")
             }
           >
             <View style={styles.tileInnerHighlight} pointerEvents="none" />
@@ -858,7 +924,7 @@ export default function Today() {
               <View
                 style={[
                   styles.tileIconWrap,
-                  { backgroundColor: "rgba(255,255,255,0.06)" },
+                  { backgroundColor: tokens.bg.surfaceContainerHighest },
                 ]}
               >
                 <Icon
@@ -878,11 +944,40 @@ export default function Today() {
               ) : null}
             </View>
             <View>
-              <Text style={styles.tileEyebrow}>ARŞİV</Text>
-              <Text style={styles.tileTitle}>Günlük</Text>
+              <Text style={styles.tileEyebrow}>{t("today.archive")}</Text>
+              <Text style={styles.tileTitle}>{t("today.diary")}</Text>
             </View>
           </Pressable>
         </Animated.View>
+
+        {state.mistakeFocus && (
+          <Animated.View entering={FadeInDown.delay(240).duration(360)}>
+            <Pressable
+              onPress={() => pushRoute(router, "/mistake-coach")}
+              style={({ pressed }) => [
+                styles.mistakeCoachCard,
+                pressed && styles.pressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel={t("today.personal_mistake", {
+                mistake: state.mistakeFocus.label,
+              })}
+            >
+              <View style={styles.mistakeCoachTop}>
+                <Text style={styles.mistakeCoachEyebrow}>{t("today.mistake_focus_eyebrow")}</Text>
+                <Text style={styles.mistakeCoachCount}>
+                  {state.mistakeFocus.recentCount}×
+                </Text>
+              </View>
+              <Text style={styles.mistakeCoachTitle}>
+                {t("today.focus_only", { mistake: state.mistakeFocus.label })}
+              </Text>
+              <Text style={styles.mistakeCoachSub}>
+                {t("today.start_personal_practice")}
+              </Text>
+            </Pressable>
+          </Animated.View>
+        )}
 
         {/* HAFTALIK İLERLEME — 7 nokta, bu hafta kaç gün pratik yapıldı.
             longest_streak'ten değil, son 7 günün her birinde sahne tamamlandı
@@ -893,14 +988,14 @@ export default function Today() {
           style={styles.weeklyCard}
         >
           <View style={styles.weeklyHeader}>
-            <Text style={styles.weeklyLabel}>HAFTALIK İLERLEME</Text>
+            <Text style={styles.weeklyLabel}>{t("today.weekly_progress")}</Text>
             <Text style={styles.weeklyCount}>
-              {Math.min(streak, 7)} / 7 Gün
+              {t("today.days_of_seven", { count: String(state.weeklyActiveDays) })}
             </Text>
           </View>
           <View style={styles.weeklyDotsRow}>
             {Array.from({ length: 7 }).map((_, i) => {
-              const filled = i < Math.min(streak, 7);
+              const filled = i < state.weeklyActiveDays;
               return (
                 <View
                   key={i}
@@ -923,15 +1018,15 @@ export default function Today() {
               pressed && styles.pressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Akıştan rastgele sahneler keşfet"
+            accessibilityLabel={t("today.explore_feed_label")}
           >
             <View style={styles.exploreIconCircle}>
               <Icon name="explore" size={22} color={tokens.brand.primary} />
             </View>
             <View style={styles.exploreText}>
-              <Text style={styles.exploreTitle}>Akış'tan keşfet</Text>
+              <Text style={styles.exploreTitle}>{t("today.explore_feed")}</Text>
               <Text style={styles.exploreSub}>
-                Plan dışı {SCENE_COUNT_DISPLAY} sahneyi kaydırarak gez.
+                {t("today.explore_scenes", { count: String(SCENE_COUNT_DISPLAY) })}
               </Text>
             </View>
             <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
@@ -950,8 +1045,9 @@ export default function Today() {
                 color={tokens.brand.tertiary}
               />
               <Text style={styles.rewardedActiveText}>
-                Bugün Pro açık · {formatTimeUntil(state.rewardedExpiresAt)}{" "}
-                kaldı
+                {t("today.pro_active", {
+                  time: formatTimeUntil(state.rewardedExpiresAt, locale),
+                })}
               </Text>
             </View>
           </Animated.View>
@@ -966,17 +1062,17 @@ export default function Today() {
                 rewardedLoading && styles.rewardedCtaLoading,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Reklam izle, bugün için Pro aç"
+              accessibilityLabel={t("today.watch_ad_label")}
             >
               <View style={styles.rewardedIconCircle}>
                 <Icon name="play" size={20} color={tokens.brand.tertiary} />
               </View>
               <View style={styles.rewardedText}>
                 <Text style={styles.rewardedTitle}>
-                  {rewardedLoading ? "Hazırlanıyor..." : "Reklamı izle, Pro aç"}
+                  {rewardedLoading ? t("common.loading") : t("today.watch_ad_title")}
                 </Text>
                 <Text style={styles.rewardedSub}>
-                  30 sn reklam · 30 dk reklamsız + sınırsız sahne
+                  {t("today.watch_ad_subtitle")}
                 </Text>
               </View>
               <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
@@ -1071,7 +1167,7 @@ const styles = StyleSheet.create({
   // The frame owns: backgroundColor, borderRadius, border, shadow (animated),
   // and overflow:hidden so the backdrop clips to the rounded corners.
   // The Pressable inside is transparent and owns padding + content layout.
-  heroFrame: {
+  coreFrame: {
     borderRadius: tokens.radius.lg,
     backgroundColor: tokens.brand.primarySoft,
     borderWidth: 1.5,
@@ -1093,7 +1189,7 @@ const styles = StyleSheet.create({
     left: 1,
     right: 1,
     height: 1,
-    backgroundColor: "rgba(255, 255, 255, 0.18)",
+    backgroundColor: tokens.border.outline,
     borderTopLeftRadius: tokens.radius.lg,
     borderTopRightRadius: tokens.radius.lg,
   },
@@ -1118,28 +1214,175 @@ const styles = StyleSheet.create({
     right: 0,
     opacity: 0.14,
   },
-  heroPressable: {
-    padding: 20,
-    gap: 8,
-    backgroundColor: "transparent",
+  coreContent: {
+    padding: 18,
+    gap: 12,
+    backgroundColor: tokens.bg.surfaceContainer,
   },
-  planLabel: {
+  coreTopRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  coreEyebrow: {
     fontSize: 11,
     fontWeight: tokens.weight.extrabold,
     color: tokens.brand.primary,
     letterSpacing: 1.5,
   },
-  planTitle: {
-    fontSize: 22,
+  coreTimeBadge: {
+    paddingVertical: 5,
+    paddingHorizontal: 9,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderWidth: 1,
+    borderColor: tokens.border.outline,
+  },
+  coreTimeBadgeText: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: 0.3,
+  },
+  coreTitle: {
+    fontSize: 24,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     fontFamily: tokens.font.display,
-    letterSpacing: -0.5,
+    letterSpacing: -0.7,
   },
-  planSub: {
+  coreSub: {
     fontSize: 13,
     color: tokens.text.secondary,
+    lineHeight: 18,
     letterSpacing: -0.1,
+  },
+  coreTrustRail: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  coreTrustPill: {
+    flex: 1,
+    paddingVertical: 9,
+    paddingHorizontal: 9,
+    borderRadius: 14,
+    backgroundColor: tokens.bg.surfaceContainerLow,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    gap: 2,
+  },
+  coreTrustLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreTrustDetail: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    lineHeight: 13,
+  },
+  coreQuestion: {
+    marginTop: 2,
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreContextGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+  },
+  coreContextChip: {
+    flexBasis: "31%",
+    flexGrow: 1,
+    minWidth: 92,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 16,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    gap: 2,
+  },
+  coreContextChipSelected: {
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderColor: tokens.brand.tertiary,
+  },
+  coreContextLabel: {
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreContextLabelSelected: {
+    color: tokens.brand.tertiary,
+  },
+  coreContextDetail: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    lineHeight: 13,
+  },
+  coreContextDetailSelected: {
+    color: tokens.text.secondary,
+  },
+  corePrimaryCta: {
+    marginTop: 2,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.45,
+    shadowRadius: 14,
+    elevation: 8,
+  },
+  corePrimaryText: {
+    flex: 1,
+    gap: 2,
+  },
+  corePrimaryLabel: {
+    fontSize: 15,
+    fontWeight: tokens.weight.black,
+    color: tokens.brand.onPrimary,
+    letterSpacing: -0.1,
+  },
+  corePrimarySub: {
+    fontSize: 11,
+    color: tokens.brand.onPrimary,
+    opacity: 0.82,
+  },
+  coreQuickRow: {
+    flexDirection: "row",
+    gap: 10,
+  },
+  coreQuickAction: {
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 16,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    gap: 3,
+  },
+  coreQuickTitle: {
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  coreQuickSub: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    lineHeight: 14,
   },
 
   planDone: {
@@ -1401,7 +1644,7 @@ const styles = StyleSheet.create({
     left: 1,
     right: 1,
     height: 1,
-    backgroundColor: "rgba(255,255,255,0.10)",
+    backgroundColor: tokens.border.outline,
     borderTopLeftRadius: 22,
     borderTopRightRadius: 22,
   },
@@ -1464,6 +1707,42 @@ const styles = StyleSheet.create({
     color: tokens.text.primary,
     letterSpacing: -0.2,
     fontFamily: tokens.font.display,
+  },
+
+  mistakeCoachCard: {
+    padding: 18,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.brand.primarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.primary,
+    gap: 5,
+  },
+  mistakeCoachTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  mistakeCoachEyebrow: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+    letterSpacing: 1.2,
+  },
+  mistakeCoachCount: {
+    fontSize: 12,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+  },
+  mistakeCoachTitle: {
+    fontSize: 18,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.primary,
+    fontFamily: tokens.font.display,
+  },
+  mistakeCoachSub: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    lineHeight: 17,
   },
 
   // Haftalık ilerleme widget'ı — 7 nokta + depth pass.

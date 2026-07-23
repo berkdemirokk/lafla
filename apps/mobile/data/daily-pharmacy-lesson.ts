@@ -225,6 +225,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(mild|gentle|low-dose)",
             "(don'?t (want|need) (strong|prescription))",
           ],
+          model_answers: ["Hi, could you suggest something OTC for headaches?"],
           hint_tr:
             "Saygili acilis: 'Hi, could you suggest something OTC for headaches?'",
         },
@@ -243,6 +244,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(dosage|how much|how often)",
             "(thanks|appreciate (the help|the time))",
           ],
+          model_answers: ["No allergies. Any side effects to watch?"],
           hint_tr:
             "Saglik + dozaj: 'No allergies. Any side effects to watch?'",
         },
@@ -262,6 +264,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(occasionally )?(advil|tylenol|aspirin)( for .{0,20})?",
             "(no other meds|i'?m clean otherwise)",
           ],
+          model_answers: ["No, nothing else right now"],
           hint_tr:
             "İlaç bilgisi paylaş: 'No, nothing else right now' veya 'Just a daily vitamin'. Türk: 'eczacı' = US 'pharmacist'; UK 'chemist'. ABD eczacısı daha çok danışmanlık yapar, ilacı genelde teknisyen verir.",
         },
@@ -281,6 +284,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(can i take it (with|alongside) (coffee|water|food))",
             "(let me write that down|making a mental note)",
           ],
+          model_answers: ["Got it — 500mg every six. How long before relief?"],
           hint_tr:
             "Doz teyit + ek soru: 'Got it — 500mg every six. How long before relief?' veya 'When should I see a doctor?'. Türk: Türkiye'de 'eczacı' = mini-doktor, ABD'de pharmacist daha çok danışman. Bu yüzden ABD'de net sorular sor.",
         },
@@ -300,6 +304,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(also )?(do you take|where do i (pay|check out))",
             "(should i (call|stop by) (again|back) if it (lingers|keeps up))",
           ],
+          model_answers: ["Got it — three days max. Thanks for the heads up!"],
           hint_tr:
             "Uyarı kabul + teşekkür: 'Got it — three days max. Thanks for the heads up!'. Türk: 'baş üstüne' = direkt çevirisi yok; 'will do' veya 'got it' karşılığı. Eczacının uyarılarını kabul etmek nezaket gereği.",
         },
@@ -744,6 +749,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
             "(under the name|last name)",
             "(any (id|insurance card) need)",
           ],
+          model_answers: ["Hi, picking up a prescription — doctor called it in. Name: Yilmaz."],
           hint_tr:
             "Net acilis: 'Hi, picking up a prescription — doctor called it in. Name: Yilmaz.'",
         },
@@ -762,6 +768,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
             "(generic available|brand only)",
             "(how (long|often) (should i take|do i refill))",
           ],
+          model_answers: ["Here's my ID and insurance. Any copay?"],
           hint_tr:
             "Doc + sorma: 'Here's my ID and insurance. Any copay?'",
         },
@@ -1213,6 +1220,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
             "(scale|level|rating) (of )?(\\d+|seven|eight)",
             "(haven'?t (slept|eaten|tried (anything|much)))",
           ],
+          model_answers: ["Headache for 2 days. Throbbing. Gets worse with light. About 7/10."],
           hint_tr:
             "Spesifik: 'Headache for 2 days. Throbbing. Gets worse with light. About 7/10.'",
         },
@@ -1231,6 +1239,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
             "(when (do i|should i) (see a doctor|escalate))",
             "(thanks|appreciate the recommendation)",
           ],
+          model_answers: ["Tried Advil — didn't help. When should I see a doctor?"],
           hint_tr:
             "Plan: 'Tried Advil — didn't help. When should I see a doctor?'",
         },
@@ -1682,6 +1691,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
             "(flying|traveling|driving) (tomorrow|today|later)",
             "(any recommendation|what do you suggest)",
           ],
+          model_answers: ["Hi, anything non-drowsy for a cold? Got a runny nose and sore throat — flying tomorrow."],
           hint_tr:
             "Spesifik: 'Hi, anything non-drowsy for a cold? Got a runny nose and sore throat — flying tomorrow.'",
         },
@@ -1700,6 +1710,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
             "(any (side effects|interactions))",
             "(thanks|appreciate it|great)",
           ],
+          model_answers: ["No allergies, not on anything. How often do I take it?"],
           hint_tr:
             "Tam bilgi: 'No allergies, not on anything. How often do I take it?'",
         },
@@ -2112,6 +2123,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
             "(how long is|what'?s) (the wait|the wait time|the eta)",
             "(is it ready|ready (for|yet))",
           ],
+          model_answers: ["Hi, picking up a prescription for Yilmaz — how long is the wait?"],
           hint_tr:
             "Net: 'Hi, picking up a prescription for Yilmaz — how long is the wait?'",
         },
@@ -2130,6 +2142,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
             "(any (text|notification) when ready)",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Sure, I'll wait. Can you text me when it's ready?"],
           hint_tr:
             "Esnek: 'Sure, I'll wait. Can you text me when it's ready?'",
         },
@@ -2543,6 +2556,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
             "(any (interactions|interaction|side effects))",
             "(non-?drowsy|won'?t affect (driving|work))",
           ],
+          model_answers: ["Hi, anything non-drowsy for pollen allergies? Sneezing and itchy eyes."],
           hint_tr:
             "Acilis: 'Hi, anything non-drowsy for pollen allergies? Sneezing and itchy eyes.'",
         },
@@ -2561,6 +2575,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
             "(side effects (to watch|to know about))",
             "(thanks for checking|appreciate the thoroughness)",
           ],
+          model_answers: ["On Advil daily for back pain. Any interactions? Side effects?"],
           hint_tr:
             "Tam bilgi: 'On Advil daily for back pain. Any interactions? Side effects?'",
         },
@@ -2974,6 +2989,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
             "(or (wait|ride it out|see if it passes))",
             "(otc enough|just keep (taking|using))",
           ],
+          model_answers: ["Quick question — fever 5 days, not improving. Should I see a doctor or wait?"],
           hint_tr:
             "Net soru: 'Quick question — fever 5 days, not improving. Should I see a doctor or wait?'",
         },
@@ -2992,6 +3008,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
             "(when (should i|do i) (go to (er|urgent care)))",
             "(thanks for the (info|guidance|help))",
           ],
+          model_answers: ["No chest pain. Just fever + cough. When should I be worried?"],
           hint_tr:
             "Detay: 'No chest pain. Just fever + cough. When should I be worried?'",
         },

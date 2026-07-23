@@ -17,7 +17,7 @@ import {
   Pressable,
   StyleSheet,
   Modal,
-  Dimensions,
+  useWindowDimensions,
 } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -28,8 +28,8 @@ import Animated, {
 import * as Haptics from "expo-haptics";
 
 import { tokens } from "../theme";
-
-const SCREEN = Dimensions.get("window");
+import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 interface Props {
   /** Kullanıcının ekranda göreceği ad. Boşsa "selam!" generic. */
@@ -48,19 +48,27 @@ export function TutorialOverlay({
   planEstimatedMin,
   onDismiss,
 }: Props) {
+  const { t } = useTranslation();
+  const { width } = useWindowDimensions();
+  const reduceMotion = useReduceMotionPreference();
   // Fade + scale entry — overlay açılırken yumuşak, "patlatma" değil.
   const fade = useSharedValue(0);
   const scale = useSharedValue(0.94);
 
   useEffect(() => {
+    if (reduceMotion) {
+      fade.value = 1;
+      scale.value = 1;
+    } else {
     fade.value = withTiming(1, { duration: 220, easing: Easing.out(Easing.quad) });
     scale.value = withTiming(1, { duration: 240, easing: Easing.out(Easing.cubic) });
+    }
     try {
       void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     } catch {
       // ignore
     }
-  }, [fade, scale]);
+  }, [fade, scale, reduceMotion]);
 
   const cardStyle = useAnimatedStyle(() => ({
     opacity: fade.value,
@@ -77,15 +85,22 @@ export function TutorialOverlay({
     } catch {
       // ignore
     }
-    fade.value = withTiming(0, { duration: 160 });
-    setTimeout(onDismiss, 170);
+    if (reduceMotion) {
+      onDismiss();
+    } else {
+      fade.value = withTiming(0, { duration: 160 });
+      setTimeout(onDismiss, 170);
+    }
   };
 
   // Plan satırı için fallback — plan yoksa generic CTA
   const planLine =
     planTotal > 0
-      ? `Bugün için ${planTotal} sahne hazırladık (~${planEstimatedMin} dk).`
-      : `Akıştan sahne seç, dokun → konuşmaya başla.`;
+      ? t("tutorial.plan", {
+          scenes: String(planTotal),
+          minutes: String(planEstimatedMin),
+        })
+      : t("tutorial.pick_scene");
 
   return (
     <Modal transparent visible animationType="none" onRequestClose={handleDismiss}>
@@ -94,18 +109,22 @@ export function TutorialOverlay({
         style={StyleSheet.absoluteFill}
         onPress={handleDismiss}
         accessibilityRole="button"
-        accessibilityLabel="Tanıtımı kapat"
+        accessibilityLabel={t("tutorial.close")}
       >
         <Animated.View style={[styles.backdrop, backdropStyle]} />
       </Pressable>
 
       <View style={styles.center} pointerEvents="box-none">
-        <Animated.View style={[styles.card, cardStyle]}>
+        <Animated.View
+          style={[styles.card, { width: Math.min(width - 48, 420) }, cardStyle]}
+        >
           {/* Header */}
           <Text style={styles.greeting}>
-            {displayName ? `Selam ${displayName} 👋` : "Selam 👋"}
+            {displayName
+              ? t("tutorial.greeting_name", { name: displayName })
+              : t("tutorial.greeting")}
           </Text>
-          <Text style={styles.subhead}>Lafla nasıl çalışıyor:</Text>
+          <Text style={styles.subhead}>{t("tutorial.title")}</Text>
 
           {/* 4 madde — kullanıcının bilmesi gereken her şey tek ekranda */}
           <View style={styles.itemList}>
@@ -115,15 +134,15 @@ export function TutorialOverlay({
             />
             <Item
               icon="👆"
-              text="Akışı yukarı kaydır, dokun → sahneye gir."
+              text={t("tutorial.swipe")}
             />
             <Item
               icon="🎙️"
-              text="Klavye değil — sesli konuş. Cevabını söyle, otomatik geçer."
+              text={t("tutorial.voice")}
             />
             <Item
               icon="🎯"
-              text="Her sahne sonu CEFR ilerlemen gösterilir."
+              text={t("tutorial.progress")}
             />
           </View>
 
@@ -135,9 +154,9 @@ export function TutorialOverlay({
               pressed && styles.ctaPressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Başlayalım"
+            accessibilityLabel={t("tutorial.start")}
           >
-            <Text style={styles.ctaText}>Başlayalım</Text>
+            <Text style={styles.ctaText}>{t("tutorial.start")}</Text>
           </Pressable>
         </Animated.View>
       </View>
@@ -166,7 +185,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   card: {
-    width: Math.min(SCREEN.width - 48, 420),
     backgroundColor: tokens.bg.surface,
     borderRadius: tokens.radius.lg,
     borderWidth: 1.5,

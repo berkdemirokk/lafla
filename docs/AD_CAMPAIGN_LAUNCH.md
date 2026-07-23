@@ -137,7 +137,7 @@
 >
 > Sorun gramer değildi. YDS 85'tim. Sorun **gerçek anda donma refleksi**ydi.
 >
-> Bu boşluk için Lafla'yı yaptık. AI koç Maya ile gerçek mülakat senaryoları — Türk-İngilizce hata patternlerini birebir yakalayan, Türkçe açıklayan, telaffuzu fonem seviyesinde analiz eden bir simülatör.
+> Bu boşluk için Lafla'yı yaptık. Cihazında çalışan gerçek mülakat senaryoları — Türk-İngilizce hata patternlerini birebir yakalayan, Türkçe açıklayan, telaffuzu ses düzeyinde analiz eden bir simülatör.
 >
 > Eğer Türkiye'den yurtdışı iş peşindeyseniz, ya da konsoloslukta vize mülakatına gireceksiniz: Lafla bu pratik için var.
 >

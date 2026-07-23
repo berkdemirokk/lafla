@@ -96,6 +96,7 @@ export const workReviewLesson_12_1: BundledLesson = {
             "(resulted in|led to|drove) (a |\\d+ ?%)",
             "(lift|improvement|reduction|drop)",
           ],
+          model_answers: ["Led the auth redesign end-to-end — 40% drop in login fails."],
           hint_tr:
             "Net olarak basla: 'Led the auth redesign end-to-end — 40% drop in login fails.'",
         },
@@ -114,6 +115,7 @@ export const workReviewLesson_12_1: BundledLesson = {
             "(mentored|onboarded) (\\d+|a few) (new |junior )?(engineer|hire)",
             "(documentation|the runbook) (i wrote|i created)",
           ],
+          model_answers: ["Partnered with design to ship auth — unblocked the platform team."],
           hint_tr:
             "Cross-functional vurguda: 'Partnered with design to ship auth — unblocked the platform team.'",
         },
@@ -132,6 +134,7 @@ export const workReviewLesson_12_1: BundledLesson = {
             "(mentorship|coaching|sponsorship)",
             "(want to (be intentional|invest|focus) (on|in))",
           ],
+          model_answers: ["Honestly, broader cross-team visibility — want to be intentional about it next year."],
           hint_tr:
             "Growth area framing: 'Honestly, broader cross-team visibility — want to be intentional about it next year.'",
         },
@@ -590,6 +593,7 @@ export const workReviewLesson_12_2: BundledLesson = {
             "(specific|concrete) (example|instance|case)",
             "(when did this|where (did this|does this) show up)",
           ],
+          model_answers: ["Thanks for the candor — can you give a concrete example?"],
           hint_tr:
             "Olgun: 'Thanks for the candor — can you give a concrete example?'",
         },
@@ -608,6 +612,7 @@ export const workReviewLesson_12_2: BundledLesson = {
             "(apologize|reach out) (to (them|the team))",
             "(work on|focus on) (creating space|listening)",
           ],
+          model_answers: ["That lands — I'll pause more. Will reach out to them. Flag me if I slip again."],
           hint_tr:
             "Aksiyon: 'That lands — I'll pause more. Will reach out to them. Flag me if I slip again.'",
         },
@@ -626,6 +631,7 @@ export const workReviewLesson_12_2: BundledLesson = {
             "(come back with|bring) (data|examples|what'?s (working|landing))",
             "(open to|happy to) (course-?correct|adjust)",
           ],
+          model_answers: ["Absolutely — would appreciate the check-in. Will bring specific moments where it landed."],
           hint_tr:
             "Plan kabul: 'Absolutely — would appreciate the check-in. Will bring specific moments where it landed.'",
         },
@@ -954,6 +960,7 @@ export const workReviewLesson_12_3: BundledLesson = {
             "(love to (discuss|hear)|happy to share)",
             "(let me know|appreciate) (the path forward|how to navigate)",
           ],
+          model_answers: ["Wanted to open a comp conversation — based on Q3 + market data."],
           hint_tr:
             "Ac: 'Wanted to open a comp conversation — based on Q3 + market data.'",
         },
@@ -972,6 +979,7 @@ export const workReviewLesson_12_3: BundledLesson = {
             "(my (current|present) (level|comp))",
             "(\\d+%|\\$\\d+k)",
           ],
+          model_answers: ["Led auth redesign — 40% impact. Market data shows X level at +15%."],
           hint_tr:
             "Veriyle: 'Led auth redesign — 40% impact. Market data shows X level at +15%.'",
         },
@@ -990,6 +998,7 @@ export const workReviewLesson_12_3: BundledLesson = {
             "(mentorship|onboarding|ramped|coached)",
             "(happy to (send|share)|will send) (a one-?pager|the doc|highlights)",
           ],
+          model_answers: ["The cross-team impact and the 40% drop — happy to send a one-pager today."],
           hint_tr:
             "Spesifik anchor: 'The cross-team impact and the 40% drop — happy to send a one-pager today.'",
         },
@@ -1317,6 +1326,7 @@ export const workReviewLesson_12_4: BundledLesson = {
             "(speaking up|proactive|visible|asking for help)",
             "(actionable|concrete|specific) (suggestion)",
           ],
+          model_answers: ["Strength: technical depth. Growth: more visible in meetings."],
           hint_tr:
             "Yapi: 'Strength: technical depth. Growth: more visible in meetings.'",
         },
@@ -1335,6 +1345,7 @@ export const workReviewLesson_12_4: BundledLesson = {
             "(would (help|unblock) the team)",
             "(open to|happy to) (peer it with|model the behavior)",
           ],
+          model_answers: ["Could share a take every standup — would help others learn."],
           hint_tr:
             "Spesifik: 'Could share a take every standup — would help others learn.'",
         },
@@ -1353,6 +1364,7 @@ export const workReviewLesson_12_4: BundledLesson = {
             "(positive feedback (in writing|in person)|public (kudos|recognition))",
             "(also (shout (her |it )?out|tag her)) (in the (channel|thread|standup))",
           ],
+          model_answers: ["Absolutely — will drop her a note this week. Want her to hear it directly."],
           hint_tr:
             "İlişki yatırımı: 'Absolutely — will drop her a note this week. Want her to hear it directly.'",
         },
@@ -1683,6 +1695,7 @@ export const workReviewLesson_12_5: BundledLesson = {
             "(this year|in q[1-4]|over the last (six|6) months)",
             "(end-?to-?end|kickoff to launch)",
           ],
+          model_answers: ["Took ownership of X — drove Y% improvement in Z by doing W."],
           hint_tr:
             "Tek cumle formul: 'Took ownership of X — drove Y% improvement in Z by doing W.'",
         },
@@ -1701,6 +1714,7 @@ export const workReviewLesson_12_5: BundledLesson = {
             "(set up the team to|positioned (us|the team))",
             "(measurable|sustained|durable) (impact|gain|win)",
           ],
+          model_answers: ["Translates to ~$400k ARR — unlocked enterprise segment for next year."],
           hint_tr:
             "Is etkisi: 'Translates to ~$400k ARR — unlocked enterprise segment for next year.'",
         },
@@ -1719,6 +1733,7 @@ export const workReviewLesson_12_5: BundledLesson = {
             "(in (your )?inbox|in slack|over (in dm|in a doc))",
             "(quantified|measurable|with the (number|stat))",
           ],
+          model_answers: ["Absolutely — three bullets, each with the number, by EOD in your inbox."],
           hint_tr:
             "Tight commit: 'Absolutely — three bullets, each with the number, by EOD in your inbox.'",
         },
@@ -2010,6 +2025,7 @@ export const workReviewLesson_12_6: BundledLesson = {
             "(appreciate|thank you for) (the (candor|feedback|honesty))",
             "(want to (get this right|grow on this))",
           ],
+          model_answers: ["That's fair — help me understand more. When did this come up?"],
           hint_tr:
             "Defansif degil: 'That's fair — help me understand more. When did this come up?'",
         },
@@ -2028,6 +2044,7 @@ export const workReviewLesson_12_6: BundledLesson = {
             "(reach out to ali|apologize|circle back with ali)",
             "(flag me|nudge me|call me out) (if i slip|in the moment)",
           ],
+          model_answers: ["That lands — didn't realize. Will create more space, reach out to Ali. Nudge me if I slip."],
           hint_tr:
             "Aksiyon: 'That lands — didn't realize. Will create more space, reach out to Ali. Nudge me if I slip.'",
         },
@@ -2046,6 +2063,7 @@ export const workReviewLesson_12_6: BundledLesson = {
             "(grateful|appreciate) (the (heads-?up|directness))",
             "(both works|either works) (depending on (the )?severity)",
           ],
+          model_answers: ["Real-time works best — a quick DM after the meeting while it's fresh."],
           hint_tr:
             "Tercih netleştir: 'Real-time works best — a quick DM after the meeting while it's fresh.'",
         },
@@ -2337,6 +2355,7 @@ export const workReviewLesson_12_7: BundledLesson = {
             "(honest take|unfiltered|real feedback)",
             "(working with me|on the team) (recently|the last few months|this quarter)",
           ],
+          model_answers: ["Appreciate you making time. Want to be direct — what's one thing I could do better?"],
           hint_tr:
             "Davet: 'Appreciate you making time. Want to be direct — what's one thing I could do better?'",
         },
@@ -2355,6 +2374,7 @@ export const workReviewLesson_12_7: BundledLesson = {
             "(what would (good|great|ideal) look like)",
             "(open to|happy to) (try|test) (a (different|new) format)",
           ],
+          model_answers: ["That lands — can you double-click? What would great look like?"],
           hint_tr:
             "Derinles: 'That lands — can you double-click? What would great look like?'",
         },
@@ -2373,6 +2393,7 @@ export const workReviewLesson_12_7: BundledLesson = {
             "(would (mean a lot|really help)|grateful for that)",
             "(send the (next|first) doc by|will share before the next launch)",
           ],
+          model_answers: ["Yes please — call me out if you don't see the doc. Trying to make this stick."],
           hint_tr:
             "Hesap verme açma: 'Yes please — call me out if you don't see the doc. Trying to make this stick.'",
         },
@@ -2665,6 +2686,7 @@ export const workReviewLesson_12_8: BundledLesson = {
             "(what does (great|exceeds) look like (at this level|here))",
             "(open to|grateful for) (your (read|coaching))",
           ],
+          model_answers: ["Sat with the rating. Want to focus on next cycle — what does great look like here?"],
           hint_tr:
             "Olgun acilis: 'Sat with the rating. Want to focus on next cycle — what does great look like here?'",
         },
@@ -2683,6 +2705,7 @@ export const workReviewLesson_12_8: BundledLesson = {
             "(check (in|back) (monthly|every (two|2) weeks))",
             "(want to come back with|going to draft) (a plan)",
           ],
+          model_answers: ["That lands. Can we pick one cross-team project I could own? Will draft a plan and check in monthly."],
           hint_tr:
             "Plan: 'That lands. Can we pick one cross-team project I could own? Will draft a plan and check in monthly.'",
         },
@@ -2701,6 +2724,7 @@ export const workReviewLesson_12_8: BundledLesson = {
             "(monthly|biweekly) (check-?ins|syncs) (on (progress|the plan))",
             "(honest (read|feedback) (in the moment|along the way)|coaching as i go)",
           ],
+          model_answers: ["Appreciate that — biggest thing is air-cover with leadership and monthly check-ins to course-correct."],
           hint_tr:
             "Spesifik talep: 'Appreciate that — biggest thing is air-cover with leadership and monthly check-ins to course-correct.'",
         },

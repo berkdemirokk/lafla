@@ -20,7 +20,7 @@ import {
   Pressable,
   ScrollView,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -36,25 +36,36 @@ import {
   pickDrillsForLevel,
   type DrillItem,
 } from "../data/phoneme-drill-data";
+import { useTranslation } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 const SESSION_SIZE = 5;
 
 export default function PhonemeDrillScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [drills, setDrills] = useState<DrillItem[]>([]);
   const [idx, setIdx] = useState(0);
   const [scores, setScores] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
   const [userLevel, setUserLevel] = useState<CefrLevel | null>(null);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
   const load = useCallback(async () => {
-    const lvl = await getCefrLevel().catch(() => null);
-    setUserLevel(lvl);
-    const session = pickDrillsForLevel(lvl ?? "B1", SESSION_SIZE);
-    setDrills(session);
-    setIdx(0);
-    setScores([]);
-    setFinished(false);
+    setStatus("loading");
+    try {
+      const lvl = await getCefrLevel().catch(() => null);
+      setUserLevel(lvl);
+      const session = pickDrillsForLevel(lvl ?? "B1", SESSION_SIZE);
+      if (session.length === 0) throw new Error("No pronunciation drills available");
+      setDrills(session);
+      setIdx(0);
+      setScores([]);
+      setFinished(false);
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
 
   useFocusEffect(
@@ -110,40 +121,49 @@ export default function PhonemeDrillScreen() {
     );
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.header}>
           <Pressable
             onPress={() => router.back()}
             style={styles.backBtn}
             hitSlop={12}
+            accessibilityRole="button"
+            accessibilityLabel={t("common.back")}
           >
             <Icon name="arrowLeft" size={24} color={tokens.text.primary} />
           </Pressable>
-          <Text style={styles.headerTitle}>Telaffuz pratiği</Text>
+          <Text style={styles.headerTitle}>{t("phoneme_drill.title")}</Text>
           <View style={{ width: 40 }} />
         </View>
         <ScrollView contentContainerStyle={styles.doneWrap}>
           <View style={styles.scoreHero}>
-            <Text style={styles.scoreEyebrow}>SEANS ORTALAMASI</Text>
+            <Text style={styles.scoreEyebrow}>{t("practice.session_average")}</Text>
             <Text style={styles.scoreNum}>{avg}</Text>
             <Text style={styles.scoreOf}>/ 100</Text>
           </View>
           <Text style={styles.doneSub}>
             {avg >= 85
-              ? "Net telaffuz. Bu fonemleri tutturuyorsun."
+              ? t("phoneme_drill.result.high")
               : avg >= 70
-                ? "İyi gidiş. Birkaç fonem daha pratik gerek."
-                : "Bu fonemler hala zor — ertesi gün tekrar dene."}
+                ? t("phoneme_drill.result.medium")
+                : t("phoneme_drill.result.low")}
           </Text>
           <View style={styles.doneActions}>
-            <Pressable onPress={handleRestart} style={styles.primaryBtn}>
-              <Text style={styles.primaryBtnText}>Yeniden başla</Text>
+            <Pressable
+              onPress={handleRestart}
+              style={styles.primaryBtn}
+              accessibilityRole="button"
+              accessibilityLabel={t("phoneme_drill.restart_label")}
+            >
+              <Text style={styles.primaryBtnText}>{t("practice.restart")}</Text>
             </Pressable>
             <Pressable
               onPress={() => router.back()}
               style={styles.secondaryBtn}
+              accessibilityRole="button"
+              accessibilityLabel={t("phoneme_drill.finish_label")}
             >
-              <Text style={styles.secondaryBtnText}>Bitir</Text>
+              <Text style={styles.secondaryBtnText}>{t("practice.finish")}</Text>
             </Pressable>
           </View>
         </ScrollView>
@@ -152,21 +172,33 @@ export default function PhonemeDrillScreen() {
   }
 
   // ─── Active drill ──────────────────────────────────────────
-  if (!currentDrill) return null;
+  if (status !== "ready" || !currentDrill) {
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <ThemedStatusBar />
+        <AsyncScreenState
+          status={status === "ready" ? "error" : status}
+          onRetry={() => void load()}
+        />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
       <View style={styles.header}>
         <Pressable
           onPress={() => router.back()}
           style={styles.backBtn}
           hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel={t("common.back")}
         >
           <Icon name="arrowLeft" size={24} color={tokens.text.primary} />
         </Pressable>
         <View style={styles.headerCenter}>
-          <Text style={styles.headerTitle}>Telaffuz pratiği</Text>
+          <Text style={styles.headerTitle}>{t("phoneme_drill.title")}</Text>
           <Text style={styles.headerProgress}>
             {idx + 1} / {drills.length}
           </Text>
@@ -192,7 +224,7 @@ export default function PhonemeDrillScreen() {
         {/* Drill meta */}
         <View style={styles.metaCard}>
           <Text style={styles.metaTarget}>
-            FONEM: {targetLabel(currentDrill.target)}
+            {t("phoneme_drill.phoneme")}: {targetLabel(currentDrill.target, t)}
           </Text>
           {currentDrill.ipa_hint && (
             <Text style={styles.metaIpa}>{currentDrill.ipa_hint}</Text>
@@ -215,22 +247,22 @@ export default function PhonemeDrillScreen() {
   );
 }
 
-function targetLabel(target: DrillItem["target"]): string {
+function targetLabel(target: DrillItem["target"], t: ReturnType<typeof useTranslation>["t"]): string {
   switch (target) {
     case "th_voiceless":
-      return "/θ/ TH SESSİZ";
+      return t("phoneme_drill.target.th_voiceless");
     case "th_voiced":
-      return "/ð/ TH SESLİ";
+      return t("phoneme_drill.target.th_voiced");
     case "v_vs_w":
       return "/v/ vs /w/";
     case "ae_vowel":
-      return "/æ/ AÇIK A";
+      return t("phoneme_drill.target.ae_vowel");
     case "ih_vs_iy":
       return "/ɪ/ vs /iː/";
     case "ng_consonant":
-      return "/ŋ/ NG SESİ";
+      return t("phoneme_drill.target.ng_consonant");
     case "final_voicing":
-      return "FİNAL YUMUŞAK";
+      return t("phoneme_drill.target.final_voicing");
   }
 }
 
@@ -340,26 +372,26 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.brand.secondary,
     borderRadius: tokens.radius.lg,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.08)",
+    borderColor: tokens.brand.primaryFixed,
     ...tokens.shadow.hero,
   },
   scoreEyebrow: {
     fontSize: 11,
     fontWeight: tokens.weight.extrabold,
-    color: tokens.text.tertiary,
+    color: tokens.brand.onSecondary,
     letterSpacing: 1.4,
     marginBottom: 6,
   },
   scoreNum: {
     fontSize: 64,
     fontWeight: tokens.weight.black,
-    color: tokens.brand.primary,
+    color: tokens.brand.primaryFixed,
     letterSpacing: -2,
     lineHeight: 70,
   },
   scoreOf: {
     fontSize: 20,
-    color: tokens.text.tertiary,
+    color: tokens.brand.onSecondary,
     fontWeight: tokens.weight.bold,
     marginTop: 4,
   },

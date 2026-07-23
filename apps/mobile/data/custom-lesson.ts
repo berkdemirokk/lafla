@@ -100,6 +100,7 @@ export const customLesson_3_1: BundledLesson = {
             "(peanut|nut|shellfish|dairy|gluten) allergy",
             "i'?m (vegetarian|vegan|gluten[- ]free|lactose intolerant)",
           ],
+          model_answers: ["I'm allergic to [X]"],
           hint_tr:
             "Alerjini söyle: 'I'm allergic to [X]' veya 'I'm [vegetarian/vegan]'.",
         },
@@ -119,6 +120,7 @@ export const customLesson_3_1: BundledLesson = {
             "trace amounts (are )?(okay|fine|a problem)",
             "be (super )?careful",
           ],
+          model_answers: ["Just direct ingredients is fine"],
           hint_tr:
             "Çapraz temas: 'Just direct ingredients is fine' veya 'Trace amounts are a problem'.",
         },
@@ -606,6 +608,7 @@ export const customLesson_3_2: BundledLesson = {
             "(turkey|chicken|veggie|club) (sandwich|please)",
             "the (turkey|chicken|club|veggie)",
           ],
+          model_answers: ["I'll have the turkey, please"],
           hint_tr: "Sipariş ver: 'I'll have the turkey, please'.",
         },
         {
@@ -622,6 +625,7 @@ export const customLesson_3_2: BundledLesson = {
             "skip the (onions?|tomatoes?|mayo|cheese)",
             "(easy|light) on the (sauce|mayo|cheese|salt)",
           ],
+          model_answers: ["Easy on the sauce"],
           hint_tr:
             "Değişiklik: 'No onions', 'Hold the mayo', 'Extra cheese', 'Easy on the sauce'.",
         },
@@ -637,6 +641,7 @@ export const customLesson_3_2: BundledLesson = {
             "(no thanks|no thank you|i'?m good|no drink)",
             "i('ll have|d like|'ll take) (a |the |some )?(water|coke|sprite|juice)",
           ],
+          model_answers: ["No thanks, I'm good"],
           hint_tr: "İçecek seç veya 'No thanks, I'm good'.",
         },
         {
@@ -1119,6 +1124,7 @@ export const customLesson_3_3: BundledLesson = {
             "i don'?t eat (meat|dairy|fish|gluten)",
             "first time( here)?",
           ],
+          model_answers: ["Do you have vegetarian options?"],
           hint_tr:
             "Diyetini söyle veya 'Do you have vegetarian options?' diye sor.",
         },
@@ -1136,6 +1142,7 @@ export const customLesson_3_3: BundledLesson = {
             "(does|is) (the )?(pasta|risotto) (have|contain)",
             "is the (pasta|risotto) (vegan|gluten[- ]free)",
           ],
+          model_answers: ["What's in the falafel?"],
           hint_tr:
             "Sipariş ver veya detay sor: 'What's in the falafel?', 'Is the risotto vegan?'.",
         },
@@ -1628,6 +1635,7 @@ export const customLesson_3_4: BundledLesson = {
             "(i'?ll have|i'?d like|can i get|let'?s do) (the )?(wheat|white|italian|herb|multigrain)",
             "wheat( please)?",
           ],
+          model_answers: ["I'll have the Italian"],
           hint_tr:
             "Ekmek sec: 'Wheat, please' veya 'I'll have the Italian'.",
         },
@@ -1645,6 +1653,7 @@ export const customLesson_3_4: BundledLesson = {
             "no cheese( please)?",
             "(skip|hold) the cheese",
           ],
+          model_answers: ["No cheese"],
           hint_tr:
             "Peynir sec veya 'Extra cheese, please' / 'No cheese'.",
         },
@@ -1662,6 +1671,7 @@ export const customLesson_3_4: BundledLesson = {
             "(everything|the works)( except| but)?",
             "(dressing|sauce|mayo) on the side",
           ],
+          model_answers: ["Lettuce, tomato, no onions, extra mayo, dressing on the side"],
           hint_tr:
             "Sebze/sos sec: 'Lettuce, tomato, no onions, extra mayo, dressing on the side'.",
         },
@@ -2110,6 +2120,7 @@ export const customLesson_3_5: BundledLesson = {
             "(a |one )?(pepperoni|cheese|veggie|margherita|hawaiian)",
             "let'?s do a (large|medium)",
           ],
+          model_answers: ["Could we get a large?"],
           hint_tr:
             "Pizza boyutunu sec: 'Could we get a large?', 'We'll have a medium pepperoni'.",
         },
@@ -2127,6 +2138,7 @@ export const customLesson_3_5: BundledLesson = {
             "(light|easy) on the (sauce|cheese)",
             "(no|without|hold) (the )?(onions?|olives?|peppers?|mushrooms?|anchovies)",
           ],
+          model_answers: ["Extra cheese, light on sauce"],
           hint_tr:
             "Topping: 'Half pepperoni, half veggie', 'Extra cheese, light on sauce', 'No olives'.",
         },
@@ -2141,6 +2153,7 @@ export const customLesson_3_5: BundledLesson = {
             "(let'?s do|we'?ll do|i'?d like) (thin|regular|deep dish|thick)",
             "(thin|regular) please",
           ],
+          model_answers: ["Let's do deep dish"],
           hint_tr:
             "Hamur sec: 'Thin crust, please' veya 'Let's do deep dish'.",
         },
@@ -2596,6 +2609,7 @@ export const customLesson_3_6: BundledLesson = {
             "(medium[- ]?rare|medium|well[- ]?done) for me",
             "(a bit |slightly )?pink in the (middle|center)",
           ],
+          model_answers: ["Medium, pink in the middle"],
           hint_tr:
             "Derece sec: 'Medium-rare, please', 'Well-done', 'Medium, pink in the middle'.",
         },
@@ -2613,6 +2627,7 @@ export const customLesson_3_6: BundledLesson = {
             "(let'?s do|how about) (medium|medium[- ]?well|well[- ]?done) (instead|then)",
             "no.{0,10}(medium|well[- ]?done|more cooked)",
           ],
+          model_answers: ["Sounds good"],
           hint_tr:
             "Onayla ('Sounds good') veya degistir ('Actually, let's do medium-well').",
         },
@@ -2629,6 +2644,7 @@ export const customLesson_3_6: BundledLesson = {
             "(could|can) i (sub|swap|substitute) .{0,20} for",
             "(side )?salad (please|instead)",
           ],
+          model_answers: ["Could I sub fries for a salad?"],
           hint_tr:
             "Garnitur sec veya 'Could I sub fries for a salad?'.",
         },
@@ -3078,6 +3094,7 @@ export const customLesson_3_7: BundledLesson = {
             "half (kale|spinach|mixed greens).{0,15}half",
             "(could|can) (you|i) (mix|combine|do half)",
           ],
+          model_answers: ["Half kale, half spinach"],
           hint_tr:
             "Yesilligi sec: 'Spinach, please' veya 'Half kale, half spinach'.",
         },
@@ -3094,6 +3111,7 @@ export const customLesson_3_7: BundledLesson = {
             "(extra|more|double) (feta|avocado|chickpeas?|tomatoes?)",
             "everything (except|but) (croutons?|cheese|feta)",
           ],
+          model_answers: ["Tomatoes, cucumbers, feta — no croutons"],
           hint_tr:
             "Toppingleri ses: 'Tomatoes, cucumbers, feta — no croutons' veya 'Everything except feta'.",
         },
@@ -3111,6 +3129,7 @@ export const customLesson_3_7: BundledLesson = {
             "(just )?(a little|a bit of) (balsamic|ranch|dressing)",
             "no dressing( please)?",
           ],
+          model_answers: ["Balsamic on the side, please"],
           hint_tr:
             "Sos sec: 'Balsamic on the side, please' veya 'Ranch, light please'.",
         },

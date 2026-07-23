@@ -22,12 +22,14 @@ import type {
   PhonemeBand,
   WordPhonemeAnalysis,
 } from "../lib/phoneme-grader";
+import { useTranslation } from "../lib/i18n";
 
 export function PhonemeFeedback({
   analysis,
 }: {
   analysis: PhonemeAnalysisResult;
 }) {
+  const { t, locale } = useTranslation();
   // Hiç tip yoksa — analysis worth showing değil (kullanıcı zaten %90+).
   // Caller'da gate ediliyor olabilir ama defansif olalım.
   if (analysis.tipsTr.length === 0 && analysis.perWord.every(
@@ -38,7 +40,8 @@ export function PhonemeFeedback({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🎙️ Fonem analizi</Text>
+      <Text style={styles.title}>{t("phoneme.title")}</Text>
+      <Text style={styles.disclaimer}>{t("phoneme.disclaimer")}</Text>
 
       {/* Per-word IPA breakdown */}
       <View style={styles.wordsList}>
@@ -50,12 +53,14 @@ export function PhonemeFeedback({
       {/* Top weak sounds — coaching tips */}
       {analysis.tipsTr.length > 0 && (
         <View style={styles.tipsBox}>
-          <Text style={styles.tipsLabel}>İPUCU</Text>
-          {analysis.tipsTr.slice(0, 3).map((tip, i) => (
-            <Text key={i} style={styles.tip}>
-              • {tip}
-            </Text>
-          ))}
+          <Text style={styles.tipsLabel}>{t("phoneme.tip")}</Text>
+          {locale === "tr" ? (
+            analysis.tipsTr.slice(0, 3).map((tip, i) => (
+              <Text key={i} style={styles.tip}>• {tip}</Text>
+            ))
+          ) : (
+            <Text style={styles.tip}>• {t("phoneme.english_tip")}</Text>
+          )}
         </View>
       )}
     </View>
@@ -109,6 +114,11 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.bold,
     color: tokens.text.tertiary,
     letterSpacing: 1.2,
+  },
+  disclaimer: {
+    color: tokens.text.secondary,
+    fontSize: 11,
+    lineHeight: 16,
   },
 
   wordsList: {

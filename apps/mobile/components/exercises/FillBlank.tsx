@@ -7,6 +7,7 @@ import { Button } from "../Button";
 import { tokens } from "../../theme";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { evaluateFillBlank, type ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface Props {
   sentence: string;
@@ -23,6 +24,7 @@ export function FillBlank({
   trHint,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [selected, setSelected] = useState<string | null>(null);
   const [result, setResult] = useState<ExerciseResult | null>(null);
 
@@ -78,6 +80,12 @@ export function FillBlank({
                 }
               }}
               disabled={!!result}
+              accessibilityRole="button"
+              accessibilityLabel={t("exercise.option_label", { option: opt })}
+              accessibilityState={{
+                selected: isSelected,
+                disabled: Boolean(result),
+              }}
             >
               <Text
                 style={[
@@ -97,7 +105,11 @@ export function FillBlank({
         })}
       </View>
 
-      {!result && trHint && <Text style={styles.hint}>💡 {trHint}</Text>}
+      {!result && trHint && (
+        <Text style={styles.hint}>
+          💡 {locale === "tr" ? trHint : t("learning.hint_fallback_en")}
+        </Text>
+      )}
 
       <View style={styles.footer}>
         {result && (
@@ -113,12 +125,14 @@ export function FillBlank({
               </Text>
             </View>
             <Text style={styles.feedbackText}>
-              {result.correct ? "Doğru" : `Doğrusu: ${answer}`}
+              {result.correct
+                ? t("exercise.correct")
+                : t("exercise.correct_answer", { answer })}
             </Text>
           </View>
         )}
         <Button
-          label={result ? "Devam et →" : "Kontrol et"}
+          label={result ? `${t("common.continue")} →` : t("exercise.check")}
           onPress={result ? () => onComplete(result) : submit}
           disabled={!result && !selected}
         />
@@ -146,7 +160,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginHorizontal: 8,
     borderRadius: tokens.radius.sm,
-    backgroundColor: "rgba(246, 255, 0, 0.20)",
+    backgroundColor: tokens.brand.primarySoft,
     borderBottomWidth: 4,
     borderBottomColor: tokens.brand.primaryFixed,
     alignItems: "center",
