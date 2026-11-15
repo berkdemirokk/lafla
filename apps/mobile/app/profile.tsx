@@ -61,6 +61,7 @@ import {
   getMyReferralCode,
   shareMessage as referralShareMessage,
 } from "../lib/referral";
+import { trackEvent } from "../lib/analytics";
 import { interestsToModes } from "../lib/interest-mapping";
 import { Icon, type IconName } from "../components/Icon";
 import { tokens } from "../theme";
@@ -594,10 +595,16 @@ export default function ProfileScreen() {
               try {
                 const code = await getMyReferralCode();
                 const msg = referralShareMessage(code, displayName);
-                await Share.share({
+                const result = await Share.share({
                   message: msg,
                   url: `https://berkdemirokk.github.io/lafla/?ref=${encodeURIComponent(code)}`,
                 });
+                if (result.action === Share.sharedAction) {
+                  void trackEvent("share_invite_sent", {
+                    channel: result.activityType ?? "unknown",
+                    source: "profile",
+                  });
+                }
               } catch {
                 Alert.alert(t("common.error"), t("profile.invite_error"));
               }

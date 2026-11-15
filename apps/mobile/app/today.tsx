@@ -80,6 +80,10 @@ import { getMistakeDNA } from "../lib/mistake-dna";
 import { useTranslation, type UseTranslation } from "../lib/i18n";
 import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 import { getActiveDaysLast7 } from "../lib/metrics";
+import {
+  getLearningAgentRecommendation,
+  type LearningAgentRecommendation,
+} from "../lib/learning-agent";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -164,6 +168,7 @@ interface TodayState {
   isPremiumActive: boolean;
   rewardedActive: boolean;
   rewardedExpiresAt: Date | null;
+  agentRecommendation: LearningAgentRecommendation | null;
 }
 
 const EMPTY: TodayState = {
@@ -190,6 +195,7 @@ const EMPTY: TodayState = {
   isPremiumActive: false,
   rewardedActive: false,
   rewardedExpiresAt: null,
+  agentRecommendation: null,
 };
 
 export default function Today() {
@@ -353,11 +359,12 @@ export default function Today() {
     const diaryToday = await getTodayEntry().catch(() => null);
     const mistakeDna = await getMistakeDNA(21).catch(() => null);
     // 2026-05-24 — Rewarded ad / premium status.
-    const [isPremiumActive, rewardedActive, rewardedExpiresAt] =
+    const [isPremiumActive, rewardedActive, rewardedExpiresAt, agentRecommendation] =
       await Promise.all([
         isPremium().catch(() => false),
         isRewardedPremiumActive().catch(() => false),
         getRewardedExpiresAt().catch(() => null),
+        getLearningAgentRecommendation().catch(() => null),
       ]);
 
     setState({
@@ -389,6 +396,7 @@ export default function Today() {
       isPremiumActive,
       rewardedActive,
       rewardedExpiresAt,
+      agentRecommendation,
     });
     setShowTutorial(!tutorialSeen);
   }, []);
@@ -425,7 +433,10 @@ export default function Today() {
   );
 
   const streak = state.profile?.current_streak ?? 0;
-  const selectedCoreScene = state.planFirstScene;
+  // The learning agent may choose a plan scene based on weak skills or return
+  // a review/drill action. Its recommendation is always explainable and the
+  // original daily-plan scene remains a safe visual fallback.
+  const selectedCoreScene = state.agentRecommendation?.scene ?? state.planFirstScene;
   const selectedCoreFromPlan = Boolean(
     selectedCoreScene &&
       state.planRemainingScenes.some(
@@ -433,6 +444,34 @@ export default function Today() {
       ),
   );
   const selectedCoreDuration = getSceneDisplayMinutes(selectedCoreScene);
+  const agentActionKind = state.agentRecommendation?.action.kind;
+  const agentMessage = state.agentRecommendation
+    ? (locale === "tr" ? state.agentRecommendation.messageTr : state.agentRecommendation.messageEn)
+    : null;
+  const agentCtaLabel = agentActionKind === "review"
+    ? (locale === "tr" ? "Tekrarları başlat" : "Start reviews")
+    : agentActionKind === "mistake-drill"
+      ? (locale === "tr" ? "Hata koçuna geç" : "Open mistake coach")
+      : t("today.start_short_rehearsal", {
+          minutes: String(selectedCoreDuration),
+        });
+  const startAgentRecommendation = () => {
+    const action = state.agentRecommendation?.action;
+    if (action?.kind === "review") {
+      pushRoute(router, "/review");
+      return;
+    }
+    if (action?.kind === "mistake-drill") {
+      pushRoute(router, "/mistake-coach");
+      return;
+    }
+    if (action?.kind === "scenario") {
+      pushRoute(router, `/scenario/${action.lessonId}`);
+      return;
+    }
+    if (selectedCoreScene) pushRoute(router, `/scenario/${selectedCoreScene.lessonId}`);
+    else pushRoute(router, "/home");
+  };
 
   // 2026-05-24 — Streak heartbeat sadece streak > 0 iken çalışsın. Önceki
   // versiyon mount'ta loop'u her zaman başlatıyordu; chip render edilmese
@@ -551,7 +590,7 @@ export default function Today() {
         scrollEventThrottle={16}
       >
         {/* CORE LOOP v2 — tek ana karar: bugün İngilizce nerede lazım? */}
-        {state.planFirstScene && !state.planIsComplete ? (
+        {state.planFirstScene && (!state.planIsComplete || agentActionKind === "review" || agentActionKind === "mistake-drill") ? (
           <Animated.View style={heroPressStyle}>
             <Animated.View
               entering={FadeInDown.duration(420)}
@@ -609,7 +648,9 @@ export default function Today() {
 
                 <Text style={styles.coreTitle}>{t("today.hero_title")}</Text>
                 <Text style={styles.coreSub}>
-                  {t("today.hero_subtitle")}
+                  {agentMessage
+                    ? agentMessage
+                    : t("today.hero_subtitle")}
                 </Text>
 
                 <View style={styles.coreTrustRail}>
@@ -624,14 +665,7 @@ export default function Today() {
                 </View>
 
                 <Pressable
-                  onPress={() => {
-                    const scene = selectedCoreScene;
-                    if (scene) {
-                      pushRoute(router, `/scenario/${scene.lessonId}`);
-                    } else {
-                      pushRoute(router, "/home");
-                    }
-                  }}
+                  onPress={startAgentRecommendation}
                   onPressIn={onHeroPressIn}
                   onPressOut={onHeroPressOut}
                   style={({ pressed }) => [
@@ -639,21 +673,25 @@ export default function Today() {
                     pressed && styles.pressed,
                   ]}
                   accessibilityRole="button"
-                  accessibilityLabel={t("today.start_scene", {
-                    scene: compactSceneTitle(selectedCoreScene, t("today.scene_fallback")),
-                  })}
+                  accessibilityLabel={
+                    agentActionKind === "review" || agentActionKind === "mistake-drill"
+                      ? agentCtaLabel
+                      : t("today.start_scene", {
+                          scene: compactSceneTitle(selectedCoreScene, t("today.scene_fallback")),
+                        })
+                  }
                 >
                   <View style={styles.corePrimaryText}>
                     <Text style={styles.corePrimaryLabel}>
-                      {t("today.start_short_rehearsal", {
-                        minutes: String(selectedCoreDuration),
-                      })}
+                      {agentCtaLabel}
                     </Text>
                     <Text style={styles.corePrimarySub} numberOfLines={1}>
-                      {selectedCoreFromPlan
-                        ? t("today.from_plan")
-                        : t("today.for_context")}: {" "}
-                      {compactSceneTitle(selectedCoreScene, t("today.scene_fallback"))}
+                      {agentActionKind === "review" || agentActionKind === "mistake-drill"
+                        ? agentMessage
+                        : <>{selectedCoreFromPlan
+                          ? t("today.from_plan")
+                          : t("today.for_context")}: {" "}
+                          {compactSceneTitle(selectedCoreScene, t("today.scene_fallback"))}</>}
                     </Text>
                   </View>
                   <Icon

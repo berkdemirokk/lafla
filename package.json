@@ -7,11 +7,14 @@
   "scripts": {
     "typecheck": "corepack pnpm --filter @lafla/mobile typecheck",
     "dev:mobile": "corepack pnpm --filter @lafla/mobile start",
-    "test": "corepack pnpm --dir apps/mobile run test --runInBand"
+    "test": "corepack pnpm --dir apps/mobile run test --runInBand",
+    "test:functions": "deno test supabase/functions --allow-env --allow-net",
+    "deploy:learning-agent": "supabase functions deploy learning-agent --use-api"
   },
   "devDependencies": {
-    "typescript": "^5.4.0",
-    "@types/node": "^20.10.0"
+    "@types/node": "^20.10.0",
+    "supabase": "2.114.0",
+    "typescript": "^5.4.0"
   },
   "pnpm": {
     "overrides": {

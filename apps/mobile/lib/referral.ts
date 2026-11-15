@@ -99,17 +99,14 @@ export async function redeemReferralCode(code: string): Promise<boolean> {
     // ignore
   }
 
-  // The backend is authoritative. Do not consume local one-time state before
-  // the server accepts the code, or an offline attempt becomes unrecoverable.
+  // The RPC validates the code, prevents self-referrals and queues the reward
+  // atomically. Do not consume local one-time state before it accepts, or an
+  // offline attempt becomes unrecoverable.
   try {
-    const { data } = await supabase.auth.getUser();
-    const userId = data?.user?.id;
-    if (!userId) return false;
-    const { error } = await supabase
-      .from("profiles")
-      .update({ redeemed_referral_code: trimmed })
-      .eq("id", userId);
-    if (error) return false;
+    const { data, error } = await supabase.rpc("redeem_referral_code", {
+      input_code: trimmed,
+    });
+    if (error || data !== true) return false;
   } catch {
     return false;
   }
@@ -120,7 +117,7 @@ export async function redeemReferralCode(code: string): Promise<boolean> {
     // The backend already accepted it; do not invite a duplicate redemption.
   }
 
-  void trackEvent("referral_redeemed").catch(() => {});
+  void trackEvent("referral_redeemed", { code_length: trimmed.length }).catch(() => {});
   return true;
 }
 

@@ -15,3 +15,13 @@ jest.mock("expo-constants", () => ({
     },
   },
 }));
+
+// The native SDK creates an internal cleanup interval at module import. It is
+// not part of app behavior under test and otherwise leaves Jest workers alive.
+jest.mock("@sentry/react-native", () => ({
+  init: jest.fn(),
+  captureException: jest.fn(),
+  captureMessage: jest.fn(),
+  setUser: jest.fn(),
+  addBreadcrumb: jest.fn(),
+}));
