@@ -3,7 +3,7 @@
 // signed-out → /auth. Tap on screen accelerates routing.
 
 import { useEffect, useRef } from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, type TextStyle } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -96,7 +96,7 @@ export default function Splash() {
 
   // perspective 800 → kart "ekranın arkasından öne geliyor" hissi.
   // scale 0.7 → 1 ile yakınlaşma, rotateY 8° → 0° ile hafif "tilted to flat" geçişi.
-  const wordmarkStyle = useAnimatedStyle(() => ({
+  const wordmarkStyle = useAnimatedStyle<TextStyle>(() => ({
     opacity: wordmarkOpacity.value,
     transform: [
       { perspective: 800 },

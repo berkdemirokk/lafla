@@ -285,8 +285,12 @@ export default function ProfileScreen() {
         text: "Çıkış",
         style: "destructive",
         onPress: async () => {
-          await signOut().catch(() => {});
-          router.replace("/auth");
+          try {
+            await signOut();
+            router.replace("/auth");
+          } catch {
+            Alert.alert("Çıkış yapılamadı", "Bağlantını kontrol edip tekrar dene.");
+          }
         },
       },
     ]);
@@ -584,7 +588,7 @@ export default function ProfileScreen() {
           <View style={styles.rowDivider} />
           <AccountRow
             icon="referral"
-            label="Arkadaşını davet et — 1 ay ücretsiz"
+            label="Arkadaşını davet et"
             onPress={async () => {
               try {
                 const code = await getMyReferralCode();

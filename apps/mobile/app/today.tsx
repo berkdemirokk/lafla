@@ -21,7 +21,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import { pushRoute } from "../lib/routes";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, Pressable, ScrollView, StyleSheet, Text, View, type ViewStyle } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -246,7 +246,7 @@ export default function Today() {
   };
 
   // 3D press effect: scale + 3D tilt (rotateX) with perspective
-  const heroPressStyle = useAnimatedStyle(() => ({
+  const heroPressStyle = useAnimatedStyle<ViewStyle>(() => ({
     transform: [
       { perspective: 1000 },
       { scale: 1 - heroPress.value * 0.02 },
@@ -385,25 +385,38 @@ export default function Today() {
       const result = await showRewardedAd();
       if (result.ok) {
         // Reload Today — banner gizlenir, "Bugün Pro açık" satırı görünür.
-        await load();
+        await load().catch(() => {
+          Alert.alert("Bilgiler yenilenemedi", "Ekranı daha sonra yeniden açmayı dene.");
+        });
+      } else if (!result.userClosed) {
+        Alert.alert("Reklam şu anda açılamıyor", "Bir süre sonra tekrar deneyebilirsin.");
       }
-      // Failure path: result.userClosed → kullanıcı X bastı, sessizce kapat.
-      // result.reason → diğer fail; bilinçli olarak Alert göstermiyoruz çünkü
-      // network fail / no fill / AdMob limit gibi durumlar kullanıcının suçu
-      // değil ve onları rahatsız etmemeli. Analytics zaten log'ladı.
+    } catch {
+      Alert.alert("Reklam şu anda açılamıyor", "Bir süre sonra tekrar deneyebilirsin.");
     } finally {
       setRewardedLoading(false);
     }
   }, [load, rewardedLoading]);
 
+  const loadWithFeedback = useCallback(async function retryLoad() {
+    try {
+      await load();
+    } catch {
+      Alert.alert("Bilgiler yüklenemedi", "Lütfen tekrar dene.", [
+        { text: "Tekrar dene", onPress: () => void retryLoad() },
+        { text: "Kapat", style: "cancel" },
+      ]);
+    }
+  }, [load]);
+
   useFocusEffect(
     useCallback(() => {
-      void load();
+      void loadWithFeedback();
       // 2026-05-24 — Today focus = "kullanıcı aktif" sinyali. notifications.ts
       // dropoff zincirini (6h / 24h / 3d / 7d) yeniden zamanla. recordActive
       // permission yoksa no-op döner; cancel + reschedule idempotent.
       void recordActive().catch(() => {});
-    }, [load]),
+    }, [loadWithFeedback]),
   );
 
   const streak = state.profile?.current_streak ?? 0;

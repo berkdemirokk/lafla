@@ -5,6 +5,7 @@ import type { Session } from "@supabase/supabase-js";
 import { setUserId } from "./analytics";
 import { supabase, isSupabaseConfigured } from "./supabase";
 import { setUser as setSentryUser } from "./sentry";
+import { switchLocalUserData } from "./auth";
 
 export type SessionState = {
   session: Session | null;
@@ -31,19 +32,37 @@ export function useSession(): SessionState {
       return;
     }
 
+    let transition = 0;
+    let activeUserId: string | null = null;
+    const applySession = (s: Session | null) => {
+      const currentTransition = ++transition;
+      const nextUserId = s?.user.id ?? null;
+      void switchLocalUserData(activeUserId, nextUserId)
+        .then(() => {
+          if (currentTransition !== transition) return;
+          activeUserId = nextUserId;
+          setSession(s);
+          syncSentryUser(s);
+          void setUserId(s?.user?.id ?? null).catch(() => {});
+          setLoading(false);
+        })
+        .catch(() => {
+          if (currentTransition !== transition) return;
+          setSession(null);
+          syncSentryUser(null);
+          setLoading(false);
+          void supabase.auth.signOut();
+        });
+    };
+
+    const initialTransition = transition;
     supabase.auth.getSession().then(({ data }) => {
-      const s = data.session ?? null;
-      setSession(s);
-      syncSentryUser(s);
-      void setUserId(s?.user?.id ?? null).catch(() => {});
-      setLoading(false);
+      if (initialTransition === transition) applySession(data.session ?? null);
     });
 
-    const { data: subscription } = supabase.auth.onAuthStateChange((_event, newSession) => {
-      setSession(newSession);
-      syncSentryUser(newSession);
-      void setUserId(newSession?.user?.id ?? null).catch(() => {});
-    });
+    const { data: subscription } = supabase.auth.onAuthStateChange(
+      (_event, newSession) => applySession(newSession),
+    );
 
     return () => {
       subscription.subscription.unsubscribe();

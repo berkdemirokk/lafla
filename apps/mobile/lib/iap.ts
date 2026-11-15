@@ -426,11 +426,13 @@ export async function getOffering(): Promise<{
   monthly: {
     price: string;
     priceAmountMicros?: number;
+    currencyCode?: string;
     trialDays?: number;
   } | null;
   yearly: {
     price: string;
     priceAmountMicros?: number;
+    currencyCode?: string;
     trialDays?: number;
   } | null;
 } | null> {
@@ -449,6 +451,7 @@ export async function getOffering(): Promise<{
         ? {
             price: monthly.priceString,
             priceAmountMicros: monthly.priceAmountMicros,
+            currencyCode: monthly.currencyCode,
             trialDays: extractTrialDays(monthly),
           }
         : null,
@@ -456,6 +459,7 @@ export async function getOffering(): Promise<{
         ? {
             price: yearly.priceString,
             priceAmountMicros: yearly.priceAmountMicros,
+            currencyCode: yearly.currencyCode,
             trialDays: extractTrialDays(yearly),
           }
         : null,

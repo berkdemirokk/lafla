@@ -63,6 +63,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Typecheck mobile
+        run: pnpm --filter @lafla/mobile typecheck
+
+      - name: Run mobile regression tests
+        run: pnpm --filter @lafla/mobile test -- --runInBand
+
       - name: Write App Store Connect API key
         run: |
           API_KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"

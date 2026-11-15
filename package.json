@@ -6,7 +6,7 @@
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "typecheck": "pnpm -r typecheck",
-    "dev:mobile": "pnpm --filter mobile start",
+    "dev:mobile": "pnpm --filter @lafla/mobile start",
     "test": "pnpm -r test"
   },
   "devDependencies": {

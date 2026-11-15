@@ -99,7 +99,7 @@ export async function completeLesson(args: {
     last_attempt_at: new Date().toISOString(),
   };
   await saveLocalLessonState(newLocal);
-  await bumpSkillMastery(args.skill_id, args.accuracy);
+  const mastery = await bumpSkillMastery(args.skill_id, args.accuracy);
   await bumpDailyActivity(xpEarned);
   await bumpXp(xpEarned);
   await bumpStreak();
@@ -121,7 +121,9 @@ export async function completeLesson(args: {
       last_attempt_at: newLocal.last_attempt_at,
     };
     // BUG-15 FIX: log cloud sync errors to Sentry (still fire-and-forget)
-    supabase.from("lesson_state").upsert(cloudState).then(() => {}, (err: unknown) => {
+    supabase.from("lesson_state").upsert(cloudState).then(({ error }) => {
+      if (error) captureException(error, { source: "srs.completeLesson.lesson_state" });
+    }, (err: unknown) => {
       captureException(err, { source: "srs.completeLesson.lesson_state" });
     });
 
@@ -130,11 +132,13 @@ export async function completeLesson(args: {
       .upsert({
         user_id: user.id,
         skill_id: args.skill_id,
-        mastery_score: args.accuracy,
-        lessons_completed: 1,
+        mastery_score: mastery.score,
+        lessons_completed: mastery.lessons_completed,
         last_practiced_at: new Date().toISOString(),
       })
-      .then(() => {}, (err: unknown) => {
+      .then(({ error }) => {
+        if (error) captureException(error, { source: "srs.completeLesson.skill_mastery" });
+      }, (err: unknown) => {
         captureException(err, { source: "srs.completeLesson.skill_mastery" });
       });
   }
@@ -299,6 +303,10 @@ export async function recordReview(
         total_correct: newLocal.total_correct,
         last_attempt_at: newLocal.last_attempt_at,
       })
-      .then(() => {}, () => {});
+      .then(({ error }) => {
+        if (error) captureException(error, { source: "srs.recordReview.lesson_state" });
+      }, (err: unknown) => {
+        captureException(err, { source: "srs.recordReview.lesson_state" });
+      });
   }
 }

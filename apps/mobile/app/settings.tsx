@@ -21,6 +21,8 @@ import {
   Modal,
   TextInput,
   ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -99,6 +101,12 @@ export default function SettingsScreen() {
   // prompt'unu tetikler; reddedilirse toggle silently false kalır.
   const [reminderOn, setReminderOn] = useState(false);
   const [reminderHour, setReminderHour] = useState(19);
+  const [referralVisible, setReferralVisible] = useState(false);
+  const [referralCode, setReferralCode] = useState("");
+  const [referralError, setReferralError] = useState<string | null>(null);
+  const [referralSubmitting, setReferralSubmitting] = useState(false);
+  const [referralSuccess, setReferralSuccess] = useState(false);
+  const referralBusy = useRef(false);
 
   // Account-deletion flow state.
   const [deleteStep, setDeleteStep] = useState<
@@ -320,46 +328,50 @@ export default function SettingsScreen() {
     }
   };
 
-  // Referral code redemption — Adım 7 (2026-05-20).
-  // Kullanıcı önceden redeem etmişse "Davet kodu kullanıldı" gösterir,
-  // yoksa Alert.prompt ile kod ister, validate eder, redeemReferralCode'a
-  // yedirir. Bonus award manuel (Supabase'den admin / cron).
   const handleReferralRedeem = async () => {
-    const existing = await getRedeemedCode().catch(() => null);
+    if (referralBusy.current) return;
+    referralBusy.current = true;
+    let existing: string | null;
+    try {
+      existing = await getRedeemedCode();
+    } catch {
+      Alert.alert("Kod kontrol edilemedi", "Oturumunu ve internet bağlantını kontrol edip tekrar dene.");
+      return;
+    } finally {
+      referralBusy.current = false;
+    }
     if (existing) {
       Alert.alert(
         "Davet kodu kullanıldı",
-        `${existing} kodu redeem edildi. 1 ay Lafla Pro bonusu en geç 24 saat içinde aktif olur.`,
+        `${existing} kodu kaydedildi.`,
       );
       return;
     }
-    Alert.prompt?.(
-      "Davet kodu",
-      "Arkadaşının verdiği 6 karakterlik kodu gir.",
-      [
-        { text: "Vazgeç", style: "cancel" },
-        {
-          text: "Redeem et",
-          onPress: async (input) => {
-            const code = (input ?? "").trim().toUpperCase();
-            const ok = await redeemReferralCode(code).catch(() => false);
-            if (ok) {
-              hapticSuccess();
-              Alert.alert(
-                "Kod kabul edildi",
-                "Senin ve arkadaşının +1 ay Lafla Pro bonusu 24 saat içinde işlenir.",
-              );
-            } else {
-              Alert.alert(
-                "Geçersiz kod",
-                "Kod geçersiz veya zaten kullanılmış. Tekrar dene.",
-              );
-            }
-          },
-        },
-      ],
-      "plain-text",
-    );
+    setReferralCode("");
+    setReferralError(null);
+    setReferralSuccess(false);
+    setReferralVisible(true);
+  };
+
+  const submitReferralCode = async () => {
+    if (referralBusy.current) return;
+    referralBusy.current = true;
+    setReferralSubmitting(true);
+    setReferralError(null);
+    try {
+      const ok = await redeemReferralCode(referralCode);
+      if (!ok) {
+        setReferralError("Kod geçersiz veya zaten kullanılmış. Tekrar dene.");
+        return;
+      }
+      setReferralSuccess(true);
+      hapticSuccess();
+    } catch {
+      setReferralError("Kod kontrol edilemedi. Oturumunu ve internet bağlantını kontrol edip tekrar dene.");
+    } finally {
+      referralBusy.current = false;
+      setReferralSubmitting(false);
+    }
   };
 
   const handleRate = async () => {
@@ -529,8 +541,12 @@ export default function SettingsScreen() {
                     text: "Çıkış",
                     style: "destructive",
                     onPress: async () => {
-                      await signOut().catch(() => {});
-                      router.replace("/auth" as never);
+                      try {
+                        await signOut();
+                        router.replace("/auth" as never);
+                      } catch {
+                        Alert.alert("Çıkış yapılamadı", "Lütfen tekrar dene.");
+                      }
                     },
                   },
                 ],
@@ -581,6 +597,74 @@ export default function SettingsScreen() {
           </View>
         </Section>
       </ScrollView>
+
+      <Modal
+        visible={referralVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => { if (!referralSubmitting) setReferralVisible(false); }}
+      >
+        <KeyboardAvoidingView
+          style={styles.modalBackdrop}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+          <ScrollView style={styles.referralScrollView} contentContainerStyle={styles.referralScroll} keyboardShouldPersistTaps="handled">
+            <View style={styles.modalCard} accessibilityViewIsModal>
+              <Text style={styles.modalTitle} accessibilityRole="header">
+                {referralSuccess ? "Kod kabul edildi" : "Davet kodu"}
+              </Text>
+              {referralSuccess ? (
+                <Text style={styles.modalBody}>Davet kodun kaydedildi.</Text>
+              ) : (
+                <>
+                  <Text style={styles.modalBody}>Arkadaşının verdiği davet kodunu gir.</Text>
+                  <TextInput
+                    value={referralCode}
+                    onChangeText={(value) => { setReferralCode(value); setReferralError(null); }}
+                    editable={!referralSubmitting}
+                    autoCapitalize="characters"
+                    autoCorrect={false}
+                    maxLength={32}
+                    returnKeyType="done"
+                    onSubmitEditing={() => void submitReferralCode()}
+                    accessibilityLabel="Davet kodu"
+                    placeholder="Davet kodu"
+                    placeholderTextColor={tokens.text.tertiary}
+                    style={styles.modalInput}
+                  />
+                  {referralError && (
+                    <Text style={styles.modalError} accessibilityRole="alert" accessibilityLiveRegion="polite">
+                      {referralError}
+                    </Text>
+                  )}
+                </>
+              )}
+              <View style={styles.modalActions}>
+                <Pressable
+                  accessibilityRole="button"
+                  disabled={referralSubmitting}
+                  accessibilityState={{ disabled: referralSubmitting }}
+                  style={[styles.modalBtn, styles.modalBtnGhost, styles.referralButton]}
+                  onPress={() => setReferralVisible(false)}
+                >
+                  <Text style={styles.modalBtnGhostText}>{referralSuccess ? "Kapat" : "Vazgeç"}</Text>
+                </Pressable>
+                {!referralSuccess && (
+                  <Pressable
+                    accessibilityRole="button"
+                    disabled={referralSubmitting}
+                    accessibilityState={{ disabled: referralSubmitting, busy: referralSubmitting }}
+                    style={[styles.modalBtn, styles.referralSubmit, styles.referralButton]}
+                    onPress={() => void submitReferralCode()}
+                  >
+                    <Text style={styles.modalBtnDangerText}>{referralSubmitting ? "Kontrol ediliyor…" : "Kodu kullan"}</Text>
+                  </Pressable>
+                )}
+              </View>
+            </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </Modal>
 
       {/* ===================== Account Deletion Modal ===================== */}
       <Modal
@@ -978,6 +1062,10 @@ const styles = StyleSheet.create({
     width: "100%",
     maxWidth: 420,
   },
+  referralScrollView: { width: "100%" },
+  referralScroll: { flexGrow: 1, justifyContent: "center", alignItems: "center" },
+  referralButton: { minHeight: 44, justifyContent: "center" },
+  referralSubmit: { backgroundColor: tokens.brand.primary },
   modalTitle: {
     fontSize: 18,
     fontWeight: tokens.weight.extrabold,

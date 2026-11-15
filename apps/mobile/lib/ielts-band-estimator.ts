@@ -95,7 +95,7 @@ export async function estimateSpeakingBand(): Promise<BandEstimate> {
     () => [] as Array<{ count?: number }>,
   );
   // Toplam mistake count (hepsi son 30 gün civarı). Sahne başına oran.
-  const totalActiveCount = activeMistakes.reduce(
+  const totalActiveCount = activeMistakes.reduce<number>(
     (sum, m) => sum + (m.count ?? 1),
     0,
   );

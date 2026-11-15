@@ -366,6 +366,8 @@ export function RoleplayChat({
   // returns false). If false we silently fall back to text mode regardless
   // of stored preference, since voice would be a dead button.
   const [inputMode, setInputMode] = useState<InputMode>("voice");
+  const [forceKeyboard, setForceKeyboard] = useState(false);
+  const [inputNotice, setInputNotice] = useState("");
   const [recording, setRecording] = useState(false);
   const [interimText, setInterimText] = useState("");
   // 2026-05-26 (P0-4 fix) — interimText ref pattern. closeTimer 8500ms sonra
@@ -470,7 +472,10 @@ export function RoleplayChat({
       try {
         const raw = await AsyncStorage.getItem(K_INPUT_MODE);
         if (cancelled) return;
-        if (raw === "text") setInputMode("text");
+        if (raw === "text") {
+          setInputMode("text");
+          setForceKeyboard(true);
+        }
         // any other value (incl null/voice) → keep default "voice"
       } catch {
         // best effort — default stays as set
@@ -487,18 +492,18 @@ export function RoleplayChat({
   // Toggle between voice and text input. Persisted so each user only picks
   // once. When switching AWAY from voice while recording, stop the listener.
   const toggleInputMode = () => {
-    setInputMode((prev) => {
-      const next: InputMode = prev === "voice" ? "text" : "voice";
-      AsyncStorage.setItem(K_INPUT_MODE, next).catch(() => {});
-      if (prev === "voice" && recording) {
-        sttAbortRef.current?.abort();
-        sttAbortRef.current = null;
-        void stopStt().catch(() => {});
-        setRecording(false);
-        setInterimText("");
-      }
-      return next;
-    });
+    const next: InputMode = inputMode === "voice" ? "text" : "voice";
+    setInputMode(next);
+    setForceKeyboard(next === "text");
+    setInputNotice("");
+    AsyncStorage.setItem(K_INPUT_MODE, next).catch(() => {});
+    if (inputMode === "voice" && recording) {
+      sttAbortRef.current?.abort();
+      sttAbortRef.current = null;
+      void stopStt().catch(() => {});
+      setRecording(false);
+      setInterimText("");
+    }
   };
 
   const toggleMute = () => {
@@ -625,6 +630,7 @@ export function RoleplayChat({
   //   than throwing the user's words away if they stop early).
   const startVoiceCapture = () => {
     if (!awaitingUserInput || recording) return;
+    setInputNotice("");
     setInterimText("");
     interimTextRef.current = "";
     setRecording(true);
@@ -638,6 +644,7 @@ export function RoleplayChat({
       timeoutMs: 12000,
       signal: controller.signal,
       onResult: (text, isFinal) => {
+        if (sttAbortRef.current !== controller) return;
         // Interim and final updates use the same path. We display interim
         // text live; on isFinal we commit and auto-submit so the user
         // doesn't have to tap an extra button.
@@ -648,18 +655,22 @@ export function RoleplayChat({
         }
       },
       onError: () => {
-        // Permission denied / not-available / mic error — fall back to text
-        // mode for THIS turn (preference stays voice unless user explicitly
-        // toggles). We avoid surfacing the raw error string; the empty
-        // interim + recording=false visually conveys "didn't catch that."
+        if (sttAbortRef.current !== controller) return;
         setRecording(false);
         setInterimText("");
         sttAbortRef.current = null;
+        setInputMode("text");
+        setForceKeyboard(true);
+        setInputNotice("Sesli giriş kullanılamadı. Yanıtını yazarak gönderebilirsin.");
       },
     }).catch(() => {
+      if (sttAbortRef.current !== controller) return;
       setRecording(false);
       setInterimText("");
       sttAbortRef.current = null;
+      setInputMode("text");
+      setForceKeyboard(true);
+      setInputNotice("Sesli giriş kullanılamadı. Yanıtını yazarak gönderebilirsin.");
     });
 
     // When the listening window closes (timeout or `end` event from the lib),
@@ -738,10 +749,11 @@ export function RoleplayChat({
     // 2026-05-21 — Hard mode: min response length 8 char. Kısa cevap
     // reject edilir, kullanıcıya "Hard mode'da daha uzun cevap" denir.
     if (hardMode && input.trim().length < 8) {
-      // Visual silent reject — input temizlenmez, kullanıcı uzatabilir.
-      // (Toast/alert ekleyebiliriz ileride; şu an minimal davranış.)
+      setInput(input);
+      setInputNotice("Zor modda en az 8 karakterlik bir yanıt yaz veya söyle.");
       return;
     }
+    setInputNotice("");
 
     const rawEval = evaluateRoleplayTurn(
       currentTurn.acceptable_patterns ?? [],
@@ -889,6 +901,11 @@ export function RoleplayChat({
       {/* Input or finalize */}
       {!finished ? (
         <View style={styles.inputBar}>
+          {inputNotice ? (
+            <Text accessibilityRole="alert" style={styles.inputNotice}>
+              {inputNotice}
+            </Text>
+          ) : null}
           {/* Level adaptation badge — shows when the user's CEFR level
               differs from the scene's anchor. Single-line, color-coded:
                 stretch → amber "+1 zorla seni" (loss-aversion: this is
@@ -1020,7 +1037,7 @@ export function RoleplayChat({
                 </Text>
               </Pressable>
             </View>
-          ) : mode === "multi-choice" && currentTurn ? (
+          ) : mode === "multi-choice" && currentTurn && !forceKeyboard ? (
             <View style={styles.choiceCol}>
               {buildChoiceOptions(currentTurn).map((opt, i) => (
                 <Pressable
@@ -1338,6 +1355,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: tokens.border.light,
     gap: 6,
+  },
+  inputNotice: {
+    color: tokens.text.primary,
+    fontSize: 14,
+    paddingHorizontal: 12,
   },
   hintBox: {
     backgroundColor: tokens.brand.primarySoft,

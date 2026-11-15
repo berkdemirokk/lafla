@@ -337,7 +337,7 @@ export async function showRewardedAd(): Promise<RewardedResult> {
       ad.load();
     });
 
-    if (result.ok) {
+    if (result.ok === true) {
       await grantRewardedPremium(result.minutesGranted);
       void trackEvent("rewarded_ad_completed", {
         minutes: result.minutesGranted,

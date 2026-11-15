@@ -86,6 +86,7 @@ import { useSession } from "../lib/useSession";
 type LivePrice = {
   price: string;
   micros: number | null;
+  currencyCode?: string;
   trialDays?: number;
 } | null;
 type LivePrices = { monthly: LivePrice; yearly: LivePrice };
@@ -228,6 +229,7 @@ export default function PaywallScreen() {
           ? {
               price: offering.monthly.price,
               micros: offering.monthly.priceAmountMicros ?? null,
+              currencyCode: offering.monthly.currencyCode,
               trialDays: offering.monthly.trialDays,
             }
           : null,
@@ -235,6 +237,7 @@ export default function PaywallScreen() {
           ? {
               price: offering.yearly.price,
               micros: offering.yearly.priceAmountMicros ?? null,
+              currencyCode: offering.yearly.currencyCode,
               trialDays: offering.yearly.trialDays,
             }
           : null,
@@ -349,14 +352,9 @@ export default function PaywallScreen() {
       data: { plan: selected, fromIntro: isFromIntro },
     });
     try {
-      // 10sn timeout — RC SDK hang ederse setLoading(false) hiç çağrılmazdı,
-      // CTA disabled kalırdı. Promise.race + reject ile finally garantili.
-      const result = await Promise.race([
-        purchasePackage(selected),
-        new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error("Zaman aşımı — tekrar dene")), 10000),
-        ),
-      ]);
+      // Store confirmation can take longer than a network request. Keep the
+      // purchase pending until the SDK reports its actual outcome.
+      const result = await purchasePackage(selected);
       if (result.ok) {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});
@@ -446,7 +444,14 @@ export default function PaywallScreen() {
   // Falls back to a marketing approximation when micros isn't available.
   const yearlyMicros = livePrices.yearly?.micros ?? FALLBACK_YEARLY_MICROS;
   const yearlyPerMonthMajor = Math.round(yearlyMicros / 12 / 1_000_000);
-  const yearlyPerMonthDisplay = `≈ ₺${yearlyPerMonthMajor} / ay`;
+  const yearlyCurrency = livePrices.yearly?.currencyCode;
+  const yearlyPerMonthDisplay = livePrices.yearly?.micros != null && yearlyCurrency
+    ? `≈ ${new Intl.NumberFormat("tr-TR", {
+        style: "currency",
+        currency: yearlyCurrency,
+        maximumFractionDigits: 0,
+      }).format(yearlyPerMonthMajor)} / ay`
+    : "Yıllık ücret, yılda bir tahsil edilir";
 
   // Discount % vs paying monthly × 12. We DON'T hardcode — if the user
   // reprices in App Store Connect, the badge updates from the offering.
@@ -473,8 +478,8 @@ export default function PaywallScreen() {
   // Trial: aktif seçili plana göre, yoksa diğer plandan oku. Sadece >0 gün
   // olduğunda göster.
   const activeTrialDays = isYearly
-    ? livePrices.yearly?.trialDays ?? livePrices.monthly?.trialDays
-    : livePrices.monthly?.trialDays ?? livePrices.yearly?.trialDays;
+    ? livePrices.yearly?.trialDays
+    : livePrices.monthly?.trialDays;
   const trialAvailable = activeTrialDays != null && activeTrialDays > 0;
   const trialLabel = trialAvailable
     ? `İlk ${activeTrialDays} gün ücretsiz`
@@ -786,9 +791,10 @@ export default function PaywallScreen() {
           {/* FOOTER — disclaimer + links, ordered by visual weight */}
           <Text style={styles.disclaimer}>
             Abonelik, yenileme tarihinden en az 24 saat önce iptal edilmediği
-            sürece görüntülenen fiyat üzerinden aylık otomatik yenilenir. Ödeme,
-            onayda Apple ID hesabınızdan tahsil edilir. iOS Ayarlar → Apple ID →
-            Abonelikler yolundan yönetebilir veya iptal edebilirsiniz.
+            sürece görüntülenen {isYearly ? "yıllık" : "aylık"} fiyat üzerinden
+            otomatik yenilenir. Ödeme, onayda Apple ID hesabınızdan tahsil edilir.
+            iOS Ayarlar → Apple ID → Abonelikler yolundan yönetebilir veya iptal
+            edebilirsiniz.
           </Text>
 
           <View style={styles.termsLinks}>

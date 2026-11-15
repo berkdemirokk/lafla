@@ -81,15 +81,21 @@ function isVoiceEntry(x: unknown): x is VoiceEntry {
   );
 }
 
-function getDirUri(): string {
+async function getDirUri(): Promise<string> {
   // documentDirectory iOS'ta `~/Documents/`, kullanıcı backup'lar arasında
   // korunur. cacheDirectory tercih edilebilir ama temizlenebilir — biz
   // arşivi kalıcı tutuyoruz, documentDirectory doğru seçim.
-  return `${FileSystem.documentDirectory ?? ""}${DIR_NAME}/`;
+  const owner = await AsyncStorage.getItem("lafla.local.owner");
+  const root = `${FileSystem.documentDirectory ?? ""}${DIR_NAME}/`;
+  // Keep legacy anonymous recordings readable. Signed-in accounts each get
+  // a separate directory so orphan cleanup cannot delete another user's audio.
+  return owner && owner !== "anonymous"
+    ? `${root}${encodeURIComponent(owner)}/`
+    : root;
 }
 
 async function ensureDir(): Promise<void> {
-  const dir = getDirUri();
+  const dir = await getDirUri();
   try {
     const info = await FileSystem.getInfoAsync(dir);
     if (!info.exists) {
@@ -98,6 +104,43 @@ async function ensureDir(): Promise<void> {
   } catch {
     // Best effort. Recording will fail later if dir cannot be created.
   }
+}
+
+/** Move pre-account voice files out of the legacy shared directory on first
+ * activation of a signed-in account. Existing index entries remain playable. */
+export async function moveLegacyEntriesToAccountDirectory(): Promise<void> {
+  const legacyDir = `${FileSystem.documentDirectory ?? ""}${DIR_NAME}/`;
+  const accountDir = await getDirUri();
+  if (legacyDir === accountDir) return;
+  await ensureDir();
+
+  const entries = await readIndex();
+  let changed = false;
+  const migrated: VoiceEntry[] = [];
+  for (const entry of entries) {
+    const suffix = entry.uri.startsWith(legacyDir)
+      ? entry.uri.slice(legacyDir.length)
+      : "";
+    if (!suffix || suffix.includes("/")) {
+      migrated.push(entry);
+      continue;
+    }
+
+    const targetUri = `${accountDir}${suffix}`;
+    try {
+      const target = await FileSystem.getInfoAsync(targetUri);
+      if (target.exists) {
+        await FileSystem.deleteAsync(entry.uri, { idempotent: true });
+      } else {
+        await FileSystem.moveAsync({ from: entry.uri, to: targetUri });
+      }
+      migrated.push({ ...entry, uri: targetUri });
+      changed = true;
+    } catch {
+      migrated.push(entry);
+    }
+  }
+  if (changed) await writeIndex(migrated);
 }
 
 async function readIndex(): Promise<VoiceEntry[]> {
@@ -132,7 +175,7 @@ async function writeIndex(list: VoiceEntry[]): Promise<void> {
 export async function preparePath(): Promise<string> {
   await ensureDir();
   const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-  return `${getDirUri()}entry-${id}.m4a`;
+  return `${await getDirUri()}entry-${id}.m4a`;
 }
 
 /**
@@ -197,7 +240,7 @@ export async function getEntries(): Promise<VoiceEntry[]> {
  * forget çağrılır. Dir yoksa veya boşsa no-op.
  */
 async function sweepOrphanFiles(index: VoiceEntry[]): Promise<void> {
-  const dir = getDirUri();
+  const dir = await getDirUri();
   try {
     const info = await FileSystem.getInfoAsync(dir);
     if (!info.exists || !info.isDirectory) return;
@@ -210,6 +253,29 @@ async function sweepOrphanFiles(index: VoiceEntry[]): Promise<void> {
         return slash >= 0 ? e.uri.slice(slash + 1) : e.uri;
       }),
     );
+    // Preserve any legacy shared-directory recordings referenced by an
+    // inactive account's archived index while the anonymous journal is open.
+    const archivedIndexKeys = (await AsyncStorage.getAllKeys()).filter(
+      (key) =>
+        key.startsWith("lafla.account-data.") &&
+        key.endsWith(".lafla.voice-journal.index"),
+    );
+    if (archivedIndexKeys.length > 0) {
+      const archivedIndexes = await AsyncStorage.multiGet(archivedIndexKeys);
+      for (const [, raw] of archivedIndexes) {
+        if (!raw) continue;
+        const archived = parseSafe<unknown[]>(raw, [], Array.isArray, {
+          source: "voice-journal.archivedIndex",
+        });
+        for (const entry of archived.filter(isVoiceEntry)) {
+          const slash = entry.uri.lastIndexOf("/");
+          const entryDir = slash >= 0 ? entry.uri.slice(0, slash + 1) : "";
+          if (entryDir === dir) {
+            knownNames.add(slash >= 0 ? entry.uri.slice(slash + 1) : entry.uri);
+          }
+        }
+      }
+    }
     // Active recording'in target filename'i — SKIP, sweep'lemek yok.
     const activeName = _activeRecordingUri
       ? _activeRecordingUri.slice(_activeRecordingUri.lastIndexOf("/") + 1)

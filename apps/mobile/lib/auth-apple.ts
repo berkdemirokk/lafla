@@ -223,25 +223,12 @@ export async function signInWithApple(): Promise<AppleAuthResult> {
   // Sign Supabase. Nonce omitted — expo-apple-authentication does not surface
   // the raw nonce, and Supabase verifies the token against Apple's public key
   // regardless. Add `nonce` here if you switch to a manual native module.
-  const { error: sbError } = await supabase.auth.signInWithIdToken({
-    provider: "apple",
-    token: identityToken,
-  });
-
-  if (sbError) {
-    return { ok: false, error: sbError.message };
+  try {
+    const { signInWithApple: signInWithSupabaseApple } = await import("./auth");
+    await signInWithSupabaseApple(identityToken);
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : "apple-signin-failed" };
   }
-
-  // 2026-05-26 — Cross-user data leak fix. Tüm user-bound key'leri temizle:
-  // önceki kullanıcının displayName, interests, onboarded, onboarding.step
-  // hepsi sil. Server profile authoritative — today/profile mount'ta yeniden
-  // okur.
-  await AsyncStorage.multiRemove([
-    "lafla.onboarded",
-    "lafla.onboarding.step",
-    "lafla.displayName",
-    "lafla.interests",
-  ]).catch(() => {});
 
   // Cache PII for repeat sign-ins (Apple won't resend it).
   await storeAppleCredentials({ appleUserId, email });

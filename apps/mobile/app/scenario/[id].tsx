@@ -1128,7 +1128,7 @@ function PhaseShell({
     };
   }, [phaseKey, opacity, translateY]);
 
-  const animStyle = useAnimatedStyle(() => ({
+  const animStyle = useAnimatedStyle<import("react-native").TextStyle>(() => ({
     opacity: opacity.value,
     transform: [{ translateY: translateY.value }],
   }));

@@ -129,10 +129,6 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   const exercises = lesson.exercises as AnyExercise[];
 
   const vocabTiles = exercises.filter((e) => e.type === "vocab_tile");
-  const sentencePatterns = exercises.filter(
-    (e) => e.type === "sentence_pattern",
-  );
-  const dialogueGaps = exercises.filter((e) => e.type === "dialogue_gap");
   const listenResponds = exercises.filter((e) => e.type === "listen_respond");
   const recallQuizzes = exercises.filter((e) => e.type === "recall_quiz");
   const roleplay = exercises.find((e) => e.type === "roleplay_chat");
@@ -154,7 +150,9 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   }));
 
   // Setup-2: pattern + dialogue gap (order preserved from lesson file).
-  const setupExtra = [...sentencePatterns, ...dialogueGaps];
+  const setupExtra = exercises.filter(
+    (e) => e.type === "sentence_pattern" || e.type === "dialogue_gap",
+  );
 
   // Pre-scene rehearsal: en fazla 3 listen_respond.
   const preScene = listenResponds.slice(0, 3);
