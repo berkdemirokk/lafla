@@ -102,6 +102,9 @@ function getRewardedUnitId(): string {
 // ─── Init (call once in app/_layout.tsx) ───────────────────────────────
 
 let _initialized = false;
+let _initPromise: Promise<void> | null = null;
+let _initRetryScheduled = false;
+const INIT_RETRY_DELAY_MS = 5000;
 const _readyListeners = new Set<() => void>();
 
 /**
@@ -119,8 +122,17 @@ export function subscribeAdsInitialized(listener: () => void): () => void {
   };
 }
 
-export async function initAds(): Promise<void> {
-  if (_initialized) return;
+export function initAds(): Promise<void> {
+  if (_initialized) return Promise.resolve();
+  if (_initPromise) return _initPromise;
+  const p: Promise<void> = runInitAds().finally(() => {
+    if (_initPromise === p) _initPromise = null;
+  });
+  _initPromise = p;
+  return p;
+}
+
+async function runInitAds(): Promise<void> {
   try {
     // 2026-05-23 — Apple Review fix: explicit request config so the SDK
     // knows this is a 17+ app (NOT children/family). With Lafla shipping
@@ -149,7 +161,14 @@ export async function initAds(): Promise<void> {
       }
     }
   } catch {
-    // Best effort — ads non-critical
+    // Best effort — ads non-critical. Banner/rescue only wait for the ready
+    // signal and never trigger init, so retry ONCE shortly after a failure.
+    if (!_initRetryScheduled) {
+      _initRetryScheduled = true;
+      setTimeout(() => {
+        void initAds();
+      }, INIT_RETRY_DELAY_MS);
+    }
   }
 }
 
@@ -279,7 +298,7 @@ export function preloadRewardedAd(timeoutMs = 20_000): Promise<boolean> {
   if (isRewardedAdReady()) return Promise.resolve(true);
   if (!_initialized) return Promise.resolve(false);
   if (_rewardedPreloadInFlight) return _rewardedPreloadInFlight;
-  _rewardedPreloadInFlight = (async () => {
+  const run = async (): Promise<boolean> => {
     try {
       const ad = RewardedAd.createForAdRequest(getRewardedUnitId(), {
         requestNonPersonalizedAdsOnly: true,
@@ -305,11 +324,14 @@ export function preloadRewardedAd(timeoutMs = 20_000): Promise<boolean> {
       return loaded;
     } catch {
       return false;
-    } finally {
-      _rewardedPreloadInFlight = null;
     }
-  })();
-  return _rewardedPreloadInFlight;
+  };
+  const p = run();
+  _rewardedPreloadInFlight = p;
+  void p.finally(() => {
+    if (_rewardedPreloadInFlight === p) _rewardedPreloadInFlight = null;
+  });
+  return p;
 }
 
 /** Fresh preloaded ad'i al ve slot'u boşalt (bir reklam tek sefer gösterilir). */

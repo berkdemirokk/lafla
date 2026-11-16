@@ -277,7 +277,19 @@ export async function isLiveBilling(): Promise<boolean> {
 export async function getPremiumStatus(): Promise<PremiumStatus> {
   // Rewarded grant her şeyden önce — kullanıcı "bugün Pro" açmışsa hemen ver.
   if (await isRewardedPremiumActive().catch(() => false)) return "active";
+  return getSubscriptionStatus();
+}
 
+/**
+ * Paid subscription entitlement ONLY — ignores the 30-minute rewarded-ad
+ * "temporary Pro" grant that getPremiumStatus()/isPremium() OR in.
+ *
+ * 2026-11-16 — Use this for anything that hands out durable value tied to
+ * an actual subscription (e.g. the monthly Streak Shield grant). Otherwise a
+ * free user whose month rolls over inside a rewarded-Pro window would get
+ * the paid-tier grant.
+ */
+export async function getSubscriptionStatus(): Promise<PremiumStatus> {
   const live = await initIfNeeded();
   if (!live) {
     // In production the mock store is intentionally unreachable — see
@@ -309,6 +321,11 @@ export async function getPremiumStatus(): Promise<PremiumStatus> {
 
 export async function isPremium(): Promise<boolean> {
   return (await getPremiumStatus()) === "active";
+}
+
+/** True only for a real paid subscription (no rewarded-ad grant). */
+export async function hasPaidEntitlement(): Promise<boolean> {
+  return (await getSubscriptionStatus()) === "active";
 }
 
 /**

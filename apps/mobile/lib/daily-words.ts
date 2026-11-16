@@ -2,7 +2,8 @@
 //
 // Every local calendar day the learner gets DAILY_WORD_COUNT new words at
 // their CEFR level, drawn from the vocab_tile exercises already bundled in
-// the lesson packs (~12k tiles). Words the learner has met before — in a
+// the lesson packs (~12k tiles), topped up at C1/C2 by the curated list in
+// data/daily-words-extra.ts. Words the learner has met before — in a
 // previous daily set or anywhere in the SRS review queue — are skipped, so
 // the set is always new material. Finishing the set feeds every word into
 // the existing SRS queue and counts toward the streak.
@@ -12,6 +13,7 @@ import * as Notifications from "expo-notifications";
 
 import type { BundledLesson } from "./engine";
 import type { CefrLevel } from "./cefr-level";
+import type { ExtraDailyWord } from "../data/daily-words-extra";
 import { CEFR_LEVELS, getCefrLevel } from "./cefr-level";
 import { localDayKey } from "./day-key";
 import { enqueueVocab, getQueuedWordKeys } from "./srs-vocab";
@@ -105,15 +107,68 @@ export function buildWordPool(lessons: ReadonlyArray<BundledLesson>): DailyWord[
   return Array.from(byKey.values());
 }
 
+/**
+ * Synthetic lesson id for words from data/daily-words-extra.ts. It only feeds
+ * srs-vocab's `${source_lesson_id}::${word}` id, which never resolves it as a
+ * real lesson, so any stable string works.
+ */
+export const EXTRA_LESSON_ID = "daily-extra";
+const EXTRA_LESSON_TITLE = "Daily words";
+
+/** Turn the curated extra list (C1/C2 top-up) into pool entries. First occurrence wins. */
+export function buildExtraWordPool(
+  extra: ReadonlyArray<{
+    word: string;
+    translation: string;
+    cefr: string;
+    example?: string;
+    exampleTr?: string;
+  }>,
+): DailyWord[] {
+  const byKey = new Map<string, DailyWord>();
+  for (const e of extra) {
+    const word = str(e.word);
+    const translation = str(e.translation);
+    if (!word || !translation || !isCefr(e.cefr)) continue;
+    if (word.split(/\s+/).length > MAX_WORDS_IN_TILE) continue;
+    const key = word.toLowerCase();
+    if (byKey.has(key)) continue;
+    byKey.set(key, {
+      key,
+      word,
+      translation,
+      example: str(e.example),
+      exampleTr: str(e.exampleTr),
+      cefr: e.cefr,
+      lessonId: EXTRA_LESSON_ID,
+      lessonTitle: EXTRA_LESSON_TITLE,
+    });
+  }
+  return Array.from(byKey.values());
+}
+
+/** Lesson words first; extra words are appended only when their key is new. */
+export function mergeWordPools(
+  lessonPool: ReadonlyArray<DailyWord>,
+  extraPool: ReadonlyArray<DailyWord>,
+): DailyWord[] {
+  const keys = new Set(lessonPool.map((w) => w.key));
+  return [...lessonPool, ...extraPool.filter((w) => !keys.has(w.key))];
+}
+
 let cachedPool: DailyWord[] | null = null;
 
-function getPool(): DailyWord[] {
+export function getPool(): DailyWord[] {
   if (!cachedPool) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { allLessons } = require("../data/lessons") as {
       allLessons: ReadonlyArray<BundledLesson>;
     };
-    cachedPool = buildWordPool(allLessons);
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { DAILY_WORDS_EXTRA } = require("../data/daily-words-extra") as {
+      DAILY_WORDS_EXTRA: ReadonlyArray<ExtraDailyWord>;
+    };
+    cachedPool = mergeWordPools(buildWordPool(allLessons), buildExtraWordPool(DAILY_WORDS_EXTRA));
   }
   return cachedPool;
 }

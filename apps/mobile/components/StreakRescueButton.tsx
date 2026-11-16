@@ -30,9 +30,14 @@ type Mode = "hidden" | "ready" | "loading" | "protected" | "unavailable";
 interface Props {
   /** Called after a shield was granted (e.g. to refresh parent state). */
   onShieldEarned?: () => void;
+  /**
+   * The user already missed yesterday (see getStreakRiskState): copy says
+   * "finish a scene TODAY" instead of "if you miss a day".
+   */
+  missedYesterday?: boolean;
 }
 
-export function StreakRescueButton({ onShieldEarned }: Props) {
+export function StreakRescueButton({ onShieldEarned, missedYesterday = false }: Props) {
   const { t } = useTranslation();
   const [mode, setMode] = useState<Mode>("hidden");
 
@@ -104,7 +109,7 @@ export function StreakRescueButton({ onShieldEarned }: Props) {
   if (mode === "protected" || mode === "unavailable") {
     const message =
       mode === "protected"
-        ? t("streakRescue.protected")
+        ? t(missedYesterday ? "streakRescue.protected_missed" : "streakRescue.protected")
         : t("streakRescue.unavailable");
     return (
       <View style={styles.wrap}>
@@ -124,7 +129,9 @@ export function StreakRescueButton({ onShieldEarned }: Props) {
     <View style={styles.wrap}>
       <Button
         label={t("streakRescue.cta")}
-        accessibilityHint={t("streakRescue.cta_hint")}
+        accessibilityHint={t(
+          missedYesterday ? "streakRescue.cta_hint_missed" : "streakRescue.cta_hint",
+        )}
         variant="secondary"
         loading={mode === "loading"}
         onPress={() => void handlePress()}

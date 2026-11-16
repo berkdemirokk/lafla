@@ -21,7 +21,7 @@
 //   lafla.shield.earned       : "1" while the pool holds an ad-earned shield
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { isPremium } from "./iap";
+import { getSubscriptionStatus, hasPaidEntitlement } from "./iap";
 import { trackEvent } from "./analytics";
 
 const K_COUNT = "lafla.shield.count";
@@ -65,8 +65,13 @@ async function refreshIfNewMonth(): Promise<void> {
     const currentYm = ymKey();
     if (stored === currentYm) return;
 
-    // New month — grant according to entitlement.
-    const premium = await isPremium().catch(() => false);
+    // New month — grant according to entitlement. PAID subscription only:
+    // the 30-min rewarded-ad "temporary Pro" must never unlock the Pro grant.
+    const status = await getSubscriptionStatus().catch(() => "unknown" as const);
+    // Offline / not yet resolved: don't lock the month with a free (0) grant.
+    // Leave count + marker untouched so the next call retries.
+    if (status === "unknown") return;
+    const premium = status === "active";
     let grant = premium ? PREMIUM_MONTHLY_GRANT : FREE_MONTHLY_GRANT;
     if (premium) {
       // Premium grant supersedes any ad-earned shield.
@@ -158,22 +163,60 @@ export async function recentShieldUseIso(): Promise<string | null> {
  * profile rosette tooltip and home banner copy).
  */
 export async function getMonthlyGrant(): Promise<number> {
-  const premium = await isPremium().catch(() => false);
+  const premium = await hasPaidEntitlement().catch(() => false);
   return premium ? PREMIUM_MONTHLY_GRANT : FREE_MONTHLY_GRANT;
 }
 
 /**
- * Total streak-at-risk check. Returns true if it's been ≥22h since the
- * user's last active session — the home banner uses this to nudge them
- * before the 24h cliff hits.
+ * Where the user stands relative to the streak cliff (local calendar days —
+ * mirrors bumpStreak in lib/local-progress.ts):
+ *
+ *   • "none"             — practiced today, no history, 3+ days missed (a
+ *                          shield can no longer help), or clock drift.
+ *   • "due_today"        — last lesson was YESTERDAY and it's been ≥22h:
+ *                          a lesson today extends the streak; if today is
+ *                          missed, a held shield will save it tomorrow.
+ *   • "missed_yesterday" — last lesson was the day BEFORE yesterday (exactly
+ *                          one missed day). A lesson today keeps the streak
+ *                          ONLY if a shield is consumed. Lasts until local
+ *                          midnight — after that the gap is 3 days and the
+ *                          streak resets regardless of shields.
  */
-export async function isStreakAtRisk(lastLessonIso?: string): Promise<boolean> {
-  if (!lastLessonIso) return false;
-  const last = new Date(lastLessonIso).getTime();
-  if (Number.isNaN(last)) return false;
-  const ageH = (Date.now() - last) / 3600000;
-  // 22-26h window: at-risk. Before 22h = safe; after 26h = already broken
-  // (or about to be saved by shield). The banner is most useful inside
-  // this window so it doesn't nag well-streaked users every visit.
-  return ageH >= 22 && ageH < 26;
+export type StreakRiskState = "none" | "due_today" | "missed_yesterday";
+
+/** Hours since the last lesson before a yesterday-practicer gets nudged. */
+const DUE_TODAY_NUDGE_HOURS = 22;
+
+function calendarDaysBetween(a: Date, b: Date): number {
+  const aStart = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const bStart = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+  return Math.round((bStart - aStart) / 86_400_000);
+}
+
+export function getStreakRiskState(
+  lastLessonIso: string | null | undefined,
+  now: Date = new Date(),
+): StreakRiskState {
+  if (!lastLessonIso) return "none";
+  const last = new Date(lastLessonIso);
+  if (Number.isNaN(last.getTime())) return "none";
+  const daysAgo = calendarDaysBetween(last, now);
+  if (daysAgo === 2) return "missed_yesterday";
+  if (daysAgo === 1) {
+    const ageH = (now.getTime() - last.getTime()) / 3600000;
+    return ageH >= DUE_TODAY_NUDGE_HOURS ? "due_today" : "none";
+  }
+  return "none";
+}
+
+/**
+ * Boolean form of getStreakRiskState — true for "due_today" and
+ * "missed_yesterday". (Was a 22–26h wall-clock window, which hid the
+ * rescue offer from users opening the app later on the missed day.)
+ */
+export async function isStreakAtRisk(
+  lastLessonIso?: string,
+  now: Date = new Date(),
+): Promise<boolean> {
+  return getStreakRiskState(lastLessonIso, now) !== "none";
 }

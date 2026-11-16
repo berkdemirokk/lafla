@@ -20,7 +20,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { initAnalytics, trackEvent } from "./analytics";
-import { requestAttOnce } from "./att";
+import { getAttStatus, requestAttOnce } from "./att";
 import { completeOnboarding } from "./auth";
 import { setCefrLevel, type CefrLevel } from "./cefr-level";
 import {
@@ -80,10 +80,15 @@ export async function finalizeOnboarding(opts: FinalizeOpts): Promise<void> {
     // (lib/att-ads-bootstrap.ts); ATT denendikten sonra burada başlar.
     // Lazy require: native ads modülü onboarding ekranının import ağacına
     // girmesin.
+    // ATT prompt sunulamadıysa (not-determined) başlatma; sonraki cold start
+    // bootstrap'i tekrar sorar ve o zaman başlatır.
     try {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const ads = require("./ads") as typeof import("./ads");
-      void ads.initAds().catch(() => {});
+      const attNow = await getAttStatus().catch(() => "not-determined" as const);
+      if (attNow !== "not-determined") {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const ads = require("./ads") as typeof import("./ads");
+        void ads.initAds().catch(() => {});
+      }
     } catch {
       // ads non-critical
     }

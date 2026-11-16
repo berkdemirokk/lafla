@@ -32,7 +32,9 @@ import { parseSafe, isObject } from "./json-safe";
 import {
   FREE_EARNED_SHIELD_CAP,
   getShieldCount,
+  getStreakRiskState,
   grantEarnedShield,
+  type StreakRiskState,
 } from "./streak-shield";
 
 const K_RESCUE_LOG = "lafla.shield.rescue_log";
@@ -198,5 +200,36 @@ export async function earnShieldWithRewardedAd(
     return { ok: false, reason: "grant_failed" };
   } finally {
     _inFlight = false;
+  }
+}
+
+/**
+ * What the Today streak-at-risk banner should show. Never throws.
+ *
+ * Visible for the WHOLE window in which a shield can still matter (local
+ * calendar days, see getStreakRiskState):
+ *   • "due_today"        — streak alive, lesson today extends it; a held or
+ *                          earned shield is insurance against missing today.
+ *   • "missed_yesterday" — one day missed; a lesson today saves the streak
+ *                          only with a shield. Shown ONLY if the user holds a
+ *                          shield or can still earn one — otherwise the
+ *                          "one scene saves it" promise would be false.
+ * Returns "none" with no streak, practice today, or a 3+ day gap.
+ */
+export async function getStreakRescueBannerState(
+  profile: { current_streak?: number | null; last_lesson_at?: string | null } | null | undefined,
+  now: Date = new Date(),
+): Promise<StreakRiskState> {
+  try {
+    if (!profile || !profile.current_streak || profile.current_streak <= 0) {
+      return "none";
+    }
+    const risk = getStreakRiskState(profile.last_lesson_at, now);
+    if (risk !== "missed_yesterday") return risk;
+    if ((await getShieldCount()) > 0) return risk;
+    const eligibility = await getStreakRescueEligibility(now);
+    return eligibility.eligible ? risk : "none";
+  } catch {
+    return "none";
   }
 }

@@ -25,6 +25,7 @@ import {
   hasBeenPrompted,
   isNotificationsEnabled,
 } from "./notifications";
+import { isOnboarded } from "./onboarding-state";
 
 const K_OFFERED = "lafla.notifyOptIn.offered.v1";
 
@@ -63,12 +64,32 @@ export async function shouldOfferNotifyOptIn(): Promise<boolean> {
   return true;
 }
 
+// Oturum başına bir kez (getTodayNotifyOptInRoute); onboarding akışı karar
+// verdiyse /today aynı oturumda tekrar sormasın.
+let _todayChecked = false;
+
 /** Onboarding / intro sonrası gidilecek route. */
 export async function routeAfterOnboarding(): Promise<
   typeof NOTIFY_OPT_IN_ROUTE | "/today"
 > {
+  _todayChecked = true;
   const offer = await shouldOfferNotifyOptIn().catch(() => false);
   return offer ? NOTIFY_OPT_IN_ROUTE : "/today";
+}
+
+/**
+ * /today ilk yüklemesi: onboarding akışında hiç teklif edilmemiş (1.0.5'ten
+ * güncelleyen veya intro'yu erken bırakan) kullanıcıya bir kez teklif route'u
+ * döner; yoksa null. Oturum başına en fazla bir kez kontrol eder.
+ */
+export async function getTodayNotifyOptInRoute(): Promise<
+  typeof NOTIFY_OPT_IN_ROUTE | null
+> {
+  if (_todayChecked) return null;
+  _todayChecked = true;
+  if (!(await isOnboarded().catch(() => false))) return null;
+  const offer = await shouldOfferNotifyOptIn().catch(() => false);
+  return offer ? NOTIFY_OPT_IN_ROUTE : null;
 }
 
 /**

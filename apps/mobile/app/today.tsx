@@ -20,7 +20,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
-import { pushRoute } from "../lib/routes";
+import { pushRoute, replaceRoute } from "../lib/routes";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -49,7 +49,7 @@ import {
   checkErosionForUi,
   type CefrLevel,
 } from "../lib/cefr-level";
-import { isStreakAtRisk } from "../lib/streak-shield";
+import { getStreakRescueBannerState } from "../lib/streak-rescue";
 import {
   getDueCount as getVocabDueCount,
   getDueMinutes as getVocabDueMinutes,
@@ -72,6 +72,7 @@ import { type Scene } from "../data/scenes";
 import { SCENE_COUNT_DISPLAY } from "../lib/scene-counts";
 import { getSceneDisplayMinutes } from "../lib/scene-duration";
 import { recordActive } from "../lib/notifications";
+import { getTodayNotifyOptInRoute } from "../lib/notify-opt-in";
 import { isPremium } from "../lib/iap";
 import {
   isRewardedPremiumActive,
@@ -141,6 +142,7 @@ interface TodayState {
   hour: number;
   // Banners (priority queue ile gösterilir)
   streakAtRisk: boolean;
+  streakMissedYesterday: boolean;
   erosionDecay: number;
   erosionDaysIdle: number;
   erosionDroppedLevel: CefrLevel | null;
@@ -175,6 +177,7 @@ const EMPTY: TodayState = {
   displayName: "",
   hour: new Date().getHours(),
   streakAtRisk: false,
+  streakMissedYesterday: false,
   erosionDecay: 0,
   erosionDaysIdle: 0,
   erosionDroppedLevel: null,
@@ -201,6 +204,16 @@ export default function Today() {
   const [state, setState] = useState<TodayState>(EMPTY);
   const [showTutorial, setShowTutorial] = useState(false);
   const [planLoadFailed, setPlanLoadFailed] = useState(false);
+
+  // One-time notification opt-in for onboarded users never offered (1.0.5
+  // updaters, early intro quitters). Guarded once-per-session in the helper.
+  useEffect(() => {
+    void getTodayNotifyOptInRoute().then((route) => {
+      // replace, not push: the opt-in screen ends with replace("/today"),
+      // so pushing would leave two Today screens on the stack.
+      if (route) replaceRoute(router, route);
+    }).catch(() => {});
+  }, [router]);
 
   // ─── Ambient animations ──────────────────────────────────────────────
   // Two independent shared-value drivers. They start once on mount and
@@ -313,12 +326,13 @@ export default function Today() {
         AsyncStorage.getItem(K_DISPLAY_NAME).catch(() => null),
         getActiveDaysLast7().catch(() => 0),
       ]);
-    const streakAtRisk =
-      profile?.current_streak && profile.current_streak > 0
-        ? await isStreakAtRisk(profile.last_lesson_at ?? undefined).catch(
-            () => false,
-          )
-        : false;
+    // Local-day streak risk (see lib/streak-rescue.ts): "due_today" or
+    // "missed_yesterday" — the latter only while a shield can still save it.
+    const streakRisk = await getStreakRescueBannerState(profile).catch(
+      () => "none" as const,
+    );
+    const streakAtRisk = streakRisk !== "none";
+    const streakMissedYesterday = streakRisk === "missed_yesterday";
     const erosion = await checkErosionForUi().catch(() => ({
       decayAmount: 0,
       daysIdle: 0,
@@ -369,6 +383,7 @@ export default function Today() {
       displayName: sanitizeName(nameRaw),
       hour: new Date().getHours(),
       streakAtRisk,
+      streakMissedYesterday,
       erosionDecay: erosion.decayAmount,
       erosionDaysIdle: Math.floor(erosion.daysIdle),
       erosionDroppedLevel: erosion.newLevel,
@@ -755,10 +770,14 @@ export default function Today() {
             <View style={styles.warningBanner}>
               <Icon name="streak" size={14} color={tokens.semantic.warning} />
               <Text style={styles.warningText}>
-                {t("today.streak_risk")}
+                {t(
+                  state.streakMissedYesterday
+                    ? "streak.risk_missed_yesterday"
+                    : "today.streak_risk",
+                )}
               </Text>
             </View>
-            <StreakRescueButton />
+            <StreakRescueButton missedYesterday={state.streakMissedYesterday} />
           </Animated.View>
         ) : state.erosionDecay > 0 ? (
           <Animated.View entering={FadeInDown.delay(120).duration(360)}>

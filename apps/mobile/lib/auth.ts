@@ -78,7 +78,10 @@ async function cacheProfileLocally(profile: Profile | null): Promise<void> {
   if (!profile) return;
 
   const writes: Array<Promise<void>> = [];
+  let newlyOnboarded = false;
   if (profile.onboarding_completed_at) {
+    newlyOnboarded =
+      (await AsyncStorage.getItem(K_ONBOARDED).catch(() => null)) !== "true";
     writes.push(AsyncStorage.setItem(K_ONBOARDED, "true"));
   } else {
     writes.push(AsyncStorage.removeItem(K_ONBOARDED));
@@ -100,6 +103,17 @@ async function cacheProfileLocally(profile: Profile | null): Promise<void> {
   }
 
   await Promise.all(writes.map((p) => p.catch(() => {})));
+
+  // Reinstall + sign-in: cold-start bootstrap saw "not onboarded" and skipped
+  // ATT/ads; re-run it now that hydration flipped the flag.
+  if (newlyOnboarded) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      (require("./att-ads-bootstrap") as typeof import("./att-ads-bootstrap")).rerunAttAndAdsBootstrap();
+    } catch {
+      // ads non-critical
+    }
+  }
 }
 
 export async function signUpWithEmail(email: string, password: string) {

@@ -5,9 +5,16 @@
 // web UI'ye girip 18 alana copy-paste yapmaktan kurtaran chore automation.
 //
 // NE YAPAR (otomatik):
-//   • App name / subtitle / promo text (TR + EN locale)
-//   • Description / keywords / what's new (TR + EN)
+//   • Description / keywords / promo text / what's new / URLs (TR + EN)
+//     → appStoreVersionLocalizations
+//   • App name / subtitle (TR + EN) → appInfoLocalizations — SADECE
+//     --app-info flag'i ile (opt-in; normal run canlı app'in adını değiştirmez)
+//   • Review detail (demo account + contact + notes)
 //   • Latest TestFlight build'i bir App Store version'a attach
+//
+// PRE-FLIGHT: Her çalıştırmada (ağ çağrısından ÖNCE) Apple karakter
+// limitleri doğrulanır (name/subtitle ≤30, keywords ≤100, promo ≤170,
+// description/whatsNew ≤4000). Aşan alan varsa script abort eder.
 //
 // NE YAPMAZ (kasıtlı; user/Apple constraint):
 //   • Submit for Review (irreversible — sen tıklarsın)
@@ -29,6 +36,8 @@
 // KULLANIM:
 //   pnpm --filter mobile run asc:sync          # dry-run, print diff
 //   pnpm --filter mobile run asc:sync -- --apply  # gerçek push
+//   pnpm --filter mobile run asc:sync -- --app-info           # + name/subtitle diff (dry-run)
+//   pnpm --filter mobile run asc:sync -- --apply --app-info   # + name/subtitle push
 //
 // VEYA GitHub Actions:
 //   gh workflow run asc-sync.yml
@@ -60,7 +69,7 @@ const APP_STORE_PUBLIC_URL = "https://berkdemirokk.github.io/lafla/";
 // kaynağı, docs review/onboarding kaynağı.
 // ─────────────────────────────────────────────────────────────────
 
-const METADATA = {
+export const METADATA = {
   bundleId: "com.lafla.app",
   // Apple "App Store Connect" version string (CFBundleShortVersionString).
   // app.json'daki version ile aynı olmalı.
@@ -314,6 +323,85 @@ function stripEmojis(s: string): string {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// Locale mapping + pre-flight validation (Apple karakter limitleri).
+// Ağ çağrısından ÖNCE çalışır; limit aşımı = abort, yarım push yok.
+// ─────────────────────────────────────────────────────────────────
+
+type LocaleKey = "tr" | "en";
+type LocaleMetadata = Record<
+  "name" | "subtitle" | "keywords" | "promotionalText" | "description" | "whatsNew",
+  string
+>;
+
+/** ASC locale kodu (tr, tr-TR, en-US, en-GB…) → METADATA anahtarı. */
+export function localeKeyFor(locale: string): LocaleKey | null {
+  if (locale.startsWith("tr")) return "tr";
+  if (locale.startsWith("en")) return "en";
+  return null;
+}
+
+export const APPLE_LIMITS = {
+  name: 30,
+  subtitle: 30,
+  keywords: 100,
+  promotionalText: 170,
+  description: 4000,
+  whatsNew: 4000,
+} as const;
+
+/** Apple karakter sayımı ≈ Unicode code point (NFC). "İ" tek karakter. */
+export function appleLength(value: string): number {
+  return Array.from(value.normalize("NFC")).length;
+}
+
+/** Push edilecek (emoji-stripped) değerlerin limitlerini kontrol eder. */
+export function validateMetadataLimits(
+  metadata: Record<LocaleKey, LocaleMetadata> = METADATA,
+): string[] {
+  const errors: string[] = [];
+  for (const key of ["tr", "en"] as const) {
+    const m = metadata[key];
+    const pushed: Record<keyof typeof APPLE_LIMITS, string> = {
+      name: m.name,
+      subtitle: m.subtitle,
+      keywords: m.keywords,
+      promotionalText: stripEmojis(m.promotionalText),
+      description: stripEmojis(m.description),
+      whatsNew: stripEmojis(m.whatsNew),
+    };
+    for (const field of Object.keys(APPLE_LIMITS) as Array<keyof typeof APPLE_LIMITS>) {
+      const length = appleLength(pushed[field]);
+      const limit = APPLE_LIMITS[field];
+      if (length === 0) {
+        errors.push(`${key}.${field} boş`);
+      } else if (length > limit) {
+        errors.push(`${key}.${field} ${length}/${limit} karakter (limit aşıldı): "${pushed[field].slice(0, 60)}"`);
+      }
+    }
+  }
+  return errors;
+}
+
+export interface AppInfoChange {
+  field: "name" | "subtitle";
+  from: string;
+  to: string;
+}
+
+/** ASC'deki mevcut name/subtitle ile METADATA arasındaki fark (sadece değişenler). */
+export function diffAppInfo(
+  current: { name?: unknown; subtitle?: unknown },
+  target: { name: string; subtitle: string },
+): AppInfoChange[] {
+  const changes: AppInfoChange[] = [];
+  for (const field of ["name", "subtitle"] as const) {
+    const from = typeof current[field] === "string" ? (current[field] as string) : "";
+    if (from !== target[field]) changes.push({ field, from, to: target[field] });
+  }
+  return changes;
+}
+
+// ─────────────────────────────────────────────────────────────────
 // HTTP — Apple ASC API v1, JSON:API spec'i (data/relationships).
 // ─────────────────────────────────────────────────────────────────
 
@@ -460,6 +548,123 @@ async function patchVersionWhatsNew(
       return;
     }
     throw err; // başka error → propagate
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// App Info — name + subtitle appInfoLocalizations'da yaşar (version
+// localization'da DEĞİL). Akış:
+//   GET /apps/{id}/appInfos → düzenlenebilir appInfo (PREPARE_FOR_SUBMISSION
+//   vb.; READY_FOR_DISTRIBUTION = canlı, read-only)
+//   GET /appInfos/{id}/appInfoLocalizations
+//   PATCH /appInfoLocalizations/{id} { name, subtitle }
+// Opt-in: --app-info. Değişiklik bir sonraki version release'iyle canlıya çıkar.
+// ─────────────────────────────────────────────────────────────────
+
+const EDITABLE_APP_INFO_STATES = new Set([
+  "PREPARE_FOR_SUBMISSION",
+  "DEVELOPER_REJECTED",
+  "REJECTED",
+  "METADATA_REJECTED",
+]);
+
+async function findEditableAppInfo(
+  token: string,
+  appId: string,
+): Promise<string | null> {
+  const list = (await ascFetch(
+    token,
+    `/apps/${appId}/appInfos?limit=10`,
+  )) as JsonApiList;
+  // `state` yeni attribute; `appStoreState` deprecated ama eski cevaplarda var.
+  const stateOf = (info: Resource) =>
+    String(info.attributes?.state ?? info.attributes?.appStoreState ?? "unknown");
+  const states = list.data?.map((info) => `${info.id}:${stateOf(info)}`).join(", ");
+  if (states) console.log(`  appInfos: ${states}`);
+  const editable = list.data?.find((info) => EDITABLE_APP_INFO_STATES.has(stateOf(info)));
+  if (editable) console.log(`  editable appInfo: ${editable.id} (${stateOf(editable)})`);
+  return editable?.id ?? null;
+}
+
+async function findAppInfoLocalizations(
+  token: string,
+  appInfoId: string,
+): Promise<Resource[]> {
+  const list = (await ascFetch(
+    token,
+    `/appInfos/${appInfoId}/appInfoLocalizations?limit=50`,
+  )) as JsonApiList;
+  return list.data ?? [];
+}
+
+async function patchAppInfoLocalization(
+  token: string,
+  locId: string,
+  attrs: Partial<Record<AppInfoChange["field"], string>>,
+): Promise<void> {
+  try {
+    await ascFetch(token, `/appInfoLocalizations/${locId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        data: { id: locId, type: "appInfoLocalizations", attributes: attrs },
+      }),
+    });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (msg.includes("409")) {
+      console.error(
+        "  ❌ ASC 409 — isim başka bir app tarafından kullanılıyor olabilir veya appInfo kilitli. ASC web UI → App Information'da kontrol et.",
+      );
+    }
+    throw err;
+  }
+  console.log(`  ✅ PATCH appInfoLocalization ${locId} → ${Object.keys(attrs).join(", ")}`);
+}
+
+export async function syncAppInfo(
+  token: string,
+  appId: string,
+  dryRun: boolean,
+): Promise<void> {
+  console.log(`\n[app-info] Sync app name + subtitle (appInfoLocalizations)`);
+  const appInfoId = await findEditableAppInfo(token, appId);
+  if (!appInfoId) {
+    console.log(
+      "  ⚠️  Düzenlenebilir appInfo yok (sadece READY_FOR_DISTRIBUTION). Önce ASC'de yeni bir version yarat, sonra tekrar çalıştır.",
+    );
+    return;
+  }
+
+  const locs = await findAppInfoLocalizations(token, appInfoId);
+  const seen = new Set<LocaleKey>();
+  for (const loc of locs) {
+    const locale = String(loc.attributes?.locale ?? "");
+    const key = localeKeyFor(locale);
+    if (!key) {
+      console.log(`  ⏭️  Skipping ${locale} (not TR or EN)`);
+      continue;
+    }
+    seen.add(key);
+    const changes = diffAppInfo(loc.attributes ?? {}, METADATA[key]);
+    console.log(`\n[${key.toUpperCase()}] appInfoLocalization ${loc.id} (${locale}):`);
+    if (changes.length === 0) {
+      console.log("  = name/subtitle zaten güncel, PATCH yok");
+      continue;
+    }
+    for (const c of changes) {
+      console.log(`  ${c.field}: "${c.from}" → "${c.to}" (${appleLength(c.to)}/${APPLE_LIMITS[c.field]})`);
+    }
+    if (dryRun) {
+      console.log(`  [dry-run] PATCH appInfoLocalization ${loc.id} →`, changes.map((c) => c.field));
+      continue;
+    }
+    const attrs = Object.fromEntries(changes.map((c) => [c.field, c.to]));
+    await patchAppInfoLocalization(token, loc.id, attrs);
+  }
+  for (const key of ["tr", "en"] as const) {
+    if (!seen.has(key)) {
+      console.log(`  ⚠️  ${key} appInfoLocalization bulunamadı — ASC'de locale'i ekle (script yaratmaz).`);
+    }
   }
 }
 
@@ -737,10 +942,22 @@ async function syncBuildAttach(
 
 async function main(): Promise<void> {
   const apply = process.argv.includes("--apply");
+  const syncAppInfoFlag = process.argv.includes("--app-info");
   const dryRun = !apply;
   console.log(
-    `[asc-sync] ${dryRun ? "DRY-RUN (no writes)" : "APPLY (will push)"} ${METADATA.appStoreVersion}`,
+    `[asc-sync] ${dryRun ? "DRY-RUN (no writes)" : "APPLY (will push)"} ${METADATA.appStoreVersion}` +
+      (syncAppInfoFlag ? " +app-info (name/subtitle)" : ""),
   );
+
+  // Pre-flight — ağ/auth'tan önce. Limit aşımı varsa hiçbir şey push edilmez.
+  const limitErrors = validateMetadataLimits();
+  if (limitErrors.length > 0) {
+    console.error("\n❌ Pre-flight validation failed — App Store karakter limitleri:");
+    for (const e of limitErrors) console.error(`  • ${e}`);
+    console.error("  METADATA'yı scripts/asc-sync.ts içinde kısalt ve tekrar çalıştır.");
+    process.exit(1);
+  }
+  console.log("[asc-sync] Pre-flight OK (name/subtitle ≤30, keywords ≤100, promo ≤170, description/whatsNew ≤4000)");
 
   const cfg = loadConfig();
   const token = generateJwt(cfg);
@@ -810,6 +1027,15 @@ async function main(): Promise<void> {
     }
   }
 
+  // ─── App name + subtitle (appInfoLocalizations) — opt-in ───
+  if (syncAppInfoFlag) {
+    await syncAppInfo(token, appId, dryRun);
+  } else {
+    console.log(
+      "\n[app-info] skipped — name/subtitle sync için --app-info ekle (canlı app adını değiştirir).",
+    );
+  }
+
   // ─── App Store Review Detail (demo account + contact + notes) ───
   await syncReviewDetail(token, versionId, dryRun);
 
@@ -830,7 +1056,11 @@ async function main(): Promise<void> {
   console.log("  • Submit for Review — irreversible, sen tıklarsın");
 }
 
-main().catch((err) => {
-  console.error("\n❌ asc-sync failed:", err.message ?? err);
-  process.exit(1);
-});
+// Sadece CLI olarak çalıştırılınca main() — test import'u ağa/auth'a dokunmaz.
+const invokedAsScript = /asc-sync\.[cm]?[jt]s$/.test(process.argv[1] ?? "");
+if (invokedAsScript) {
+  main().catch((err) => {
+    console.error("\n❌ asc-sync failed:", err.message ?? err);
+    process.exit(1);
+  });
+}

@@ -43,16 +43,15 @@ export async function bootstrapAttAndAds(
     attRequested = result !== null;
   }
 
-  // Onboarding'deki kullanıcı: ATT sistemi henüz karar vermediyse reklam
-  // SDK'sına dokunma. (Android / ATT dışı platformlarda getAttStatus
-  // "granted" döner → reklam başlatılır.)
-  if (!onboarded) {
-    const status = await deps
-      .getAttStatus()
-      .catch(() => "not-determined" as AttStatus);
-    if (status === "not-determined") {
-      return { attRequested, adsInitialized: false };
-    }
+  // ATT sistemi henüz karar vermediyse (onboarding'deki kullanıcı veya prompt
+  // sunulamadı) reklam SDK'sına dokunma; sonraki cold start'ta tekrar sorulur.
+  // (Android / ATT dışı platformlarda getAttStatus "granted" döner → reklam
+  // başlatılır.)
+  const status = await deps
+    .getAttStatus()
+    .catch(() => "not-determined" as AttStatus);
+  if (status === "not-determined") {
+    return { attRequested, adsInitialized: false };
   }
 
   try {
@@ -60,5 +59,29 @@ export async function bootstrapAttAndAds(
     return { attRequested, adsInitialized: true };
   } catch {
     return { attRequested, adsInitialized: false };
+  }
+}
+
+/**
+ * Auth, giriş sonrası profilden onboarded=true yazdığında (reinstall eden
+ * dönen kullanıcı) cold-start bootstrap'i tekrar çalıştırır. İdempotent:
+ * requestAttOnce cevaplanmışsa no-op, initAds tek-uçuş korumalı. Import döngüsü
+ * olmasın diye bağımlılıklar lazy require ile yüklenir.
+ */
+export function rerunAttAndAdsBootstrap(): void {
+  try {
+    /* eslint-disable @typescript-eslint/no-require-imports */
+    const { isOnboarded } = require("./onboarding-state") as typeof import("./onboarding-state");
+    const { requestAttOnce, getAttStatus } = require("./att") as typeof import("./att");
+    const { initAds } = require("./ads") as typeof import("./ads");
+    /* eslint-enable @typescript-eslint/no-require-imports */
+    void bootstrapAttAndAds({
+      isOnboarded,
+      requestAttOnce,
+      getAttStatus,
+      initAds,
+    }).catch(() => {});
+  } catch {
+    // ads non-critical
   }
 }

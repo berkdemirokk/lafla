@@ -28,7 +28,10 @@ describe("cold-start ATT + ads sequencing", () => {
   });
 
   it("asks ATT once for an onboarded user, then starts ads", async () => {
-    const { d, calls } = deps({ isOnboarded: jest.fn(async () => true) });
+    const { d, calls } = deps({
+      isOnboarded: jest.fn(async () => true),
+      getAttStatus: jest.fn(async () => "granted" as const),
+    });
     const result = await bootstrapAttAndAds(d);
     expect(calls).toEqual(["att", "ads"]);
     expect(result).toEqual({ attRequested: true, adsInitialized: true });
@@ -38,6 +41,7 @@ describe("cold-start ATT + ads sequencing", () => {
     const { d, calls } = deps({
       isOnboarded: jest.fn(async () => true),
       requestAttOnce: jest.fn(async () => null),
+      getAttStatus: jest.fn(async () => "denied" as const),
     });
     const result = await bootstrapAttAndAds(d);
     expect(calls).toEqual(["ads"]);
@@ -51,9 +55,17 @@ describe("cold-start ATT + ads sequencing", () => {
     expect(result.adsInitialized).toBe(true);
   });
 
+  it("does not start ads when an onboarded user's ATT prompt could not be shown", async () => {
+    const { d } = deps({ isOnboarded: jest.fn(async () => true) });
+    const result = await bootstrapAttAndAds(d);
+    expect(d.initAds).not.toHaveBeenCalled();
+    expect(result).toEqual({ attRequested: true, adsInitialized: false });
+  });
+
   it("survives ATT and ads failures", async () => {
     const { d } = deps({
       isOnboarded: jest.fn(async () => true),
+      getAttStatus: jest.fn(async () => "granted" as const),
       requestAttOnce: jest.fn(async () => {
         throw new Error("att");
       }),
