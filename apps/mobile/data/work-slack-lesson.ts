@@ -1004,7 +1004,7 @@ export const workSlackLesson_9_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Industry standart. Dün ne yaptın / bugün ne yapacaksın / yolundeki engeller.",
+            "Industry standart. Dün ne yaptın / bugün ne yapacaksın / yolundaki engeller.",
         },
         {
           question: "'Blocker' / 'Blocked on X' niye onemli?",

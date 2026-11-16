@@ -39,7 +39,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
         "I like you a lot as a person but not romantically.",
       ],
       tr_hint:
-        "Reddetmek = övgü + dürüstlük + saygı. Üçtan biri eksikse acıtır.",
+        "Reddetmek = övgü + dürüstlük + saygı. Üçten biri eksikse acıtır.",
     },
     {
       id: "ex.fr7.1.3",

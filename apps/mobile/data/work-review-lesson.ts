@@ -687,7 +687,7 @@ export const workReviewLesson_12_2: BundledLesson = {
       phrase: "Thanks for the candor.",
       ipa: "/θæŋks fɔr ðə ˈkændər/",
       tr_articulation_hint:
-        "'Thanks' (th: dil dişlerin arasında). 'Candor' = ken-dır, vurgu başta — dürüst konuşma kelimesi. Sıcakkanlı ton, defansiv değil.",
+        "'Thanks' (th: dil dişlerin arasında). 'Candor' = ken-dır, vurgu başta — dürüst konuşma kelimesi. Sıcakkanlı ton, defansif değil.",
     },
     {
       id: "ex.wr12.2.9",

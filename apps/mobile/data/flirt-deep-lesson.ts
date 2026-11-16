@@ -7652,7 +7652,7 @@ export const flirtDeep_28: BundledLesson = {
       word_or_phrase: "spiral",
       tr_translation: "Endişe sarmalı (kötüye gitme döngüsü)",
       example: "Transparency helps me not spiral.",
-      example_tr: "Şeffaflık endişe sarmaline girmememi sağlıyor.",
+      example_tr: "Şeffaflık endişe sarmalına girmememi sağlıyor.",
     },
     {
       id: "ex.fd28.vt3",
@@ -7672,7 +7672,7 @@ export const flirtDeep_28: BundledLesson = {
       word_or_phrase: "heads up",
       tr_translation: "Önceden haber (rahatsızlık gidermek kalıbı)",
       example: "All I need is a heads up next time she texts.",
-      example_tr: "Tek istediğim sonraki yaztığında önceden haber.",
+      example_tr: "Tek istediğim sonraki yazdığında önceden haber.",
     },
     {
       id: "ex.fd28.vt5",
@@ -8752,9 +8752,9 @@ export const flirtDeep_32: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "see you soon",
-      tr_translation: "Yakında görüşeriz (uzun mesafede 'goodbye' yerine)",
+      tr_translation: "Yakında görüşürüz (uzun mesafede 'goodbye' yerine)",
       example: "It's not goodbye — see you soon, okay?",
-      example_tr: "Hoşça kal değil — yakında görüşeriz, tamam mı?",
+      example_tr: "Hoşça kal değil — yakında görüşürüz, tamam mı?",
     },
     {
       id: "ex.fd32.vt2",

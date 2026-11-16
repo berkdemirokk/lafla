@@ -2177,7 +2177,7 @@ export const workEmailLesson_11_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Suçlayıcı dil = öz savunmaya iter. Bunun yerine 'bumping in case buried' = nedeni inbox'a yıkla, kişiye değil.",
+            "Suçlayıcı dil = öz savunmaya iter. Bunun yerine 'bumping in case buried' = nedeni inbox'a yükle, kişiye değil.",
         },
       ],
     },

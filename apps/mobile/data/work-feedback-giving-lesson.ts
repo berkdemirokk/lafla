@@ -2052,7 +2052,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sandwich manipulatif olur eğer güç + gelecek 'yumuşatıcı dolgu' ise. Tüm parçalar = gerçek + özüne dair. Aksi halde report formatu çözer + güvensizlik.",
+            "Sandwich manipülatif olur eğer güç + gelecek 'yumuşatıcı dolgu' ise. Tüm parçalar = gerçek + özüne dair. Aksi halde report formatı çözer + güvensizlik.",
         },
         {
           question: "'One thing to level up' — neden TEK sey?",

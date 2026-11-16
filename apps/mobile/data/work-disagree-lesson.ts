@@ -839,7 +839,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
       difficulty: 4,
       cefr_band: "C1",
       word_or_phrase: "let's steelman both sides",
-      tr_translation: "İki tarafın EN GÜÇLÜ haline argümen kuralım",
+      tr_translation: "İki tarafın EN GÜÇLÜ haline argüman kuralım",
       example: "Before we vote — let's steelman both sides for a minute.",
       example_tr: "Oylamadan önce — bir dakika iki tarafa en güçlü argümeni kuralım.",
     },
@@ -2721,7 +2721,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yorgun beyin kötü karar verir. 'Table + circle back' = bilinçli pause = anlaşmazlık olmez, daha iyi çözüm bulunur.",
+            "Yorgun beyin kötü karar verir. 'Table + circle back' = bilinçli pause = anlaşmazlık olmaz, daha iyi çözüm bulunur.",
         },
         {
           question: "Bridge kalibinda NE yapilmamasi gerekir?",

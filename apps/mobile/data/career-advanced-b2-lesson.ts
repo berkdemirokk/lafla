@@ -39,7 +39,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       example:
         "If we can't get to that range, I may need to walk away — but I'd really love to make this work.",
       example_tr:
-        "Eğer o aralığe gelemezsek, vazgeçmek zorunda kalabilirim — ama bunun yürümesini gerçekten çok isterim.",
+        "Eğer o aralığa gelemezsek, vazgeçmek zorunda kalabilirim — ama bunun yürümesini gerçekten çok isterim.",
     },
     {
       id: "ex.cb2-1.3",
@@ -224,7 +224,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       incorrect_sentence: "Your offer is too low. My current salary is 170 so this is insult.",
       correct_sentence: "Based on my current comp at 170 and market data for this role, I was targeting closer to 180. Is there flexibility?",
       tr_explanation:
-        "'Insult' = ilişki bozucu, profesyonel pazarlığda ağır kelime. 'Current salary' yerine 'current comp' (total comp ima eder). 'Too low' değil, 'targeting closer to X based on data'. Veri + range = leverage; duygu = leverage kaybı.",
+        "'Insult' = ilişki bozucu, profesyonel pazarlıkta ağır kelime. 'Current salary' yerine 'current comp' (total comp ima eder). 'Too low' değil, 'targeting closer to X based on data'. Veri + range = leverage; duygu = leverage kaybı.",
     },
     {
       id: "ex.cb2-1.sp1",
