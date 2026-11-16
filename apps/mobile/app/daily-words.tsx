@@ -189,7 +189,7 @@ export default function DailyWordsScreen() {
 
   if (phase === "done") {
     return (
-      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]} testID="daily-words-done">
         <ThemedStatusBar />
         {header}
         <ScrollView contentContainerStyle={styles.doneWrap}>
@@ -239,7 +239,7 @@ export default function DailyWordsScreen() {
         <ThemedStatusBar />
         {header}
         <View style={styles.body}>
-          <View style={styles.card}>
+          <View style={styles.card} testID="daily-words-learn-card">
             <Text style={styles.levelPill}>{current.cefr}</Text>
             <Pressable
               onPress={() => void speak(current.word).catch(() => {})}
@@ -264,6 +264,7 @@ export default function DailyWordsScreen() {
             }
             onPress={nextLearn}
             stacked
+            testID={idx + 1 >= words.length ? "daily-words-start-check" : "daily-words-next"}
           />
         </View>
       </SafeAreaView>
@@ -290,13 +291,14 @@ export default function DailyWordsScreen() {
           <Text style={styles.questionTr}>{question.word.translation}</Text>
         </View>
         <View style={styles.options}>
-          {question.options.map((option) => {
+          {question.options.map((option, optionIdx) => {
             const isAnswer = option === question.word.word;
             const isPicked = option === picked;
             return (
               <Pressable
                 key={option}
                 onPress={() => choose(option)}
+                testID={`daily-words-option-${optionIdx}`}
                 disabled={Boolean(picked)}
                 style={({ pressed }) => [
                   styles.option,
@@ -319,6 +321,7 @@ export default function DailyWordsScreen() {
           disabled={!picked || saving}
           loading={saving}
           stacked
+          testID={isLast ? "daily-words-finish" : "daily-words-continue"}
         />
       </View>
     </SafeAreaView>

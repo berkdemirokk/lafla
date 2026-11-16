@@ -1,0 +1,93 @@
+name: Lafla iOS screens (simulator screenshots)
+
+# Manual only. Builds the simulator app, runs the Maestro screens tour and
+# uploads the screenshots as the `lafla-screens` artifact.
+on:
+  workflow_dispatch:
+  # workflow_dispatch needs the file on the default branch; a throwaway
+  # `screens-*` tag lets a feature branch run it too.
+  push:
+    tags:
+      - "screens-*"
+
+jobs:
+  screens:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+          run_install: false
+      - name: Select latest Xcode
+        run: |
+          XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode*.app" | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE_APP/Contents/Developer"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Generate iOS project
+        working-directory: apps/mobile
+        run: pnpm exec expo prebuild --platform ios --clean --no-install
+      - name: Install CocoaPods
+        working-directory: apps/mobile/ios
+        run: pod install
+      - name: Build simulator app
+        working-directory: apps/mobile
+        run: |
+          xcodebuild \
+            -workspace ios/Lafla.xcworkspace \
+            -scheme Lafla \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath "$RUNNER_TEMP/lafla-derived" \
+            CODE_SIGNING_ALLOWED=NO \
+            -quiet
+      - name: Boot iOS Simulator
+        run: |
+          DEVICE_ID=$(xcrun simctl list devices available --json | jq -r '[.devices[] | .[] | select(.isAvailable and (.name | startswith("iPhone")))] | last | .udid')
+          test -n "$DEVICE_ID"
+          test "$DEVICE_ID" != "null"
+          echo "IOS_SIMULATOR_UDID=$DEVICE_ID" >> "$GITHUB_ENV"
+          xcrun simctl boot "$DEVICE_ID"
+          open -a Simulator
+          xcrun simctl bootstatus "$DEVICE_ID" -b
+          APP_PATH=$(find "$RUNNER_TEMP/lafla-derived/Build/Products/Release-iphonesimulator" -maxdepth 1 -name '*.app' | head -n 1)
+          test -n "$APP_PATH"
+          xcrun simctl install "$DEVICE_ID" "$APP_PATH"
+      - name: Install Maestro
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+      - name: Run Maestro screens tour
+        continue-on-error: true
+        env:
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 300000
+        run: |
+          "$HOME/.maestro/bin/maestro" --version
+          # takeScreenshot writes PNGs to the working directory.
+          mkdir -p "$GITHUB_WORKSPACE/screens-out"
+          cd "$GITHUB_WORKSPACE/screens-out"
+          "$HOME/.maestro/bin/maestro" --device "$IOS_SIMULATOR_UDID" test "$GITHUB_WORKSPACE/apps/mobile/.maestro/screens.yaml"
+      - name: Final simulator screenshot
+        if: always()
+        continue-on-error: true
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/screens-out"
+          xcrun simctl io "$IOS_SIMULATOR_UDID" screenshot "$GITHUB_WORKSPACE/screens-out/zz-final-simulator-state.png"
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lafla-screens
+          path: |
+            screens-out/**
+            ~/.maestro/tests/**
+          if-no-files-found: warn
+          retention-days: 14

@@ -154,6 +154,7 @@ export function DailyWordsShareButton({ correct, total, words }: ButtonProps) {
           onPress={() => void onShare()}
           variant="secondary"
           loading={busy}
+          testID="daily-words-share"
         />
       </View>
       {/* Off-screen capture target. Hidden from screen readers; the shared

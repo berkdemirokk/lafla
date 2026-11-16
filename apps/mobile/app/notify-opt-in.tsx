@@ -132,12 +132,14 @@ export default function NotifyOptInScreen() {
           loading={busy}
           disabled={busy}
           stacked
+          testID="notify-opt-in-enable"
         />
         <Button
           label={t("notifyOptIn.skip")}
           variant="ghost"
           onPress={() => void handleSkip()}
           disabled={busy}
+          testID="notify-opt-in-skip"
         />
         <Text style={styles.footnote}>{t("notifyOptIn.footnote")}</Text>
       </View>

@@ -599,12 +599,14 @@ function AnimatedCta({
   disabled,
   loading,
   accessibilityLabel,
+  testID,
 }: {
   label: string;
   onPress: () => void;
   disabled?: boolean;
   loading?: boolean;
   accessibilityLabel?: string;
+  testID?: string;
 }) {
   const scale = useSharedValue(1);
   const ctaStyle = useAnimatedStyle(() => ({
@@ -631,6 +633,7 @@ function AnimatedCta({
         disabled={disabled}
         loading={loading}
         stacked
+        testID={testID}
       />
     </Animated.View>
   );
@@ -645,6 +648,7 @@ function PressScale({
   accessibilityLabel,
   accessibilityRole,
   accessibilityState,
+  testID,
 }: {
   children: React.ReactNode;
   onPress: () => void;
@@ -653,6 +657,7 @@ function PressScale({
   accessibilityLabel?: string;
   accessibilityRole?: "button" | "checkbox";
   accessibilityState?: { checked?: boolean; disabled?: boolean };
+  testID?: string;
 }) {
   const scale = useSharedValue(1);
   const animStyle = useAnimatedStyle(() => ({
@@ -677,6 +682,7 @@ function PressScale({
         accessibilityRole={accessibilityRole}
         accessibilityLabel={accessibilityLabel}
         accessibilityState={accessibilityState}
+        testID={testID}
         hitSlop={6}
       >
         {children}
@@ -1236,6 +1242,7 @@ function InterestsStep({
           label={t("common.continue_cta")}
           onPress={onContinue}
           disabled={!canContinue}
+          testID="onboarding-interests-continue"
           accessibilityLabel={
             canContinue
               ? t("onboarding.interests.continue_label_ready")
@@ -1261,6 +1268,7 @@ function InterestChip({
   return (
     <PressScale
       onPress={onPress}
+      testID={`interest-chip-${choice.id}`}
       style={[styles.chip, selected && styles.chipSelected]}
       accessibilityRole="checkbox"
       accessibilityLabel={`${label} — ${
@@ -1434,6 +1442,7 @@ function LevelCard({
     <PressScale
       onPress={onPress}
       disabled={disabled}
+      testID={`level-card-${choice.cefr}`}
       style={[
         styles.levelCard,
         disabled && styles.levelCardDisabled,

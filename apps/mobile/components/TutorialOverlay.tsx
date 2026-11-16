@@ -155,6 +155,7 @@ export function TutorialOverlay({
             ]}
             accessibilityRole="button"
             accessibilityLabel={t("tutorial.start")}
+            testID="tutorial-start"
           >
             <Text style={styles.ctaText}>{t("tutorial.start")}</Text>
           </Pressable>

@@ -519,7 +519,7 @@ export default function Today() {
   }, [streak, streakFlip]);
 
   return (
-    <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+    <SafeAreaView style={styles.safe} edges={["top", "bottom"]} testID="today-screen">
       <ThemedStatusBar />
 
       {/* Top bar */}

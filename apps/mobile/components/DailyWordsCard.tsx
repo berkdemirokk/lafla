@@ -66,6 +66,7 @@ export function DailyWordsCard() {
         pressed && styles.pressed,
       ]}
       accessibilityRole="button"
+      testID="daily-words-card"
       accessibilityLabel={
         state.completed
           ? t("dailyWords.card_done_label")

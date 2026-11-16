@@ -22,6 +22,7 @@ interface Props {
   stacked?: boolean;
   /** Optional VoiceOver/TalkBack hint describing what happens on press. */
   accessibilityHint?: string;
+  testID?: string;
 }
 
 export function Button({
@@ -32,6 +33,7 @@ export function Button({
   loading,
   stacked,
   accessibilityHint,
+  testID,
 }: Props) {
   const [pressed, setPressed] = useState(false);
   const isPrimary = variant === "primary";
@@ -66,6 +68,7 @@ export function Button({
         accessibilityRole="button"
         accessibilityLabel={label}
         accessibilityHint={accessibilityHint}
+        testID={testID}
         accessibilityState={{
           disabled: Boolean(disabled || loading),
           busy: Boolean(loading),
