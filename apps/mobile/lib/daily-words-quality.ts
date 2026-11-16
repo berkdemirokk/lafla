@@ -231,6 +231,21 @@ export function looksAccentless(translation: string): boolean {
   return letters >= 12 && translation.trim().split(/\s+/).length >= 2;
 }
 
+/**
+ * True when the Turkish gloss repeats the English entry ("milkshake" →
+ * "milkshake", "Erasmus year" → "Erasmus yılı"): the quiz shows the gloss as
+ * the prompt, so such an entry gives its own answer away.
+ */
+export function glossRevealsWord(word: string, translation: string): boolean {
+  const tokens = (text: string) =>
+    text
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((tok) => tok.length >= 4);
+  const gloss = new Set(tokens(translation));
+  return tokens(word).some((tok) => gloss.has(tok));
+}
+
 /** Full filter + normaliser for one lesson tile; null when the entry should be dropped. */
 export function cleanLessonEntry(
   word: string,
@@ -243,5 +258,6 @@ export function cleanLessonEntry(
   if (!tr) return null;
   if (asciiFoldIndex && isAsciiTurkish(tr, asciiFoldIndex)) return null;
   if (asciiFoldIndex && looksAccentless(tr)) return null;
+  if (glossRevealsWord(word, tr)) return null;
   return { word: normalizeEnglishCase(word), translation: tr };
 }

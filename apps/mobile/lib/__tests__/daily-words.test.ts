@@ -22,7 +22,7 @@ import { getQueuedWordKeys, getVocabStats } from "../srs-vocab";
 import { getLocalProfile } from "../local-progress";
 import type { BundledLesson } from "../engine";
 
-function tile(word: string, cefr: string, tr = `${word}-tr`) {
+function tile(word: string, cefr: string, tr = "çeviri") {
   return { type: "vocab_tile", cefr_band: cefr, word_or_phrase: word, tr_translation: tr };
 }
 

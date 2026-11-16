@@ -153,3 +153,16 @@ describe("looksAccentless", () => {
     expect(looksAccentless("dezavantaj")).toBe(false);
   });
 });
+
+describe("glossRevealsWord", () => {
+  const { glossRevealsWord } = require("../daily-words-quality");
+  it("flags glosses that repeat the English entry", () => {
+    expect(glossRevealsWord("milkshake", "milkshake")).toBe(true);
+    expect(glossRevealsWord("Erasmus year", "Erasmus yili")).toBe(true);
+    expect(glossRevealsWord("lounge", "lounge, dinlenme salonu")).toBe(true);
+  });
+  it("keeps real translations and short shared tokens", () => {
+    expect(glossRevealsWord("prepaid SIM", "ön ödemeli SIM")).toBe(false);
+    expect(glossRevealsWord("discount", "indirim")).toBe(false);
+  });
+});
