@@ -98,9 +98,12 @@ describe("daily words — merged pool", () => {
   it("gives C1 and C2 learners a much deeper pool", () => {
     const pool = getPool();
     expect(new Set(pool.map((w) => w.key)).size).toBe(pool.length);
-    expect(countBy(pool, "C1")).toBeGreaterThanOrEqual(650);
-    expect(countBy(pool, "C2")).toBeGreaterThanOrEqual(240);
-    // Lower bands are untouched by the extra list.
+    expect(countBy(pool, "C1")).toBeGreaterThanOrEqual(450);
+    expect(countBy(pool, "C2")).toBeGreaterThanOrEqual(290);
+    for (const level of ["A1", "A2", "B1", "B2", "C1", "C2"] as const) {
+      expect(countBy(pool, level)).toBeGreaterThanOrEqual(250);
+    }
+    // Lower bands are untouched by the extra list (only the lesson quality filter shapes them).
     for (const level of ["A1", "A2", "B1", "B2"] as const) {
       expect(countBy(pool, level)).toBe(countBy(lessonPool, level));
     }

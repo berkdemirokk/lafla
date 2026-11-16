@@ -2236,7 +2236,7 @@ export const workSlackLesson_9_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Full breakdown",
-      tr_translation: "Detaylı döküm / tam aciklama",
+      tr_translation: "Detaylı döküm / tam açıklama",
       example: "Headline above — full breakdown in thread.",
       example_tr: "Başlık yukarıda — detaylı döküm thread'de.",
     },

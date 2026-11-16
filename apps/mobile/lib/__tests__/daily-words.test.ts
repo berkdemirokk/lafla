@@ -103,12 +103,59 @@ describe("daily words — pool and selection", () => {
     expect(picked.some((w) => w.cefr === "C2")).toBe(false);
   });
 
+  it("prefers one- and two-word entries before longer phrases, deterministically", () => {
+    const long = Array.from({ length: 30 }, (_, i) => ({ ...word(`a b c ${i}`, "B1"), word: `a b c ${i}` }));
+    const short = Array.from({ length: 12 }, (_, i) => ({ ...word(`s${i}`, "B1"), word: i % 2 ? `s ${i}` : `s${i}` }));
+    const opts = { level: "B1" as const, exclude: new Set<string>(), dayKey: "2026-11-16" };
+    const a = pickDailyWords([...long, ...short], opts);
+    expect(a.every((w) => w.word.split(" ").length <= 2)).toBe(true);
+    expect(pickDailyWords([...long, ...short], opts).map((w) => w.key)).toEqual(a.map((w) => w.key));
+    // with only 3 short words left, the rest fall back to long phrases
+    const few = pickDailyWords([...long, ...short.slice(0, 3)], opts);
+    expect(few.slice(0, 3).every((w) => w.word.split(" ").length <= 2)).toBe(true);
+    expect(few).toHaveLength(DAILY_WORD_COUNT);
+  });
+
+  it("filters fragments, normalises casing and translations when building the pool", () => {
+    const pool = buildWordPool([
+      lesson("a", [
+        tile("Full breakdown", "B1", "Detaylı döküm / tam aciklama"),
+        tile("share of", "B1", "payı"),
+        tile("should subside soon", "B1", "yakında diner"),
+        tile("Tap to pay", "A2", "Temassız öde (turnike / kartla)"),
+        tile("carry over", "B1", "aktarmak"),
+        tile("ATM", "A1", "ATM"),
+      ]),
+    ]);
+    expect(pool.map((w) => [w.word, w.translation])).toEqual([
+      ["full breakdown", "detaylı döküm, tam açıklama"],
+      ["tap to pay", "temassız öde"],
+      ["carry over", "aktarmak"],
+      ["ATM", "ATM"],
+    ]);
+  });
+
   it("gives three distinct wrong options", () => {
     const pool = Array.from({ length: 10 }, (_, i) => word(`w${i}`, "A2"));
     const options = pickDistractors(pool[0]!, pool);
     expect(options).toHaveLength(3);
     expect(new Set(options).size).toBe(3);
     expect(options).not.toContain("w0");
+  });
+});
+
+describe("daily words — distractors", () => {
+  it("prefer a similar word count to the target", () => {
+    const mk = (w: string) => ({ ...word(w, "A2"), word: w });
+    const pool = [
+      mk("target one"),
+      ...Array.from({ length: 6 }, (_, i) => mk(`two ${i}`)),
+      ...Array.from({ length: 6 }, (_, i) => mk(`single${i}`)),
+      ...Array.from({ length: 6 }, (_, i) => mk(`far away from home ${i}`)),
+    ];
+    const options = pickDistractors(pool[0]!, pool);
+    expect(options).toHaveLength(3);
+    expect(options.every((o) => o.split(" ").length === 2)).toBe(true);
   });
 });
 

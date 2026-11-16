@@ -6,7 +6,7 @@
 // (enableDailyReminder). "Şimdi değil" → bir daha sorulmaz. İzin reddedilirse
 // sessizce /today'e geçilir — darlama yok, Ayarlar'a yönlendirme yok.
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -37,11 +37,14 @@ export default function NotifyOptInScreen() {
   const { t } = useTranslation();
   const [hour, setHour] = useState<NotifyOptInHour>(DEFAULT_NOTIFY_OPT_IN_HOUR);
   const [busy, setBusy] = useState(false);
+  // Ref guard: two presses in one tick both see busy=false from state.
+  const busyRef = useRef(false);
 
   const finish = () => replaceRoute(router, "/today");
 
   const handleEnable = async () => {
-    if (busy) return;
+    if (busyRef.current) return;
+    busyRef.current = true;
     setBusy(true);
     const enabled = await acceptNotifyOptIn(hour).catch(() => false);
     if (enabled) hapticSuccess();
@@ -50,7 +53,8 @@ export default function NotifyOptInScreen() {
   };
 
   const handleSkip = async () => {
-    if (busy) return;
+    if (busyRef.current) return;
+    busyRef.current = true;
     hapticSelection();
     setBusy(true);
     await skipNotifyOptIn().catch(() => {});

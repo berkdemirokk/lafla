@@ -116,7 +116,7 @@ describe("app/notify-opt-in", () => {
   // guard is `busy` React state, so two onPress calls in the same tick (before
   // a re-render) both pass it and enableDailyReminder runs twice. Real taps are
   // separate events so this is low severity; daily-words.tsx uses a ref.
-  it.failing("synchronous double-press in the same tick only enables once", async () => {
+  it("synchronous double-press in the same tick only enables once", async () => {
     const r = await render(<NotifyOptInScreen />);
     await flush();
     const btn = r.root.findAll(

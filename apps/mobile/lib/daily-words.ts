@@ -15,6 +15,7 @@ import type { BundledLesson } from "./engine";
 import type { CefrLevel } from "./cefr-level";
 import type { ExtraDailyWord } from "../data/daily-words-extra";
 import { CEFR_LEVELS, getCefrLevel } from "./cefr-level";
+import { buildAsciiFoldIndex, cleanLessonEntry, wordCount } from "./daily-words-quality";
 import { localDayKey } from "./day-key";
 import { enqueueVocab, getQueuedWordKeys } from "./srs-vocab";
 import { bumpDailyActivity, bumpStreak, bumpXp } from "./local-progress";
@@ -33,6 +34,7 @@ const NUDGE_MINUTE = 30;
 const DEFAULT_LEVEL: CefrLevel = "A2";
 const MAX_WORDS_IN_TILE = 4;
 const MAX_TILE_LENGTH = 32;
+const SHORT_WORDS = 2;
 
 export interface DailyWord {
   /** Lowercased English word — stable across lessons. */
@@ -78,9 +80,31 @@ function matchCase(word: string, translation: string): string {
   return first.toLocaleLowerCase("tr") + translation.slice(1);
 }
 
+function loadExtraList(): ReadonlyArray<ExtraDailyWord> {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  return (require("../data/daily-words-extra") as { DAILY_WORDS_EXTRA: ReadonlyArray<ExtraDailyWord> })
+    .DAILY_WORDS_EXTRA;
+}
+
 /** Extract unique, short vocab tiles from bundled lessons. First occurrence wins. */
-export function buildWordPool(lessons: ReadonlyArray<BundledLesson>): DailyWord[] {
+export function buildWordPool(
+  lessons: ReadonlyArray<BundledLesson>,
+  trusted: ReadonlyArray<{ translation: string }> = loadExtraList(),
+): DailyWord[] {
   const byKey = new Map<string, DailyWord>();
+  // ASCII-ized Turkish detection: fold index over every raw lesson gloss + the curated list.
+  const rawTranslations: string[] = [];
+  for (const lesson of lessons) {
+    for (const ex of lesson.exercises) {
+      const tr = ex["type"] === "vocab_tile" ? str(ex["tr_translation"]) : undefined;
+      if (tr) rawTranslations.push(tr);
+    }
+  }
+  const trustedTranslations = trusted.map((e) => e.translation);
+  const asciiFoldIndex = buildAsciiFoldIndex(
+    [...rawTranslations, ...trustedTranslations],
+    trustedTranslations,
+  );
   for (const lesson of lessons) {
     for (const ex of lesson.exercises) {
       if (ex["type"] !== "vocab_tile") continue;
@@ -92,10 +116,13 @@ export function buildWordPool(lessons: ReadonlyArray<BundledLesson>): DailyWord[
       if (word.split(/\s+/).length > MAX_WORDS_IN_TILE) continue;
       const key = word.toLowerCase();
       if (byKey.has(key)) continue;
+      // Quality gate: drop fragments / sentences, normalise casing + glosses.
+      const cleaned = cleanLessonEntry(word, translation, asciiFoldIndex);
+      if (!cleaned) continue;
       byKey.set(key, {
         key,
-        word,
-        translation: matchCase(word, translation),
+        word: cleaned.word,
+        translation: matchCase(cleaned.word, cleaned.translation),
         example: str(ex["example"]),
         exampleTr: str(ex["example_tr"]),
         cefr,
@@ -164,11 +191,11 @@ export function getPool(): DailyWord[] {
     const { allLessons } = require("../data/lessons") as {
       allLessons: ReadonlyArray<BundledLesson>;
     };
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { DAILY_WORDS_EXTRA } = require("../data/daily-words-extra") as {
-      DAILY_WORDS_EXTRA: ReadonlyArray<ExtraDailyWord>;
-    };
-    cachedPool = mergeWordPools(buildWordPool(allLessons), buildExtraWordPool(DAILY_WORDS_EXTRA));
+    const DAILY_WORDS_EXTRA = loadExtraList();
+    cachedPool = mergeWordPools(
+      buildWordPool(allLessons, DAILY_WORDS_EXTRA),
+      buildExtraWordPool(DAILY_WORDS_EXTRA),
+    );
   }
   return cachedPool;
 }
@@ -236,7 +263,11 @@ export function pickDailyWords(
     const candidates = pool.filter(
       (w) => w.cefr === level && !opts.exclude.has(w.key),
     );
+    // Real words / collocations (<=2 words) before longer phrases; still seeded.
     const shuffled = seededShuffle(candidates, `${opts.dayKey}:${level}`);
+    const short = shuffled.filter((w) => wordCount(w.word) <= SHORT_WORDS);
+    const long = shuffled.filter((w) => wordCount(w.word) > SHORT_WORDS);
+    shuffled.splice(0, shuffled.length, ...short, ...long);
     picked.push(...shuffled.slice(0, count - picked.length));
   }
   return picked;
@@ -255,7 +286,14 @@ export function pickDistractors(
     sameBand.length >= count
       ? sameBand
       : pool.filter((w) => w.key !== target.key && w.translation !== target.translation);
-  return seededShuffle(source, `distractor:${target.key}`)
+  // Prefer options with a similar word count (stable sort keeps the seeded order).
+  const targetLen = wordCount(target.word);
+  const shuffled = seededShuffle(source, `distractor:${target.key}`);
+  const ranked = shuffled
+    .map((w, i) => ({ w, i, d: Math.abs(wordCount(w.word) - targetLen) }))
+    .sort((a, b) => a.d - b.d || a.i - b.i)
+    .map((x) => x.w);
+  return ranked
     .slice(0, count)
     .map((w) => w.word);
 }
