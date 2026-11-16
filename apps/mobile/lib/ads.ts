@@ -102,6 +102,22 @@ function getRewardedUnitId(): string {
 // ─── Init (call once in app/_layout.tsx) ───────────────────────────────
 
 let _initialized = false;
+const _readyListeners = new Set<() => void>();
+
+/**
+ * 2026-11-16 — Banner, SDK initialize olmadan (yani ATT sırası tamamlanmadan,
+ * bkz. lib/att-ads-bootstrap.ts) reklam isteği atmasın diye hazır sinyali.
+ */
+export function isAdsInitialized(): boolean {
+  return _initialized;
+}
+
+export function subscribeAdsInitialized(listener: () => void): () => void {
+  _readyListeners.add(listener);
+  return () => {
+    _readyListeners.delete(listener);
+  };
+}
 
 export async function initAds(): Promise<void> {
   if (_initialized) return;
@@ -125,6 +141,13 @@ export async function initAds(): Promise<void> {
     });
     await mobileAds().initialize();
     _initialized = true;
+    for (const listener of Array.from(_readyListeners)) {
+      try {
+        listener();
+      } catch {
+        // listener failure must not break ads init
+      }
+    }
   } catch {
     // Best effort — ads non-critical
   }
@@ -232,6 +255,71 @@ export type RewardedResult =
 
 let _loadingRewarded = false;
 
+// 2026-11-16 — Rewarded preload (streak rescue CTA). CTA yalnızca reklam
+// gerçekten yüklüyse görünür; tıklayınca bekleme yok. AdMob rewarded
+// reklamları ~1 saat sonra expire olur → 55 dk TTL.
+const REWARDED_PRELOAD_TTL_MS = 55 * 60 * 1000;
+let _preloadedRewarded: { ad: RewardedAd; loadedAt: number } | null = null;
+let _rewardedPreloadInFlight: Promise<boolean> | null = null;
+
+/** Önceden yüklenmiş, expire olmamış bir rewarded reklam hazır mı? */
+export function isRewardedAdReady(): boolean {
+  return (
+    _preloadedRewarded !== null &&
+    Date.now() - _preloadedRewarded.loadedAt < REWARDED_PRELOAD_TTL_MS
+  );
+}
+
+/**
+ * Rewarded reklamı arka planda yükle. SDK henüz initialize olmadıysa
+ * (ATT sırası bitmedi) init'i TETİKLEMEZ, false döner — caller
+ * subscribeAdsInitialized ile bekleyip tekrar denemeli. Asla throw etmez.
+ */
+export function preloadRewardedAd(timeoutMs = 20_000): Promise<boolean> {
+  if (isRewardedAdReady()) return Promise.resolve(true);
+  if (!_initialized) return Promise.resolve(false);
+  if (_rewardedPreloadInFlight) return _rewardedPreloadInFlight;
+  _rewardedPreloadInFlight = (async () => {
+    try {
+      const ad = RewardedAd.createForAdRequest(getRewardedUnitId(), {
+        requestNonPersonalizedAdsOnly: true,
+      });
+      const loaded = await new Promise<boolean>((resolve) => {
+        let settled = false;
+        const unsubs: Array<() => void> = [];
+        const finish = (value: boolean) => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          unsubs.forEach((unsub) => unsub());
+          resolve(value);
+        };
+        const timer = setTimeout(() => finish(false), timeoutMs);
+        unsubs.push(
+          ad.addAdEventListener(RewardedAdEventType.LOADED, () => finish(true)),
+          ad.addAdEventListener(AdEventType.ERROR, () => finish(false)),
+        );
+        ad.load();
+      });
+      if (loaded) _preloadedRewarded = { ad, loadedAt: Date.now() };
+      return loaded;
+    } catch {
+      return false;
+    } finally {
+      _rewardedPreloadInFlight = null;
+    }
+  })();
+  return _rewardedPreloadInFlight;
+}
+
+/** Fresh preloaded ad'i al ve slot'u boşalt (bir reklam tek sefer gösterilir). */
+function takePreloadedRewarded(): RewardedAd | null {
+  const ready = isRewardedAdReady();
+  const ad = ready ? _preloadedRewarded?.ad ?? null : null;
+  _preloadedRewarded = null;
+  return ad;
+}
+
 /**
  * Rewarded video reklamı yükle ve göster. Successful reward callback'inde
  * 24 saat premium grant atılır. UI tıkladıktan sonra "Hazırlanıyor..." ekrana
@@ -241,6 +329,25 @@ let _loadingRewarded = false;
  * UI'yi güncellesin (örn "Bugün Pro açıldı" ve banner gizleme).
  */
 export async function showRewardedAd(): Promise<RewardedResult> {
+  return runRewardedAd({ grantPremium: true, placement: "pro_30min" });
+}
+
+/**
+ * 2026-11-16 — Rewarded reklam göster ama geçici Pro GRANT ETME. Caller,
+ * yalnızca `ok: true` (EARNED_REWARD callback'i geldi) döndüğünde kendi
+ * ödülünü verir (örn. streak rescue → kalkan). Premium/unknown guard'ları
+ * showRewardedAd ile aynı.
+ */
+export async function showRewardedAdForPlacement(
+  placement: string,
+): Promise<RewardedResult> {
+  return runRewardedAd({ grantPremium: false, placement });
+}
+
+async function runRewardedAd(config: {
+  grantPremium: boolean;
+  placement: string;
+}): Promise<RewardedResult> {
   if (_loadingRewarded) {
     return { ok: false, reason: "Reklam zaten yükleniyor" };
   }
@@ -258,32 +365,40 @@ export async function showRewardedAd(): Promise<RewardedResult> {
   if (!_initialized) await initAds();
 
   _loadingRewarded = true;
-  void trackEvent("rewarded_ad_load_initiated").catch(() => {});
+  void trackEvent("rewarded_ad_load_initiated", {
+    placement: config.placement,
+  }).catch(() => {});
 
   try {
     const opts: RequestOptions = {
       requestNonPersonalizedAdsOnly: true,
     };
-    const ad = RewardedAd.createForAdRequest(getRewardedUnitId(), opts);
+    // 2026-11-16 — Preload edilmiş reklam varsa onu kullan (LOADED zaten
+    // geçti → direkt show); yoksa eski davranış: yükle, LOADED'da göster.
+    const preloaded = takePreloadedRewarded();
+    const ad =
+      preloaded ?? RewardedAd.createForAdRequest(getRewardedUnitId(), opts);
 
     let earnedReward = false;
     let userClosed = false;
 
     // Reward + lifecycle listener'ları (tek bir kapanış path'i).
     const result = await new Promise<RewardedResult>((resolve) => {
-      const unsubLoaded = ad.addAdEventListener(
-        RewardedAdEventType.LOADED,
-        () => {
-          // Load successful → göster.
-          ad.show().catch((err) => {
-            cleanup();
-            resolve({
-              ok: false,
-              reason: err instanceof Error ? err.message : "show failed",
-            });
+      const showAd = () => {
+        ad.show().catch((err) => {
+          cleanup();
+          resolve({
+            ok: false,
+            reason: err instanceof Error ? err.message : "show failed",
           });
-        },
-      );
+        });
+      };
+      const unsubLoaded = preloaded
+        ? () => {}
+        : ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
+            // Load successful → göster.
+            showAd();
+          });
       const unsubEarned = ad.addAdEventListener(
         RewardedAdEventType.EARNED_REWARD,
         () => {
@@ -340,18 +455,23 @@ export async function showRewardedAd(): Promise<RewardedResult> {
         unsubError();
       }
 
-      ad.load();
+      if (preloaded) showAd();
+      else ad.load();
     });
 
     if (result.ok) {
-      await grantRewardedPremium(result.minutesGranted);
+      if (config.grantPremium) {
+        await grantRewardedPremium(result.minutesGranted);
+      }
       void trackEvent("rewarded_ad_completed", {
-        minutes: result.minutesGranted,
+        minutes: config.grantPremium ? result.minutesGranted : 0,
+        placement: config.placement,
       }).catch(() => {});
     } else {
       void trackEvent("rewarded_ad_failed", {
         reason: result.reason,
         user_closed: result.userClosed ?? false,
+        placement: config.placement,
       }).catch(() => {});
     }
     return result;

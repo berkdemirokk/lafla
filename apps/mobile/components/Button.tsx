@@ -20,6 +20,8 @@ interface Props {
   loading?: boolean;
   /** Adds a "stacked" 3D shadow effect — for hero CTAs (lesson complete, BAŞLA). */
   stacked?: boolean;
+  /** Optional VoiceOver/TalkBack hint describing what happens on press. */
+  accessibilityHint?: string;
 }
 
 export function Button({
@@ -29,6 +31,7 @@ export function Button({
   disabled,
   loading,
   stacked,
+  accessibilityHint,
 }: Props) {
   const [pressed, setPressed] = useState(false);
   const isPrimary = variant === "primary";
@@ -62,6 +65,7 @@ export function Button({
         disabled={disabled || loading}
         accessibilityRole="button"
         accessibilityLabel={label}
+        accessibilityHint={accessibilityHint}
         accessibilityState={{
           disabled: Boolean(disabled || loading),
           busy: Boolean(loading),

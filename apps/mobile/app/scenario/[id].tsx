@@ -132,6 +132,7 @@ import type { AchievementDef } from "../../lib/achievements";
 import type { ExerciseResult, RoleplayMistake } from "../../lib/engine";
 import { assessRoleplayScore } from "../../lib/roleplay-assessment";
 import { captureException } from "../../lib/sentry";
+import { routeAfterOnboarding } from "../../lib/notify-opt-in";
 import { recordSceneEvidence } from "../../lib/learning-evidence";
 
 // 2026-05-24 — Content expansion (Phase 1C, Agent C). 4 → 7 phase.
@@ -1227,7 +1228,11 @@ export default function ScenarioScreen() {
                     "true",
                   ).catch(() => {});
                   void markHomeTutorialSeen().catch(() => {});
-                  replaceRoute(router, "/today");
+                  // 2026-11-16 — İlk değer anı bitti: bildirim opt-in'i
+                  // (bir kez, atlanabilir) burada teklif edilir.
+                  void routeAfterOnboarding()
+                    .catch(() => "/today" as const)
+                    .then((route) => replaceRoute(router, route));
                   return;
                 }
                 // 2026-05-21 — Daily Plan auto-advance.

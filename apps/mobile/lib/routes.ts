@@ -14,6 +14,7 @@ export type AppRoute =
   | "/index"
   | "/listen-mode"
   | "/mistake-coach"
+  | "/notify-opt-in"
   | "/onboarding"
   | "/paywall"
   | `/paywall?${string}`

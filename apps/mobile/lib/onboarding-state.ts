@@ -39,6 +39,14 @@ export async function setOnboarded(value: boolean): Promise<void> {
   }
 }
 
+export async function isOnboarded(): Promise<boolean> {
+  try {
+    return (await AsyncStorage.getItem(K_ONBOARDED)) === "true";
+  } catch {
+    return false;
+  }
+}
+
 export async function setInterests(interests: string[]): Promise<void> {
   await AsyncStorage.setItem(K_INTERESTS, JSON.stringify(interests));
 }

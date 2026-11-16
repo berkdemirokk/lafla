@@ -54,6 +54,7 @@ import { requestAttOnce } from "../lib/att";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
 import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
+import { routeAfterOnboarding } from "../lib/notify-opt-in";
 import { parseSafe, isStringArray } from "../lib/json-safe";
 import {
   hapticImpact,
@@ -456,7 +457,10 @@ export default function Onboarding() {
       "lafla.intro.match.completed",
     ).catch(() => null);
     if (introDone === "true") {
-      router.replace("/today" as never);
+      // İlk pratik daha önce yapılmış → değer anı geçti; bildirim opt-in'i
+      // (henüz teklif edilmediyse) burada gösterilir.
+      const next = await routeAfterOnboarding().catch(() => "/today" as const);
+      router.replace(next as never);
     } else {
       const scenarioId = pickOnboardingScenarioId(state.interests, lvl);
       router.replace(`/scenario/${scenarioId}?intro=true` as never);

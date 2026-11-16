@@ -12,12 +12,27 @@ import {
 } from "react-native-google-mobile-ads";
 
 import { getPremiumStatus, subscribePremiumChange } from "../lib/iap";
-import { getBannerUnitId } from "../lib/ads";
+import {
+  getBannerUnitId,
+  isAdsInitialized,
+  subscribeAdsInitialized,
+} from "../lib/ads";
 import { useTranslation } from "../lib/i18n";
 
 export function AdBanner() {
   const { t } = useTranslation();
   const [show, setShow] = useState<boolean | null>(null);
+  // 2026-11-16 — SDK initialize (ATT sırasından sonra) olana kadar banner
+  // reklam isteği atmaz.
+  const [adsReady, setAdsReady] = useState<boolean>(isAdsInitialized());
+
+  useEffect(() => {
+    if (adsReady) return;
+    const unsub = subscribeAdsInitialized(() => setAdsReady(true));
+    // Subscribe ile mount arasında init bitmiş olabilir.
+    if (isAdsInitialized()) setAdsReady(true);
+    return unsub;
+  }, [adsReady]);
 
   useEffect(() => {
     let cancelled = false;
@@ -36,7 +51,7 @@ export function AdBanner() {
     };
   }, []);
 
-  if (show !== true) return null;
+  if (show !== true || !adsReady) return null;
 
   return (
     <View accessibilityLabel={t("ads.banner_label")}>

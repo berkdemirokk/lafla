@@ -13,6 +13,7 @@ import * as Haptics from "expo-haptics";
 import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { Button } from "../components/Button";
 import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
+import { DailyWordsShareButton } from "../components/DailyWordsShareCard";
 import { tokens } from "../theme";
 import { useTranslation } from "../lib/i18n";
 import { speak } from "../lib/tts";
@@ -53,11 +54,14 @@ export default function DailyWordsScreen() {
   const [correctCount, setCorrectCount] = useState(0);
   const [saving, setSaving] = useState(false);
   const reviewAsked = useRef(false);
+  const finishing = useRef(false);
+  const dayKeyRef = useRef<string | undefined>(undefined);
 
   const load = useCallback(async () => {
     setStatus("loading");
     try {
       const today = await getTodayWords();
+      dayKeyRef.current = today.dayKey;
       setWords(today.words);
       if (today.completed) {
         setCorrectCount(today.correctCount ?? 0);
@@ -112,17 +116,20 @@ export default function DailyWordsScreen() {
   };
 
   const finish = async (all: Array<{ key: string; correct: boolean }>) => {
+    if (finishing.current) return;
+    finishing.current = true;
     setSaving(true);
     try {
-      const res = await completeTodayWords(all);
+      const res = await completeTodayWords(all, new Date(), dayKeyRef.current);
       setCorrectCount(res.correctCount);
       setPhase("done");
-      if (!reviewAsked.current && words.length > 0) {
+      if (!res.alreadyCompleted && !reviewAsked.current && words.length > 0) {
         reviewAsked.current = true;
         const ratio = res.correctCount / words.length;
         setTimeout(() => void maybeRequestReview(ratio), 1200);
       }
     } catch {
+      finishing.current = false;
       setStatus("error");
     } finally {
       setSaving(false);
@@ -211,10 +218,13 @@ export default function DailyWordsScreen() {
               </Pressable>
             ))}
           </View>
+          <DailyWordsShareButton correct={correctCount} total={words.length} words={words} />
           <View style={styles.footerBtn}>
             <Button
               label={t("dailyWords.back_today")}
-              onPress={() => router.replace("/today" as never)}
+              onPress={() =>
+                router.canGoBack() ? router.back() : router.replace("/today" as never)
+              }
               stacked
             />
           </View>

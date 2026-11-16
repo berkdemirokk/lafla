@@ -12,7 +12,7 @@
 //   - setOnboarded(true)
 //   - setOnboardingStep(null)
 //   - completeOnboarding (Supabase sync, best effort)
-//   - requestAttOnce → initAnalytics (granted ise)
+//   - requestAttOnce → initAnalytics (granted ise) → initAds
 //   - trackEvent("onboarding_completed")
 //
 // intro Match yönlendirmesi caller'da. Bu helper sadece state finalize eder.
@@ -75,6 +75,17 @@ export async function finalizeOnboarding(opts: FinalizeOpts): Promise<void> {
     const attStatus = await requestAttOnce().catch(() => null);
     if (attStatus === "granted") {
       await initAnalytics().catch(() => {});
+    }
+    // AdMob cold start'ta onboarding sırasında başlatılmaz
+    // (lib/att-ads-bootstrap.ts); ATT denendikten sonra burada başlar.
+    // Lazy require: native ads modülü onboarding ekranının import ağacına
+    // girmesin.
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const ads = require("./ads") as typeof import("./ads");
+      void ads.initAds().catch(() => {});
+    } catch {
+      // ads non-critical
     }
 
     addBreadcrumb({

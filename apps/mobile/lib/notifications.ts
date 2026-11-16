@@ -303,11 +303,17 @@ async function cancelDropoffs(): Promise<void> {
   }
 }
 
+// 2026-11-16 — Dropoff bildirimleri deepLink taşımıyordu; dokununca app
+// sadece açılıyordu. Hepsi kullanıcıyı günün pratiğine (/today) götürür.
+// İzinli route listesi: lib/notification-routing.ts.
+export const DROPOFF_DEEP_LINK = "lafla://today";
+
 async function scheduleAt(
   id: string,
   title: string,
   body: string,
   seconds: number,
+  deepLink: string = DROPOFF_DEEP_LINK,
 ): Promise<void> {
   try {
     await Notifications.scheduleNotificationAsync({
@@ -318,6 +324,7 @@ async function scheduleAt(
         sound: "default",
         // iOS-specific badge bump
         badge: 1,
+        data: { deepLink },
       },
       trigger: {
         type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
@@ -386,7 +393,12 @@ export async function enableDailyReminder(
   try {
     await Notifications.scheduleNotificationAsync({
       identifier: ID_DAILY_REMINDER,
-      content: { title, body, sound: "default" },
+      content: {
+        title,
+        body,
+        sound: "default",
+        data: { deepLink: DROPOFF_DEEP_LINK },
+      },
       trigger: {
         type: Notifications.SchedulableTriggerInputTypes.CALENDAR,
         hour,

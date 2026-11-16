@@ -145,6 +145,35 @@ describe("daily words — persistence", () => {
     expect((await getTodayWords(now)).completed).toBe(true);
   });
 
+  it("a double tap on finish saves once", async () => {
+    const now = new Date(2026, 10, 16, 9, 0);
+    const today = await getTodayWords(now);
+    const results = today.words.map((w) => ({ key: w.key, correct: true }));
+    const [a, b] = await Promise.all([
+      completeTodayWords(results, now),
+      completeTodayWords(results, now),
+    ]);
+    expect([a.alreadyCompleted, b.alreadyCompleted].sort()).toEqual([false, true]);
+    expect((await getVocabStats()).total).toBe(DAILY_WORD_COUNT);
+    expect((await getLocalProfile()).total_xp).toBe(10);
+  });
+
+  it("finishing after midnight saves the words that were studied", async () => {
+    const evening = new Date(2026, 10, 16, 23, 57);
+    const today = await getTodayWords(evening);
+    const results = today.words.map((w) => ({ key: w.key, correct: true }));
+    const afterMidnight = new Date(2026, 10, 17, 0, 2);
+
+    const done = await completeTodayWords(results, afterMidnight, today.dayKey);
+    expect(done).toEqual({ correctCount: DAILY_WORD_COUNT, alreadyCompleted: false });
+    const queued = await getQueuedWordKeys();
+    expect(today.words.every((w) => queued.has(w.key))).toBe(true);
+
+    const nextDay = await getTodayWords(afterMidnight);
+    expect(nextDay.completed).toBe(false);
+    expect(nextDay.words.some((w) => queued.has(w.key))).toBe(false);
+  });
+
   it("never repeats yesterday's words the next day", async () => {
     const day1 = new Date(2026, 10, 16, 9, 0);
     const first = await getTodayWords(day1);

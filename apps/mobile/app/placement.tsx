@@ -42,6 +42,7 @@ import { trackEvent } from "../lib/analytics";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
 import { getInterests } from "../lib/local-progress";
 import { pickOnboardingScenarioId } from "../lib/onboarding-intro";
+import { routeAfterOnboarding } from "../lib/notify-opt-in";
 import { PronouncePhrase } from "../components/exercises/PronouncePhrase";
 import { PlacementOpenResponse } from "../components/exercises/PlacementOpenResponse";
 import { ListenAndTranscribe } from "../components/exercises/ListenAndTranscribe";
@@ -576,7 +577,8 @@ export default function PlacementScreen() {
       "lafla.intro.match.completed",
     ).catch(() => null);
     if (introDone === "true") {
-      router.replace("/today" as never);
+      const next = await routeAfterOnboarding().catch(() => "/today" as const);
+      router.replace(next as never);
     } else {
       const scenarioId = pickOnboardingScenarioId(
         selectedInterests,

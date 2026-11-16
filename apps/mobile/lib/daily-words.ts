@@ -196,7 +196,10 @@ export function pickDistractors(
   const sameBand = pool.filter(
     (w) => w.key !== target.key && w.cefr === target.cefr && w.translation !== target.translation,
   );
-  const source = sameBand.length >= count ? sameBand : pool.filter((w) => w.key !== target.key);
+  const source =
+    sameBand.length >= count
+      ? sameBand
+      : pool.filter((w) => w.key !== target.key && w.translation !== target.translation);
   return seededShuffle(source, `distractor:${target.key}`)
     .slice(0, count)
     .map((w) => w.word);
@@ -270,13 +273,50 @@ export async function getTodayWords(now = new Date()): Promise<DailyWordsToday> 
 /**
  * Finish today's set: every word goes into the SRS queue (missed ones with a
  * short half-life), words are marked seen, and the day counts for streak/XP.
- * Idempotent — a second call on the same day changes nothing.
+ * Idempotent — a second call for the same day changes nothing, and concurrent
+ * calls (double tap) share one in-flight save.
+ *
+ * Pass `dayKey` (from the `getTodayWords` result the screen showed) so a set
+ * opened before midnight and finished after it is saved against the day it was
+ * studied, not against a freshly generated set for the new day.
  */
-export async function completeTodayWords(
+let inFlight: Promise<{ correctCount: number; alreadyCompleted: boolean }> | null = null;
+
+export function completeTodayWords(
   results: ReadonlyArray<{ key: string; correct: boolean }>,
   now = new Date(),
+  dayKey?: string,
 ): Promise<{ correctCount: number; alreadyCompleted: boolean }> {
-  const today = await getTodayWords(now);
+  if (inFlight) return inFlight.then((r) => ({ ...r, alreadyCompleted: true }));
+  inFlight = completeInner(results, now, dayKey).finally(() => {
+    inFlight = null;
+  });
+  return inFlight;
+}
+
+async function completeInner(
+  results: ReadonlyArray<{ key: string; correct: boolean }>,
+  now: Date,
+  studiedDayKey: string | undefined,
+): Promise<{ correctCount: number; alreadyCompleted: boolean }> {
+  const currentKey = localDayKey(now);
+  let today: Pick<DailyWordsToday, "dayKey" | "words" | "completed" | "correctCount">;
+  if (studiedDayKey && studiedDayKey !== currentKey) {
+    // The day rolled over while the screen was open — rebuild the studied set
+    // from stored state if it still matches, else from the submitted keys.
+    const existing = await readState();
+    const byKey = new Map(getPool().map((w) => [w.key, w]));
+    const keys =
+      existing && existing.dayKey === studiedDayKey ? existing.keys : results.map((r) => r.key);
+    today = {
+      dayKey: studiedDayKey,
+      words: keys.map((k) => byKey.get(k)).filter((w): w is DailyWord => Boolean(w)),
+      completed: Boolean(existing && existing.dayKey === studiedDayKey && existing.completedAt),
+      correctCount: existing?.correctCount ?? null,
+    };
+  } else {
+    today = await getTodayWords(now);
+  }
   if (today.completed) {
     return { correctCount: today.correctCount ?? 0, alreadyCompleted: true };
   }
@@ -297,13 +337,17 @@ export async function completeTodayWords(
   const seen = await readSeen();
   for (const word of today.words) seen.add(word.key);
   await AsyncStorage.setItem(K_SEEN, JSON.stringify(Array.from(seen)));
-  const state: DailyWordsState = {
-    dayKey: today.dayKey,
-    keys: today.words.map((w) => w.key),
-    completedAt: now.toISOString(),
-    correctCount,
-  };
-  await AsyncStorage.setItem(K_STATE, JSON.stringify(state));
+  const stored = await readState();
+  // Never overwrite a newer day's set that was already generated.
+  if (!stored || stored.dayKey === today.dayKey || stored.dayKey < today.dayKey) {
+    const state: DailyWordsState = {
+      dayKey: today.dayKey,
+      keys: today.words.map((w) => w.key),
+      completedAt: now.toISOString(),
+      correctCount,
+    };
+    await AsyncStorage.setItem(K_STATE, JSON.stringify(state));
+  }
 
   await bumpDailyActivity(DAILY_WORDS_XP);
   await bumpXp(DAILY_WORDS_XP);

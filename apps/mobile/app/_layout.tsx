@@ -37,7 +37,9 @@ import { ErrorBoundary } from "../components/ErrorBoundary";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
 import { initAds } from "../lib/ads";
-import { requestAttOnce } from "../lib/att";
+import { getAttStatus, requestAttOnce } from "../lib/att";
+import { bootstrapAttAndAds } from "../lib/att-ads-bootstrap";
+import { isOnboarded } from "../lib/onboarding-state";
 import { ThemeProvider, tokens, useAppTheme } from "../theme";
 import { hydrateThemePreference } from "../lib/theme-preference";
 import { hydrateLocale } from "../lib/i18n";
@@ -172,18 +174,17 @@ export default function RootLayout() {
         // ignore — analytics is non-critical
       }
     })();
-    // 2026-05-23 — Apple Review safety: AdMob başlatmadan ÖNCE ATT prompt
-    // gösterilmeli. ATTrackingManager.requestTrackingAuthorization initAds
-    // (mobileAds().initialize()) öncesinde çalışırsa Apple "Sequence
-    // correct" der. requestAttOnce idempotent — 2. açılışta no-op.
-    void (async () => {
-      try {
-        await requestAttOnce();
-      } catch {
-        // ATT failure non-critical; AdMob non-personalized'a düşer
-      }
-      void initAds().catch(() => {});
-    })();
+    // 2026-11-16 — ATT artık cold start'ta yeni kullanıcıya SORULMAZ; ilk
+    // soru onboarding tamamlanınca (lib/onboarding-finalize.ts) gelir.
+    // Onboarding'i bitirmiş ama hiç sorulmamış kullanıcıya bir kez sorulur.
+    // AdMob her zaman ATT denemesinden sonra, onboarding'deyken hiç
+    // başlatılmaz. Bkz. lib/att-ads-bootstrap.ts.
+    void bootstrapAttAndAds({
+      isOnboarded,
+      requestAttOnce,
+      getAttStatus,
+      initAds,
+    }).catch(() => {});
 
     // 2026-05-26 — Push notification deep link handler.
     // Önceki versiyon: 13 template `lafla://freechat`, `lafla://today` gibi
@@ -283,6 +284,7 @@ function ThemedRootNavigator() {
           <Stack.Screen name="auth" />
           <Stack.Screen name="reset-password" />
           <Stack.Screen name="onboarding" />
+          <Stack.Screen name="notify-opt-in" options={{ gestureEnabled: false }} />
           <Stack.Screen name="home" />
           <Stack.Screen name="scenario/[id]" />
           <Stack.Screen name="freechat" />

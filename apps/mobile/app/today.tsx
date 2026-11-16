@@ -63,6 +63,7 @@ import {
 import { TutorialOverlay } from "../components/TutorialOverlay";
 import { DailyWordsCard } from "../components/DailyWordsCard";
 import { AdBanner } from "../components/AdBanner";
+import { StreakRescueButton } from "../components/StreakRescueButton";
 import { VoiceWaveform } from "../components/VoiceWaveform";
 import { Icon } from "../components/Icon";
 import { tokens } from "../theme";
@@ -757,6 +758,7 @@ export default function Today() {
                 {t("today.streak_risk")}
               </Text>
             </View>
+            <StreakRescueButton />
           </Animated.View>
         ) : state.erosionDecay > 0 ? (
           <Animated.View entering={FadeInDown.delay(120).duration(360)}>
