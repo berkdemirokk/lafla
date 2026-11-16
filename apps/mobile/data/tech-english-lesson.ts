@@ -90,7 +90,7 @@ export const techEnglishLesson_1: BundledLesson = {
           ],
           model_answers: ["Main risk is the token refresh edge case — unit tests cover happy path."],
           hint_tr:
-            "Risk alani: 'Main risk is the token refresh edge case — unit tests cover happy path.' Reviewer odaklanir.",
+            "Risk alanı: 'Main risk is the token refresh edge case — unit tests cover happy path.' Reviewer odaklanır.",
         },
         {
           speaker: "npc",
@@ -406,7 +406,7 @@ export const techEnglishLesson_2: BundledLesson = {
           ],
           model_answers: ["Quick nit: maybe extract the try-catch into a helper?"],
           hint_tr:
-            "Quick nit acılışı: 'Quick nit: maybe extract the try-catch into a helper?' Soru formati = davet.",
+            "Quick nit acılışı: 'Quick nit: maybe extract the try-catch into a helper?' Soru formatı = davet.",
         },
         {
           speaker: "npc",
@@ -421,7 +421,7 @@ export const techEnglishLesson_2: BundledLesson = {
           ],
           model_answers: ["Both — they're basically the same pattern, would DRY it up nicely."],
           hint_tr:
-            "Aciklama: 'Both — they're basically the same pattern, would DRY it up nicely.'",
+            "Açıklama: 'Both — they're basically the same pattern, would DRY it up nicely.'",
         },
         {
           speaker: "npc",
@@ -451,7 +451,7 @@ export const techEnglishLesson_2: BundledLesson = {
           ],
           model_answers: ["Sounds good. Also — while you're at it, consider naming the helper `safeParse`."],
           hint_tr:
-            "Ikinci yorum: 'Sounds good. Also — while you're at it, consider naming the helper `safeParse`.'",
+            "İkinci yorum: 'Sounds good. Also — while you're at it, consider naming the helper `safeParse`.'",
         },
         {
           speaker: "npc",
@@ -684,7 +684,7 @@ export const techEnglishLesson_3: BundledLesson = {
           ],
           model_answers: ["Fair point — hadn't thought of it that way. Let me split it in a follow-up."],
           hint_tr:
-            "Yumusak kabul: 'Fair point — hadn't thought of it that way. Let me split it in a follow-up.'",
+            "Yumuşak kabul: 'Fair point — hadn't thought of it that way. Let me split it in a follow-up.'",
         },
         {
           speaker: "npc",
@@ -700,7 +700,7 @@ export const techEnglishLesson_3: BundledLesson = {
           ],
           model_answers: ["Pushing back gently on this — fixed delays are simpler given our p99 is already low. Left a longer note inline."],
           hint_tr:
-            "Saglikli karsi cikis: 'Pushing back gently on this — fixed delays are simpler given our p99 is already low. Left a longer note inline.'",
+            "Sağlıklı karşı çıkış: 'Pushing back gently on this — fixed delays are simpler given our p99 is already low. Left a longer note inline.'",
         },
         {
           speaker: "npc",
@@ -731,7 +731,7 @@ export const techEnglishLesson_3: BundledLesson = {
           ],
           model_answers: ["Appreciate the thorough review — pushing in a few."],
           hint_tr:
-            "Sukran: 'Appreciate the thorough review — pushing in a few.' Türk yazılımcı için 'eyvallah' yerine 'appreciate it'.",
+            "Şükran: 'Appreciate the thorough review — pushing in a few.' Türk yazılımcı için 'eyvallah' yerine 'appreciate it'.",
         },
         {
           speaker: "npc",
@@ -906,9 +906,9 @@ export const techEnglishLesson_4: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "unknowns",
-      tr_translation: "Bilinmeyenler / riskli kisimlar",
+      tr_translation: "Bilinmeyenler / riskli kısımlar",
       example: "Too many unknowns to estimate confidently — let's spike it first.",
-      example_tr: "Net tahmin için çok fazla bilinmeyen var — önce spike yapalim.",
+      example_tr: "Net tahmin için çok fazla bilinmeyen var — önce spike yapalım.",
     },
     {
       id: "ex.wt.4.3",
@@ -982,7 +982,7 @@ export const techEnglishLesson_4: BundledLesson = {
           ],
           model_answers: ["That's too big — sounds like an epic. Want to split it into smaller tickets?"],
           hint_tr:
-            "Buyuk ticket: 'That's too big — sounds like an epic. Want to split it into smaller tickets?'",
+            "Büyük ticket: 'That's too big — sounds like an epic. Want to split it into smaller tickets?'",
         },
         {
           speaker: "npc",
@@ -999,7 +999,7 @@ export const techEnglishLesson_4: BundledLesson = {
           ],
           model_answers: ["Yeah works. Charts probably 5, filters 3, export 2 — depends on format support."],
           hint_tr:
-            "Detayli estimation: 'Yeah works. Charts probably 5, filters 3, export 2 — depends on format support.'",
+            "Detaylı estimation: 'Yeah works. Charts probably 5, filters 3, export 2 — depends on format support.'",
         },
         {
           speaker: "npc",
@@ -1015,7 +1015,7 @@ export const techEnglishLesson_4: BundledLesson = {
           ],
           model_answers: ["Cool. Quick FYI — charts depend on the design system update from the design team."],
           hint_tr:
-            "Bonus: 'Cool. Quick FYI — charts depend on the design system update from the design team.' Dependency uyarisi.",
+            "Bonus: 'Cool. Quick FYI — charts depend on the design system update from the design team.' Dependency uyarısı.",
         },
         {
           speaker: "npc",
@@ -1183,7 +1183,7 @@ export const techEnglishLesson_5: BundledLesson = {
       word_or_phrase: "blocked on",
       tr_translation: "X yüzünden engellendim / X'i bekliyorum",
       example: "Blocked on the auth service — pinged the platform team.",
-      example_tr: "Auth servisi yüzünden engellendim — platform takimina ping atttim.",
+      example_tr: "Auth servisi yüzünden engellendim — platform takımına ping atttım.",
     },
     {
       id: "ex.wt.5.2",
@@ -1191,9 +1191,9 @@ export const techEnglishLesson_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "on the radar",
-      tr_translation: "Farkindayim / takip ediyorum",
+      tr_translation: "Farkındayım / takip ediyorum",
       example: "The flaky test is on the radar — looking into it after lunch.",
-      example_tr: "Flaky test'in farkindayim — öğlen sonra bakacağim.",
+      example_tr: "Flaky test'in farkındayım — öğlen sonra bakacağım.",
     },
     {
       id: "ex.wt.5.3",
@@ -1448,7 +1448,7 @@ export const techEnglishLesson_6: BundledLesson = {
       word_or_phrase: "Pager went off",
       tr_translation: "Pager öttü / paged oldum (incident çağrısı geldi)",
       example: "My pager went off at 3 AM — checkout 5xx spike.",
-      example_tr: "Saat 3'te paged oldum — checkout'ta 5xx artisi vardi.",
+      example_tr: "Saat 3'te paged oldum — checkout'ta 5xx artışı vardı.",
     },
     {
       id: "ex.wt.6.2",
@@ -1456,9 +1456,9 @@ export const techEnglishLesson_6: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "we're seeing 5xx errors",
-      tr_translation: "5xx hatalari görüyoruz (production'da)",
+      tr_translation: "5xx hataları görüyoruz (production'da)",
       example: "We're seeing 5xx errors in checkout, started 10 min ago.",
-      example_tr: "Checkout'ta 5xx hatalari görüyoruz, 10 dakika önce başladi.",
+      example_tr: "Checkout'ta 5xx hataları görüyoruz, 10 dakika önce başladı.",
     },
     {
       id: "ex.wt.6.3",
@@ -1797,7 +1797,7 @@ export const techEnglishLesson_7: BundledLesson = {
           ],
           model_answers: ["Honestly, hard to catch in review — only surfaces under production load. This is a systemic gap, not a reviewer miss."],
           hint_tr:
-            "Blameless: 'Honestly, hard to catch in review — only surfaces under production load. This is a systemic gap, not a reviewer miss.' Kimseyi suclama.",
+            "Blameless: 'Honestly, hard to catch in review — only surfaces under production load. This is a systemic gap, not a reviewer miss.' Kimseyi suçlama.",
         },
         {
           speaker: "npc",
@@ -2014,7 +2014,7 @@ export const techEnglishLesson_8: BundledLesson = {
       word_or_phrase: "I'd argue for a queue-based approach",
       tr_translation: "Queue-based bir yaklasım için argüman üretiyorum",
       example: "I'd argue for a queue-based approach — decouples producer and consumer.",
-      example_tr: "Queue-based yaklasim için derdim — producer ve consumer'i decouple eder.",
+      example_tr: "Queue-based yaklaşım için derdim — producer ve consumer'ı decouple eder.",
     },
     {
       id: "ex.wt.8.2",
@@ -2024,7 +2024,7 @@ export const techEnglishLesson_8: BundledLesson = {
       word_or_phrase: "trade-offs",
       tr_translation: "Trade-off / artı-eksi denge",
       example: "Both options have trade-offs — let's walk through them.",
-      example_tr: "Iki seceneğin de trade-off'lari var — uzerinden gecelim.",
+      example_tr: "İki seçeneğin de trade-off'ları var — üzerinden geçelim.",
     },
     {
       id: "ex.wt.8.3",
@@ -2099,7 +2099,7 @@ export const techEnglishLesson_8: BundledLesson = {
           ],
           model_answers: ["Good question — we'd soft-reserve inventory at order time, then reconcile via the queue. Prevents oversell."],
           hint_tr:
-            "Detayli cevap: 'Good question — we'd soft-reserve inventory at order time, then reconcile via the queue. Prevents oversell.'",
+            "Detaylı cevap: 'Good question — we'd soft-reserve inventory at order time, then reconcile via the queue. Prevents oversell.'",
         },
         {
           speaker: "npc",
@@ -2133,7 +2133,7 @@ export const techEnglishLesson_8: BundledLesson = {
           ],
           model_answers: ["Will do — RFC by EOW. Will loop in the platform team for review."],
           hint_tr:
-            "Aksiyon: 'Will do — RFC by EOW. Will loop in the platform team for review.' Türk yazılımcı 'yazarim' = 'will write up' / 'will draft'.",
+            "Aksiyon: 'Will do — RFC by EOW. Will loop in the platform team for review.' Türk yazılımcı 'yazarım' = 'will write up' / 'will draft'.",
         },
         {
           speaker: "npc",
@@ -2589,7 +2589,7 @@ export const techEnglishLesson_10: BundledLesson = {
       word_or_phrase: "shall we try TDD here?",
       tr_translation: "Burada TDD denesek?",
       example: "Shall we try TDD here? Write the test first?",
-      example_tr: "Burada TDD denesek? Once testi yazalim?",
+      example_tr: "Burada TDD denesek? Önce testi yazalım?",
     },
     {
       id: "ex.wt.10.2",
@@ -2599,7 +2599,7 @@ export const techEnglishLesson_10: BundledLesson = {
       word_or_phrase: "want to drive?",
       tr_translation: "Sen yazmak ister misin? (pair programming'de klavyeyi al)",
       example: "Want to drive for the first 20 minutes?",
-      example_tr: "Ilk 20 dakika sen mi yazmak istersin?",
+      example_tr: "İlk 20 dakika sen mi yazmak istersin?",
     },
     {
       id: "ex.wt.10.3",
@@ -2652,7 +2652,7 @@ export const techEnglishLesson_10: BundledLesson = {
           ],
           model_answers: ["Yeah — let's start with the simplest case. Valid email returns it lowercased."],
           hint_tr:
-            "Test yazimi: 'Yeah — let's start with the simplest case. Valid email returns it lowercased.'",
+            "Test yazımı: 'Yeah — let's start with the simplest case. Valid email returns it lowercased.'",
         },
         {
           speaker: "npc",
@@ -2885,7 +2885,7 @@ export const techEnglishLesson_11: BundledLesson = {
       word_or_phrase: "tech debt",
       tr_translation: "Teknik borç (refactor edilmeyi bekleyen kod)",
       example: "We need a sprint for tech debt — the auth module is a minefield.",
-      example_tr: "Tech debt için bir sprint lazim — auth modülü tam bir mayin tarlasi.",
+      example_tr: "Tech debt için bir sprint lazım — auth modülü tam bir mayın tarlası.",
     },
     {
       id: "ex.wt.11.2",
@@ -2893,9 +2893,9 @@ export const techEnglishLesson_11: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "slowing us down",
-      tr_translation: "Bizi yavaslatiyor",
+      tr_translation: "Bizi yavaşlatıyor",
       example: "The legacy code is slowing us down — every change takes 2x longer.",
-      example_tr: "Legacy kod bizi yavaslatiyor — her degisik 2 kat sure aliyor.",
+      example_tr: "Legacy kod bizi yavaşlatıyor — her değişik 2 kat süre alıyor.",
     },
     {
       id: "ex.wt.11.3",
@@ -2915,7 +2915,7 @@ export const techEnglishLesson_11: BundledLesson = {
           ],
           model_answers: ["Wanted to chat about tech debt — it's piling up in the payments module."],
           hint_tr:
-            "Acılış: 'Wanted to chat about tech debt — it's piling up in the payments module.' Belirli sayar.",
+            "Açılış: 'Wanted to chat about tech debt — it's piling up in the payments module.' Belirli sayar.",
         },
         {
           speaker: "npc",
@@ -3017,7 +3017,7 @@ export const techEnglishLesson_11: BundledLesson = {
           ],
           model_answers: ["Thanks for having my back — sending the doc by tomorrow."],
           hint_tr:
-            "Sukran: 'Thanks for having my back — sending the doc by tomorrow.'",
+            "Şükran: 'Thanks for having my back — sending the doc by tomorrow.'",
         },
       ],
     },
@@ -3178,9 +3178,9 @@ export const techEnglishLesson_12: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "first-time contributor",
-      tr_translation: "Ilk kez katki yapiyorum (open source)",
+      tr_translation: "İlk kez katkı yapıyorum (open source)",
       example: "First-time contributor here — happy to adjust based on your feedback.",
-      example_tr: "Ilk kez katki yapiyorum — geri bildiriminize göre düzenlemeye hazırim.",
+      example_tr: "İlk kez katkı yapıyorum — geri bildiriminize göre düzenlemeye hazırım.",
     },
     {
       id: "ex.wt.12.2",
@@ -3283,7 +3283,7 @@ export const techEnglishLesson_12: BundledLesson = {
           ],
           model_answers: ["Thanks — really helpful feedback, learning a lot. Will tag you on the next push."],
           hint_tr:
-            "Sukran: 'Thanks — really helpful feedback, learning a lot. Will tag you on the next push.'",
+            "Şükran: 'Thanks — really helpful feedback, learning a lot. Will tag you on the next push.'",
         },
         {
           speaker: "npc",
@@ -3470,9 +3470,9 @@ export const techEnglishLesson_13: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "happy to follow up offline",
-      tr_translation: "Sonra konuşalım (offline iletisim)",
+      tr_translation: "Sonra konuşalım (offline iletişim)",
       example: "Happy to follow up offline — find me after the talk.",
-      example_tr: "Sonra konusalim — konusmadan sonra beni bul.",
+      example_tr: "Sonra konuşalım — konuşmadan sonra beni bul.",
     },
     {
       id: "ex.wt.13.3",
@@ -3515,7 +3515,7 @@ export const techEnglishLesson_13: BundledLesson = {
           ],
           model_answers: ["Honestly — don't have the exact number off the top of my head. Happy to follow up offline."],
           hint_tr:
-            "Bilmiyorsan: 'Honestly — don't have the exact number off the top of my head. Happy to follow up offline.' Türk yazılımcı kacinmak yerine kabul + offline.",
+            "Bilmiyorsan: 'Honestly — don't have the exact number off the top of my head. Happy to follow up offline.' Türk yazılımcı kaçınmak yerine kabul + offline.",
         },
         {
           speaker: "npc",
@@ -3771,9 +3771,9 @@ export const techEnglishLesson_14: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "competing offer",
-      tr_translation: "Rakip teklif (yari ya da gercek)",
+      tr_translation: "Rakip teklif (yarı ya da gerçek)",
       example: "I have a competing offer at $X — would love to make this work.",
-      example_tr: "X dolar rakip teklif var — burada anlasmak isterim.",
+      example_tr: "X dolar rakip teklif var — burada anlaşmak isterim.",
     },
     {
       id: "ex.wt.14.3",
@@ -3816,7 +3816,7 @@ export const techEnglishLesson_14: BundledLesson = {
           ],
           model_answers: ["Based on market research for senior eng roles in Berlin, comp is closer to $160k base."],
           hint_tr:
-            "Veri ile counter: 'Based on market research for senior eng roles in Berlin, comp is closer to $160k base.' Türk yazılımcı 'piyasa fiyati' = 'market rate'.",
+            "Veri ile counter: 'Based on market research for senior eng roles in Berlin, comp is closer to $160k base.' Türk yazılımcı 'piyasa fiyatı' = 'market rate'.",
         },
         {
           speaker: "npc",
@@ -3885,7 +3885,7 @@ export const techEnglishLesson_14: BundledLesson = {
           ],
           model_answers: ["Of course — appreciate you advocating internally. Talk tomorrow."],
           hint_tr:
-            "Saygili bekleme: 'Of course — appreciate you advocating internally. Talk tomorrow.'",
+            "Saygılı bekleme: 'Of course — appreciate you advocating internally. Talk tomorrow.'",
         },
         {
           speaker: "npc",
@@ -4070,7 +4070,7 @@ export const techEnglishLesson_15: BundledLesson = {
       word_or_phrase: "heads up",
       tr_translation: "Bilgi olarak söylüyorum / dikkat",
       example: "Heads up — CI is flaky on main, retrying jobs.",
-      example_tr: "Bilgi olarak: main'de CI flaky, jobs'lari retry ediyorum.",
+      example_tr: "Bilgi olarak: main'de CI flaky, jobs'ları retry ediyorum.",
     },
     {
       id: "ex.wt.15.2",
@@ -4078,9 +4078,9 @@ export const techEnglishLesson_15: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "needs another set of eyes",
-      tr_translation: "Başka biri de baksin / ek goz lazim",
+      tr_translation: "Başka biri de baksın / ek göz lazım",
       example: "PR #423 needs another set of eyes — anyone bandwidth?",
-      example_tr: "PR #423'e ek goz lazim — kimde bandwidth var?",
+      example_tr: "PR #423'e ek göz lazım — kimde bandwidth var?",
     },
     {
       id: "ex.wt.15.3",
@@ -4176,7 +4176,7 @@ export const techEnglishLesson_15: BundledLesson = {
           ],
           model_answers: ["Can pick it up after lunch if no one else grabs it."],
           hint_tr:
-            "Yardim: 'Can pick it up after lunch if no one else grabs it.'",
+            "Yardım: 'Can pick it up after lunch if no one else grabs it.'",
         },
         {
           speaker: "npc",
@@ -4191,7 +4191,7 @@ export const techEnglishLesson_15: BundledLesson = {
           ],
           model_answers: ["Cheers — catch you tomorrow."],
           hint_tr:
-            "Kapanış: 'Cheers — catch you tomorrow.' Async ekipte yazili kapanış kisa.",
+            "Kapanış: 'Cheers — catch you tomorrow.' Async ekipte yazılı kapanış kısa.",
         },
       ],
     },

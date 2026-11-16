@@ -27,7 +27,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       example:
         "Based on market data for this role, I was hoping we could land closer to 180.",
       example_tr:
-        "Bu pozisyon icin piyasa verilerine dayanarak, 180'e yakin bir rakamda anlasmayi umuyordum.",
+        "Bu pozisyon için piyasa verilerine dayanarak, 180'e yakın bir rakamda anlaşmayı umuyordum.",
     },
     {
       id: "ex.cb2-1.2",
@@ -35,11 +35,11 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "walk away gracefully",
-      tr_translation: "zarif sekilde geri cekilmek / vazgecmek",
+      tr_translation: "zarif şekilde geri çekilmek / vazgeçmek",
       example:
         "If we can't get to that range, I may need to walk away — but I'd really love to make this work.",
       example_tr:
-        "Eger o aralige gelemezsek, vazgecmek zorunda kalabilirim — ama bunun yurumesini gercekten cok isterim.",
+        "Eğer o aralığe gelemezsek, vazgeçmek zorunda kalabilirim — ama bunun yürümesini gerçekten çok isterim.",
     },
     {
       id: "ex.cb2-1.3",
@@ -57,7 +57,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
         "Thank you for the offer — my research puts this role in the 170 to 185 band. Could we land at 175?",
       ],
       tr_hint:
-        "Once tesekkur (iliski koru), sonra DATA referansi, sonra spesifik rakam veya range. Soru formati = pazarliga acik.",
+        "Önce teşekkür (ilişki koru), sonra DATA referansı, sonra spesifik rakam veya range. Soru formatı = pazarlığa açık.",
     },
     {
       id: "ex.cb2-1.4",
@@ -74,7 +74,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
         "If we can't bridge to that number, I might need to walk — but I'd really like to make it work with you.",
       ],
       tr_hint:
-        "'Walk away' yumusatilmis hali: 'explore other options' + ardindan SICAK kapanis. Tehdit degil, sinir cekme.",
+        "'Walk away' yumuşatılmış hali: 'explore other options' + ardından SICAK kapanış. Tehdit değil, sınır çekme.",
     },
     {
       id: "ex.cb2-1.5",
@@ -84,7 +84,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       answer: "flexibility",
       distractors: ["movement", "change", "negotiation"],
       tr_hint:
-        "'Flexibility on the base' = base maasta esneklik var mi? Standart muzakere acilisi.",
+        "'Flexibility on the base' = base maaşta esneklik var mı? Standart müzakere açılışı.",
     },
     {
       id: "ex.cb2-1.6",
@@ -94,7 +94,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       correct_sentence:
         "Thanks for the offer — based on market data, I was expecting closer to 175. Is there any flexibility?",
       tr_explanation:
-        "Direkt Turkce ceviri ('cok dusuk, daha cok istiyorum') = agresif, iliski bozar. Dogru: tesekkur + DATA referansi + soru formati. HR/manager profesyonel pazarliga acik kalir.",
+        "Direkt Türkçe çeviri ('çok düşük, daha çok istiyorum') = agresif, ilişki bozar. Doğru: teşekkür + DATA referansı + soru formatı. HR/manager profesyonel pazarlığa açık kalır.",
     },
     {
       id: "ex.cb2-1.7",
@@ -121,7 +121,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
           ],
           model_answers: ["Thanks — based on market, I was hoping closer to 175. Is there flexibility?"],
           hint_tr:
-            "Tesekkur + data referansi + spesifik rakam: 'Thanks — based on market, I was hoping closer to 175. Is there flexibility?'",
+            "Teşekkür + data referansı + spesifik rakam: 'Thanks — based on market, I was hoping closer to 175. Is there flexibility?'",
         },
         {
           speaker: "npc",
@@ -155,7 +155,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
           ],
           model_answers: ["Could we land at 173 — or 170 with a sign-on to close the gap?"],
           hint_tr:
-            "Daha da yukari it veya equity/sign-on ekle: 'Could we land at 173 — or 170 with a sign-on to close the gap?'",
+            "Daha da yukarı it veya equity/sign-on ekle: 'Could we land at 173 — or 170 with a sign-on to close the gap?'",
         },
         {
           speaker: "npc",
@@ -187,7 +187,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       phrase: "Based on market data, I was hoping we could land closer to one-eighty.",
       ipa: "/beɪst ɒn ˈmɑːkɪt ˈdeɪtə aɪ wɒz ˈhəʊpɪŋ wi kʊd lænd ˈkləʊsər tə wʌn ˈeɪti/",
       tr_hint:
-        "'Based on market data' tek nefes — hazirlanmis duruyor. 'Land closer to' yumusatici fiil. Sayiyi NET soyle ('one-eighty' = 180).",
+        "'Based on market data' tek nefes — hazırlanmış duruyor. 'Land closer to' yumuşatıcı fiil. Sayıyı NET söyle ('one-eighty' = 180).",
     },
     {
       id: "ex.cb2-1.9",
@@ -196,7 +196,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       native_text: "I'd really love to make this work — is there any flexibility on the base?",
       voice_hint: "male_us",
       tr_hint:
-        "Sicak kapanis + spesifik soru. 'Love to make this work' iliski sinyali. 'Flexibility on the base' = standart pazarlik dili.",
+        "Sıcak kapanış + spesifik soru. 'Love to make this work' ilişki sinyali. 'Flexibility on the base' = standart pazarlık dili.",
     },
     {
       id: "ex.cb2-1.10",
@@ -205,7 +205,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       audio_text: "I'm afraid that's at the top of our band for this level.",
       transcription_target: "I'm afraid that's at the top of our band for this level.",
       tr_hint:
-        "Recruiter klasik defansi. 'Band' = maas araligi/seviye. 'At the top of' = ust limit. 'I'm afraid' yumusatici = HAYIR.",
+        "Recruiter klasik defansı. 'Band' = maaş aralığı/seviye. 'At the top of' = üst limit. 'I'm afraid' yumuşatıcı = HAYIR.",
     },
     {
       id: "ex.cb2-1.11",
@@ -213,9 +213,9 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "sign-on bonus",
-      tr_translation: "ise giris bonusu (tek seferlik)",
+      tr_translation: "işe giriş bonusu (tek seferlik)",
       example: "If the base is fixed, would there be room on the sign-on bonus or equity?",
-      example_tr: "Eger baz sabitse, ise giris bonusunda veya hissede esneklik olur mu?",
+      example_tr: "Eğer baz sabitse, işe giriş bonusunda veya hissede esneklik olur mu?",
     },
     {
       id: "ex.cb2-1.12",
@@ -224,7 +224,7 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       incorrect_sentence: "Your offer is too low. My current salary is 170 so this is insult.",
       correct_sentence: "Based on my current comp at 170 and market data for this role, I was targeting closer to 180. Is there flexibility?",
       tr_explanation:
-        "'Insult' = iliski bozucu, profesyonel pazarligda agir kelime. 'Current salary' yerine 'current comp' (total comp ima eder). 'Too low' degil, 'targeting closer to X based on data'. Veri + range = leverage; duygu = leverage kaybi.",
+        "'Insult' = ilişki bozucu, profesyonel pazarlığda ağır kelime. 'Current salary' yerine 'current comp' (total comp ima eder). 'Too low' değil, 'targeting closer to X based on data'. Veri + range = leverage; duygu = leverage kaybı.",
     },
     {
       id: "ex.cb2-1.sp1",
@@ -472,11 +472,11 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "help me understand",
-      tr_translation: "anlamama yardim et (saygili sorgu kalibi)",
+      tr_translation: "anlamama yardım et (saygılı sorgu kalıbı)",
       example:
         "Help me understand — could you share a specific example I should be thinking about?",
       example_tr:
-        "Anlamama yardim et — dusunmem gereken spesifik bir ornek paylasabilir misin?",
+        "Anlamama yardım et — düşünmem gereken spesifik bir örnek paylaşabilir misin?",
     },
     {
       id: "ex.cb2-2.2",
@@ -484,11 +484,11 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "I appreciate the feedback",
-      tr_translation: "geri bildirim icin tesekkur ederim (defansif degil)",
+      tr_translation: "geri bildirim için teşekkür ederim (defansif değil)",
       example:
         "I appreciate the feedback — I want to make sure I'm taking the right thing away from this.",
       example_tr:
-        "Geri bildirim icin tesekkurler — buradan dogru seyi cikardigimdan emin olmak istiyorum.",
+        "Geri bildirim için teşekkürler — buradan doğru şeyi çıkardığımdan emin olmak istiyorum.",
     },
     {
       id: "ex.cb2-2.3",
@@ -505,7 +505,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
         "Thank you — help me understand the stakeholder piece. Any specific moment that stood out?",
       ],
       tr_hint:
-        "Once tesekkur (defansif degil), sonra 'help me understand' (saygili sorgu), sonra SPESIFIK ornek iste. Soyut elestiriden somut davraniSa cek.",
+        "Önce teşekkür (defansif değil), sonra 'help me understand' (saygılı sorgu), sonra SPESİFİK örnek iste. Soyut eleştiriden somut davranıŞa çek.",
     },
     {
       id: "ex.cb2-2.4",
@@ -522,7 +522,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
         "I'd flag a different read — Q2 alignment was on me, and it landed well. Was there another case you were thinking of?",
       ],
       tr_hint:
-        "Karsi cikis: 'I'd see that differently' yumusak. Spesifik counter-evidence (Q2 lansmani) + 'maybe there's another' = manager'a yuz kurtarma yeri.",
+        "Karşı çıkış: 'I'd see that differently' yumuşak. Spesifik counter-evidence (Q2 lansmanı) + 'maybe there's another' = manager'a yüz kurtarma yeri.",
     },
     {
       id: "ex.cb2-2.5",
@@ -532,7 +532,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       answer: "share",
       distractors: ["give", "tell", "say"],
       tr_hint:
-        "'Could you share' = saygili istek. 'Give me' kaba kalir profesyonel ortamda.",
+        "'Could you share' = saygılı istek. 'Give me' kaba kalır profesyonel ortamda.",
     },
     {
       id: "ex.cb2-2.6",
@@ -542,7 +542,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       correct_sentence:
         "I'd see that piece a little differently — I owned the Q2 alignment work. Could you help me understand where the gap was?",
       tr_explanation:
-        "'That's not true' = saldiri, manager defansif olur. Dogru: 'I'd see it differently' (kendi perspektifin) + spesifik counter-evidence + soru ile davet. Manager yuz kaybetmeden geri adim atabilir.",
+        "'That's not true' = saldırı, manager defansif olur. Doğru: 'I'd see it differently' (kendi perspektifin) + spesifik counter-evidence + soru ile davet. Manager yüz kaybetmeden geri adım atabilir.",
     },
     {
       id: "ex.cb2-2.7",
@@ -568,7 +568,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
           ],
           model_answers: ["Thanks — help me understand, was there a specific situation you had in mind?"],
           hint_tr:
-            "Tesekkur + spesifik ornek iste: 'Thanks — help me understand, was there a specific situation you had in mind?'",
+            "Teşekkür + spesifik örnek iste: 'Thanks — help me understand, was there a specific situation you had in mind?'",
         },
         {
           speaker: "npc",
@@ -585,7 +585,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
           ],
           model_answers: ["Fair — that said, I did send weekly notes. Could you share what better looks like to you?"],
           hint_tr:
-            "Kismi kabul + counter-context: 'Fair — that said, I did send weekly notes. Could you share what better looks like to you?'",
+            "Kısmi kabul + counter-context: 'Fair — that said, I did send weekly notes. Could you share what better looks like to you?'",
         },
         {
           speaker: "npc",
@@ -619,7 +619,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
           ],
           model_answers: ["I'd see Q2 a bit differently — I drove that alignment. Was there a different moment in mind?"],
           hint_tr:
-            "Yumusak pushback: 'I'd see Q2 a bit differently — I drove that alignment. Was there a different moment in mind?'",
+            "Yumuşak pushback: 'I'd see Q2 a bit differently — I drove that alignment. Was there a different moment in mind?'",
         },
         {
           speaker: "npc",
@@ -635,7 +635,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       phrase: "Help me understand the gap — could you walk me through a specific example?",
       ipa: "/hɛlp miː ˌʌndəˈstænd ðə ɡæp kʊd jʊ wɔːk miː θruː ə spəˈsɪfɪk ɪɡˈzɑːmpəl/",
       tr_hint:
-        "'Help me understand' = standart defansif olmayan acilis. Yumusak ton — sorgulama gibi degil, anlama isteyi gibi. 'Walk me through' bagli soylenir.",
+        "'Help me understand' = standart defansif olmayan açılış. Yumuşak ton — sorgulama gibi değil, anlama isteyi gibi. 'Walk me through' bağlı söylenir.",
     },
     {
       id: "ex.cb2-2.9",
@@ -644,7 +644,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       native_text: "I'd see Q2 a bit differently — could you share what's coming up for you there?",
       voice_hint: "female_us",
       tr_hint:
-        "Diplomatik pushback. 'See it differently' = nazik 'katilmiyorum'. 'What's coming up for you' = senin perspektifin ne. Sakin ton, savunmacı değil.",
+        "Diplomatik pushback. 'See it differently' = nazik 'katılmıyorum'. 'What's coming up for you' = senin perspektifin ne. Sakin ton, savunmacı değil.",
     },
     {
       id: "ex.cb2-2.10",
@@ -653,7 +653,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       audio_text: "I think there's room for you to be more proactive with stakeholders.",
       transcription_target: "I think there's room for you to be more proactive with stakeholders.",
       tr_hint:
-        "Klasik review feedback. 'Room for you to' = gelisme alani var. 'Proactive with stakeholders' = paydaslarla insiyatif almak.",
+        "Klasik review feedback. 'Room for you to' = gelişme alanı var. 'Proactive with stakeholders' = paydaşlarla insiyatif almak.",
     },
     {
       id: "ex.cb2-2.11",
@@ -661,9 +661,9 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "calibration cycle",
-      tr_translation: "performans kalibrasyon donemi",
+      tr_translation: "performans kalibrasyon dönemi",
       example: "I'd love to know how this maps to the calibration cycle before we close out.",
-      example_tr: "Kapatmadan once bunun kalibrasyon donemine nasil yansidigini bilmek isterim.",
+      example_tr: "Kapatmadan önce bunun kalibrasyon dönemine nasıl yansıdığını bilmek isterim.",
     },
     {
       id: "ex.cb2-2.12",
@@ -672,7 +672,7 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       incorrect_sentence: "I disagree with this feedback. You don't know my work. Q2 was my project.",
       correct_sentence: "Thanks for the feedback. I'd see Q2 a bit differently — I drove that alignment. Help me understand what you observed?",
       tr_explanation:
-        "'I disagree + you don't know' = defansif, iliski bozar. Profesyonel: 'Thanks for the feedback' (acik kapi) + 'I'd see it differently' (yumusak pushback) + 'help me understand' (veri iste). Manager pozisyonu degisebilir.",
+        "'I disagree + you don't know' = defansif, ilişki bozar. Profesyonel: 'Thanks for the feedback' (açık kapı) + 'I'd see it differently' (yumuşak pushback) + 'help me understand' (veri iste). Manager pozisyonu değişebilir.",
     },
     {
       id: "ex.cb2-2.sp1",
@@ -790,11 +790,11 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "one area to grow",
-      tr_translation: "gelisme alani (negatif feedback yumusatici)",
+      tr_translation: "gelişme alanı (negatif feedback yumuşatıcı)",
       example:
         "One area to grow: pushing back earlier when scope shifts — it saves the team late nights.",
       example_tr:
-        "Bir gelisme alani: kapsam degistiginde daha erken itiraz etmek — bu ekibi gec saatlerden kurtarir.",
+        "Bir gelişme alanı: kapsam değiştiğinde daha erken itiraz etmek — bu ekibi geç saatlerden kurtarır.",
     },
     {
       id: "ex.cb2-3.2",
@@ -802,11 +802,11 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "I noticed that",
-      tr_translation: "fark ettim ki (yargilamadan gozlem)",
+      tr_translation: "fark ettim ki (yargılamadan gözlem)",
       example:
         "I noticed that in the Q3 retro, you stepped back when push-back got heated.",
       example_tr:
-        "Q3 retro'sunda tartisma kizistiginda geri cekildigini fark ettim.",
+        "Q3 retro'sunda tartışma kızıştığında geri çekildiğini fark ettim.",
     },
     {
       id: "ex.cb2-3.3",
@@ -823,7 +823,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
         "On Q3 planning — I saw you go quiet when the decision was being made. The cost was we missed your senior read.",
       ],
       tr_hint:
-        "SBI cercevesi: Situation (Q3 planning) + Behavior (sessiz kaldin, spesifik) + Impact (senior perspektif kayboldu). Yargilama yok, gozlem var.",
+        "SBI çerçevesi: Situation (Q3 planning) + Behavior (sessiz kaldın, spesifik) + Impact (senior perspektif kayboldu). Yargılama yok, gözlem var.",
     },
     {
       id: "ex.cb2-3.4",
@@ -840,7 +840,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
         "Overall really strong — one growth edge: speak up sooner so people get the benefit of your read.",
       ],
       tr_hint:
-        "Sandwich: pozitif acilis + 'one area to grow' (yumusak negatif) + WHY (ekip yonelir). 'You should X' direkt komut, bu yumusak.",
+        "Sandwich: pozitif açılış + 'one area to grow' (yumuşak negatif) + WHY (ekip yönelir). 'You should X' direkt komut, bu yumuşak.",
     },
     {
       id: "ex.cb2-3.5",
@@ -850,7 +850,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       answer: "area",
       distractors: ["thing", "place", "way"],
       tr_hint:
-        "'One area to grow' = standart peer-review kalibi. 'Thing' fazla resmi degil, 'area' kurumsal.",
+        "'One area to grow' = standart peer-review kalıbı. 'Thing' fazla resmi değil, 'area' kurumsal.",
     },
     {
       id: "ex.cb2-3.6",
@@ -860,7 +860,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       correct_sentence:
         "I noticed in Q3 planning you stayed quiet when decisions got made — the team missed your senior perspective. One area to grow: speak up earlier.",
       tr_explanation:
-        "'You are too quiet' = yargi (kim oldugu hakkinda). Dogru SBI: situation (Q3 planning) + spesifik behavior (sessiz kaldin) + impact (perspektif kayboldu). Karakter yerine DAVRANISa odaklan.",
+        "'You are too quiet' = yargı (kim olduğu hakkında). Doğru SBI: situation (Q3 planning) + spesifik behavior (sessiz kaldın) + impact (perspektif kayboldu). Karakter yerine DAVRANIŞa odaklan.",
     },
     {
       id: "ex.cb2-3.7",
@@ -881,7 +881,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
           ],
           model_answers: ["Thanks for making time — wanted to share a few things. Start with what's working."],
           hint_tr:
-            "Sicak baslangic: 'Thanks for making time — wanted to share a few things. Start with what's working.'",
+            "Sıcak başlangıç: 'Thanks for making time — wanted to share a few things. Start with what's working.'",
         },
         {
           speaker: "npc",
@@ -963,7 +963,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       phrase: "One area to grow: pushing back earlier when scope shifts.",
       ipa: "/wʌn ˈɛəriə tə ɡrəʊ ˈpʊʃɪŋ bæk ˈɜːliər wɛn skəʊp ʃɪfts/",
       tr_hint:
-        "'Area to grow' = standart yumusatici. 'Pushing back' = itiraz etmek (idiom). Sakin, ekip arkadasi tonu — yargilamayan.",
+        "'Area to grow' = standart yumuşatıcı. 'Pushing back' = itiraz etmek (idiom). Sakin, ekip arkadaşı tonu — yargılamayan.",
     },
     {
       id: "ex.cb2-3.9",
@@ -972,7 +972,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       native_text: "Where I'd love to see you grow is owning conversations with stakeholders end-to-end.",
       voice_hint: "male_us",
       tr_hint:
-        "Modern yapici elestiri kalibi. 'Where I'd love to see you grow' = pozitif cerceveli zayiflik. 'End-to-end' bagli soylenir.",
+        "Modern yapıcı eleştiri kalıbı. 'Where I'd love to see you grow' = pozitif çerçeveli zayıflık. 'End-to-end' bağlı söylenir.",
     },
     {
       id: "ex.cb2-3.10",
@@ -981,7 +981,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       audio_text: "I wanted to flag something I've noticed that might be worth working on.",
       transcription_target: "I wanted to flag something I've noticed that might be worth working on.",
       tr_hint:
-        "Diplomatik feedback acilisi. 'Flag something' = bir konuyu gundeme getirmek. 'Worth working on' = uzerinde calismaya deger.",
+        "Diplomatik feedback açılışı. 'Flag something' = bir konuyu gündeme getirmek. 'Worth working on' = üzerinde çalışmaya değer.",
     },
     {
       id: "ex.cb2-3.11",
@@ -989,9 +989,9 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "constructive feedback",
-      tr_translation: "yapici geri bildirim",
+      tr_translation: "yapıcı geri bildirim",
       example: "I'd love to share some constructive feedback on the launch retro — got two minutes?",
-      example_tr: "Lansman retro'su uzerine yapici geri bildirim paylasmak isterim — iki dakikan var mi?",
+      example_tr: "Lansman retro'su üzerine yapıcı geri bildirim paylaşmak isterim — iki dakikan var mı?",
     },
     {
       id: "ex.cb2-3.12",
@@ -1000,7 +1000,7 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       incorrect_sentence: "You are very bad at communication and the team is complaining about you.",
       correct_sentence: "One area to grow: looping stakeholders in earlier — in the launch review, the design team felt blindsided.",
       tr_explanation:
-        "'You are very bad' = saldiri, SBI cercevesi yok. 'Team is complaining' = aktarici suclama. Profesyonel: spesifik durum (launch review) + somut davranis (loop in earlier) + etki (design felt blindsided). Karakter degil, davranis hedef.",
+        "'You are very bad' = saldırı, SBI çerçevesi yok. 'Team is complaining' = aktarıcı suçlama. Profesyonel: spesifik durum (launch review) + somut davranış (loop in earlier) + etki (design felt blindsided). Karakter değil, davranış hedef.",
     },
     {
       id: "ex.cb2-3.sp1",
@@ -1118,11 +1118,11 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "I see it differently",
-      tr_translation: "Ben farkli goruyorum (yumusak karsi cikis)",
+      tr_translation: "Ben farklı görüyorum (yumuşak karşı çıkış)",
       example:
         "I see it differently — can I walk you through my read?",
       example_tr:
-        "Ben farkli goruyorum — okumami anlatabilir miyim?",
+        "Ben farklı görüyorum — okumamı anlatabilir miyim?",
     },
     {
       id: "ex.cb2-4.2",
@@ -1130,7 +1130,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "frame an alternative",
-      tr_translation: "alternatif sun / cerceveLe",
+      tr_translation: "alternatif sun / çerçeveLe",
       example:
         "Let me frame an alternative — same goal, different sequencing.",
       example_tr:
@@ -1168,7 +1168,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
         "Your decision in the end — just wanted to raise it before we commit.",
       ],
       tr_hint:
-        "Kritik kapanis: 'Your call' = otorite manager'da. Tartistin ama hiyerarsiye saygi. Olmadan = pasif-saldirgan.",
+        "Kritik kapanış: 'Your call' = otorite manager'da. Tartıştın ama hiyerarşiye saygı. Olmadan = pasif-saldırgan.",
     },
     {
       id: "ex.cb2-4.5",
@@ -1178,7 +1178,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       answer: "ultimately",
       distractors: ["mainly", "actually", "really"],
       tr_hint:
-        "'Your call ultimately' = sonuc itibariyle senin kararin. Standart hierarchy-respecting kapanis.",
+        "'Your call ultimately' = sonuç itibarıyle senin kararın. Standart hierarchy-respecting kapanış.",
     },
     {
       id: "ex.cb2-4.6",
@@ -1188,7 +1188,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       correct_sentence:
         "I see it differently — here's why. Could we consider an alternative? Your call ultimately.",
       tr_explanation:
-        "'You are wrong, do my way' = otoriteye ego ile karsi cikis = iliski bozar. Dogru: kendi gorus + sebep + alternatif teklif + otoriteyi koru. Manager hala karar verir, ama informed.",
+        "'You are wrong, do my way' = otoriteye ego ile karşı çıkış = ilişki bozar. Doğru: kendi görüş + sebep + alternatif teklif + otoriteyi koru. Manager hala karar verir, ama informed.",
     },
     {
       id: "ex.cb2-4.7",
@@ -1214,7 +1214,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
           ],
           model_answers: ["I'd push back a bit — can I walk you through my thinking?"],
           hint_tr:
-            "Yumusak acilis: 'I'd push back a bit — can I walk you through my thinking?'",
+            "Yumuşak açılış: 'I'd push back a bit — can I walk you through my thinking?'",
         },
         {
           speaker: "npc",
@@ -1230,7 +1230,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
           ],
           model_answers: ["Customer research isn't done — risk of building the wrong cut."],
           hint_tr:
-            "Spesifik gerekce: 'Customer research isn't done — risk of building the wrong cut.'",
+            "Spesifik gerekçe: 'Customer research isn't done — risk of building the wrong cut.'",
         },
         {
           speaker: "npc",
@@ -1280,7 +1280,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
           ],
           model_answers: ["On it — thanks for hearing me out. Your call ultimately."],
           hint_tr:
-            "Kapanis: 'On it — thanks for hearing me out. Your call ultimately.'",
+            "Kapanış: 'On it — thanks for hearing me out. Your call ultimately.'",
         },
         {
           speaker: "npc",
@@ -1295,7 +1295,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       phrase: "I see this differently — could I share my read of the situation?",
       ipa: "/aɪ siː ðɪs ˈdɪfrəntli kʊd aɪ ʃɛə maɪ riːd ɒv ðə ˌsɪtjuˈeɪʃən/",
       tr_hint:
-        "Diplomatik anlasmamak. 'I see this differently' = 'sen yanlissin' degil — sadece bakis acisi farkli. 'My read' = benim okumam (yumusatici).",
+        "Diplomatik anlaşmamak. 'I see this differently' = 'sen yanlışsın' değil — sadece bakış açısı farklı. 'My read' = benim okumam (yumuşatıcı).",
     },
     {
       id: "ex.cb2-4.9",
@@ -1304,7 +1304,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       native_text: "I can commit to that plan, but I want to flag the risk so we go in eyes open.",
       voice_hint: "female_us",
       tr_hint:
-        "'Disagree and commit' kalibi. 'Go in eyes open' idiom = bilinclice. Manager'in karari geçerli kalir, sen kayit dustun.",
+        "'Disagree and commit' kalıbı. 'Go in eyes open' idiom = bilinçlice. Manager'ın kararı geçerli kalır, sen kayıt düştün.",
     },
     {
       id: "ex.cb2-4.10",
@@ -1313,7 +1313,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       audio_text: "I appreciate the input, but I'm going to make the call here.",
       transcription_target: "I appreciate the input, but I'm going to make the call here.",
       tr_hint:
-        "Manager'in nazik 'son soz benim' cevabi. 'Make the call' = kararı vermek (idiom). Bu noktada commit etmen profesyonel.",
+        "Manager'in nazik 'son söz benim' cevabı. 'Make the call' = kararı vermek (idiom). Bu noktada commit etmen profesyonel.",
     },
     {
       id: "ex.cb2-4.11",
@@ -1321,9 +1321,9 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "disagree and commit",
-      tr_translation: "katilmamak ama uygulamak (Amazon prensibi)",
+      tr_translation: "katılmamak ama uygulamak (Amazon prensibi)",
       example: "I disagree on the timeline, but I'll commit and ship by Q3 — wanted that on record.",
-      example_tr: "Zamanlamada katilmiyorum ama commit ediyorum, Q3'te teslim ederim — kayit altina alinsin.",
+      example_tr: "Zamanlamada katılmıyorum ama commit ediyorum, Q3'te teslim ederim — kayıt altına alınsın.",
     },
     {
       id: "ex.cb2-4.12",
@@ -1332,7 +1332,7 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       incorrect_sentence: "No, this plan is wrong. I will not do it like this.",
       correct_sentence: "I see this differently — I'm worried about the timeline. Could I share my read before we lock in?",
       tr_explanation:
-        "'No, this is wrong + I will not do it' = insubordination algilanir. Profesyonelce: 'I see this differently' (yumusak) + 'I'm worried about X' (spesifik kaygi) + 'Could I share' (izin iste). Manager dinleyebilir.",
+        "'No, this is wrong + I will not do it' = insubordination algılanır. Profesyonelce: 'I see this differently' (yumuşak) + 'I'm worried about X' (spesifik kaygı) + 'Could I share' (izin iste). Manager dinleyebilir.",
     },
     {
       id: "ex.cb2-4.sp1",
@@ -1450,11 +1450,11 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "put my name forward",
-      tr_translation: "adimi (terfi icin) one surmek",
+      tr_translation: "adımı (terfi için) öne sürmek",
       example:
         "I want to put my name forward for senior this cycle — happy to walk through the case.",
       example_tr:
-        "Bu donemde senior icin adimi one surmek istiyorum — vakayi anlatabilirim.",
+        "Bu dönemde senior için adımı öne sürmek istiyorum — vakayı anlatabilirim.",
     },
     {
       id: "ex.cb2-5.2",
@@ -1462,11 +1462,11 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "operating at the next level",
-      tr_translation: "bir ust seviyede calismak (terfi kanit kalibi)",
+      tr_translation: "bir üst seviyede çalışmak (terfi kanıt kalıbı)",
       example:
         "For the last two quarters I've been operating at the senior level — owning the auth migration end-to-end.",
       example_tr:
-        "Son iki ceyrektir senior seviyede caliSiyorum — auth gocunu bastan sona sahipleniyorum.",
+        "Son iki çeyrektir senior seviyede çalıŞıyorum — auth göçünü baştan sona sahipleniyorum.",
     },
     {
       id: "ex.cb2-5.3",
@@ -1483,7 +1483,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
         "Putting my name forward for senior. I've been operating there for six months — full ownership on auth migration, cross-team alignment, error rate -40%.",
       ],
       tr_hint:
-        "Format: net niyet ('put my name forward') + zaman ('two quarters') + spesifik scope (3 takim, end-to-end) + sayisal impact (%40). Yumusak konusma DEgil — vaka sunumu.",
+        "Format: net niyet ('put my name forward') + zaman ('two quarters') + spesifik scope (3 takım, end-to-end) + sayısal impact (%40). Yumuşak konuşma DEğil — vaka sunumu.",
     },
     {
       id: "ex.cb2-5.4",
@@ -1500,7 +1500,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
         "This cycle feels right — would be a shame to wait six more months when the work is already there.",
       ],
       tr_hint:
-        "Timing yaklasimi: 'right cycle' + risk ('lose momentum'). Bekle demek manager icin kolay, sen netliKle simdi istiyorsun.",
+        "Timing yaklaşımı: 'right cycle' + risk ('lose momentum'). Bekle demek manager için kolay, sen netliKle şimdi istiyorsun.",
     },
     {
       id: "ex.cb2-5.5",
@@ -1510,7 +1510,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       answer: "case",
       distractors: ["story", "argument", "ask"],
       tr_hint:
-        "'Make the case' = vaka sun. Standart terfi konusma kalibi. 'Ask' kaba, 'argument' kavgaci.",
+        "'Make the case' = vaka sun. Standart terfi konuşma kalıbı. 'Ask' kaba, 'argument' kavgacı.",
     },
     {
       id: "ex.cb2-5.6",
@@ -1520,7 +1520,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       correct_sentence:
         "I'd like to put my name forward for senior this cycle. Two quarters operating at level — auth migration end-to-end, 40% drop in error rate. Happy to walk through.",
       tr_explanation:
-        "'I want, I worked hard' = duygu + emek. Manager bunu degerlendiremez. Dogru: 'put my name forward' (cerceve) + ZAMAN + SCOPE + SAYISAL IMPACT. Iste vaka boyle sunulur.",
+        "'I want, I worked hard' = duygu + emek. Manager bunu değerlendiremez. Doğru: 'put my name forward' (çerçeve) + ZAMAN + SCOPE + SAYISAL IMPACT. İşte vaka böyle sunulur.",
     },
     {
       id: "ex.cb2-5.7",
@@ -1546,7 +1546,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
           ],
           model_answers: ["Wanted to put my name forward for senior this cycle. Happy to walk through the case."],
           hint_tr:
-            "Net acilis: 'Wanted to put my name forward for senior this cycle. Happy to walk through the case.'",
+            "Net açılış: 'Wanted to put my name forward for senior this cycle. Happy to walk through the case.'",
         },
         {
           speaker: "npc",
@@ -1581,7 +1581,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
           ],
           model_answers: ["Mentoring two juniors + ran the platform design review — RFC adopted across three squads."],
           hint_tr:
-            "Sayisal influence: 'Mentoring two juniors + ran the platform design review — RFC adopted across three squads.'",
+            "Sayısal influence: 'Mentoring two juniors + ran the platform design review — RFC adopted across three squads.'",
         },
         {
           speaker: "npc",
@@ -1598,7 +1598,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
           ],
           model_answers: ["This cycle is right. Sending you an impact one-pager by Friday + lining up peer feedback."],
           hint_tr:
-            "Konkret sonraki adim: 'This cycle is right. Sending you an impact one-pager by Friday + lining up peer feedback.'",
+            "Konkret sonraki adım: 'This cycle is right. Sending you an impact one-pager by Friday + lining up peer feedback.'",
         },
         {
           speaker: "npc",
@@ -1614,7 +1614,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       phrase: "I want to put my name forward for senior this cycle.",
       ipa: "/aɪ wɒnt tə pʊt maɪ neɪm ˈfɔːwəd fə ˈsiːnjə ðɪs ˈsaɪkəl/",
       tr_hint:
-        "'Put my name forward' tek nefes, kararli ton. 'Senior this cycle' = bu donem senior icin. Sallanmadan soyle — net taleple gel.",
+        "'Put my name forward' tek nefes, kararlı ton. 'Senior this cycle' = bu dönem senior için. Sallanmadan söyle — net taleple gel.",
     },
     {
       id: "ex.cb2-5.9",
@@ -1623,7 +1623,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       native_text: "I've been operating at the next level for two quarters — happy to walk through the case.",
       voice_hint: "male_us",
       tr_hint:
-        "Asagilik kompleksi olmadan, kibirsiz: 'operating at the next level' = bir ust seviyede calisiyor olmak. 'Walk through the case' = vakayi sun.",
+        "Aşağılık kompleksi olmadan, kibirsiz: 'operating at the next level' = bir üst seviyede çalışıyor olmak. 'Walk through the case' = vakayı sun.",
     },
     {
       id: "ex.cb2-5.10",
@@ -1632,7 +1632,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       audio_text: "Let's revisit this at the next calibration — what would close the gap?",
       transcription_target: "Let's revisit this at the next calibration — what would close the gap?",
       tr_hint:
-        "Manager yumusak ertelemesi. 'Revisit' = tekrar gorusmek. 'Close the gap' = aciği kapatmak. Sana 'ne yaparsam' soruyor — listele.",
+        "Manager yumuşak ertelemesi. 'Revisit' = tekrar görüşmek. 'Close the gap' = aciği kapatmak. Sana 'ne yaparsam' soruyor — listele.",
     },
     {
       id: "ex.cb2-5.11",
@@ -1640,9 +1640,9 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "impact deck",
-      tr_translation: "etki sunumu (terfi vakasi)",
+      tr_translation: "etki sunumu (terfi vakası)",
       example: "I'll send you an impact deck by Friday — three projects, scope, and outcomes.",
-      example_tr: "Cuma'ya kadar bir etki sunumu yollarim — uc proje, kapsam ve sonuclar.",
+      example_tr: "Cuma'ya kadar bir etki sunumu yollarım — üç proje, kapsam ve sonuçlar.",
     },
     {
       id: "ex.cb2-5.12",
@@ -1651,7 +1651,7 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       incorrect_sentence: "I want raise and promotion because I work very hard and I am here long time.",
       correct_sentence: "I want to put my name forward for senior this cycle — I've owned three workstreams and shipped Q2 alignment end-to-end.",
       tr_explanation:
-        "'Hard work + long time' = etki yok, scope yok, tenure-based talep = zayif. Modern terfi: somut sahiplenilen islerin + olculmus impact + 'put my name forward' standart kalibi. 'Raise' farkli konu — terfi ile karistirma.",
+        "'Hard work + long time' = etki yok, scope yok, tenure-based talep = zayıf. Modern terfi: somut sahiplenilen işlerin + ölçülmüş impact + 'put my name forward' standart kalıbı. 'Raise' farklı konu — terfi ile karıştırma.",
     },
     {
       id: "ex.cb2-5.sp1",
@@ -1773,7 +1773,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       example:
         "Let's see if we can find common ground — what do we both agree on?",
       example_tr:
-        "Ortak zemin bulabilir miyiz bakalim — ikimiz neyde anlasiyoruz?",
+        "Ortak zemin bulabilir miyiz bakalım — ikimiz neyde anlaşıyoruz?",
     },
     {
       id: "ex.cb2-6.2",
@@ -1781,11 +1781,11 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "take the heat down",
-      tr_translation: "tansiyonu dusurmek (catisma yatistirma)",
+      tr_translation: "tansiyonu düşürmek (çatışma yatıştırma)",
       example:
         "Before we dig in — let's take the heat down. Same team, same goal.",
       example_tr:
-        "Konuya dalmadan once tansiyonu dusurelim. Ayni takim, ayni hedef.",
+        "Konuya dalmadan önce tansiyonu düşürelim. Aynı takım, aynı hedef.",
     },
     {
       id: "ex.cb2-6.3",
@@ -1802,7 +1802,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
         "Going to hear each of you out. Ali first — what's your take?",
       ],
       tr_hint:
-        "Aktif dinleme + sırayla. Yargilama yok, 'from your side' = her birinin kendi gercegi var sinyali.",
+        "Aktif dinleme + sırayla. Yargılama yok, 'from your side' = her birinin kendi gerçeği var sinyali.",
     },
     {
       id: "ex.cb2-6.4",
@@ -1819,7 +1819,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
         "The goal is shared — ship quality, hit the date. The 'how' is what's open.",
       ],
       tr_hint:
-        "Yeniden cerceveLeme: catisan iki kisi farkli gibi gorunur, ama hedef ortak. Bu cumle catismayi 'biz vs problem'e cevirir.",
+        "Yeniden çerçeveLeme: çatışan iki kişi farklı gibi görünür, ama hedef ortak. Bu cümle çatışmayı 'biz vs problem'e çevirir.",
     },
     {
       id: "ex.cb2-6.5",
@@ -1829,7 +1829,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       answer: "ground",
       distractors: ["space", "place", "point"],
       tr_hint:
-        "'Common ground' = ortak zemin. Mediation'in standart kalibi.",
+        "'Common ground' = ortak zemin. Mediation'in standart kalıbı.",
     },
     {
       id: "ex.cb2-6.6",
@@ -1839,7 +1839,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       correct_sentence:
         "Let's take the heat down. Help me understand both sides — Ali first, then you. We're after the same outcome.",
       tr_explanation:
-        "'Stop fighting + X is right' = taraf tutma + yargilama = catisma derinleSir. Dogru: tansiyon dusur + esit dinleme + ortak hedefi vurgula. Sen hakim degil, kolaylastirici (facilitator).",
+        "'Stop fighting + X is right' = taraf tutma + yargılama = çatışma derinleŞir. Doğru: tansiyon düşür + eşit dinleme + ortak hedefi vurgula. Sen hakim değil, kolaylaştırıcı (facilitator).",
     },
     {
       id: "ex.cb2-6.7",
@@ -1865,7 +1865,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
           ],
           model_answers: ["Let's take the heat down — I hear you. Want both perspectives — Maya, you're next."],
           hint_tr:
-            "Kolaylastirici acilis: 'Let's take the heat down — I hear you. Want both perspectives — Maya, you're next.'",
+            "Kolaylaştırıcı açılış: 'Let's take the heat down — I hear you. Want both perspectives — Maya, you're next.'",
         },
         {
           speaker: "npc",
@@ -1882,7 +1882,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
           ],
           model_answers: ["Thanks both. You want the same thing — quality launch. The question is the path."],
           hint_tr:
-            "Yeniden cerceve: 'Thanks both. You want the same thing — quality launch. The question is the path.'",
+            "Yeniden çerçeve: 'Thanks both. You want the same thing — quality launch. The question is the path.'",
         },
         {
           speaker: "npc",
@@ -1899,7 +1899,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
           ],
           model_answers: ["How about spec freeze by EOD — user testing feedback goes into v2."],
           hint_tr:
-            "Konkret oneri: 'How about spec freeze by EOD — user testing feedback goes into v2.'",
+            "Konkret öneri: 'How about spec freeze by EOD — user testing feedback goes into v2.'",
         },
         {
           speaker: "npc",
@@ -1916,7 +1916,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
           ],
           model_answers: ["Maya — works for you? What goes into the v2 parking lot?"],
           hint_tr:
-            "Maya'yi celp: 'Maya — works for you? What goes into the v2 parking lot?'",
+            "Maya'yı celp: 'Maya — works for you? What goes into the v2 parking lot?'",
         },
         {
           speaker: "npc",
@@ -1933,7 +1933,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
           ],
           model_answers: ["Thanks both — let's write it up. Sync Friday on v2 list."],
           hint_tr:
-            "Kapanis + takip: 'Thanks both — let's write it up. Sync Friday on v2 list.'",
+            "Kapanış + takip: 'Thanks both — let's write it up. Sync Friday on v2 list.'",
         },
         {
           speaker: "npc",
@@ -1948,7 +1948,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       phrase: "Help me understand the constraints on each side — what's flexible, what's not?",
       ipa: "/hɛlp miː ˌʌndəˈstænd ðə kənˈstreɪnts ɒn iːtʃ saɪd wɒts ˈflɛksɪbəl wɒts nɒt/",
       tr_hint:
-        "Mediasyon klasik acilis — herkesin pozisyonunu anla. 'Constraints on each side' = her tarafin kisitlari. Sakin, tarafsiz ton.",
+        "Mediasyon klasik açılış — herkesin pozisyonunu anla. 'Constraints on each side' = her tarafın kısıtları. Sakin, tarafsız ton.",
     },
     {
       id: "ex.cb2-6.9",
@@ -1957,7 +1957,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       native_text: "Let's separate the people from the problem — what would unblock this?",
       voice_hint: "female_us",
       tr_hint:
-        "Klasik mediasyon ilkesi (Getting to Yes kitabi). 'Separate people from problem' = kisilik degil, sorun konusalim. 'Unblock' = ilerleme aciliyi.",
+        "Klasik mediasyon ilkesi (Getting to Yes kitabı). 'Separate people from problem' = kişilik değil, sorun konuşalım. 'Unblock' = ilerleme aciliyi.",
     },
     {
       id: "ex.cb2-6.10",
@@ -1966,7 +1966,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       audio_text: "I think we're talking past each other — can we slow down?",
       transcription_target: "I think we're talking past each other — can we slow down?",
       tr_hint:
-        "'Talking past each other' = birbirimizi dinlemiyoruz (idiom). 'Slow down' = sakin ol. Catismayi düsürmek için araci sözü.",
+        "'Talking past each other' = birbirimizi dinlemiyoruz (idiom). 'Slow down' = sakin ol. Çatışmayı düşürmek için aracı sözü.",
     },
     {
       id: "ex.cb2-6.11",
@@ -1974,9 +1974,9 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "find a middle ground",
-      tr_translation: "ortak nokta / uzlasi bulmak",
+      tr_translation: "ortak nokta / uzlaşı bulmak",
       example: "Could we find a middle ground — a soft freeze on Wednesday with a v2 list?",
-      example_tr: "Bir ortak nokta bulabilir miyiz — Carsamba'ya yumusak freeze ve v2 listesi?",
+      example_tr: "Bir ortak nokta bulabilir miyiz — Çarşamba'ya yumuşak freeze ve v2 listesi?",
     },
     {
       id: "ex.cb2-6.12",
@@ -1985,7 +1985,7 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       incorrect_sentence: "You both are wrong. Stop fighting and just do the work I say.",
       correct_sentence: "Help me understand what each of you needs — let's separate the people from the problem and find a path forward.",
       tr_explanation:
-        "Mediator (sen) tarafsiz olmali. 'You're both wrong + do what I say' = otoriter, gerilimi artirir. Profesyonel: 'help me understand' (acik soru) + 'separate people from problem' (cerceve) + 'path forward' (cozum odakli).",
+        "Mediator (sen) tarafsız olmalı. 'You're both wrong + do what I say' = otoriter, gerilimi artırır. Profesyonel: 'help me understand' (açık soru) + 'separate people from problem' (çerçeve) + 'path forward' (çözüm odaklı).",
     },
     {
       id: "ex.cb2-6.sp1",
@@ -2103,11 +2103,11 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "I want to flag a risk",
-      tr_translation: "Bir risk isaret etmek istiyorum",
+      tr_translation: "Bir risk işaret etmek istiyorum",
       example:
         "I want to flag a risk on the Q3 date — we're tight on QA coverage.",
       example_tr:
-        "Q3 tarihinde bir risk isaret etmek istiyorum — QA kapsami sikiSik.",
+        "Q3 tarihinde bir risk işaret etmek istiyorum — QA kapsamı sıkıŞık.",
     },
     {
       id: "ex.cb2-7.2",
@@ -2115,11 +2115,11 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "trade-off",
-      tr_translation: "denge / takas (bir seyi vermek baska sey almak)",
+      tr_translation: "denge / takas (bir şeyi vermek başka şey almak)",
       example:
         "There's a trade-off — we can hit the date but skip auth refactor, or push the date and ship it clean.",
       example_tr:
-        "Bir takas var — tarihi tutturup auth refactor'u atlayabiliriz, ya da tarihi gec atip temiz cikabiliriz.",
+        "Bir takas var — tarihi tutturup auth refactor'u atlayabiliriz, ya da tarihi geç atıp temiz çıkabiliriz.",
     },
     {
       id: "ex.cb2-7.3",
@@ -2136,7 +2136,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
         "Calling out a risk on the date — we'd have to drop features or skip QA. Your call on the trade-off.",
       ],
       tr_hint:
-        "Format: 'Flag a risk' (kibar sinyal) + spesifik trade-off + manager'a secim ver. Hayir demek degil, KARARI manager'a bilgiyle ver.",
+        "Format: 'Flag a risk' (kibar sinyal) + spesifik trade-off + manager'a seçim ver. Hayır demek değil, KARARI manager'a bilgiyle ver.",
     },
     {
       id: "ex.cb2-7.4",
@@ -2153,7 +2153,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
         "Something has to give — date or scope. Where's the flexibility?",
       ],
       tr_hint:
-        "'Where can you flex' = nerde esneklik var. Manager'in problemini ona geri ver, secim onun.",
+        "'Where can you flex' = nerde esneklik var. Manager'ın problemini ona geri ver, seçim onun.",
     },
     {
       id: "ex.cb2-7.5",
@@ -2163,7 +2163,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       answer: "flag",
       distractors: ["raise", "show", "say"],
       tr_hint:
-        "'Flag a risk' = risk isaret etmek. Kurumsal standart kalibi. 'Raise' de olur ama 'flag' daha aktif.",
+        "'Flag a risk' = risk işaret etmek. Kurumsal standart kalıbı. 'Raise' de olur ama 'flag' daha aktif.",
     },
     {
       id: "ex.cb2-7.6",
@@ -2173,7 +2173,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       correct_sentence:
         "Want to flag a risk on the date — to hit it, we'd need to cut scope or compromise on QA. Which trade-off do you prefer?",
       tr_explanation:
-        "'Impossible, can't do it' = pasif, problemi manager'a atar. Dogru: 'Flag a risk' (profesyonel sinyal) + spesifik trade-off + manager'a secim. Sen mevcut secenekleri TAVASIRIM ederek soyluyorsun, hayir demiyorsun.",
+        "'Impossible, can't do it' = pasif, problemi manager'a atar. Doğru: 'Flag a risk' (profesyonel sinyal) + spesifik trade-off + manager'a seçim. Sen mevcut seçenekleri TAVASIRIM ederek söylüyorsun, hayır demiyorsun.",
     },
     {
       id: "ex.cb2-7.7",
@@ -2199,7 +2199,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
           ],
           model_answers: ["Thanks for the heads-up — want to flag a risk on the 6 weeks. Can we sync?"],
           hint_tr:
-            "Sicak baslangic + sinyal: 'Thanks for the heads-up — want to flag a risk on the 6 weeks. Can we sync?'",
+            "Sıcak başlangıç + sinyal: 'Thanks for the heads-up — want to flag a risk on the 6 weeks. Can we sync?'",
         },
         {
           speaker: "npc",
@@ -2250,7 +2250,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
           ],
           model_answers: ["Works — reporting goes to v1.1. I'll update the plan."],
           hint_tr:
-            "Onayla + dokumante et: 'Works — reporting goes to v1.1. I'll update the plan.'",
+            "Onayla + dökümante et: 'Works — reporting goes to v1.1. I'll update the plan.'",
         },
         {
           speaker: "npc",
@@ -2266,7 +2266,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
           ],
           model_answers: ["On it — thanks for hearing me out."],
           hint_tr:
-            "Kapanis: 'On it — thanks for hearing me out.'",
+            "Kapanış: 'On it — thanks for hearing me out.'",
         },
         {
           speaker: "npc",
@@ -2282,7 +2282,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       phrase: "I want to flag a risk early so we can plan around it.",
       ipa: "/aɪ wɒnt tə flæɡ ə rɪsk ˈɜːli səʊ wi kæn plæn əˈraʊnd ɪt/",
       tr_hint:
-        "'Flag a risk' = riski gundeme getirmek. 'Early' net vurgula — erken konusmak profesyonel. Panik degil, hazirlikli ton.",
+        "'Flag a risk' = riski gündeme getirmek. 'Early' net vurgula — erken konuşmak profesyonel. Panik değil, hazırlıklı ton.",
     },
     {
       id: "ex.cb2-7.9",
@@ -2291,7 +2291,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       native_text: "If we hold the scope, we can hit the date; if scope grows, we'll need to slip by two weeks.",
       voice_hint: "male_us",
       tr_hint:
-        "Klasik scope-time-quality trade-off. 'Hold the scope' = kapsami sabit tut. 'Slip by' = ertelemek. Net 'if X then Y' yapisi.",
+        "Klasik scope-time-quality trade-off. 'Hold the scope' = kapsamı sabit tut. 'Slip by' = ertelemek. Net 'if X then Y' yapısı.",
     },
     {
       id: "ex.cb2-7.10",
@@ -2300,7 +2300,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       audio_text: "What would it take to land this on time?",
       transcription_target: "What would it take to land this on time?",
       tr_hint:
-        "Manager standart sorusu. 'What would it take' = ne lazim. 'Land on time' = zamaninda teslim et. Cevapla: kapsam azaltma + ek kaynak + once neyi keselim.",
+        "Manager standart sorusu. 'What would it take' = ne lazım. 'Land on time' = zamanında teslim et. Cevapla: kapsam azaltma + ek kaynak + önce neyi keselim.",
     },
     {
       id: "ex.cb2-7.11",
@@ -2308,9 +2308,9 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "risk register",
-      tr_translation: "risk listesi (proje yonetimi)",
+      tr_translation: "risk listesi (proje yönetimi)",
       example: "Adding three items to the risk register — happy to walk you through it.",
-      example_tr: "Risk listesine uc kalem ekliyorum — sana anlatabilirim.",
+      example_tr: "Risk listesine üç kalem ekliyorum — sana anlatabilirim.",
     },
     {
       id: "ex.cb2-7.12",
@@ -2319,7 +2319,7 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       incorrect_sentence: "This deadline is impossible. We will not finish. The team is angry.",
       correct_sentence: "I want to flag a risk early — based on current scope, we're tracking two weeks behind. Could we discuss trade-offs?",
       tr_explanation:
-        "'Impossible + not finish + team angry' = panik, cozum onerisi yok. Profesyonelce: 'flag a risk' + somut veri ('tracking two weeks behind') + 'discuss trade-offs' (cozum odakli). Manager seninle calisabilir.",
+        "'Impossible + not finish + team angry' = panik, çözüm önerisi yok. Profesyonelce: 'flag a risk' + somut veri ('tracking two weeks behind') + 'discuss trade-offs' (çözüm odaklı). Manager seninle çalışabilir.",
     },
     {
       id: "ex.cb2-7.sp1",
@@ -2437,11 +2437,11 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "You're the DRI on this",
-      tr_translation: "Bu isin sorumlu sahibi sensin (Directly Responsible Individual)",
+      tr_translation: "Bu işin sorumlu sahibi sensin (Directly Responsible Individual)",
       example:
         "You're the DRI on the migration — call the shots, loop me in on the big calls.",
       example_tr:
-        "Migrasyonun DRI'i sensin — kararlari sen ver, buyuk kararlarda beni dahil et.",
+        "Migrasyonun DRI'i sensin — kararları sen ver, büyük kararlarda beni dahil et.",
     },
     {
       id: "ex.cb2-8.2",
@@ -2453,7 +2453,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       example:
         "Loop me in on anything that touches infra cost or security.",
       example_tr:
-        "Infra maliyetine veya guvenlige dokunan her seyde beni dahil et.",
+        "Infra maliyetine veya güvenliğe dokunan her şeyde beni dahil et.",
     },
     {
       id: "ex.cb2-8.3",
@@ -2470,7 +2470,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
         "Putting this fully on you — own it, weekly status sync, escalate when it's a big call.",
       ],
       tr_hint:
-        "Format: net sahiplik (DRI) + zaman/cadence (haftalik sync) + escalation kurali (big calls). Mikromanagement degil, structured trust.",
+        "Format: net sahiplik (DRI) + zaman/cadence (haftalık sync) + escalation kuralı (big calls). Mikromanagement değil, structured trust.",
     },
     {
       id: "ex.cb2-8.4",
@@ -2487,7 +2487,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
         "End state I want: prototype shipped + demo'd by end of month. Your call on the approach.",
       ],
       tr_hint:
-        "Outcome (cikti) vs Output (ne yapilacak): manager outcome verir, IC nasili karar verir. 'How you get there is up to you' = ownership sinyali.",
+        "Outcome (çıktı) vs Output (ne yapılacak): manager outcome verir, IC nasılı karar verir. 'How you get there is up to you' = ownership sinyali.",
     },
     {
       id: "ex.cb2-8.5",
@@ -2507,7 +2507,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       correct_sentence:
         "You're the DRI on this — outcome I need is a working prototype by EOM. Weekly sync, loop me in on big calls.",
       tr_explanation:
-        "'Tell me what you do every day' = mikromanagement, otonomi yok. Dogru: NET outcome + NET kadans + NET escalation kurali. Calisan kendi yontemini secer = sahiplik hisseder.",
+        "'Tell me what you do every day' = mikromanagement, otonomi yok. Doğru: NET outcome + NET kadans + NET escalation kuralı. Çalışan kendi yöntemini seçer = sahiplik hisseder.",
     },
     {
       id: "ex.cb2-8.7",
@@ -2527,7 +2527,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
           ],
           model_answers: ["Thanks for jumping in — want to put the migration on you. Think you're ready."],
           hint_tr:
-            "Sicak baslangic: 'Thanks for jumping in — want to put the migration on you. Think you're ready.'",
+            "Sıcak başlangıç: 'Thanks for jumping in — want to put the migration on you. Think you're ready.'",
         },
         {
           speaker: "npc",
@@ -2596,7 +2596,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
           ],
           model_answers: ["Hard constraint — zero downtime. Send me a plan by Friday."],
           hint_tr:
-            "Kisitlar net: 'Hard constraint — zero downtime. Send me a plan by Friday.'",
+            "Kısıtlar net: 'Hard constraint — zero downtime. Send me a plan by Friday.'",
         },
         {
           speaker: "npc",
@@ -2612,7 +2612,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       phrase: "You own the outcome — I'm here for unblocks, not status checks.",
       ipa: "/jʊ əʊn ði ˈaʊtkʌm aɪm hɪər fər ˈʌnˌblɒks nɒt ˈsteɪtəs tʃɛks/",
       tr_hint:
-        "Modern delegasyon manifestosu. 'Own the outcome' = sonucun sahibi sensin. 'Unblocks' = engelleri kaldirma. Mikro-management yok mesaji.",
+        "Modern delegasyon manifestosu. 'Own the outcome' = sonucun sahibi sensin. 'Unblocks' = engelleri kaldırma. Mikro-management yok mesajı.",
     },
     {
       id: "ex.cb2-8.9",
@@ -2621,7 +2621,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       native_text: "Here's the success criteria — how you get there is your call.",
       voice_hint: "female_us",
       tr_hint:
-        "'Success criteria' = basari olcutleri. 'Your call' idiom = senin kararin. Sonuc/yontem ayrimi netlestir.",
+        "'Success criteria' = başarı ölçütleri. 'Your call' idiom = senin kararın. Sonuç/yöntem ayrımı netleştir.",
     },
     {
       id: "ex.cb2-8.10",
@@ -2630,7 +2630,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       audio_text: "What does done look like for this project?",
       transcription_target: "What does done look like for this project?",
       tr_hint:
-        "Delegasyon icin standart soru. 'What does done look like' = bitmis hali nedir. Net cevap: olculebilir kriter listele.",
+        "Delegasyon için standart soru. 'What does done look like' = bitmiş hali nedir. Net cevap: ölçülebilir kriter listele.",
     },
     {
       id: "ex.cb2-8.11",
@@ -2638,9 +2638,9 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "directly responsible individual",
-      tr_translation: "tek sorumlu kisi (DRI / Apple terimi)",
+      tr_translation: "tek sorumlu kişi (DRI / Apple terimi)",
       example: "You're the DRI on the migration — own the calls, escalate when stuck.",
-      example_tr: "Migrasyonun DRI'si sensin — kararlari ver, sikistiginda escalate et.",
+      example_tr: "Migrasyonun DRI'si sensin — kararları ver, sıkıştığında escalate et.",
     },
     {
       id: "ex.cb2-8.12",
@@ -2649,7 +2649,7 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       incorrect_sentence: "Do this task and send me update every day. I will check what you did.",
       correct_sentence: "You own this — here's the outcome we need and the budget. Weekly sync on Mondays; ping me anytime you're blocked.",
       tr_explanation:
-        "'Every day update + I will check' = mikro-management, sahiplenme yok. Modern delegasyon: sonuc tanimi + kisitlar + duzenli sync ritmi + acik kapi (ping anytime). Kisi sahiplenir.",
+        "'Every day update + I will check' = mikro-management, sahiplenme yok. Modern delegasyon: sonuç tanımı + kısıtlar + düzenli sync ritmi + açık kapı (ping anytime). Kişi sahiplenir.",
     },
     {
       id: "ex.cb2-8.sp1",
@@ -2767,11 +2767,11 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "I've made the decision to move on",
-      tr_translation: "Tasinmaya / ayrilmaya karar verdim (kesin)",
+      tr_translation: "Taşınmaya / ayrılmaya karar verdim (kesin)",
       example:
         "I wanted to let you know — I've made the decision to move on. My last day will be August 15.",
       example_tr:
-        "Sana sunu soylemek istiyorum — ayrilmaya karar verdim. Son gunum 15 Agustos.",
+        "Sana şunu söylemek istiyorum — ayrılmaya karar verdim. Son günüm 15 Ağustos.",
     },
     {
       id: "ex.cb2-9.2",
@@ -2779,11 +2779,11 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "transition plan",
-      tr_translation: "devir plani / transition plani",
+      tr_translation: "devir planı / transition planı",
       example:
         "I'd love to put together a clean transition plan — what would be most helpful?",
       example_tr:
-        "Temiz bir devir plani hazirlamak isterim — en cok ne yardimci olur?",
+        "Temiz bir devir planı hazırlamak isterim — en çok ne yardımcı olur?",
     },
     {
       id: "ex.cb2-9.3",
@@ -2800,7 +2800,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
         "Want to be upfront — I've decided to move on. Hard call. Final day is August 15, giving four weeks notice.",
       ],
       tr_hint:
-        "Format: 'wanted to let you know' (giriS) + 'made the decision' (kesin, geri donulmez) + tarih + sure. Belirsizlik bırakma, manager pazarlik baslar.",
+        "Format: 'wanted to let you know' (giriŞ) + 'made the decision' (kesin, geri dönülmez) + tarih + süre. Belirsizlik bırakma, manager pazarlık başlar.",
     },
     {
       id: "ex.cb2-9.4",
@@ -2817,7 +2817,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
         "Genuinely thank you — this role's been a major step for me. Want to make sure the handoff is smooth.",
       ],
       tr_hint:
-        "Iki sey ayni anda: gercek tesekkur (iliski koru — referans gerekecek) + transition'a profesyonel commitment. Soguk degil, kararli.",
+        "İki şey aynı anda: gerçek teşekkür (ilişki koru — referans gerekecek) + transition'a profesyonel commitment. Soğuk değil, kararlı.",
     },
     {
       id: "ex.cb2-9.5",
@@ -2827,7 +2827,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       answer: "handoff",
       distractors: ["leave", "exit", "transition"],
       tr_hint:
-        "'Clean handoff' = puruzsuz devir. Standart istifa kalibi.",
+        "'Clean handoff' = pürüzsüz devir. Standart istifa kalıbı.",
     },
     {
       id: "ex.cb2-9.6",
@@ -2838,7 +2838,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       correct_sentence:
         "I wanted to let you know — I've made the decision to move on. My last day will be August 15.",
       tr_explanation:
-        "'Maybe I will quit, thinking about it' = karasiz sinyal = manager counter-offer baslar, sen sallaniyorsun. Dogru: KESIN dil ('made the decision') + spesifik tarih. Sallananma, ama sicakkanli kal.",
+        "'Maybe I will quit, thinking about it' = karasız sinyal = manager counter-offer başlar, sen sallanıyorsun. Doğru: KESİN dil ('made the decision') + spesifik tarih. Sallananma, ama sıcakkanlı kal.",
     },
     {
       id: "ex.cb2-9.7",
@@ -2861,7 +2861,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
           ],
           model_answers: ["Wanted to let you know — I've made the decision to move on. Last day August 15."],
           hint_tr:
-            "Net + sicak: 'Wanted to let you know — I've made the decision to move on. Last day August 15.'",
+            "Net + sıcak: 'Wanted to let you know — I've made the decision to move on. Last day August 15.'",
         },
         {
           speaker: "npc",
@@ -2879,7 +2879,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
           ],
           model_answers: ["Combination — really about the next chapter for me. Not a team or comp issue."],
           hint_tr:
-            "Acik ama spesifik degil: 'Combination — really about the next chapter for me. Not a team or comp issue.'",
+            "Açık ama spesifik değil: 'Combination — really about the next chapter for me. Not a team or comp issue.'",
         },
         {
           speaker: "npc",
@@ -2896,7 +2896,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
           ],
           model_answers: ["Means a lot — decision is final. Not about comp. Want to focus on clean handoff."],
           hint_tr:
-            "Kapali ama sicak: 'Means a lot — decision is final. Not about comp. Want to focus on clean handoff.'",
+            "Kapalı ama sıcak: 'Means a lot — decision is final. Not about comp. Want to focus on clean handoff.'",
         },
         {
           speaker: "npc",
@@ -2931,7 +2931,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
           ],
           model_answers: ["Would mean a lot to stay in touch + LinkedIn rec. Let's align on team announcement."],
           hint_tr:
-            "Iki istek: 'Would mean a lot to stay in touch + LinkedIn rec. Let's align on team announcement.'",
+            "İki istek: 'Would mean a lot to stay in touch + LinkedIn rec. Let's align on team announcement.'",
         },
         {
           speaker: "npc",
@@ -2947,7 +2947,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       phrase: "After careful thought, I've decided to move on — I wanted to tell you in person.",
       ipa: "/ˈɑːftə ˈkɛəfəl θɔːt aɪv dɪˈsaɪdɪd tə muːv ɒn aɪ ˈwɒntɪd tə tɛl jʊ ɪn ˈpɜːsən/",
       tr_hint:
-        "Resignation acilisi. 'Move on' = ayrilmak (idiom). 'In person' = yuzyuze — saygi sinyali. Sakin, kararli ton.",
+        "Resignation açılışı. 'Move on' = ayrılmak (idiom). 'In person' = yüzyüze — saygı sinyali. Sakin, kararlı ton.",
     },
     {
       id: "ex.cb2-9.9",
@@ -2956,7 +2956,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       native_text: "I'd love to make the handover as smooth as possible — what's most useful for the team?",
       voice_hint: "female_us",
       tr_hint:
-        "Cikan kisinin standart cumlesi. 'Handover' = devir teslim. 'As smooth as possible' = mumkun oldugunca duzgun. Iliski koru.",
+        "Çıkan kişinin standart cümlesi. 'Handover' = devir teslim. 'As smooth as possible' = mümkün olduğunca düzgün. İlişki koru.",
     },
     {
       id: "ex.cb2-9.10",
@@ -2965,7 +2965,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       audio_text: "Is there anything we could do to keep you?",
       transcription_target: "Is there anything we could do to keep you?",
       tr_hint:
-        "Manager counter-offer sondaji. Bu soruya hazirlikli ol — niyetin netse: 'I've thought about this carefully — my mind is made up.'",
+        "Manager counter-offer sondajı. Bu soruya hazırlıklı ol — niyetin netse: 'I've thought about this carefully — my mind is made up.'",
     },
     {
       id: "ex.cb2-9.11",
@@ -2973,9 +2973,9 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "two weeks' notice",
-      tr_translation: "iki haftalik ihbar suresi",
+      tr_translation: "iki haftalık ihbar süresi",
       example: "Today is my two weeks' notice — last day would be the 28th if that works.",
-      example_tr: "Bugun iki haftalik ihbarim — uygunsa son gunum 28'i olur.",
+      example_tr: "Bugün iki haftalık ihbarım — uygunsa son günüm 28'i olur.",
     },
     {
       id: "ex.cb2-9.12",
@@ -2984,7 +2984,7 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       incorrect_sentence: "I quit. I will not come tomorrow. Goodbye.",
       correct_sentence: "I wanted to tell you in person — I've decided to move on. My last day would be the 28th, and I'd like to make a clean handover.",
       tr_explanation:
-        "'I quit + not come tomorrow' = koprule yikma, profesyonel iliski biter. Standart: 'tell you in person' (saygi) + 'decided to move on' (karar net) + 'last day' (yasal sure) + 'clean handover' (sorumluluk). Referans icin altin.",
+        "'I quit + not come tomorrow' = köprüle yıkma, profesyonel ilişki biter. Standart: 'tell you in person' (saygı) + 'decided to move on' (karar net) + 'last day' (yasal süre) + 'clean handover' (sorumluluk). Referans için altın.",
     },
     {
       id: "ex.cb2-9.sp1",
@@ -3102,11 +3102,11 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "I'm flattered",
-      tr_translation: "Onur duydum / koltuklarim kabardi (kibar reddetme onsozu)",
+      tr_translation: "Onur duydum / koltuklarım kabardı (kibar reddetme önsözü)",
       example:
         "I'm flattered you'd come back with that — but my decision is firm.",
       example_tr:
-        "Bunu sunmaniza onur duydum — ama kararim kesin.",
+        "Bunu sunmanıza onur duydum — ama kararım kesin.",
     },
     {
       id: "ex.cb2-10.2",
@@ -3114,11 +3114,11 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "my decision is firm",
-      tr_translation: "kararim kesin / kati",
+      tr_translation: "kararım kesin / katı",
       example:
         "Really appreciate you trying — my decision is firm. The new chapter is the right one for me.",
       example_tr:
-        "Denemek icin gercekten tesekkurler — kararim kesin. Yeni bolum benim icin dogru olan.",
+        "Denemek için gerçekten teşekkürler — kararım kesin. Yeni bölüm benim için doğru olan.",
     },
     {
       id: "ex.cb2-10.3",
@@ -3135,7 +3135,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
         "Genuinely appreciate the counter-offer — call is still the same. The pull is forward, not the push from here.",
       ],
       tr_hint:
-        "Format: gercek tesekkur (flattered) + KESIN red (firm) + WHY framing (next step icin gidiyorum, buradan kacmiyorum). Iliski koru, ama kapı kapali.",
+        "Format: gerçek teşekkür (flattered) + KESİN red (firm) + WHY framing (next step için gidiyorum, buradan kaçmıyorum). İlişki koru, ama kapı kapalı.",
     },
     {
       id: "ex.cb2-10.4",
@@ -3152,7 +3152,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
         "Means a lot, the team you built — but I want to close this conversation cleanly. Onto the next chapter.",
       ],
       tr_hint:
-        "'Going back and forth' = sallanmak. Sen kapatiyorsun. Tesekkur + 'closing the conversation' = manager'a 'tekrar zorlama' sinyali.",
+        "'Going back and forth' = sallanmak. Sen kapatıyorsun. Teşekkür + 'closing the conversation' = manager'a 'tekrar zorlama' sinyali.",
     },
     {
       id: "ex.cb2-10.5",
@@ -3162,7 +3162,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       answer: "firm",
       distractors: ["strong", "real", "settled"],
       tr_hint:
-        "'Firm' = kati, kesin. Counter-offer reddetme kalibinin omurgasi. 'Settled' yumusak, 'firm' net.",
+        "'Firm' = katı, kesin. Counter-offer reddetme kalıbının omurgası. 'Settled' yumuşak, 'firm' net.",
     },
     {
       id: "ex.cb2-10.6",
@@ -3173,7 +3173,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       correct_sentence:
         "I'm genuinely flattered, but my decision is firm. This isn't about comp — it's about the next chapter.",
       tr_explanation:
-        "'Maybe I will think about it' = sallanma sinyali = manager pazarlik kapisini acik gorur. Dogru: tesekkur + 'firm' (kati) + WHY (sebep para degil, ileri yon). Iliski sicak ama kapı KAPALI.",
+        "'Maybe I will think about it' = sallanma sinyali = manager pazarlık kapısını açık görür. Doğru: teşekkür + 'firm' (katı) + WHY (sebep para değil, ileri yön). İlişki sıcak ama kapı KAPALI.",
     },
     {
       id: "ex.cb2-10.7",
@@ -3199,7 +3199,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
           ],
           model_answers: ["Really appreciate this — genuinely flattered. Decision is firm. Want to be upfront."],
           hint_tr:
-            "Sicak + kesin: 'Really appreciate this — genuinely flattered. Decision is firm. Want to be upfront.'",
+            "Sıcak + kesin: 'Really appreciate this — genuinely flattered. Decision is firm. Want to be upfront.'",
         },
         {
           speaker: "npc",
@@ -3251,7 +3251,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
           ],
           model_answers: ["Means a lot — focus on clean handoff. Want to stay in touch. Door stays open both ways."],
           hint_tr:
-            "Sicak kapanis: 'Means a lot — focus on clean handoff. Want to stay in touch. Door stays open both ways.'",
+            "Sıcak kapanış: 'Means a lot — focus on clean handoff. Want to stay in touch. Door stays open both ways.'",
         },
         {
           speaker: "npc",
@@ -3267,7 +3267,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
           ],
           model_answers: ["Truly grateful — been a real chapter. Sending the transition plan by Friday."],
           hint_tr:
-            "Son cumle: 'Truly grateful — been a real chapter. Sending the transition plan by Friday.'",
+            "Son cümle: 'Truly grateful — been a real chapter. Sending the transition plan by Friday.'",
         },
         {
           speaker: "npc",
@@ -3283,7 +3283,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       phrase: "I'm flattered, but my mind is made up — this isn't about money.",
       ipa: "/aɪm ˈflætəd bʌt maɪ maɪnd ɪz meɪd ʌp ðɪs ˈɪzənt əˈbaʊt ˈmʌni/",
       tr_hint:
-        "Counter-offer'a hayir. 'Flattered' = mutlu oldum (saygili red). 'Mind is made up' idiom = karar verdim. Net ama sicak ton.",
+        "Counter-offer'a hayır. 'Flattered' = mutlu oldum (saygılı red). 'Mind is made up' idiom = karar verdim. Net ama sıcak ton.",
     },
     {
       id: "ex.cb2-10.9",
@@ -3292,7 +3292,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       native_text: "Counter-offers don't address what made me start looking in the first place.",
       voice_hint: "male_us",
       tr_hint:
-        "Cok guclu cumle — counter-offer mantigini cürütür. 'In the first place' = en basta. Sebep maas degil mesajini ver.",
+        "Çok güçlü cümle — counter-offer mantığını çürütür. 'In the first place' = en başta. Sebep maaş değil mesajını ver.",
     },
     {
       id: "ex.cb2-10.10",
@@ -3301,7 +3301,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       audio_text: "What would it take to keep you on the team?",
       transcription_target: "What would it take to keep you on the team?",
       tr_hint:
-        "Manager son denemesi. 'What would it take' = ne lazim. Cevap: 'Nothing on this round — my decision is final.' Tutarli kal.",
+        "Manager son denemesi. 'What would it take' = ne lazım. Cevap: 'Nothing on this round — my decision is final.' Tutarlı kal.",
     },
     {
       id: "ex.cb2-10.11",
@@ -3309,9 +3309,9 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "stay on good terms",
-      tr_translation: "iyi iliskilerle ayrilmak",
+      tr_translation: "iyi ilişkilerle ayrılmak",
       example: "I'd love to stay on good terms — would you be open to a LinkedIn reference?",
-      example_tr: "Iyi iliskilerle ayrilmak isterim — LinkedIn referansina acik olur musun?",
+      example_tr: "İyi ilişkilerle ayrılmak isterim — LinkedIn referansına açık olur musun?",
     },
     {
       id: "ex.cb2-10.12",
@@ -3320,7 +3320,7 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       incorrect_sentence: "OK, give me 20% more and I will stay. Otherwise I go.",
       correct_sentence: "I'm flattered by the counter, but counter-offers don't address what made me start looking — my decision is final.",
       tr_explanation:
-        "'20% give and I stay' = parayla satin alinabilir izlenimi, leverage kaybeder. Counter-offer kabul edenlerin %80'i 6 ay icinde yine ayrilir (data). Profesyonel: 'flattered' (saygi) + 'final' (netlik) + sebep maas degil.",
+        "'20% give and I stay' = parayla satın alınabilir izlenimi, leverage kaybeder. Counter-offer kabul edenlerin %80'i 6 ay içinde yine ayrılır (data). Profesyonel: 'flattered' (saygı) + 'final' (netlik) + sebep maaş değil.",
     },
     {
       id: "ex.cb2-10.sp1",
@@ -3438,11 +3438,11 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "spearheaded a 40% growth initiative",
-      tr_translation: "%40 buyume girisimini bizzat yonettim/baslattim",
+      tr_translation: "%40 büyüme girişimini bizzat yönettim/başlattım",
       example:
         "Spearheaded a 40% growth initiative across three markets, partnering with product and design.",
       example_tr:
-        "Urun ve tasarim ile ortakli sekilde, uc pazarda %40 buyume girisimini bizzat yonettim.",
+        "Ürün ve tasarım ile ortaklı şekilde, üç pazarda %40 büyüme girişimini bizzat yönettim.",
     },
     {
       id: "ex.cb2-11.2",
@@ -3450,11 +3450,11 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "cross-functional collaboration",
-      tr_translation: "fonksiyonlar arasi (ekipler arasi) is birligi",
+      tr_translation: "fonksiyonlar arası (ekipler arası) iş birliği",
       example:
         "Known for cross-functional collaboration — I bring engineering, design, and ops into one conversation.",
       example_tr:
-        "Fonksiyonlar arasi is birligi ile taninirim — muhendislik, tasarim ve operasyonu tek bir sohbete tasirim.",
+        "Fonksiyonlar arası iş birliği ile tanınırım — mühendislik, tasarım ve operasyonu tek bir sohbete taşırım.",
     },
     {
       id: "ex.cb2-11.3",
@@ -3472,7 +3472,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
         "Over three years, I drove alignment across stakeholders and delivered 40% growth — activation was our north star.",
       ],
       tr_hint:
-        "Present perfect ('have spearheaded') = yakin gecmis hala etkili. 'North star metric' = SaaS jargonu, recruiter algoritmasi yakalar. Rakam + verb-strong + impact formati.",
+        "Present perfect ('have spearheaded') = yakın geçmiş hala etkili. 'North star metric' = SaaS jargonu, recruiter algoritması yakalar. Rakam + verb-strong + impact formatı.",
     },
     {
       id: "ex.cb2-11.4",
@@ -3489,7 +3489,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
         "Without testing my cross-functional muscle, the 40% wouldn't have been realistic — I lined up three teams behind a single north star.",
       ],
       tr_hint:
-        "Third conditional ('if I hadn't... wouldn't have') = B2 grameri. Past perfect kosul. LinkedIn 'About' bolumu icin guclu reflection cumlesi.",
+        "Third conditional ('if I hadn't... wouldn't have') = B2 grameri. Past perfect koşul. LinkedIn 'About' bölümü için güçlü reflection cümlesi.",
     },
     {
       id: "ex.cb2-11.5",
@@ -3500,7 +3500,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       answer: "spearheading",
       distractors: ["doing", "making", "having"],
       tr_hint:
-        "Recruiter taraması icin guclu verb. 'Doing/making' zayif kalir. 'Spearheading' = bizzat onculuk eden — leadership sinyali.",
+        "Recruiter taraması için güçlü verb. 'Doing/making' zayıf kalır. 'Spearheading' = bizzat öncülük eden — leadership sinyali.",
     },
     {
       id: "ex.cb2-11.6",
@@ -3511,7 +3511,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       correct_sentence:
         "Senior product leader who spearheaded cross-functional growth initiatives — delivered 40% activation lift across three markets.",
       tr_explanation:
-        "'Hard working, many projects, many teams' = sifat olmayan, soyut, recruiter algoritmasi yakalamaz. Dogru: ROL (senior product leader) + STRONG VERB (spearheaded) + SAYI (%40) + KAPSAM (3 pazar). Her cumle metrik tasimali.",
+        "'Hard working, many projects, many teams' = sıfat olmayan, soyut, recruiter algoritması yakalamaz. Doğru: ROL (senior product leader) + STRONG VERB (spearheaded) + SAYI (%40) + KAPSAM (3 pazar). Her cümle metrik taşımalı.",
     },
     {
       id: "ex.cb2-11.7",
@@ -3554,7 +3554,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
           ],
           model_answers: ["Right — 40% activation lift across three markets, B2B SaaS."],
           hint_tr:
-            "Spesifik metrik: 'Right — 40% activation lift across three markets, B2B SaaS.' Soyutluk yok, sayi koy.",
+            "Spesifik metrik: 'Right — 40% activation lift across three markets, B2B SaaS.' Soyutluk yok, sayı koy.",
         },
         {
           speaker: "npc",
@@ -3571,7 +3571,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
           ],
           model_answers: ["Over the past three years I spearheaded cross-functional launches and delivered 40% growth."],
           hint_tr:
-            "About acilisi: 'Over the past three years I spearheaded cross-functional launches and delivered 40% growth.' Verb-strong, metrik.",
+            "About açılışı: 'Over the past three years I spearheaded cross-functional launches and delivered 40% growth.' Verb-strong, metrik.",
         },
         {
           speaker: "npc",
@@ -3588,7 +3588,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
           ],
           model_answers: ["Probably not — need to weave platform and API into headline and skills."],
           hint_tr:
-            "ATS gercegi: 'Probably not — need to weave platform and API into headline and skills.' Recruiter algoritmasi keyword arar.",
+            "ATS gerçeği: 'Probably not — need to weave platform and API into headline and skills.' Recruiter algoritması keyword arar.",
         },
         {
           speaker: "npc",
@@ -3621,7 +3621,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       phrase: "Spearheaded a 40% growth initiative through cross-functional collaboration.",
       ipa: "/ˈspɪəhɛdɪd ə ˈfɔːti pəˈsɛnt ɡrəʊθ ɪˈnɪʃətɪv θruː ˌkrɒsˈfʌŋkʃənəl kəˌlæbəˈreɪʃən/",
       tr_hint:
-        "'Spearheaded' /ˈspɪəhɛdɪd/ — 'spear-headed' (mizrak basi) gibi. 'Cross-functional' tek nefes, bagli soylenir. LinkedIn icin imza cumle.",
+        "'Spearheaded' /ˈspɪəhɛdɪd/ — 'spear-headed' (mızrak başı) gibi. 'Cross-functional' tek nefes, bağlı söylenir. LinkedIn için imza cümle.",
     },
     {
       id: "ex.cb2-11.9",
@@ -3630,7 +3630,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       native_text: "I've owned the north star metric end-to-end — activation, retention, and expansion.",
       voice_hint: "female_us",
       tr_hint:
-        "SaaS jargonu cifte: 'north star metric' + 'end-to-end'. Recruiter call'unda sik kullanilir. Tonu kararli, sahiplenici. Listele virgul ile.",
+        "SaaS jargonu çifte: 'north star metric' + 'end-to-end'. Recruiter call'unda sık kullanılır. Tonu kararlı, sahiplenici. Listele virgül ile.",
     },
     {
       id: "ex.cb2-11.10",
@@ -3639,7 +3639,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       audio_text: "Your LinkedIn needs more measurable outcomes — every bullet should have a number.",
       transcription_target: "Your LinkedIn needs more measurable outcomes — every bullet should have a number.",
       tr_hint:
-        "Koc tipik feedback. 'Measurable outcomes' = olculebilir sonuc. 'Every bullet should have a number' = profil disiplini. Standart LinkedIn kuralı.",
+        "Koç tipik feedback. 'Measurable outcomes' = ölçülebilir sonuç. 'Every bullet should have a number' = profil disiplini. Standart LinkedIn kuralı.",
     },
     {
       id: "ex.cb2-11.11",
@@ -3647,11 +3647,11 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "stakeholder alignment",
-      tr_translation: "paydas hizalanmasi (karar oncesi onay)",
+      tr_translation: "paydaş hizalanması (karar öncesi onay)",
       example:
         "Drove stakeholder alignment across product, engineering, and GTM ahead of every launch.",
       example_tr:
-        "Her lansman oncesi urun, muhendislik ve GTM (pazara cikis) arasinda paydas hizalanmasini ben yonettim.",
+        "Her lansman öncesi ürün, mühendislik ve GTM (pazara çıkış) arasında paydaş hizalanmasını ben yönettim.",
     },
     {
       id: "ex.cb2-11.12",
@@ -3662,7 +3662,7 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
       correct_sentence:
         "Spearheaded a portfolio of four cross-functional initiatives, driving 40% activation lift through stakeholder alignment.",
       tr_explanation:
-        "'Responsible for many things, helping team' = pasif, soyut, ATS gormez. Dogru: STRONG VERB (spearheaded) + SAYI (4 girisim) + SIFATLI (cross-functional) + IMPACT (%40) + MEKANIZMA (stakeholder alignment). Her kelime is yapiyor.",
+        "'Responsible for many things, helping team' = pasif, soyut, ATS görmez. Doğru: STRONG VERB (spearheaded) + SAYI (4 girişim) + SIFATLI (cross-functional) + IMPACT (%40) + MEKANİZMA (stakeholder alignment). Her kelime iş yapıyor.",
     },
     {
       id: "ex.cb2-11.sp1",
@@ -3780,11 +3780,11 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "leadership philosophy",
-      tr_translation: "liderlik felsefesi (kisisel cerceve)",
+      tr_translation: "liderlik felsefesi (kişisel çerçeve)",
       example:
         "My leadership philosophy boils down to three things: clarity, autonomy, and accountability.",
       example_tr:
-        "Liderlik felsefem uc seye dayanir: netlik, otonomi ve hesap verebilirlik.",
+        "Liderlik felsefem üç şeye dayanır: netlik, otonomi ve hesap verebilirlik.",
     },
     {
       id: "ex.cb2-12.2",
@@ -3792,11 +3792,11 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "scale this team",
-      tr_translation: "bu ekibi (sayi/etki) buyutmek",
+      tr_translation: "bu ekibi (sayı/etki) büyütmek",
       example:
         "If I were to scale this team from twelve to thirty, I'd hire two senior leads first.",
       example_tr:
-        "Eger bu ekibi 12'den 30'a buyutsem, once iki kidemli lider alirdim.",
+        "Eğer bu ekibi 12'den 30'a büyütsem, önce iki kıdemli lider alırdım.",
     },
     {
       id: "ex.cb2-12.3",
@@ -3813,7 +3813,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
         "Leadership for me is three things: clear targets, holding tension between stakeholders, and autonomy paired with accountability. If I had to scale, I'd hire senior first.",
       ],
       tr_hint:
-        "Second conditional ('if I were to... I'd hire') = B2 hipotetik. 'Boils down to three things' = director'lerin frame kalibi. Listele, somutlasir.",
+        "Second conditional ('if I were to... I'd hire') = B2 hipotetik. 'Boils down to three things' = director'lerin frame kalıbı. Listele, somutlaşır.",
     },
     {
       id: "ex.cb2-12.4",
@@ -3830,7 +3830,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
         "Taking this role, my first 90 days would be listening and roadmap reset — same approach I'd run before, which delivered a 30% speed-up.",
       ],
       tr_hint:
-        "Past perfect ('I'd applied', 'we'd accelerated') = onceki deneyim su andan onceki gecmis. Second conditional + past perfect = B2 grameri yogun. 'Listening tour' director cliche'si.",
+        "Past perfect ('I'd applied', 'we'd accelerated') = önceki deneyim şu andan önceki geçmiş. Second conditional + past perfect = B2 grameri yoğun. 'Listening tour' director cliche'si.",
     },
     {
       id: "ex.cb2-12.5",
@@ -3841,7 +3841,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       answer: "rally",
       distractors: ["push", "force", "make"],
       tr_hint:
-        "'Rally the team' = pozitif liderlik dili, ekibi etrafinda toplamak. 'Push/force/make' otoriter ve agresif kalir. Director ton inspire-edici.",
+        "'Rally the team' = pozitif liderlik dili, ekibi etrafında toplamak. 'Push/force/make' otoriter ve agresif kalır. Director ton inspire-edici.",
     },
     {
       id: "ex.cb2-12.6",
@@ -3852,7 +3852,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       correct_sentence:
         "My leadership philosophy boils down to three things: clarity, autonomy, and accountability — I tell people the 'what' and trust them with the 'how'.",
       tr_explanation:
-        "'Strict, tell people what to do, they do it' = command-and-control, modern director rolune ters. Dogru: FRAMEWORK (uc sey) + 'what vs how' ayrimi = clarity ile otonomi dengesi. Modern director mulakatinin altin standardi.",
+        "'Strict, tell people what to do, they do it' = command-and-control, modern director rolüne ters. Doğru: FRAMEWORK (üç şey) + 'what vs how' ayrımı = clarity ile otonomi dengesi. Modern director mülakatının altın standardı.",
     },
     {
       id: "ex.cb2-12.7",
@@ -3879,7 +3879,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
           ],
           model_answers: ["Three phases — senior leads first, then mid-level builders, then operating rituals."],
           hint_tr:
-            "Frame ile basla: 'Three phases — senior leads first, then mid-level builders, then operating rituals.' Listele, somutlasir.",
+            "Frame ile başla: 'Three phases — senior leads first, then mid-level builders, then operating rituals.' Listele, somutlaşır.",
         },
         {
           speaker: "npc",
@@ -3897,7 +3897,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
           ],
           model_answers: ["If I'd loaded juniors first, I'd have been micromanaging. At my last company I scaled 8 to 24 senior-first."],
           hint_tr:
-            "Counterfactual + ornek: 'If I'd loaded juniors first, I'd have been micromanaging. At my last company I scaled 8 to 24 senior-first.'",
+            "Counterfactual + örnek: 'If I'd loaded juniors first, I'd have been micromanaging. At my last company I scaled 8 to 24 senior-first.'",
         },
         {
           speaker: "npc",
@@ -3933,7 +3933,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
           ],
           model_answers: ["I welcome it — steel-man their case. If they're right, change. If not, disagree-and-commit together."],
           hint_tr:
-            "Modern senior leader cevabi: 'I welcome it — steel-man their case. If they're right, change. If not, disagree-and-commit together.'",
+            "Modern senior leader cevabı: 'I welcome it — steel-man their case. If they're right, change. If not, disagree-and-commit together.'",
         },
         {
           speaker: "npc",
@@ -3950,7 +3950,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
           ],
           model_answers: ["First 30 listen, 30-60 synthesize north star, 60-90 roadmap reset and hiring plan."],
           hint_tr:
-            "30-60-90 klasigi: 'First 30 listen, 30-60 synthesize north star, 60-90 roadmap reset and hiring plan.'",
+            "30-60-90 klasiği: 'First 30 listen, 30-60 synthesize north star, 60-90 roadmap reset and hiring plan.'",
         },
         {
           speaker: "npc",
@@ -3966,7 +3966,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       phrase: "My leadership philosophy boils down to clarity, autonomy, and accountability.",
       ipa: "/maɪ ˈliːdəʃɪp fɪˈlɒsəfi bɔɪlz daʊn tuː ˈklɛərɪti ɔːˈtɒnəmi ænd əˌkaʊntəˈbɪlɪti/",
       tr_hint:
-        "Director mulakatinin imza cumlesi. 'Boils down to' /bɔɪlz daʊn tuː/ — idiom, ozetler. Uc kelimeyi virgulle, hafif duraklarla soyle. Tonu kararli, ezberlenmis degil.",
+        "Director mülakatının imza cümlesi. 'Boils down to' /bɔɪlz daʊn tuː/ — idiom, özetler. Üç kelimeyi virgülle, hafif duraklarla söyle. Tonu kararlı, ezberlenmiş değil.",
     },
     {
       id: "ex.cb2-12.9",
@@ -3975,7 +3975,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       native_text: "If I were to step into this role, my first 90 days would be a listening tour.",
       voice_hint: "male_us",
       tr_hint:
-        "Second conditional + future shift. 'Step into this role' = role girmek. 'Listening tour' = director icin standart 90-gun acilisi. Sakin, dusunulmus ton.",
+        "Second conditional + future shift. 'Step into this role' = role girmek. 'Listening tour' = director için standart 90-gün açılışı. Sakin, düşünülmüş ton.",
     },
     {
       id: "ex.cb2-12.10",
@@ -3984,7 +3984,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       audio_text: "How would you scale this team if you had unlimited headcount?",
       transcription_target: "How would you scale this team if you had unlimited headcount?",
       tr_hint:
-        "Hipotetik soru. 'Headcount' = personel sayisi (HR jargon). 'Unlimited' = tuzak — herkesi ise alma cevabi yanlis. Cevap: kalite > volume.",
+        "Hipotetik soru. 'Headcount' = personel sayısı (HR jargon). 'Unlimited' = tuzak — herkesi işe alma cevabı yanlış. Cevap: kalite > volume.",
     },
     {
       id: "ex.cb2-12.11",
@@ -3992,11 +3992,11 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "disagree and commit",
-      tr_translation: "anlasmazliga ragmen taahhut etmek (modern liderlik kalibi)",
+      tr_translation: "anlaşmazlığa rağmen taahhüt etmek (modern liderlik kalıbı)",
       example:
         "If their case doesn't change my view, I'd ask the team to disagree and commit.",
       example_tr:
-        "Eger savunmalari fikrimi degistirmezse, ekibin disagree and commit yapmasini isterim.",
+        "Eğer savunmaları fikrimi değiştirmezse, ekibin disagree and commit yapmasını isterim.",
     },
     {
       id: "ex.cb2-12.12",
@@ -4007,7 +4007,7 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       correct_sentence:
         "If I were to take this role, my first 90 days would be a listening tour — no big moves in month one.",
       tr_explanation:
-        "'If I will get + first month' = hem gramer hatasi (will iki yerde) hem strateji hatasi (acele degisiklik). Dogru: SECOND CONDITIONAL ('if I were to') + 90 gun cercevesi + 'no big moves' = director olgunlugu. Acele = junior sinyali.",
+        "'If I will get + first month' = hem gramer hatası (will iki yerde) hem strateji hatası (acele değişiklik). Doğru: SECOND CONDITIONAL ('if I were to') + 90 gün çerçevesi + 'no big moves' = director olgunluğu. Acele = junior sinyali.",
     },
     {
       id: "ex.cb2-12.sp1",
@@ -4129,7 +4129,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       example:
         "My total comp expectation is in the 320 to 360 range — base, target bonus, and annualized equity combined.",
       example_tr:
-        "Toplam tazminat beklentim 320-360 araliginda — taban, hedef bonus ve yillikizilmis hisse birlikte.",
+        "Toplam tazminat beklentim 320-360 aralığında — taban, hedef bonus ve yıllıkızılmış hisse birlikte.",
     },
     {
       id: "ex.cb2-13.2",
@@ -4137,11 +4137,11 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "refresh grant",
-      tr_translation: "tazeleme hissesi (her yil verilen ek RSU)",
+      tr_translation: "tazeleme hissesi (her yıl verilen ek RSU)",
       example:
         "How do you handle refresh grants — are they performance-based or automatic at year three?",
       example_tr:
-        "Refresh (tazeleme) hisselerini nasil yonetiyorsunuz — performansa mi bagli yoksa ucuncu yilda otomatik mi?",
+        "Refresh (tazeleme) hisselerini nasıl yönetiyorsunuz — performansa mı bağlı yoksa üçüncü yılda otomatik mi?",
     },
     {
       id: "ex.cb2-13.3",
@@ -4158,7 +4158,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
         "I'd land at 350 total comp — 220 base, 20% target bonus, 90k annualized equity. Standard cliff-and-vest schedule on your side?",
       ],
       tr_hint:
-        "Total comp formul: BASE + BONUS + (EQUITY/4 yil). 'Annualized equity' = grant'in 4'e bolunmus hali. 'Cliff' = 1 yil dolmadan vesting yok. Jargon dogru kullan = senior sinyali.",
+        "Total comp formül: BASE + BONUS + (EQUITY/4 yıl). 'Annualized equity' = grant'in 4'e bölünmüş hali. 'Cliff' = 1 yıl dolmadan vesting yok. Jargon doğru kullan = senior sinyali.",
     },
     {
       id: "ex.cb2-13.4",
@@ -4175,7 +4175,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
         "Walk me through refreshes. At my old company, my RSUs had fully cliffed in year four — without that early top-up, comp would have fallen and I'd have moved on.",
       ],
       tr_hint:
-        "Past perfect ('had fallen off') + third conditional ('if I hadn't... would have dropped'). 'Cliff out' = tum hisseler vest etti, yenisi yoksa comp duser. Equity'nin uzun donem dinamigi.",
+        "Past perfect ('had fallen off') + third conditional ('if I hadn't... would have dropped'). 'Cliff out' = tüm hisseler vest etti, yenisi yoksa comp düşer. Equity'nin uzun dönem dinamiği.",
     },
     {
       id: "ex.cb2-13.5",
@@ -4185,7 +4185,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       answer: "cliff",
       distractors: ["wall", "block", "barrier"],
       tr_hint:
-        "'Cliff' = ucurum — 1 yil dolmadan hicbir hisse vest etmez. Jargon dogrudan kullan. Diger sinonimler yanlis kalir.",
+        "'Cliff' = uçurum — 1 yıl dolmadan hiçbir hisse vest etmez. Jargon doğrudan kullan. Diğer sinonimler yanlış kalır.",
     },
     {
       id: "ex.cb2-13.6",
@@ -4196,7 +4196,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       correct_sentence:
         "My total comp expectation is 350 — and I view the equity story as long-term leverage, especially with predictable refresh grants.",
       tr_explanation:
-        "'Equity I don't care, money important' = senior level hata. Yabanci sirkette uzun donem zenginlik equity'den gelir. Dogru: TOTAL COMP framework + 'equity story' uzun donem persp + 'refresh grants' = surdurulebilirlik. Salary-only = junior sinyali.",
+        "'Equity I don't care, money important' = senior level hata. Yabancı şirkette uzun dönem zenginlik equity'den gelir. Doğru: TOTAL COMP framework + 'equity story' uzun dönem persp + 'refresh grants' = sürdürülebilirlik. Salary-only = junior sinyali.",
     },
     {
       id: "ex.cb2-13.7",
@@ -4241,7 +4241,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
           ],
           model_answers: ["Push grant to 800 + year-two refresh. Tie to performance."],
           hint_tr:
-            "Equity'yi park et: 'Push grant to 800 + year-two refresh. Tie to performance.' Base degil, RSU + refresh.",
+            "Equity'yi park et: 'Push grant to 800 + year-two refresh. Tie to performance.' Base değil, RSU + refresh.",
         },
         {
           speaker: "npc",
@@ -4276,7 +4276,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
           ],
           model_answers: ["That's closer — could we also lock in a year-two refresh commitment in writing?"],
           hint_tr:
-            "Bir adim daha: 'That's closer — could we also lock in a year-two refresh commitment in writing?'",
+            "Bir adım daha: 'That's closer — could we also lock in a year-two refresh commitment in writing?'",
         },
         {
           speaker: "npc",
@@ -4310,7 +4310,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       phrase: "My total comp expectation is in the 380 to 420 range — base, bonus, and annualized equity combined.",
       ipa: "/maɪ ˈtəʊtəl kɒmp ˌɛkspɛkˈteɪʃən ɪz ɪn ðə ˈθriː ˈeɪti tuː ˈfɔː ˈtwɛnti reɪndʒ beɪs ˈbəʊnəs ænd ˈænjuəlaɪzd ˈɛkwɪti kəmˈbaɪnd/",
       tr_hint:
-        "Equity pazarliginin imza cumlesi. 'Annualized' /ˈænjuəlaɪzd/ = yillikizilmis — RSU grant'i 4'e boler. Rakamlari NET say, range goster ('380 to 420').",
+        "Equity pazarlığının imza cümlesi. 'Annualized' /ˈænjuəlaɪzd/ = yıllıkızılmış — RSU grant'i 4'e böler. Rakamları NET say, range göster ('380 to 420').",
     },
     {
       id: "ex.cb2-13.9",
@@ -4319,7 +4319,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       native_text: "I view the equity story as long-term leverage — especially with predictable refresh grants.",
       voice_hint: "female_us",
       tr_hint:
-        "Senior dil. 'Equity story' = hisse anlatisi/dinamigi. 'Long-term leverage' = uzun donem manivela. 'Predictable refreshes' = sirketten beklenti — sustainability sinyali.",
+        "Senior dil. 'Equity story' = hisse anlatısı/dinamiği. 'Long-term leverage' = uzun dönem manivela. 'Predictable refreshes' = şirketten beklenti — sustainability sinyali.",
     },
     {
       id: "ex.cb2-13.10",
@@ -4328,7 +4328,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       audio_text: "Refresh grants are performance-gated, typically starting in year two.",
       transcription_target: "Refresh grants are performance-gated, typically starting in year two.",
       tr_hint:
-        "Standart sirket cevabi. 'Performance-gated' = performansa bagli (otomatik degil). 'Year two' = ikinci yilda baslar. Bunu duyunca: 'gated' kriteri ne, yazili mi diye sor.",
+        "Standart şirket cevabı. 'Performance-gated' = performansa bağlı (otomatik değil). 'Year two' = ikinci yılda başlar. Bunu duyunca: 'gated' kriteri ne, yazılı mı diye sor.",
     },
     {
       id: "ex.cb2-13.11",
@@ -4336,11 +4336,11 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "double trigger acceleration",
-      tr_translation: "cifte tetik hizlandirma (satin alma + isten cikarma)",
+      tr_translation: "çifte tetik hızlandırma (satın alma + işten çıkarma)",
       example:
         "Standard for Director level — double trigger acceleration on change of control plus involuntary termination.",
       example_tr:
-        "Director seviyesinde standart — sirket el degistirir VE istemeden cikarilirsan hisseler hizla vest eder.",
+        "Director seviyesinde standart — şirket el değiştirir VE istemeden çıkarılırsan hisseler hızla vest eder.",
     },
     {
       id: "ex.cb2-13.12",
@@ -4351,7 +4351,7 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       correct_sentence:
         "Rather than push base, I'd rather grow the grant and lock in a year-two refresh — that's where the long-term comp lives.",
       tr_explanation:
-        "'Just give bigger salary, equity uncertain' = uzun donem dusunmeyen yaklasim. Senior pazarlik: BASE BANDED (sabit) = lots of pushback yok. EQUITY GROWS = refresh + grant size + acceleration. 'Where the long-term comp lives' = senior cerceve.",
+        "'Just give bigger salary, equity uncertain' = uzun dönem düşünmeyen yaklaşım. Senior pazarlık: BASE BANDED (sabit) = lots of pushback yok. EQUITY GROWS = refresh + grant size + acceleration. 'Where the long-term comp lives' = senior çerçeve.",
     },
     {
       id: "ex.cb2-13.sp1",
@@ -4469,11 +4469,11 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "consistently drives",
-      tr_translation: "tutarli sekilde ileri tasir (yuksek frekansli etki)",
+      tr_translation: "tutarlı şekilde ileri taşır (yüksek frekanslı etki)",
       example:
         "Sarah consistently drives velocity by 25% in every quarter she owns the sprint plan.",
       example_tr:
-        "Sarah, sprint planini sahiplendigi her ceyrekte hizi tutarli sekilde %25 ileri tasir.",
+        "Sarah, sprint planını sahiplendiği her çeyrekte hızı tutarlı şekilde %25 ileri taşır.",
     },
     {
       id: "ex.cb2-14.2",
@@ -4481,11 +4481,11 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "areas where she could level up further",
-      tr_translation: "daha da yukari cikabilecegi alanlar (negatif yumusatici)",
+      tr_translation: "daha da yukarı çıkabileceği alanlar (negatif yumuşatıcı)",
       example:
         "One area where she could level up further: making her strategic thinking more visible in cross-team forums.",
       example_tr:
-        "Daha da yukari cikabilecegi bir alan: stratejik dusuncesini ekipler arasi forumlarda daha gorunur kilmasi.",
+        "Daha da yukarı çıkabileceği bir alan: stratejik düşüncesini ekipler arası forumlarda daha görünür kılması.",
     },
     {
       id: "ex.cb2-14.3",
@@ -4502,7 +4502,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
         "Sarah pushes velocity by 25% consistently — owns alignment, translates technical decisions cleanly. Where she could level up further: making her strategic thinking more visible cross-team.",
       ],
       tr_hint:
-        "360 format: SAYI ile guclu yan + MEKANIZMA (nasil) + 'level up further' (negatif yumusatici). 'Drives... by 25%' formuli kalitiyor, kullan.",
+        "360 format: SAYI ile güçlü yan + MEKANİZMA (nasıl) + 'level up further' (negatif yumuşatıcı). 'Drives... by 25%' formüli kalitiyor, kullan.",
     },
     {
       id: "ex.cb2-14.4",
@@ -4519,7 +4519,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
         "Had Sarah's strategic thinking been visible to leadership earlier, that Q-call would have landed quicker and we'd have gained two weeks.",
       ],
       tr_hint:
-        "Third conditional ('if had been surfaced... would have landed') + 'would have saved'. B2 yogun gramer. 360 review icin guclu counterfactual — somut maliyet (iki hafta).",
+        "Third conditional ('if had been surfaced... would have landed') + 'would have saved'. B2 yoğun gramer. 360 review için güçlü counterfactual — somut maliyet (iki hafta).",
     },
     {
       id: "ex.cb2-14.5",
@@ -4529,7 +4529,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       answer: "level",
       distractors: ["go", "move", "step"],
       tr_hint:
-        "'Level up further' = 360 review imza ifadesi. Negatif feedback'i 'gelisim alani' diline cevirir. Diger fiiller standart degil bu cerceve icin.",
+        "'Level up further' = 360 review imza ifadesi. Negatif feedback'i 'gelişim alanı' diline çevirir. Diğer fiiller standart değil bu çerçeve için.",
     },
     {
       id: "ex.cb2-14.6",
@@ -4540,7 +4540,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       correct_sentence:
         "Sarah consistently drives velocity by 25% and owns stakeholder alignment — one area where she could level up further is making her strategic thinking more visible cross-team.",
       tr_explanation:
-        "'Good employee, works hard, weak points' = soyut, promo dosyasinda kullanilamaz. Dogru format: SAYI (%25) + STRONG VERB (drives, owns) + SPESIFIK MEKANIZMA (stakeholder alignment) + LEVEL UP FRAMING. HR ve calibration committee bunu okur.",
+        "'Good employee, works hard, weak points' = soyut, promo dosyasında kullanılamaz. Doğru format: SAYI (%25) + STRONG VERB (drives, owns) + SPESİFİK MEKANİZMA (stakeholder alignment) + LEVEL UP FRAMING. HR ve calibration committee bunu okur.",
     },
     {
       id: "ex.cb2-14.7",
@@ -4567,7 +4567,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
           ],
           model_answers: ["Top strength — consistently drives velocity by 25%, owns stakeholder alignment, translates technical decisions cleanly."],
           hint_tr:
-            "Imza formul: 'Top strength — consistently drives velocity by 25%, owns stakeholder alignment, translates technical decisions cleanly.'",
+            "İmza formül: 'Top strength — consistently drives velocity by 25%, owns stakeholder alignment, translates technical decisions cleanly.'",
         },
         {
           speaker: "npc",
@@ -4602,7 +4602,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
           ],
           model_answers: ["One area to level up — making her strategic thinking more visible to leadership. Her insights don't always reach the broader room."],
           hint_tr:
-            "Yumusak format: 'One area to level up — making her strategic thinking more visible to leadership. Her insights don't always reach the broader room.'",
+            "Yumuşak format: 'One area to level up — making her strategic thinking more visible to leadership. Her insights don't always reach the broader room.'",
         },
         {
           speaker: "npc",
@@ -4619,7 +4619,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
           ],
           model_answers: ["Fair flag — reframe as behavior: publish more strategic write-ups cross-team. Concrete, not personality."],
           hint_tr:
-            "Bias sinyaline duyarli: 'Fair flag — reframe as behavior: publish more strategic write-ups cross-team. Concrete, not personality.'",
+            "Bias sinyaline duyarlı: 'Fair flag — reframe as behavior: publish more strategic write-ups cross-team. Concrete, not personality.'",
         },
         {
           speaker: "npc",
@@ -4652,7 +4652,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       phrase: "Sarah consistently drives velocity by 25% and owns stakeholder alignment end-to-end.",
       ipa: "/ˈsɑːrə kənˈsɪstəntli draɪvz vəˈlɒsɪti baɪ ˈtwɛnti faɪv pəˈsɛnt ænd əʊnz ˈsteɪkˌhəʊldər əˈlaɪnmənt ɛnd tuː ɛnd/",
       tr_hint:
-        "360 review imza cumlesi. 'Consistently' /kənˈsɪstəntli/ — tutarli sekilde. 'End-to-end' tek nefes. Rakam NET soyle, etki cikar.",
+        "360 review imza cümlesi. 'Consistently' /kənˈsɪstəntli/ — tutarlı şekilde. 'End-to-end' tek nefes. Rakam NET söyle, etki çıkar.",
     },
     {
       id: "ex.cb2-14.9",
@@ -4661,7 +4661,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       native_text: "One area where she could level up further is making her strategic thinking more visible.",
       voice_hint: "female_us",
       tr_hint:
-        "Negatif feedback formul cumlesi. 'Level up further' = ust seviyeye tasimak. 'More visible' = daha gorunur kilmak (yargilamadan davranis). Yumusak, profesyonel ton.",
+        "Negatif feedback formül cümlesi. 'Level up further' = üst seviyeye taşımak. 'More visible' = daha görünür kılmak (yargılamadan davranış). Yumuşak, profesyonel ton.",
     },
     {
       id: "ex.cb2-14.10",
@@ -4670,7 +4670,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       audio_text: "Frame the development area as a behavior, not a personality trait.",
       transcription_target: "Frame the development area as a behavior, not a personality trait.",
       tr_hint:
-        "HR'in kritik kurali. 'Development area' = gelisme alani (negatif yumusatici). 'Behavior, not personality' = ne yapilabilecekse onu yaz, kisilik etiketi takma. Bias filtresi.",
+        "HR'in kritik kuralı. 'Development area' = gelişme alanı (negatif yumuşatıcı). 'Behavior, not personality' = ne yapılabilecekse onu yaz, kişilik etiketi takma. Bias filtresi.",
     },
     {
       id: "ex.cb2-14.11",
@@ -4678,11 +4678,11 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "operating at the next level",
-      tr_translation: "bir ust seviyede calismak (promo sinyali)",
+      tr_translation: "bir üst seviyede çalışmak (promo sinyali)",
       example:
         "She's already operating at the next level — the title would catch up with the scope.",
       example_tr:
-        "Zaten bir ust seviyede calisiyor — unvan, sahipligin kapsamina yetisecek.",
+        "Zaten bir üst seviyede çalışıyor — unvan, sahipliğin kapsamına yetişecek.",
     },
     {
       id: "ex.cb2-14.12",
@@ -4693,7 +4693,7 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
       correct_sentence:
         "One area where she could level up further: publishing more strategic write-ups cross-team — her insights would land with wider stakeholder groups.",
       tr_explanation:
-        "'Quiet person, talk more' = kisilik etiketi + cinsiyet/kultur bias riski. Calibration committee bunu reddeder. Dogru: BEHAVIOR ('publishing write-ups') + KANAL (cross-team) + IMPACT ('insights would land'). Davranis somut, kisilik soyut.",
+        "'Quiet person, talk more' = kişilik etiketi + cinsiyet/kültür bias riski. Calibration committee bunu reddeder. Doğru: BEHAVIOR ('publishing write-ups') + KANAL (cross-team) + IMPACT ('insights would land'). Davranış somut, kişilik soyut.",
     },
     {
       id: "ex.cb2-14.sp1",

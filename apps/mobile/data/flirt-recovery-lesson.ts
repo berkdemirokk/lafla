@@ -39,7 +39,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
         "Realized I got it wrong — apologies if uncomfortable.",
       ],
       tr_hint:
-        "'Misread the vibe/room' = ortami / havayi yanlis okumak. Hafif ironi ile kabul.",
+        "'Misread the vibe/room' = ortamı / havayı yanlış okumak. Hafif ironi ile kabul.",
     },
     {
       id: "ex.frec8.1.3",
@@ -49,7 +49,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
       answer: "bad",
       distractors: ["fault", "mistake", "wrong"],
       tr_hint:
-        "'My bad' = pardon / benim hatam. Casual + ozur kalibi.",
+        "'My bad' = pardon / benim hatam. Casual + özür kalıbı.",
     },
     {
       id: "ex.frec8.1.4",
@@ -74,7 +74,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
       correct_sentence:
         "Looks like I read the vibe wrong — my bad, no awkwardness needed.",
       tr_explanation:
-        "'You shouldn't have led me on' = suclama = isleri daha kotu yapar. Doğru: kendi hatani sahiplen, hafiflet.",
+        "'You shouldn't have led me on' = suçlama = işleri daha kötü yapar. Doğru: kendi hatanı sahiplen, hafiflet.",
     },
     {
       id: "ex.frec8.1.6",
@@ -158,7 +158,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sahiplenmek = olgunluk. Hafifletmek = ortami rahatlatma. Ikisi birden = guc.",
+            "Sahiplenmek = olgunluk. Hafifletmek = ortamı rahatlatma. İkisi birden = güç.",
         },
         {
           question: "'My bad' kalibinin avantaji?",
@@ -170,7 +170,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Uzun ozurden daha rahatlatici. Drama'yi tetiklemeden ozru iletir.",
+            "Uzun özürden daha rahatlatıcı. Drama'yı tetiklemeden özrü iletir.",
         },
         {
           question: "Misread sonrasi 'arkadas kalalim' teklifi NE zaman uygun?",
@@ -182,7 +182,7 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi tarafa baskı hissettirmemek esas. Eger duygusal olarak agir yatirim yaptiysan, mesafe almak daha saglikli.",
+            "Karşı tarafa baskı hissettirmemek esas. Eğer duygusal olarak ağır yatırım yaptıysan, mesafe almak daha sağlıklı.",
         },
       ],
     },
@@ -397,7 +397,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
         "Mortified by what I sent last night — too much to drink.",
       ],
       tr_hint:
-        "'Cringe / Cringing' = utancima yer arama. Sarhos mesaj sonrasi standart his.",
+        "'Cringe / Cringing' = utancıma yer arama. Sarhoş mesaj sonrası standart his.",
     },
     {
       id: "ex.frec8.2.3",
@@ -407,7 +407,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
       answer: "what",
       distractors: ["that", "which", "how"],
       tr_hint:
-        "'Mortified' = utancimdan yerin dibine girmis. Bu cumlede: gonderdigim seyden utaniyorum.",
+        "'Mortified' = utancımdan yerin dibine girmiş. Bu cümlede: gönderdiğim şeyden utanıyorum.",
     },
     {
       id: "ex.frec8.2.4",
@@ -433,7 +433,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
       correct_sentence:
         "Cringing at last night's texts — sorry, that was a lot.",
       tr_explanation:
-        "'I meant every word' = soft retreat yok = riskli. Doğru: utanci kabul + ozur + hafiflet.",
+        "'I meant every word' = soft retreat yok = riskli. Doğru: utancı kabul + özür + hafiflet.",
     },
     {
       id: "ex.frec8.2.6",
@@ -456,7 +456,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
           ],
           model_answers: ["Okay, mortified — last night was too much wine. Sorry!"],
           hint_tr:
-            "Espriyle ac: 'Okay, mortified — last night was too much wine. Sorry!'",
+            "Espriyle aç: 'Okay, mortified — last night was too much wine. Sorry!'",
         },
         {
           speaker: "npc",
@@ -517,7 +517,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Erken ozur = saygi. Gec ozur = kacma denemesi gibi gozukur.",
+            "Erken özür = saygı. Geç özür = kaçma denemesi gibi gözükür.",
         },
         {
           question: "'Drunk me has thoughts' espriyi NE icin kullaniyoruz?",
@@ -529,7 +529,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Espri ile sahiplenmek + dramayi azaltmak = sosyal yetenek. Olgun ama eglenceli.",
+            "Espri ile sahiplenmek + dramayı azaltmak = sosyal yetenek. Olgun ama eğlenceli.",
         },
         {
           question: "Sarhos mesajda 'I meant every word' demek RISKI?",
@@ -541,7 +541,7 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Esnek olma alanini kapatir. 'Cringe' edip soft retreat yapmak daha guvenli.",
+            "Esnek olma alanını kapatır. 'Cringe' edip soft retreat yapmak daha güvenli.",
         },
       ],
     },
@@ -818,7 +818,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
         "Hey, ghost no more — life got intense.",
       ],
       tr_hint:
-        "'Out of hibernation' = kis uykusundan cikis. Uzun sessizlik sonrasi acilis kalibi.",
+        "'Out of hibernation' = kış uykusundan çıkış. Uzun sessizlik sonrası açılış kalıbı.",
     },
     {
       id: "ex.frec8.3.3",
@@ -828,7 +828,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
       answer: "going",
       distractors: ["been", "having", "taking"],
       tr_hint:
-        "'Going off the grid' = gozden kaybolmak / iletisimsiz olmak. Sessizlik kaliplari.",
+        "'Going off the grid' = gözden kaybolmak / iletişimsiz olmak. Sessizlik kalıpları.",
     },
     {
       id: "ex.frec8.3.4",
@@ -854,7 +854,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
       correct_sentence:
         "Hey stranger — life got crazy on my end, hope you've been well!",
       tr_explanation:
-        "'Where have you been?' = suclayici. Doğru: kendi sessizligini sahiplen + sicak ac.",
+        "'Where have you been?' = suçlayıcı. Doğru: kendi sessizliğini sahiplen + sıcak aç.",
     },
     {
       id: "ex.frec8.3.6",
@@ -877,7 +877,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
           ],
           model_answers: ["Hey stranger — life got crazy. How are you?"],
           hint_tr:
-            "Hafif ac: 'Hey stranger — life got crazy. How are you?'",
+            "Hafif aç: 'Hey stranger — life got crazy. How are you?'",
         },
         {
           speaker: "npc",
@@ -939,7 +939,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Hafiflik + sahiplenme = garipligi yikar. Cok agir ozur = kaciris hissi.",
+            "Hafiflik + sahiplenme = garipliği yıkar. Çok ağır özür = kaçırış hissi.",
         },
         {
           question: "Sessizligin sebebini ACIKLAMAK gerekli mi?",
@@ -951,7 +951,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Life got crazy' yeter. Detay = bahane gibi gozukur. Kisa + samimi.",
+            "'Life got crazy' yeter. Detay = bahane gibi gözükür. Kısa + samimi.",
         },
         {
           question: "Karsi taraf CEVAP atmazsa?",
@@ -963,7 +963,7 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sessizligi karsi tarafa hakaret olarak cevirmek = saygisizlik. Bir denedin, kapidasin.",
+            "Sessizliği karşı tarafa hakaret olarak çevirmek = saygısızlık. Bir denedin, kapıdasın.",
         },
       ],
     },
@@ -1221,9 +1221,9 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Mortified at last night",
-      tr_translation: "Dun gece icin yerin dibine girmis durumdayim",
+      tr_translation: "Dün gece için yerin dibine girmiş durumdayım",
       example: "Mortified at last night — can we pretend that didn't happen?",
-      example_tr: "Dun gece icin utancimdan oluyorum — hic olmamis gibi yapabilir miyiz?",
+      example_tr: "Dün gece için utancımdan ölüyorum — hiç olmamış gibi yapabilir miyiz?",
     },
     {
       id: "ex.frec8.5.2",
@@ -1240,7 +1240,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
         "Mortified about last night — please ignore everything I sent.",
       ],
       tr_hint:
-        "'Mortified' = utanctan oluyorum. 'Pretend that didn't happen' = sosyal sil-bas yapma teklifi.",
+        "'Mortified' = utançtan oluyorum. 'Pretend that didn't happen' = sosyal sil-baş yapma teklifi.",
     },
     {
       id: "ex.frec8.5.3",
@@ -1250,7 +1250,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
       answer: "pretend",
       distractors: ["forget", "imagine", "assume"],
       tr_hint:
-        "'Pretend X didn't happen' = X olmamis gibi davranmak. Sosyal sil-bas teklifi.",
+        "'Pretend X didn't happen' = X olmamış gibi davranmak. Sosyal sil-bas teklifi.",
     },
     {
       id: "ex.frec8.5.4",
@@ -1266,7 +1266,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
         "night",
       ],
       correct_sentence: "Please ignore everything I sent last night",
-      tr_translation: "Lutfen dun gece gonderdigim her seyi gormezden gel.",
+      tr_translation: "Lütfen dün gece gönderdiğim her şeyi görmezden gel.",
     },
     {
       id: "ex.frec8.5.5",
@@ -1276,7 +1276,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
       correct_sentence:
         "Mortified about last night — please ignore everything I sent.",
       tr_explanation:
-        "'Sorry I drink yesterday' = bozuk dilbilgisi (past tense yok) + asiri vurgu. Dogru: 'Mortified about last night' (duygu) + 'please ignore' (kibarca sil) = native sounding hasar kontrolu.",
+        "'Sorry I drink yesterday' = bozuk dilbilgisi (past tense yok) + aşırı vurgu. Doğru: 'Mortified about last night' (duygu) + 'please ignore' (kibarca sil) = native sounding hasar kontrolü.",
     },
     {
       id: "ex.frec8.5.6",
@@ -1298,7 +1298,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
           ],
           model_answers: ["Okay — mortified about last night. Can we pretend that didn't happen?"],
           hint_tr:
-            "Ac: 'Okay — mortified about last night. Can we pretend that didn't happen?'",
+            "Aç: 'Okay — mortified about last night. Can we pretend that didn't happen?'",
         },
         {
           speaker: "npc",
@@ -1356,7 +1356,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sessizlik = garipligi buyutur. Sahiplenmek + hafif espriyle silmek = olgun + cazip.",
+            "Sessizlik = garipliği büyütür. Sahiplenmek + hafif espriyle silmek = olgun + cazip.",
         },
         {
           question: "'Can we pretend that didn't happen?' formulu NICIN guclu?",
@@ -1368,7 +1368,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Karsi taraf 'hayir hatirliyorum' demek zorunda kalmaz — gulup gecebilir. Kibar exit ramp.",
+            "Karşı taraf 'hayır hatırlıyorum' demek zorunda kalmaz — gülüp geçebilir. Kibar exit ramp.",
         },
         {
           question: "Drunk text sonrasi alcohol promotion'a girmemek icin NE yap?",
@@ -1391,7 +1391,7 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
       phrase: "Mortified at last night — can we pretend that didn't happen?",
       ipa: "ˈmɔːtɪfaɪd æt lɑːst naɪt kæn wi prɪˈtend ðæt ˈdɪdənt ˈhæpən",
       tr_hint:
-        "'Mortified' = MOR-ti-fayd, 3 hece, dramatik vurgu birinci hecede. 'Pretend' yumusak, 'didn't' kisaltma. Hafif gulumseyerek soyle — utanci espriyle tasi.",
+        "'Mortified' = MOR-ti-fayd, 3 hece, dramatik vurgu birinci hecede. 'Pretend' yumuşak, 'didn't' kısaltma. Hafif gülümseyerek söyle — utancı espriyle taşı.",
     },
     {
       id: "ex.frec8.5.sp1",
@@ -1600,9 +1600,9 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "I owe you an explanation",
-      tr_translation: "Sana bir acikama borcluyum",
+      tr_translation: "Sana bir açıkama borçluyum",
       example: "Hey, owe you an explanation — got pulled into a tough month.",
-      example_tr: "Selam, sana bir acikama borcluyum — zor bir aya yakalandim.",
+      example_tr: "Selam, sana bir açıkama borçluyum — zor bir aya yakalandım.",
     },
     {
       id: "ex.frec8.6.2",
@@ -1619,7 +1619,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
         "Owe you the truth — was going through it, sorry for the silence.",
       ],
       tr_hint:
-        "'Owe you an explanation' = olgun sahiplenme. 'Pulled into a tough month' = bahane degil, sebep.",
+        "'Owe you an explanation' = olgun sahiplenme. 'Pulled into a tough month' = bahane değil, sebep.",
     },
     {
       id: "ex.frec8.6.3",
@@ -1629,7 +1629,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
       answer: "pulled",
       distractors: ["dragged", "thrown", "stuck"],
       tr_hint:
-        "'Pulled into' = istemden bagimsiz cekildim. Daha pasif/durumsal — bahaneden farkli.",
+        "'Pulled into' = istemden bağımsız çekildim. Daha pasif/durumsal — bahaneden farklı.",
     },
     {
       id: "ex.frec8.6.4",
@@ -1646,7 +1646,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
         "truth",
       ],
       correct_sentence: "No excuse but I owe you the truth",
-      tr_translation: "Mazeret degil ama sana gercegi borcluyum.",
+      tr_translation: "Mazeret değil ama sana gerçeği borçluyum.",
     },
     {
       id: "ex.frec8.6.5",
@@ -1656,7 +1656,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
       correct_sentence:
         "Hey, owe you an explanation — got pulled into a tough month. No pressure to respond.",
       tr_explanation:
-        "'Sorry I disappear' = past tense yok + 'okay?' baski yapiyor. Dogru: 'owe you an explanation' (sahiplenme) + sebep + 'no pressure' (alan birak).",
+        "'Sorry I disappear' = past tense yok + 'okay?' baskı yapıyor. Doğru: 'owe you an explanation' (sahiplenme) + sebep + 'no pressure' (alan bırak).",
     },
     {
       id: "ex.frec8.6.6",
@@ -1695,7 +1695,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
           ],
           model_answers: ["Getting there — thanks for asking. Open to a reset over coffee, no pressure?"],
           hint_tr:
-            "Onerme: 'Getting there — thanks for asking. Open to a reset over coffee, no pressure?'",
+            "Önerme: 'Getting there — thanks for asking. Open to a reset over coffee, no pressure?'",
         },
         {
           speaker: "npc",
@@ -1736,7 +1736,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sahiplenme + alan birakma = saygi. 'No pressure to respond' = ego'yu degil iliskiyi koru.",
+            "Sahiplenme + alan bırakma = saygı. 'No pressure to respond' = ego'yu değil ilişkiyi koru.",
         },
         {
           question: "'Got pulled into a tough month' NEDEN 'I was busy'tan daha iyi?",
@@ -1748,7 +1748,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Busy' = herkesin bahanesi. 'Pulled into a tough month' = gercek bir donem, sahiplenme hissi var.",
+            "'Busy' = herkesin bahanesi. 'Pulled into a tough month' = gerçek bir dönem, sahiplenme hissi var.",
         },
         {
           question: "Karsi taraf 'forgive me?' isteyince NE deme?",
@@ -1760,7 +1760,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Affedilmeyi talep etme — sun. Karsi tarafa hayir deme alani vermek = olgunluk.",
+            "Affedilmeyi talep etme — sun. Karşı tarafa hayır deme alanı vermek = olgunluk.",
         },
       ],
     },
@@ -1771,7 +1771,7 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
       phrase: "Owe you an explanation — got pulled into a tough month.",
       ipa: "əʊ ju ən ˌekspləˈneɪʃən ɡɒt pʊld ˈɪntə ə tʌf mʌnθ",
       tr_hint:
-        "'Owe you' bagli okun (ow-yoo), gunluk konusmada I dustu. 'Explanation' = eks-pluh-NAY-shun, 4 hece vurgu 3.'de. Sessiz/samimi ton — ozur agirligi tasiyici.",
+        "'Owe you' bağlı okun (ow-yoo), günlük konuşmada I düştü. 'Explanation' = eks-pluh-NAY-shun, 4 hece vurgu 3.'de. Sessiz/samimi ton — özür ağırlığı taşıyıcı.",
     },
     {
       id: "ex.frec8.6.sp1",
@@ -1980,9 +1980,9 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "That wasn't meant for you",
-      tr_translation: "Bu sana atilmayacakti",
+      tr_translation: "Bu sana atılmayacaktı",
       example: "That wasn't meant for you — pretend you didn't see that.",
-      example_tr: "Bu sana atilmayacakti — gormemis gibi yap.",
+      example_tr: "Bu sana atılmayacaktı — görmemiş gibi yap.",
     },
     {
       id: "ex.frec8.7.2",
@@ -1999,7 +1999,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
         "That wasn't meant for you — let's both pretend it never happened.",
       ],
       tr_hint:
-        "'Wasn't meant for you' = sana yonelik degildi. 'Pretend you didn't see' = sosyal sil-bas teklifi.",
+        "'Wasn't meant for you' = sana yönelik değildi. 'Pretend you didn't see' = sosyal sil-baş teklifi.",
     },
     {
       id: "ex.frec8.7.3",
@@ -2009,7 +2009,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
       answer: "chat",
       distractors: ["text", "place", "side"],
       tr_hint:
-        "'Wrong chat' / 'wrong thread' = yanlis sohbet. Dogal mobil dili.",
+        "'Wrong chat' / 'wrong thread' = yanlış sohbet. Doğal mobil dili.",
     },
     {
       id: "ex.frec8.7.4",
@@ -2024,7 +2024,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
         "please",
       ],
       correct_sentence: "Pretend you didn't see that please",
-      tr_translation: "Lutfen gormemis gibi yap.",
+      tr_translation: "Lütfen görmemiş gibi yap.",
     },
     {
       id: "ex.frec8.7.5",
@@ -2034,7 +2034,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
       correct_sentence:
         "That wasn't meant for you — pretend you didn't see that.",
       tr_explanation:
-        "'Delete delete delete!!!' = panik + komik degil garip. Dogru: 'wasn't meant for you' (sahiplen) + 'pretend you didn't see' (hafif espri) = sakin damage control.",
+        "'Delete delete delete!!!' = panik + komik değil garip. Doğru: 'wasn't meant for you' (sahiplen) + 'pretend you didn't see' (hafif espri) = sakin damage control.",
     },
     {
       id: "ex.frec8.7.6",
@@ -2056,7 +2056,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
           ],
           model_answers: ["Oh no, wrong chat — that wasn't meant for you, pretend you didn't see that!"],
           hint_tr:
-            "Hizla: 'Oh no, wrong chat — that wasn't meant for you, pretend you didn't see that!'",
+            "Hızla: 'Oh no, wrong chat — that wasn't meant for you, pretend you didn't see that!'",
         },
         {
           speaker: "npc",
@@ -2115,7 +2115,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sessizlik = merak buyutur. Hizli + hafif kabul = en az garip cikis.",
+            "Sessizlik = merak büyütür. Hızlı + hafif kabul = en az garip çıkış.",
         },
         {
           question: "Karsi taraf 'should I be worried?' diye sorarsa NE deme?",
@@ -2127,7 +2127,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Endise tetigi kapatmak gerek — hafif espri + olumlu cerceve = soft landing.",
+            "Endişe tetiği kapatmak gerek — hafif espri + olumlu çerçeve = soft landing.",
         },
         {
           question: "'Pretend you didn't see that' NEDEN guclu bir formul?",
@@ -2139,7 +2139,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Karsi taraf gulup gecebilir, sosyal sozlesme — kimse mecbur kalmaz.",
+            "Karşı taraf gülüp geçebilir, sosyal sözleşme — kimse mecbur kalmaz.",
         },
       ],
     },
@@ -2150,7 +2150,7 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
       phrase: "That wasn't meant for you — pretend you didn't see that.",
       ipa: "ðæt ˈwɒzənt ment fə ju prɪˈtend ju ˈdɪdənt siː ðæt",
       tr_hint:
-        "'Wasn't' = WUH-zunt, hizli. 'Meant for you' bagli (men-fər-yoo). 'Pretend' yumusak pi-TREND. Komik panik tonu — gulumseyerek kac.",
+        "'Wasn't' = WUH-zunt, hızlı. 'Meant for you' bağlı (men-fər-yoo). 'Pretend' yumuşak pi-TREND. Komik panik tonu — gülümseyerek kaç.",
     },
     {
       id: "ex.frec8.7.sp1",
@@ -2360,7 +2360,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "That emoji landed weird",
-      tr_translation: "O emoji garip durdu / yanlis anlasildi",
+      tr_translation: "O emoji garip durdu / yanlış anlaşıldı",
       example: "Wow that emoji landed weird — let me try that again.",
       example_tr: "Vay o emoji garip durdu — bir daha deneyim.",
     },
@@ -2379,7 +2379,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
         "That emoji read way wrong — let me try again with words.",
       ],
       tr_hint:
-        "'Landed weird' = garip dustu/anlasildi. 'Let me try that again' = sosyal reset talebi.",
+        "'Landed weird' = garip düştü/anlaşıldı. 'Let me try that again' = sosyal reset talebi.",
     },
     {
       id: "ex.frec8.8.3",
@@ -2389,7 +2389,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
       answer: "try",
       distractors: ["do", "send", "fix"],
       tr_hint:
-        "'Let me try that again' = sosyal reset kalibi. Konusmaya devam icin guzel kopru.",
+        "'Let me try that again' = sosyal reset kalıbı. Konuşmaya devam için güzel köprü.",
     },
     {
       id: "ex.frec8.8.4",
@@ -2405,7 +2405,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
         "for",
       ],
       correct_sentence: "Not the energy I was going for",
-      tr_translation: "Hedefledigim hava bu degildi.",
+      tr_translation: "Hedeflediğim hava bu değildi.",
     },
     {
       id: "ex.frec8.8.5",
@@ -2415,7 +2415,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
       correct_sentence:
         "Wow that emoji landed weird — not the energy I was going for, let me try that again.",
       tr_explanation:
-        "'I am not weird person I promise' = savunmaci + 'a' artikeli eksik + abartili. Dogru: hafif farkindalik ('landed weird') + sahiplenme ('not the energy I meant') + reset talebi.",
+        "'I am not weird person I promise' = savunmacı + 'a' artikeli eksik + abartılı. Doğru: hafif farkındalık ('landed weird') + sahiplenme ('not the energy I meant') + reset talebi.",
     },
     {
       id: "ex.frec8.8.6",
@@ -2437,7 +2437,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
           ],
           model_answers: ["Wow that emoji landed weird — not the energy I meant. Let me try that again — meant the heart!"],
           hint_tr:
-            "Ac: 'Wow that emoji landed weird — not the energy I meant. Let me try that again — meant the heart!'",
+            "Aç: 'Wow that emoji landed weird — not the energy I meant. Let me try that again — meant the heart!'",
         },
         {
           speaker: "npc",
@@ -2454,7 +2454,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
           ],
           model_answers: ["Thumbs betrayed me — sticking to words. What I meant was, you looked great in that pic."],
           hint_tr:
-            "Yumusat: 'Thumbs betrayed me — sticking to words. What I meant was, you looked great in that pic.'",
+            "Yumuşat: 'Thumbs betrayed me — sticking to words. What I meant was, you looked great in that pic.'",
         },
         {
           speaker: "npc",
@@ -2495,7 +2495,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bos birakirsan yanlis anlam yerlesir. Hizli sahiplenip cumlelerle netlestir.",
+            "Boş bırakırsan yanlış anlam yerleşir. Hızlı sahiplenip cümlelerle netleştir.",
         },
         {
           question: "Emoji hatasini KOMIKLESTIRMENIN avantaji nedir?",
@@ -2507,7 +2507,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Thumbs betrayed me' tarzi mizah = utanc anini cazibe firsatina cevirir.",
+            "'Thumbs betrayed me' tarzı mizah = utanç anını cazibe fırsatına çevirir.",
         },
         {
           question: "Reset sonrasi NE ile devam etmek en iyisi?",
@@ -2519,7 +2519,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'What I meant was...' = niyeti soze cevir, belirsizligi kapat.",
+            "'What I meant was...' = niyeti söze çevir, belirsizliği kapat.",
         },
       ],
     },
@@ -2530,7 +2530,7 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
       phrase: "That emoji landed weird — let me try that again.",
       ipa: "ðæt ɪˈməʊdʒi ˈlændɪd wɪəd let mi traɪ ðæt əˈɡen",
       tr_hint:
-        "'Emoji' = i-MOH-jee, 3 hece, vurgu 2. hecede. 'Landed' kisa LAN-did. 'Weird' tek hece, uzun /iːə/. Hafif gulumseyerek soyle — garipligi sahiplenip espri kat.",
+        "'Emoji' = i-MOH-jee, 3 hece, vurgu 2. hecede. 'Landed' kısa LAN-did. 'Weird' tek hece, uzun /iːə/. Hafif gülümseyerek söyle — garipliği sahiplenip espri kat.",
     },
     {
       id: "ex.frec8.8.sp1",

@@ -252,7 +252,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       phrase: "Which aisle is the rice in?",
       ipa: "/wɪtʃ aɪl ɪz ðə raɪs ɪn/",
       tr_articulation_hint:
-        "'Aisle' = 'ayl' (s sessiz). 'Which' = 'wiç'. 'In' sonda yukseliyor — soru tonu.",
+        "'Aisle' = 'ayl' (s sessiz). 'Which' = 'wiç'. 'In' sonda yükseliyor — soru tonu.",
     },
     {
       id: "ex.og46.1.9",
@@ -261,7 +261,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       native_text: "Hey, do you know where the soy sauce is?",
       voice_hint: "female_us",
       tr_hint:
-        "'Do you know where' birlestir, hizli oku. 'Soy sauce' = 'soy sos'. Sicak ve rahat ton, market personeline normal hız.",
+        "'Do you know where' birleştir, hızlı oku. 'Soy sauce' = 'soy sos'. Sıcak ve rahat ton, market personeline normal hız.",
     },
     {
       id: "ex.og46.1.10",
@@ -270,7 +270,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       audio_text: "It's all the way down at the end of aisle twelve.",
       transcription_target: "It's all the way down at the end of aisle twelve.",
       tr_hint:
-        "'All the way down' = ta dipte, yon tarifi deyimi. 'Aisle twelve' = 'ayl twelv' — 'aisle' icindeki s yutulur.",
+        "'All the way down' = ta dipte, yön tarifi deyimi. 'Aisle twelve' = 'ayl twelv' — 'aisle' içindeki s yutulur.",
     },
     {
       id: "ex.og46.1.11",
@@ -278,9 +278,9 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       difficulty: 2,
       cefr_band: "B1",
       word_or_phrase: "stocked up on",
-      tr_translation: "Stogunda var / bol miktarda var",
+      tr_translation: "Stoğunda var / bol miktarda var",
       example_en: "Are you guys stocked up on tahini?",
-      example_tr: "Tahin stogunuz var mi?",
+      example_tr: "Tahin stoğunuz var mı?",
     },
     {
       id: "ex.og46.1.12",
@@ -289,7 +289,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       incorrect_sentence: "Where is exist the rice?",
       correct_sentence: "Where can I find the rice?",
       tr_explanation:
-        "'Where is exist' Turkce 'var mi?' yapisinin direkt cevirisi — Ingilizce'de 'exist' bu baglamda kullanilmaz. 'Where can I find [X]?' standart sorudur.",
+        "'Where is exist' Türkçe 'var mı?' yapısının direkt çevirisi — İngilizce'de 'exist' bu bağlamda kullanılmaz. 'Where can I find [X]?' standart sorudur.",
     },
     {
       id: "ex.og46.1.sp1",
@@ -682,7 +682,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       phrase: "Could you trim the fat, please?",
       ipa: "/kʊd ju trɪm ðə fæt pliːz/",
       tr_articulation_hint:
-        "'Trim' = 'trim' (kisa i). 'Fat' = 'fæt' — agzi yana ac. 'Could you' birlesir: 'kudju'.",
+        "'Trim' = 'trim' (kısa i). 'Fat' = 'fæt' — ağzı yana aç. 'Could you' birleşir: 'kudju'.",
     },
     {
       id: "ex.og46.2.9",
@@ -691,7 +691,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       native_text: "I'll take half a pound of turkey, sliced thin please.",
       voice_hint: "male_us",
       tr_hint:
-        "Tek nefeste oku. 'Half a pound' = 'hæfə paund'. Virgulden sonra hafif duraklama, sonra 'sliced thin' net.",
+        "Tek nefeste oku. 'Half a pound' = 'hæfə paund'. Virgülden sonra hafif duraklama, sonra 'sliced thin' net.",
     },
     {
       id: "ex.og46.2.10",
@@ -700,7 +700,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       audio_text: "The salmon came in this morning — it's good to go.",
       transcription_target: "The salmon came in this morning — it's good to go.",
       tr_hint:
-        "'Good to go' = idiom, 'sorunsuz/hazir' demek. 'Salmon' icindeki l yutulur — 'sæmən'. 'Came in' = stok geldi.",
+        "'Good to go' = idiom, 'sorunsuz/hazır' demek. 'Salmon' içindeki l yutulur — 'sæmən'. 'Came in' = stok geldi.",
     },
     {
       id: "ex.og46.2.11",
@@ -710,7 +710,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       word_or_phrase: "wild-caught",
       tr_translation: "Doğal avlanmış (çiftlik degil)",
       example_en: "Is this salmon wild-caught or farm-raised?",
-      example_tr: "Bu somon dogadan mi yoksa ciftlik mi?",
+      example_tr: "Bu somon doğadan mı yoksa çiftlik mi?",
     },
     {
       id: "ex.og46.2.12",
@@ -720,7 +720,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       correct_sentence:
         "Could I get about two pounds of fish, deboned please?",
       tr_explanation:
-        "ABD marketlerinde kg yok — pound. 'No bones in' kirik gramer, 'deboned' tek kelime is gorur. 'I want' yerine 'Could I get' kibar.",
+        "ABD marketlerinde kg yok — pound. 'No bones in' kırık gramer, 'deboned' tek kelime iş görür. 'I want' yerine 'Could I get' kibar.",
     },
     {
       id: "ex.og46.2.sp1",
@@ -1112,7 +1112,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       phrase: "Did you find everything okay?",
       ipa: "/dɪd ju faɪnd ˈɛvriθɪŋ oʊˈkeɪ/",
       tr_articulation_hint:
-        "'Did you' birlesir = 'dɪdʒə'. 'Everything' uc heceli — 'ev-ri-thing'. Tonlama sonda yukseliyor.",
+        "'Did you' birleşir = 'dɪdʒə'. 'Everything' üç heceli — 'ev-ri-thing'. Tonlama sonda yükseliyor.",
     },
     {
       id: "ex.og46.3.9",
@@ -1121,7 +1121,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       native_text: "I brought my own bags, thanks.",
       voice_hint: "female_us",
       tr_hint:
-        "'Brought' past tense — geniz t hafif. 'Thanks' sonda inice ton — nazik kapanis. Kayar gibi soyle.",
+        "'Brought' past tense — geniz t hafif. 'Thanks' sonda inice ton — nazik kapanış. Kayar gibi söyle.",
     },
     {
       id: "ex.og46.3.10",
@@ -1130,7 +1130,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       audio_text: "Your total comes to twenty-three eighty-six.",
       transcription_target: "Your total comes to twenty-three eighty-six.",
       tr_hint:
-        "Dolar miktari: $23.86 = 'twenty-three eighty-six'. 'Comes to' = toplam yapiyor (sabit kalip). 'Twenty-three' bagli telaffuz.",
+        "Dolar miktarı: $23.86 = 'twenty-three eighty-six'. 'Comes to' = toplam yapıyor (sabit kalıp). 'Twenty-three' bağlı telaffuz.",
     },
     {
       id: "ex.og46.3.11",
@@ -1140,7 +1140,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       word_or_phrase: "tap to pay",
       tr_translation: "Temassız öde (kart/telefon)",
       example_en: "Can I just tap to pay with my phone?",
-      example_tr: "Telefonumla temassiz odeyebilir miyim?",
+      example_tr: "Telefonumla temassız ödeyebilir miyim?",
     },
     {
       id: "ex.og46.3.12",
@@ -1149,7 +1149,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       incorrect_sentence: "I will pay with the cash.",
       correct_sentence: "I'll pay with cash, thanks.",
       tr_explanation:
-        "Genel kavramlarda 'the' kullanilmaz — 'with cash' veya 'in cash' standart. 'I'll' kasilma sozlu Ingilizce'de daha dogal.",
+        "Genel kavramlarda 'the' kullanılmaz — 'with cash' veya 'in cash' standart. 'I'll' kasılma sözlü İngilizce'de daha doğal.",
     },
     {
       id: "ex.og46.3.sp1",
@@ -1549,7 +1549,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       native_text: "Excuse me, could you do a price check on this?",
       voice_hint: "female_us",
       tr_hint:
-        "'Excuse me' yumusak ac. 'Price check' birlestir = 'praɪs tʃɛk' — tek isim gibi. 'On this' sonda hafif yukseliyor.",
+        "'Excuse me' yumuşak aç. 'Price check' birleştir = 'praɪs tʃɛk' — tek isim gibi. 'On this' sonda hafif yükseliyor.",
     },
     {
       id: "ex.og46.4.10",
@@ -1559,7 +1559,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       transcription_target:
         "You're gonna want to look up the PLU code for the avocados.",
       tr_hint:
-        "'Gonna' = casual 'going to'. 'Look up' = bul/ara (idiom). 'PLU code' = sebze-meyve kodu (4 haneli). Hizli akan sokak Ingilizcesi.",
+        "'Gonna' = casual 'going to'. 'Look up' = bul/ara (idiom). 'PLU code' = sebze-meyve kodu (4 haneli). Hızlı akan sokak İngilizcesi.",
     },
     {
       id: "ex.og46.4.11",
@@ -1567,9 +1567,9 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "void this item",
-      tr_translation: "Bu urunu iptal et (kasada)",
+      tr_translation: "Bu ürünü iptal et (kasada)",
       example_en: "Could you void this item? I changed my mind.",
-      example_tr: "Bu urunu iptal eder misin? Fikrimi degistirdim.",
+      example_tr: "Bu ürünü iptal eder misin? Fikrimi değiştirdim.",
     },
     {
       id: "ex.og46.4.12",
@@ -1579,7 +1579,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       correct_sentence:
         "The machine isn't scanning properly — could you help me out?",
       tr_explanation:
-        "'Not working good' yanlis — sifat degil zarf gerekli: 'well' veya 'properly'. Ayrica spesifik problem belirt: 'isn't scanning'.",
+        "'Not working good' yanlış — sıfat değil zarf gerekli: 'well' veya 'properly'. Ayrıca spesifik problem belirt: 'isn't scanning'.",
     },
     {
       id: "ex.og46.4.sp1",

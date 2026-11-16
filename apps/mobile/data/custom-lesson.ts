@@ -178,7 +178,7 @@ export const customLesson_3_1: BundledLesson = {
       phrase: "I'm allergic to peanuts.",
       ipa: "/aɪm əˈlɜrdʒɪk tu ˈpiːnʌts/",
       tr_articulation_hint:
-        "'Allergic' = ə-ler-cik, vurgu ortada. 'Peanuts' = pi-nats (uzun i). Yutmadan net soyle — garson dogru anlamali.",
+        "'Allergic' = ə-ler-cik, vurgu ortada. 'Peanuts' = pi-nats (uzun i). Yutmadan net söyle — garson doğru anlamalı.",
     },
     {
       id: "ex.3.1.9",
@@ -187,7 +187,7 @@ export const customLesson_3_1: BundledLesson = {
       native_text: "Just a heads up — I have a severe nut allergy.",
       voice_hint: "male_us",
       tr_hint:
-        "'Heads up' = uyari, sıcak ton. 'Severe' (sıvir, vurgu sonda) — onemli noktayi vurgu ile soyle. Ciddi ama panik degil.",
+        "'Heads up' = uyarı, sıcak ton. 'Severe' (sıvir, vurgu sonda) — önemli noktayı vurgu ile söyle. Ciddi ama panik değil.",
     },
     {
       id: "ex.3.1.10",
@@ -197,7 +197,7 @@ export const customLesson_3_1: BundledLesson = {
       transcription_target:
         "We can absolutely accommodate that — I'll flag it with the kitchen.",
       tr_hint:
-        "'Accommodate' = uyarlamak (uzun, vurgu kom hecesinde). 'Flag it' deyim = mutfaga bildir. Restoran personeli kalibi.",
+        "'Accommodate' = uyarlamak (uzun, vurgu kom hecesinde). 'Flag it' deyim = mutfağa bildir. Restoran personeli kalıbı.",
     },
     {
       id: "ex.3.1.11",
@@ -208,7 +208,7 @@ export const customLesson_3_1: BundledLesson = {
       tr_translation: "Laktoz intoleransı var",
       example_en: "I'm lactose intolerant — could you check if there's milk in this?",
       example_tr:
-        "Laktoz intoleransim var — bunda sut var mi kontrol eder misin?",
+        "Laktoz intoleransım var — bunda süt var mı kontrol eder misin?",
     },
     {
       id: "ex.3.1.12",
@@ -217,7 +217,7 @@ export const customLesson_3_1: BundledLesson = {
       incorrect_sentence: "I have allergy to milk.",
       correct_sentence: "I have a milk allergy.",
       tr_explanation:
-        "'Have allergy' yanlis — sayilabilir isim, 'a' gerekli. Ya 'I have a milk allergy' ya da 'I'm allergic to milk' kullan.",
+        "'Have allergy' yanlış — sayılabilir isim, 'a' gerekli. Ya 'I have a milk allergy' ya da 'I'm allergic to milk' kullan.",
     },
     // ============================================================
     // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
@@ -700,7 +700,7 @@ export const customLesson_3_2: BundledLesson = {
       phrase: "Hold the onions, please.",
       ipa: "/hoʊld ðə ˈʌnjənz pliːz/",
       tr_articulation_hint:
-        "'Hold' = hold, l hafif. 'Onions' = ı-niınz (vurgu basta, hafif y sesi). 'Please' yumusatici — sonda inice ton.",
+        "'Hold' = hold, l hafif. 'Onions' = ı-niınz (vurgu başta, hafif y sesi). 'Please' yumuşatıcı — sonda inice ton.",
     },
     {
       id: "ex.3.2.9",
@@ -709,7 +709,7 @@ export const customLesson_3_2: BundledLesson = {
       native_text: "Could I get that with extra cheese and no pickles?",
       voice_hint: "female_us",
       tr_hint:
-        "Iki istek tek cumlede — 'and' ile bagla. 'Extra cheese' bagli, 'no pickles' net. Akici fast food ritmi.",
+        "İki istek tek cümlede — 'and' ile bağla. 'Extra cheese' bağlı, 'no pickles' net. Akıcı fast food ritmi.",
     },
     {
       id: "ex.3.2.10",
@@ -718,7 +718,7 @@ export const customLesson_3_2: BundledLesson = {
       audio_text: "You got it — I'll put the dressing on the side.",
       transcription_target: "You got it — I'll put the dressing on the side.",
       tr_hint:
-        "'You got it' = idiom, 'tamamdir/anladim'. 'On the side' = ayrı tabaka — sos/garnitur icin standart. Garson onay tonu.",
+        "'You got it' = idiom, 'tamamdır/anladım'. 'On the side' = ayrı tabaka — sos/garnitür için standart. Garson onay tonu.",
     },
     {
       id: "ex.3.2.11",
@@ -728,7 +728,7 @@ export const customLesson_3_2: BundledLesson = {
       word_or_phrase: "sub for",
       tr_translation: "Yerine koy / değiştir",
       example_en: "Can I sub avocado for the bacon?",
-      example_tr: "Pastirma yerine avokado koyabilir miyim?",
+      example_tr: "Pastırma yerine avokado koyabilir miyim?",
     },
     {
       id: "ex.3.2.12",
@@ -737,7 +737,7 @@ export const customLesson_3_2: BundledLesson = {
       incorrect_sentence: "Put extra to cheese.",
       correct_sentence: "Could I get extra cheese, please?",
       tr_explanation:
-        "'Put extra to cheese' Turkce mantik — Ingilizce yapisi degil. 'Extra cheese' sifat + isim. 'Could I get [X], please?' = kibar sipariş kalibi.",
+        "'Put extra to cheese' Türkçe mantık — İngilizce yapısı değil. 'Extra cheese' sıfat + isim. 'Could I get [X], please?' = kibar sipariş kalıbı.",
     },
     // ============================================================
     // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
@@ -1203,7 +1203,7 @@ export const customLesson_3_3: BundledLesson = {
       phrase: "Is this gluten-free?",
       ipa: "/ɪz ðɪs ˈɡluːtən friː/",
       tr_articulation_hint:
-        "'Gluten' = glu-tın (vurgu basta). 'Free' net, agzi yana ac. Tonlama sonda yukseliyor — soru ton.",
+        "'Gluten' = glu-tın (vurgu başta). 'Free' net, ağzı yana aç. Tonlama sonda yükseliyor — soru ton.",
     },
     {
       id: "ex.3.3.9",
@@ -1212,7 +1212,7 @@ export const customLesson_3_3: BundledLesson = {
       native_text: "I'm plant-based — do you have any options I could try?",
       voice_hint: "female_us",
       tr_hint:
-        "'Plant-based' tek kelime gibi bagla. 'I could try' sonda yumusak — yardim isteyen ton. Sicak ama net.",
+        "'Plant-based' tek kelime gibi bağla. 'I could try' sonda yumuşak — yardım isteyen ton. Sıcak ama net.",
     },
     {
       id: "ex.3.3.10",
@@ -1222,7 +1222,7 @@ export const customLesson_3_3: BundledLesson = {
       transcription_target:
         "Our falafel plate is fully vegan and the rice is gluten-free.",
       tr_hint:
-        "'Fully vegan' = tamamen vegan, vurgu vurguda. 'Falafel' = fa-la-fıl. Garson menü tanitim tonu, akici sıralama.",
+        "'Fully vegan' = tamamen vegan, vurgu vurguda. 'Falafel' = fa-la-fıl. Garson menü tanıtım tonu, akıcı sıralama.",
     },
     {
       id: "ex.3.3.11",
@@ -1230,9 +1230,9 @@ export const customLesson_3_3: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "dairy-free",
-      tr_translation: "Sütsüz / süt urunsuz",
+      tr_translation: "Sütsüz / süt ürünsüz",
       example_en: "Do you have a dairy-free version of the pasta?",
-      example_tr: "Bu makarnanin sutsuz versiyonu var mi?",
+      example_tr: "Bu makarnanın sütsüz versiyonu var mı?",
     },
     {
       id: "ex.3.3.12",
@@ -1241,7 +1241,7 @@ export const customLesson_3_3: BundledLesson = {
       incorrect_sentence: "I am vegan person.",
       correct_sentence: "I'm vegan.",
       tr_explanation:
-        "'Vegan' tek basina sifat — 'person' gereksiz. Turkce 'Vegan biriyim' kelime kelime cevirisi. 'I'm vegan' tek basina yeterli.",
+        "'Vegan' tek başına sıfat — 'person' gereksiz. Türkçe 'Vegan biriyim' kelime kelime çevirisi. 'I'm vegan' tek başına yeterli.",
     },
     // ============================================================
     // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
@@ -1559,7 +1559,7 @@ export const customLesson_3_4: BundledLesson = {
       word_or_phrase: "Hold the mayo",
       tr_translation: "Mayonez koyma",
       example: "Hold the mayo, please.",
-      example_tr: "Mayonez koymayin lutfen.",
+      example_tr: "Mayonez koymayın lütfen.",
     },
     {
       id: "ex.3.4.2",
@@ -1577,7 +1577,7 @@ export const customLesson_3_4: BundledLesson = {
         "Could I have extra cheese, no mayo?",
       ],
       tr_hint:
-        "'Extra [X]' = bol [X]. 'Hold the [X]' = X koyma. Iki istegi 'and' ile bagla.",
+        "'Extra [X]' = bol [X]. 'Hold the [X]' = X koyma. İki isteği 'and' ile bağla.",
     },
     {
       id: "ex.3.4.3",
@@ -1587,7 +1587,7 @@ export const customLesson_3_4: BundledLesson = {
       answer: "sub",
       distractors: ["change", "trade", "switch"],
       tr_hint:
-        "'Sub [X] for [Y]' = X yerine Y. 'Substitute' kisaltmasi — restoran slang. 'Switch/change' Turkler kullanir ama 'sub for' dogal.",
+        "'Sub [X] for [Y]' = X yerine Y. 'Substitute' kısaltması — restoran slang. 'Switch/change' Türkler kullanır ama 'sub for' doğal.",
     },
     {
       id: "ex.3.4.4",
@@ -1612,7 +1612,7 @@ export const customLesson_3_4: BundledLesson = {
       incorrect_sentence: "I don't want mayonnaise.",
       correct_sentence: "Hold the mayo, please.",
       tr_explanation:
-        "'I don't want' Turk klasigi — gramerce dogru ama kasada agir, kotu ton. Restoran kalibi: 'Hold the [X]' veya 'No [X], please'. Daha kisa, profesyonel, sicak.",
+        "'I don't want' Türk klasiği — gramerce doğru ama kasada ağır, kötü ton. Restoran kalıbı: 'Hold the [X]' veya 'No [X], please'. Daha kısa, profesyonel, sıcak.",
     },
     {
       id: "ex.3.4.6",
@@ -1637,7 +1637,7 @@ export const customLesson_3_4: BundledLesson = {
           ],
           model_answers: ["I'll have the Italian"],
           hint_tr:
-            "Ekmek sec: 'Wheat, please' veya 'I'll have the Italian'.",
+            "Ekmek seç: 'Wheat, please' veya 'I'll have the Italian'.",
         },
         {
           speaker: "npc",
@@ -1655,7 +1655,7 @@ export const customLesson_3_4: BundledLesson = {
           ],
           model_answers: ["No cheese"],
           hint_tr:
-            "Peynir sec veya 'Extra cheese, please' / 'No cheese'.",
+            "Peynir seç veya 'Extra cheese, please' / 'No cheese'.",
         },
         {
           speaker: "npc",
@@ -1673,7 +1673,7 @@ export const customLesson_3_4: BundledLesson = {
           ],
           model_answers: ["Lettuce, tomato, no onions, extra mayo, dressing on the side"],
           hint_tr:
-            "Sebze/sos sec: 'Lettuce, tomato, no onions, extra mayo, dressing on the side'.",
+            "Sebze/sos seç: 'Lettuce, tomato, no onions, extra mayo, dressing on the side'.",
         },
         {
           speaker: "npc",
@@ -1696,7 +1696,7 @@ export const customLesson_3_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Hold the [X]' US sandwich/burger shop standardi. 'I don't want' kotu ton. 'Mayo' = mayonnaise kisaltmasi, dogal.",
+            "'Hold the [X]' US sandwich/burger shop standardı. 'I don't want' kötü ton. 'Mayo' = mayonnaise kısaltması, doğal.",
         },
         {
           question: "'Sub avocado for bacon' ne anlama gelir?",
@@ -1708,7 +1708,7 @@ export const customLesson_3_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Sub [X] for [Y]' = Y'yi al, yerine X koy. Yani avokado yeni gelen, pastirma cikiyor. Yon onemli.",
+            "'Sub [X] for [Y]' = Y'yi al, yerine X koy. Yani avokado yeni gelen, pastırma çıkıyor. Yön önemli.",
         },
         {
           question: "'Light on the mayo' = ?",
@@ -1720,7 +1720,7 @@ export const customLesson_3_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Light/easy on [X]' = az koy. 'Heavy on [X]' = bol koy. 'No [X]' = hic koyma. 'On the side' = ayri ver.",
+            "'Light/easy on [X]' = az koy. 'Heavy on [X]' = bol koy. 'No [X]' = hiç koyma. 'On the side' = ayrı ver.",
         },
       ],
     },
@@ -1731,7 +1731,7 @@ export const customLesson_3_4: BundledLesson = {
       phrase: "Extra cheese, hold the mayo.",
       ipa: "/ˈɛkstrə tʃiːz hoʊld ðə ˈmeɪ.oʊ/",
       tr_articulation_hint:
-        "'Extra' = eks-tra, vurgu basta. 'Cheese' = ciiz, uzun i. 'Hold' kisa, l hafif. 'Mayo' = mey-o, ilk hece vurgulu. Iki istek arasinda kisa duraksama.",
+        "'Extra' = eks-tra, vurgu başta. 'Cheese' = çiiz, uzun i. 'Hold' kısa, l hafif. 'Mayo' = mey-o, ilk hece vurgulu. İki istek arasında kısa duraksama.",
     },
     // ============================================================
     // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
@@ -2040,9 +2040,9 @@ export const customLesson_3_5: BundledLesson = {
       difficulty: 1,
       cefr_band: "A1",
       word_or_phrase: "half pepperoni, half veggie",
-      tr_translation: "Yarisi pepperoni, yarisi sebzeli",
+      tr_translation: "Yarısı pepperoni, yarısı sebzeli",
       example: "Can I get it half pepperoni, half veggie?",
-      example_tr: "Yarisi pepperoni yarisi sebzeli alabilir miyim?",
+      example_tr: "Yarısı pepperoni yarısı sebzeli alabilir miyim?",
     },
     {
       id: "ex.3.5.2",
@@ -2060,7 +2060,7 @@ export const customLesson_3_5: BundledLesson = {
         "Less sauce, lots of cheese.",
       ],
       tr_hint:
-        "'Light/easy on [X]' = az. 'Heavy on [X]' veya 'extra [X]' = bol. Pizza siparisi kalibi.",
+        "'Light/easy on [X]' = az. 'Heavy on [X]' veya 'extra [X]' = bol. Pizza siparişi kalıbı.",
     },
     {
       id: "ex.3.5.3",
@@ -2070,7 +2070,7 @@ export const customLesson_3_5: BundledLesson = {
       answer: "mushrooms",
       distractors: ["mushroom", "the mushroom", "a mushroom"],
       tr_hint:
-        "Pizza topping cogul: 'mushrooms', 'olives', 'peppers'. 'Add [X] on top' = uzerine [X] ekle.",
+        "Pizza topping çoğul: 'mushrooms', 'olives', 'peppers'. 'Add [X] on top' = üzerine [X] ekle.",
     },
     {
       id: "ex.3.5.4",
@@ -2087,7 +2087,7 @@ export const customLesson_3_5: BundledLesson = {
         "cheese",
       ],
       correct_sentence: "Could we do thin crust with extra cheese",
-      tr_translation: "Ince hamur ekstra peynirle olabilir mi?",
+      tr_translation: "İnce hamur ekstra peynirle olabilir mi?",
     },
     {
       id: "ex.3.5.5",
@@ -2096,7 +2096,7 @@ export const customLesson_3_5: BundledLesson = {
       incorrect_sentence: "Put more cheese on pizza.",
       correct_sentence: "Could we get extra cheese on the pizza?",
       tr_explanation:
-        "'Put more X' emir kipi — kasaba agir. 'Could we get extra [X]?' = kibar sipariş. 'Extra' = 'more' sipariş baglaminda standart. 'The pizza' belirli, 'a' degil.",
+        "'Put more X' emir kipi — kasaba ağır. 'Could we get extra [X]?' = kibar sipariş. 'Extra' = 'more' sipariş bağlamında standart. 'The pizza' belirli, 'a' değil.",
     },
     {
       id: "ex.3.5.6",
@@ -2122,7 +2122,7 @@ export const customLesson_3_5: BundledLesson = {
           ],
           model_answers: ["Could we get a large?"],
           hint_tr:
-            "Pizza boyutunu sec: 'Could we get a large?', 'We'll have a medium pepperoni'.",
+            "Pizza boyutunu seç: 'Could we get a large?', 'We'll have a medium pepperoni'.",
         },
         {
           speaker: "npc",
@@ -2155,7 +2155,7 @@ export const customLesson_3_5: BundledLesson = {
           ],
           model_answers: ["Let's do deep dish"],
           hint_tr:
-            "Hamur sec: 'Thin crust, please' veya 'Let's do deep dish'.",
+            "Hamur seç: 'Thin crust, please' veya 'Let's do deep dish'.",
         },
         {
           speaker: "npc",
@@ -2178,7 +2178,7 @@ export const customLesson_3_5: BundledLesson = {
           ],
           correct_index: 2,
           tr_explanation:
-            "'Half [X], half [Y]' = bir pizzanin bir yari [X], oteki [Y]. ABD pizzeria standardi — grup siparisinde cok yaygin.",
+            "'Half [X], half [Y]' = bir pizzanın bir yarı [X], öteki [Y]. ABD pizzeria standardı — grup siparişinde çok yaygın.",
         },
         {
           question: "'Heavy on the cheese' = ?",
@@ -2190,7 +2190,7 @@ export const customLesson_3_5: BundledLesson = {
           ],
           correct_index: 2,
           tr_explanation:
-            "'Heavy on [X]' = bol [X]. Karsiti 'light/easy on [X]' = az. 'Extra [X]' de bol anlaminda.",
+            "'Heavy on [X]' = bol [X]. Karşıtı 'light/easy on [X]' = az. 'Extra [X]' de bol anlamında.",
         },
         {
           question: "Pizza ekmegi 'crust' tiplerinden DEGIL?",
@@ -2202,7 +2202,7 @@ export const customLesson_3_5: BundledLesson = {
           ],
           correct_index: 3,
           tr_explanation:
-            "Crust tipleri: thin (ince), regular (normal), thick (kalin), deep dish (Chicago), hand-tossed (elle acilmis), New York style. 'Smooth' crust tipi degil.",
+            "Crust tipleri: thin (ince), regular (normal), thick (kalın), deep dish (Chicago), hand-tossed (elle açılmış), New York style. 'Smooth' crust tipi değil.",
         },
       ],
     },
@@ -2530,9 +2530,9 @@ export const customLesson_3_6: BundledLesson = {
       difficulty: 1,
       cefr_band: "A1",
       word_or_phrase: "medium-rare",
-      tr_translation: "Az pismis (ici pembe-kirmizi)",
+      tr_translation: "Az pişmiş (içi pembe-kırmızı)",
       example: "I'll have the burger medium-rare.",
-      example_tr: "Burger'i az pismis alacagim.",
+      example_tr: "Burger'i az pişmiş alacağım.",
     },
     {
       id: "ex.3.6.2",
@@ -2550,7 +2550,7 @@ export const customLesson_3_6: BundledLesson = {
         "I want it medium, a little pink in the middle.",
       ],
       tr_hint:
-        "'Medium' = orta. 'Pink in the middle' = ortasi pembe — derece tarif kalibi. ABD'de garson tam boyle sorar.",
+        "'Medium' = orta. 'Pink in the middle' = ortası pembe — derece tarif kalıbı. ABD'de garson tam böyle sorar.",
     },
     {
       id: "ex.3.6.3",
@@ -2576,7 +2576,7 @@ export const customLesson_3_6: BundledLesson = {
         "please",
       ],
       correct_sentence: "Could I get it well done please",
-      tr_translation: "Iyi pismis alabilir miyim lutfen?",
+      tr_translation: "İyi pişmiş alabilir miyim lütfen?",
     },
     {
       id: "ex.3.6.5",
@@ -2585,7 +2585,7 @@ export const customLesson_3_6: BundledLesson = {
       incorrect_sentence: "Make burger very cooked.",
       correct_sentence: "I'd like the burger well-done, please.",
       tr_explanation:
-        "'Very cooked' Turkce duzine — Ingilizce'de derece terimleri var: rare, medium-rare, medium, medium-well, well-done. 'Well-done' = iyi pismis. 'Make' emir, 'I'd like' kibar.",
+        "'Very cooked' Türkçe düzine — İngilizce'de derece terimleri var: rare, medium-rare, medium, medium-well, well-done. 'Well-done' = iyi pişmiş. 'Make' emir, 'I'd like' kibar.",
     },
     {
       id: "ex.3.6.6",
@@ -2611,7 +2611,7 @@ export const customLesson_3_6: BundledLesson = {
           ],
           model_answers: ["Medium, pink in the middle"],
           hint_tr:
-            "Derece sec: 'Medium-rare, please', 'Well-done', 'Medium, pink in the middle'.",
+            "Derece seç: 'Medium-rare, please', 'Well-done', 'Medium, pink in the middle'.",
         },
         {
           speaker: "npc",
@@ -2629,7 +2629,7 @@ export const customLesson_3_6: BundledLesson = {
           ],
           model_answers: ["Sounds good"],
           hint_tr:
-            "Onayla ('Sounds good') veya degistir ('Actually, let's do medium-well').",
+            "Onayla ('Sounds good') veya değiştir ('Actually, let's do medium-well').",
         },
         {
           speaker: "npc",
@@ -2646,7 +2646,7 @@ export const customLesson_3_6: BundledLesson = {
           ],
           model_answers: ["Could I sub fries for a salad?"],
           hint_tr:
-            "Garnitur sec veya 'Could I sub fries for a salad?'.",
+            "Garnitur seç veya 'Could I sub fries for a salad?'.",
         },
         {
           speaker: "npc",
@@ -2669,7 +2669,7 @@ export const customLesson_3_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sira: rare (cig'a yakin) → medium-rare (az pismis, pembe-kirmizi) → medium (orta, pembe) → medium-well (cogu pismis) → well-done (iyi pismis). 'Raw' = cig (yenmez).",
+            "Sıra: rare (çiğ'a yakın) → medium-rare (az pişmiş, pembe-kırmızı) → medium (orta, pembe) → medium-well (çoğu pişmiş) → well-done (iyi pişmiş). 'Raw' = çiğ (yenmez).",
         },
         {
           question: "Garson 'How would you like that cooked?' diye sordu. EN UYGUN cevap?",
@@ -2681,7 +2681,7 @@ export const customLesson_3_6: BundledLesson = {
           ],
           correct_index: 2,
           tr_explanation:
-            "Soru pisme derecesi hakkinda. Cevap mutlaka bir derece terimi olmali: rare, medium-rare, medium, medium-well, well-done.",
+            "Soru pişme derecesi hakkında. Cevap mutlaka bir derece terimi olmalı: rare, medium-rare, medium, medium-well, well-done.",
         },
         {
           question: "'Pink in the middle' ne anlama gelir?",
@@ -2693,7 +2693,7 @@ export const customLesson_3_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Pink in the middle/center' = ortasi pembe — medium veya medium-rare burger/biftek normal gorunumu. Tehlike degil, derece tarif.",
+            "'Pink in the middle/center' = ortası pembe — medium veya medium-rare burger/biftek normal görünümü. Tehlike değil, derece tarif.",
         },
       ],
     },
@@ -2704,7 +2704,7 @@ export const customLesson_3_6: BundledLesson = {
       phrase: "Medium-rare, please.",
       ipa: "/ˈmiː.di.əm rɛr pliːz/",
       tr_articulation_hint:
-        "'Medium' = mi-di-ım, vurgu basta. 'Rare' = rer (R sert, agzi yuvarlak, sondaki r belirgin ABD'de). Iki kelime arasinda tire — bagli soyle. 'Please' yumusatici.",
+        "'Medium' = mi-di-ım, vurgu başta. 'Rare' = rer (R sert, ağzı yuvarlak, sondaki r belirgin ABD'de). İki kelime arasında tire — bağlı söyle. 'Please' yumuşatıcı.",
     },
     // ============================================================
     // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
@@ -2766,7 +2766,7 @@ export const customLesson_3_6: BundledLesson = {
         "(a bit |slightly )?pink in the (middle|center)",
       ],
       tr_hint:
-        "Garson pisme derecesi soruyor — cevap mutlaka bir derece terimi olmalı. Türk 'good cooked' der — 'medium-rare', 'medium', 'medium-well', 'well-done', 'rare' arasından seç.",
+        "Garson pişme derecesi soruyor — cevap mutlaka bir derece terimi olmalı. Türk 'good cooked' der — 'medium-rare', 'medium', 'medium-well', 'well-done', 'rare' arasından seç.",
       ideal_answer: "Medium-rare, please.",
     },
     {
@@ -3018,7 +3018,7 @@ export const customLesson_3_7: BundledLesson = {
       word_or_phrase: "dressing on the side",
       tr_translation: "Sos ayri",
       example: "Could I get the dressing on the side?",
-      example_tr: "Sosu ayri alabilir miyim?",
+      example_tr: "Sosu ayrı alabilir miyim?",
     },
     {
       id: "ex.3.7.2",
@@ -3036,7 +3036,7 @@ export const customLesson_3_7: BundledLesson = {
         "Could I have it without croutons and the dressing on the side?",
       ],
       tr_hint:
-        "'Without [X]' veya 'hold the [X]' = X koyma. 'On the side' = ayri tabakta/kasede.",
+        "'Without [X]' veya 'hold the [X]' = X koyma. 'On the side' = ayrı tabakta/kasede.",
     },
     {
       id: "ex.3.7.3",
@@ -3046,7 +3046,7 @@ export const customLesson_3_7: BundledLesson = {
       answer: "on",
       distractors: ["in", "at", "by"],
       tr_hint:
-        "'On the side' sabit kalip — sos/garnitur ayri vermek icin. 'In the side', 'at the side' yok.",
+        "'On the side' sabit kalıp — sos/garnitur ayrı vermek için. 'In the side', 'at the side' yok.",
     },
     {
       id: "ex.3.7.4",
@@ -3062,7 +3062,7 @@ export const customLesson_3_7: BundledLesson = {
         "kale",
       ],
       correct_sentence: "Could you swap spinach for the kale",
-      tr_translation: "Karalahanayi ispanakla degistirir misin?",
+      tr_translation: "Karalahanayı ıspanakla değiştirir misin?",
     },
     {
       id: "ex.3.7.5",
@@ -3071,7 +3071,7 @@ export const customLesson_3_7: BundledLesson = {
       incorrect_sentence: "I don't want croutons, give sauce separate.",
       correct_sentence: "No croutons, dressing on the side, please.",
       tr_explanation:
-        "'Give sauce separate' Turkce duzun ceviri. Salata sosu icin 'sauce' degil 'dressing' kullanilir. 'On the side' = ayri. 'No croutons' = krutonsuz, kisa ve dogal.",
+        "'Give sauce separate' Türkçe düzün çeviri. Salata sosu için 'sauce' değil 'dressing' kullanılır. 'On the side' = ayrı. 'No croutons' = krutonsuz, kısa ve doğal.",
     },
     {
       id: "ex.3.7.6",
@@ -3096,7 +3096,7 @@ export const customLesson_3_7: BundledLesson = {
           ],
           model_answers: ["Half kale, half spinach"],
           hint_tr:
-            "Yesilligi sec: 'Spinach, please' veya 'Half kale, half spinach'.",
+            "Yeşilliği seç: 'Spinach, please' veya 'Half kale, half spinach'.",
         },
         {
           speaker: "npc",
@@ -3131,7 +3131,7 @@ export const customLesson_3_7: BundledLesson = {
           ],
           model_answers: ["Balsamic on the side, please"],
           hint_tr:
-            "Sos sec: 'Balsamic on the side, please' veya 'Ranch, light please'.",
+            "Sos seç: 'Balsamic on the side, please' veya 'Ranch, light please'.",
         },
         {
           speaker: "npc",
@@ -3154,7 +3154,7 @@ export const customLesson_3_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'On the side' = ayri (kucuk kasede). Salata sosunu salataya katmadan, ayri ver. Diyet/tat kontrolu icin yaygin istek.",
+            "'On the side' = ayrı (küçük kasede). Salata sosunu salataya katmadan, ayrı ver. Diyet/tat kontrolü için yaygın istek.",
         },
         {
           question: "Salata yerine 'sauce' yerine ne kullanilir?",
@@ -3166,7 +3166,7 @@ export const customLesson_3_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Salata sosu = 'dressing'. 'Sauce' makarna, et, pizza icin. Salataya 'sauce' demek Turk klasigi — duzelt: 'salad dressing'.",
+            "Salata sosu = 'dressing'. 'Sauce' makarna, et, pizza için. Salataya 'sauce' demek Türk klasiği — düzelt: 'salad dressing'.",
         },
         {
           question: "'Swap spinach for kale' ne yapiyor?",
@@ -3178,7 +3178,7 @@ export const customLesson_3_7: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Swap [X] for [Y]' = Y'yi al, yerine X koy. Bu ornekte karalahana cikiyor, ispanak yeni geliyor.",
+            "'Swap [X] for [Y]' = Y'yi al, yerine X koy. Bu örnekte karalahana çıkıyor, ıspanak yeni geliyor.",
         },
       ],
     },

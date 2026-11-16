@@ -39,7 +39,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
         "Trained as a backend engineer, now leading payments at Acme. Want FinTech depth next.",
       ],
       tr_hint:
-        "Past / Present / Future formula: 'I started X, now doing Y, looking for Z.' 60 saniyede sigar.",
+        "Past / Present / Future formula: 'I started X, now doing Y, looking for Z.' 60 saniyede sığar.",
     },
     {
       id: "ex.wi14.1.3",
@@ -49,7 +49,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
       answer: "my",
       distractors: ["a", "the", "this"],
       tr_hint:
-        "'My next chapter' = sonraki bolumum. Kariyer pivotu kalibi.",
+        "'My next chapter' = sonraki bölümüm. Kariyer pivotu kalıbı.",
     },
     {
       id: "ex.wi14.1.4",
@@ -75,7 +75,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
       correct_sentence:
         "Backend eng — 5 years, currently leading payments at Acme. Next: deeper FinTech work.",
       tr_explanation:
-        "'I went to college and...' = tarihce + sirali = sikici. Doğru: rol + duration + impact + next.",
+        "'I went to college and...' = tarihçe + sıralı = sıkıcı. Doğru: rol + duration + impact + next.",
     },
     {
       id: "ex.wi14.1.6",
@@ -197,7 +197,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "60-90 saniye yeter. Yapi = tutarli. Cocukluk = gereksiz. Onemli olan: sen bu rolune neden uygunsun.",
+            "60-90 saniye yeter. Yapı = tutarlı. Çocukluk = gereksiz. Önemli olan: sen bu rolüne neden uygunsun.",
         },
         {
           question: "'Drawn to your team for two reasons' niye guclu?",
@@ -209,7 +209,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cok kisi 'I'm interested' der. Spesifik liste = sirketi tanidigini gosterir.",
+            "Çok kişi 'I'm interested' der. Spesifik liste = şirketi tanıdığını gösterir.",
         },
         {
           question: "Pitch'de NE asla yapilmamali?",
@@ -221,7 +221,7 @@ export const workInterviewLesson_14_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "CV'de gozlemlenecek seyleri tekrar etmek = sifir deger. Yorumlamak = deger.",
+            "CV'de gözlemlenecek şeyleri tekrar etmek = sıfır değer. Yorumlamak = değer.",
         },
       ],
     },
@@ -570,7 +570,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
         "Prod incident, team frozen. Stepped in to drive — 30-min recovery.",
       ],
       tr_hint:
-        "STAR formati: Durum (panik) + Gorev (komut) + Aksiyon (cozdum) + Sonuc (30 dk).",
+        "STAR formatı: Durum (panik) + Görev (komut) + Aksiyon (çözdüm) + Sonuç (30 dk).",
     },
     {
       id: "ex.wi14.2.3",
@@ -580,7 +580,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
       answer: "full",
       distractors: ["my", "the", "all"],
       tr_hint:
-        "'Took full ownership' = tam sahiplenme. Liderlik kalibi.",
+        "'Took full ownership' = tam sahiplenme. Liderlik kalıbı.",
     },
     {
       id: "ex.wi14.2.4",
@@ -606,7 +606,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
       correct_sentence:
         "Q3 prod incident — I stepped up as incident lead. Coordinated the team via a war room, resolved in 30 minutes, post-mortem prevented recurrence.",
       tr_explanation:
-        "'We had a problem, we fixed it' = sifir bilgi. Doğru: spesifik durum + sen + olcum.",
+        "'We had a problem, we fixed it' = sıfır bilgi. Doğru: spesifik durum + sen + ölçüm.",
     },
     {
       id: "ex.wi14.2.6",
@@ -648,7 +648,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
           ],
           model_answers: ["Opened war room, assigned roles, status every 10 min, escalation criteria clear."],
           hint_tr:
-            "Aksiyonlari detayla: 'Opened war room, assigned roles, status every 10 min, escalation criteria clear.'",
+            "Aksiyonları detayla: 'Opened war room, assigned roles, status every 10 min, escalation criteria clear.'",
         },
         {
           speaker: "npc",
@@ -732,7 +732,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Industry standart. Davranissal mulakatin altın formulu.",
+            "Industry standart. Davranışsal mülakatın altın formülü.",
         },
         {
           question: "STAR cevabinda EN onemli adim?",
@@ -744,7 +744,7 @@ export const workInterviewLesson_14_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I' kullan, 'we' degil. Mulakat seni anlamak istiyor, takimini degil.",
+            "'I' kullan, 'we' değil. Mülakat seni anlamak istiyor, takımını değil.",
         },
         {
           question: "STAR cevabini olcebilir Result NE yapar?",
@@ -975,7 +975,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
         "What's the team grappling with most lately?",
       ],
       tr_hint:
-        "Yuzeysel olmayan + sirketi olcen sorular = ciddi adayim sinyali.",
+        "Yüzeysel olmayan + şirketi ölçen sorular = ciddi adayım sinyali.",
     },
     {
       id: "ex.wi14.3.3",
@@ -985,7 +985,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
       answer: "handle",
       distractors: ["take", "give", "use"],
       tr_hint:
-        "'How team handles feedback' = takim feedback kulturune dair soru. Olcen soru.",
+        "'How team handles feedback' = takım feedback kültürüne dair soru. Ölçen soru.",
     },
     {
       id: "ex.wi14.3.4",
@@ -1011,7 +1011,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
       correct_sentence:
         "What does success look like at the 6-month mark for this role?",
       tr_explanation:
-        "Maas mulakat ilk asamasinda sorulmaz = soguk. Doğru: takim/role olcen sorular.",
+        "Maaş mülakat ilk aşamasında sorulmaz = soğuk. Doğru: takım/role ölçen sorular.",
     },
     {
       id: "ex.wi14.3.6",
@@ -1075,7 +1075,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Soru sormamak = sirket umrumda degil sinyali. 2-3 hazirlikli soru = professional.",
+            "Soru sormamak = şirket umrumda değil sinyali. 2-3 hazırlıklı soru = professional.",
         },
         {
           question: "EN guclu soru tipi?",
@@ -1087,7 +1087,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sirket arastirmis = pro. Yuzey degil = derin ilgi. Cevap = sirket icgoru.",
+            "Şirket araştırmış = pro. Yüzey değil = derin ilgi. Cevap = şirket içgörü.",
         },
         {
           question: "Niye 'biggest challenge' sormak iyi?",
@@ -1099,7 +1099,7 @@ export const workInterviewLesson_14_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kotu icin filtre + iyi icin firsat. Iki yonlu mulakat sinyali.",
+            "Kötü için filtre + iyi için fırsat. İki yönlü mülakat sinyali.",
         },
       ],
     },
@@ -1318,7 +1318,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
         "Thanks so much — want a night to think + chat tomorrow?",
       ],
       tr_hint:
-        "'Take it home' / 'Sit with it' = uzerinde dusunmek. Pazarlik icin zaman kazandirici kalip.",
+        "'Take it home' / 'Sit with it' = üzerinde düşünmek. Pazarlık için zaman kazandırıcı kalıp.",
     },
     {
       id: "ex.wi14.4.3",
@@ -1328,7 +1328,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
       answer: "on",
       distractors: ["with", "in", "for"],
       tr_hint:
-        "'Flexibility on base' = base salary'de esneklik. Pazarlik ana kalibi.",
+        "'Flexibility on base' = base salary'de esneklik. Pazarlık ana kalıbı.",
     },
     {
       id: "ex.wi14.4.4",
@@ -1377,7 +1377,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
           ],
           model_answers: ["Thanks — excited about role. Based on market, looking closer to 180k."],
           hint_tr:
-            "Cerceve: 'Thanks — excited about role. Based on market, looking closer to 180k.'",
+            "Çerçeve: 'Thanks — excited about role. Based on market, looking closer to 180k.'",
         },
         {
           speaker: "npc",
@@ -1420,7 +1420,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Anlik kabul = pazarlik sansi sifir. 24 saat = soguklukla degerlendirme.",
+            "Anlık kabul = pazarlık şansı sıfır. 24 saat = soğuklukla değerlendirme.",
         },
         {
           question: "'Excited about the role but...' niye kullanilir?",
@@ -1432,7 +1432,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sirket cekilirse riski azalt. Iyi niyet + dunyaya acik kapi = saglikli pazarlik.",
+            "Şirket çekilirse riski azalt. İyi niyet + dünyaya açık kapı = sağlıklı pazarlık.",
         },
         {
           question: "'Market data' niye guclu silah?",
@@ -1444,7 +1444,7 @@ export const workInterviewLesson_14_4: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'I want' = kisisel. 'Market shows' = veri. Recruiter HR'a 'market data' diye savas eder.",
+            "'I want' = kişisel. 'Market shows' = veri. Recruiter HR'a 'market data' diye savaş eder.",
         },
       ],
     },
@@ -1663,7 +1663,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
         "Last year, an architectural debate with a senior. I made space for their view, then proved mine with a prototype. Latency fell 40%.",
       ],
       tr_hint:
-        "STAR formati: spesifik zaman + spesifik kisi + senin aksiyonun + olculebilir sonuc. 'We did X' degil 'I did X'.",
+        "STAR formatı: spesifik zaman + spesifik kişi + senin aksiyonun + ölçülebilir sonuç. 'We did X' değil 'I did X'.",
     },
     {
       id: "ex.wi14.5.3",
@@ -1673,7 +1673,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
       answer: "time",
       distractors: ["case", "moment", "day"],
       tr_hint:
-        "'Tell me about a time...' — behavioral mulakatin en sik soru acilisi. Sabit kalip.",
+        "'Tell me about a time...' — behavioral mülakatın en sık soru açılışı. Sabit kalıp.",
     },
     {
       id: "ex.wi14.5.4",
@@ -1699,7 +1699,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
       correct_sentence:
         "Q2 last year — our checkout flow had a 12% drop-off. I ran a funnel analysis, found the validation bug, shipped a fix in 3 days. Conversion lifted 8%.",
       tr_explanation:
-        "'I am very good at X' = soyut + kanitsiz = zayif. STAR = spesifik (Q2 + 12% + 3 days + 8%). Türk alçakgönüllülük tuzağı: abartı korkusuyla soyut konuşmak — sayı ver, ben-merkezli ol ('I' kullan).",
+        "'I am very good at X' = soyut + kanıtsız = zayıf. STAR = spesifik (Q2 + 12% + 3 days + 8%). Türk alçakgönüllülük tuzağı: abartı korkusuyla soyut konuşmak — sayı ver, ben-merkezli ol ('I' kullan).",
     },
     {
       id: "ex.wi14.5.6",
@@ -1722,7 +1722,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
           ],
           model_answers: ["Last quarter — needed to convince a senior eng to adopt new auth pattern. No formal authority over them."],
           hint_tr:
-            "Situation ac: 'Last quarter — needed to convince a senior eng to adopt new auth pattern. No formal authority over them.'",
+            "Situation aç: 'Last quarter — needed to convince a senior eng to adopt new auth pattern. No formal authority over them.'",
         },
         {
           speaker: "npc",
@@ -1779,7 +1779,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mulakatin amaci: SENIN yetkilerini olcmek. 'We shipped' = anonim. 'I led' = somut. Türk alçakgönüllülüğü değil — net atıf.",
+            "Mülakatın amacı: SENİN yetkilerini ölçmek. 'We shipped' = anonim. 'I led' = somut. Türk alçakgönüllülüğü değil — net atıf.",
         },
         {
           question: "STAR Result'inda EN guclu detay?",
@@ -1791,7 +1791,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sayi = verify edilebilir = inandirici. 'Improved a lot' = sifir bilgi. ABD/UK kulturu sayiya bayilir.",
+            "Sayı = verify edilebilir = inandırıcı. 'Improved a lot' = sıfır bilgi. ABD/UK kültürü sayıya bayılır.",
         },
         {
           question: "Behavioral soruda Turk tipik hatasi?",
@@ -1803,7 +1803,7 @@ export const workInterviewLesson_14_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Abartidan kacma kulturu = soyut soylem. ABD kulturu = ne yaptin somut soyle. Övünme degil, gercek.",
+            "Abartıdan kaçma kültürü = soyut söylem. ABD kültürü = ne yaptın somut söyle. Övünme değil, gerçek.",
         },
       ],
     },
@@ -1989,7 +1989,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
         "Looking for 170-190 base, but the full package matters. Equity and signing can shift the number.",
       ],
       tr_hint:
-        "Range ver (tek sayi degil) + 'total package'/'full comp' dile getir = pro recruiter dili. Net ama kapali kapi yok.",
+        "Range ver (tek sayı değil) + 'total package'/'full comp' dile getir = pro recruiter dili. Net ama kapalı kapı yok.",
     },
     {
       id: "ex.wi14.6.3",
@@ -2015,7 +2015,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
         "upside",
       ],
       correct_sentence: "Open to trading base for equity upside",
-      tr_translation: "Base'i equity yukari potansiyeline cevirmeye acigim.",
+      tr_translation: "Base'i equity yukarı potansiyeline çevirmeye açığım.",
     },
     {
       id: "ex.wi14.6.5",
@@ -2025,7 +2025,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
       correct_sentence:
         "My target range is 180-200 base. Happy to explore the full package — equity and signing factor in too.",
       tr_explanation:
-        "'I want minimum X otherwise...' = ultimatum = agresif + amatorce. Doğru: range + esneklik sinyali ('factor in'). Türk profesyonel tuzağı: net olmak için sert olmak — orta yol kibar + kesin.",
+        "'I want minimum X otherwise...' = ultimatum = agresif + amatörce. Doğru: range + esneklik sinyali ('factor in'). Türk profesyonel tuzağı: net olmak için sert olmak — orta yol kibar + kesin.",
     },
     {
       id: "ex.wi14.6.6",
@@ -2048,7 +2048,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
           ],
           model_answers: ["Based on market data, target range is 170-190 base — flexible on total package."],
           hint_tr:
-            "Cerceve + range: 'Based on market data, target range is 170-190 base — flexible on total package.'",
+            "Çerçeve + range: 'Based on market data, target range is 170-190 base — flexible on total package.'",
         },
         {
           speaker: "npc",
@@ -2067,7 +2067,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
           ],
           model_answers: ["Current comp around 165 + competing process. Want growth — that's why the upper end."],
           hint_tr:
-            "Ust ucu destekle: 'Current comp around 165 + competing process. Want growth — that's why the upper end.'",
+            "Üst ucu destekle: 'Current comp around 165 + competing process. Want growth — that's why the upper end.'",
         },
         {
           speaker: "npc",
@@ -2085,7 +2085,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
           ],
           model_answers: ["Sounds great — open to level placement discussion. Want to make this work."],
           hint_tr:
-            "Kapanis pozitif: 'Sounds great — open to level placement discussion. Want to make this work.'",
+            "Kapanış pozitif: 'Sounds great — open to level placement discussion. Want to make this work.'",
         },
       ],
     },
@@ -2104,7 +2104,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Range = pazarlik alani. Total package = esnek = kapali kapi yok. Market data = kisisel degil, profesyonel.",
+            "Range = pazarlık alanı. Total package = esnek = kapalı kapı yok. Market data = kişisel değil, profesyonel.",
         },
         {
           question: "Niye 'competitive compensation' jargonu kullanilir?",
@@ -2116,7 +2116,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I want more money' = amatorce. 'Competitive comp aligned with the role' = pro jargonu = ciddi adayim.",
+            "'I want more money' = amatörce. 'Competitive comp aligned with the role' = pro jargonu = ciddi adayım.",
         },
         {
           question: "Turk profesyonelin TIPIK hatasi maasta?",
@@ -2128,7 +2128,7 @@ export const workInterviewLesson_14_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Alcakgonulluluk + abartidan korku = 'siz teklif edin' = anchor yok = recruiter dustuk ucta tutar. Net range = kayipsiz pozisyon.",
+            "Alçakgönüllülük + abartıdan korku = 'siz teklif edin' = anchor yok = recruiter düştük uçta tutar. Net range = kayıpsız pozisyon.",
         },
       ],
     },
@@ -2314,7 +2314,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
         "Perfectionism was killing my velocity. I've been working on it — kanban board plus weekly retros for the past 6 months.",
       ],
       tr_hint:
-        "Yapi: Gercek zayiflik (sahte degil) + somut sistem ('kanban', 'retro') = ben farkindalik + cozum. Klise 'I work too hard' = ret sinyali.",
+        "Yapı: Gerçek zayıflık (sahte değil) + somut sistem ('kanban', 'retro') = ben farkındalık + çözüm. Klişe 'I work too hard' = ret sinyali.",
     },
     {
       id: "ex.wi14.7.3",
@@ -2324,7 +2324,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
       answer: "get",
       distractors: ["got", "be", "had"],
       tr_hint:
-        "'Used to get' = eskiden olurdu (gecmis aliskanlik). Zayiflik anlatim kalibi.",
+        "'Used to get' = eskiden olurdu (geçmiş alışkanlık). Zayıflık anlatım kalıbı.",
     },
     {
       id: "ex.wi14.7.4",
@@ -2350,7 +2350,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
       correct_sentence:
         "Honestly — I used to over-polish before shipping. The past 6 months I've been practicing 'good enough to ship' — kanban + weekly retros to catch it.",
       tr_explanation:
-        "'I work too hard' = klise + sahte = anlik red. 'I am perfectionist' yanlis gramerde ('a perfectionist'). Doğru: gercek + 'I've been working on' + somut sistem. Türk kibarlık tuzağı: zayıflık göstermekten kaçınma, sahte alçakgönüllülük.",
+        "'I work too hard' = klişe + sahte = anlık red. 'I am perfectionist' yanlış gramerde ('a perfectionist'). Doğru: gerçek + 'I've been working on' + somut sistem. Türk kibarlık tuzağı: zayıflık göstermekten kaçınma, sahte alçakgönüllülük.",
     },
     {
       id: "ex.wi14.7.6",
@@ -2372,7 +2372,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
           ],
           model_answers: ["Honestly — I used to over-polish. Cost team velocity."],
           hint_tr:
-            "Gercek zayiflik ac: 'Honestly — I used to over-polish. Cost team velocity.' Klise yok.",
+            "Gerçek zayıflık aç: 'Honestly — I used to over-polish. Cost team velocity.' Klişe yok.",
         },
         {
           speaker: "npc",
@@ -2410,7 +2410,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
           ],
           model_answers: ["Cycle time down 30%. Feedback from manager confirms. Still catching myself sometimes."],
           hint_tr:
-            "Olc + alcakgonullu: 'Cycle time down 30%. Feedback from manager confirms. Still catching myself sometimes.'",
+            "Ölç + alçakgönüllü: 'Cycle time down 30%. Feedback from manager confirms. Still catching myself sometimes.'",
         },
       ],
     },
@@ -2429,7 +2429,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mulakatcilar bu cevabi 10000 kere duydu. Sahte zayiflik = ben farkindaligim yok sinyali. Gercek zayiflik + sistem = olgun.",
+            "Mülakatçılar bu cevabı 10000 kere duydu. Sahte zayıflık = ben farkındalığım yok sinyali. Gerçek zayıflık + sistem = olgun.",
         },
         {
           question: "Zayiflik cevabinin EN onemli ikinci yarisi?",
@@ -2441,7 +2441,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sadece zayiflik soylersen risk + cozumsuz. Cozum sistemi = olgun + ben farkindalik + buyume zihni.",
+            "Sadece zayıflık söylersen risk + çözümsüz. Çözüm sistemi = olgun + ben farkındalık + büyüme zihni.",
         },
         {
           question: "Turk tipik tuzagi 'weakness' sorusunda?",
@@ -2453,7 +2453,7 @@ export const workInterviewLesson_14_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Utanma kulturu = zayiflik gostermekten kaccak = klise. ABD kulturu = gercek + ne yaptin = saygi. Net açıklık güç sinyali.",
+            "Utanma kültürü = zayıflık göstermekten kaçcak = klise. ABD kültürü = gerçek + ne yaptın = saygı. Net açıklık güç sinyali.",
         },
       ],
     },
@@ -2639,7 +2639,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
         "How does the team operate culturally — feedback norms, conflict resolution?",
       ],
       tr_hint:
-        "Kultur sorusu = derinlik. 'Feedback' + 'disagreement' = ciddi takim sinyali. Yuzeysel 'iyi mi?' degil.",
+        "Kültür sorusu = derinlik. 'Feedback' + 'disagreement' = ciddi takım sinyali. Yüzeysel 'iyi mi?' değil.",
     },
     {
       id: "ex.wi14.8.3",
@@ -2649,7 +2649,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
       answer: "challenge",
       distractors: ["problem", "issue", "trouble"],
       tr_hint:
-        "'Biggest challenge' = pro jargonu. 'Problem' = negatif tonla. Sirket icgoru sorusu.",
+        "'Biggest challenge' = pro jargonu. 'Problem' = negatif tonla. Şirket içgörü sorusu.",
     },
     {
       id: "ex.wi14.8.4",
@@ -2675,7 +2675,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
       correct_sentence:
         "I do have a few — first, what does success look like at 6 months? Second, what's the team's biggest challenge right now?",
       tr_explanation:
-        "'No questions' = ilgisiz sinyali = red riski +%30. Hazirlikli 2-3 soru = ciddi adayim. Turk pasiflik tuzağı: 'rahatsız etmeyeyim' kibarlığı yanlış mesaj = pasif aday.",
+        "'No questions' = ilgisiz sinyali = red riski +%30. Hazırlıklı 2-3 soru = ciddi adayım. Türk pasiflik tuzağı: 'rahatsız etmeyeyim' kibarlığı yanlış mesaj = pasif aday.",
     },
     {
       id: "ex.wi14.8.6",
@@ -2698,7 +2698,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
           ],
           model_answers: ["Yes — three questions. First: what does success look like at the 6-month mark in this role?"],
           hint_tr:
-            "1. soru ac: 'Yes — three questions. First: what does success look like at the 6-month mark in this role?'",
+            "1. soru aç: 'Yes — three questions. First: what does success look like at the 6-month mark in this role?'",
         },
         {
           speaker: "npc",
@@ -2716,7 +2716,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
           ],
           model_answers: ["Helpful. Second — what's the team culture like, especially around feedback and disagreement?"],
           hint_tr:
-            "2. kultur sorusu: 'Helpful. Second — what's the team culture like, especially around feedback and disagreement?'",
+            "2. kültür sorusu: 'Helpful. Second — what's the team culture like, especially around feedback and disagreement?'",
         },
         {
           speaker: "npc",
@@ -2753,7 +2753,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Hiring manager 'aday ilgili mi?' diye olcer. Soru yok = ilgi yok yorumu. 2-3 hazirlikli soru = pro.",
+            "Hiring manager 'aday ilgili mi?' diye ölçer. Soru yok = ilgi yok yorumu. 2-3 hazırlıklı soru = pro.",
         },
         {
           question: "EN guclu soru kategorileri (3 tane)?",
@@ -2765,7 +2765,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Success = sen + rol uyumu. Culture = takim filtresi. Challenge = sirket gercegi + senin firsatin.",
+            "Success = sen + rol uyumu. Culture = takım filtresi. Challenge = şirket gerçeği + senin fırsatın.",
         },
         {
           question: "Turk profesyonelin TIPIK pasiflik tuzagi?",
@@ -2777,7 +2777,7 @@ export const workInterviewLesson_14_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kibarlık = pasiflik degil. ABD kulturu = soru = ilgi + zeka sinyali. 3 hazirlikli soru notları acmak da OK.",
+            "Kibarlık = pasiflik değil. ABD kültürü = soru = ilgi + zeka sinyali. 3 hazırlıklı soru notları açmak da OK.",
         },
       ],
     },

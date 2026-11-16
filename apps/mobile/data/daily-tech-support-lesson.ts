@@ -170,7 +170,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
         "Since the update, the screen keeps freezing.",
       ],
       tr_hint:
-        "'Ever since the update' = guncellemeden beri. Sebep + zaman = agent hizli anlar.",
+        "'Ever since the update' = güncellemeden beri. Sebep + zaman = agent hızlı anlar.",
     },
     {
       id: "ex.dts36.1.3",
@@ -180,7 +180,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
       answer: "code",
       distractors: ["number", "message", "sign", "alert"],
       tr_hint:
-        "'Error code' = hata kodu. Agent ilk soracagi sey — hazir tut.",
+        "'Error code' = hata kodu. Agent ilk soracağı şey — hazır tut.",
     },
     {
       id: "ex.dts36.1.4",
@@ -207,7 +207,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
       correct_sentence:
         "Hi, my Wi-Fi has been down since 9am — modem lights are red. Error code says E-404.",
       tr_explanation:
-        "'Not working' = ne calismiyor belli degil + zaman yok + detay yok. Doğru: ne + ne zaman + gozlemledigin detay + error code.",
+        "'Not working' = ne çalışmıyor belli değil + zaman yok + detay yok. Doğru: ne + ne zaman + gözlemlediğin detay + error code.",
     },
     {
       id: "ex.dts36.1.6",
@@ -278,7 +278,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Agent tahmin oyunu oynamaz. 4 nokta verirsen 5 dakikada cozulur.",
+            "Agent tahmin oyunu oynamaz. 4 nokta verirsen 5 dakikada çözülür.",
         },
         {
           question: "'Ever since the update' niye onemli?",
@@ -290,7 +290,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Update sonrasi bozulan sey = known issue olabilir. Agent hemen bilgi tabanini acar.",
+            "Update sonrası bozulan şey = known issue olabilir. Agent hemen bilgi tabanını açar.",
         },
         {
           question: "Error code niye yazip / okurken onemli?",
@@ -302,7 +302,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'It doesn't work' vs 'E-404 = DNS resolution fail' — ikincisi 30 saniyede cozulur.",
+            "'It doesn't work' vs 'E-404 = DNS resolution fail' — ikincisi 30 saniyede çözülür.",
         },
       ],
     },
@@ -313,7 +313,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
       phrase: "My internet has been down since this morning.",
       ipa: "maɪ ˈɪntərnɛt həz bɪn daʊn sɪns ðɪs ˈmɔːrnɪŋ",
       tr_hint:
-        "Tech support acilis. 'Has been down' = present perfect (kesik durumda). 'Since this morning' = sabahtan beri.",
+        "Tech support açılış. 'Has been down' = present perfect (kesik durumda). 'Since this morning' = sabahtan beri.",
     },
     {
       id: "ex.dts36.1.9",
@@ -351,7 +351,7 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
       correct_sentence:
         "My Wi-Fi has been down for two hours — modem shows a red light and no error code yet.",
       tr_explanation:
-        "Tek kelime + emir. Doğru: ne (Wi-Fi) + ne kadar (two hours) + gözlem (red light) + kanit (no error code).",
+        "Tek kelime + emir. Doğru: ne (Wi-Fi) + ne kadar (two hours) + gözlem (red light) + kanıt (no error code).",
     },
     {
       id: "ex.dts36.1.sp1",
@@ -643,7 +643,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
         "Done the cache clear and reinstall — issue persists.",
       ],
       tr_hint:
-        "'I've cleared the cache' = present perfect — denedigini gosterir. Agent ayni adimi tekrarlatmasin.",
+        "'I've cleared the cache' = present perfect — denediğini gösterir. Agent aynı adımı tekrarlatmasın.",
     },
     {
       id: "ex.dts36.2.3",
@@ -653,7 +653,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
       answer: "rebooted",
       distractors: ["restart", "open", "shut", "fixed"],
       tr_hint:
-        "'Reboot' = yeniden baslatmak (cihaz). 'Restart' de olur ama 'reboot' tech kelimesi.",
+        "'Reboot' = yeniden başlatmak (cihaz). 'Restart' de olur ama 'reboot' tech kelimesi.",
     },
     {
       id: "ex.dts36.2.4",
@@ -677,7 +677,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
       correct_sentence:
         "I've already rebooted the modem twice — unplugged for 30 seconds each time. Still no connection.",
       tr_explanation:
-        "Belirsiz cevap = agent ayni adimdan basa donduruyor. Doğru: spesifik adim + kac kez + sonuc.",
+        "Belirsiz cevap = agent aynı adımdan başa döndürüyor. Doğru: spesifik adım + kaç kez + sonuç.",
     },
     {
       id: "ex.dts36.2.6",
@@ -705,7 +705,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
           ],
           model_answers: ["Already rebooted twice — unplugged 30 seconds each. Still no signal."],
           hint_tr:
-            "Yaptigini soyle: 'Already rebooted twice — unplugged 30 seconds each. Still no signal.'",
+            "Yaptığını söyle: 'Already rebooted twice — unplugged 30 seconds each. Still no signal.'",
         },
         {
           speaker: "npc",
@@ -724,7 +724,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
           ],
           model_answers: ["Yes — cleared cache, reinstalled the app. No change."],
           hint_tr:
-            "Liste seklinde: 'Yes — cleared cache, reinstalled the app. No change.'",
+            "Liste şeklinde: 'Yes — cleared cache, reinstalled the app. No change.'",
         },
         {
           speaker: "npc",
@@ -748,7 +748,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Standart troubleshooting script var. Onun disina cikmak icin yaptigini spesifik kanitla.",
+            "Standart troubleshooting script var. Onun dışına çıkmak için yaptığını spesifik kanıtla.",
         },
         {
           question: "'I've already tried' kalibinin AVANTAJI?",
@@ -760,7 +760,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Direkt 'try X' demek yerine 'Already tried X' = bir ust adima geceriz.",
+            "Direkt 'try X' demek yerine 'Already tried X' = bir üst adıma geçeriz.",
         },
         {
           question: "'Reboot' ve 'restart' farki?",
@@ -772,7 +772,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Reboot the router' = elektrigi kes. 'Restart the app' = uygulamayi kapat-ac. Ust ust farkli.",
+            "'Reboot the router' = elektriği kes. 'Restart the app' = uygulamayı kapat-aç. Üst üst farklı.",
         },
       ],
     },
@@ -792,7 +792,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
       native_text: "I've cleared the cache and reinstalled the app.",
       voice_hint: "female_us",
       tr_hint:
-        "Iki adim ozeti. 'Cleared the cache' birleşik. 'Reinstalled the app' bağlanır.",
+        "İki adım özeti. 'Cleared the cache' birleşik. 'Reinstalled the app' bağlanır.",
     },
     {
       id: "ex.dts36.2.10",
@@ -801,7 +801,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
       audio_text: "Let me put you on a brief hold while I run diagnostics.",
       transcription_target: "Let me put you on a brief hold while I run diagnostics.",
       tr_hint:
-        "Agent gecis cumlesi. 'Brief hold' = kisa bekleme. 'Run diagnostics' = tani calistir.",
+        "Agent geçiş cümlesi. 'Brief hold' = kısa bekleme. 'Run diagnostics' = tanı çalıştır.",
     },
     {
       id: "ex.dts36.2.11",
@@ -809,7 +809,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "power cycle",
-      tr_translation: "Elektriği kes-aç (cihazi tamamen yeniden başlat)",
+      tr_translation: "Elektriği kes-aç (cihazı tamamen yeniden başlat)",
       example: "I already power cycled the modem for sixty seconds.",
       example_tr: "Modeme zaten 60 saniyelik power cycle yaptım.",
     },
@@ -821,7 +821,7 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
       correct_sentence:
         "I've already restarted twice — unplugged for thirty seconds each time. Still no connection.",
       tr_explanation:
-        "Belirsiz + grammatik degil. Doğru: present perfect + spesifik adim (unplugged 30s) + sonuc (still no connection).",
+        "Belirsiz + grammatik değil. Doğru: present perfect + spesifik adım (unplugged 30s) + sonuç (still no connection).",
     },
     {
       id: "ex.dts36.2.sp1",
@@ -1120,7 +1120,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
         "Put me through to billing, please.",
       ],
       tr_hint:
-        "'Transfer me to X' = beni X'e yonlendir. Yanlis departmandaysan kullan.",
+        "'Transfer me to X' = beni X'e yönlendir. Yanlış departmandaysan kullan.",
     },
     {
       id: "ex.dts36.3.3",
@@ -1130,7 +1130,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
       answer: "supervisor",
       distractors: ["boss", "chief", "head", "leader"],
       tr_hint:
-        "'Supervisor' = amir, sef. Customer service'de standart eskalasyon kelimesi.",
+        "'Supervisor' = amir, şef. Customer service'de standart eskalasyon kelimesi.",
     },
     {
       id: "ex.dts36.3.4",
@@ -1145,7 +1145,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
         "please",
       ],
       correct_sentence: "I'd like to escalate this please",
-      tr_translation: "Bunu yukseltmek istiyorum, lutfen.",
+      tr_translation: "Bunu yükseltmek istiyorum, lütfen.",
     },
     {
       id: "ex.dts36.3.5",
@@ -1155,7 +1155,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
       correct_sentence:
         "I appreciate your help, but could we escalate this to a supervisor? This needs a higher-level fix.",
       tr_explanation:
-        "Saldirgan ton + 'boss' kelimesi = agent direnir. Doğru: tesekkur + sebep + saygili eskalasyon.",
+        "Saldırgan ton + 'boss' kelimesi = agent direnir. Doğru: teşekkür + sebep + saygılı eskalasyon.",
     },
     {
       id: "ex.dts36.3.6",
@@ -1183,7 +1183,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
           ],
           model_answers: ["I understand. Could we escalate this to your supervisor?"],
           hint_tr:
-            "Saygili: 'I understand. Could we escalate this to your supervisor?'",
+            "Saygılı: 'I understand. Could we escalate this to your supervisor?'",
         },
         {
           speaker: "npc",
@@ -1202,7 +1202,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
           ],
           model_answers: ["Sure — tried reboot twice, cleared cache, error code E-404. No resolution."],
           hint_tr:
-            "Ozet ver: 'Sure — tried reboot twice, cleared cache, error code E-404. No resolution.'",
+            "Özet ver: 'Sure — tried reboot twice, cleared cache, error code E-404. No resolution.'",
         },
         {
           speaker: "npc",
@@ -1226,7 +1226,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Agent senin yerine supervisor'a iyi referans verir = daha hizli cozum.",
+            "Agent senin yerine supervisor'a iyi referans verir = daha hızlı çözüm.",
         },
         {
           question: "Transfer öncesi 'brief' niye verilir?",
@@ -1238,7 +1238,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Reference number + denedigin adimlar + error code = supervisor 30 saniyede yetisir.",
+            "Reference number + denediğin adımlar + error code = supervisor 30 saniyede yetişir.",
         },
         {
           question: "'Escalate' vs 'transfer' farki?",
@@ -1279,7 +1279,7 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
       audio_text: "I'll transfer you to our tier two support team.",
       transcription_target: "I'll transfer you to our tier two support team.",
       tr_hint:
-        "Agent gecis cumlesi. 'Tier two' = ikinci seviye (üst). 'Support team' = destek ekibi.",
+        "Agent geçiş cümlesi. 'Tier two' = ikinci seviye (üst). 'Support team' = destek ekibi.",
     },
     {
       id: "ex.dts36.3.11",
@@ -1596,7 +1596,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
         "Any ETA on the refund?",
       ],
       tr_hint:
-        "'When can I expect X' = X'i ne zaman beklemeliyim. Net timeline sormak icin standart kalip.",
+        "'When can I expect X' = X'i ne zaman beklemeliyim. Net timeline sormak için standart kalıp.",
     },
     {
       id: "ex.dts36.4.3",
@@ -1606,7 +1606,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
       answer: "ticket",
       distractors: ["account", "phone", "session", "call"],
       tr_hint:
-        "'Ticket number' = destek talebi numarasi. Sorunsuz sonradan aramayi sagliyor.",
+        "'Ticket number' = destek talebi numarası. Sorunsuz sonradan aramayı sağlıyor.",
     },
     {
       id: "ex.dts36.4.4",
@@ -1623,7 +1623,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
         "up",
       ],
       correct_sentence: "Let me test it before we hang up",
-      tr_translation: "Telefonu kapatmadan once test edeyim.",
+      tr_translation: "Telefonu kapatmadan önce test edeyim.",
     },
     {
       id: "ex.dts36.4.5",
@@ -1633,7 +1633,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
       correct_sentence:
         "Let me test the connection real quick — yes, it's working. Could I get a ticket number in case it breaks again?",
       tr_explanation:
-        "Test etmeden kapatma + kanit istememe = sorun tekrar gelirse bastan basliyorsun. Doğru: test + ticket number.",
+        "Test etmeden kapatma + kanıt istememe = sorun tekrar gelirse baştan başlıyorsun. Doğru: test + ticket number.",
     },
     {
       id: "ex.dts36.4.6",
@@ -1680,7 +1680,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
           ],
           model_answers: ["Could I get a ticket number? And when can I expect the refund?"],
           hint_tr:
-            "Iki sey iste: ticket number + refund timeline. 'Could I get a ticket number? And when can I expect the refund?'",
+            "İki şey iste: ticket number + refund timeline. 'Could I get a ticket number? And when can I expect the refund?'",
         },
         {
           speaker: "npc",
@@ -1704,7 +1704,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Test etmeden = sorun devam ediyor olabilir. Ticket = geri ararken bastan baslamazsin. Timeline = beklenti net.",
+            "Test etmeden = sorun devam ediyor olabilir. Ticket = geri ararken baştan başlamazsın. Timeline = beklenti net.",
         },
         {
           question: "'When can I expect the refund' niye onemli?",
@@ -1716,7 +1716,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Belirsiz timeline = aramaya devam edersin. Net tarih = gun 6'da gelmemise yeniden arar, kanit gosterirsin.",
+            "Belirsiz timeline = aramaya devam edersin. Net tarih = gün 6'da gelmemişe yeniden arar, kanıt gösterirsin.",
         },
         {
           question: "Ticket number'i ne icin saklarsin?",
@@ -1728,7 +1728,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Hi, calling about ticket TS-77821' = agent kaydi acar = 5 dakikada kaldigin yerden devam.",
+            "'Hi, calling about ticket TS-77821' = agent kaydı açar = 5 dakikada kaldığın yerden devam.",
         },
       ],
     },
@@ -1777,7 +1777,7 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
       correct_sentence:
         "Let me test the connection — yes, it's back. Could I get a ticket number in case it breaks again?",
       tr_explanation:
-        "Test etmeden + kanit istemeden kapanis. Doğru: test (yes back) + ticket number + 'in case' guvenligi.",
+        "Test etmeden + kanıt istemeden kapanış. Doğru: test (yes back) + ticket number + 'in case' güvenliği.",
     },
     {
       id: "ex.dts36.4.sp1",
@@ -2076,7 +2076,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
         "Since this morning my internet is down and the modem light is red and blinking.",
       ],
       tr_hint:
-        "'Has been down since X' = present perfect — ne zamandir kesik. Türk hatasi: 'Internet not work' DEĞIL.",
+        "'Has been down since X' = present perfect — ne zamandır kesik. Türk hatası: 'Internet not work' DEĞİL.",
     },
     {
       id: "ex.dts36.5.3",
@@ -2086,7 +2086,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
       answer: "test",
       distractors: ["check", "scan", "fix", "trial"],
       tr_hint:
-        "'Line test' = hat testi. ISP terimi — agent uzaktan hatti kontrol eder.",
+        "'Line test' = hat testi. ISP terimi — agent uzaktan hattı kontrol eder.",
     },
     {
       id: "ex.dts36.5.4",
@@ -2140,7 +2140,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
           ],
           model_answers: ["Hi, my internet's been down since this morning — modem's blinking red."],
           hint_tr:
-            "Net + zaman + gozlem: 'Hi, my internet's been down since this morning — modem's blinking red.'",
+            "Net + zaman + gözlem: 'Hi, my internet's been down since this morning — modem's blinking red.'",
         },
         {
           speaker: "npc",
@@ -2159,7 +2159,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
           ],
           model_answers: ["Already tried — unplugged for two minutes, still blinking red. No change."],
           hint_tr:
-            "Spesifik kanit: 'Already tried — unplugged for two minutes, still blinking red. No change.'",
+            "Spesifik kanıt: 'Already tried — unplugged for two minutes, still blinking red. No change.'",
         },
         {
           speaker: "npc",
@@ -2197,7 +2197,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Has been down since X' = ne kadar süredir kesik. Agent kayit acar = hizli tani.",
+            "'Has been down since X' = ne kadar süredir kesik. Agent kayıt açar = hızlı tanı.",
         },
         {
           question: "Modem isiklarini tarif etmek niye onemli?",
@@ -2209,7 +2209,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Blinking red' = no signal. 'Solid red' = baska sorun. Agent tahmin etmez = direkt cozum.",
+            "'Blinking red' = no signal. 'Solid red' = başka sorun. Agent tahmin etmez = direkt çözüm.",
         },
         {
           question: "'Line test' ne ise yarar?",
@@ -2221,7 +2221,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Modem temizse ama internet yoksa = ISP tarafinda sorun. Line test = hizli tani.",
+            "Modem temizse ama internet yoksa = ISP tarafında sorun. Line test = hızlı tanı.",
         },
       ],
     },
@@ -2232,7 +2232,7 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
       phrase: "My internet's been down since this morning.",
       ipa: "maɪ ˈɪntərnɛts bɪn daʊn sɪns ðɪs ˈmɔːrnɪŋ",
       tr_hint:
-        "ISP cagrisi acilis. 'Internet's been' bağlanır → 'in-tər-nets-bın'. 'Since this morning' net vurgu.",
+        "ISP çağrısı açılış. 'Internet's been' bağlanır → 'in-tər-nets-bın'. 'Since this morning' net vurgu.",
     },
     {
       id: "ex.dts36.5.sp1",
@@ -2538,7 +2538,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
       answer: "security",
       distractors: ["secret", "private", "personal", "account"],
       tr_hint:
-        "'Security questions' = guvenlik sorulari. 2FA calismayinca alternatif dogrulama yontemi.",
+        "'Security questions' = güvenlik soruları. 2FA çalışmayınca alternatif doğrulama yöntemi.",
     },
     {
       id: "ex.dts36.6.4",
@@ -2610,7 +2610,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
           ],
           model_answers: ["Already requested five new codes — none came through. Checked spam too."],
           hint_tr:
-            "Spesifik kanit: 'Already requested five new codes — none came through. Checked spam too.'",
+            "Spesifik kanıt: 'Already requested five new codes — none came through. Checked spam too.'",
         },
         {
           speaker: "npc",
@@ -2648,7 +2648,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Forgot password' = sifre unutkanligi. 'Locked out' = sistem kilitledi (cok deneme veya 2FA sorunu). Farkli cozumler.",
+            "'Forgot password' = şifre unutkanlığı. 'Locked out' = sistem kilitledi (çok deneme veya 2FA sorunu). Farklı çözümler.",
         },
         {
           question: "2FA gelmiyorsa AGENT'a ne soyle?",
@@ -2660,7 +2660,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Spesifik kanit (X kez denedim) + alternatif yol = agent bypass kanali acar.",
+            "Spesifik kanıt (X kez denedim) + alternatif yol = agent bypass kanalı açar.",
         },
         {
           question: "'Security questions' niye lazim?",
@@ -2672,7 +2672,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Hesap acilisinda kurdugun sorular = agent identity verify ederken kullanir. Hazir tut.",
+            "Hesap açılışında kurduğun sorular = agent identity verify ederken kullanır. Hazır tut.",
         },
       ],
     },
@@ -2683,7 +2683,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
       phrase: "The two-factor code isn't reaching my phone.",
       ipa: "ðə ˈtuː ˈfæktər koʊd ˈɪzənt ˈriːtʃɪŋ maɪ foʊn",
       tr_hint:
-        "2FA sikayet kalibi. 'Two-factor' birleşik vurgu. 'Isn't reaching' = gelmiyor — bağlanır.",
+        "2FA şikayet kalıbı. 'Two-factor' birleşik vurgu. 'Isn't reaching' = gelmiyor — bağlanır.",
     },
     {
       id: "ex.dts36.6.sp1",
@@ -2807,7 +2807,7 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
             "Help!",
           ],
           correct: 1,
-          tr_explanation: "Idiom + spesifik istek = pro.",
+          tr_explanation: "İdiom + spesifik istek = pro.",
         },
       ],
     },
@@ -2981,7 +2981,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
         "Can you clarify what this charge covers?",
       ],
       tr_hint:
-        "'Walk me through' = adim adim acikla. Faturada belirsiz kalem icin standart kalip.",
+        "'Walk me through' = adım adım açıkla. Faturada belirsiz kalem için standart kalıp.",
     },
     {
       id: "ex.dts36.7.3",
@@ -2991,7 +2991,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
       answer: "dispute",
       distractors: ["argue", "complain", "refuse", "deny"],
       tr_hint:
-        "'Dispute a charge' = bir ucrete itiraz et. Resmi terim — iade icin gerekir.",
+        "'Dispute a charge' = bir ücrete itiraz et. Resmi terim — iade için gerekir.",
     },
     {
       id: "ex.dts36.7.4",
@@ -3102,7 +3102,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tutar + tarih = agent hizla bulur. 'Don't recognize' = neutral ton (suclama yok). 'Walk me through' = acıklama daveti.",
+            "Tutar + tarih = agent hızla bulur. 'Don't recognize' = neutral ton (suçlama yok). 'Walk me through' = açıklama daveti.",
         },
         {
           question: "'Walk me through' niye 'explain' yerine kullanilir?",
@@ -3114,7 +3114,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Explain this' biraz emir gibi. 'Walk me through' = beraber bakalim havasi = agent direnci dusuk.",
+            "'Explain this' biraz emir gibi. 'Walk me through' = beraber bakalım havası = agent direnci düşük.",
         },
         {
           question: "'Dispute' ne zaman kullanılır?",
@@ -3126,7 +3126,7 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Once 'walk me through' (yumuşak), sonra cevap tatmin etmezse 'I'd like to dispute' = resmi itiraz. Sira onemli.",
+            "Önce 'walk me through' (yumuşak), sonra cevap tatmin etmezse 'I'd like to dispute' = resmi itiraz. Sıra önemli.",
         },
       ],
     },
@@ -3435,7 +3435,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
         "What do I get on premium that I don't get on standard?",
       ],
       tr_hint:
-        "'Difference between X and Y' = X ile Y arasi fark. Plan karsilastirmada standart kalip.",
+        "'Difference between X and Y' = X ile Y arası fark. Plan karşılaştırmada standart kalıp.",
     },
     {
       id: "ex.dts36.8.3",
@@ -3445,7 +3445,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
       answer: "downgrade",
       distractors: ["downsize", "decrease", "lower", "reduce"],
       tr_hint:
-        "'Downgrade' = alt plana gec. 'Upgrade' = ust plana gec. Plan degisiminde standart terim.",
+        "'Downgrade' = alt plana geç. 'Upgrade' = üst plana geç. Plan değişiminde standart terim.",
     },
     {
       id: "ex.dts36.8.4",
@@ -3471,7 +3471,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
       correct_sentence:
         "I'd like to switch plans — could you walk me through the difference between standard and basic, and what I'd save by downgrading?",
       tr_explanation:
-        "Türk hatasi: 'I want change' (to eksik) + tek kelimelik emir. Doğru: 'I'd like to switch' (kibar) + 'walk me through' + spesifik istek (karsilastirma + tasarruf).",
+        "Türk hatası: 'I want change' (to eksik) + tek kelimelik emir. Doğru: 'I'd like to switch' (kibar) + 'walk me through' + spesifik istek (karşılaştırma + tasarruf).",
     },
     {
       id: "ex.dts36.8.6",
@@ -3518,7 +3518,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
           ],
           model_answers: ["What's the difference between Standard and Basic? And is there any loyalty discount?"],
           hint_tr:
-            "Karsilastirma + indirim sor: 'What's the difference between Standard and Basic? And is there any loyalty discount?'",
+            "Karşılaştırma + indirim sor: 'What's the difference between Standard and Basic? And is there any loyalty discount?'",
         },
         {
           speaker: "npc",
@@ -3556,7 +3556,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Fark = ne kaybedersin. Indirim = gizli tasarruf. Baslangic = fatura ne zaman degisir. Ucu birden = net karar.",
+            "Fark = ne kaybedersin. İndirim = gizli tasarruf. Başlangıç = fatura ne zaman değişir. Üçü birden = net karar.",
         },
         {
           question: "'Upgrade' ve 'downgrade' ne zaman kullanilir?",
@@ -3568,7 +3568,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Telecom/SaaS dili. 'Change plan' yerine 'downgrade/upgrade' = agent direkt anlar = hizli islem.",
+            "Telecom/SaaS dili. 'Change plan' yerine 'downgrade/upgrade' = agent direkt anlar = hızlı işlem.",
         },
         {
           question: "Indirim/promo niye SORULMASI gerekiyor?",
@@ -3580,7 +3580,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Is there a loyalty discount?' = agent retention paketini acar. Soru sormamak = 20%-30% kaybetmek.",
+            "'Is there a loyalty discount?' = agent retention paketini açar. Soru sormamak = 20%-30% kaybetmek.",
         },
       ],
     },
@@ -3591,7 +3591,7 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
       phrase: "What's the difference between these two plans?",
       ipa: "wʌts ðə ˈdɪfərəns bɪˈtwiːn ðiːz tuː plænz",
       tr_hint:
-        "Plan karsilastirma kalibi. 'What's the' bağlanır → 'wʌts-ðə'. 'Difference between' net vurgu. 'Two plans' sonu net.",
+        "Plan karşılaştırma kalıbı. 'What's the' bağlanır → 'wʌts-ðə'. 'Difference between' net vurgu. 'Two plans' sonu net.",
     },
     {
       id: "ex.dts36.8.sp1",

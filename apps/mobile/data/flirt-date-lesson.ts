@@ -272,7 +272,7 @@ export const flirtDateLesson_4_1: BundledLesson = {
       transcription_target:
         "Honestly yes — was hoping you'd ask. What day works for you?",
       tr_hint:
-        "Match'in heyecanli kabul cevabi. 'Was hoping you'd ask' = sormani umuyordum. 'What works for you' = hangi gün uygun.",
+        "Match'in heyecanlı kabul cevabı. 'Was hoping you'd ask' = sormanı umuyordum. 'What works for you' = hangi gün uygun.",
     },
     {
       id: "ex.fd4.1.11",
@@ -280,11 +280,11 @@ export const flirtDateLesson_4_1: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Got a spot in mind",
-      tr_translation: "Aklimda bir yer var",
+      tr_translation: "Aklımda bir yer var",
       example:
         "Got a great spot in mind near the park — Thursday at seven, easy walk-in.",
       example_tr:
-        "Parkın yanında harika bir yer biliyorum — Persembe yedide, kolayca girilir.",
+        "Parkın yanında harika bir yer biliyorum — Perşembe yedide, kolayca girilir.",
     },
     {
       id: "ex.fd4.1.12",
@@ -655,7 +655,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
         "I know this little Italian place that does ridiculous pasta — Friday night?",
       ipa: "/aɪ nəʊ ðɪs ˈlɪtəl ɪˈtæljən pleɪs ðæt dʌz rɪˈdɪkjʊləs ˈpɑːstə — ˈfraɪdeɪ naɪt/",
       tr_hint:
-        "Sahiplenme + heyecan tonu. 'This little place' bağli kalip. 'Ridiculous' = mizahi abarti, vurgulu.",
+        "Sahiplenme + heyecan tonu. 'This little place' bağlı kalıp. 'Ridiculous' = mizahi abartı, vurgulu.",
     },
     {
       id: "ex.fd4.2.9",
@@ -665,7 +665,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
         "Round two thoughts — wine bar by the river or that wood-fired pizza place we both kept mentioning?",
       voice_hint: "warm_us",
       tr_hint:
-        "Ikinci randevu tonu — kararli, eglenceli secim. 'Round two' bağli, ritmiyle akici.",
+        "İkinci randevu tonu — kararlı, eğlenceli seçim. 'Round two' bağlı, ritmiyle akıcı.",
     },
     {
       id: "ex.fd4.2.10",
@@ -676,7 +676,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
       transcription_target:
         "Yes please — coffee was way too short. Got a spot in mind?",
       tr_hint:
-        "Ikinci randevu kabul cevabi. 'Way too short' = cok kisaydi. 'Got a spot in mind' = aklinda yer var mi.",
+        "İkinci randevu kabul cevabı. 'Way too short' = çok kısaydı. 'Got a spot in mind' = aklında yer var mı.",
     },
     {
       id: "ex.fd4.2.11",
@@ -688,7 +688,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
       example:
         "I'll pick the place — save you the menu anxiety. Italian okay?",
       example_tr:
-        "Yeri ben sececegim — menü anksiyetesinden kurtarayim. Italyan olur mu?",
+        "Yeri ben seçeceğim — menü anksiyetesinden kurtarayım. İtalyan olur mu?",
     },
     {
       id: "ex.fd4.2.12",
@@ -699,7 +699,7 @@ export const flirtDateLesson_4_2: BundledLesson = {
       correct_sentence:
         "Free for dinner Friday? Thinking that wine bar you mentioned — happy to grab the reservation.",
       tr_explanation:
-        "'You come restaurant' = komut + bozuk. 'I pay everything' = transactional power-play. Doğru: soru + spesifik fikir (onun bahsettigi yer = dinledim sinyali) + 'happy to' (kolaylik teklif, baskinlik degil).",
+        "'You come restaurant' = komut + bozuk. 'I pay everything' = transactional power-play. Doğru: soru + spesifik fikir (onun bahsettiği yer = dinledim sinyali) + 'happy to' (kolaylık teklif, baskınlık değil).",
     },
     {
       id: "ex.fd4.2.sp1",
@@ -1063,7 +1063,7 @@ export const flirtDateLesson_4_3: BundledLesson = {
         "Down for a walk through the farmers market Saturday? Forecast actually looks decent.",
       ipa: "/daʊn fər ə wɔːk θruː ðə ˈfɑːməz ˈmɑːkɪt ˈsætədeɪ — ˈfɔːkɑːst ˈæktʃʊəli lʊks ˈdiːsənt/",
       tr_hint:
-        "Casual activity teklif tonu. 'Down for' bağli kalip, 'forecast actually' bağli — surpriz nuansi.",
+        "Casual activity teklif tonu. 'Down for' bağlı kalıp, 'forecast actually' bağlı — sürpriz nüansı.",
     },
     {
       id: "ex.fd4.3.9",
@@ -1073,7 +1073,7 @@ export const flirtDateLesson_4_3: BundledLesson = {
         "Random thought — there's this rooftop jazz thing on Saturday, low-key cool, totally chill if it's not your scene.",
       voice_hint: "warm_us",
       tr_hint:
-        "Yaratici teklif tonu — kararli, çıkış kapısı içerir. 'Low-key cool' bağli slang. 'Not your scene' = senlik degilse.",
+        "Yaratıcı teklif tonu — kararlı, çıkış kapısı içerir. 'Low-key cool' bağlı slang. 'Not your scene' = senlik değilse.",
     },
     {
       id: "ex.fd4.3.10",
@@ -1084,7 +1084,7 @@ export const flirtDateLesson_4_3: BundledLesson = {
       transcription_target:
         "Ooh I'm down — haven't been to a farmers market in forever.",
       tr_hint:
-        "Match'in heyecanli kabul cevabi. 'I'm down' = varim. 'In forever' = uzun zamandir.",
+        "Match'in heyecanlı kabul cevabı. 'I'm down' = varım. 'In forever' = uzun zamandır.",
     },
     {
       id: "ex.fd4.3.11",
@@ -1092,11 +1092,11 @@ export const flirtDateLesson_4_3: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Make a morning of it",
-      tr_translation: "Sabahi uzatip etkinlik yapalim",
+      tr_translation: "Sabahı uzatıp etkinlik yapalım",
       example:
         "Walk through the market, grab brunch after — let's make a morning of it.",
       example_tr:
-        "Pazardan geç, sonra brunch — sabahi uzatip etkinlik yapalim.",
+        "Pazardan geç, sonra brunch — sabahı uzatıp etkinlik yapalım.",
     },
     {
       id: "ex.fd4.3.12",
@@ -1474,7 +1474,7 @@ export const flirtDateLesson_4_4: BundledLesson = {
         "We've been chatting a while — better way to do this is probably in person.",
       ipa: "/wiːv biːn ˈtʃætɪŋ ə waɪl — ˈbɛtə weɪ tʊ dʊ ðɪs ɪz ˈprɒbəbli ɪn ˈpɜːsən/",
       tr_hint:
-        "Olgun gecis tonu — kararli, baski yapmadan. 'We've been chatting' bağli, 'in person' yumusak kapanis.",
+        "Olgun geçiş tonu — kararlı, baskı yapmadan. 'We've been chatting' bağlı, 'in person' yumuşak kapanış.",
     },
     {
       id: "ex.fd4.4.9",
@@ -1495,7 +1495,7 @@ export const flirtDateLesson_4_4: BundledLesson = {
       transcription_target:
         "Honestly was thinking the same thing. When works for you?",
       tr_hint:
-        "Match'in olumlu yanit cevabi. 'Was thinking the same thing' = ben de ayni seyi dusunuyordum. 'When works' = ne zaman uyar.",
+        "Match'in olumlu yanıt cevabı. 'Was thinking the same thing' = ben de aynı şeyi düşünüyordum. 'When works' = ne zaman uyar.",
     },
     {
       id: "ex.fd4.4.11",
@@ -1503,7 +1503,7 @@ export const flirtDateLesson_4_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Pen-pal phase is real",
-      tr_translation: "Mektup arkadaşi fazi gerçek (uzun yazismadan sonra)",
+      tr_translation: "Mektup arkadaşı fazı gerçek (uzun yazışmadan sonra)",
       example:
         "Don't want to hit pen-pal phase — coffee this week, even thirty minutes?",
       example_tr:
@@ -1518,7 +1518,7 @@ export const flirtDateLesson_4_4: BundledLesson = {
       correct_sentence:
         "We've been chatting a while — better in person, right? Free for coffee this week?",
       tr_explanation:
-        "'Why we don't meet ever' = pasif-saldirgan + ezikçe. 'You don't want me probably' = guvensizlik gosterisi = unmatch tetigi. Doğru: pozitif framing + somut teklif. Modern dating'te ozguven = guvenli baglilik sinyali.",
+        "'Why we don't meet ever' = pasif-saldırgan + ezikçe. 'You don't want me probably' = güvensizlik gösterisi = unmatch tetiği. Doğru: pozitif framing + somut teklif. Modern dating'te özgüven = güvenli bağlılık sinyali.",
     },
     {
       id: "ex.fd4.4.sp1",

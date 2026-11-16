@@ -370,7 +370,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
       native_text: "I'm running late, as fast as you can please.",
       voice_hint: "male_us",
       tr_hint:
-        "'Running late' = gecikmis. 'As fast as you can' = elinden gelen hizla. Saygili aciliyet.",
+        "'Running late' = gecikmiş. 'As fast as you can' = elinden gelen hızla. Saygılı aciliyet.",
     },
     {
       id: "ex.dx32.1.10",
@@ -822,7 +822,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
       phrase: "Are you the Uber for Berk?",
       ipa: "ɑːr juː ði ˈuːbər fɔːr bɜːrk",
       tr_hint:
-        "Güvenlik dogrulama. 'Are you' bağlanır → 'ər-yu'. 'Uber for Berk' net vurgular.",
+        "Güvenlik doğrulama. 'Are you' bağlanır → 'ər-yu'. 'Uber for Berk' net vurgular.",
     },
     {
       id: "ex.dx32.2.9",
@@ -831,7 +831,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
       native_text: "Can I double-check the license plate?",
       voice_hint: "male_us",
       tr_hint:
-        "Güvenlik kalibi. 'Double-check' = tekrar dogrula. 'License plate' birleşik vurgu.",
+        "Güvenlik kalıbı. 'Double-check' = tekrar doğrula. 'License plate' birleşik vurgu.",
     },
     {
       id: "ex.dx32.2.10",
@@ -860,7 +860,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
       correct_sentence:
         "Hi, are you here for Berk? Mind if I confirm the plate before I get in?",
       tr_explanation:
-        "Belirsiz + güvensiz. Doğru: isim sor + plaka dogrula (sahte Uber riski gercek).",
+        "Belirsiz + güvensiz. Doğru: isim sor + plaka doğrula (sahte Uber riski gerçek).",
     },
     {
       id: "ex.dx32.2.sp1",
@@ -1307,7 +1307,7 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
       audio_text: "Traffic looks pretty bad on the bridge today.",
       transcription_target: "Traffic looks pretty bad on the bridge today.",
       tr_hint:
-        "Soför yorumu. 'Pretty bad' = oldukca kötü. 'On the bridge' = koprude. Alternatif rota sinyali.",
+        "Şoför yorumu. 'Pretty bad' = oldukça kötü. 'On the bridge' = köprüde. Alternatif rota sinyali.",
     },
     {
       id: "ex.dx32.3.11",
@@ -1785,7 +1785,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
       native_text: "I'll add a twenty percent tip, please.",
       voice_hint: "female_us",
       tr_hint:
-        "Kart kalibi. 'I'll add' = ekleyeyim. 'Twenty percent' birleşik vurgu. ABD standardi.",
+        "Kart kalibi. 'I'll add' = ekleyeyim. 'Twenty percent' birleşik vurgu. ABD standardı.",
     },
     {
       id: "ex.dx32.4.10",
@@ -2111,7 +2111,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
         "Hey, just spotted you on the map. I'm at the side entrance with a blue jacket.",
       ],
       tr_hint:
-        "Türk hatasi: 'Driver where you?' — yerine kendini konumla tanit. Net konum + kıyafet = şoför bulur.",
+        "Türk hatası: 'Driver where you?' — yerine kendini konumla tanıt. Net konum + kıyafet = şoför bulur.",
     },
     {
       id: "ex.dx32.5.3",
@@ -2146,7 +2146,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
       correct_sentence:
         "Hi, I see you on the map — I'm at the side entrance, wearing a blue jacket. I'll wave.",
       tr_explanation:
-        "'Driver where you?' = grammatik yok + sucluyor. Doğru: 'I see you on the map' (sakin) + kendi konumun + kıyafet. Şoför zaten harita kullaniyor, sen kendini tanit.",
+        "'Driver where you?' = grammatik yok + suçluyor. Doğru: 'I see you on the map' (sakin) + kendi konumun + kıyafet. Şoför zaten harita kullanıyor, sen kendini tanıt.",
     },
     {
       id: "ex.dx32.5.6",
@@ -2247,7 +2247,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
       phrase: "I'm at the side entrance, blue jacket.",
       ipa: "aɪm æt ðə saɪd ˈɛntrəns bluː ˈdʒækɪt",
       tr_hint:
-        "Pickup tanitim. 'Side entrance' = yan giris. 'Blue jacket' = mavi ceket. Net + kisa = şoför bulur.",
+        "Pickup tanıtım. 'Side entrance' = yan giriş. 'Blue jacket' = mavi ceket. Net + kısa = şoför bulur.",
     },
     {
       id: "ex.dx32.5.sp1",
@@ -2578,7 +2578,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       correct_sentence:
         "Sorry — change of plans. Could you drop me at the next corner instead? The meter can keep running.",
       tr_explanation:
-        "Emir kipi + panik = kaba ve şoförü germez. Doğru: 'Sorry' (yumuşat) + 'change of plans' (açıkla) + 'meter can keep running' (para kaybi yok). Saygı + sebep + güvence.",
+        "Emir kipi + panik = kaba ve şoförü germez. Doğru: 'Sorry' (yumuşat) + 'change of plans' (açıkla) + 'meter can keep running' (para kaybı yok). Saygı + sebep + güvence.",
     },
     {
       id: "ex.dx32.6.6",
@@ -2677,7 +2677,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       phrase: "Drop me at the corner instead.",
       ipa: "drɑːp mi æt ðə ˈkɔːrnər ɪnˈstɛd",
       tr_hint:
-        "Rota değiştir. 'Drop me' baglanir → 'drap-mi'. 'Instead' son hece vurgulu: in-STED.",
+        "Rota değiştir. 'Drop me' bağlanır → 'drap-mi'. 'Instead' son hece vurgulu: in-STED.",
     },
     {
       id: "ex.dx32.6.sp1",
@@ -2985,7 +2985,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
       answer: "running",
       distractors: ["working", "moving", "open"],
       tr_hint:
-        "'Meter running' = sayaç islemekte. 'Flat rate' = sabit ücret. İkisi farkli mantik.",
+        "'Meter running' = sayaç işlemekte. 'Flat rate' = sabit ücret. İkisi farklı mantık.",
     },
     {
       id: "ex.dx32.7.4",
@@ -3112,7 +3112,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
       phrase: "Is the meter running?",
       ipa: "ɪz ðə ˈmiːtər ˈrʌnɪŋ",
       tr_hint:
-        "Dolandirici filtre. 'Meter' = sayaç (mee-ter). 'Running' = islemek (run-ing). Net soru tonu.",
+        "Dolandırıcı filtre. 'Meter' = sayaç (mee-ter). 'Running' = işlemek (run-ing). Net soru tonu.",
     },
     {
       id: "ex.dx32.7.sp1",
@@ -3444,7 +3444,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
       correct_sentence:
         "How's your shift going? Crazy traffic out there today, huh?",
       tr_explanation:
-        "Türk hatasi: hemen kişisel sorular = ABD'de garip + rahatsiz. Aile/maaş = tabu. Doğru: shift + hava + trafik = güvenli zon. Driver privacy = saygı göster.",
+        "Türk hatası: hemen kişisel sorular = ABD'de garip + rahatsız. Aile/maaş = tabu. Doğru: shift + hava + trafik = güvenli zon. Driver privacy = saygı göster.",
     },
     {
       id: "ex.dx32.8.6",
@@ -3559,7 +3559,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
       phrase: "How's your shift going so far?",
       ipa: "haʊz jɔːr ʃɪft ˈɡoʊɪŋ soʊ fɑːr",
       tr_hint:
-        "Small talk acici. 'How's your' baglanir → 'hauz-yor'. 'So far' = simdiye kadar (so-FAR vurgu).",
+        "Small talk açıcı. 'How's your' bağlanır → 'hauz-yor'. 'So far' = şimdiye kadar (so-FAR vurgu).",
     },
     {
       id: "ex.dx32.8.sp1",

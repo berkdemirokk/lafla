@@ -22,11 +22,11 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Situation, Behavior, Impact",
-      tr_translation: "Durum, Davranis, Etki (SBI cercevesi)",
+      tr_translation: "Durum, Davranış, Etki (SBI çerçevesi)",
       example:
         "In yesterday's review (S), when you interrupted Berk (B), it made him hesitant to speak up (I).",
       example_tr:
-        "Dunku review'da (durum), Berk'in sozunu kestiginde (davranis), konusmaktan cekindi (etki).",
+        "Dünkü review'da (durum), Berk'in sözünü kestiğinde (davranış), konuşmaktan çekindi (etki).",
     },
     {
       id: "ex.wfg37.1.2",
@@ -44,7 +44,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
         "In standup yesterday, cutting Maya off during her update made the team uneasy.",
       ],
       tr_hint:
-        "SBI: 'In [situation], when you [behavior], it [impact]'. Yargi yok — gozlem ve sonuc.",
+        "SBI: 'In [situation], when you [behavior], it [impact]'. Yargı yok — gözlem ve sonuç.",
     },
     {
       id: "ex.wfg37.1.3",
@@ -54,7 +54,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
       answer: "when",
       distractors: ["that", "if", "since"],
       tr_hint:
-        "SBI'nin orta kismi: 'when you [behavior]'. 'When' = spesifik moment'i isaret eder.",
+        "SBI'nin orta kısmı: 'when you [behavior]'. 'When' = spesifik moment'i işaret eder.",
     },
     {
       id: "ex.wfg37.1.4",
@@ -71,7 +71,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
         "down",
       ],
       correct_sentence: "When you interrupted Berk it shut him down",
-      tr_translation: "Berk'in sozunu kestiginde, onu susturdu.",
+      tr_translation: "Berk'in sözünü kestiğinde, onu susturdu.",
     },
     {
       id: "ex.wfg37.1.5",
@@ -81,7 +81,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
       correct_sentence:
         "In yesterday's review, when you cut Berk off mid-sentence, it made him hesitant to share again.",
       tr_explanation:
-        "'You're rude' = etiket = karakter saldirisi = defansif yanit. SBI: spesifik durum + spesifik davranis + spesifik etki = degistirilebilir geri bildirim.",
+        "'You're rude' = etiket = karakter saldırısı = defansif yanıt. SBI: spesifik durum + spesifik davranış + spesifik etki = değiştirilebilir geri bildirim.",
     },
     {
       id: "ex.wfg37.1.6",
@@ -103,7 +103,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
           ],
           model_answers: ["Quick feedback — in yesterday's review, when you cut Berk off, he got hesitant to speak up."],
           hint_tr:
-            "SBI acilis: 'Quick feedback — in yesterday's review, when you cut Berk off, he got hesitant to speak up.'",
+            "SBI açılış: 'Quick feedback — in yesterday's review, when you cut Berk off, he got hesitant to speak up.'",
         },
         {
           speaker: "npc",
@@ -162,7 +162,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "S = spesifik moment. B = gozlemlenebilir davranis. I = somut etki. Etiket / karakter yargisi yok = degistirilebilir.",
+            "S = spesifik moment. B = gözlemlenebilir davranış. I = somut etki. Etiket / karakter yargısı yok = değiştirilebilir.",
         },
         {
           question: "'You're rude in meetings' niye kotu geri bildirim?",
@@ -174,7 +174,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karakter saldirisi = kişilik sorgulamasi = ego tehlikede = savunma modu. SBI = davranis sorgulamasi = degistirilebilir.",
+            "Karakter saldırısı = kişilik sorgulaması = ego tehlikede = savunma modu. SBI = davranış sorgulaması = değiştirilebilir.",
         },
         {
           question: "SBI'nin EN onemli avantaji?",
@@ -186,7 +186,7 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Belirsiz feedback ('be more collaborative') = ne yapacagini bilmez. SBI = spesifik moment + spesifik davranis = net aksiyon.",
+            "Belirsiz feedback ('be more collaborative') = ne yapacağını bilmez. SBI = spesifik moment + spesifik davranış = net aksiyon.",
         },
       ],
     },
@@ -477,9 +477,9 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Can I be candid?",
-      tr_translation: "Acik konusabilir miyim? (zor geri bildirim acilisi)",
+      tr_translation: "Açık konuşabilir miyim? (zor geri bildirim açılışı)",
       example: "Can I be candid? The deck didn't land the way we hoped.",
-      example_tr: "Acik konusabilir miyim? Sunum umdugumuz gibi ic acmadi.",
+      example_tr: "Açık konuşabilir miyim? Sunum umduğumuz gibi iç açmadı.",
     },
     {
       id: "ex.wfg37.2.2",
@@ -497,7 +497,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
         "Been meaning to bring this up: PR quality has slipped over the past few.",
       ],
       tr_hint:
-        "Acilis = nazikce uyari = report hazirlik yapar. 'Want to share' / 'on my mind' = yumusak ama dogrudan.",
+        "Açılış = nazikçe uyarı = report hazırlık yapar. 'Want to share' / 'on my mind' = yumuşak ama doğrudan.",
     },
     {
       id: "ex.wfg37.2.3",
@@ -507,7 +507,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
       answer: "candid",
       distractors: ["honest", "real", "open"],
       tr_hint:
-        "'Candid' = acik / dosdogru. Profesyonel dilde tercih edilen kelime. 'Honest' de gecer ama 'candid' daha kurumsal.",
+        "'Candid' = açık / dosdoğru. Profesyonel dilde tercih edilen kelime. 'Honest' de geçer ama 'candid' daha kurumsal.",
     },
     {
       id: "ex.wfg37.2.4",
@@ -526,7 +526,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
         "mind",
       ],
       correct_sentence: "I want to share something that's been on my mind",
-      tr_translation: "Aklimda olan bir seyi paylasmak istiyorum.",
+      tr_translation: "Aklımda olan bir şeyi paylaşmak istiyorum.",
     },
     {
       id: "ex.wfg37.2.5",
@@ -536,7 +536,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
       correct_sentence:
         "Can I be candid? I'm seeing a quality dip in the last few PRs — bugs are slipping past review.",
       tr_explanation:
-        "'Kind of', 'maybe', 'sometimes' = belirsizlik = report mesaji ciddiye almaz. Radical candor = dosdogru + spesifik + insanca. Yumusatma degil, netlik.",
+        "'Kind of', 'maybe', 'sometimes' = belirsizlik = report mesajı ciddiye almaz. Radical candor = dosdoğru + spesifik + insanca. Yumuşatma değil, netlik.",
     },
     {
       id: "ex.wfg37.2.6",
@@ -558,7 +558,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
           ],
           model_answers: ["Can I be candid? I'm seeing a quality dip in the last few PRs."],
           hint_tr:
-            "Acik acilis: 'Can I be candid? I'm seeing a quality dip in the last few PRs.'",
+            "Açık açılış: 'Can I be candid? I'm seeing a quality dip in the last few PRs.'",
         },
         {
           speaker: "npc",
@@ -619,7 +619,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Insan beyni ani zor mesaja kapanir. Mini-uyari = zihinsel hazirlik = mesaj icin yer acilir.",
+            "İnsan beyni ani zor mesaja kapanır. Mini-uyarı = zihinsel hazırlık = mesaj için yer açılır.",
         },
         {
           question: "Radical candor = nedir?",
@@ -631,7 +631,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kim Scott cercevesi: ilgi + netlik. Yumusatma = manipulative empathy. Saldiri = obnoxious aggression. Ortasi = radical candor.",
+            "Kim Scott çerçevesi: ilgi + netlik. Yumuşatma = manipulative empathy. Saldırı = obnoxious aggression. Ortası = radical candor.",
         },
         {
           question: "'Maybe sometimes you should kind of try harder' niye kotu?",
@@ -643,7 +643,7 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Hedge kelimeleri (yumusatici) hosgoru hissi verir ama gercekte: 'sorun yokmus gibi davraniyor' algisi. Net = saygi.",
+            "Hedge kelimeleri (yumuşatıcı) hoşgörü hissi verir ama gerçekte: 'sorun yokmuş gibi davranıyor' algısı. Net = saygı.",
         },
       ],
     },
@@ -844,9 +844,9 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "shoutout",
-      tr_translation: "Acik takdir / aleni ovgu",
+      tr_translation: "Açık takdir / aleni övgü",
       example: "Quick shoutout to Maya for catching the regression before prod.",
-      example_tr: "Maya'ya bug'i prod'a gitmeden yakaladigi icin acik takdir.",
+      example_tr: "Maya'ya bug'ı prod'a gitmeden yakaladığı için açık takdir.",
     },
     {
       id: "ex.wfg37.3.2",
@@ -864,7 +864,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
         "Shoutout for last night's ship — and the RFC was genuinely a high-water mark.",
       ],
       tr_hint:
-        "Spesifik ovgu = NE yaptigi + NICIN onemli + ETKISI ne. 'Good job' = sifir sinyali. Bu = real signal.",
+        "Spesifik övgü = NE yaptığı + NİÇİN önemli + ETKİSİ ne. 'Good job' = sıfır sinyali. Bu = real signal.",
     },
     {
       id: "ex.wfg37.3.3",
@@ -874,7 +874,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
       answer: "shoutout",
       distractors: ["yelling", "scream", "shouting"],
       tr_hint:
-        "'Shoutout' (tek kelime) = acik takdir = Slack / standup'ta yaygin kalip.",
+        "'Shoutout' (tek kelime) = açık takdir = Slack / standup'ta yaygın kalıp.",
     },
     {
       id: "ex.wfg37.3.4",
@@ -893,7 +893,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
         "migration",
       ],
       correct_sentence: "Want to call out the work on the auth migration",
-      tr_translation: "Auth migration'daki calismayi ovmek istiyorum.",
+      tr_translation: "Auth migration'daki çalışmayı övmek istiyorum.",
     },
     {
       id: "ex.wfg37.3.5",
@@ -903,7 +903,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
       correct_sentence:
         "Shoutout to Maya for catching the regression in the payment flow before it hit prod — saved us a Sunday firefight.",
       tr_explanation:
-        "'Good job everyone' = jenerik = kimse ozumeger. Spesifik isim + spesifik aksiyon + spesifik etki = gercek takdir + diger ekip ogrenir.",
+        "'Good job everyone' = jenerik = kimse özümeger. Spesifik isim + spesifik aksiyon + spesifik etki = gerçek takdir + diğer ekip öğrenir.",
     },
     {
       id: "ex.wfg37.3.6",
@@ -944,7 +944,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
           ],
           model_answers: ["Seriously, that was above and beyond — the way you ran the incident was a standard for the team."],
           hint_tr:
-            "Sunma'yi reddet: 'Seriously, that was above and beyond — the way you ran the incident was a standard for the team.'",
+            "Sunma'yı reddet: 'Seriously, that was above and beyond — the way you ran the incident was a standard for the team.'",
         },
         {
           speaker: "npc",
@@ -968,7 +968,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Good job' = anlamsiz. 'Shoutout to X for catching Y before prod = saved us Z' = gercek takdir + diger ekip ogrenir.",
+            "'Good job' = anlamsız. 'Shoutout to X for catching Y before prod = saved us Z' = gerçek takdir + diğer ekip öğrenir.",
         },
         {
           question: "Public (Slack) vs Private (1:1) kudos — fark?",
@@ -980,7 +980,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Public = davranis modellemesi (digerleri gorur, ogrenir). Private = kişisel guc noktasi, derin etki. Strateji: ikisi de.",
+            "Public = davranış modellemesi (diğerleri görür, öğrenir). Private = kişisel güç noktası, derin etki. Strateji: ikisi de.",
         },
         {
           question: "'Good job everyone' niye etkisiz?",
@@ -992,7 +992,7 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Toplu ovgu = kimse uzerine almıyor. Isim + aksiyon + etki = takdirin agirligi olusur.",
+            "Toplu övgü = kimse üzerine almıyor. İsim + aksiyon + etki = takdirin ağırlığı oluşur.",
         },
       ],
     },
@@ -1193,11 +1193,11 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "What would help here?",
-      tr_translation: "Burada ne yararli olur? (aksiyon davet sorusu)",
+      tr_translation: "Burada ne yararlı olur? (aksiyon davet sorusu)",
       example:
         "I hear the load is real — what would help here? Pair review? Scope cut?",
       example_tr:
-        "Is yukunun gercek oldugunu anliyorum — burada ne yararli olur? Pair review? Scope kisma?",
+        "İş yükünün gerçek olduğunu anlıyorum — burada ne yararlı olur? Pair review? Scope kısma?",
     },
     {
       id: "ex.wfg37.4.2",
@@ -1215,7 +1215,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
         "Quick follow-up in 2 weeks to see where we are.",
       ],
       tr_hint:
-        "Geri bildirim + tarihli takip = konu olu kalmaz. 'Revisit' / 'circle back' = sik kullanilir.",
+        "Geri bildirim + tarihli takip = konu ölü kalmaz. 'Revisit' / 'circle back' = sık kullanılır.",
     },
     {
       id: "ex.wfg37.4.3",
@@ -1225,7 +1225,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
       answer: "revisit",
       distractors: ["forget", "ignore", "delete"],
       tr_hint:
-        "'Revisit' = tekrar ele alalim. Geri bildirim sonrasi takip kelimesi.",
+        "'Revisit' = tekrar ele alalım. Geri bildirim sonrası takip kelimesi.",
     },
     {
       id: "ex.wfg37.4.4",
@@ -1244,7 +1244,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
         "easier",
       ],
       correct_sentence: "What do you need from me to make this easier",
-      tr_translation: "Bunu kolaylastirmak icin benden ne gerekli?",
+      tr_translation: "Bunu kolaylaştırmak için benden ne gerekli?",
     },
     {
       id: "ex.wfg37.4.5",
@@ -1255,7 +1255,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
       correct_sentence:
         "What would help here? Let's pick one thing to try — and revisit in 2 weeks to see if it landed.",
       tr_explanation:
-        "'Just do better' = sifir destek + sifir takip = geri bildirim olur. Aksiyon (NE deneyelim) + tarih (NE ZAMAN bakariz) = gercek degisim olusur.",
+        "'Just do better' = sıfır destek + sıfır takip = geri bildirim olur. Aksiyon (NE deneyelim) + tarih (NE ZAMAN bakarız) = gerçek değişim oluşur.",
     },
     {
       id: "ex.wfg37.4.6",
@@ -1342,7 +1342,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Soylemek baslangic — degisim aksiyon + takiple olur. Tarihli check-in = konu hayatta kalir.",
+            "Söylemek başlangıç — değişim aksiyon + takiple olur. Tarihli check-in = konu hayatta kalır.",
         },
         {
           question: "'What would help here?' sorusu nicin guclu?",
@@ -1354,7 +1354,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Sen yap X' = direktif = isteksizlik. 'Ne yararli olur?' = davet = report kendi cozumune sahip cikar.",
+            "'Sen yap X' = direktif = isteksizlik. 'Ne yararlı olur?' = davet = report kendi çözümüne sahip çıkar.",
         },
         {
           question: "'Let's revisit in 2 weeks' niye onemli?",
@@ -1366,7 +1366,7 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tarihsiz geri bildirim = unutulur. 2 hafta = davranis degismek icin zaman + olculmek icin yeterli.",
+            "Tarihsiz geri bildirim = unutulur. 2 hafta = davranış değişmek için zaman + ölçülmek için yeterli.",
         },
       ],
     },
@@ -1567,9 +1567,9 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "moved the needle",
-      tr_translation: "Igneyi oynatti / gercekten fark yaratti (jargon)",
+      tr_translation: "İğneyi oynattı / gerçekten fark yarattı (jargon)",
       example: "Your dashboard work really moved the needle on Q3 retention.",
-      example_tr: "Dashboard calismam Q3 retention'da gercekten fark yaratti.",
+      example_tr: "Dashboard çalışmam Q3 retention'da gerçekten fark yarattı.",
     },
     {
       id: "ex.wfg37.5.2",
@@ -1587,7 +1587,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
         "Hey, quick props — the board deck yesterday was sharp; the revenue slide is what won the CFO over.",
       ],
       tr_hint:
-        "Spesifik = NE (board deck) + NICIN onemli (revenue slide) + ETKI (CFO ikna oldu). 'On fire' / 'landed' / 'moved the needle' = native jargon.",
+        "Spesifik = NE (board deck) + NİÇİN önemli (revenue slide) + ETKİ (CFO ikna oldu). 'On fire' / 'landed' / 'moved the needle' = native jargon.",
     },
     {
       id: "ex.wfg37.5.3",
@@ -1597,7 +1597,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
       answer: "moved",
       distractors: ["pushed", "lifted", "raised"],
       tr_hint:
-        "'Move the needle' = sabit kalip = gercek fark yarat. 'Push' / 'lift' yanlis collocation.",
+        "'Move the needle' = sabit kalıp = gerçek fark yarat. 'Push' / 'lift' yanlış collocation.",
     },
     {
       id: "ex.wfg37.5.4",
@@ -1616,7 +1616,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
         "nodding",
       ],
       correct_sentence: "That deck was on fire the CFO couldn't stop nodding",
-      tr_translation: "O sunum harikaydi — CFO basini sallamayi birakamadi.",
+      tr_translation: "O sunum harikaydı — CFO başını sallamayı bırakamadı.",
     },
     {
       id: "ex.wfg37.5.5",
@@ -1626,7 +1626,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
       correct_sentence:
         "Quick shoutout — that deck was on fire. The revenue slide is what won the CFO over.",
       tr_explanation:
-        "'Good job' = jenerik = sifir sinyali. 'You are smart' = karakter ovgusu (Carol Dweck: fixed mindset besler). Davranis ve etki ovgusu: 'Bu DECK, su SLIDE, bu ETKI' = growth mindset + ogrenilebilir.",
+        "'Good job' = jenerik = sıfır sinyali. 'You are smart' = karakter övgüsü (Carol Dweck: fixed mindset besler). Davranış ve etki övgüsü: 'Bu DECK, şu SLIDE, bu ETKİ' = growth mindset + öğrenilebilir.",
     },
     {
       id: "ex.wfg37.5.6",
@@ -1646,7 +1646,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
           ],
           model_answers: ["Quick shoutout — yesterday's board deck was on fire."],
           hint_tr:
-            "Spesifik acilis: 'Quick shoutout — yesterday's board deck was on fire.'",
+            "Spesifik açılış: 'Quick shoutout — yesterday's board deck was on fire.'",
         },
         {
           speaker: "npc",
@@ -1680,7 +1680,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
           ],
           model_answers: ["That rigor showed — keep doing that. That's the bar for exec decks."],
           hint_tr:
-            "Davranisi pekistir: 'That rigor showed — keep doing that. That's the bar for exec decks.'",
+            "Davranışı pekiştir: 'That rigor showed — keep doing that. That's the bar for exec decks.'",
         },
         {
           speaker: "npc",
@@ -1704,7 +1704,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Carol Dweck arastirmasi: karakter ovgusu = 'akilliyim, demek ki ugrasmam gerek yok' tehlikesi. Davranis ovgusu = 'su davranisim ise yaradi, tekrar yaparim'.",
+            "Carol Dweck araştırması: karakter övgüsü = 'akıllıyım, demek ki uğraşmam gerek yok' tehlikesi. Davranış övgüsü = 'şu davranışım işe yaradı, tekrar yaparım'.",
         },
         {
           question: "'On fire', 'moved the needle', 'landed' — ne tur kelimeler?",
@@ -1716,7 +1716,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Genel kelimelerle ovgu sahte gelir; native jargon = 'gercekten gozlemledim, sahsen takdir ediyorum' agirligi.",
+            "Genel kelimelerle övgü sahte gelir; native jargon = 'gerçekten gözlemledim, şahsen takdir ediyorum' ağırlığı.",
         },
         {
           question: "Pozitif feedback spesifikligi NEDEN bu kadar onemli?",
@@ -1728,7 +1728,7 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Ovgunun amaci = davranisi tekrarlat. Jenerik 'good job' = hangi davranisi tekrarlasin bilmez. Spesifik = tekrarlanabilir.",
+            "Övgünün amacı = davranışı tekrarlat. Jenerik 'good job' = hangi davranışı tekrarlasın bilmez. Spesifik = tekrarlanabilir.",
         },
       ],
     },
@@ -1896,11 +1896,11 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "level up",
-      tr_translation: "Bir sonraki seviyeye cikar / gelistir (jargon)",
+      tr_translation: "Bir sonraki seviyeye çıkar / geliştir (jargon)",
       example:
         "One thing to level up: tightening the exec summary at the top of the doc.",
       example_tr:
-        "Gelistirilecek bir sey: docun basindaki exec summary'i sikilastirmak.",
+        "Geliştirilecek bir şey: docun başındaki exec summary'i sıkılaştırmak.",
     },
     {
       id: "ex.wfg37.6.2",
@@ -1918,7 +1918,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
         "Doing well: research depth, data rigor. Next level: sharpen the exec summary so the reader gets it in 30 seconds. Solve that and these become your signature output.",
       ],
       tr_hint:
-        "Sandwich = Guc + Gelistirme + Gelecek vizyonu. Manipulatif degil cunku tum parcalar gercek + buyume yonlu.",
+        "Sandwich = Güç + Geliştirme + Gelecek vizyonu. Manipülatif değil çünkü tüm parçalar gerçek + büyüme yönlü.",
     },
     {
       id: "ex.wfg37.6.3",
@@ -1928,7 +1928,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
       answer: "level",
       distractors: ["push", "step", "raise"],
       tr_hint:
-        "'Level up' = sabit jargon. 'Step up' yakin ama anlam farkli (= sorumluluk al). 'Level up' = beceri/cikti kalitesini yukselt.",
+        "'Level up' = sabit jargon. 'Step up' yakın ama anlam farklı (= sorumluluk al). 'Level up' = beceri/çıktı kalitesini yükselt.",
     },
     {
       id: "ex.wfg37.6.4",
@@ -1946,7 +1946,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
         "work",
       ],
       correct_sentence: "Crack that and these docs become your signature work",
-      tr_translation: "Bunu cozersen, bu docler senin imza islerin olur.",
+      tr_translation: "Bunu çözersen, bu docler senin imza işlerin olur.",
     },
     {
       id: "ex.wfg37.6.5",
@@ -1957,7 +1957,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
       correct_sentence:
         "Strength: the research depth is real. One thing to level up: tighter exec summary at the top — 30 seconds to the takeaway. Crack that and these docs become your signature work.",
       tr_explanation:
-        "'Was good but bad but liked' = belirsiz + kararsiz = report ne yapacak bilmez. Sandwich: spesifik guc + spesifik gelistirme + gelecek motivasyonu. 'But' yerine 'And' / 'One thing to level up' = pozitif framing.",
+        "'Was good but bad but liked' = belirsiz + kararsız = report ne yapacak bilmez. Sandwich: spesifik güç + spesifik geliştirme + gelecek motivasyonu. 'But' yerine 'And' / 'One thing to level up' = pozitif framing.",
     },
     {
       id: "ex.wfg37.6.6",
@@ -1977,7 +1977,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
           ],
           model_answers: ["Read the doc end to end — strength is the research depth, data rigor is real."],
           hint_tr:
-            "Once gercek guc: 'Read the doc end to end — strength is the research depth, data rigor is real.'",
+            "Önce gerçek güç: 'Read the doc end to end — strength is the research depth, data rigor is real.'",
         },
         {
           speaker: "npc",
@@ -1994,7 +1994,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
           ],
           model_answers: ["One thing to level up — tighter exec summary at the top. 30 seconds to the takeaway."],
           hint_tr:
-            "Gelistirme — TEK sey, spesifik: 'One thing to level up — tighter exec summary at the top. 30 seconds to the takeaway.'",
+            "Geliştirme — TEK şey, spesifik: 'One thing to level up — tighter exec summary at the top. 30 seconds to the takeaway.'",
         },
         {
           speaker: "npc",
@@ -2052,7 +2052,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sandwich manipulatif olur eger guc + gelecek 'yumusatici dolgu' ise. Tum parcalar = gercek + ozune dair. Aksi halde report formatu cozer + guvensizlik.",
+            "Sandwich manipulatif olur eğer güç + gelecek 'yumuşatıcı dolgu' ise. Tüm parçalar = gerçek + özüne dair. Aksi halde report formatu çözer + güvensizlik.",
         },
         {
           question: "'One thing to level up' — neden TEK sey?",
@@ -2064,7 +2064,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Coklu elestiri = bilissel asiri yuk = report kapanir. Tek + spesifik = sahiplenebilir + olculebilir.",
+            "Çoklu eleştiri = bilişsel aşırı yük = report kapanır. Tek + spesifik = sahiplenebilir + ölçülebilir.",
         },
         {
           question: "Sandwich'in 'Future' kismi nicin var?",
@@ -2076,7 +2076,7 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Elestiri 'sen yetersizsin' demek degil — 'su kucuk sey + su buyuk sonuc' yatirim cercevesi. 'Future' = neden ugrasayim sorusuna yanit.",
+            "Eleştiri 'sen yetersizsin' demek değil — 'şu küçük şey + şu büyük sonuç' yatırım çerçevesi. 'Future' = neden uğraşayım sorusuna yanıt.",
         },
       ],
     },
@@ -2244,11 +2244,11 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "Here's what I'm noticing",
-      tr_translation: "Su anda gozlemledigim sey su (yargisiz gozlem acilisi)",
+      tr_translation: "Şu anda gözlemlediğim şey şu (yargısız gözlem açılışı)",
       example:
         "Here's what I'm noticing — your last 3 PRs have come in past the sprint deadline.",
       example_tr:
-        "Su anda gozlemledigim — son 3 PR'in sprint deadline'ini gecmis.",
+        "Şu anda gözlemlediğim — son 3 PR'in sprint deadline'ini geçmiş.",
     },
     {
       id: "ex.wfg37.7.2",
@@ -2266,7 +2266,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
         "Wanted to bring something up — your PRs have missed the deadline 3 sprints straight. What does it look like from where you sit?",
       ],
       tr_hint:
-        "Acilis (uyari) + gozlem (yargisiz) + soru (perspektif al) = direkt ama davet. Saldiri degil ortaklasa anlama.",
+        "Açılış (uyarı) + gözlem (yargısız) + soru (perspektif al) = direkt ama davet. Saldırı değil ortaklaşa anlama.",
     },
     {
       id: "ex.wfg37.7.3",
@@ -2276,7 +2276,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
       answer: "flag",
       distractors: ["alarm", "warn", "report"],
       tr_hint:
-        "'Flag something' = bir konuyu dikkatine sunmak = profesyonel uyari kalibi. 'Warn' / 'alarm' tehdit gibi gelir.",
+        "'Flag something' = bir konuyu dikkatine sunmak = profesyonel uyarı kalıbı. 'Warn' / 'alarm' tehdit gibi gelir.",
     },
     {
       id: "ex.wfg37.7.4",
@@ -2294,7 +2294,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
         "sit",
       ],
       correct_sentence: "What's your take on that from where you sit",
-      tr_translation: "Senin durdugun yerden buna nasil bakiyorsun?",
+      tr_translation: "Senin durduğun yerden buna nasıl bakıyorsun?",
     },
     {
       id: "ex.wfg37.7.5",
@@ -2305,7 +2305,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
       correct_sentence:
         "I want to flag something — here's what I'm noticing: your last 3 PRs missed the sprint deadline. What's your take on that?",
       tr_explanation:
-        "'You did wrong' = yargi + karakter saldirisi = defansif yanit. 'Always' = mutlak + abartili = direnclik. 'Fix yourself' = kişisellik. Profesyonel kalip: gozlemi DAVRANIS-bazinda + sebep arama davet = ortak cozum yolu.",
+        "'You did wrong' = yargı + karakter saldırısı = defansif yanıt. 'Always' = mutlak + abartılı = dirençlik. 'Fix yourself' = kişisellik. Profesyonel kalıp: gözlemi DAVRANIŞ-bazında + sebep arama davet = ortak çözüm yolu.",
     },
     {
       id: "ex.wfg37.7.6",
@@ -2326,7 +2326,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
           ],
           model_answers: ["I want to flag something — here's what I'm noticing: PRs have missed the deadline 3 sprints in a row."],
           hint_tr:
-            "Yumusak ama net acilis: 'I want to flag something — here's what I'm noticing: PRs have missed the deadline 3 sprints in a row.'",
+            "Yumuşak ama net açılış: 'I want to flag something — here's what I'm noticing: PRs have missed the deadline 3 sprints in a row.'",
         },
         {
           speaker: "npc",
@@ -2360,7 +2360,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
           ],
           model_answers: ["Thanks for naming that. Asking for help isn't weakness — being stuck silently is the real issue. Let's change how that works."],
           hint_tr:
-            "Sorunu cozumle: 'Thanks for naming that. Asking for help isn't weakness — being stuck silently is the real issue. Let's change how that works.'",
+            "Sorunu çözümle: 'Thanks for naming that. Asking for help isn't weakness — being stuck silently is the real issue. Let's change how that works.'",
         },
         {
           speaker: "npc",
@@ -2402,7 +2402,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yargi = beyin savunma moduna girer = mesaj alinmaz. Gozlem dili = 'gerceklik kontrolu' = report ayni masada oturur.",
+            "Yargı = beyin savunma moduna girer = mesaj alınmaz. Gözlem dili = 'gerçeklik kontrolü' = report aynı masada oturur.",
         },
         {
           question: "'What's your take?' sorusunun amaci?",
@@ -2414,7 +2414,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sadece soylemek = monolog. Soru sormak = report'un kendi bakisini katar = hangi cozum gercekci bilirsin + sahiplenir.",
+            "Sadece söylemek = monolog. Soru sormak = report'un kendi bakışını katar = hangi çözüm gerçekçi bilirsin + sahiplenir.",
         },
         {
           question: "'Always' / 'Never' kelimelerini niye kullanmamali?",
@@ -2426,7 +2426,7 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Always late' = mutlaklik = adaletsiz. 'Last 3 sprints' = veri = inkar edilemez. Mutlaklik = direnclik, veri = anlasma.",
+            "'Always late' = mutlaklık = adaletsiz. 'Last 3 sprints' = veri = inkar edilemez. Mutlaklık = dirençlik, veri = anlaşma.",
         },
       ],
     },
@@ -2594,11 +2594,11 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Have you considered",
-      tr_translation: "X'i dusundun mu? (soru olarak oneri = async'te yumusatici)",
+      tr_translation: "X'i düşündün mü? (soru olarak öneri = async'te yumuşatıcı)",
       example:
         "Suggestion: have you considered pulling this logic into a hook so we can reuse it?",
       example_tr:
-        "Oneri: bu mantigi tekrar kullanabilmek icin hook'a cekmeyi dusundun mu?",
+        "Öneri: bu mantığı tekrar kullanabilmek için hook'a çekmeyi düşündün mü?",
     },
     {
       id: "ex.wfg37.8.2",
@@ -2616,7 +2616,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
         "Really like the error layer — clean and easy to test. Suggestion: could we pull the retry into a reusable hook?",
       ],
       tr_hint:
-        "Async'te ton kayip; ovgu acilisi + oneri-soru = sert degil esit. Imperatif ('Pull this out') yerine soru ('Have you considered') daha az emir gibi.",
+        "Async'te ton kayıp; övgü açılışı + öneri-soru = sert değil eşit. İmperatif ('Pull this out') yerine soru ('Have you considered') daha az emir gibi.",
     },
     {
       id: "ex.wfg37.8.3",
@@ -2626,7 +2626,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
       answer: "considered",
       distractors: ["thought", "looked", "tried"],
       tr_hint:
-        "'Have you considered' = sabit kalip = yazili oneri kibarciligi. 'Have you thought' yakin ama 'considered' daha kurumsal.",
+        "'Have you considered' = sabit kalıp = yazılı öneri kibarcılığı. 'Have you thought' yakın ama 'considered' daha kurumsal.",
     },
     {
       id: "ex.wfg37.8.4",
@@ -2645,7 +2645,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
         "testable",
       ],
       correct_sentence: "Loved how you handled the error layer clean and testable",
-      tr_translation: "Hata katmanini nasil ele aldigini begendim — temiz ve test edilebilir.",
+      tr_translation: "Hata katmanını nasıl ele aldığını beğendim — temiz ve test edilebilir.",
     },
     {
       id: "ex.wfg37.8.5",
@@ -2656,7 +2656,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
       correct_sentence:
         "Loved how you handled the error layer. Suggestion: have you considered pulling the retry into a hook so other call sites can reuse it?",
       tr_explanation:
-        "Async'te 'This is wrong' + 'Why didn't you' = saldiri gibi okunur (ton yok). Ovgu acilisi + oneri-soru = ayni puanti, kibar paketleme. PR review kulturu = peer = emir degil teklif.",
+        "Async'te 'This is wrong' + 'Why didn't you' = saldırı gibi okunur (ton yok). Övgü açılışı + öneri-soru = aynı puanti, kibar paketleme. PR review kültürü = peer = emir değil teklif.",
     },
     {
       id: "ex.wfg37.8.6",
@@ -2676,7 +2676,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
           ],
           model_answers: ["Loved how you handled the error layer — clean and testable."],
           hint_tr:
-            "Once gercek ovgu: 'Loved how you handled the error layer — clean and testable.'",
+            "Önce gerçek övgü: 'Loved how you handled the error layer — clean and testable.'",
         },
         {
           speaker: "npc",
@@ -2693,7 +2693,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
           ],
           model_answers: ["One thought — have you considered pulling the retry into a hook? Other call sites could reuse it."],
           hint_tr:
-            "Soru-oneri: 'One thought — have you considered pulling the retry into a hook? Other call sites could reuse it.'",
+            "Soru-öneri: 'One thought — have you considered pulling the retry into a hook? Other call sites could reuse it.'",
         },
         {
           speaker: "npc",
@@ -2710,7 +2710,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
           ],
           model_answers: ["Your call — happy with follow-up if it bloats this PR. Don't block the merge."],
           hint_tr:
-            "Karari ona birak: 'Your call — happy with follow-up if it bloats this PR. Don't block the merge.'",
+            "Kararı ona bırak: 'Your call — happy with follow-up if it bloats this PR. Don't block the merge.'",
         },
         {
           speaker: "npc",
@@ -2734,7 +2734,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yuz yuze konusmada gulumseme + ton mesaja yumusatir. Yazida bu sinyaller yok = aci direkt komut sert hissedilir = peer review kulturu icin 'Have you considered' format guvenli.",
+            "Yüz yüze konuşmada gülümseme + ton mesaja yumuşatır. Yazıda bu sinyaller yok = acı direkt komut sert hissedilir = peer review kültürü için 'Have you considered' format güvenli.",
         },
         {
           question: "'Loved how you X' acilisi PR review'da ne yapar?",
@@ -2746,7 +2746,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Spesifik = gercek (jenerik 'good work' degil). Acilis duzgun olunca, devam eden oneri 'gercekten yardim ediyor' okunur — defansif yerine acik.",
+            "Spesifik = gerçek (jenerik 'good work' değil). Açılış düzgün olunca, devam eden öneri 'gerçekten yardım ediyor' okunur — defansif yerine açık.",
         },
         {
           question: "'Why didn't you do X?' niye PR feedback'inde kotu?",
@@ -2758,7 +2758,7 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Why didn't' = gecmis-yargi. 'Have you considered' = gelecek-davet. Ayni teknik onerisi, butun farkli okunma.",
+            "'Why didn't' = geçmiş-yargı. 'Have you considered' = gelecek-davet. Aynı teknik önerisi, bütün farklı okunma.",
         },
       ],
     },

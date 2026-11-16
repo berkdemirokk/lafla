@@ -26,9 +26,9 @@ export const barLesson_7_14: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "pair with",
-      tr_translation: "ile eslestirmek (yemek-icecek)",
+      tr_translation: "ile eşleştirmek (yemek-içecek)",
       example: "What wine pairs well with the steak?",
-      example_tr: "Steak ile hangi sarap iyi gider?",
+      example_tr: "Steak ile hangi şarap iyi gider?",
     },
     {
       id: "ex.7.14.2",
@@ -36,9 +36,9 @@ export const barLesson_7_14: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "full-bodied",
-      tr_translation: "Gucu yuksek, agir govdeli (sarap icin)",
+      tr_translation: "Gücü yüksek, ağır gövdeli (şarap için)",
       example: "I prefer a full-bodied red.",
-      example_tr: "Govdeli kirmizi tercih ederim.",
+      example_tr: "Gövdeli kırmızı tercih ederim.",
     },
     {
       id: "ex.7.14.3",
@@ -65,7 +65,7 @@ export const barLesson_7_14: BundledLesson = {
           ],
           model_answers: ["I'd love a recommendation"],
           hint_tr:
-            "Kabul et: 'Yes, please' veya 'I'd love a recommendation'. Türk: 'sommelier' (Fransizca) = sarap uzmani.",
+            "Kabul et: 'Yes, please' veya 'I'd love a recommendation'. Türk: 'sommelier' (Fransızca) = şarap uzmanı.",
         },
         {
           speaker: "npc",
@@ -101,7 +101,7 @@ export const barLesson_7_14: BundledLesson = {
           ],
           model_answers: ["I'll have the Malbec"],
           hint_tr:
-            "Kabul: 'I'll have the Malbec'. Daha ucuz iste: 'Anything more affordable?' Türk: kibarca, dogrudan 'cheap' deme.",
+            "Kabul: 'I'll have the Malbec'. Daha ucuz iste: 'Anything more affordable?' Türk: kibarca, doğrudan 'cheap' deme.",
         },
         {
           speaker: "npc",
@@ -119,7 +119,7 @@ export const barLesson_7_14: BundledLesson = {
           ],
           model_answers: ["I'll go with the house red, please"],
           hint_tr:
-            "Karar: 'I'll go with the house red, please'. 'House wine' = restoranin secimli/uygun fiyatli sarabi.",
+            "Karar: 'I'll go with the house red, please'. 'House wine' = restoranın seçimli/uygun fiyatlı şarabı.",
         },
         {
           speaker: "npc",
@@ -137,7 +137,7 @@ export const barLesson_7_14: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -158,7 +158,7 @@ export const barLesson_7_14: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -175,18 +175,18 @@ export const barLesson_7_14: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.14.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.14.rq1",
@@ -201,7 +201,7 @@ export const barLesson_7_14: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -212,7 +212,7 @@ export const barLesson_7_14: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -234,7 +234,7 @@ export const barLesson_7_14: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -446,7 +446,7 @@ export const barLesson_7_15: BundledLesson = {
           ],
           model_answers: ["On the rocks"],
           hint_tr:
-            "Tercih: 'Neat, please' (sek) veya 'On the rocks' (buzlu). 'Splash' = az miktarda su.",
+            "Tercih: 'Neat, please' (şek) veya 'On the rocks' (buzlu). 'Splash' = az miktarda su.",
         },
         {
           speaker: "npc",
@@ -463,7 +463,7 @@ export const barLesson_7_15: BundledLesson = {
           ],
           model_answers: ["Single"],
           hint_tr:
-            "Olcu: 'Single' (tek olcu ~25ml/30ml) veya 'Double' (cift). Turkiye'de 'tek/duble' diyoruz.",
+            "Ölçü: 'Single' (tek ölçü ~25ml/30ml) veya 'Double' (çift). Türkiye'de 'tek/duble' diyoruz.",
         },
         {
           speaker: "npc",
@@ -481,7 +481,7 @@ export const barLesson_7_15: BundledLesson = {
           ],
           model_answers: ["Surprise me"],
           hint_tr:
-            "Marka: 'Surprise me' veya 'Something smoky'. Turkiye'den bildiklerin: Jameson, JD. 'House pour' = bar'in secimli markasi.",
+            "Marka: 'Surprise me' veya 'Something smoky'. Türkiye'den bildiklerin: Jameson, JD. 'House pour' = bar'ın seçimli markası.",
         },
         {
           speaker: "npc",
@@ -499,7 +499,7 @@ export const barLesson_7_15: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -520,7 +520,7 @@ export const barLesson_7_15: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -537,18 +537,18 @@ export const barLesson_7_15: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.15.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.15.rq1",
@@ -563,7 +563,7 @@ export const barLesson_7_15: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -574,7 +574,7 @@ export const barLesson_7_15: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -596,7 +596,7 @@ export const barLesson_7_15: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -762,9 +762,9 @@ export const barLesson_7_16: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "mocktail",
-      tr_translation: "Alkolsuz kokteyl",
+      tr_translation: "Alkolsüz kokteyl",
       example: "Do you have any mocktails on the menu?",
-      example_tr: "Menude mocktail var mi?",
+      example_tr: "Menüde mocktail var mı?",
     },
     {
       id: "ex.7.16.2",
@@ -772,9 +772,9 @@ export const barLesson_7_16: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "non-alcoholic",
-      tr_translation: "Alkolsuz",
+      tr_translation: "Alkolsüz",
       example: "I'm looking for non-alcoholic options tonight.",
-      example_tr: "Bu aksam alkolsuz secenek ariyorum.",
+      example_tr: "Bu akşam alkolsüz seçenek arıyorum.",
     },
     {
       id: "ex.7.16.3",
@@ -800,7 +800,7 @@ export const barLesson_7_16: BundledLesson = {
           ],
           model_answers: ["I'm not drinking tonight"],
           hint_tr:
-            "Alkolsuz iste: 'Do you have mocktails?' veya 'I'm not drinking tonight'. Utanma — yaygin.",
+            "Alkolsüz iste: 'Do you have mocktails?' veya 'I'm not drinking tonight'. Utanma — yaygın.",
         },
         {
           speaker: "npc",
@@ -818,7 +818,7 @@ export const barLesson_7_16: BundledLesson = {
           ],
           model_answers: ["I'll try the virgin mojito"],
           hint_tr:
-            "Secim: 'I'll try the virgin mojito'. 'Virgin' = alkolsuz versiyon. Burada utanc yok.",
+            "Seçim: 'I'll try the virgin mojito'. 'Virgin' = alkolsüz versiyon. Burada utanç yok.",
         },
         {
           speaker: "npc",
@@ -836,7 +836,7 @@ export const barLesson_7_16: BundledLesson = {
           ],
           model_answers: ["Extra mint, please"],
           hint_tr:
-            "Tat: 'Extra mint, please' veya 'Surprise me'. Tat secimi mocktail icin onemli.",
+            "Tat: 'Extra mint, please' veya 'Surprise me'. Tat seçimi mocktail için önemli.",
         },
         {
           speaker: "npc",
@@ -854,7 +854,7 @@ export const barLesson_7_16: BundledLesson = {
           ],
           model_answers: ["No problem, thanks for letting me know"],
           hint_tr:
-            "Fiyat hatirlatmasi: 'No problem, thanks for letting me know'. Mocktail genelde kokteyl fiyatinda.",
+            "Fiyat hatırlatması: 'No problem, thanks for letting me know'. Mocktail genelde kokteyl fiyatında.",
         },
         {
           speaker: "npc",
@@ -872,7 +872,7 @@ export const barLesson_7_16: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -893,7 +893,7 @@ export const barLesson_7_16: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -910,18 +910,18 @@ export const barLesson_7_16: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.16.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.16.rq1",
@@ -936,7 +936,7 @@ export const barLesson_7_16: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -947,7 +947,7 @@ export const barLesson_7_16: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -969,7 +969,7 @@ export const barLesson_7_16: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -1135,7 +1135,7 @@ export const barLesson_7_17: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "happy hour",
-      tr_translation: "Indirimli saat (genelde 5-7pm)",
+      tr_translation: "İndirimli saat (genelde 5-7pm)",
       example: "Is happy hour still going?",
       example_tr: "Happy hour hala devam ediyor mu?",
     },
@@ -1199,7 +1199,7 @@ export const barLesson_7_17: BundledLesson = {
           ],
           model_answers: ["I'll go with the IPA"],
           hint_tr:
-            "Bira sec: 'I'll go with the IPA' veya 'Surprise me'.",
+            "Bira seç: 'I'll go with the IPA' veya 'Surprise me'.",
         },
         {
           speaker: "npc",
@@ -1216,7 +1216,7 @@ export const barLesson_7_17: BundledLesson = {
           ],
           model_answers: ["Pint, please"],
           hint_tr:
-            "Boyut: 'Pint, please' (~500ml). Yarisi: 'Half'.",
+            "Boyut: 'Pint, please' (~500ml). Yarısı: 'Half'.",
         },
         {
           speaker: "npc",
@@ -1234,7 +1234,7 @@ export const barLesson_7_17: BundledLesson = {
           ],
           model_answers: ["Start a tab"],
           hint_tr:
-            "Hesap: 'Start a tab' veya 'Pay now'. Tek icki ise 'just pay now' iyi.",
+            "Hesap: 'Start a tab' veya 'Pay now'. Tek içki ise 'just pay now' iyi.",
         },
         {
           speaker: "npc",
@@ -1252,7 +1252,7 @@ export const barLesson_7_17: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -1273,7 +1273,7 @@ export const barLesson_7_17: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -1290,18 +1290,18 @@ export const barLesson_7_17: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.17.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.17.rq1",
@@ -1316,7 +1316,7 @@ export const barLesson_7_17: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -1327,7 +1327,7 @@ export const barLesson_7_17: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -1349,7 +1349,7 @@ export const barLesson_7_17: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -1515,9 +1515,9 @@ export const barLesson_7_18: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "what's good here",
-      tr_translation: "Burda ne iyi/begenilen?",
+      tr_translation: "Burda ne iyi/beğenilen?",
       example: "First time here — what's good?",
-      example_tr: "Ilk geldim — burda ne iyi?",
+      example_tr: "İlk geldim — burda ne iyi?",
     },
     {
       id: "ex.7.18.2",
@@ -1543,7 +1543,7 @@ export const barLesson_7_18: BundledLesson = {
           ],
           model_answers: ["What's good here?"],
           hint_tr:
-            "Oneri iste: 'What's good here?' veya 'What's your signature?'",
+            "Öneri iste: 'What's good here?' veya 'What's your signature?'",
         },
         {
           speaker: "npc",
@@ -1561,7 +1561,7 @@ export const barLesson_7_18: BundledLesson = {
           ],
           model_answers: ["What's in the old fashioned?"],
           hint_tr:
-            "Sec: 'I'll try the negroni' veya 'What's in the old fashioned?'",
+            "Seç: 'I'll try the negroni' veya 'What's in the old fashioned?'",
         },
         {
           speaker: "npc",
@@ -1579,7 +1579,7 @@ export const barLesson_7_18: BundledLesson = {
           ],
           model_answers: ["Yes, let's give it a shot"],
           hint_tr:
-            "Kabul: 'Yes, let's give it a shot'. Vazgec: 'Actually, the old fashioned instead'.",
+            "Kabul: 'Yes, let's give it a shot'. Vazgeç: 'Actually, the old fashioned instead'.",
         },
         {
           speaker: "npc",
@@ -1615,7 +1615,7 @@ export const barLesson_7_18: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -1636,7 +1636,7 @@ export const barLesson_7_18: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -1653,18 +1653,18 @@ export const barLesson_7_18: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.18.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.18.rq1",
@@ -1679,7 +1679,7 @@ export const barLesson_7_18: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -1690,7 +1690,7 @@ export const barLesson_7_18: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -1712,7 +1712,7 @@ export const barLesson_7_18: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -1878,9 +1878,9 @@ export const barLesson_7_19: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "send it back",
-      tr_translation: "Geri gondermek (icecek/yemek)",
+      tr_translation: "Geri göndermek (içecek/yemek)",
       example: "I'm going to send this back — it's too sweet.",
-      example_tr: "Bunu geri gonderecegim — cok tatli.",
+      example_tr: "Bunu geri göndereceğim — çok tatlı.",
     },
     {
       id: "ex.7.19.2",
@@ -1906,7 +1906,7 @@ export const barLesson_7_19: BundledLesson = {
           ],
           model_answers: ["Sorry, it's a bit too sweet"],
           hint_tr:
-            "Kibarca: 'Sorry, it's a bit too sweet'. 'Actually' + 'sorry but' yumusatir.",
+            "Kibarca: 'Sorry, it's a bit too sweet'. 'Actually' + 'sorry but' yumuşatır.",
         },
         {
           speaker: "npc",
@@ -1924,7 +1924,7 @@ export const barLesson_7_19: BundledLesson = {
           ],
           model_answers: ["Yes, too sweet — could you make it drier?"],
           hint_tr:
-            "Aciklik: 'Yes, too sweet — could you make it drier?'",
+            "Açıklık: 'Yes, too sweet — could you make it drier?'",
         },
         {
           speaker: "npc",
@@ -1942,7 +1942,7 @@ export const barLesson_7_19: BundledLesson = {
           ],
           model_answers: ["Thank you, appreciate it"],
           hint_tr:
-            "Tesekkur: 'Thank you, appreciate it'. 'On me' = 'benden' = bedava sundu.",
+            "Teşekkür: 'Thank you, appreciate it'. 'On me' = 'benden' = bedava sundu.",
         },
         {
           speaker: "npc",
@@ -1978,7 +1978,7 @@ export const barLesson_7_19: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -1999,7 +1999,7 @@ export const barLesson_7_19: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -2016,18 +2016,18 @@ export const barLesson_7_19: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.19.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.19.rq1",
@@ -2042,7 +2042,7 @@ export const barLesson_7_19: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -2053,7 +2053,7 @@ export const barLesson_7_19: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -2075,7 +2075,7 @@ export const barLesson_7_19: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -2241,9 +2241,9 @@ export const barLesson_7_20: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "close out my tab",
-      tr_translation: "Hesabimi kapatmak",
+      tr_translation: "Hesabımı kapatmak",
       example: "Could I close out my tab?",
-      example_tr: "Hesabimi kapatabilir miyim?",
+      example_tr: "Hesabımı kapatabilir miyim?",
     },
     {
       id: "ex.7.20.2",
@@ -2251,9 +2251,9 @@ export const barLesson_7_20: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "twenty percent tip",
-      tr_translation: "Yuzde yirmi bahsis",
+      tr_translation: "Yüzde yirmi bahşiş",
       example: "I usually leave a twenty percent tip.",
-      example_tr: "Genelde yuzde yirmi bahsis birakirim.",
+      example_tr: "Genelde yüzde yirmi bahşiş bırakırım.",
     },
     {
       id: "ex.7.20.3",
@@ -2315,7 +2315,7 @@ export const barLesson_7_20: BundledLesson = {
           ],
           model_answers: ["What's twenty percent on that?"],
           hint_tr:
-            "Bahsis hesabi: 'What's twenty percent on that?' Standart: 18-22%.",
+            "Bahşiş hesabı: 'What's twenty percent on that?' Standart: 18-22%.",
         },
         {
           speaker: "npc",
@@ -2333,7 +2333,7 @@ export const barLesson_7_20: BundledLesson = {
           ],
           model_answers: ["I'll leave ten, thanks"],
           hint_tr:
-            "Bahsis ver: 'I'll leave ten, thanks'. Iyi servis icin 20-25% normal.",
+            "Bahşiş ver: 'I'll leave ten, thanks'. İyi servis için 20-25% normal.",
         },
         {
           speaker: "npc",
@@ -2351,7 +2351,7 @@ export const barLesson_7_20: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -2372,7 +2372,7 @@ export const barLesson_7_20: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -2389,18 +2389,18 @@ export const barLesson_7_20: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.20.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.20.rq1",
@@ -2415,7 +2415,7 @@ export const barLesson_7_20: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -2426,7 +2426,7 @@ export const barLesson_7_20: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -2448,7 +2448,7 @@ export const barLesson_7_20: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -2616,7 +2616,7 @@ export const barLesson_7_21: BundledLesson = {
       word_or_phrase: "gluten-free",
       tr_translation: "Glutensiz",
       example: "Is the beer menu gluten-free friendly?",
-      example_tr: "Bira menusu glutensize uygun mu?",
+      example_tr: "Bira menüsü glütensize uygun mu?",
     },
     {
       id: "ex.7.21.2",
@@ -2642,7 +2642,7 @@ export const barLesson_7_21: BundledLesson = {
           ],
           model_answers: ["Do you have gluten-free options?"],
           hint_tr:
-            "Diyet sor: 'Do you have gluten-free options?' veya 'I'm vegan'. Utanma — yaygin.",
+            "Diyet sor: 'Do you have gluten-free options?' veya 'I'm vegan'. Utanma — yaygın.",
         },
         {
           speaker: "npc",
@@ -2660,7 +2660,7 @@ export const barLesson_7_21: BundledLesson = {
           ],
           model_answers: ["I'll try the cider"],
           hint_tr:
-            "Sec: 'I'll try the cider' veya 'How about a cocktail?'",
+            "Seç: 'I'll try the cider' veya 'How about a cocktail?'",
         },
         {
           speaker: "npc",
@@ -2678,7 +2678,7 @@ export const barLesson_7_21: BundledLesson = {
           ],
           model_answers: ["Dry, please"],
           hint_tr:
-            "Tat sec: 'Dry, please' (az tatli) veya 'Semi-sweet' (orta).",
+            "Tat seç: 'Dry, please' (az tatlı) veya 'Semi-sweet' (orta).",
         },
         {
           speaker: "npc",
@@ -2696,7 +2696,7 @@ export const barLesson_7_21: BundledLesson = {
           ],
           model_answers: ["Thanks for letting me know"],
           hint_tr:
-            "Tesekkur: 'Thanks for letting me know'. Capraz kontaminasyon onemli.",
+            "Teşekkür: 'Thanks for letting me know'. Çapraz kontaminasyon önemli.",
         },
         {
           speaker: "npc",
@@ -2714,7 +2714,7 @@ export const barLesson_7_21: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -2735,7 +2735,7 @@ export const barLesson_7_21: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -2752,18 +2752,18 @@ export const barLesson_7_21: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.21.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.21.rq1",
@@ -2778,7 +2778,7 @@ export const barLesson_7_21: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -2789,7 +2789,7 @@ export const barLesson_7_21: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -2811,7 +2811,7 @@ export const barLesson_7_21: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -2977,9 +2977,9 @@ export const barLesson_7_22: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "pay as I go",
-      tr_translation: "Her seferinde ayri odemek",
+      tr_translation: "Her seferinde ayrı ödemek",
       example: "I'll just pay as I go.",
-      example_tr: "Her seferinde ayri odeyecegim.",
+      example_tr: "Her seferinde ayrı ödeyeceğim.",
     },
     {
       id: "ex.7.22.2",
@@ -3005,7 +3005,7 @@ export const barLesson_7_22: BundledLesson = {
           ],
           model_answers: ["Just a quick beer, please"],
           hint_tr:
-            "Tek icki: 'Just a quick beer, please'.",
+            "Tek içki: 'Just a quick beer, please'.",
         },
         {
           speaker: "npc",
@@ -3022,7 +3022,7 @@ export const barLesson_7_22: BundledLesson = {
           ],
           model_answers: ["Just pay now — only having one"],
           hint_tr:
-            "Onceden ode: 'Just pay now — only having one'.",
+            "Önceden öde: 'Just pay now — only having one'.",
         },
         {
           speaker: "npc",
@@ -3039,7 +3039,7 @@ export const barLesson_7_22: BundledLesson = {
           ],
           model_answers: ["Here's my card"],
           hint_tr:
-            "Ode: 'Here's my card' veya 'Card or cash?'",
+            "Öde: 'Here's my card' veya 'Card or cash?'",
         },
         {
           speaker: "npc",
@@ -3057,7 +3057,7 @@ export const barLesson_7_22: BundledLesson = {
           ],
           model_answers: ["Yes, I'll add two dollars"],
           hint_tr:
-            "Bahsis ekle: 'Yes, I'll add two dollars' veya 'Round up to ten'.",
+            "Bahşiş ekle: 'Yes, I'll add two dollars' veya 'Round up to ten'.",
         },
         {
           speaker: "npc",
@@ -3075,7 +3075,7 @@ export const barLesson_7_22: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -3096,7 +3096,7 @@ export const barLesson_7_22: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -3113,18 +3113,18 @@ export const barLesson_7_22: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.22.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.22.rq1",
@@ -3139,7 +3139,7 @@ export const barLesson_7_22: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -3150,7 +3150,7 @@ export const barLesson_7_22: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -3172,7 +3172,7 @@ export const barLesson_7_22: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -3340,7 +3340,7 @@ export const barLesson_7_23: BundledLesson = {
       word_or_phrase: "separate checks",
       tr_translation: "Ayri hesaplar",
       example: "Could we get separate checks?",
-      example_tr: "Ayri hesap alabilir miyiz?",
+      example_tr: "Ayrı hesap alabilir miyiz?",
     },
     {
       id: "ex.7.23.2",
@@ -3366,7 +3366,7 @@ export const barLesson_7_23: BundledLesson = {
           ],
           model_answers: ["Separate checks, please"],
           hint_tr:
-            "Ayri hesap: 'Separate checks, please'. ABD'de cok yaygin. Turkiye'de daha az.",
+            "Ayrı hesap: 'Separate checks, please'. ABD'de çok yaygın. Türkiye'de daha az.",
         },
         {
           speaker: "npc",
@@ -3384,7 +3384,7 @@ export const barLesson_7_23: BundledLesson = {
           ],
           model_answers: ["By person"],
           hint_tr:
-            "Sec: 'By person' (her kisi kendi siparisini oder) veya 'Split evenly' (esit boluse).",
+            "Seç: 'By person' (her kişi kendi siparişini oder) veya 'Split evenly' (eşit bölüşe).",
         },
         {
           speaker: "npc",
@@ -3439,7 +3439,7 @@ export const barLesson_7_23: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -3460,7 +3460,7 @@ export const barLesson_7_23: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -3477,18 +3477,18 @@ export const barLesson_7_23: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.23.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.23.rq1",
@@ -3503,7 +3503,7 @@ export const barLesson_7_23: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -3514,7 +3514,7 @@ export const barLesson_7_23: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -3536,7 +3536,7 @@ export const barLesson_7_23: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -3704,7 +3704,7 @@ export const barLesson_7_24: BundledLesson = {
       word_or_phrase: "shot of",
       tr_translation: "Bir kadeh, bir shot (likör)",
       example: "Four shots of tequila!",
-      example_tr: "Dort shot tekila!",
+      example_tr: "Dört shot tekila!",
     },
     {
       id: "ex.7.24.2",
@@ -3730,7 +3730,7 @@ export const barLesson_7_24: BundledLesson = {
           ],
           model_answers: ["Four shots, please"],
           hint_tr:
-            "Kalabalik: kisa kal. 'Four shots, please' veya 'Round of beers'. Gurultude detay yok.",
+            "Kalabalık: kısa kal. 'Four shots, please' veya 'Round of beers'. Gürültüde detay yok.",
         },
         {
           speaker: "npc",
@@ -3748,7 +3748,7 @@ export const barLesson_7_24: BundledLesson = {
           ],
           model_answers: ["Four tequilas, please"],
           hint_tr:
-            "Kisa: 'Four tequilas, please'. Hiz onemli.",
+            "Kısa: 'Four tequilas, please'. Hız önemli.",
         },
         {
           speaker: "npc",
@@ -3765,7 +3765,7 @@ export const barLesson_7_24: BundledLesson = {
           ],
           model_answers: ["Yes, salt and lime"],
           hint_tr:
-            "Tekila ritueli: 'Yes, salt and lime'.",
+            "Tekila ritüeli: 'Yes, salt and lime'.",
         },
         {
           speaker: "npc",
@@ -3782,7 +3782,7 @@ export const barLesson_7_24: BundledLesson = {
           ],
           model_answers: ["Card, here you go"],
           hint_tr:
-            "Hizli ode: 'Card, here you go'.",
+            "Hızlı öde: 'Card, here you go'.",
         },
         {
           speaker: "npc",
@@ -3800,7 +3800,7 @@ export const barLesson_7_24: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -3821,7 +3821,7 @@ export const barLesson_7_24: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -3838,18 +3838,18 @@ export const barLesson_7_24: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.24.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.24.rq1",
@@ -3864,7 +3864,7 @@ export const barLesson_7_24: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -3875,7 +3875,7 @@ export const barLesson_7_24: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -3897,7 +3897,7 @@ export const barLesson_7_24: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -4063,9 +4063,9 @@ export const barLesson_7_25: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "bar food",
-      tr_translation: "Bar yemegi (wings, fries, sliders)",
+      tr_translation: "Bar yemeği (wings, fries, sliders)",
       example: "Could I see the bar food menu?",
-      example_tr: "Bar yemek menusunu gorebilir miyim?",
+      example_tr: "Bar yemek menüsünü görebilir miyim?",
     },
     {
       id: "ex.7.25.2",
@@ -4109,7 +4109,7 @@ export const barLesson_7_25: BundledLesson = {
           ],
           model_answers: ["I'll have the wings"],
           hint_tr:
-            "Sec: 'I'll have the wings'. 'Order of' = porsiyon.",
+            "Seç: 'I'll have the wings'. 'Order of' = porsiyon.",
         },
         {
           speaker: "npc",
@@ -4127,7 +4127,7 @@ export const barLesson_7_25: BundledLesson = {
           ],
           model_answers: ["Medium, please"],
           hint_tr:
-            "Aciligi: 'Medium, please'. Hot = baya acili.",
+            "Acılığı: 'Medium, please'. Hot = baya acılı.",
         },
         {
           speaker: "npc",
@@ -4144,7 +4144,7 @@ export const barLesson_7_25: BundledLesson = {
           ],
           model_answers: ["What pairs with wings?"],
           hint_tr:
-            "Bira esle: 'IPA, please' veya 'What pairs with wings?'",
+            "Bira eşle: 'IPA, please' veya 'What pairs with wings?'",
         },
         {
           speaker: "npc",
@@ -4162,7 +4162,7 @@ export const barLesson_7_25: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -4183,7 +4183,7 @@ export const barLesson_7_25: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -4200,18 +4200,18 @@ export const barLesson_7_25: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.25.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.25.rq1",
@@ -4226,7 +4226,7 @@ export const barLesson_7_25: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -4237,7 +4237,7 @@ export const barLesson_7_25: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -4259,7 +4259,7 @@ export const barLesson_7_25: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -4425,9 +4425,9 @@ export const barLesson_7_26: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "last call",
-      tr_translation: "Son siparis (mutfak/bar)",
+      tr_translation: "Son sipariş (mutfak/bar)",
       example: "Is the kitchen still open or is it last call?",
-      example_tr: "Mutfak hala acik mi yoksa son siparis mi?",
+      example_tr: "Mutfak hala açık mı yoksa son sipariş mi?",
     },
     {
       id: "ex.7.26.2",
@@ -4489,7 +4489,7 @@ export const barLesson_7_26: BundledLesson = {
           ],
           model_answers: ["I'll have a beer"],
           hint_tr:
-            "Icki sec: 'I'll have a beer'.",
+            "İçki seç: 'I'll have a beer'.",
         },
         {
           speaker: "npc",
@@ -4524,7 +4524,7 @@ export const barLesson_7_26: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -4545,7 +4545,7 @@ export const barLesson_7_26: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -4562,18 +4562,18 @@ export const barLesson_7_26: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.26.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.26.rq1",
@@ -4588,7 +4588,7 @@ export const barLesson_7_26: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -4599,7 +4599,7 @@ export const barLesson_7_26: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -4621,7 +4621,7 @@ export const barLesson_7_26: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -4787,9 +4787,9 @@ export const barLesson_7_27: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "on the house",
-      tr_translation: "Mekan ikrami (bedava)",
+      tr_translation: "Mekan ikramı (bedava)",
       example: "This one's on the house — happy birthday!",
-      example_tr: "Bu mekan ikrami — dogum gununuz kutlu olsun!",
+      example_tr: "Bu mekan ikramı — doğum gününüz kutlu olsun!",
     },
     {
       id: "ex.7.27.2",
@@ -4815,7 +4815,7 @@ export const barLesson_7_27: BundledLesson = {
           ],
           model_answers: ["It's my birthday"],
           hint_tr:
-            "Ima: 'It's my birthday' deyince genelde ikram cikar.",
+            "İma: 'It's my birthday' deyince genelde ikram çıkar.",
         },
         {
           speaker: "npc",
@@ -4833,7 +4833,7 @@ export const barLesson_7_27: BundledLesson = {
           ],
           model_answers: ["Something special for tonight"],
           hint_tr:
-            "Yumusak ima: 'Surprise me' veya 'Something special for tonight'.",
+            "Yumuşak ima: 'Surprise me' veya 'Something special for tonight'.",
         },
         {
           speaker: "npc",
@@ -4851,7 +4851,7 @@ export const barLesson_7_27: BundledLesson = {
           ],
           model_answers: ["Wow, thank you so much!"],
           hint_tr:
-            "Sukran: 'Wow, thank you so much!'. 'On the house' = bedava.",
+            "Şükran: 'Wow, thank you so much!'. 'On the house' = bedava.",
         },
         {
           speaker: "npc",
@@ -4887,7 +4887,7 @@ export const barLesson_7_27: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -4908,7 +4908,7 @@ export const barLesson_7_27: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -4925,18 +4925,18 @@ export const barLesson_7_27: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.27.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.27.rq1",
@@ -4951,7 +4951,7 @@ export const barLesson_7_27: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -4962,7 +4962,7 @@ export const barLesson_7_27: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -4984,7 +4984,7 @@ export const barLesson_7_27: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -5150,9 +5150,9 @@ export const barLesson_7_28: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "craft beer",
-      tr_translation: "Zanaat birasi, kucuk uretici birasi",
+      tr_translation: "Zanaat birası, küçük üretici birası",
       example: "What's the craft beer scene like here?",
-      example_tr: "Burda craft bira sahnesi nasil?",
+      example_tr: "Burda craft bira sahnesi nasıl?",
     },
     {
       id: "ex.7.28.2",
@@ -5160,9 +5160,9 @@ export const barLesson_7_28: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "local brewery",
-      tr_translation: "Yerel bira fabrikasi",
+      tr_translation: "Yerel bira fabrikası",
       example: "Any local breweries you recommend?",
-      example_tr: "Onerebilecegin yerel bira fabrikasi var mi?",
+      example_tr: "Önerebileceğin yerel bira fabrikası var mı?",
     },
     {
       id: "ex.7.28.3",
@@ -5206,7 +5206,7 @@ export const barLesson_7_28: BundledLesson = {
           ],
           model_answers: ["Which one's your favorite?"],
           hint_tr:
-            "Sec: 'Which one's your favorite?' veya 'Any IPAs from them?'",
+            "Seç: 'Which one's your favorite?' veya 'Any IPAs from them?'",
         },
         {
           speaker: "npc",
@@ -5242,7 +5242,7 @@ export const barLesson_7_28: BundledLesson = {
           ],
           model_answers: ["I'll give it a try"],
           hint_tr:
-            "Risk al: 'I'll give it a try' veya degisitir: 'IPA instead'.",
+            "Risk al: 'I'll give it a try' veya değişitir: 'IPA instead'.",
         },
         {
           speaker: "npc",
@@ -5261,7 +5261,7 @@ export const barLesson_7_28: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -5282,7 +5282,7 @@ export const barLesson_7_28: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -5299,18 +5299,18 @@ export const barLesson_7_28: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.28.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.28.rq1",
@@ -5325,7 +5325,7 @@ export const barLesson_7_28: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -5336,7 +5336,7 @@ export const barLesson_7_28: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -5358,7 +5358,7 @@ export const barLesson_7_28: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -5528,9 +5528,9 @@ export const barLesson_24_15: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "you a fan",
-      tr_translation: "Bir taraftari misin?",
+      tr_translation: "Bir taraftarı mısın?",
       example: "You a fan of either team?",
-      example_tr: "Iki takimdan birinin taraftari misin?",
+      example_tr: "İki takımdan birinin taraftarı mısın?",
     },
     {
       id: "ex.24.15.2",
@@ -5611,7 +5611,7 @@ export const barLesson_24_15: BundledLesson = {
           ],
           model_answers: ["Yeah, big — Fenerbahce, Anadolu Efes"],
           hint_tr:
-            "Turkiye'yi anlat: 'Yeah, big — Fenerbahce, Anadolu Efes'.",
+            "Türkiye'yi anlat: 'Yeah, big — Fenerbahce, Anadolu Efes'.",
         },
         {
           speaker: "npc",
@@ -5651,7 +5651,7 @@ export const barLesson_24_15: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -5668,14 +5668,14 @@ export const barLesson_24_15: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.15.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -5694,7 +5694,7 @@ export const barLesson_24_15: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -5727,7 +5727,7 @@ export const barLesson_24_15: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -5738,7 +5738,7 @@ export const barLesson_24_15: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -5893,9 +5893,9 @@ export const barLesson_24_16: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "regular",
-      tr_translation: "Mudavim, surekli musteri",
+      tr_translation: "Müdavim, sürekli müşteri",
       example: "He's a regular here.",
-      example_tr: "O burda mudavim.",
+      example_tr: "O burda müdavim.",
     },
     {
       id: "ex.24.16.2",
@@ -5922,7 +5922,7 @@ export const barLesson_24_16: BundledLesson = {
           ],
           model_answers: ["Yeah, first time"],
           hint_tr:
-            "Anlat: 'Yeah, first time'. Dive bar kulturunde sohbet sicaktir.",
+            "Anlat: 'Yeah, first time'. Dive bar kültüründe sohbet sıcaktır.",
         },
         {
           speaker: "npc",
@@ -5940,7 +5940,7 @@ export const barLesson_24_16: BundledLesson = {
           ],
           model_answers: ["Wow, forty years!"],
           hint_tr:
-            "Saygi: 'Wow, forty years!' Sohbeti devam ettir.",
+            "Saygı: 'Wow, forty years!' Sohbeti devam ettir.",
         },
         {
           speaker: "npc",
@@ -6016,7 +6016,7 @@ export const barLesson_24_16: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -6033,14 +6033,14 @@ export const barLesson_24_16: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.16.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -6059,7 +6059,7 @@ export const barLesson_24_16: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -6092,7 +6092,7 @@ export const barLesson_24_16: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -6103,7 +6103,7 @@ export const barLesson_24_16: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -6258,9 +6258,9 @@ export const barLesson_24_17: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "speakeasy",
-      tr_translation: "Gizli bar (yasak donemi mirasi)",
+      tr_translation: "Gizli bar (yasak dönemi mirası)",
       example: "It's a speakeasy — you need a password.",
-      example_tr: "Speakeasy — sifre lazim.",
+      example_tr: "Speakeasy — şifre lazım.",
     },
     {
       id: "ex.24.17.2",
@@ -6287,7 +6287,7 @@ export const barLesson_24_17: BundledLesson = {
           ],
           model_answers: ["Yes, reservation under [name]"],
           hint_tr:
-            "Sifre/rezervasyon: 'Yes, reservation under [name]' veya 'A friend sent me'.",
+            "Şifre/rezervasyon: 'Yes, reservation under [name]' veya 'A friend sent me'.",
         },
         {
           speaker: "npc",
@@ -6305,7 +6305,7 @@ export const barLesson_24_17: BundledLesson = {
           ],
           model_answers: ["Yes, it's [word]"],
           hint_tr:
-            "Sifre soyle: 'Yes, it's [word]'. Hatirlamiyorsan dur: 'I forgot'.",
+            "Şifre söyle: 'Yes, it's [word]'. Hatırlamıyorsan dur: 'I forgot'.",
         },
         {
           speaker: "npc",
@@ -6323,7 +6323,7 @@ export const barLesson_24_17: BundledLesson = {
           ],
           model_answers: ["Got it, thanks"],
           hint_tr:
-            "Onayla: 'Got it, thanks'. Speakeasy = sessiz, telefonsuz, nakit bahsis.",
+            "Onayla: 'Got it, thanks'. Speakeasy = sessiz, telefonsuz, nakit bahşiş.",
         },
         {
           speaker: "npc",
@@ -6341,7 +6341,7 @@ export const barLesson_24_17: BundledLesson = {
           ],
           model_answers: ["Thanks, will do"],
           hint_tr:
-            "Tesekkur: 'Thanks, will do'.",
+            "Teşekkür: 'Thanks, will do'.",
         },
         {
           speaker: "npc",
@@ -6381,7 +6381,7 @@ export const barLesson_24_17: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -6398,14 +6398,14 @@ export const barLesson_24_17: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.17.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -6424,7 +6424,7 @@ export const barLesson_24_17: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -6457,7 +6457,7 @@ export const barLesson_24_17: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -6468,7 +6468,7 @@ export const barLesson_24_17: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -6623,7 +6623,7 @@ export const barLesson_24_18: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "trivia night",
-      tr_translation: "Bilgi yarismasi gecesi (barda)",
+      tr_translation: "Bilgi yarışması gecesi (barda)",
       example: "Is this trivia night?",
       example_tr: "Trivia gecesi mi?",
     },
@@ -6652,7 +6652,7 @@ export const barLesson_24_18: BundledLesson = {
           ],
           model_answers: ["Yeah, looking for a team — could I join?"],
           hint_tr:
-            "Katil: 'Yeah, looking for a team — could I join?'",
+            "Katıl: 'Yeah, looking for a team — could I join?'",
         },
         {
           speaker: "npc",
@@ -6670,7 +6670,7 @@ export const barLesson_24_18: BundledLesson = {
           ],
           model_answers: ["Yeah, pretty good at history"],
           hint_tr:
-            "Kuvvet alani: 'Yeah, pretty good at history' veya 'Better at geography'.",
+            "Kuvvet alanı: 'Yeah, pretty good at history' veya 'Better at geography'.",
         },
         {
           speaker: "npc",
@@ -6688,7 +6688,7 @@ export const barLesson_24_18: BundledLesson = {
           ],
           model_answers: ["I'm [your name], nice to meet you"],
           hint_tr:
-            "Tanit: 'I'm [your name], nice to meet you'.",
+            "Tanıt: 'I'm [your name], nice to meet you'.",
         },
         {
           speaker: "npc",
@@ -6746,7 +6746,7 @@ export const barLesson_24_18: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -6763,14 +6763,14 @@ export const barLesson_24_18: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.18.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -6789,7 +6789,7 @@ export const barLesson_24_18: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -6822,7 +6822,7 @@ export const barLesson_24_18: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -6833,7 +6833,7 @@ export const barLesson_24_18: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -6988,9 +6988,9 @@ export const barLesson_24_19: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "opening act",
-      tr_translation: "Acilis grubu (asil grup oncesi)",
+      tr_translation: "Açılış grubu (asıl grup öncesi)",
       example: "Are they the opening act or headliner?",
-      example_tr: "Acilis mi yoksa ana grup mu?",
+      example_tr: "Açılış mı yoksa ana grup mu?",
     },
     {
       id: "ex.24.19.2",
@@ -7053,7 +7053,7 @@ export const barLesson_24_19: BundledLesson = {
           ],
           model_answers: ["I'm from Istanbul"],
           hint_tr:
-            "Nere'sin: 'I'm from Istanbul' veya 'I'm on Erasmus'. Erasmus = ogrenci degisim.",
+            "Nere'sin: 'I'm from Istanbul' veya 'I'm on Erasmus'. Erasmus = öğrenci değişim.",
         },
         {
           speaker: "npc",
@@ -7111,7 +7111,7 @@ export const barLesson_24_19: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -7128,14 +7128,14 @@ export const barLesson_24_19: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.19.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -7154,7 +7154,7 @@ export const barLesson_24_19: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -7187,7 +7187,7 @@ export const barLesson_24_19: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -7198,7 +7198,7 @@ export const barLesson_24_19: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -7353,9 +7353,9 @@ export const barLesson_24_20: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "in person",
-      tr_translation: "Yuzyuze (telefondan farkli)",
+      tr_translation: "Yüzyüze (telefondan farklı)",
       example: "Nice to meet you in person.",
-      example_tr: "Yuzyuze tanismak guzel.",
+      example_tr: "Yüzyüze tanışmak güzel.",
     },
     {
       id: "ex.24.20.2",
@@ -7418,7 +7418,7 @@ export const barLesson_24_20: BundledLesson = {
           ],
           model_answers: ["Maybe a glass of wine?"],
           hint_tr:
-            "Sec: 'Maybe a glass of wine?' veya 'What are you getting?'",
+            "Seç: 'Maybe a glass of wine?' veya 'What are you getting?'",
         },
         {
           speaker: "npc",
@@ -7436,7 +7436,7 @@ export const barLesson_24_20: BundledLesson = {
           ],
           model_answers: ["Sure, I'll grab the next round"],
           hint_tr:
-            "Ucret paylasimi: 'Sure, I'll grab the next round'.",
+            "Ücret paylaşımı: 'Sure, I'll grab the next round'.",
         },
         {
           speaker: "npc",
@@ -7476,7 +7476,7 @@ export const barLesson_24_20: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -7493,14 +7493,14 @@ export const barLesson_24_20: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.20.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -7519,7 +7519,7 @@ export const barLesson_24_20: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -7552,7 +7552,7 @@ export const barLesson_24_20: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -7563,7 +7563,7 @@ export const barLesson_24_20: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -7718,9 +7718,9 @@ export const barLesson_24_21: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Erasmus year",
-      tr_translation: "Erasmus yili (AB ogrenci degisimi)",
+      tr_translation: "Erasmus yılı (AB öğrenci değişimi)",
       example: "I'm doing my Erasmus year in Berlin.",
-      example_tr: "Berlin'de Erasmus yilimi yapiyorum.",
+      example_tr: "Berlin'de Erasmus yılımı yapıyorum.",
     },
     {
       id: "ex.24.21.2",
@@ -7728,9 +7728,9 @@ export const barLesson_24_21: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "solo traveling",
-      tr_translation: "Tek basina seyahat etmek",
+      tr_translation: "Tek başına seyahat etmek",
       example: "I'm solo traveling for two weeks.",
-      example_tr: "Iki haftadir tek basima seyahat ediyorum.",
+      example_tr: "İki haftadır tek başıma seyahat ediyorum.",
     },
     {
       id: "ex.24.21.3",
@@ -7775,7 +7775,7 @@ export const barLesson_24_21: BundledLesson = {
           ],
           model_answers: ["I'm [name] from Turkey, doing my Erasmus year here"],
           hint_tr:
-            "Tanit: 'I'm [name] from Turkey, doing my Erasmus year here'. Erasmus = AB ogrenci programi.",
+            "Tanıt: 'I'm [name] from Turkey, doing my Erasmus year here'. Erasmus = AB öğrenci programı.",
         },
         {
           speaker: "npc",
@@ -7793,7 +7793,7 @@ export const barLesson_24_21: BundledLesson = {
           ],
           model_answers: ["The whole year"],
           hint_tr:
-            "Sure: 'The whole year' veya 'Until June'.",
+            "Süre: 'The whole year' veya 'Until June'.",
         },
         {
           speaker: "npc",
@@ -7851,7 +7851,7 @@ export const barLesson_24_21: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -7868,14 +7868,14 @@ export const barLesson_24_21: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.21.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -7894,7 +7894,7 @@ export const barLesson_24_21: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -7927,7 +7927,7 @@ export const barLesson_24_21: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -7938,7 +7938,7 @@ export const barLesson_24_21: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -8093,7 +8093,7 @@ export const barLesson_24_22: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "on me",
-      tr_translation: "Benden, ikram (ben oduyorum)",
+      tr_translation: "Benden, ikram (ben ödüyorum)",
       example: "Your drink's on me.",
       example_tr: "Icicegin benden.",
     },
@@ -8122,7 +8122,7 @@ export const barLesson_24_22: BundledLesson = {
           ],
           model_answers: ["Yeah, on me — just wanted to say hi"],
           hint_tr:
-            "Onayla: 'Yeah, on me — just wanted to say hi'. Baski olmadan.",
+            "Onayla: 'Yeah, on me — just wanted to say hi'. Baskı olmadan.",
         },
         {
           speaker: "npc",
@@ -8158,7 +8158,7 @@ export const barLesson_24_22: BundledLesson = {
           ],
           model_answers: ["I'm [name], nice to meet you"],
           hint_tr:
-            "Tanit: 'I'm [name], nice to meet you'.",
+            "Tanıt: 'I'm [name], nice to meet you'.",
         },
         {
           speaker: "npc",
@@ -8176,7 +8176,7 @@ export const barLesson_24_22: BundledLesson = {
           ],
           model_answers: ["No, first time actually"],
           hint_tr:
-            "Cevap: 'No, first time actually'. Genelde 'no' demek dogal.",
+            "Cevap: 'No, first time actually'. Genelde 'no' demek doğal.",
         },
         {
           speaker: "npc",
@@ -8216,7 +8216,7 @@ export const barLesson_24_22: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -8233,14 +8233,14 @@ export const barLesson_24_22: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.22.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -8259,7 +8259,7 @@ export const barLesson_24_22: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -8292,7 +8292,7 @@ export const barLesson_24_22: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -8303,7 +8303,7 @@ export const barLesson_24_22: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -8458,9 +8458,9 @@ export const barLesson_24_23: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "fancy seeing you",
-      tr_translation: "Seni gormek surpriz / seni gormek ilginc",
+      tr_translation: "Seni görmek sürpriz / seni görmek ilginç",
       example: "Fancy seeing you here.",
-      example_tr: "Seni burda gormek surpriz.",
+      example_tr: "Seni burda görmek sürpriz.",
     },
     {
       id: "ex.24.23.2",
@@ -8487,7 +8487,7 @@ export const barLesson_24_23: BundledLesson = {
           ],
           model_answers: ["Hey, fancy seeing you"],
           hint_tr:
-            "Sicak ama mesafeli: 'Hey, fancy seeing you'. Garipligi kabul et.",
+            "Sıcak ama mesafeli: 'Hey, fancy seeing you'. Garipliği kabul et.",
         },
         {
           speaker: "npc",
@@ -8505,7 +8505,7 @@ export const barLesson_24_23: BundledLesson = {
           ],
           model_answers: ["Good, you?"],
           hint_tr:
-            "Kisa: 'Good, you?' Detaya girme.",
+            "Kısa: 'Good, you?' Detaya girme.",
         },
         {
           speaker: "npc",
@@ -8523,7 +8523,7 @@ export const barLesson_24_23: BundledLesson = {
           ],
           model_answers: ["Yeah, good seeing you"],
           hint_tr:
-            "Sonlandir: 'Yeah, good seeing you'.",
+            "Sonlandır: 'Yeah, good seeing you'.",
         },
         {
           speaker: "npc",
@@ -8541,7 +8541,7 @@ export const barLesson_24_23: BundledLesson = {
           ],
           model_answers: ["You too, take care"],
           hint_tr:
-            "Bitir: 'You too, take care'. Kibarca uzaklas.",
+            "Bitir: 'You too, take care'. Kibarca uzaklaş.",
         },
         {
           speaker: "npc",
@@ -8581,7 +8581,7 @@ export const barLesson_24_23: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -8598,14 +8598,14 @@ export const barLesson_24_23: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.23.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -8624,7 +8624,7 @@ export const barLesson_24_23: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -8657,7 +8657,7 @@ export const barLesson_24_23: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -8668,7 +8668,7 @@ export const barLesson_24_23: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -8823,9 +8823,9 @@ export const barLesson_24_24: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "bar crawl",
-      tr_translation: "Bar gezme turu (birden cok bar)",
+      tr_translation: "Bar gezme turu (birden çok bar)",
       example: "We're on a bar crawl.",
-      example_tr: "Bar crawl yapiyoruz.",
+      example_tr: "Bar crawl yapıyoruz.",
     },
     {
       id: "ex.24.24.2",
@@ -8852,7 +8852,7 @@ export const barLesson_24_24: BundledLesson = {
           ],
           model_answers: ["Outside the second bar"],
           hint_tr:
-            "Yer soyle: 'Outside the second bar'.",
+            "Yer söyle: 'Outside the second bar'.",
         },
         {
           speaker: "npc",
@@ -8906,7 +8906,7 @@ export const barLesson_24_24: BundledLesson = {
           ],
           model_answers: ["Coming! Don't let it melt!"],
           hint_tr:
-            "Eglence: 'Coming! Don't let it melt!'",
+            "Eğlence: 'Coming! Don't let it melt!'",
         },
         {
           speaker: "npc",
@@ -8946,7 +8946,7 @@ export const barLesson_24_24: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -8963,14 +8963,14 @@ export const barLesson_24_24: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.24.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -8989,7 +8989,7 @@ export const barLesson_24_24: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -9022,7 +9022,7 @@ export const barLesson_24_24: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -9033,7 +9033,7 @@ export const barLesson_24_24: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -9188,9 +9188,9 @@ export const barLesson_24_25: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "put my name down",
-      tr_translation: "Adimi yazdir (sira icin)",
+      tr_translation: "Adımı yazdır (sıra için)",
       example: "Can I put my name down for a song?",
-      example_tr: "Bir sarki icin adimi yazdirabilir miyim?",
+      example_tr: "Bir şarkı için adımı yazdırabilir miyim?",
     },
     {
       id: "ex.24.25.2",
@@ -9217,7 +9217,7 @@ export const barLesson_24_25: BundledLesson = {
           ],
           model_answers: ["Yeah, can I put my name down?"],
           hint_tr:
-            "Sira: 'Yeah, can I put my name down?'",
+            "Sıra: 'Yeah, can I put my name down?'",
         },
         {
           speaker: "npc",
@@ -9235,7 +9235,7 @@ export const barLesson_24_25: BundledLesson = {
           ],
           model_answers: ["I'm [name], song's [song] by [artist]"],
           hint_tr:
-            "Tanit + sarki: 'I'm [name], song's [song] by [artist]'.",
+            "Tanıt + şarkı: 'I'm [name], song's [song] by [artist]'.",
         },
         {
           speaker: "npc",
@@ -9311,7 +9311,7 @@ export const barLesson_24_25: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -9328,14 +9328,14 @@ export const barLesson_24_25: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.25.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -9354,7 +9354,7 @@ export const barLesson_24_25: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -9387,7 +9387,7 @@ export const barLesson_24_25: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -9398,7 +9398,7 @@ export const barLesson_24_25: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -9553,9 +9553,9 @@ export const barLesson_24_26: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "industry bar",
-      tr_translation: "Sektor bari (servis sektorunde calisanlarin gittigi)",
+      tr_translation: "Sektör barı (servis sektöründe çalışanların gittiği)",
       example: "This place is an industry bar.",
-      example_tr: "Burasi bir industry bar.",
+      example_tr: "Burası bir industry bar.",
     },
     {
       id: "ex.24.26.2",
@@ -9563,9 +9563,9 @@ export const barLesson_24_26: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "off-duty",
-      tr_translation: "Mesai disi, izinli",
+      tr_translation: "Mesai dışı, izinli",
       example: "I'm off-duty tonight.",
-      example_tr: "Bu aksam mesai disindayim.",
+      example_tr: "Bu akşam mesai dışındayım.",
     },
     {
       id: "ex.24.26.3",
@@ -9592,7 +9592,7 @@ export const barLesson_24_26: BundledLesson = {
           ],
           model_answers: ["Yeah, from Turkey"],
           hint_tr:
-            "Tanit: 'Yeah, from Turkey'.",
+            "Tanıt: 'Yeah, from Turkey'.",
         },
         {
           speaker: "npc",
@@ -9610,7 +9610,7 @@ export const barLesson_24_26: BundledLesson = {
           ],
           model_answers: ["No way! Small world!"],
           hint_tr:
-            "Tepki: 'No way! Small world!' Turk olunca ingilizce devam et — pratik.",
+            "Tepki: 'No way! Small world!' Türk olunca ingilizce devam et — pratik.",
         },
         {
           speaker: "npc",
@@ -9704,7 +9704,7 @@ export const barLesson_24_26: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -9721,14 +9721,14 @@ export const barLesson_24_26: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.26.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -9747,7 +9747,7 @@ export const barLesson_24_26: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -9780,7 +9780,7 @@ export const barLesson_24_26: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -9791,7 +9791,7 @@ export const barLesson_24_26: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -9946,9 +9946,9 @@ export const barLesson_24_27: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "any idea who",
-      tr_translation: "Kim oldugu hakkinda fikrin var mi?",
+      tr_translation: "Kim olduğu hakkında fikrin var mı?",
       example: "Any idea who that is?",
-      example_tr: "Kim oldugu hakkinda fikrin var mi?",
+      example_tr: "Kim olduğu hakkında fikrin var mı?",
     },
     {
       id: "ex.24.27.2",
@@ -10029,7 +10029,7 @@ export const barLesson_24_27: BundledLesson = {
           ],
           model_answers: ["Sure, that would be nice"],
           hint_tr:
-            "Sec: 'No, just curious' veya 'Sure, that would be nice'.",
+            "Seç: 'No, just curious' veya 'Sure, that would be nice'.",
         },
         {
           speaker: "npc",
@@ -10069,7 +10069,7 @@ export const barLesson_24_27: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -10086,14 +10086,14 @@ export const barLesson_24_27: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.27.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -10112,7 +10112,7 @@ export const barLesson_24_27: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -10145,7 +10145,7 @@ export const barLesson_24_27: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -10156,7 +10156,7 @@ export const barLesson_24_27: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -10311,9 +10311,9 @@ export const barLesson_24_28: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "saving this seat",
-      tr_translation: "Bu koltugu tutuyorum (arkadasim icin)",
+      tr_translation: "Bu koltuğu tutuyorum (arkadaşım için)",
       example: "Sorry, I'm saving this seat.",
-      example_tr: "Ozur dilerim, bu koltugu tutuyorum.",
+      example_tr: "Özür dilerim, bu koltuğu tutuyorum.",
     },
     {
       id: "ex.24.28.2",
@@ -10358,7 +10358,7 @@ export const barLesson_24_28: BundledLesson = {
           ],
           model_answers: ["Any minute"],
           hint_tr:
-            "Sure: 'Any minute' veya 'In five'.",
+            "Süre: 'Any minute' veya 'In five'.",
         },
         {
           speaker: "npc",
@@ -10376,7 +10376,7 @@ export const barLesson_24_28: BundledLesson = {
           ],
           model_answers: ["Sure, go ahead"],
           hint_tr:
-            "Izin: 'Sure, go ahead'.",
+            "İzin: 'Sure, go ahead'.",
         },
         {
           speaker: "npc",
@@ -10394,7 +10394,7 @@ export const barLesson_24_28: BundledLesson = {
           ],
           model_answers: ["No problem"],
           hint_tr:
-            "Sonlandir: 'No problem'.",
+            "Sonlandır: 'No problem'.",
         },
         {
           speaker: "npc",
@@ -10434,7 +10434,7 @@ export const barLesson_24_28: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -10451,14 +10451,14 @@ export const barLesson_24_28: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.28.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -10477,7 +10477,7 @@ export const barLesson_24_28: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -10510,7 +10510,7 @@ export const barLesson_24_28: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -10521,7 +10521,7 @@ export const barLesson_24_28: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -10676,9 +10676,9 @@ export const barLesson_24_29: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "split a cab",
-      tr_translation: "Taksi paylasmak (ucret de paylasilir)",
+      tr_translation: "Taksi paylaşmak (ücret de paylaşılır)",
       example: "Want to split a cab?",
-      example_tr: "Taksi paylasalim mi?",
+      example_tr: "Taksi paylaşalım mı?",
     },
     {
       id: "ex.24.29.2",
@@ -10705,7 +10705,7 @@ export const barLesson_24_29: BundledLesson = {
           ],
           model_answers: ["Want to split a cab?"],
           hint_tr:
-            "Onerme: 'Want to split a cab?' veya 'Which direction?'",
+            "Önerme: 'Want to split a cab?' veya 'Which direction?'",
         },
         {
           speaker: "npc",
@@ -10723,7 +10723,7 @@ export const barLesson_24_29: BundledLesson = {
           ],
           model_answers: ["I'm near Williamsburg too"],
           hint_tr:
-            "Yer soyle: 'I'm near Williamsburg too' veya 'Different direction'.",
+            "Yer söyle: 'I'm near Williamsburg too' veya 'Different direction'.",
         },
         {
           speaker: "npc",
@@ -10741,7 +10741,7 @@ export const barLesson_24_29: BundledLesson = {
           ],
           model_answers: ["Sure, Venmo works"],
           hint_tr:
-            "Ode: 'Sure, Venmo works'. Turkiye'den ise: 'I don't have Venmo — cash?'",
+            "Öde: 'Sure, Venmo works'. Türkiye'den ise: 'I don't have Venmo — cash?'",
         },
         {
           speaker: "npc",
@@ -10759,7 +10759,7 @@ export const barLesson_24_29: BundledLesson = {
           ],
           model_answers: ["Thanks for organizing"],
           hint_tr:
-            "Tesekkur: 'Thanks for organizing'.",
+            "Teşekkür: 'Thanks for organizing'.",
         },
         {
           speaker: "npc",
@@ -10799,7 +10799,7 @@ export const barLesson_24_29: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -10816,14 +10816,14 @@ export const barLesson_24_29: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.29.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -10842,7 +10842,7 @@ export const barLesson_24_29: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -10875,7 +10875,7 @@ export const barLesson_24_29: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -10886,7 +10886,7 @@ export const barLesson_24_29: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -11048,9 +11048,9 @@ export const barLesson_7_29: BundledLesson = {
       difficulty: 1,
       cefr_band: "A1",
       word_or_phrase: "a glass of red",
-      tr_translation: "Bir kadeh kirmizi sarap",
+      tr_translation: "Bir kadeh kırmızı şarap",
       example: "A glass of red, please.",
-      example_tr: "Bir kadeh kirmizi sarap, lutfen.",
+      example_tr: "Bir kadeh kırmızı şarap, lütfen.",
     },
     {
       id: "ex.7.29.2",
@@ -11058,9 +11058,9 @@ export const barLesson_7_29: BundledLesson = {
       difficulty: 1,
       cefr_band: "A1",
       word_or_phrase: "house wine",
-      tr_translation: "Mekanin standart sarabi (uygun fiyatli)",
+      tr_translation: "Mekanın standart şarabı (uygun fiyatlı)",
       example: "I'll have the house wine.",
-      example_tr: "Ev sarabini alirim.",
+      example_tr: "Ev şarabını alırım.",
     },
     {
       id: "ex.7.29.3",
@@ -11086,7 +11086,7 @@ export const barLesson_7_29: BundledLesson = {
           ],
           model_answers: ["A glass of red, please"],
           hint_tr:
-            "A2 sade: 'A glass of red, please'. Tek cumle, kibar.",
+            "A2 sade: 'A glass of red, please'. Tek cümle, kibar.",
         },
         {
           speaker: "npc",
@@ -11136,7 +11136,7 @@ export const barLesson_7_29: BundledLesson = {
           ],
           model_answers: ["Thank you"],
           hint_tr:
-            "Tesekkur: 'Thank you'.",
+            "Teşekkür: 'Thank you'.",
         },
       ],
     },
@@ -11150,7 +11150,7 @@ export const barLesson_7_29: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -11171,7 +11171,7 @@ export const barLesson_7_29: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -11188,18 +11188,18 @@ export const barLesson_7_29: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.29.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.29.rq1",
@@ -11214,7 +11214,7 @@ export const barLesson_7_29: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -11225,7 +11225,7 @@ export const barLesson_7_29: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -11247,7 +11247,7 @@ export const barLesson_7_29: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -11413,9 +11413,9 @@ export const barLesson_7_30: BundledLesson = {
       difficulty: 1,
       cefr_band: "A1",
       word_or_phrase: "gin and tonic",
-      tr_translation: "Cin tonik (kolay siparis)",
+      tr_translation: "Cin tonik (kolay sipariş)",
       example: "A gin and tonic, please.",
-      example_tr: "Bir cin tonik, lutfen.",
+      example_tr: "Bir cin tonik, lütfen.",
     },
     {
       id: "ex.7.30.2",
@@ -11425,7 +11425,7 @@ export const barLesson_7_30: BundledLesson = {
       word_or_phrase: "with lemon",
       tr_translation: "Limonlu",
       example: "With lemon, please.",
-      example_tr: "Limonlu, lutfen.",
+      example_tr: "Limonlu, lütfen.",
     },
     {
       id: "ex.7.30.3",
@@ -11451,7 +11451,7 @@ export const barLesson_7_30: BundledLesson = {
           ],
           model_answers: ["A gin and tonic, please"],
           hint_tr:
-            "A2: 'A gin and tonic, please'. Tanidik kokteyl.",
+            "A2: 'A gin and tonic, please'. Tanıdık kokteyl.",
         },
         {
           speaker: "npc",
@@ -11485,7 +11485,7 @@ export const barLesson_7_30: BundledLesson = {
           ],
           model_answers: ["Lemon, please"],
           hint_tr:
-            "Sec: 'Lemon, please'.",
+            "Seç: 'Lemon, please'.",
         },
         {
           speaker: "npc",
@@ -11520,7 +11520,7 @@ export const barLesson_7_30: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -11541,7 +11541,7 @@ export const barLesson_7_30: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -11558,18 +11558,18 @@ export const barLesson_7_30: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.30.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.30.rq1",
@@ -11584,7 +11584,7 @@ export const barLesson_7_30: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -11595,7 +11595,7 @@ export const barLesson_7_30: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -11617,7 +11617,7 @@ export const barLesson_7_30: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -11785,7 +11785,7 @@ export const barLesson_7_31: BundledLesson = {
       word_or_phrase: "a pint",
       tr_translation: "Bir pint bira (~500ml)",
       example: "A pint, please.",
-      example_tr: "Bir pint, lutfen.",
+      example_tr: "Bir pint, lütfen.",
     },
     {
       id: "ex.7.31.2",
@@ -11821,7 +11821,7 @@ export const barLesson_7_31: BundledLesson = {
           ],
           model_answers: ["A pint, please"],
           hint_tr:
-            "Kisa: 'A pint, please'. Kalabalikta detay yok.",
+            "Kısa: 'A pint, please'. Kalabalıkta detay yok.",
         },
         {
           speaker: "npc",
@@ -11838,7 +11838,7 @@ export const barLesson_7_31: BundledLesson = {
           ],
           model_answers: ["Lager, please"],
           hint_tr:
-            "Sec: 'Lager, please'. Lager = acik bira, ale = koyu.",
+            "Seç: 'Lager, please'. Lager = açık bira, ale = koyu.",
         },
         {
           speaker: "npc",
@@ -11873,7 +11873,7 @@ export const barLesson_7_31: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -11894,7 +11894,7 @@ export const barLesson_7_31: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -11911,18 +11911,18 @@ export const barLesson_7_31: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.31.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.31.rq1",
@@ -11937,7 +11937,7 @@ export const barLesson_7_31: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -11948,7 +11948,7 @@ export const barLesson_7_31: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -11970,7 +11970,7 @@ export const barLesson_7_31: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -12136,9 +12136,9 @@ export const barLesson_7_32: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "charge to my room",
-      tr_translation: "Odama yaz (otel bari odeme)",
+      tr_translation: "Odama yaz (otel barı ödeme)",
       example: "Charge it to my room, please.",
-      example_tr: "Odama yaz lutfen.",
+      example_tr: "Odama yaz lütfen.",
     },
     {
       id: "ex.7.32.2",
@@ -12146,7 +12146,7 @@ export const barLesson_7_32: BundledLesson = {
       difficulty: 1,
       cefr_band: "A1",
       word_or_phrase: "room number",
-      tr_translation: "Oda numarasi",
+      tr_translation: "Oda numarası",
       example: "Room 405.",
       example_tr: "Oda 405.",
     },
@@ -12208,7 +12208,7 @@ export const barLesson_7_32: BundledLesson = {
           ],
           model_answers: ["Yes, charge it to my room"],
           hint_tr:
-            "Otel kalip: 'Yes, charge it to my room'.",
+            "Otel kalıp: 'Yes, charge it to my room'.",
         },
         {
           speaker: "npc",
@@ -12225,7 +12225,7 @@ export const barLesson_7_32: BundledLesson = {
           ],
           model_answers: ["Sure, thank you"],
           hint_tr:
-            "Imza: 'Sure, thank you'.",
+            "İmza: 'Sure, thank you'.",
         },
         {
           speaker: "npc",
@@ -12243,7 +12243,7 @@ export const barLesson_7_32: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -12264,7 +12264,7 @@ export const barLesson_7_32: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -12281,18 +12281,18 @@ export const barLesson_7_32: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.32.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.32.rq1",
@@ -12307,7 +12307,7 @@ export const barLesson_7_32: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -12318,7 +12318,7 @@ export const barLesson_7_32: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -12340,7 +12340,7 @@ export const barLesson_7_32: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -12506,9 +12506,9 @@ export const barLesson_7_33: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "frozen",
-      tr_translation: "Donmus (kokteyl)",
+      tr_translation: "Donmuş (kokteyl)",
       example: "Frozen margarita, please.",
-      example_tr: "Donmus margarita, lutfen.",
+      example_tr: "Donmuş margarita, lütfen.",
     },
     {
       id: "ex.7.33.2",
@@ -12561,7 +12561,7 @@ export const barLesson_7_33: BundledLesson = {
           ],
           model_answers: ["A frozen margarita, please"],
           hint_tr:
-            "Sec: 'A frozen margarita, please'.",
+            "Seç: 'A frozen margarita, please'.",
         },
         {
           speaker: "npc",
@@ -12626,7 +12626,7 @@ export const barLesson_7_33: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -12647,7 +12647,7 @@ export const barLesson_7_33: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -12664,18 +12664,18 @@ export const barLesson_7_33: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.33.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.33.rq1",
@@ -12690,7 +12690,7 @@ export const barLesson_7_33: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -12701,7 +12701,7 @@ export const barLesson_7_33: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -12723,7 +12723,7 @@ export const barLesson_7_33: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -12889,7 +12889,7 @@ export const barLesson_7_34: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "a flight",
-      tr_translation: "Tatim seti (4 kucuk bira)",
+      tr_translation: "Tatım seti (4 küçük bira)",
       example: "Can I get a flight?",
       example_tr: "Bir flight alabilir miyim?",
     },
@@ -12899,9 +12899,9 @@ export const barLesson_7_34: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "taster",
-      tr_translation: "Tatim olcusu (kucuk bardak)",
+      tr_translation: "Tatım ölçüsü (küçük bardak)",
       example: "Just a taster, please.",
-      example_tr: "Sadece tatim, lutfen.",
+      example_tr: "Sadece tatım, lütfen.",
     },
     {
       id: "ex.7.34.3",
@@ -12961,7 +12961,7 @@ export const barLesson_7_34: BundledLesson = {
           ],
           model_answers: ["Lager, IPA, stout, wheat"],
           hint_tr:
-            "A2 sec: 'Lager, IPA, stout, wheat'. Veya 'You choose'.",
+            "A2 seç: 'Lager, IPA, stout, wheat'. Veya 'You choose'.",
         },
         {
           speaker: "npc",
@@ -12996,7 +12996,7 @@ export const barLesson_7_34: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -13017,7 +13017,7 @@ export const barLesson_7_34: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -13034,18 +13034,18 @@ export const barLesson_7_34: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.34.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.34.rq1",
@@ -13060,7 +13060,7 @@ export const barLesson_7_34: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -13071,7 +13071,7 @@ export const barLesson_7_34: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -13093,7 +13093,7 @@ export const barLesson_7_34: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -13259,9 +13259,9 @@ export const barLesson_7_35: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "by the glass",
-      tr_translation: "Kadeh hesabi (sise yerine)",
+      tr_translation: "Kadeh hesabı (şişe yerine)",
       example: "What do you have by the glass?",
-      example_tr: "Kadeh hesabinda ne var?",
+      example_tr: "Kadeh hesabında ne var?",
     },
     {
       id: "ex.7.35.2",
@@ -13269,9 +13269,9 @@ export const barLesson_7_35: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "worth it",
-      tr_translation: "Degmek, paraya degmek",
+      tr_translation: "Değmek, paraya değmek",
       example: "Is the bottle worth it for two people?",
-      example_tr: "Iki kisi icin sise paraya deger mi?",
+      example_tr: "İki kişi için şişe paraya değer mi?",
     },
     {
       id: "ex.7.35.3",
@@ -13351,7 +13351,7 @@ export const barLesson_7_35: BundledLesson = {
           ],
           model_answers: ["That's really kind, thank you"],
           hint_tr:
-            "B1 tesekkur: 'That's really kind, thank you'.",
+            "B1 teşekkür: 'That's really kind, thank you'.",
         },
         {
           speaker: "npc",
@@ -13383,7 +13383,7 @@ export const barLesson_7_35: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -13404,7 +13404,7 @@ export const barLesson_7_35: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -13421,18 +13421,18 @@ export const barLesson_7_35: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.35.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.35.rq1",
@@ -13447,7 +13447,7 @@ export const barLesson_7_35: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -13458,7 +13458,7 @@ export const barLesson_7_35: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -13480,7 +13480,7 @@ export const barLesson_7_35: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -13646,9 +13646,9 @@ export const barLesson_7_36: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "less sweet",
-      tr_translation: "Daha az tatli",
+      tr_translation: "Daha az tatlı",
       example: "Could you make it less sweet?",
-      example_tr: "Daha az tatli yapabilir misin?",
+      example_tr: "Daha az tatlı yapabilir misin?",
     },
     {
       id: "ex.7.36.2",
@@ -13658,7 +13658,7 @@ export const barLesson_7_36: BundledLesson = {
       word_or_phrase: "go easy on",
       tr_translation: "Az koymak, hafif tutmak",
       example: "Go easy on the syrup, please.",
-      example_tr: "Surubu hafif tut, lutfen.",
+      example_tr: "Şurubu hafif tut, lütfen.",
     },
     {
       id: "ex.7.36.3",
@@ -13685,7 +13685,7 @@ export const barLesson_7_36: BundledLesson = {
           ],
           model_answers: ["A margarita, but less sweet"],
           hint_tr:
-            "B1 ozellestir: 'A margarita, but less sweet'.",
+            "B1 özelleştir: 'A margarita, but less sweet'.",
         },
         {
           speaker: "npc",
@@ -13771,7 +13771,7 @@ export const barLesson_7_36: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -13792,7 +13792,7 @@ export const barLesson_7_36: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -13809,18 +13809,18 @@ export const barLesson_7_36: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.36.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.36.rq1",
@@ -13835,7 +13835,7 @@ export const barLesson_7_36: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -13846,7 +13846,7 @@ export const barLesson_7_36: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -13868,7 +13868,7 @@ export const barLesson_7_36: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -14034,7 +14034,7 @@ export const barLesson_7_37: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "growler",
-      tr_translation: "Yeniden doldurulabilir bira sisesi (~2L)",
+      tr_translation: "Yeniden doldurulabilir bira şişesi (~2L)",
       example: "Can I get a growler fill?",
       example_tr: "Bir growler doldurabilir miyim?",
     },
@@ -14044,7 +14044,7 @@ export const barLesson_7_37: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "to-go",
-      tr_translation: "Paket, gotur (eve)",
+      tr_translation: "Paket, götür (eve)",
       example: "Is the IPA available to-go?",
       example_tr: "IPA paket olarak alabilir miyim?",
     },
@@ -14109,7 +14109,7 @@ export const barLesson_7_37: BundledLesson = {
           ],
           model_answers: ["Fill it with the IPA"],
           hint_tr:
-            "B1 sec: 'Fill it with the IPA' veya 'Something crowd-pleasing'.",
+            "B1 seç: 'Fill it with the IPA' veya 'Something crowd-pleasing'.",
         },
         {
           speaker: "npc",
@@ -14159,7 +14159,7 @@ export const barLesson_7_37: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -14180,7 +14180,7 @@ export const barLesson_7_37: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -14197,18 +14197,18 @@ export const barLesson_7_37: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.37.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.37.rq1",
@@ -14223,7 +14223,7 @@ export const barLesson_7_37: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -14234,7 +14234,7 @@ export const barLesson_7_37: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -14256,7 +14256,7 @@ export const barLesson_7_37: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -14422,9 +14422,9 @@ export const barLesson_7_38: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "open bar",
-      tr_translation: "Bedava bar (etkinlikte tum icecekler dahil)",
+      tr_translation: "Bedava bar (etkinlikte tüm içecekler dahil)",
       example: "It's an open bar all night.",
-      example_tr: "Tum gece open bar.",
+      example_tr: "Tüm gece open bar.",
     },
     {
       id: "ex.7.38.2",
@@ -14432,9 +14432,9 @@ export const barLesson_7_38: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "tip the bartender",
-      tr_translation: "Bartender'a bahsis vermek",
+      tr_translation: "Bartender'a bahşiş vermek",
       example: "Always tip the bartender at an open bar.",
-      example_tr: "Open bar'da hep bartender'a bahsis ver.",
+      example_tr: "Open bar'da hep bartender'a bahşiş ver.",
     },
     {
       id: "ex.7.38.3",
@@ -14515,7 +14515,7 @@ export const barLesson_7_38: BundledLesson = {
           ],
           model_answers: ["Here's a tip for you"],
           hint_tr:
-            "B1 dugun adab: 'Here's a tip for you'. Open bar'da bahsis adettir.",
+            "B1 düğün adab: 'Here's a tip for you'. Open bar'da bahşiş adettir.",
         },
         {
           speaker: "npc",
@@ -14534,7 +14534,7 @@ export const barLesson_7_38: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -14555,7 +14555,7 @@ export const barLesson_7_38: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -14572,18 +14572,18 @@ export const barLesson_7_38: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.38.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.38.rq1",
@@ -14598,7 +14598,7 @@ export const barLesson_7_38: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -14609,7 +14609,7 @@ export const barLesson_7_38: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -14631,7 +14631,7 @@ export const barLesson_7_38: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -14797,9 +14797,9 @@ export const barLesson_7_39: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "substitute",
-      tr_translation: "Yerine baska bir malzeme koymak",
+      tr_translation: "Yerine başka bir malzeme koymak",
       example: "Can you substitute the cilantro?",
-      example_tr: "Cilantro yerine baska bir sey koyabilir misin?",
+      example_tr: "Cilantro yerine başka bir şey koyabilir misin?",
     },
     {
       id: "ex.7.39.2",
@@ -14809,7 +14809,7 @@ export const barLesson_7_39: BundledLesson = {
       word_or_phrase: "leave out",
       tr_translation: "Cikartmak (malzemeyi)",
       example: "Could you leave the egg white out?",
-      example_tr: "Yumurta akini cikarabilir misin?",
+      example_tr: "Yumurta akını çıkarabilir misin?",
     },
     {
       id: "ex.7.39.3",
@@ -14922,7 +14922,7 @@ export const barLesson_7_39: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -14943,7 +14943,7 @@ export const barLesson_7_39: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -14960,18 +14960,18 @@ export const barLesson_7_39: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.39.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.39.rq1",
@@ -14986,7 +14986,7 @@ export const barLesson_7_39: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -14997,7 +14997,7 @@ export const barLesson_7_39: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -15019,7 +15019,7 @@ export const barLesson_7_39: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -15185,9 +15185,9 @@ export const barLesson_7_40: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "in the mood for",
-      tr_translation: "Canim cekiyor / istiyorum (su an)",
+      tr_translation: "Canım çekiyor / istiyorum (şu an)",
       example: "I'm in the mood for something bitter.",
-      example_tr: "Canim aci bir sey cekiyor.",
+      example_tr: "Canım acı bir şey çekiyor.",
     },
     {
       id: "ex.7.40.2",
@@ -15195,7 +15195,7 @@ export const barLesson_7_40: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "flavor profile",
-      tr_translation: "Tat profili (aci, eksi, tatli)",
+      tr_translation: "Tat profili (acı, ekşi, tatlı)",
       example: "What's the flavor profile?",
       example_tr: "Tat profili nedir?",
     },
@@ -15224,7 +15224,7 @@ export const barLesson_7_40: BundledLesson = {
           ],
           model_answers: ["I'm in the mood for something bitter"],
           hint_tr:
-            "B1: 'I'm in the mood for something bitter'. 'In the mood for' = canim cekiyor.",
+            "B1: 'I'm in the mood for something bitter'. 'In the mood for' = canım çekiyor.",
         },
         {
           speaker: "npc",
@@ -15278,7 +15278,7 @@ export const barLesson_7_40: BundledLesson = {
           ],
           model_answers: ["Let me try something new — boulevardier"],
           hint_tr:
-            "B1 sec: 'Let me try something new — boulevardier'.",
+            "B1 seç: 'Let me try something new — boulevardier'.",
         },
         {
           speaker: "npc",
@@ -15296,7 +15296,7 @@ export const barLesson_7_40: BundledLesson = {
           ],
           model_answers: ["Thanks for walking me through it"],
           hint_tr:
-            "B1 tesekkur: 'Thanks for walking me through it'.",
+            "B1 teşekkür: 'Thanks for walking me through it'.",
         },
       ],
     },
@@ -15310,7 +15310,7 @@ export const barLesson_7_40: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -15331,7 +15331,7 @@ export const barLesson_7_40: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -15348,18 +15348,18 @@ export const barLesson_7_40: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.40.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.40.rq1",
@@ -15374,7 +15374,7 @@ export const barLesson_7_40: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -15385,7 +15385,7 @@ export const barLesson_7_40: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -15407,7 +15407,7 @@ export const barLesson_7_40: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -15573,9 +15573,9 @@ export const barLesson_7_41: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "corked",
-      tr_translation: "Mantarlanmis, bozulmus (sarap)",
+      tr_translation: "Mantarlanmış, bozulmuş (şarap)",
       example: "I think this bottle is corked.",
-      example_tr: "Sanirim bu sise mantarlanmis.",
+      example_tr: "Sanırım bu şişe mantarlanmış.",
     },
     {
       id: "ex.7.41.2",
@@ -15583,9 +15583,9 @@ export const barLesson_7_41: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "off-putting",
-      tr_translation: "Itici, hosa gitmeyen",
+      tr_translation: "İtici, hoşa gitmeyen",
       example: "There's an off-putting smell.",
-      example_tr: "Itici bir koku var.",
+      example_tr: "İtici bir koku var.",
     },
     {
       id: "ex.7.41.3",
@@ -15593,9 +15593,9 @@ export const barLesson_7_41: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "I might be wrong",
-      tr_translation: "Yaniliyor olabilirim (yumusatici hedge)",
+      tr_translation: "Yanılıyor olabilirim (yumuşatıcı hedge)",
       example: "I might be wrong, but it smells off.",
-      example_tr: "Yaniliyor olabilirim ama kokusu garip.",
+      example_tr: "Yanılıyor olabilirim ama kokusu garip.",
     },
     {
       id: "ex.7.41.4",
@@ -15640,7 +15640,7 @@ export const barLesson_7_41: BundledLesson = {
           ],
           model_answers: ["Thanks for indulging me"],
           hint_tr:
-            "B2: 'Thanks for indulging me'. 'Indulge' = nazikce dinlemek.",
+            "B2: 'Thanks for indulging me'. 'Indulge' = nazikçe dinlemek.",
         },
         {
           speaker: "npc",
@@ -15708,7 +15708,7 @@ export const barLesson_7_41: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -15729,7 +15729,7 @@ export const barLesson_7_41: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -15746,18 +15746,18 @@ export const barLesson_7_41: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.41.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.41.rq1",
@@ -15772,7 +15772,7 @@ export const barLesson_7_41: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -15783,7 +15783,7 @@ export const barLesson_7_41: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -15805,7 +15805,7 @@ export const barLesson_7_41: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -15971,9 +15971,9 @@ export const barLesson_7_42: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "smokiness",
-      tr_translation: "Dumanli olma derecesi",
+      tr_translation: "Dumanlı olma derecesi",
       example: "How much smokiness do you like?",
-      example_tr: "Ne kadar dumanli sevcrsin?",
+      example_tr: "Ne kadar dumanlı sevcrsin?",
     },
     {
       id: "ex.7.42.2",
@@ -15981,9 +15981,9 @@ export const barLesson_7_42: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "on the fence",
-      tr_translation: "Karasizim, arada kaldim (idiom)",
+      tr_translation: "Karasızım, arada kaldım (idiom)",
       example: "I'm on the fence about mezcal.",
-      example_tr: "Mezcal konusunda karasizim.",
+      example_tr: "Mezcal konusunda karasızım.",
     },
     {
       id: "ex.7.42.3",
@@ -16020,7 +16020,7 @@ export const barLesson_7_42: BundledLesson = {
           ],
           model_answers: ["I'm on the fence about mezcal"],
           hint_tr:
-            "B2: 'I'm on the fence about mezcal'. Hedge ile durusunu yumusat.",
+            "B2: 'I'm on the fence about mezcal'. Hedge ile duruşunu yumuşat.",
         },
         {
           speaker: "npc",
@@ -16056,7 +16056,7 @@ export const barLesson_7_42: BundledLesson = {
           ],
           model_answers: ["Vegetal I can get behind"],
           hint_tr:
-            "B2: 'Vegetal I can get behind' — kabulu nuance ile.",
+            "B2: 'Vegetal I can get behind' — kabulü nuance ile.",
         },
         {
           speaker: "npc",
@@ -16106,7 +16106,7 @@ export const barLesson_7_42: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -16127,7 +16127,7 @@ export const barLesson_7_42: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -16144,18 +16144,18 @@ export const barLesson_7_42: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.42.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.42.rq1",
@@ -16170,7 +16170,7 @@ export const barLesson_7_42: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -16181,7 +16181,7 @@ export const barLesson_7_42: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -16203,7 +16203,7 @@ export const barLesson_7_42: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -16371,7 +16371,7 @@ export const barLesson_7_43: BundledLesson = {
       word_or_phrase: "peated",
       tr_translation: "Turba kokulu (Islay viskiler)",
       example: "I tend to gravitate toward heavily peated drams.",
-      example_tr: "Genelde kuvvetli peated viskilere yoneliyorum.",
+      example_tr: "Genelde kuvvetli peated viskilere yöneliyorum.",
     },
     {
       id: "ex.7.43.2",
@@ -16379,9 +16379,9 @@ export const barLesson_7_43: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "sherry cask",
-      tr_translation: "Sherry fici (eskitilmis viski varili)",
+      tr_translation: "Sherry fıçı (eskitilmiş viski varili)",
       example: "Sherry cask finishes add dried-fruit depth.",
-      example_tr: "Sherry fici eskitmesi kuru meyve derinligi katar.",
+      example_tr: "Sherry fıçı eskitmesi kuru meyve derinliği katar.",
     },
     {
       id: "ex.7.43.3",
@@ -16389,9 +16389,9 @@ export const barLesson_7_43: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "on balance",
-      tr_translation: "Genel olarak, her seyi tartistirinca (C1 hedge)",
+      tr_translation: "Genel olarak, her şeyi tartıştırınca (C1 hedge)",
       example: "On balance, I'd lean toward Islay.",
-      example_tr: "Genel olarak Islay'a egilirim.",
+      example_tr: "Genel olarak Islay'a eğilirim.",
     },
     {
       id: "ex.7.43.4",
@@ -16399,7 +16399,7 @@ export const barLesson_7_43: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "for what it's worth",
-      tr_translation: "Bence (mutevazi gorus belirtici)",
+      tr_translation: "Bence (mütevazı görüş belirtici)",
       example: "For what it's worth, I prefer non-chill-filtered.",
       example_tr: "Bence chill-filtered olmayan daha iyi.",
     },
@@ -16446,7 +16446,7 @@ export const barLesson_7_43: BundledLesson = {
           ],
           model_answers: ["Albeit a peat enthusiast, I appreciate good sherry"],
           hint_tr:
-            "C1 nuance: 'Albeit a peat enthusiast, I appreciate good sherry'. 'Albeit' = -e ragmen.",
+            "C1 nuance: 'Albeit a peat enthusiast, I appreciate good sherry'. 'Albeit' = -e rağmen.",
         },
         {
           speaker: "npc",
@@ -16464,7 +16464,7 @@ export const barLesson_7_43: BundledLesson = {
           ],
           model_answers: ["That sounds right up my alley"],
           hint_tr:
-            "C1: 'That sounds right up my alley' — heyecanli kabul.",
+            "C1: 'That sounds right up my alley' — heyecanlı kabul.",
         },
         {
           speaker: "npc",
@@ -16500,7 +16500,7 @@ export const barLesson_7_43: BundledLesson = {
           ],
           model_answers: ["On the nose, briny smoke giving way to dried fig"],
           hint_tr:
-            "C1 tatim: 'On the nose, briny smoke giving way to dried fig'. Cesarli, nuance ile.",
+            "C1 tatım: 'On the nose, briny smoke giving way to dried fig'. Cesarli, nuance ile.",
         },
       ],
     },
@@ -16514,7 +16514,7 @@ export const barLesson_7_43: BundledLesson = {
         { accepted: ["house red", "IPA", "Negroni", "signature"] },
       ],
       tr_hint:
-        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+        "Bar sipariş kalıbı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. 'Could I get a' = kibar standard. Türk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
       example_filled: "Could I get a glass of the house red, please?",
     },
     {
@@ -16535,7 +16535,7 @@ export const barLesson_7_43: BundledLesson = {
         "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
       ],
       tr_hint:
-        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+        "Bartender açıldı. Spesifik sipariş ver. Türk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
       ideal_answer: "Could I get a pint of the IPA, please?",
     },
     {
@@ -16552,18 +16552,18 @@ export const barLesson_7_43: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+        "Bartender soruyor. 3 saniye düşün, spesifik söyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Türk: tam cümle gerekmez — 'a beer please' bile yeterli.",
       ideal_response: "I'll have a pint of whatever's on tap, please.",
     },
     {
       id: "ex.7.43.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      tr_thought: "Garson! Bir bira ve hesap, lütfen.",
       wrong_en: "Waiter! One beer and the bill, please.",
       right_en: "Hey — could I get a beer? And the tab when you have a sec.",
       why_tr:
-        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' çağırmak kaba; bartender'i göz temasıyla çağır. 'Could I get' = kibar standart.",
     },
     {
       id: "ex.7.43.rq1",
@@ -16578,7 +16578,7 @@ export const barLesson_7_43: BundledLesson = {
             "Bar masasi",
           ],
           correct: 1,
-          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+          tr_explanation: "'Tab' = barda biriken hesap (açık hesap). ABD/UK bar standardı.",
         },
         {
           q: "'I'll have' niye 'I want'tan daha doğal?",
@@ -16589,7 +16589,7 @@ export const barLesson_7_43: BundledLesson = {
             "Daha kisa",
           ],
           correct: 1,
-          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+          tr_explanation: "'I'll have' = standart sipariş. 'I want' = okul çocuğu havası. Bar/restoranda 'I'll have' veya 'Could I get' kullanılır.",
         },
         {
           q: "'On tap' ne demek?",
@@ -16611,7 +16611,7 @@ export const barLesson_7_43: BundledLesson = {
             "Cashier",
           ],
           correct: 1,
-          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+          tr_explanation: "Bar konteksti: içki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
         },
         {
           q: "Hesabi kapatmak icin doğru idiom?",
@@ -16784,7 +16784,7 @@ export const barLesson_24_30: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "this round's on me",
-      tr_translation: "Bu tur benden (icki ikrami)",
+      tr_translation: "Bu tur benden (içki ikramı)",
       example: "This round's on me!",
       example_tr: "Bu tur benden!",
     },
@@ -16794,9 +16794,9 @@ export const barLesson_24_30: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "I owe you",
-      tr_translation: "Sana borcluyum (sonra odeyecegim)",
+      tr_translation: "Sana borçluyum (sonra ödeyeceğim)",
       example: "Next round I owe you.",
-      example_tr: "Sonraki tur senin, ben borcluyum.",
+      example_tr: "Sonraki tur senin, ben borçluyum.",
     },
     {
       id: "ex.24.30.3",
@@ -16877,7 +16877,7 @@ export const barLesson_24_30: BundledLesson = {
           ],
           model_answers: ["Passionate is putting it mildly"],
           hint_tr:
-            "B1 idiom: 'Passionate is putting it mildly' = az bile soyledin.",
+            "B1 idiom: 'Passionate is putting it mildly' = az bile söyledin.",
         },
         {
           speaker: "npc",
@@ -16895,7 +16895,7 @@ export const barLesson_24_30: BundledLesson = {
           ],
           model_answers: ["I'll drink to that"],
           hint_tr:
-            "B1 toast: 'I'll drink to that' = ona icerim.",
+            "B1 toast: 'I'll drink to that' = ona içerim.",
         },
       ],
     },
@@ -16930,7 +16930,7 @@ export const barLesson_24_30: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -16947,14 +16947,14 @@ export const barLesson_24_30: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.30.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -16973,7 +16973,7 @@ export const barLesson_24_30: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -17006,7 +17006,7 @@ export const barLesson_24_30: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -17017,7 +17017,7 @@ export const barLesson_24_30: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -17172,9 +17172,9 @@ export const barLesson_24_31: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "turn up the volume",
-      tr_translation: "Sesi acmak",
+      tr_translation: "Sesi açmak",
       example: "Could you turn up the volume?",
-      example_tr: "Sesi acabilir misiniz?",
+      example_tr: "Sesi açabilir misiniz?",
     },
     {
       id: "ex.24.31.2",
@@ -17184,7 +17184,7 @@ export const barLesson_24_31: BundledLesson = {
       word_or_phrase: "would you mind",
       tr_translation: "Rica etsem... (kibarca istemek)",
       example: "Would you mind changing the channel?",
-      example_tr: "Kanal degistirir misiniz lutfen?",
+      example_tr: "Kanal değiştirir misiniz lütfen?",
     },
     {
       id: "ex.24.31.3",
@@ -17318,7 +17318,7 @@ export const barLesson_24_31: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -17335,14 +17335,14 @@ export const barLesson_24_31: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.31.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -17361,7 +17361,7 @@ export const barLesson_24_31: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -17394,7 +17394,7 @@ export const barLesson_24_31: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -17405,7 +17405,7 @@ export const barLesson_24_31: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -17560,9 +17560,9 @@ export const barLesson_24_32: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "behind the scenes",
-      tr_translation: "Perde arkasi (sergi/uretim alani)",
+      tr_translation: "Perde arkası (sergi/üretim alanı)",
       example: "I'd love to see behind the scenes.",
-      example_tr: "Perde arkasini gormek isterim.",
+      example_tr: "Perde arkasını görmek isterim.",
     },
     {
       id: "ex.24.32.2",
@@ -17570,9 +17570,9 @@ export const barLesson_24_32: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "from scratch",
-      tr_translation: "Sifirdan (uretmek)",
+      tr_translation: "Sıfırdan (üretmek)",
       example: "They brew from scratch on site.",
-      example_tr: "Burda sifirdan uretim yapiyorlar.",
+      example_tr: "Burda sıfırdan üretim yapıyorlar.",
     },
     {
       id: "ex.24.32.3",
@@ -17635,7 +17635,7 @@ export const barLesson_24_32: BundledLesson = {
           ],
           model_answers: ["Sign me up"],
           hint_tr:
-            "B1: 'Sign me up' = kayit edin beni.",
+            "B1: 'Sign me up' = kayıt edin beni.",
         },
         {
           speaker: "npc",
@@ -17706,7 +17706,7 @@ export const barLesson_24_32: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -17723,14 +17723,14 @@ export const barLesson_24_32: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.32.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -17749,7 +17749,7 @@ export const barLesson_24_32: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -17782,7 +17782,7 @@ export const barLesson_24_32: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -17793,7 +17793,7 @@ export const barLesson_24_32: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -17950,7 +17950,7 @@ export const barLesson_24_33: BundledLesson = {
       word_or_phrase: "off the beaten path",
       tr_translation: "Turistik olmayan, az bilinen yer",
       example: "Anywhere off the beaten path?",
-      example_tr: "Turistik olmayan bir yer var mi?",
+      example_tr: "Turistik olmayan bir yer var mı?",
     },
     {
       id: "ex.24.33.2",
@@ -17958,9 +17958,9 @@ export const barLesson_24_33: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "must-see",
-      tr_translation: "Mutlaka gorulmesi gereken",
+      tr_translation: "Mutlaka görülmesi gereken",
       example: "What's a must-see in this city?",
-      example_tr: "Bu sehirde mutlaka gormem gereken nedir?",
+      example_tr: "Bu şehirde mutlaka görmem gereken nedir?",
     },
     {
       id: "ex.24.33.3",
@@ -18023,7 +18023,7 @@ export const barLesson_24_33: BundledLesson = {
           ],
           model_answers: ["Right up my alley"],
           hint_tr:
-            "B1: 'Right up my alley' = tam bana gore.",
+            "B1: 'Right up my alley' = tam bana göre.",
         },
         {
           speaker: "npc",
@@ -18094,7 +18094,7 @@ export const barLesson_24_33: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -18111,14 +18111,14 @@ export const barLesson_24_33: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.33.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -18137,7 +18137,7 @@ export const barLesson_24_33: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -18170,7 +18170,7 @@ export const barLesson_24_33: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -18181,7 +18181,7 @@ export const barLesson_24_33: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -18336,9 +18336,9 @@ export const barLesson_24_34: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "raise a glass",
-      tr_translation: "Kadeh kaldirmak (toast)",
+      tr_translation: "Kadeh kaldırmak (toast)",
       example: "Let's raise a glass to the couple.",
-      example_tr: "Cifte kadeh kaldiralim.",
+      example_tr: "Çifte kadeh kaldıralım.",
     },
     {
       id: "ex.24.34.2",
@@ -18346,9 +18346,9 @@ export const barLesson_24_34: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "many happy years",
-      tr_translation: "Nice mutlu yillar",
+      tr_translation: "Nice mutlu yıllar",
       example: "Wishing you many happy years.",
-      example_tr: "Nice mutlu yillar dilerim.",
+      example_tr: "Nice mutlu yıllar dilerim.",
     },
     {
       id: "ex.24.34.3",
@@ -18429,7 +18429,7 @@ export const barLesson_24_34: BundledLesson = {
           ],
           model_answers: ["To many happy years"],
           hint_tr:
-            "B1 toast: 'To many happy years'. Klasik dugun kalibi.",
+            "B1 toast: 'To many happy years'. Klasik düğün kalıbı.",
         },
         {
           speaker: "npc",
@@ -18447,7 +18447,7 @@ export const barLesson_24_34: BundledLesson = {
           ],
           model_answers: ["I'll see you on the dance floor"],
           hint_tr:
-            "B1: 'I'll see you on the dance floor' — sicak sosyallesme.",
+            "B1: 'I'll see you on the dance floor' — sıcak sosyalleşme.",
         },
       ],
     },
@@ -18482,7 +18482,7 @@ export const barLesson_24_34: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -18499,14 +18499,14 @@ export const barLesson_24_34: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.34.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -18525,7 +18525,7 @@ export const barLesson_24_34: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -18558,7 +18558,7 @@ export const barLesson_24_34: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -18569,7 +18569,7 @@ export const barLesson_24_34: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -18734,9 +18734,9 @@ export const barLesson_24_35: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "live music",
-      tr_translation: "Canli muzik",
+      tr_translation: "Canlı müzik",
       example: "I'm a big live music fan.",
-      example_tr: "Canli muzik tutkunuyum.",
+      example_tr: "Canlı müzik tutkunuyum.",
     },
     {
       id: "ex.24.35.3",
@@ -18781,7 +18781,7 @@ export const barLesson_24_35: BundledLesson = {
           ],
           model_answers: ["How often do you come?"],
           hint_tr:
-            "B1: 'How often do you come?' — sohbet aclmasi.",
+            "B1: 'How often do you come?' — sohbet açlması.",
         },
         {
           speaker: "npc",
@@ -18870,7 +18870,7 @@ export const barLesson_24_35: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -18887,14 +18887,14 @@ export const barLesson_24_35: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.35.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -18913,7 +18913,7 @@ export const barLesson_24_35: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -18946,7 +18946,7 @@ export const barLesson_24_35: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -18957,7 +18957,7 @@ export const barLesson_24_35: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -19112,9 +19112,9 @@ export const barLesson_24_36: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "natural wine",
-      tr_translation: "Naturel sarap (mudahalesiz)",
+      tr_translation: "Naturel şarap (müdahalesiz)",
       example: "Are you into natural wine?",
-      example_tr: "Naturel sarap sever misin?",
+      example_tr: "Naturel şarap sever misin?",
     },
     {
       id: "ex.24.36.2",
@@ -19122,9 +19122,9 @@ export const barLesson_24_36: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "I get why",
-      tr_translation: "Anlamasi zor degil / mantikli (B2 stance)",
+      tr_translation: "Anlaması zor değil / mantıklı (B2 stance)",
       example: "I get why people love it.",
-      example_tr: "Insanlarin onu sevmesini anliyorum.",
+      example_tr: "İnsanların onu sevmesini anlıyorum.",
     },
     {
       id: "ex.24.36.3",
@@ -19132,9 +19132,9 @@ export const barLesson_24_36: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "polarizing",
-      tr_translation: "Bolucu, taraf yaptiran",
+      tr_translation: "Bölücü, taraf yaptıran",
       example: "It's pretty polarizing.",
-      example_tr: "Oldukca bolucu bir konu.",
+      example_tr: "Oldukça bölücü bir konu.",
     },
     {
       id: "ex.24.36.4",
@@ -19268,7 +19268,7 @@ export const barLesson_24_36: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -19285,14 +19285,14 @@ export const barLesson_24_36: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.36.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -19311,7 +19311,7 @@ export const barLesson_24_36: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -19344,7 +19344,7 @@ export const barLesson_24_36: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -19355,7 +19355,7 @@ export const barLesson_24_36: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -19512,7 +19512,7 @@ export const barLesson_24_37: BundledLesson = {
       word_or_phrase: "could've gone either way",
       tr_translation: "Iki taraflı olabilirdi (B2 hedge)",
       example: "Honestly, it could've gone either way.",
-      example_tr: "Acikcasi iki taraflı olabilirdi.",
+      example_tr: "Açıkçası iki taraflı olabilirdi.",
     },
     {
       id: "ex.24.37.2",
@@ -19520,9 +19520,9 @@ export const barLesson_24_37: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "no contact",
-      tr_translation: "Temas yok (penaltidaki)",
+      tr_translation: "Temas yok (penaltıdaki)",
       example: "There was barely any contact.",
-      example_tr: "Neredeyse hic temas yoktu.",
+      example_tr: "Neredeyse hiç temas yoktu.",
     },
     {
       id: "ex.24.37.3",
@@ -19530,9 +19530,9 @@ export const barLesson_24_37: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "soft penalty",
-      tr_translation: "Yumusak penalti (kuskulu)",
+      tr_translation: "Yumuşak penaltı (kuşkulu)",
       example: "That was a really soft penalty.",
-      example_tr: "Oldukca yumusak bir penaltidi.",
+      example_tr: "Oldukça yumuşak bir penaltıdı.",
     },
     {
       id: "ex.24.37.4",
@@ -19577,7 +19577,7 @@ export const barLesson_24_37: BundledLesson = {
           ],
           model_answers: ["Refs have a thankless job"],
           hint_tr:
-            "B2: 'Refs have a thankless job' = takdir gormeyen is.",
+            "B2: 'Refs have a thankless job' = takdir görmeyen iş.",
         },
         {
           speaker: "npc",
@@ -19613,7 +19613,7 @@ export const barLesson_24_37: BundledLesson = {
           ],
           model_answers: ["It's been a cracker"],
           hint_tr:
-            "B2 idiom: 'It's been a cracker' = harika mac.",
+            "B2 idiom: 'It's been a cracker' = harika maç.",
         },
         {
           speaker: "npc",
@@ -19631,7 +19631,7 @@ export const barLesson_24_37: BundledLesson = {
           ],
           model_answers: ["No hard feelings"],
           hint_tr:
-            "B2: 'No hard feelings' = kirgin degilim.",
+            "B2: 'No hard feelings' = kırgın değilim.",
         },
       ],
     },
@@ -19666,7 +19666,7 @@ export const barLesson_24_37: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -19683,14 +19683,14 @@ export const barLesson_24_37: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.37.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -19709,7 +19709,7 @@ export const barLesson_24_37: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -19742,7 +19742,7 @@ export const barLesson_24_37: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -19753,7 +19753,7 @@ export const barLesson_24_37: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -19908,9 +19908,9 @@ export const barLesson_24_38: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "if it's in your wheelhouse",
-      tr_translation: "Eger uzmanlik alaniniza giriyorsa (rica)",
+      tr_translation: "Eğer uzmanlık alanınıza giriyorsa (rica)",
       example: "Only if it's in your wheelhouse.",
-      example_tr: "Sadece uzmanlik alaniniza giriyorsa.",
+      example_tr: "Sadece uzmanlık alanınıza giriyorsa.",
     },
     {
       id: "ex.24.38.2",
@@ -19918,9 +19918,9 @@ export const barLesson_24_38: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "would it be too much to ask",
-      tr_translation: "Cok mu rica olur (kibar istek)",
+      tr_translation: "Çok mu rica olur (kibar istek)",
       example: "Would it be too much to ask for one tune?",
-      example_tr: "Bir sarki rica etsem cok mu olur?",
+      example_tr: "Bir şarkı rica etsem çok mu olur?",
     },
     {
       id: "ex.24.38.3",
@@ -19947,7 +19947,7 @@ export const barLesson_24_38: BundledLesson = {
           ],
           model_answers: ["Your touch on X was breathtaking"],
           hint_tr:
-            "B2 ovgu: 'Your touch on X was breathtaking'.",
+            "B2 övgü: 'Your touch on X was breathtaking'.",
         },
         {
           speaker: "npc",
@@ -20054,7 +20054,7 @@ export const barLesson_24_38: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -20071,14 +20071,14 @@ export const barLesson_24_38: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.38.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -20097,7 +20097,7 @@ export const barLesson_24_38: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -20130,7 +20130,7 @@ export const barLesson_24_38: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -20141,7 +20141,7 @@ export const barLesson_24_38: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -20296,9 +20296,9 @@ export const barLesson_24_39: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "sit in",
-      tr_translation: "Konuk sanatci olarak katilmak (caz/blues)",
+      tr_translation: "Konuk sanatçı olarak katılmak (caz/blues)",
       example: "Do they let people sit in?",
-      example_tr: "Konuk sanatci kabul ediyorlar mi?",
+      example_tr: "Konuk sanatçı kabul ediyorlar mı?",
     },
     {
       id: "ex.24.39.2",
@@ -20306,9 +20306,9 @@ export const barLesson_24_39: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "have a go at",
-      tr_translation: "Bir denemek, sansini denemek (idiom)",
+      tr_translation: "Bir denemek, şansını denemek (idiom)",
       example: "I'd love to have a go at that tune.",
-      example_tr: "O parcayi bir denemek isterdim.",
+      example_tr: "O parçayı bir denemek isterdim.",
     },
     {
       id: "ex.24.39.3",
@@ -20407,7 +20407,7 @@ export const barLesson_24_39: BundledLesson = {
           ],
           model_answers: ["I'll hold you to that"],
           hint_tr:
-            "B2: 'I'll hold you to that' = sözünü tutarim diye bekliyorum.",
+            "B2: 'I'll hold you to that' = sözünü tutarım diye bekliyorum.",
         },
       ],
     },
@@ -20442,7 +20442,7 @@ export const barLesson_24_39: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -20459,14 +20459,14 @@ export const barLesson_24_39: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.39.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -20485,7 +20485,7 @@ export const barLesson_24_39: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -20518,7 +20518,7 @@ export const barLesson_24_39: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -20529,7 +20529,7 @@ export const barLesson_24_39: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -20684,9 +20684,9 @@ export const barLesson_24_40: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "hop-forward",
-      tr_translation: "Sasli hops baskin (bira)",
+      tr_translation: "Şaşlı hops baskın (bira)",
       example: "I love hop-forward IPAs.",
-      example_tr: "Hops baskin IPA'lari severim.",
+      example_tr: "Hops baskın IPA'ları severim.",
     },
     {
       id: "ex.24.40.2",
@@ -20694,7 +20694,7 @@ export const barLesson_24_40: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "dry-hopped",
-      tr_translation: "Kuru hops eklenmis (aroma artirir)",
+      tr_translation: "Kuru hops eklenmiş (aroma artırır)",
       example: "Is it dry-hopped or single addition?",
       example_tr: "Dry-hop mu yoksa tek ekleme mi?",
     },
@@ -20704,9 +20704,9 @@ export const barLesson_24_40: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "what got you into",
-      tr_translation: "Seni neye bulastirdi (hobi/meslek)",
+      tr_translation: "Seni neye bulaştırdı (hobi/meslek)",
       example: "What got you into brewing?",
-      example_tr: "Seni biracilik dunyasina ne soktu?",
+      example_tr: "Seni biracılık dünyasına ne soktu?",
     },
     {
       id: "ex.24.40.4",
@@ -20840,7 +20840,7 @@ export const barLesson_24_40: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -20857,14 +20857,14 @@ export const barLesson_24_40: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.40.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -20883,7 +20883,7 @@ export const barLesson_24_40: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -20916,7 +20916,7 @@ export const barLesson_24_40: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -20927,7 +20927,7 @@ export const barLesson_24_40: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -21082,9 +21082,9 @@ export const barLesson_24_41: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "in town for",
-      tr_translation: "Sehirde -in icin (sebep)",
+      tr_translation: "Şehirde -in için (sebep)",
       example: "Are you in town for work?",
-      example_tr: "Sehre is icin mi geldin?",
+      example_tr: "Şehre iş için mi geldin?",
     },
     {
       id: "ex.24.41.2",
@@ -21092,9 +21092,9 @@ export const barLesson_24_41: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "wear many hats",
-      tr_translation: "Cok rol oynamak (idiom)",
+      tr_translation: "Çok rol oynamak (idiom)",
       example: "I wear many hats at my company.",
-      example_tr: "Sirketimde cok rol ustleniyorum.",
+      example_tr: "Şirketimde çok rol üstleniyorum.",
     },
     {
       id: "ex.24.41.3",
@@ -21102,9 +21102,9 @@ export const barLesson_24_41: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "what line of work",
-      tr_translation: "Hangi sektorde calisiyorsun",
+      tr_translation: "Hangi sektörde çalışıyorsun",
       example: "What line of work are you in?",
-      example_tr: "Hangi sektorde calisiyorsun?",
+      example_tr: "Hangi sektörde çalışıyorsun?",
     },
     {
       id: "ex.24.41.4",
@@ -21238,7 +21238,7 @@ export const barLesson_24_41: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -21255,14 +21255,14 @@ export const barLesson_24_41: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.41.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -21281,7 +21281,7 @@ export const barLesson_24_41: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -21314,7 +21314,7 @@ export const barLesson_24_41: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -21325,7 +21325,7 @@ export const barLesson_24_41: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -21482,7 +21482,7 @@ export const barLesson_24_42: BundledLesson = {
       word_or_phrase: "that said",
       tr_translation: "Bununla birlikte (C1 stance shift)",
       example: "Great rhythm section — that said, the horns felt tentative.",
-      example_tr: "Iyi ritim sectionu — bununla birlikte, nefesliler cekingen.",
+      example_tr: "İyi ritim sectionu — bununla birlikte, nefesliler çekingen.",
     },
     {
       id: "ex.24.42.2",
@@ -21490,9 +21490,9 @@ export const barLesson_24_42: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "tentative",
-      tr_translation: "Cekingen, kararsiz",
+      tr_translation: "Çekingen, kararsız",
       example: "The solos felt a bit tentative tonight.",
-      example_tr: "Bu aksam solo'lar biraz cekingen geldi.",
+      example_tr: "Bu akşam solo'lar biraz çekingen geldi.",
     },
     {
       id: "ex.24.42.3",
@@ -21500,9 +21500,9 @@ export const barLesson_24_42: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "I'd push back on",
-      tr_translation: "-e karsi cikarim (nazikce itiraz)",
+      tr_translation: "-e karşı çıkarım (nazikçe itiraz)",
       example: "I'd push back on that — the drummer was on fire.",
-      example_tr: "Ona itiraz ederim — davulcu mukemmeldi.",
+      example_tr: "Ona itiraz ederim — davulcu mükemmeldi.",
     },
     {
       id: "ex.24.42.4",
@@ -21512,7 +21512,7 @@ export const barLesson_24_42: BundledLesson = {
       word_or_phrase: "in the pocket",
       tr_translation: "Tam ritmde (caz/groove)",
       example: "The bassist was deep in the pocket.",
-      example_tr: "Basci tam ritimdeydi.",
+      example_tr: "Basçı tam ritimdeydi.",
     },
     {
       id: "ex.24.42.5",
@@ -21646,7 +21646,7 @@ export const barLesson_24_42: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -21663,14 +21663,14 @@ export const barLesson_24_42: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.42.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -21689,7 +21689,7 @@ export const barLesson_24_42: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -21722,7 +21722,7 @@ export const barLesson_24_42: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -21733,7 +21733,7 @@ export const barLesson_24_42: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -21888,9 +21888,9 @@ export const barLesson_24_43: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "terroir",
-      tr_translation: "Topragin/iklimin sarapta yansimasi",
+      tr_translation: "Toprağın/iklimin şarapta yansıması",
       example: "Terroir defines great wine.",
-      example_tr: "Terroir, harika sarabi tanimlar.",
+      example_tr: "Terroir, harika şarabı tanımlar.",
     },
     {
       id: "ex.24.43.2",
@@ -21898,9 +21898,9 @@ export const barLesson_24_43: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "vintage variation",
-      tr_translation: "Yildan yila degisim",
+      tr_translation: "Yıldan yıla değişim",
       example: "Vintage variation is increasing.",
-      example_tr: "Vintage degisim artiyor.",
+      example_tr: "Vintage değişim artıyor.",
     },
     {
       id: "ex.24.43.3",
@@ -21908,9 +21908,9 @@ export const barLesson_24_43: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "albeit",
-      tr_translation: "-e ragmen / olsa da",
+      tr_translation: "-e rağmen / olsa da",
       example: "Albeit warmer, the vintage was excellent.",
-      example_tr: "Daha sicak olsa da, yil mukemmeldi.",
+      example_tr: "Daha sıcak olsa da, yıl mükemmeldi.",
     },
     {
       id: "ex.24.43.4",
@@ -21918,9 +21918,9 @@ export const barLesson_24_43: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "case in point",
-      tr_translation: "Iyi bir ornek (idiom)",
+      tr_translation: "İyi bir örnek (idiom)",
       example: "Bordeaux 2003 — case in point.",
-      example_tr: "Bordeaux 2003 — iyi bir ornek.",
+      example_tr: "Bordeaux 2003 — iyi bir örnek.",
     },
     {
       id: "ex.24.43.5",
@@ -22054,7 +22054,7 @@ export const barLesson_24_43: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -22071,14 +22071,14 @@ export const barLesson_24_43: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.43.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -22097,7 +22097,7 @@ export const barLesson_24_43: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -22130,7 +22130,7 @@ export const barLesson_24_43: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -22141,7 +22141,7 @@ export const barLesson_24_43: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },
@@ -22296,9 +22296,9 @@ export const barLesson_24_44: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "pre-Prohibition",
-      tr_translation: "Yasak oncesi (ABD kokteyl tarihi)",
+      tr_translation: "Yasak öncesi (ABD kokteyl tarihi)",
       example: "I'm fascinated by pre-Prohibition cocktails.",
-      example_tr: "Yasak oncesi kokteyllere hayranim.",
+      example_tr: "Yasak öncesi kokteyllere hayranım.",
     },
     {
       id: "ex.24.44.2",
@@ -22306,9 +22306,9 @@ export const barLesson_24_44: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "give or take",
-      tr_translation: "Asagi yukari (idiom)",
+      tr_translation: "Aşağı yukarı (idiom)",
       example: "Mid-1800s, give or take.",
-      example_tr: "1800'lerin ortasi, asagi yukari.",
+      example_tr: "1800'lerin ortası, aşağı yukarı.",
     },
     {
       id: "ex.24.44.3",
@@ -22316,9 +22316,9 @@ export const barLesson_24_44: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "a lost art",
-      tr_translation: "Kaybolmus bir sanat",
+      tr_translation: "Kaybolmuş bir sanat",
       example: "Stirring properly is a lost art.",
-      example_tr: "Dogru karistirma kaybolmus bir sanat.",
+      example_tr: "Doğru karıştırma kaybolmuş bir sanat.",
     },
     {
       id: "ex.24.44.4",
@@ -22326,7 +22326,7 @@ export const barLesson_24_44: BundledLesson = {
       difficulty: 5,
       cefr_band: "C1",
       word_or_phrase: "purist",
-      tr_translation: "Saf, klasige sadik (kisi)",
+      tr_translation: "Saf, klasiğe sadık (kişi)",
       example: "I'm a bit of a purist about Manhattans.",
       example_tr: "Manhattan konusunda biraz tutucuyum.",
     },
@@ -22462,7 +22462,7 @@ export const barLesson_24_44: BundledLesson = {
         "(thanks)[,. ]+ (you guys regulars|first time here too)",
       ],
       tr_hint:
-        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+        "Yer aldın, sohbeti aç. Sosyal gözlem ekle. Türk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = bağlam açıcı.",
       ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
     },
     {
@@ -22479,14 +22479,14 @@ export const barLesson_24_44: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+        "Klasik bar sorusu. Cevap + bağlam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Türk: 'No reason' yetersiz; sebep ver.",
       ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
     },
     {
       id: "ex.24.44.tt1",
       type: "thinking_trap",
       difficulty: 3,
-      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      tr_thought: "Selam güzelim, sizinle tanışabilir miyim?",
       wrong_en: "Hello beautiful, can I meet you?",
       right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
       why_tr:
@@ -22505,7 +22505,7 @@ export const barLesson_24_44: BundledLesson = {
             "Yardim et",
           ],
           correct: 1,
-          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+          tr_explanation: "'Jump in' = (sohbete) katılmak. 'Mind if I' = sakıncası varmı? Modern bar sosyal kalıbı.",
         },
         {
           q: "Yabanciya 'beautiful' demek niye sorun?",
@@ -22538,7 +22538,7 @@ export const barLesson_24_44: BundledLesson = {
             "Sigorta",
           ],
           correct: 1,
-          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+          tr_explanation: "'No pressure' = baskı yok. Sosyal teklif sunarken kapı açık bırakır = modern saygılı kalıp.",
         },
         {
           q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
@@ -22549,7 +22549,7 @@ export const barLesson_24_44: BundledLesson = {
             "Cok kisisel soru",
           ],
           correct: 1,
-          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+          tr_explanation: "Spesifik gözlem ('that looks good') + ucu açık soru = saygılı + sohbeti açıcı. Modern bar standardı.",
         },
       ],
     },

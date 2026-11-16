@@ -394,7 +394,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
       native_text: "Take about two inches off the length, please.",
       voice_hint: "female_us",
       tr_hint:
-        "'Take off' = al, kısalt. 'About two inches' birleşik akış. Kuaforde standart.",
+        "'Take off' = al, kısalt. 'About two inches' birleşik akış. Kuaförde standart.",
     },
     {
       id: "ex.dsl31.1.10",
@@ -403,7 +403,7 @@ export const dailySalonLesson_31_1: BundledLesson = {
       audio_text: "How much would you like off the back?",
       transcription_target: "How much would you like off the back?",
       tr_hint:
-        "Kuafor klasik sorusu. 'Off the back' = arkadan ne kadar al. Net cevap ver.",
+        "Kuaför klasik sorusu. 'Off the back' = arkadan ne kadar al. Net cevap ver.",
     },
     {
       id: "ex.dsl31.1.11",
@@ -894,7 +894,7 @@ export const dailySalonLesson_31_2: BundledLesson = {
       audio_text: "Going lighter will require some bleach first.",
       transcription_target: "Going lighter will require some bleach first.",
       tr_hint:
-        "Kolorist uyarisi. 'Going lighter' = açmak. 'Require bleach' = beyazlatici lazim. Onay verme oncesi bil.",
+        "Kolorist uyarısı. 'Going lighter' = açmak. 'Require bleach' = beyazlatıcı lazım. Onay verme öncesi bil.",
     },
     {
       id: "ex.dsl31.2.11",
@@ -1907,7 +1907,7 @@ export const dailySalonLesson_31_4: BundledLesson = {
       audio_text: "Your skin might be a little red for a few hours.",
       transcription_target: "Your skin might be a little red for a few hours.",
       tr_hint:
-        "Yüz bakimi sonrasi uyarisi. 'A little red' = biraz kızaran. 'A few hours' = birkaç saat.",
+        "Yüz bakımı sonrası uyarısı. 'A little red' = biraz kızaran. 'A few hours' = birkaç saat.",
     },
     {
       id: "ex.dsl31.4.11",

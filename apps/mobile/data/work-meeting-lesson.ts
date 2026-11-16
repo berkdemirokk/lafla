@@ -39,7 +39,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
         "In my view, option two is more efficient given user testing.",
       ],
       tr_hint:
-        "'I think' / 'My take' / 'In my view' = fikir kaliplari. Kanit ile destekle.",
+        "'I think' / 'My take' / 'In my view' = fikir kalıpları. Kanıt ile destekle.",
     },
     {
       id: "ex.wm10.1.3",
@@ -49,7 +49,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
       answer: "throw",
       distractors: ["take", "put", "give"],
       tr_hint:
-        "'Throw this out there' = fikir atmak, denemek. Hedging icin guzel acilis.",
+        "'Throw this out there' = fikir atmak, denemek. Hedging için güzel açılış.",
     },
     {
       id: "ex.wm10.1.4",
@@ -74,7 +74,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
       correct_sentence:
         "I'd lean toward trying option B — happy to walk through why.",
       tr_explanation:
-        "'Maybe maybe possibly' = asiri hedging = zayif. Doğru: net pozisyon + savunmaya hazir.",
+        "'Maybe maybe possibly' = aşırı hedging = zayıf. Doğru: net pozisyon + savunmaya hazır.",
     },
     {
       id: "ex.wm10.1.6",
@@ -97,7 +97,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
           ],
           model_answers: ["My take: lean toward option B — happy to walk through reasoning."],
           hint_tr:
-            "Net + hazir: 'My take: lean toward option B — happy to walk through reasoning.'",
+            "Net + hazır: 'My take: lean toward option B — happy to walk through reasoning.'",
         },
         {
           speaker: "npc",
@@ -116,7 +116,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
           ],
           model_answers: ["Three reasons: user data, maintainability, cost — can share the doc."],
           hint_tr:
-            "Yapilandirilmis sav: 'Three reasons: user data, maintainability, cost — can share the doc.'",
+            "Yapılandırılmış sav: 'Three reasons: user data, maintainability, cost — can share the doc.'",
         },
         {
           speaker: "npc",
@@ -196,7 +196,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pozisyon al ama tartismaya acik kal = kollektif zeka tetiklenir.",
+            "Pozisyon al ama tartışmaya açık kal = kollektif zeka tetiklenir.",
         },
         {
           question: "'Throw this out there' kalibinin gucu?",
@@ -208,7 +208,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Diger insanlar fikrine eklemek/kotu olduğunu soylemek icin alan acmis olursun.",
+            "Diğer insanlar fikrine eklemek/kötü olduğunu söylemek için alan açmış olursun.",
         },
         {
           question: "Toplantida sustigunda RISK?",
@@ -220,7 +220,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Profesyonel toplum = sesini kullanmak gerekir. Tek sayfa hazirlanmasi = kazandirma.",
+            "Profesyonel toplum = sesini kullanmak gerekir. Tek sayfa hazırlanması = kazandırma.",
         },
       ],
     },
@@ -240,7 +240,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
       native_text: "I'd lean toward option B — happy to walk through the reasoning.",
       voice_hint: "female_us",
       tr_hint:
-        "'I'd lean' = ay-dı-lin (birlesik). 'Walk through' = bas baga gec. Net pozisyon + diyaloga acik kapanis. Toplanti ozguveni.",
+        "'I'd lean' = ay-dı-lin (birleşik). 'Walk through' = baş baga geç. Net pozisyon + diyaloga açık kapanış. Toplantı özgüveni.",
     },
     {
       id: "ex.wm10.1.10",
@@ -250,7 +250,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
       transcription_target:
         "Let me throw something out there — what if we ran a quick A/B test?",
       tr_hint:
-        "'Throw something out there' deyim = fikir at, denemek icin. 'What if' = subjunctive — hipotetik. 'A/B test' = ey-bi test.",
+        "'Throw something out there' deyim = fikir at, denemek için. 'What if' = subjunctive — hipotetik. 'A/B test' = ey-bi test.",
     },
     {
       id: "ex.wm10.1.11",
@@ -260,7 +260,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
       word_or_phrase: "weigh in on",
       tr_translation: "Fikir bildirmek / katkı sunmak",
       example_en: "Want to weigh in on the architecture call?",
-      example_tr: "Mimari karari konusunda fikir bildirmek ister misin?",
+      example_tr: "Mimari kararı konusunda fikir bildirmek ister misin?",
     },
     {
       id: "ex.wm10.1.12",
@@ -269,7 +269,7 @@ export const workMeetingLesson_10_1: BundledLesson = {
       incorrect_sentence: "In my think, we should do this.",
       correct_sentence: "In my view, we should go with this approach.",
       tr_explanation:
-        "'In my think' yok — Turkce 'bence'i direkt cevirme. Dogrusu: 'In my view', 'In my opinion', 'My take is'. 'Approach' = yaklasim, profesyonel.",
+        "'In my think' yok — Türkçe 'bence'i direkt çevirme. Doğrusu: 'In my view', 'In my opinion', 'My take is'. 'Approach' = yaklaşım, profesyonel.",
     },
     {
       id: "ex.wm10.1.sp1",
@@ -575,7 +575,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
         "Not sure I agree — can I share an alternative?",
       ],
       tr_hint:
-        "'Respectfully' / 'With respect' = saygili karsi cikis acilisi. Yumusatici.",
+        "'Respectfully' / 'With respect' = saygılı karşı çıkış açılışı. Yumuşatıcı.",
     },
     {
       id: "ex.wm10.2.3",
@@ -585,7 +585,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
       answer: "it",
       distractors: ["that", "this", "them"],
       tr_hint:
-        "'See it differently' = farkli bir bakistayim. Karsi cikis kalibi.",
+        "'See it differently' = farklı bir bakıştayım. Karşı çıkış kalıbı.",
     },
     {
       id: "ex.wm10.2.4",
@@ -633,7 +633,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
           ],
           model_answers: ["Hate to push back but I see it differently — can I share?"],
           hint_tr:
-            "Yumusak ac: 'Hate to push back but I see it differently — can I share?'",
+            "Yumuşak aç: 'Hate to push back but I see it differently — can I share?'",
         },
         {
           speaker: "npc",
@@ -652,7 +652,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
           ],
           model_answers: ["Data shows X — could we test approach B first?"],
           hint_tr:
-            "Argumen ile: 'Data shows X — could we test approach B first?'",
+            "Argümen ile: 'Data shows X — could we test approach B first?'",
         },
         {
           speaker: "npc",
@@ -736,7 +736,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Fikir saldirisi = iyi. Kisi saldirisi = kotu. Bu ayrim saglikli kulturun kalbi.",
+            "Fikir saldırısı = iyi. Kişi saldırısı = kötü. Bu ayrım sağlıklı kültürün kalbi.",
         },
         {
           question: "'Could be missing something' niye onemli?",
@@ -748,7 +748,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Net pozisyon + ego'suz acilis = en cekici karsi cikis.",
+            "Net pozisyon + ego'suz açılış = en çekici karşı çıkış.",
         },
         {
           question: "Toplantida ASLA katılmamak/kabul etmek RISKI?",
@@ -760,7 +760,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Senior'lar saygili karsi cikis yapan junior'lari sever. 'Aynen' = goruntu degil deger katmaz.",
+            "Senior'lar saygılı karşı çıkış yapan junior'ları sever. 'Aynen' = görüntü değil değer katmaz.",
         },
       ],
     },
@@ -771,7 +771,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
       phrase: "Respectfully, I see it differently.",
       ipa: "/rɪˈspɛktfəli aɪ siː ɪt ˈdɪfərəntli/",
       tr_articulation_hint:
-        "'Respectfully' = ri-spekt-fıl-li, vurgu spek hecesinde. Net + sicak — saldirgan degil. Soluk al, sonra fikrini soyle.",
+        "'Respectfully' = ri-spekt-fıl-li, vurgu spek hecesinde. Net + sıcak — saldırgan değil. Soluk al, sonra fikrini söyle.",
     },
     {
       id: "ex.wm10.2.9",
@@ -780,7 +780,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
       native_text: "I hear you, but I'd push back gently on that point.",
       voice_hint: "male_us",
       tr_hint:
-        "'I hear you' = anliyorum, kabul. 'But' yumusak gec. 'Push back gently' = nazikce karsi cik. Diyalogu kesmeden bir bakis ekle.",
+        "'I hear you' = anlıyorum, kabul. 'But' yumuşak geç. 'Push back gently' = nazikçe karşı çık. Diyalogu kesmeden bir bakış ekle.",
     },
     {
       id: "ex.wm10.2.10",
@@ -790,7 +790,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
       transcription_target:
         "Fair point — let's spike both approaches and see which holds up.",
       tr_hint:
-        "'Fair point' deyim = mantikli, kabul. 'Spike' tech jargon = hizli prototip. 'Hold up' = dayanmak. Senior tonu, problem cozme dili.",
+        "'Fair point' deyim = mantıklı, kabul. 'Spike' tech jargon = hızlı prototip. 'Hold up' = dayanmak. Senior tonu, problem çözme dili.",
     },
     {
       id: "ex.wm10.2.11",
@@ -802,7 +802,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
       example_en:
         "Let me play devil's advocate for a second — what if users hate it?",
       example_tr:
-        "Bir saniye seytanin avukatini oynayim — ya kullanicilar nefret ederse?",
+        "Bir saniye şeytanın avukatını oynayım — ya kullanıcılar nefret ederse?",
     },
     {
       id: "ex.wm10.2.12",
@@ -811,7 +811,7 @@ export const workMeetingLesson_10_2: BundledLesson = {
       incorrect_sentence: "I am not agree with you.",
       correct_sentence: "I'd see it a bit differently — can I share my take?",
       tr_explanation:
-        "'Am not agree' yanlis — 'agree' fiil: 'I don't agree' veya 'I disagree'. Ayrıca direkt karsitlik yerine 'see it differently' yumusatici, profesyonel.",
+        "'Am not agree' yanlış — 'agree' fiil: 'I don't agree' veya 'I disagree'. Ayrıca direkt karşıtlık yerine 'see it differently' yumuşatıcı, profesyonel.",
     },
     {
       id: "ex.wm10.2.sp1",
@@ -997,7 +997,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
       answer: "tracking",
       distractors: ["working", "tracking", "thinking"],
       tr_hint:
-        "'Make sure I'm tracking' = takip ediyorum dogrulamasi. Anlamadim'in saygili yolu.",
+        "'Make sure I'm tracking' = takip ediyorum doğrulaması. Anlamadım'ın saygılı yolu.",
     },
     {
       id: "ex.wm10.3.4",
@@ -1022,7 +1022,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
       correct_sentence:
         "Quick check — can you walk me through the auth flow part again?",
       tr_explanation:
-        "'I don't understand' = belirsiz, zayif. Doğru: spesifik kisim + 'walk me through' = profesyonel.",
+        "'I don't understand' = belirsiz, zayıf. Doğru: spesifik kısım + 'walk me through' = profesyonel.",
     },
     {
       id: "ex.wm10.3.6",
@@ -1063,7 +1063,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
           ],
           model_answers: ["Got it — thanks. Quick follow up: what happens on retry?"],
           hint_tr:
-            "Anlayinca onayla: 'Got it — thanks. Quick follow up: what happens on retry?'",
+            "Anlayınca onayla: 'Got it — thanks. Quick follow up: what happens on retry?'",
         },
         {
           speaker: "npc",
@@ -1100,7 +1100,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Spesifik takilma noktasini gosteren soru = pro. Belirsiz = nereden basa donulecegi netsiz.",
+            "Spesifik takılma noktasını gösteren soru = pro. Belirsiz = nereden başa dönüleceği netsiz.",
         },
         {
           question: "Niye anlamadigini saklamak ZARARLI?",
@@ -1112,7 +1112,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Erken anlamamak = 10 dakika geride. Gec anlamamak = sprint sonra hata.",
+            "Erken anlamamak = 10 dakika geride. Geç anlamamak = sprint sonra hata.",
         },
         {
           question: "'Walk me through' kalibinin sansi?",
@@ -1124,7 +1124,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Birlikte bir yolda yurumeyi = kollektif anlamayi tetikler. Klasik native ifade.",
+            "Birlikte bir yolda yürümeyi = kollektif anlamayı tetikler. Klasik native ifade.",
         },
       ],
     },
@@ -1135,7 +1135,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
       phrase: "Can you walk me through that?",
       ipa: "/kæn ju wɔk mi θruː ðæt/",
       tr_articulation_hint:
-        "'Walk me through' birlesik = 'walkmi-thru'. 'That' sonda hafif vurgu. Sicak, ogrenmeye acik ton — utangaclik yok.",
+        "'Walk me through' birleşik = 'walkmi-thru'. 'That' sonda hafif vurgu. Sıcak, öğrenmeye açık ton — utangaçlık yok.",
     },
     {
       id: "ex.wm10.3.9",
@@ -1144,7 +1144,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
       native_text: "Sorry, want to make sure I'm tracking — could you say more on the retry logic?",
       voice_hint: "female_us",
       tr_hint:
-        "'Tracking' = takip ediyor, jargon. 'Say more' = devam et. Spesifik kismi belirt — toplantida pro davranis. Yumusak ac, net devam.",
+        "'Tracking' = takip ediyor, jargon. 'Say more' = devam et. Spesifik kısmı belirt — toplantıda pro davranış. Yumuşak aç, net devam.",
     },
     {
       id: "ex.wm10.3.10",
@@ -1153,7 +1153,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
       audio_text: "Great question — let me unpack that a bit.",
       transcription_target: "Great question — let me unpack that a bit.",
       tr_hint:
-        "'Unpack' = ac, detaylandir (metaforik kullanim). 'A bit' = biraz. Karsi tarafin pozitif tepki kalibi — fikrini saygi ile karsiliyor.",
+        "'Unpack' = aç, detaylandır (metaforik kullanım). 'A bit' = biraz. Karşı tarafın pozitif tepki kalıbı — fikrini saygı ile karşılıyor.",
     },
     {
       id: "ex.wm10.3.11",
@@ -1161,9 +1161,9 @@ export const workMeetingLesson_10_3: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "lost me there",
-      tr_translation: "Beni o noktada kaybettin (anlamadim)",
+      tr_translation: "Beni o noktada kaybettin (anlamadım)",
       example_en: "You lost me there — can you back up a sec?",
-      example_tr: "Beni o noktada kaybettin — biraz geri donebilir misin?",
+      example_tr: "Beni o noktada kaybettin — biraz geri dönebilir misin?",
     },
     {
       id: "ex.wm10.3.12",
@@ -1172,7 +1172,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
       incorrect_sentence: "Say one more time please.",
       correct_sentence: "Mind saying that one more time? Want to make sure I caught it.",
       tr_explanation:
-        "'Say one more time' kirik. 'Mind saying' soru formu kibar. 'Catch' = yakalamak (anlamak). Toplanti tonu profesyonel sicaklik.",
+        "'Say one more time' kırık. 'Mind saying' soru formu kibar. 'Catch' = yakalamak (anlamak). Toplantı tonu profesyonel sıcaklık.",
     },
     {
       id: "ex.wm10.3.sp1",
@@ -1348,7 +1348,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
         "Closing out: API to Ali, tests to Berk, delivering Friday.",
       ],
       tr_hint:
-        "Action items format: Kisi - gorev. Spesifik + tarih = islem yapilabilir.",
+        "Action items format: Kişi - görev. Spesifik + tarih = işlem yapılabilir.",
     },
     {
       id: "ex.wm10.4.3",
@@ -1358,7 +1358,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
       answer: "capture",
       distractors: ["write", "put", "say"],
       tr_hint:
-        "'Capture this in the doc' = doc'a kaydet. Karar/eylem persistans kalibi.",
+        "'Capture this in the doc' = doc'a kaydet. Karar/eylem persistans kalıbı.",
     },
     {
       id: "ex.wm10.4.4",
@@ -1384,7 +1384,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
       correct_sentence:
         "Before we wrap — Ali on API, Berk on tests, Friday delivery. Sound good?",
       tr_explanation:
-        "'Ok bye' = aktif kararsizi birakir. Doğru: ozet + onay = herkes ayni sayfada.",
+        "'Ok bye' = aktif kararsızı bırakır. Doğru: özet + onay = herkes aynı sayfada.",
     },
     {
       id: "ex.wm10.4.6",
@@ -1424,7 +1424,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
           ],
           model_answers: ["API → Ali, tests → Berk, Friday EOD. Will capture in doc."],
           hint_tr:
-            "Detayli ozet: 'API → Ali, tests → Berk, Friday EOD. Will capture in doc.'",
+            "Detaylı özet: 'API → Ali, tests → Berk, Friday EOD. Will capture in doc.'",
         },
         {
           speaker: "npc",
@@ -1461,7 +1461,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karar net degilse = toplanti bos. Action items olmadan tum sasertir.",
+            "Karar net değilse = toplantı boş. Action items olmadan tüm şaşertir.",
         },
         {
           question: "'Capture this in the doc' niye onemli?",
@@ -1473,7 +1473,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Belge yoksa = soylenmemis gibi. Onlar olmadan accountability yok.",
+            "Belge yoksa = söylenmemiş gibi. Onlar olmadan accountability yok.",
         },
         {
           question: "'Sound good?' niye iyi kapanis?",
@@ -1485,7 +1485,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Last call for alignment. Bir kisi katilmadigini orada soyler, sonra degil.",
+            "Last call for alignment. Bir kişi katılmadığını orada söyler, sonra değil.",
         },
       ],
     },
@@ -1496,7 +1496,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
       phrase: "Let's wrap this up.",
       ipa: "/lɛts ræp ðɪs ʌp/",
       tr_articulation_hint:
-        "'Wrap' = rap (w neredeyse yutulur). 'Up' kisa, sonda inerek bitir. Toparlayici ton — toplantiyi yonetiyorsun.",
+        "'Wrap' = rap (w neredeyse yutulur). 'Up' kısa, sonda inerek bitir. Toparlayıcı ton — toplantıyı yönetiyorsun.",
     },
     {
       id: "ex.wm10.4.9",
@@ -1505,7 +1505,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
       native_text: "Before we wrap, let me recap action items — Ali on API, Berk on tests.",
       voice_hint: "male_us",
       tr_hint:
-        "'Before we wrap' aktif baslangic. 'Recap' (ri-kep, vurgu sonda) = ozet. Kisi-gorev format — kisa, net. PM tonu.",
+        "'Before we wrap' aktif başlangıç. 'Recap' (ri-kep, vurgu sonda) = özet. Kişi-görev format — kısa, net. PM tonu.",
     },
     {
       id: "ex.wm10.4.10",
@@ -1514,7 +1514,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
       audio_text: "Let's table this for now and pick it up next week.",
       transcription_target: "Let's table this for now and pick it up next week.",
       tr_hint:
-        "'Table this' ABD'de = simdilik biraktil, gec (UK'de tam tersi!). 'Pick it up' = devam et. Toplanti askiya alma kalibi.",
+        "'Table this' ABD'de = şimdilik bıraktıl, geç (UK'de tam tersi!). 'Pick it up' = devam et. Toplantı askıya alma kalıbı.",
     },
     {
       id: "ex.wm10.4.11",
@@ -1524,7 +1524,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
       word_or_phrase: "on the same page",
       tr_translation: "Aynı sayfada / hemfikir",
       example_en: "Just want to make sure we're on the same page before we close out.",
-      example_tr: "Kapatmadan once ayni sayfada oldugumuza emin olmak istiyorum.",
+      example_tr: "Kapatmadan önce aynı sayfada olduğumuza emin olmak istiyorum.",
     },
     {
       id: "ex.wm10.4.12",
@@ -1533,7 +1533,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
       incorrect_sentence: "Finish the meeting now please.",
       correct_sentence: "Let's wrap up — quick recap of action items?",
       tr_explanation:
-        "'Finish meeting now' emir gibi + saygisiz. 'Let's wrap up' birlikte toparlama. Kapanis dili paylasimci olmali.",
+        "'Finish meeting now' emir gibi + saygısız. 'Let's wrap up' birlikte toparlama. Kapanış dili paylaşımcı olmalı.",
     },
     {
       id: "ex.wm10.4.sp1",
@@ -1651,9 +1651,9 @@ export const workMeetingLesson_10_5: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "Sorry I'm late",
-      tr_translation: "Geciktigim icin ozur dilerim",
+      tr_translation: "Geciktiğim için özür dilerim",
       example: "Sorry I'm late — got pulled into another call.",
-      example_tr: "Geciktigim icin ozur — baska bir aramaya cekildim.",
+      example_tr: "Geciktiğim için özür — başka bir aramaya çekildim.",
     },
     {
       id: "ex.wm10.5.1a",
@@ -1709,7 +1709,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
         "My apologies — previous meeting ran over. What have I missed?",
       ],
       tr_hint:
-        "'Got pulled / stuck / held up' = sebep, kisa. 'What did I miss' direkt sor — utanma uzatma.",
+        "'Got pulled / stuck / held up' = sebep, kısa. 'What did I miss' direkt sor — utanma uzatma.",
     },
     {
       id: "ex.wm10.5.3",
@@ -1719,7 +1719,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
       answer: "pulled",
       distractors: ["taken", "moved", "thrown"],
       tr_hint:
-        "'Got pulled into' = cekildim (irade disi). Profesyonel bahane kalibi — agresif degil.",
+        "'Got pulled into' = çekildim (irade dışı). Profesyonel bahane kalıbı — agresif değil.",
     },
     {
       id: "ex.wm10.5.4",
@@ -1734,7 +1734,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
         "far",
       ],
       correct_sentence: "What did I miss so far",
-      tr_translation: "Buraya kadar neyi kacirdim?",
+      tr_translation: "Buraya kadar neyi kaçırdım?",
     },
     {
       id: "ex.wm10.5.5",
@@ -1744,7 +1744,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
       correct_sentence:
         "Sorry I'm late — got pulled into another call. What did I miss?",
       tr_explanation:
-        "Asiri ozur = Turk hatasi. ABD/UK toplantilarinda kisa + cozum = pro. Uzun ozur = zaman calmis olursun.",
+        "Aşırı özür = Türk hatası. ABD/UK toplantılarında kısa + çözüm = pro. Uzun özür = zaman çalmış olursun.",
     },
     {
       id: "ex.wm10.5.6",
@@ -1767,7 +1767,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
           ],
           model_answers: ["Sorry I'm late — previous call ran over. What did I miss?"],
           hint_tr:
-            "Kisa ac: 'Sorry I'm late — previous call ran over. What did I miss?'",
+            "Kısa aç: 'Sorry I'm late — previous call ran over. What did I miss?'",
         },
         {
           speaker: "npc",
@@ -1823,7 +1823,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "10 saniyede toparla. 'Got pulled into another call' = mesgul + sorumlu sinyali. Uzun ozur = enerjini emer.",
+            "10 saniyede toparla. 'Got pulled into another call' = meşgul + sorumlu sinyali. Uzun özür = enerjini emer.",
         },
         {
           question: "'Got pulled into another call' niye iyi?",
@@ -1835,7 +1835,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pasif yapi = sorumlu degilsin ama mesguldun. ABD toplanti kulturunde standart, kabul gorur.",
+            "Pasif yapı = sorumlu değilsin ama meşguldun. ABD toplantı kültüründe standart, kabul görür.",
         },
         {
           question: "Turk profesyonelin tipik HATASI gec kalinca?",
@@ -1847,7 +1847,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turkce kulturde uzun ozur saygi = ABD'de toplanti zamani calar. Net + kisa + ileri bak.",
+            "Türkçe kültürde uzun özür saygı = ABD'de toplantı zamanı çalar. Net + kısa + ileri bak.",
         },
       ],
     },
@@ -1858,7 +1858,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
       phrase: "Sorry I'm late — got pulled into another call.",
       ipa: "/ˈsɔri aɪm leɪt gɑt pʊld ˈɪntu əˈnʌðər kɔl/",
       tr_articulation_hint:
-        "'Sorry I'm' birlesir = sori-aym. 'Got pulled' = gat-puld, hizli. 'Into' = intu (zayif vurgu). Sakin ton, panik yok — sen kontroldesin.",
+        "'Sorry I'm' birleşir = sori-aym. 'Got pulled' = gat-puld, hızlı. 'Into' = intu (zayıf vurgu). Sakin ton, panik yok — sen kontroldesin.",
     },
     {
       id: "ex.wm10.5.sp1",
@@ -1976,9 +1976,9 @@ export const workMeetingLesson_10_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Sorry to jump in",
-      tr_translation: "Araya girdigim icin pardon",
+      tr_translation: "Araya girdiğim için pardon",
       example: "Sorry to jump in, but I wanted to add something on that.",
-      example_tr: "Araya girdigim icin pardon, ama buna bir sey eklemek istedim.",
+      example_tr: "Araya girdiğim için pardon, ama buna bir şey eklemek istedim.",
     },
     {
       id: "ex.wm10.6.1a",
@@ -2034,7 +2034,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
         "Just to extend Sarah's thought — performance deserves a mention.",
       ],
       tr_hint:
-        "'Building on / Picking up on' = saygili eklemleme. Sarah'i overlap yapmis olursun — kredisini koruyup ileri tasirsin.",
+        "'Building on / Picking up on' = saygılı eklemleme. Sarah'ı overlap yapmış olursun — kredisini koruyup ileri taşırsın.",
     },
     {
       id: "ex.wm10.6.3",
@@ -2044,7 +2044,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
       answer: "jump",
       distractors: ["come", "step", "get"],
       tr_hint:
-        "'Jump in' = atil, araya gir. Kibar acilis — 'sorry' yumusatici, 'quick thought' kisa olacagini soyler.",
+        "'Jump in' = atıl, araya gir. Kibar açılış — 'sorry' yumuşatıcı, 'quick thought' kısa olacağını söyler.",
     },
     {
       id: "ex.wm10.6.4",
@@ -2059,7 +2059,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
         "said",
       ],
       correct_sentence: "Building on what Sarah just said",
-      tr_translation: "Sarah'in az once dediginin uzerine eklemek gerekirse",
+      tr_translation: "Sarah'ın az önce dediğinin üzerine eklemek gerekirse",
     },
     {
       id: "ex.wm10.6.5",
@@ -2069,7 +2069,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
       correct_sentence:
         "Sorry to jump in — quick thought on what you just said.",
       tr_explanation:
-        "'Wait wait stop' = saygisiz + saldirgan. Doğru: 'sorry to jump in' yumusatici + 'quick thought' kisa olacaginin sozu. ABD/UK'da soz alma sanati = nazik + ozguvenli kombinasyon.",
+        "'Wait wait stop' = saygısız + saldırgan. Doğru: 'sorry to jump in' yumuşatıcı + 'quick thought' kısa olacağının sözü. ABD/UK'da söz alma sanatı = nazik + özgüvenli kombinasyon.",
     },
     {
       id: "ex.wm10.6.6",
@@ -2092,7 +2092,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
           ],
           model_answers: ["Sorry to jump in — building on Sarah's point, quick thought."],
           hint_tr:
-            "Yumusak ac: 'Sorry to jump in — building on Sarah's point, quick thought.'",
+            "Yumuşak aç: 'Sorry to jump in — building on Sarah's point, quick thought.'",
         },
         {
           speaker: "npc",
@@ -2148,7 +2148,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turkiye'de senior bitirene kadar bekle = saygi. ABD'de sozun gelmesini beklersen = hic gelmez. Soz al + nazik ol = ikisini birlestir.",
+            "Türkiye'de senior bitirene kadar bekle = saygı. ABD'de sözün gelmesini beklersen = hiç gelmez. Söz al + nazik ol = ikisini birleştir.",
         },
         {
           question: "'Building on what X said' kalibi neden GUCLU?",
@@ -2160,7 +2160,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sarah'i overlap yapmadigin gibi kredisini onayladin + fikrini uzattin. Kolektif zekayi tetikler. Kıdemli profesyonellerin sevdigi kalip.",
+            "Sarah'ı overlap yapmadığın gibi kredisini onayladın + fikrini uzattın. Kolektif zekayı tetikler. Kıdemli profesyonellerin sevdiği kalıp.",
         },
         {
           question: "Zoom'da kesilmeden soz almak icin TEKNIK ipucu?",
@@ -2172,7 +2172,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Remote toolset'i kullan. El kaldir, raise hand veya chat = nazik sinyal. Sonra 'sorry to jump in' = host'a soz veriyor.",
+            "Remote toolset'i kullan. El kaldır, raise hand veya chat = nazik sinyal. Sonra 'sorry to jump in' = host'a söz veriyor.",
         },
       ],
     },
@@ -2183,7 +2183,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
       phrase: "Sorry to jump in, but building on what Sarah said.",
       ipa: "/ˈsɔri tu dʒʌmp ɪn bʌt ˈbɪldɪŋ ɑn wʌt ˈsɛrə sɛd/",
       tr_articulation_hint:
-        "'Sorry to jump in' hizli + yumusak, ozur degil acilis. 'Building on' = bil-din-on (birlesik). Vurgu 'Sarah' ismi ustunde — kredi vermek icin ses yukselt.",
+        "'Sorry to jump in' hızlı + yumuşak, özür değil açılış. 'Building on' = bil-din-on (birleşik). Vurgu 'Sarah' ismi üstünde — kredi vermek için ses yükselt.",
     },
     {
       id: "ex.wm10.6.sp1",
@@ -2301,9 +2301,9 @@ export const workMeetingLesson_10_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Could you walk me through that again?",
-      tr_translation: "Onu bir kez daha detayli anlatir misin?",
+      tr_translation: "Onu bir kez daha detaylı anlatır mısın?",
       example: "Could you walk me through that again? Want to make sure I got it.",
-      example_tr: "Onu tekrar detayli anlatir misin? Dogru anladigima emin olmak istiyorum.",
+      example_tr: "Onu tekrar detaylı anlatır mısın? Doğru anladığıma emin olmak istiyorum.",
     },
     {
       id: "ex.wm10.7.1a",
@@ -2359,7 +2359,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
         "Let me play that back — API update lands Monday, not Tuesday, right?",
       ],
       tr_hint:
-        "'Make sure I got that right' = anladim mi onayi. Soruyu spesifik sor (tarih, kisi) — 'I don't understand' belirsiz ve zayif.",
+        "'Make sure I got that right' = anladım mi onayı. Soruyu spesifik sor (tarih, kişi) — 'I don't understand' belirsiz ve zayıf.",
     },
     {
       id: "ex.wm10.7.3",
@@ -2369,7 +2369,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
       answer: "mute",
       distractors: ["silent", "off", "quiet"],
       tr_hint:
-        "'You're on mute' = mikrofonun kapali. Zoom/Meet klasigi — gunde 10 kez duyacaksin. 'Silent / off' sinonim degil.",
+        "'You're on mute' = mikrofonun kapalı. Zoom/Meet klasiği — günde 10 kez duyacaksın. 'Silent / off' sinonim değil.",
     },
     {
       id: "ex.wm10.7.4",
@@ -2385,7 +2385,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
         "you",
       ],
       correct_sentence: "Let me play that back to you",
-      tr_translation: "Soylediklerini tekrar sana okuyayim (onaylamak icin)",
+      tr_translation: "Söylediklerini tekrar sana okuyayım (onaylamak için)",
     },
     {
       id: "ex.wm10.7.5",
@@ -2395,7 +2395,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
       correct_sentence:
         "Sorry, audio cut out for a sec — could you walk me through that last part again?",
       tr_explanation:
-        "'English not good' = ozguvenini kirar + dikkati ingilizcene ceker. Doğru: ses/baglanti bahanesi + spesifik 'last part'. Profesyonel + uzgun degil.",
+        "'English not good' = özgüvenini kırar + dikkati ingilizcene çeker. Doğru: ses/bağlantı bahanesi + spesifik 'last part'. Profesyonel + üzgün değil.",
     },
     {
       id: "ex.wm10.7.6",
@@ -2474,7 +2474,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Anlamadim' demek = profesyonellik. Anlamamis gibi yapip slack'te sormak = 2 saat geride + yanlis is yapar. ABD/UK'da soru sormak = entelektuel guvenin sinyali.",
+            "'Anlamadım' demek = profesyonellik. Anlamamış gibi yapıp slack'te sormak = 2 saat geride + yanlış iş yapar. ABD/UK'da soru sormak = entelektüel güvenin sinyali.",
         },
         {
           question: "'Let me play that back' niye gucludur?",
@@ -2486,7 +2486,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Senior'lar bunu sever cunku 'play back' = anladigini gosterir + yanlis varsa anlik duzeltme firsati. 'Confirm understanding' sanati.",
+            "Senior'lar bunu sever çünkü 'play back' = anladığını gösterir + yanlış varsa anlık düzeltme fırsatı. 'Confirm understanding' sanatı.",
         },
         {
           question: "Zoom'da ses kotuyse / aksan zorsa — DOGRU oneri?",
@@ -2498,7 +2498,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Remote toolset'i kullan. Audio bahanesi profesyonel + dogru: %50 zaman ses gercekten kotu. Chat / diagram talebi = aktif iletisim.",
+            "Remote toolset'i kullan. Audio bahanesi profesyonel + doğru: %50 zaman ses gerçekten kötü. Chat / diagram talebi = aktif iletişim.",
         },
       ],
     },
@@ -2509,7 +2509,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
       phrase: "I want to make sure I got that right.",
       ipa: "/aɪ wɑnt tu meɪk ʃʊr aɪ gɑt ðæt raɪt/",
       tr_articulation_hint:
-        "'Want to' = wan-na (informal birlesim). 'Make sure' = meyk-sur, vurgu 'sure'da. 'Got that right' = gat-ðæt-rayt, kapanis kararli. Ozguven + dogrulamak istegi.",
+        "'Want to' = wan-na (informal birleşim). 'Make sure' = meyk-sur, vurgu 'sure'da. 'Got that right' = gat-ðæt-rayt, kapanış kararlı. Özgüven + doğrulamak isteği.",
     },
     {
       id: "ex.wm10.7.sp1",
@@ -2627,9 +2627,9 @@ export const workMeetingLesson_10_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "To recap, the next steps are",
-      tr_translation: "Ozetlersek, sonraki adimlar",
+      tr_translation: "Özetlersek, sonraki adımlar",
       example: "To recap, the next steps are: design by Wednesday, review Friday.",
-      example_tr: "Ozetlersek, sonraki adimlar: tasarim carsambaya, inceleme cuma.",
+      example_tr: "Özetlersek, sonraki adımlar: tasarım çarşambaya, inceleme cuma.",
     },
     {
       id: "ex.wm10.8.1a",
@@ -2685,7 +2685,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
         "API docs are on me — by Friday, dropped in Slack. Anyone see issues?",
       ],
       tr_hint:
-        "'Follow up on X by Y' = X'i Y'ye kadar takip et formulu. 'Any objections / concerns / flags' = son sansli onay sorusu.",
+        "'Follow up on X by Y' = X'i Y'ye kadar takip et formülü. 'Any objections / concerns / flags' = son şanslı onay sorusu.",
     },
     {
       id: "ex.wm10.8.3",
@@ -2695,7 +2695,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
       answer: "follow",
       distractors: ["catch", "wrap", "circle"],
       tr_hint:
-        "'Follow up on X' = X'i takibe al, sahiplen. 'Wrap up' = bitir (farkli). 'Circle back' = donmek (zaman belirsiz).",
+        "'Follow up on X' = X'i takibe al, sahiplen. 'Wrap up' = bitir (farklı). 'Circle back' = dönmek (zaman belirsiz).",
     },
     {
       id: "ex.wm10.8.4",
@@ -2711,7 +2711,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
         "Slack",
       ],
       correct_sentence: "Let me drop a summary in Slack",
-      tr_translation: "Slack'e bir ozet birakayim.",
+      tr_translation: "Slack'e bir özet bırakayım.",
     },
     {
       id: "ex.wm10.8.5",
@@ -2721,7 +2721,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
       correct_sentence:
         "I'll own the API docs — Friday EOD, will drop in Slack.",
       tr_explanation:
-        "Asiri pasif Turk hatasi: 'maybe / try / sometime / if possible' = hicbir sey vaat etmemis olursun. Doğru: 'I'll own X — date + delivery channel'. ABD/UK toplanti kulturunde belirsiz commitment = guvensiz sinyal.",
+        "Aşırı pasif Türk hatası: 'maybe / try / sometime / if possible' = hiçbir şey vaat etmemiş olursun. Doğru: 'I'll own X — date + delivery channel'. ABD/UK toplantı kültüründe belirsiz commitment = güvensiz sinyal.",
     },
     {
       id: "ex.wm10.8.6",
@@ -2743,7 +2743,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
           ],
           model_answers: ["To recap, the next steps are: design Wed, review Fri. Let me drop this in Slack."],
           hint_tr:
-            "Aktif ozet: 'To recap, the next steps are: design Wed, review Fri. Let me drop this in Slack.'",
+            "Aktif özet: 'To recap, the next steps are: design Wed, review Fri. Let me drop this in Slack.'",
         },
         {
           speaker: "npc",
@@ -2762,7 +2762,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
           ],
           model_answers: ["I'll own the API docs — Friday EOD, Slack drop. Any concerns?"],
           hint_tr:
-            "Sahipligi al + tarih + kanal: 'I'll own the API docs — Friday EOD, Slack drop. Any concerns?'",
+            "Sahipliği al + tarih + kanal: 'I'll own the API docs — Friday EOD, Slack drop. Any concerns?'",
         },
         {
           speaker: "npc",
@@ -2799,7 +2799,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bu 3'lu = accountability paketi. Eksik biri = belirsizlik. Senior'lar bu paketi tam veren juniorlarini hatirlar.",
+            "Bu 3'lu = accountability paketi. Eksik biri = belirsizlik. Senior'lar bu paketi tam veren juniorlarını hatırlar.",
         },
         {
           question: "Turk profesyonelin asiri pasif TAVRI niye risk?",
@@ -2811,7 +2811,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ABD/UK'da 'maybe try' = no-commit. Buyumek istiyorsan 'I'll own X by Y' = sahiplenen kisi promosyon alir. Saygi != belirsizlik.",
+            "ABD/UK'da 'maybe try' = no-commit. Büyümek istiyorsan 'I'll own X by Y' = sahiplenen kişi promosyon alır. Saygı != belirsizlik.",
         },
         {
           question: "Toplantiyi 'tight' (sıkı) tutmanin pro hareketi?",
@@ -2823,7 +2823,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Recap aldıgın icin PM seni 'detail-oriented + reliable' kategorisine yazar. Toplanti notlarini Slack'e dusurmek = institutional memory + sen hatirlanirsin.",
+            "Recap aldığın için PM seni 'detail-oriented + reliable' kategorisine yazar. Toplantı notlarını Slack'e düşürmek = institutional memory + sen hatırlanırsın.",
         },
       ],
     },
@@ -2834,7 +2834,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
       phrase: "I'll follow up on that by Friday.",
       ipa: "/aɪl ˈfɑloʊ ʌp ɑn ðæt baɪ ˈfraɪdeɪ/",
       tr_articulation_hint:
-        "'I'll' = ayl (kisa). 'Follow up' = falo-ap, vurgu 'fal'da. 'By Friday' = bay-fray-dey, sonda kararli kapanis. Vaat tonu — net, geri durma yok.",
+        "'I'll' = ayl (kısa). 'Follow up' = falo-ap, vurgu 'fal'da. 'By Friday' = bay-fray-dey, sonda kararlı kapanış. Vaat tonu — net, geri durma yok.",
     },
     {
       id: "ex.wm10.8.sp1",

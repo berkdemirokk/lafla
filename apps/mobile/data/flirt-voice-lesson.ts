@@ -243,7 +243,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
         "Quick heads up — about to send a voice note, totally cool if you'd rather I just type it.",
       voice_hint: "warm_us",
       tr_hint:
-        "Etiket-bilinçli ton. 'Heads up' bağlı uyari. 'Totally cool if you'd rather' tek nefes — esneklik.",
+        "Etiket-bilinçli ton. 'Heads up' bağlı uyarı. 'Totally cool if you'd rather' tek nefes — esneklik.",
     },
     {
       id: "ex.fv3.1.10",
@@ -254,7 +254,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
       transcription_target:
         "Sure, go for it — I'll do the same back if it makes sense.",
       tr_hint:
-        "Match'in voice'a yesil isigi. 'Go for it' = at git. 'Do the same back' = ayni sekilde geri donerim.",
+        "Match'in voice'a yeşil ışığı. 'Go for it' = at git. 'Do the same back' = aynı şekilde geri dönerim.",
     },
     {
       id: "ex.fv3.1.11",
@@ -262,11 +262,11 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Hate to text-bomb you",
-      tr_translation: "Sana mesaj yagmuru atmaktan nefret ederim",
+      tr_translation: "Sana mesaj yağmuru atmaktan nefret ederim",
       example:
         "Hate to text-bomb you — mind if I voice this instead?",
       example_tr:
-        "Sana mesaj yagmuru atmaktan nefret ederim — bunu sesli atsam olur mu?",
+        "Sana mesaj yağmuru atmaktan nefret ederim — bunu sesli atsam olur mu?",
     },
     {
       id: "ex.fv3.1.12",
@@ -608,7 +608,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
         "Okay so I've been thinking about what you said earlier — and honestly, it stuck with me more than I expected.",
       voice_hint: "warm_us",
       tr_hint:
-        "Düşünceli ton — samimi, agir degil. 'Stuck with me' = aklimda kaldi idiom. Akıcı, doğal.",
+        "Düşünceli ton — samimi, ağır değil. 'Stuck with me' = aklımda kaldı idiom. Akıcı, doğal.",
     },
     {
       id: "ex.fv3.2.10",
@@ -619,7 +619,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
       transcription_target:
         "Whoa, first voice note from you — send it, I'm listening.",
       tr_hint:
-        "Match'in voice'a heyecanli karsiligi. 'Whoa' = sasirma. 'I'm listening' = dinliyorum, devam et.",
+        "Match'in voice'a heyecanlı karşılığı. 'Whoa' = şaşırma. 'I'm listening' = dinliyorum, devam et.",
     },
     {
       id: "ex.fv3.2.11",
@@ -627,11 +627,11 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Tone is hard to read over text",
-      tr_translation: "Yazidan ton anlamak zor",
+      tr_translation: "Yazıdan ton anlamak zor",
       example:
         "Sending a voice — tone is hard to read over text, didn't want this coming out flat.",
       example_tr:
-        "Sesli atiyorum — yazidan ton anlamak zor, kuru gözükmesini istemedim.",
+        "Sesli atıyorum — yazıdan ton anlamak zor, kuru gözükmesini istemedim.",
     },
     {
       id: "ex.fv3.2.12",
@@ -1016,7 +1016,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
         "Okay replying with a voice memo because typing wouldn't do that story justice — bear with me.",
       voice_hint: "warm_us",
       tr_hint:
-        "Voice-for-voice ritmi — kararli, casual. 'Do justice to' kalip. 'Bear with me' = sabret-soyle.",
+        "Voice-for-voice ritmi — kararlı, casual. 'Do justice to' kalıp. 'Bear with me' = sabret-söyle.",
     },
     {
       id: "ex.fv3.3.10",
@@ -1027,7 +1027,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       transcription_target:
         "Glad you liked it — were you expecting me to sound completely different?",
       tr_hint:
-        "Voice gönderen match'in geri soru cevabi. 'Sound different' = farklı ses cikar beklemek. Casual mirror sorusu.",
+        "Voice gönderen match'in geri soru cevabı. 'Sound different' = farklı ses çıkar beklemek. Casual mirror sorusu.",
     },
     {
       id: "ex.fv3.3.11",
@@ -1035,11 +1035,11 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Sounds way less stiff than your texts",
-      tr_translation: "Yazidan çok daha akici çikiyor sesin",
+      tr_translation: "Yazıdan çok daha akıcı çıkıyor sesin",
       example:
         "You sound way less stiff than your texts — like a different person, in a good way.",
       example_tr:
-        "Yazidan çok daha akici çikiyor sesin — iyi anlamda baska bir insan gibisin.",
+        "Yazıdan çok daha akıcı çıkıyor sesin — iyi anlamda başka bir insan gibisin.",
     },
     {
       id: "ex.fv3.3.12",
@@ -1049,7 +1049,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       correct_sentence:
         "Just listened twice — your laugh is killing me, especially that ending.",
       tr_explanation:
-        "'Ok heard. Cool. Anyway.' = sifir yatirim, voice atan kişiye saygisiz. Doğru: spesifik tepki + ne hosuna gitti. Modern dating: yatirim simetrik olmali = devam = ilgi.",
+        "'Ok heard. Cool. Anyway.' = sıfır yatırım, voice atan kişiye saygısız. Doğru: spesifik tepki + ne hoşuna gitti. Modern dating: yatırım simetrik olmalı = devam = ilgi.",
     },
     {
       id: "ex.fv3.3.sp1",
@@ -1449,7 +1449,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       transcription_target:
         "Hahaha you read my mind — tonight after nine?",
       tr_hint:
-        "Match'in olumlu cevabi. 'You read my mind' = aklimi okudun. 'After nine' = dokuzdan sonra.",
+        "Match'in olumlu cevabı. 'You read my mind' = aklımı okudun. 'After nine' = dokuzdan sonra.",
     },
     {
       id: "ex.fv3.4.11",
@@ -1457,11 +1457,11 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Save us both the typing",
-      tr_translation: "Ikimizi de yazma derdinden kurtaralim",
+      tr_translation: "İkimizi de yazma derdinden kurtaralım",
       example:
         "Wanna just FaceTime tonight? Save us both the typing.",
       example_tr:
-        "Bu aksam FaceTime yapalim mi? Ikimizi de yazma derdinden kurtaralim.",
+        "Bu akşam FaceTime yapalım mı? İkimizi de yazma derdinden kurtaralım.",
     },
     {
       id: "ex.fv3.4.12",
@@ -1471,7 +1471,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       correct_sentence:
         "Free for a quick FaceTime tonight, or is later this week easier?",
       tr_explanation:
-        "'Now I want see you face' = komut + sahiplenme + yapı bozuk. Modern dating'te urgent + transactional = unmatch tetigi. Doğru: 'free for X' (esnek) + alternatif zaman = saygi + secim hakki.",
+        "'Now I want see you face' = komut + sahiplenme + yapı bozuk. Modern dating'te urgent + transactional = unmatch tetiği. Doğru: 'free for X' (esnek) + alternatif zaman = saygı + seçim hakkı.",
     },
     {
       id: "ex.fv3.4.sp1",

@@ -39,7 +39,7 @@ export const workCodereviewLesson_15_1: BundledLesson = {
         "Worth considering a split — single responsibility?",
       ],
       tr_hint:
-        "Soru formati = saldiri degil. 'Have you considered' / 'Could this be' = davet eder.",
+        "Soru formatı = saldırı değil. 'Have you considered' / 'Could this be' = davet eder.",
     },
     {
       id: "ex.wcr15.1.3",
@@ -49,7 +49,7 @@ export const workCodereviewLesson_15_1: BundledLesson = {
       answer: "considered",
       distractors: ["did", "tried", "tested"],
       tr_hint:
-        "'Have you considered X?' = X'i dusundun mu? Yapici review acılışı.",
+        "'Have you considered X?' = X'i düşündün mu? Yapıcı review açılışı.",
     },
     {
       id: "ex.wcr15.1.4",
@@ -97,7 +97,7 @@ export const workCodereviewLesson_15_1: BundledLesson = {
           ],
           model_answers: ["nit: consider splitting this function — it handles parsing + validation."],
           hint_tr:
-            "Yapici: 'nit: consider splitting this function — it handles parsing + validation.'",
+            "Yapıcı: 'nit: consider splitting this function — it handles parsing + validation.'",
         },
         {
           speaker: "npc",
@@ -140,7 +140,7 @@ export const workCodereviewLesson_15_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Junior'lar kod review'da buyumeyi ogrenir. Saldiri = ogrenmez + ayrilir. Yapici = buyur + kalir.",
+            "Junior'lar kod review'da büyümeyi öğrenir. Saldırı = öğrenmez + ayrılır. Yapıcı = büyür + kalır.",
         },
         {
           question: "'nit:' / 'nitpick:' prefiksi ne ise yarar?",
@@ -164,7 +164,7 @@ export const workCodereviewLesson_15_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Asagilanma yerine yardim = ayni hatayi tekrarlamaz + iliski guclenir.",
+            "Aşağılanma yerine yardım = aynı hatayı tekrarlamaz + ilişki güçlenir.",
         },
       ],
     },
@@ -473,7 +473,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
         "Solid call — addressed. Mind another look?",
       ],
       tr_hint:
-        "'Good catch' = pozitif acilis. 'Mind taking another look' = saygili re-review istegi.",
+        "'Good catch' = pozitif açılış. 'Mind taking another look' = saygılı re-review isteği.",
     },
     {
       id: "ex.wcr15.2.3",
@@ -483,7 +483,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
       answer: "update",
       distractors: ["upgrade", "edit", "amend"],
       tr_hint:
-        "'Pushed an update' = yeni commit yolladim. Standart kalip.",
+        "'Pushed an update' = yeni commit yolladım. Standart kalıp.",
     },
     {
       id: "ex.wcr15.2.4",
@@ -509,7 +509,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
       correct_sentence:
         "Pushing back gently — left a comment with context, can you take a look?",
       tr_explanation:
-        "'It's fine ignore that' = saygisizlik. Doğru: 'pushing back' + context = saglikli karsi cikis.",
+        "'It's fine ignore that' = saygısızlık. Doğru: 'pushing back' + context = sağlıklı karşı çıkış.",
     },
     {
       id: "ex.wcr15.2.6",
@@ -550,7 +550,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
           ],
           model_answers: ["Pushing back here — left context inline. Can we huddle if still concerned?"],
           hint_tr:
-            "Karsi cikis: 'Pushing back here — left context inline. Can we huddle if still concerned?'",
+            "Karşı çıkış: 'Pushing back here — left context inline. Can we huddle if still concerned?'",
         },
         {
           speaker: "npc",
@@ -574,7 +574,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Code review = yardim. Kabul edemeyen = code review kullanamaz.",
+            "Code review = yardım. Kabul edemeyen = code review kullanamaz.",
         },
         {
           question: "'Good catch' tabiri NE iletiyor?",
@@ -586,7 +586,7 @@ export const workCodereviewLesson_15_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tek kelimelik takdir = takim kulturune yatirim. Reviewer'in motivasyonu artar.",
+            "Tek kelimelik takdir = takım kültürüne yatırım. Reviewer'in motivasyonu artar.",
         },
         {
           question: "Karsi cikma YANI SIRA NE yapmali?",
@@ -817,7 +817,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
         "Hey, dropped a 100-line auth fix — Friday merge if possible.",
       ],
       tr_hint:
-        "Pre-summary: boyut + dosya + zaman. Reviewer karari hizli verir.",
+        "Pre-summary: boyut + dosya + zaman. Reviewer kararı hızlı verir.",
     },
     {
       id: "ex.wcr15.3.3",
@@ -827,7 +827,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
       answer: "lean",
       distractors: ["count", "trust", "rely"],
       tr_hint:
-        "'Lean on someone' = birinden yardim istemek. Soft request kalibi.",
+        "'Lean on someone' = birinden yardım istemek. Soft request kalıbı.",
     },
     {
       id: "ex.wcr15.3.4",
@@ -853,7 +853,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
       correct_sentence:
         "Hey — small auth PR (100 lines). Hoping to merge by Friday, no rush before that.",
       tr_explanation:
-        "'Review this now' = emir = ters tepki. Doğru: kibarlik + boyut + zaman netligi.",
+        "'Review this now' = emir = ters tepki. Doğru: kibarlık + boyut + zaman netliği.",
     },
     {
       id: "ex.wcr15.3.6",
@@ -895,7 +895,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
           ],
           model_answers: ["Main risk: token refresh flow. Unit + integration tested."],
           hint_tr:
-            "Yardim et: 'Main risk: token refresh flow. Unit + integration tested.'",
+            "Yardım et: 'Main risk: token refresh flow. Unit + integration tested.'",
         },
         {
           speaker: "npc",
@@ -919,7 +919,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Reviewer 'bu PR'a bakacak miyim?' kararini saniyede verir. Pre-summary = kabul.",
+            "Reviewer 'bu PR'a bakacak mıyım?' kararını saniyede verir. Pre-summary = kabul.",
         },
         {
           question: "'Not urgent but would appreciate by EOD' niye dengeli?",
@@ -931,7 +931,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Belirsiz = reviewer karar veremez. Net urgency = saygili scheduling.",
+            "Belirsiz = reviewer karar veremez. Net urgency = saygılı scheduling.",
         },
         {
           question: "'What's the main risk area?' sorulunca NE yapmali?",
@@ -943,7 +943,7 @@ export const workCodereviewLesson_15_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Risk gizleme = reviewer kotu PR onaylar = sen sucla kalir. Duruzst = guven.",
+            "Risk gizleme = reviewer kötü PR onaylar = sen suçla kalır. Dürüzst = güven.",
         },
       ],
     },
@@ -1162,7 +1162,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
         "Nitpick: name is ambiguous — feel free to skip.",
       ],
       tr_hint:
-        "'Nit:' = author '5 saniyede karar verir, devam' anlami. 'Non-blocking' altinda iki kez vurgular = baskisiz.",
+        "'Nit:' = author '5 saniyede karar verir, devam' anlamı. 'Non-blocking' altında iki kez vurgular = baskısız.",
     },
     {
       id: "ex.wcr15.5.3",
@@ -1172,7 +1172,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
       answer: "Blocker",
       distractors: ["Nit", "FYI", "Idea"],
       tr_hint:
-        "Sadece 'merge engelleyici' kasit varsa 'Blocker:' kullan. Yumusatma. 'Nit:' kucuk seyler icin.",
+        "Sadece 'merge engelleyici' kasıt varsa 'Blocker:' kullan. Yumuşatma. 'Nit:' küçük şeyler için.",
     },
     {
       id: "ex.wcr15.5.4",
@@ -1197,7 +1197,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
       correct_sentence:
         "Blocker: this leaks the API token in logs — needs scrubbing before merge.",
       tr_explanation:
-        "'Bad' + 'must change' = saldiri + emir = defansif tepki. Doğru: 'Blocker:' prefix + somut sebep + net cikis yolu. Severity netse author savunmaya gecmez, fixler.",
+        "'Bad' + 'must change' = saldırı + emir = defansif tepki. Doğru: 'Blocker:' prefix + somut sebep + net çıkış yolu. Severity netse author savunmaya geçmez, fixler.",
     },
     {
       id: "ex.wcr15.5.6",
@@ -1217,7 +1217,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
           ],
           model_answers: ["Nit: could `tmp` be renamed to `parsedJson`? Up to you."],
           hint_tr:
-            "Kucuk yorum: 'Nit: could `tmp` be renamed to `parsedJson`? Up to you.'",
+            "Küçük yorum: 'Nit: could `tmp` be renamed to `parsedJson`? Up to you.'",
         },
         {
           speaker: "npc",
@@ -1234,7 +1234,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
           ],
           model_answers: ["Non-blocking: this loop may slow down at 10k items — fine to defer."],
           hint_tr:
-            "Gorus: 'Non-blocking: this loop may slow down at 10k items — fine to defer.'",
+            "Görüş: 'Non-blocking: this loop may slow down at 10k items — fine to defer.'",
         },
         {
           speaker: "npc",
@@ -1286,7 +1286,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Author bilir: yorumu dusunecek ama hemen fixlemek zorunda degil = follow-up'a kalir.",
+            "Author bilir: yorumu düşünecek ama hemen fixlemek zorunda değil = follow-up'a kalır.",
         },
         {
           question: "'Blocker:' kullanirken NE eklemeli?",
@@ -1298,7 +1298,7 @@ export const workCodereviewLesson_15_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Blocker' tek basina = panik + savunma. 'Blocker: SQL injection riski — parameterize edersen yeter' = harekete gecirilebilir.",
+            "'Blocker' tek başına = panik + savunma. 'Blocker: SQL injection riski — parameterize edersen yeter' = harekete geçirilebilir.",
         },
       ],
     },
@@ -1466,7 +1466,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "C1",
       word_or_phrase: "wdyt about extracting",
-      tr_translation: "Çıkarmaya ne dersin? (what do you think hakkinda)",
+      tr_translation: "Çıkarmaya ne dersin? (what do you think hakkında)",
       example: "This could be cleaner — wdyt about extracting the parsing into a helper?",
       example_tr: "Bu daha temiz olabilir — parse'lamayı bir helper'a çıkarmaya ne dersin?",
     },
@@ -1484,7 +1484,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
         "Function's grown a bit — open to extracting some of it?",
       ],
       tr_hint:
-        "'Wdyt' = casual 'what do you think'. Soru = davet, emir = saldiri. PR'da hep soru formati.",
+        "'Wdyt' = casual 'what do you think'. Soru = davet, emir = saldırı. PR'da hep soru formatı.",
     },
     {
       id: "ex.wcr15.6.3",
@@ -1520,7 +1520,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
       correct_sentence:
         "Not quite ready to approve yet — wdyt about extracting the parsing? Happy to pair if useful.",
       tr_explanation:
-        "'Reject. Rewrite this all' = ego yikici + actionable degil. Doğru: net durum ('not ready to approve') + somut yon ('extract parsing') + yardim teklif ('happy to pair') = yapici red.",
+        "'Reject. Rewrite this all' = ego yıkıcı + actionable değil. Doğru: net durum ('not ready to approve') + somut yön ('extract parsing') + yardım teklif ('happy to pair') = yapıcı red.",
     },
     {
       id: "ex.wcr15.6.6",
@@ -1541,7 +1541,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
           ],
           model_answers: ["This could be cleaner — wdyt about extracting the parsing into a helper?"],
           hint_tr:
-            "Yumusak red: 'This could be cleaner — wdyt about extracting the parsing into a helper?'",
+            "Yumuşak red: 'This could be cleaner — wdyt about extracting the parsing into a helper?'",
         },
         {
           speaker: "npc",
@@ -1584,7 +1584,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Belirsiz red = author ne yapacagini bilemez = frustration. Net yon = harekete gecer + iliski korunur.",
+            "Belirsiz red = author ne yapacağını bilemez = frustration. Net yön = harekete geçer + ilişki korunur.",
         },
         {
           question: "Author 'is the refactor necessary?' diye sorarsa NE yapmali?",
@@ -1596,7 +1596,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Refactor istegini savunamiyorsan = istek zayifti. Sebebini netle = ya kabul eder ya da iyi karsi argümen verir.",
+            "Refactor isteğini savunamıyorsan = istek zayıftı. Sebebini netle = ya kabul eder ya da iyi karşı argümen verir.",
         },
         {
           question: "'Wdyt about extracting?' niye 'Extract this' den iyi?",
@@ -1608,7 +1608,7 @@ export const workCodereviewLesson_15_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Author ozgur secim hissettiginde refactor'i sahiplenir. Emir aldıgında ne kadar dogru olsa da direnir.",
+            "Author özgür seçim hissettiğinde refactor'i sahiplenir. Emir aldığında ne kadar doğru olsa da direnir.",
         },
       ],
     },
@@ -1794,7 +1794,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
         "Approving with comments — minor stuff, address whenever.",
       ],
       tr_hint:
-        "'Feel free to address later' = author'u serbest birakir = follow-up PR'a kalir. Akiş bozulmaz.",
+        "'Feel free to address later' = author'u serbest bırakır = follow-up PR'a kalır. Akış bozulmaz.",
     },
     {
       id: "ex.wcr15.7.3",
@@ -1804,7 +1804,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
       answer: "address",
       distractors: ["take", "do", "make"],
       tr_hint:
-        "'Address a comment' = yorumla ilgilenmek (standart PR jargonu). 'Do a comment' = yanlis kalip.",
+        "'Address a comment' = yorumla ilgilenmek (standart PR jargonu). 'Do a comment' = yanlış kalıp.",
     },
     {
       id: "ex.wcr15.7.4",
@@ -1831,7 +1831,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
       correct_sentence:
         "LGTM — comments are non-blocking, feel free to address now or in a follow-up.",
       tr_explanation:
-        "'Approved but you must fix all' = celiskili sinyal (approve = ok, must fix = blocker). Doğru: approve = yesil isik. Yorumlari 'non-blocking' diye sinyal verirsen author rahat merge eder.",
+        "'Approved but you must fix all' = çelişkili sinyal (approve = ok, must fix = blocker). Doğru: approve = yeşil ışık. Yorumları 'non-blocking' diye sinyal verirsen author rahat merge eder.",
     },
     {
       id: "ex.wcr15.7.6",
@@ -1894,7 +1894,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Her kucuk yorum icin PR bloke etme = hiz dusurur. Approve + non-blocking = author bilir nereye bakacak.",
+            "Her küçük yorum için PR bloke etme = hız düşürür. Approve + non-blocking = author bilir nereye bakacak.",
         },
         {
           question: "'Feel free to address later' niye author'a iyi gelir?",
@@ -1906,7 +1906,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Author kendisi karar verir (simdi mi, sonra mi) = yetiskin muamelesi = guven.",
+            "Author kendisi karar verir (şimdi mi, sonra mı) = yetişkin muamelesi = güven.",
         },
         {
           question: "'Approved but you must fix all' niye kotu?",
@@ -1918,7 +1918,7 @@ export const workCodereviewLesson_15_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Approve = yesil isik. 'Must fix' varsa = 'Request Changes' yapmaliydin. Net ol: approve veya block.",
+            "Approve = yeşil ışık. 'Must fix' varsa = 'Request Changes' yapmalıydın. Net ol: approve veya block.",
         },
       ],
     },
@@ -2104,7 +2104,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
         "Got the first — for the second I see it differently, comment inline explains.",
       ],
       tr_hint:
-        "Mix: kabul + karsi cikis ayni yanitta. 'Good catch' yumusatir, 'pushing back' net ama saygili.",
+        "Mix: kabul + karşı çıkış aynı yanıtta. 'Good catch' yumuşatır, 'pushing back' net ama saygılı.",
     },
     {
       id: "ex.wcr15.8.3",
@@ -2114,7 +2114,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
       answer: "one",
       distractors: ["thing", "comment", "case"],
       tr_hint:
-        "'Pushing back on this one' = kalip = 'bunda karsi cikiyorum'. 'One' = ima edilen 'comment'.",
+        "'Pushing back on this one' = kalıp = 'bunda karşı çıkıyorum'. 'One' = ima edilen 'comment'.",
     },
     {
       id: "ex.wcr15.8.4",
@@ -2141,7 +2141,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
       correct_sentence:
         "Pushing back on this one — left a longer comment with the reasoning. Open to a quick huddle if still concerned.",
       tr_explanation:
-        "'You are wrong' = saldiri = reviewer savunmaya gecer. Doğru: 'pushing back' (saygili karsi cikis) + sebebi belge ('inline comment') + dialog kapisi acik ('huddle if concerned'). Karsi cikmak = profesyonel, saldiri = degil.",
+        "'You are wrong' = saldırı = reviewer savunmaya geçer. Doğru: 'pushing back' (saygılı karşı çıkış) + sebebi belge ('inline comment') + dialog kapısı açık ('huddle if concerned'). Karşı çıkmak = profesyonel, saldırı = değil.",
     },
     {
       id: "ex.wcr15.8.6",
@@ -2161,7 +2161,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
           ],
           model_answers: ["Good catch — done in the latest commit."],
           hint_tr:
-            "Hizli kabul: 'Good catch — done in the latest commit.'",
+            "Hızlı kabul: 'Good catch — done in the latest commit.'",
         },
         {
           speaker: "npc",
@@ -2178,7 +2178,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
           ],
           model_answers: ["Pushing back gently — reasoning inline. Open to a huddle if still concerned."],
           hint_tr:
-            "Karsi cikis: 'Pushing back gently — reasoning inline. Open to a huddle if still concerned.'",
+            "Karşı çıkış: 'Pushing back gently — reasoning inline. Open to a huddle if still concerned.'",
         },
         {
           speaker: "npc",
@@ -2195,7 +2195,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
           ],
           model_answers: ["Good catch — hadn't considered that. Pushing a fix now."],
           hint_tr:
-            "Senior'dan oneri = sukran + hareket: 'Good catch — hadn't considered that. Pushing a fix now.'",
+            "Senior'dan öneri = şükran + hareket: 'Good catch — hadn't considered that. Pushing a fix now.'",
         },
         {
           speaker: "npc",
@@ -2219,7 +2219,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Reviewer emek harcadi + sen kacirdin = tek kelimelik takdir = ego'suz iletisim. 'Good catch' altin kalip.",
+            "Reviewer emek harcadı + sen kaçırdın = tek kelimelik takdir = ego'suz iletişim. 'Good catch' altın kalıp.",
         },
         {
           question: "Karsi cikarken EN onemli ne eklenir?",
@@ -2231,7 +2231,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Pushing back' tek basina = pasif aggresif. Sebebi + dialog kapisi = profesyonel debat. 'Open to being wrong' iliski guclendirir.",
+            "'Pushing back' tek başına = pasif aggresif. Sebebi + dialog kapısı = profesyonel debat. 'Open to being wrong' ilişki güçlendirir.",
         },
         {
           question: "Senior'dan iyi yorum gelirse NE yapmali?",
@@ -2243,7 +2243,7 @@ export const workCodereviewLesson_15_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Senior'dan ogrenmek = kariyer atlamak. Tanima + hizli aksyion = senior'i yatirim yapmaya devam ettir.",
+            "Senior'dan öğrenmek = kariyer atlamak. Tanıma + hızlı aksyion = senior'ı yatırım yapmaya devam ettir.",
         },
       ],
     },

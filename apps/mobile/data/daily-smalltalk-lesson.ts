@@ -169,7 +169,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
         "Up and down weather, isn't it? Cold morning, hot now.",
       ],
       tr_hint:
-        "'Crazy / Wild / Weird' weather + spesifik = ozgun small talk. Karsi tarafa cevap kapilari acar.",
+        "'Crazy / Wild / Weird' weather + spesifik = özgün small talk. Karşı tarafa cevap kapıları açar.",
     },
     {
       id: "ex.dst23.1.3",
@@ -179,7 +179,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
       answer: "good",
       distractors: ["nice", "great", "fun"],
       tr_hint:
-        "'Hope you have a good one' = iyi gunler. Casual veda kalibi.",
+        "'Hope you have a good one' = iyi günler. Casual veda kalıbı.",
     },
     {
       id: "ex.dst23.1.4",
@@ -205,7 +205,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
       correct_sentence:
         "Pretty good, just need coffee. How about you?",
       tr_explanation:
-        "'Fine. Bye.' = sosyal interaksiyon kapatir. Doğru: kisa detay + soru = momentum.",
+        "'Fine. Bye.' = sosyal interaksiyon kapatır. Doğru: kısa detay + soru = momentum.",
     },
     {
       id: "ex.dst23.1.6",
@@ -245,7 +245,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
           ],
           model_answers: ["Same here. Need coffee. Have a good one!"],
           hint_tr:
-            "Sicak kapat: 'Same here. Need coffee. Have a good one!'",
+            "Sıcak kapat: 'Same here. Need coffee. Have a good one!'",
         },
         {
           speaker: "npc",
@@ -325,7 +325,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "5 parca = 15 saniye. Tek soru cevapsız = soguk. Cift soru = saglikli.",
+            "5 parça = 15 saniye. Tek soru cevapsız = soğuk. Çift soru = sağlıklı.",
         },
         {
           question: "'How are you?' standartında EN iyi cevap?",
@@ -337,7 +337,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Fine' = sosyal kapatici. Detayli kisa cevap + 'You?' = momentum.",
+            "'Fine' = sosyal kapatıcı. Detaylı kısa cevap + 'You?' = momentum.",
         },
         {
           question: "Hava small talk niye GUVENLI?",
@@ -349,7 +349,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Hava = nötr. Politika, din, para = social riski yuksek konular.",
+            "Hava = nötr. Politika, din, para = social riski yüksek konular.",
         },
       ],
     },
@@ -360,7 +360,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
       phrase: "How's your week going so far?",
       ipa: "haʊz jər wiːk ˈɡoʊɪŋ soʊ fɑːr",
       tr_hint:
-        "Asansor klasigi. 'How's' kısa. 'Going so far' bağlanır → 'goyn-so-far'. Akıcı söyle.",
+        "Asansör klasiği. 'How's' kısa. 'Going so far' bağlanır → 'goyn-so-far'. Akıcı söyle.",
     },
     {
       id: "ex.dst23.1.9",
@@ -378,7 +378,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
       audio_text: "Crazy weather we're having lately, huh?",
       transcription_target: "Crazy weather we're having lately, huh?",
       tr_hint:
-        "Hava small talk klasigi. 'Crazy weather' = cilgin hava. 'Huh' = degil mi (ortak deneyim).",
+        "Hava small talk klasiği. 'Crazy weather' = çılgın hava. 'Huh' = değil mi (ortak deneyim).",
     },
     {
       id: "ex.dst23.1.11",
@@ -388,7 +388,7 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
       word_or_phrase: "hanging in there",
       tr_translation: "Idare ediyorum (zorlu ama dayanıyorum)",
       example: "Mondays, you know — just hanging in there.",
-      example_tr: "Pazartesi iste — idare ediyorum.",
+      example_tr: "Pazartesi işte — idare ediyorum.",
     },
     {
       id: "ex.dst23.1.12",
@@ -690,7 +690,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
         "Busy today — been waiting long?",
       ],
       tr_hint:
-        "Bekleme salonu small talk = oda durumu + paylasilan deneyim.",
+        "Bekleme salonu small talk = oda durumu + paylaşılan deneyim.",
     },
     {
       id: "ex.dst23.2.3",
@@ -700,7 +700,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
       answer: "regular",
       distractors: ["normal", "small", "simple"],
       tr_hint:
-        "'Regular checkup' = normal kontrol. Dr / dis bekleme'de yaygin soru.",
+        "'Regular checkup' = normal kontrol. Dr / diş bekleme'de yaygın soru.",
     },
     {
       id: "ex.dst23.2.4",
@@ -747,7 +747,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
           ],
           model_answers: ["Hey — busy in here. Been waiting long?"],
           hint_tr:
-            "Saygili ac: 'Hey — busy in here. Been waiting long?'",
+            "Saygılı aç: 'Hey — busy in here. Been waiting long?'",
         },
         {
           speaker: "npc",
@@ -765,7 +765,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
           ],
           model_answers: ["That's rough. I'm in for a routine checkup. Hope yours goes well!"],
           hint_tr:
-            "Empati + paylas: 'That's rough. I'm in for a routine checkup. Hope yours goes well!'",
+            "Empati + paylaş: 'That's rough. I'm in for a routine checkup. Hope yours goes well!'",
         },
         {
           speaker: "npc",
@@ -849,7 +849,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Saglik = personal. Sohbet ortak alanda kal. 'Why are you here' = saygisiz.",
+            "Sağlık = personal. Sohbet ortak alanda kal. 'Why are you here' = saygısız.",
         },
         {
           question: "'Hope everything goes well' niye iyi kapanis?",
@@ -861,7 +861,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi tarafa iyi dilek + sen de iyi dilek alirsin = pozitif kapanis.",
+            "Karşı tarafa iyi dilek + sen de iyi dilek alırsın = pozitif kapanış.",
         },
         {
           question: "Bekleme salonunda LANG sohbet iyi mi?",
@@ -873,7 +873,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Uzun sohbet = baski. Diger kisi telefon / kitap baktıysa hint = bekleyen yalniz olmak istiyor.",
+            "Uzun sohbet = baskı. Diğer kişi telefon / kitap baktıysa hint = bekleyen yalnız olmak istiyor.",
         },
       ],
     },
@@ -902,7 +902,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
       audio_text: "The doctor's running about twenty minutes behind.",
       transcription_target: "The doctor's running about twenty minutes behind.",
       tr_hint:
-        "Bekleme salonu klasigi. 'Running behind' = gecikme yapıyor. 'About twenty minutes' = yaklasik 20 dakika.",
+        "Bekleme salonu klasiği. 'Running behind' = gecikme yapıyor. 'About twenty minutes' = yaklaşık 20 dakika.",
     },
     {
       id: "ex.dst23.2.11",
@@ -912,7 +912,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
       word_or_phrase: "running behind",
       tr_translation: "Gecikme yapıyor (programdan geri)",
       example: "Sorry — the dentist is running behind today.",
-      example_tr: "Pardon — dis hekimi bugun gecikme yapiyor.",
+      example_tr: "Pardon — diş hekimi bugün gecikme yapıyor.",
     },
     {
       id: "ex.dst23.2.12",
@@ -1012,7 +1012,7 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
             "Geri sayım.",
           ],
           correct: 1,
-          tr_explanation: "Idiom: 'running behind schedule' = programdan geride.",
+          tr_explanation: "İdiom: 'running behind schedule' = programdan geride.",
         },
         {
           q: "'Fingers crossed' = ?",
@@ -1228,7 +1228,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
       answer: "seeing",
       distractors: ["meeting", "knowing", "being"],
       tr_hint:
-        "'Great seeing you' = seni gormek guzeldi. Tanidigin biriyle samimi veda.",
+        "'Great seeing you' = seni görmek güzeldi. Tanıdığın biriyle samimi veda.",
     },
     {
       id: "ex.dst23.3.4",
@@ -1273,7 +1273,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
           ],
           model_answers: ["Anyway, gotta run — was great catching up. Coffee soon?"],
           hint_tr:
-            "Saygili kapat: 'Anyway, gotta run — was great catching up. Coffee soon?'",
+            "Saygılı kapat: 'Anyway, gotta run — was great catching up. Coffee soon?'",
         },
         {
           speaker: "npc",
@@ -1315,7 +1315,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Anlik kapanis sebep yok = soguk. Yumusak gecis (anyway) + sebep = saglikli.",
+            "Anlık kapanış sebep yok = soğuk. Yumuşak geçiş (anyway) + sebep = sağlıklı.",
         },
         {
           question: "'Let's grab coffee soon' niye eklenir?",
@@ -1327,7 +1327,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kapatmak degil, bos kapi yatirimi. Karsı taraf takip etmek isterse seçenek var.",
+            "Kapatmak değil, boş kapı yatırımı. Karşı taraf takip etmek isterse seçenek var.",
         },
         {
           question: "Sohbet bittigini NASIL anlarsin?",
@@ -1339,7 +1339,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Sosyal sinyaller. Karsidaki uzaklasmak istiyorsa onu zorla tutmamak = saygi.",
+            "Sosyal sinyaller. Karşıdaki uzaklaşmak istiyorsa onu zorla tutmamak = saygı.",
         },
       ],
     },
@@ -1359,7 +1359,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
       native_text: "Was great seeing you — let's grab coffee soon.",
       voice_hint: "female_us",
       tr_hint:
-        "Iki parçalı sicak kapanis. 'Great seeing you' = seni gormek guzeldi. 'Grab coffee soon' = kahveye gidelim yakında.",
+        "İki parçalı sıcak kapanış. 'Great seeing you' = seni görmek güzeldi. 'Grab coffee soon' = kahveye gidelim yakında.",
     },
     {
       id: "ex.dst23.3.10",
@@ -1368,7 +1368,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
       audio_text: "I'll text you to set something up next week.",
       transcription_target: "I'll text you to set something up next week.",
       tr_hint:
-        "Takip vaadi. 'Text you' = mesaj atarim. 'Set something up' = bir plan yapariz.",
+        "Takip vaadi. 'Text you' = mesaj atarım. 'Set something up' = bir plan yaparız.",
     },
     {
       id: "ex.dst23.3.11",
@@ -1376,9 +1376,9 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "gotta run",
-      tr_translation: "Gitmem lazim (casual veda)",
+      tr_translation: "Gitmem lazım (casual veda)",
       example: "Hey, gotta run — but great catching up!",
-      example_tr: "Selam, gitmem lazim — ama sohbet harikaydi!",
+      example_tr: "Selam, gitmem lazım — ama sohbet harikaydı!",
     },
     {
       id: "ex.dst23.3.12",
@@ -1388,7 +1388,7 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
       correct_sentence:
         "Anyway, I should get going — was great catching up. Let's do this again soon!",
       tr_explanation:
-        "'Finish' = soguk + grammatik degil. Doğru: 'Anyway' + sebep (get going) + warmth (great catching up) + ileriye yatirim.",
+        "'Finish' = soğuk + grammatik değil. Doğru: 'Anyway' + sebep (get going) + warmth (great catching up) + ileriye yatırım.",
     },
     {
       id: "ex.dst23.3.sp1",
@@ -1687,7 +1687,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
         "Nice to see the sun out, isn't it?",
       ],
       tr_hint:
-        "'Beautiful / Gorgeous / Lovely day' + 'isn't it?' = standart komsu kalibi. 'Sun's out' = ortak sevinc.",
+        "'Beautiful / Gorgeous / Lovely day' + 'isn't it?' = standart komşu kalıbı. 'Sun's out' = ortak sevinç.",
     },
     {
       id: "ex.dst23.5.3",
@@ -1697,7 +1697,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
       answer: "good",
       distractors: ["nice", "fun", "great"],
       tr_hint:
-        "'Have a good one' = sicak veda, en yaygin US kalibi. 'Good' standart, 'nice/great' yanlis degil ama 'good' default.",
+        "'Have a good one' = sıcak veda, en yaygın US kalıbı. 'Good' standart, 'nice/great' yanlış değil ama 'good' default.",
     },
     {
       id: "ex.dst23.5.4",
@@ -1711,7 +1711,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
         "?",
       ],
       correct_sentence: "Going up or down ?",
-      tr_translation: "Yukari mi asagi mi? (asansor klasigi)",
+      tr_translation: "Yukarı mı aşağı mı? (asansör klasiği)",
     },
     {
       id: "ex.dst23.5.5",
@@ -1721,7 +1721,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
       correct_sentence:
         "Hey! How's it going? — Pretty good, you?",
       tr_explanation:
-        "Okul kitabi kalibi cok formal + uzun. Asansor 30 saniye — 'How's it going' modern ve doğal. 'Pretty good' kisa cevap, 'you?' geri at.",
+        "Okul kitabı kalıbı çok formal + uzun. Asansör 30 saniye — 'How's it going' modern ve doğal. 'Pretty good' kısa cevap, 'you?' geri at.",
     },
     {
       id: "ex.dst23.5.6",
@@ -1743,7 +1743,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
           ],
           model_answers: ["Hey, how's it going? Beautiful day, isn't it?"],
           hint_tr:
-            "Sicak ac: 'Hey, how's it going? Beautiful day, isn't it?'",
+            "Sıcak aç: 'Hey, how's it going? Beautiful day, isn't it?'",
         },
         {
           speaker: "npc",
@@ -1761,7 +1761,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
           ],
           model_answers: ["Pretty good, just heading home. Have a good one!"],
           hint_tr:
-            "Mini detay + sicak veda: 'Pretty good, just heading home. Have a good one!'",
+            "Mini detay + sıcak veda: 'Pretty good, just heading home. Have a good one!'",
         },
         {
           speaker: "npc",
@@ -1785,7 +1785,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Asansor fiziksel kisitla zaman = kurtaran. Kisa OK, hatta beklenir. Sessizlik bile awkward degil eger kisa selam atildi.",
+            "Asansör fiziksel kısıtla zaman = kurtaran. Kısa OK, hatta beklenir. Sessizlik bile awkward değil eğer kısa selam atıldı.",
         },
         {
           question: "'How are you?' vs 'How's it going?' farki?",
@@ -1797,7 +1797,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Native konusmacilar 'How's it going / How's your day' kullaniyor. 'How are you' yanlis degil ama eski / formal hissi verir.",
+            "Native konuşmacılar 'How's it going / How's your day' kullanıyor. 'How are you' yanlış değil ama eski / formal hissi verir.",
         },
         {
           question: "Komsuyla SESSIZLIK kotu mu?",
@@ -1809,7 +1809,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Selam attin = sosyal gorev tamam. Sonra sessizlik = normal. Turk kulturunde 'her bos zaman doldurulmali' bilinci ABD'de yok.",
+            "Selam attın = sosyal görev tamam. Sonra sessizlik = normal. Türk kültüründe 'her boş zaman doldurulmalı' bilinci ABD'de yok.",
         },
       ],
     },
@@ -1820,7 +1820,7 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
       phrase: "Beautiful day, isn't it?",
       ipa: "ˈbjuːtɪfəl deɪ ˈɪzənt ɪt",
       tr_hint:
-        "Komsu klasigi. 'Beautiful' 3 hece (byu-ti-ful). 'Isn't it' bağlanır → 'iz-nit'. Hafif yukseliş tonu sona, soru sinyali.",
+        "Komşu klasiği. 'Beautiful' 3 hece (byu-ti-ful). 'Isn't it' bağlanır → 'iz-nit'. Hafif yükseliş tonu sona, soru sinyali.",
     },
     {
       id: "ex.dst23.5.sp1",
@@ -2098,9 +2098,9 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
       cefr_band: "A2",
       difficulty: 2,
       word_or_phrase: "First time in town",
-      tr_translation: "Sehre ilk gelisin mi?",
+      tr_translation: "Şehre ilk gelişin mi?",
       example: "First time in town? Or do you live here?",
-      example_tr: "Sehre ilk gelisin mi? Yoksa burada mi yasiyorsun?",
+      example_tr: "Şehre ilk gelişin mi? Yoksa burada mı yaşıyorsun?",
     },
     {
       id: "ex.dst23.6.2",
@@ -2116,7 +2116,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
         "You been doing this a while? How do you like it?",
       ],
       tr_hint:
-        "'How long have you been + V-ing' = ne kadardir bunu yapiyorsun. Sofor sohbeti icin universal.",
+        "'How long have you been + V-ing' = ne kadardır bunu yapıyorsun. Şoför sohbeti için universal.",
     },
     {
       id: "ex.dst23.6.3",
@@ -2126,7 +2126,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
       answer: "from",
       distractors: ["of", "in", "at"],
       tr_hint:
-        "'Where are you from originally?' = aslinda nerelisin. 'Originally' = goc / kok soru = Uber soforler ortak deneyim.",
+        "'Where are you from originally?' = aslında nerelisin. 'Originally' = göç / kök soru = Uber şoförler ortak deneyim.",
     },
     {
       id: "ex.dst23.6.4",
@@ -2150,7 +2150,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
       correct_sentence:
         "How do you like driving for Uber? Pretty flexible, huh?",
       tr_explanation:
-        "'Why you drive Uber + no other job' = saygisiz + asagilatici. Doğru: pozitif framing ('flexible'), saygili soru, yargi yok.",
+        "'Why you drive Uber + no other job' = saygısız + aşağılatıcı. Doğru: pozitif framing ('flexible'), saygılı soru, yargı yok.",
     },
     {
       id: "ex.dst23.6.6",
@@ -2172,7 +2172,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
           ],
           model_answers: ["Hey, how's your shift going? Been busy tonight?"],
           hint_tr:
-            "Saygili ac: 'Hey, how's your shift going? Been busy tonight?'",
+            "Saygılı aç: 'Hey, how's your shift going? Been busy tonight?'",
         },
         {
           speaker: "npc",
@@ -2214,7 +2214,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Soforun isi hakkinda saygili sorular + sehir / trafik = nötr. Politika / din = US'de risk.",
+            "Şoförün işi hakkında saygılı sorular + şehir / trafik = nötr. Politika / din = US'de risk.",
         },
         {
           question: "Sofor sessizlik istiyorsa ne yapariz?",
@@ -2226,7 +2226,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Soforun sessiz cevaplari = small talk istemiyor sinyali. Bunu kabul et. Saygili.",
+            "Şoförün sessiz cevapları = small talk istemiyor sinyali. Bunu kabul et. Saygılı.",
         },
         {
           question: "'Where are you from originally?' niye iyi soru?",
@@ -2238,7 +2238,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Originally' = saygili. Soforler kokleri konusmaktan keyif aldigi yaygin. Ama soforun isteksiz oldugu hissedildi mi geri cek.",
+            "'Originally' = saygılı. Şoförler kökleri konuşmaktan keyif aldığı yaygın. Ama şoförün isteksiz olduğu hissedildi mi geri çek.",
         },
       ],
     },
@@ -2249,7 +2249,7 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
       phrase: "How long have you been driving?",
       ipa: "haʊ lɔːŋ həv jə bɪn ˈdraɪvɪŋ",
       tr_hint:
-        "Sofor klasigi. 'Have you' bağlanır → 'həv-yə'. 'Been driving' net. Soru tonu sona hafif yukselis.",
+        "Şoför klasiği. 'Have you' bağlanır → 'həv-yə'. 'Been driving' net. Soru tonu sona hafif yükseliş.",
     },
     {
       id: "ex.dst23.6.sp1",
@@ -2526,7 +2526,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "What brings you here",
-      tr_translation: "Buraya seni ne getirdi? (konferans 'neden geldin' kalibi)",
+      tr_translation: "Buraya seni ne getirdi? (konferans 'neden geldin' kalıbı)",
       example: "So what brings you here?",
       example_tr: "E, seni buraya ne getirdi?",
     },
@@ -2554,7 +2554,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
       answer: "at",
       distractors: ["in", "on", "for"],
       tr_hint:
-        "'Work at + company' kalibi standart. 'Work for' da OK ama 'at' daha doğal. 'Work in fintech' = sektor (preposition farki).",
+        "'Work at + company' kalıbı standart. 'Work for' da OK ama 'at' daha doğal. 'Work in fintech' = sektör (preposition farkı).",
     },
     {
       id: "ex.dst23.7.4",
@@ -2568,7 +2568,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
         "?",
       ],
       correct_sentence: "What do you do ?",
-      tr_translation: "Ne is yapiyorsun? (networking standart soru)",
+      tr_translation: "Ne iş yapıyorsun? (networking standart soru)",
     },
     {
       id: "ex.dst23.7.5",
@@ -2578,7 +2578,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
       correct_sentence:
         "Love to keep in touch — mind if we swap LinkedIn?",
       tr_explanation:
-        "'Give me your card' = agresif + agresif. Doğru: 'Love to keep in touch' (warmth) + 'Mind if' (saygili soru) + 'swap LinkedIn' (modern + cift yonlu).",
+        "'Give me your card' = agresif + agresif. Doğru: 'Love to keep in touch' (warmth) + 'Mind if' (saygılı soru) + 'swap LinkedIn' (modern + çift yönlü).",
     },
     {
       id: "ex.dst23.7.6",
@@ -2600,7 +2600,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
           ],
           model_answers: ["Hey, so what brings you here? That keynote was wild, right?"],
           hint_tr:
-            "Saygili ac: 'Hey, so what brings you here? That keynote was wild, right?'",
+            "Saygılı aç: 'Hey, so what brings you here? That keynote was wild, right?'",
         },
         {
           speaker: "npc",
@@ -2642,7 +2642,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Ortak deneyim (konferans) = saglikli baslangic. Kisisel soru (evli, maas) = profesyonel ortamda red.",
+            "Ortak deneyim (konferans) = sağlıklı başlangıç. Kişisel soru (evli, maaş) = profesyonel ortamda red.",
         },
         {
           question: "LinkedIn istemek niye 'Mind if we swap LinkedIn?'?",
@@ -2654,7 +2654,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Give me your card' = guc dengesizligi. 'Mind if we swap' = esit + saygili. Modern profesyoneller LinkedIn tercih ediyor.",
+            "'Give me your card' = güç dengesizliği. 'Mind if we swap' = eşit + saygılı. Modern profesyoneller LinkedIn tercih ediyor.",
         },
         {
           question: "'Totally' / 'Right?' / 'Oh that's wild' niye onemli?",
@@ -2677,7 +2677,7 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
       phrase: "So what brings you here?",
       ipa: "soʊ wʌt brɪŋz jə hɪər",
       tr_hint:
-        "Networking klasigi. 'So' uzun + dusunceli. 'Brings you' bağlanır → 'brin-zyə'. 'Here' net. Cumle sicakkanli ton.",
+        "Networking klasiği. 'So' uzun + düşünceli. 'Brings you' bağlanır → 'brin-zyə'. 'Here' net. Cümle sıcakkanlı ton.",
     },
     {
       id: "ex.dst23.7.sp1",
@@ -2955,7 +2955,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
       cefr_band: "A2",
       difficulty: 2,
       word_or_phrase: "What's their name",
-      tr_translation: "Adi ne? (kopek icin 'they' kullanilir, cinsiyet bilmediginde)",
+      tr_translation: "Adı ne? (köpek için 'they' kullanılır, cinsiyet bilmediğinde)",
       example: "Aw, what's their name?",
       example_tr: "Aaa, adi ne?",
     },
@@ -2973,7 +2973,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
         "How old is she? So sweet — okay if I give her a pet?",
       ],
       tr_hint:
-        "Once izin sor ('Can I pet / Mind if I pet'). Kopek sahibi 'Yes friendly' demeden dokunma — ABD/UK kuralı.",
+        "Önce izin sor ('Can I pet / Mind if I pet'). Köpek sahibi 'Yes friendly' demeden dokunma — ABD/UK kuralı.",
     },
     {
       id: "ex.dst23.8.3",
@@ -2983,7 +2983,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
       answer: "friendly",
       distractors: ["nice", "good", "okay"],
       tr_hint:
-        "'Friendly' = kopek terimi (sokulgan, isirmaz). 'Nice' kopek icin tuhaf. Kopek sahibi 'friendly' = guvenli sinyal.",
+        "'Friendly' = köpek terimi (sokulgan, ısırmaz). 'Nice' köpek için tuhaf. Köpek sahibi 'friendly' = güvenli sinyal.",
     },
     {
       id: "ex.dst23.8.4",
@@ -2997,7 +2997,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
         "!",
       ],
       correct_sentence: "Such a good boy !",
-      tr_translation: "Çok iyi bir oğlan! (kopege övgü, sahibine de fark ediyor)",
+      tr_translation: "Çok iyi bir oğlan! (köpeğe övgü, sahibine de fark ediyor)",
     },
     {
       id: "ex.dst23.8.5",
@@ -3007,7 +3007,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
       correct_sentence:
         "Aw, what a sweetie! Mind if I pet her?",
       tr_explanation:
-        "'Your dog. I touch.' = sert + izin yok = ABD'de sosyal kirmizi cizgi. Doğru: ovgu ('what a sweetie') + saygili izin ('mind if I pet').",
+        "'Your dog. I touch.' = sert + izin yok = ABD'de sosyal kırmızı çizgi. Doğru: övgü ('what a sweetie') + saygılı izin ('mind if I pet').",
     },
     {
       id: "ex.dst23.8.6",
@@ -3029,7 +3029,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
           ],
           model_answers: ["Aw, what a sweetie! What's their name?"],
           hint_tr:
-            "Ovgu + isim sor: 'Aw, what a sweetie! What's their name?'",
+            "Övgü + isim sor: 'Aw, what a sweetie! What's their name?'",
         },
         {
           speaker: "npc",
@@ -3047,7 +3047,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
           ],
           model_answers: ["Luna! Great name. Is she friendly? Mind if I pet her?"],
           hint_tr:
-            "Isim tekrarla + izin sor: 'Luna! Great name. Is she friendly? Mind if I pet her?'",
+            "İsim tekrarla + izin sor: 'Luna! Great name. Is she friendly? Mind if I pet her?'",
         },
         {
           speaker: "npc",
@@ -3071,7 +3071,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ABD/UK kopek kulturu = izin zorunlu. Bazi kopekler isirir, bazi sahibi rahatsiz olur. 'Friendly mi?' = guvenlik sinyali.",
+            "ABD/UK köpek kültürü = izin zorunlu. Bazı köpekler ısırır, bazı sahibi rahatsız olur. 'Friendly mi?' = güvenlik sinyali.",
         },
         {
           question: "Kopege NE diye hitap ederiz cinsiyet bilmiyorsak?",
@@ -3083,7 +3083,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'It' kaba — kopekler aile uyesi gibi gorulur. 'They/their' modern + nötr. 'Boy/girl' sorulduktan sonra kullan.",
+            "'It' kaba — köpekler aile üyesi gibi görülür. 'They/their' modern + nötr. 'Boy/girl' sorulduktan sonra kullan.",
         },
         {
           question: "Kopek small talk niye SAGLIKLI bir baslangic?",
@@ -3095,7 +3095,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kopek sahipleri kopeklerinden bahsetmekten keyif alir. 'Hava' kadar guvenli ama daha sicak + sohbet kapilari acar.",
+            "Köpek sahipleri köpeklerinden bahsetmekten keyif alır. 'Hava' kadar güvenli ama daha sıcak + sohbet kapıları açar.",
         },
       ],
     },
@@ -3106,7 +3106,7 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
       phrase: "Aw, what a sweetie! Mind if I pet her?",
       ipa: "ɔː wʌt ə ˈswiːti maɪnd ɪf aɪ pɛt hər",
       tr_hint:
-        "Sıcakkanlı baslangic. 'Aw' uzun, hayran ses. 'Sweetie' iki hece (swee-tee). 'Mind if I' bağlanır → 'maɪn-dɪ-faɪ'.",
+        "Sıcakkanlı başlangıç. 'Aw' uzun, hayran ses. 'Sweetie' iki hece (swee-tee). 'Mind if I' bağlanır → 'maɪn-dɪ-faɪ'.",
     },
     {
       id: "ex.dst23.8.sp1",

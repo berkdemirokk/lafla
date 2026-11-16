@@ -22,11 +22,11 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Set up time to talk about my growth",
-      tr_translation: "Gelisimim hakkinda konusmak icin gorusme ayarlamak",
+      tr_translation: "Gelişimim hakkında konuşmak için görüşme ayarlamak",
       example:
         "Hey — could we set up time to talk about my growth and what's next?",
       example_tr:
-        "Selam — gelisimim ve sonraki adim hakkinda konusmak icin zaman ayarlayabilir miyiz?",
+        "Selam — gelişimim ve sonraki adım hakkında konuşmak için zaman ayarlayabilir miyiz?",
     },
     {
       id: "ex.wpa38.1.2",
@@ -44,7 +44,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
         "Hoping to find 30 minutes for a career conversation — can we get something on the books?",
       ],
       tr_hint:
-        "'Career conversation' = standart kurumsal kalip. Pasif degil — somut zaman dilimi ('next couple of weeks') ekle.",
+        "'Career conversation' = standart kurumsal kalıp. Pasif değil — somut zaman dilimi ('next couple of weeks') ekle.",
     },
     {
       id: "ex.wpa38.1.3",
@@ -54,7 +54,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
       answer: "set up",
       distractors: ["take up", "stand up", "open up"],
       tr_hint:
-        "'Set up time' = (toplanti icin) zaman ayarlamak. Standart phrasal verb.",
+        "'Set up time' = (toplantı için) zaman ayarlamak. Standart phrasal verb.",
     },
     {
       id: "ex.wpa38.1.4",
@@ -70,7 +70,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
         "chat",
       ],
       correct_sentence: "Putting an agenda together for our chat",
-      tr_translation: "Konusmamiz icin bir agenda hazirliyorum.",
+      tr_translation: "Konuşmamız için bir agenda hazırlıyorum.",
     },
     {
       id: "ex.wpa38.1.5",
@@ -80,7 +80,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
       correct_sentence:
         "Could we set up time to talk about my growth and what's next? Happy to share an agenda beforehand.",
       tr_explanation:
-        "'I want a promotion' = ham talep, manager hazirlik yapamaz. Doğru: 'growth' framing + onceden agenda = profesyonel + manager calismak ister.",
+        "'I want a promotion' = ham talep, manager hazırlık yapamaz. Doğru: 'growth' framing + önceden agenda = profesyonel + manager çalışmak ister.",
     },
     {
       id: "ex.wpa38.1.6",
@@ -103,7 +103,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
           ],
           model_answers: ["Hey — could we set up time to talk about my growth in the next couple of weeks? Happy to send an agenda."],
           hint_tr:
-            "Sablon: 'Hey — could we set up time to talk about my growth in the next couple of weeks? Happy to send an agenda.'",
+            "Şablon: 'Hey — could we set up time to talk about my growth in the next couple of weeks? Happy to send an agenda.'",
         },
         {
           speaker: "npc",
@@ -159,7 +159,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sürpriz konusma = manager hazirliksiz = 'let me think' cevabi. Randevu + agenda = profesyonel + cevap-li toplanti.",
+            "Sürpriz konuşma = manager hazırlıksız = 'let me think' cevabı. Randevu + agenda = profesyonel + cevap-li toplantı.",
         },
         {
           question: "Niye 'career conversation' framing 'I want a promotion'-dan IYI?",
@@ -171,7 +171,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I want X' = pozisyon talebi = manager 'no/yes' icin sikisir. 'Career conversation' = manager seninle birlikte dusunur.",
+            "'I want X' = pozisyon talebi = manager 'no/yes' için sıkışır. 'Career conversation' = manager seninle birlikte düşünür.",
         },
         {
           question: "Agenda mailini onceden gondermek NEDEN onemli?",
@@ -183,7 +183,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Hazirliksiz manager = 'let me get back to you'. Hazirlikli manager = somut cevap + ortak plan.",
+            "Hazırlıksız manager = 'let me get back to you'. Hazırlıklı manager = somut cevap + ortak plan.",
         },
       ],
     },
@@ -216,7 +216,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
       transcription_target:
         "Sure — what's on your mind specifically? Want to make sure I come prepared.",
       tr_hint:
-        "Manager'in standart cevabi. 'What's on your mind' = aklinda ne var. 'Come prepared' = hazirlikli gelmek.",
+        "Manager'ın standart cevabı. 'What's on your mind' = aklında ne var. 'Come prepared' = hazırlıklı gelmek.",
     },
     {
       id: "ex.wpa38.1.11",
@@ -228,7 +228,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
       example:
         "Can we put 30 minutes on the calendar this week for a growth conversation?",
       example_tr:
-        "Bu hafta gelisim konusmasi icin takvime 30 dakika koyabilir miyiz?",
+        "Bu hafta gelişim konuşması için takvime 30 dakika koyabilir miyiz?",
     },
     {
       id: "ex.wpa38.1.12",
@@ -487,11 +487,11 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Here's the impact I've had",
-      tr_translation: "Iste yaptigim etki (vakanin acilisi)",
+      tr_translation: "İşte yaptığım etki (vakanın açılışı)",
       example:
         "Here's the impact I've had this year — happy to walk through it.",
       example_tr:
-        "Iste bu yil yaptigim etki — uzerinden geçmek isterim.",
+        "İşte bu yıl yaptığım etki — üzerinden geçmek isterim.",
     },
     {
       id: "ex.wpa38.2.2",
@@ -509,7 +509,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
         "Picked up senior-level work this year — owned auth, cut errors by 35%.",
       ],
       tr_hint:
-        "'Take on scope' = is yukunu/kapsamini ustlenmek. 'Led/Drove/Owned' = sahiplenme fiilleri. Sayi her cumlede.",
+        "'Take on scope' = iş yükünü/kapsamını üstlenmek. 'Led/Drove/Owned' = sahiplenme fiilleri. Sayı her cümlede.",
     },
     {
       id: "ex.wpa38.2.3",
@@ -519,7 +519,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
       answer: "taken",
       distractors: ["made", "put", "given"],
       tr_hint:
-        "'Take on scope' = kapsami ustlenmek. Gecmis zaman: 'I've taken on'.",
+        "'Take on scope' = kapsamı üstlenmek. Geçmiş zaman: 'I've taken on'.",
     },
     {
       id: "ex.wpa38.2.4",
@@ -534,7 +534,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
         "already",
       ],
       correct_sentence: "Operating at the next level already",
-      tr_translation: "Zaten bir sonraki seviyede calisiyorum.",
+      tr_translation: "Zaten bir sonraki seviyede çalışıyorum.",
     },
     {
       id: "ex.wpa38.2.5",
@@ -545,7 +545,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
       correct_sentence:
         "Here's the impact I've had: led auth redesign (35% fewer errors), mentored two juniors, and owned the API migration end-to-end — operating at senior scope.",
       tr_explanation:
-        "Sure + caba = sirket karari icin yeterli degil. Sayi + scope + sahiplenme fiilleri = vaka. 'Deserve' kelimesi = duygusal, kacin.",
+        "Süre + çaba = şirket kararı için yeterli değil. Sayı + scope + sahiplenme fiilleri = vaka. 'Deserve' kelimesi = duygusal, kaçın.",
     },
     {
       id: "ex.wpa38.2.6",
@@ -568,7 +568,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
           ],
           model_answers: ["Here's the impact I've had — led X (Y% lift), owned Z end-to-end. Operating at senior scope."],
           hint_tr:
-            "Acilis: 'Here's the impact I've had — led X (Y% lift), owned Z end-to-end. Operating at senior scope.'",
+            "Açılış: 'Here's the impact I've had — led X (Y% lift), owned Z end-to-end. Operating at senior scope.'",
         },
         {
           speaker: "npc",
@@ -624,7 +624,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Led X' (aksiyon) + '35% lift' (olcum) + 'mentored two juniors' (scope). Uc ayak olmadan vaka 'sense' yapmaz.",
+            "'Led X' (aksiyon) + '35% lift' (ölçüm) + 'mentored two juniors' (scope). Üç ayak olmadan vaka 'sense' yapmaz.",
         },
         {
           question: "'I deserve' kalibinin sorunu?",
@@ -636,7 +636,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Deserve' = subjektif. 'Here's what I delivered + here's the scope I'm operating at' = objektif. Manager'a ikincisi lazim.",
+            "'Deserve' = subjektif. 'Here's what I delivered + here's the scope I'm operating at' = objektif. Manager'a ikincisi lazım.",
         },
         {
           question: "'I've taken on X scope' kalibi NIYE guclu?",
@@ -648,7 +648,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "En guclu vaka: 'Already operating at the next level — let's make it official.' Manager risk almamis olur.",
+            "En güçlü vaka: 'Already operating at the next level — let's make it official.' Manager risk almamış olur.",
         },
       ],
     },
@@ -660,7 +660,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
         "I've taken on senior-level scope and led the auth redesign end-to-end.",
       ipa: "/aɪv ˈteɪkən ɒn ˈsiːnjər ˈlɛvəl skəʊp ənd lɛd ði ɔːθ riˈdɪzaɪn ɛnd tə ɛnd/",
       tr_hint:
-        "Vaka acilis cumlesi — kararli ton. 'Senior-level' birleşik, 'end-to-end' uc kelime tek nefes.",
+        "Vaka açılış cümlesi — kararlı ton. 'Senior-level' birleşik, 'end-to-end' üç kelime tek nefes.",
     },
     {
       id: "ex.wpa38.2.9",
@@ -670,7 +670,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
         "Here's the impact I've had this year — led the auth redesign with a 35% drop in errors, mentored two juniors, and owned the API migration end-to-end.",
       voice_hint: "confident_us",
       tr_hint:
-        "Vaka sunumu ritmi — virguller arasi kisa nefes. Sayilar net ('thirty-five percent'). Liste ritmiyle calis.",
+        "Vaka sunumu ritmi — virgüller arası kısa nefes. Sayılar net ('thirty-five percent'). Liste ritmiyle çalış.",
     },
     {
       id: "ex.wpa38.2.10",
@@ -681,7 +681,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
       transcription_target:
         "Solid numbers. What about scope outside your own work?",
       tr_hint:
-        "Manager'in derinlesme sorusu. 'Scope outside your own work' = bireysel disinda kapsam. Bunu bekle.",
+        "Manager'ın derinleşme sorusu. 'Scope outside your own work' = bireysel dışında kapsam. Bunu bekle.",
     },
     {
       id: "ex.wpa38.2.11",
@@ -689,11 +689,11 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "Drove a measurable impact",
-      tr_translation: "Olculebilir bir etki yarattim",
+      tr_translation: "Ölçülebilir bir etki yarattım",
       example:
         "Drove a measurable impact this year — 35% drop in error rates and two engineers ramped.",
       example_tr:
-        "Bu yil olculebilir bir etki yarattim — hata oranlarinda %35 dusus ve iki engineer'i hizla yetistirme.",
+        "Bu yıl ölçülebilir bir etki yarattım — hata oranlarında %35 düşüş ve iki engineer'i hızla yetiştirme.",
     },
     {
       id: "ex.wpa38.2.12",
@@ -704,7 +704,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
       correct_sentence:
         "I drove the auth redesign, mentored two juniors, and shipped the API migration — operating at senior scope.",
       tr_explanation:
-        "'Helped' = pasif + olculemez. 'I am very dedicated worker' = oz-etiketleme, kanit yok. Doğru: 'Drove/led/owned' + spesifik sonuc + 'operating at X scope'. Aksiyon fiili + olcum sahiplik gosterir.",
+        "'Helped' = pasif + ölçülemez. 'I am very dedicated worker' = öz-etiketleme, kanıt yok. Doğru: 'Drove/led/owned' + spesifik sonuç + 'operating at X scope'. Aksiyon fiili + ölçüm sahiplik gösterir.",
     },
     {
       id: "ex.wpa38.2.sp1",
@@ -862,11 +862,11 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "I'm looking for X-Y range",
-      tr_translation: "X-Y arasi bir rakam icin gorusuyorum (muzakere acilisi)",
+      tr_translation: "X-Y arası bir rakam için görüşüyorum (müzakere açılışı)",
       example:
         "Based on market data, I'm looking for a 175-190K range for this role.",
       example_tr:
-        "Piyasa verilerine gore, bu rol icin 175-190K araligi icin gorusuyorum.",
+        "Piyasa verilerine göre, bu rol için 175-190K aralığı için görüşüyorum.",
     },
     {
       id: "ex.wpa38.3.2",
@@ -884,7 +884,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
         "Industry data has senior at 175-195 — curious what the band is for this role.",
       ],
       tr_hint:
-        "'Market rate' = piyasa rate'i. 'Band' = sirket icindeki maas araligi. Bunu sormak agresif degil — standart muzakere.",
+        "'Market rate' = piyasa rate'i. 'Band' = şirket içindeki maaş aralığı. Bunu sormak agresif değil — standart müzakere.",
     },
     {
       id: "ex.wpa38.3.3",
@@ -894,7 +894,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
       answer: "band",
       distractors: ["range", "level", "tier"],
       tr_hint:
-        "'Band' = sirket icindeki resmi maas araligi. HR'da bu kelime kullanilir.",
+        "'Band' = şirket içindeki resmi maaş aralığı. HR'da bu kelime kullanılır.",
     },
     {
       id: "ex.wpa38.3.4",
@@ -911,7 +911,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
         "range",
       ],
       correct_sentence: "Looking for a number in the 175-190 range",
-      tr_translation: "175-190 araliginda bir rakam icin bakiyorum.",
+      tr_translation: "175-190 aralığında bir rakam için bakıyorum.",
     },
     {
       id: "ex.wpa38.3.5",
@@ -921,7 +921,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
       correct_sentence:
         "Market data puts senior comp at 175-195 — I'm looking for the upper end of that range given my impact. What's the band for this level?",
       tr_explanation:
-        "Tek rakam = donmus pozisyon. Range + market kaynagi + 'what's the band?' sorusu = muzakereye yer acmis pozisyon. HR'a oynayacak alan birakirsin.",
+        "Tek rakam = donmuş pozisyon. Range + market kaynağı + 'what's the band?' sorusu = müzakereye yer açmış pozisyon. HR'a oynayacak alan bırakırsın.",
     },
     {
       id: "ex.wpa38.3.6",
@@ -943,7 +943,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
           ],
           model_answers: ["Market data shows 175-195 for senior — I'm looking at the upper end. What's the band for this level?"],
           hint_tr:
-            "Yapi: 'Market data shows 175-195 for senior — I'm looking at the upper end. What's the band for this level?'",
+            "Yapı: 'Market data shows 175-195 for senior — I'm looking at the upper end. What's the band for this level?'",
         },
         {
           speaker: "npc",
@@ -962,7 +962,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
           ],
           model_answers: ["Appreciate that — given the impact, could we land closer to 187? Open to equity/bonus too."],
           hint_tr:
-            "Karsi teklif: 'Appreciate that — given the impact, could we land closer to 187? Open to equity/bonus too.'",
+            "Karşı teklif: 'Appreciate that — given the impact, could we land closer to 187? Open to equity/bonus too.'",
         },
         {
           speaker: "npc",
@@ -1000,7 +1000,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tek rakam = take-or-leave. Range = muzakere. Market kaynagi = objektif zemin. Band sorusu = sirket icini gor.",
+            "Tek rakam = take-or-leave. Range = müzakere. Market kaynağı = objektif zemin. Band sorusu = şirket içini gör.",
         },
         {
           question: "'What's the band?' sorusu NEDEN onemli?",
@@ -1012,7 +1012,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Tum buyuk sirketlerde band'lar var. Sormak STANDART. Bilmeden muzakere = karanlikta atis.",
+            "Tüm büyük şirketlerde band'lar var. Sormak STANDART. Bilmeden müzakere = karanlıkta atış.",
         },
         {
           question: "'I need more money' kalibinin sorunu?",
@@ -1024,7 +1024,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sirket 'need'-e cevap vermez — 'market value + delivery' verisine cevap verir. Duygusal vs is dili farki.",
+            "Şirket 'need'-e cevap vermez — 'market value + delivery' verisine cevap verir. Duygusal vs iş dili farkı.",
         },
       ],
     },
@@ -1036,7 +1036,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
         "Market data puts senior comp at 175 to 195 — what's the band for this level?",
       ipa: "/ˈmɑːkɪt ˈdeɪtə pʊts ˈsiːnjər kɒmp æt wʌn ˈsɛvənti faɪv tə wʌn ˈnaɪnti faɪv — wɒts ðə bænd fər ðɪs ˈlɛvəl/",
       tr_hint:
-        "Sayilari net soyle — '175 to 195'. 'Band' = kisa, vurgulu. Cumle sonu yukseltme = soru hissi.",
+        "Sayıları net söyle — '175 to 195'. 'Band' = kısa, vurgulu. Cümle sonu yükseltme = soru hissi.",
     },
     {
       id: "ex.wpa38.3.9",
@@ -1046,7 +1046,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
         "Based on market data, I'm looking at the upper end of the range given my impact. Could we land closer to one-ninety?",
       voice_hint: "calm_us",
       tr_hint:
-        "Muzakere tonu — sakin + kararli, savunmaci degil. 'Upper end' birleşik, 'one-ninety' tek nefes.",
+        "Müzakere tonu — sakin + kararlı, savunmacı değil. 'Upper end' birleşik, 'one-ninety' tek nefes.",
     },
     {
       id: "ex.wpa38.3.10",
@@ -1057,7 +1057,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
       transcription_target:
         "The band for senior is 165 to 195. I can probably get you to 180.",
       tr_hint:
-        "Manager'in band acikladigi an. Sayilari yaz. 'Get you to 180' = seni 180'a tasiyabilirim.",
+        "Manager'ın band açıkladığı an. Sayıları yaz. 'Get you to 180' = seni 180'a taşıyabilirim.",
     },
     {
       id: "ex.wpa38.3.11",
@@ -1065,11 +1065,11 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "Where's the flex?",
-      tr_translation: "Esneklik nerede? (muzakere alani sorusu)",
+      tr_translation: "Esneklik nerede? (müzakere alanı sorusu)",
       example:
         "Appreciate the transparency — where's the flex? Equity, sign-on, or base?",
       example_tr:
-        "Seffafliga minnet — esneklik nerede? Equity mi, sign-on mu, baz mi?",
+        "Şeffaflığa minnet — esneklik nerede? Equity mi, sign-on mu, baz mı?",
     },
     {
       id: "ex.wpa38.3.12",
@@ -1080,7 +1080,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
       correct_sentence:
         "Appreciate the offer — based on market data, senior sits at 175 to 195. Is there room to land closer to the upper end?",
       tr_explanation:
-        "'Too low' + 'expected more money' = duygusal + kisisel. Doğru: 'Appreciate the offer' (saygi) + market data (objektif) + 'is there room?' (kapi aralik tutar). HR oynamak ister, kavga etmek istemez.",
+        "'Too low' + 'expected more money' = duygusal + kişisel. Doğru: 'Appreciate the offer' (saygı) + market data (objektif) + 'is there room?' (kapı aralık tutar). HR oynamak ister, kavga etmek istemez.",
     },
     {
       id: "ex.wpa38.3.sp1",
@@ -1238,11 +1238,11 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "What would I need to demonstrate?",
-      tr_translation: "Bana neyi gostermem gerektigini sor (no-yu plana cevir)",
+      tr_translation: "Bana neyi göstermem gerektiğini sor (no-yu plana çevir)",
       example:
         "Understood. What would I need to demonstrate over the next two quarters?",
       example_tr:
-        "Anladim. Onumuzdeki iki çeyrekte neyi gostermem gerekiyor?",
+        "Anladım. Önümüzdeki iki çeyrekte neyi göstermem gerekiyor?",
     },
     {
       id: "ex.wpa38.4.2",
@@ -1260,7 +1260,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
         "Taking that in — what does the path to Q3 look like? Want to write it up so we're aligned.",
       ],
       tr_hint:
-        "Iki anahtar: 'What would I need to demonstrate' (kanit sorusu) + 'let's document' (sozlu degil yazili). Yazili plan = ileride sahiplenecek olan.",
+        "İki anahtar: 'What would I need to demonstrate' (kanıt sorusu) + 'let's document' (sözlü değil yazılı). Yazılı plan = ileride sahiplenecek olan.",
     },
     {
       id: "ex.wpa38.4.3",
@@ -1270,7 +1270,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
       answer: "revisit",
       distractors: ["repeat", "remind", "revise"],
       tr_hint:
-        "'Revisit' = tekrar gozden gecirmek. Konusmaya tekrar acilis kalibi.",
+        "'Revisit' = tekrar gözden geçirmek. Konuşmaya tekrar açılış kalıbı.",
     },
     {
       id: "ex.wpa38.4.4",
@@ -1287,7 +1287,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
         "discussed",
       ],
       correct_sentence: "Want to document the plan we just discussed",
-      tr_translation: "Az once konustugumuz plani yazili olarak sahiplenmek istiyorum.",
+      tr_translation: "Az önce konuştuğumuz planı yazılı olarak sahiplenmek istiyorum.",
     },
     {
       id: "ex.wpa38.4.5",
@@ -1298,7 +1298,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
       correct_sentence:
         "Understood — what would I need to demonstrate to revisit this in Q3? Want to write down the criteria so we're both aligned.",
       tr_explanation:
-        "Tehdit = iliski yakar + sense of urgency yaratmaz, sadece guvensizlik. Olgun: 'no'-yu kabul + kriter sor + yazili plan = gercek ilerleme.",
+        "Tehdit = ilişki yakar + sense of urgency yaratmaz, sadece güvensizlik. Olgun: 'no'-yu kabul + kriter sor + yazılı plan = gerçek ilerleme.",
     },
     {
       id: "ex.wpa38.4.6",
@@ -1321,7 +1321,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
           ],
           model_answers: ["Understood — what would I need to demonstrate to revisit this in Q3? Want to document the criteria."],
           hint_tr:
-            "Olgun acilis: 'Understood — what would I need to demonstrate to revisit this in Q3? Want to document the criteria.'",
+            "Olgun açılış: 'Understood — what would I need to demonstrate to revisit this in Q3? Want to document the criteria.'",
         },
         {
           speaker: "npc",
@@ -1378,7 +1378,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "No = veri. Plani yoksa = belirsizlik = bir sonraki cycle'da yine no. Kriter sor = aydinlanma.",
+            "No = veri. Planı yoksa = belirsizlik = bir sonraki cycle'da yine no. Kriter sor = aydınlanma.",
         },
         {
           question: "Plani 'document' etmek NEDEN onemli?",
@@ -1390,7 +1390,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yazili kriter = iki taraf icin de adillik. Manager degisebilir, hafiza zayif, yazili plan referans noktasi.",
+            "Yazılı kriter = iki taraf için de adillik. Manager değişebilir, hafıza zayıf, yazılı plan referans noktası.",
         },
         {
           question: "Tehdit ('I'll leave if you don't') kalibinin sorunu?",
@@ -1402,7 +1402,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tehdit = tek atisli silah. Olgun yol: kriter al, plani uygula, gercek alternatif var ise sessizce hareket et.",
+            "Tehdit = tek atışlı silah. Olgun yol: kriter al, planı uygula, gerçek alternatif var ise sessizce hareket et.",
         },
       ],
     },
@@ -1414,7 +1414,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
         "What would I need to demonstrate to revisit this in Q3?",
       ipa: "/wɒt wʊd aɪ niːd tə ˈdɛmənstreɪt tə riːˈvɪzɪt ðɪs ɪn kjuː θriː/",
       tr_hint:
-        "Olgun cevap kalibi — duraksiz, sakin. 'Demonstrate' icinde 'dem' vurgulu. 'Q3' = 'kyu-three'.",
+        "Olgun cevap kalıbı — duraksız, sakin. 'Demonstrate' içinde 'dem' vurgulu. 'Q3' = 'kyu-three'.",
     },
     {
       id: "ex.wpa38.4.9",
@@ -1424,7 +1424,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
         "Understood — want to document the criteria so we're both aligned. I'll send a one-pager by Friday with milestones.",
       voice_hint: "professional_us",
       tr_hint:
-        "Hayri kabul edip plana ceviren ton — kararli ama defansif degil. 'Document the criteria' = anahtar ifade.",
+        "Hayrı kabul edip plana çeviren ton — kararlı ama defansif değil. 'Document the criteria' = anahtar ifade.",
     },
     {
       id: "ex.wpa38.4.10",
@@ -1435,7 +1435,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
       transcription_target:
         "Two things — drive a cross-team initiative end-to-end, and mentor at least one engineer through to ramp.",
       tr_hint:
-        "Manager'in iki kriterli cevabi. 'Cross-team initiative' = ekipler arasi proje. 'Through to ramp' = hizlanip yetisene kadar.",
+        "Manager'ın iki kriterli cevabı. 'Cross-team initiative' = ekipler arası proje. 'Through to ramp' = hızlanıp yetişene kadar.",
     },
     {
       id: "ex.wpa38.4.11",
@@ -1447,7 +1447,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
       example:
         "Could we put concrete criteria in writing so we both know the bar?",
       example_tr:
-        "Somut kriterleri yazili hale getirsek — ikimiz de cizgiyi bilelim?",
+        "Somut kriterleri yazılı hale getirsek — ikimiz de çizgiyi bilelim?",
     },
     {
       id: "ex.wpa38.4.12",
@@ -1458,7 +1458,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
       correct_sentence:
         "Understood — what would I need to demonstrate to revisit in Q3? Want to document the path so we're aligned.",
       tr_explanation:
-        "'I will wait' = pasif. 'Not fair' = duygusal. Doğru: kriter sor + zaman cizgisi belirle + yazili sahiplen. Olgun professional 'no'-yu calisma planına cevirir.",
+        "'I will wait' = pasif. 'Not fair' = duygusal. Doğru: kriter sor + zaman çizgisi belirle + yazılı sahiplen. Olgun professional 'no'-yu çalışma planına çevirir.",
     },
     {
       id: "ex.wpa38.4.sp1",
@@ -1616,11 +1616,11 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Put something on your radar",
-      tr_translation: "Bir konuyu manager'in radarina sokmak (yumusak acilis)",
+      tr_translation: "Bir konuyu manager'in radarına sokmak (yumuşak açılış)",
       example:
         "Wanted to put something on your radar — I'd like to talk about growth at some point soon.",
       example_tr:
-        "Bir konuyu radarina sokmak istedim — yakinda gelisim hakkinda konusmak isterim.",
+        "Bir konuyu radarına sokmak istedim — yakında gelişim hakkında konuşmak isterim.",
     },
     {
       id: "ex.wpa38.5.2",
@@ -1638,7 +1638,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
         "Heads up — I'd like to find time to talk growth in the next two weeks or so.",
       ],
       tr_hint:
-        "'Put on your radar' = onceden haber ver. 'Talk growth' = kestirme — 'about my growth' yerine direkt 'talk growth' samimi-profesyonel ton.",
+        "'Put on your radar' = önceden haber ver. 'Talk growth' = kestirme — 'about my growth' yerine direkt 'talk growth' samimi-profesyonel ton.",
     },
     {
       id: "ex.wpa38.5.3",
@@ -1648,7 +1648,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
       answer: "radar",
       distractors: ["screen", "list", "agenda"],
       tr_hint:
-        "'On your radar' = farkindalik alanina sokmak. Standart kurumsal idiom.",
+        "'On your radar' = farkındalık alanına sokmak. Standart kurumsal idiom.",
     },
     {
       id: "ex.wpa38.5.4",
@@ -1664,7 +1664,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
         "point",
       ],
       correct_sentence: "Could we talk growth at some point",
-      tr_translation: "Bir noktada gelisim hakkinda konusabilir miyiz?",
+      tr_translation: "Bir noktada gelişim hakkında konuşabilir miyiz?",
     },
     {
       id: "ex.wpa38.5.5",
@@ -1675,7 +1675,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
       correct_sentence:
         "Wanted to put something on your radar — could we talk growth in the next couple of weeks?",
       tr_explanation:
-        "'Boss' = US ofisinde kullanilmaz (sadece sirin baglamlarda). 'One important question about my salary' = ham + duygusal baski. Doğru: 'put on your radar' + 'growth' framing = yumusak + profesyonel.",
+        "'Boss' = US ofisinde kullanılmaz (sadece şirin bağlamlarda). 'One important question about my salary' = ham + duygusal baskı. Doğru: 'put on your radar' + 'growth' framing = yumuşak + profesyonel.",
     },
     {
       id: "ex.wpa38.5.6",
@@ -1697,7 +1697,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
           ],
           model_answers: ["One more thing — wanted to put it on your radar. Could we talk growth in the next couple of weeks? No need to dive in today."],
           hint_tr:
-            "Yapi: 'One more thing — wanted to put it on your radar. Could we talk growth in the next couple of weeks? No need to dive in today.'",
+            "Yapı: 'One more thing — wanted to put it on your radar. Could we talk growth in the next couple of weeks? No need to dive in today.'",
         },
         {
           speaker: "npc",
@@ -1716,7 +1716,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
           ],
           model_answers: ["Been thinking about scope and trajectory — feel like the work's been beyond my current level. Want to map out the path. Will send a doc ahead."],
           hint_tr:
-            "Genel yon ver, detay degil: 'Been thinking about scope and trajectory — feel like the work's been beyond my current level. Want to map out the path. Will send a doc ahead.'",
+            "Genel yön ver, detay değil: 'Been thinking about scope and trajectory — feel like the work's been beyond my current level. Want to map out the path. Will send a doc ahead.'",
         },
         {
           speaker: "npc",
@@ -1754,7 +1754,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Direkt 'maas' = manager hazirliksiz savunmaya gecer. 'Radar + growth' = ortak gundem hissi, takvim baglar.",
+            "Direkt 'maaş' = manager hazırlıksız savunmaya geçer. 'Radar + growth' = ortak gündem hissi, takvim bağlar.",
         },
         {
           question: "'Beyond my current scope' kalibi NE yapar?",
@@ -1766,7 +1766,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Beyond my scope' = veri. 'I deserve more' = duygu. Birincisi muzakere zemini, ikincisi savunma tetikleyici.",
+            "'Beyond my scope' = veri. 'I deserve more' = duygu. Birincisi müzakere zemini, ikincisi savunma tetikleyici.",
         },
         {
           question: "'No need to dive in today' kalibi NIYE eklenir?",
@@ -1778,7 +1778,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Manager 'hemen cevap ver' baskisindan kurtulunca acik dinler. Hazirliksiz cevap = 'let me think' = belirsizlik.",
+            "Manager 'hemen cevap ver' baskısından kurtulunca açık dinler. Hazırlıksız cevap = 'let me think' = belirsizlik.",
         },
       ],
     },
@@ -1790,7 +1790,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
         "Wanted to put something on your radar — could we talk growth?",
       ipa: "/ˈwɒntɪd tə pʊt ˈsʌmθɪŋ ɒn jər ˈreɪdɑːr — kʊd wi tɔːk ɡrəʊθ/",
       tr_hint:
-        "'Wanted to put' bagli akis — 'wonna-pud'. 'Radar' icinde 'r' yumusak Amerikan. 'Talk growth' direkt baglanir, 'th' net.",
+        "'Wanted to put' bağlı akış — 'wonna-pud'. 'Radar' içinde 'r' yumuşak Amerikan. 'Talk growth' direkt bağlanır, 'th' net.",
     },
     {
       id: "ex.wpa38.5.sp1",
@@ -1948,11 +1948,11 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Last quarter I shipped X, that drove Y",
-      tr_translation: "Gecen ceyrek X yayinladim, bu Y'ye yol acti (sonuc kalibi)",
+      tr_translation: "Geçen çeyrek X yayınladım, bu Y'ye yol açtı (sonuç kalıbı)",
       example:
         "Last quarter I shipped the payments redesign — that drove a 22% lift in conversion.",
       example_tr:
-        "Gecen ceyrek odeme redesign'i yayinladim — bu donusumde %22 artisa yol acti.",
+        "Geçen çeyrek ödeme redesign'i yayınladım — bu dönüşümde %22 artışa yol açtı.",
     },
     {
       id: "ex.wpa38.6.2",
@@ -1970,7 +1970,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
         "Stepped into two projects outside my scope last quarter — onboarding redesign drove +15% conversion, and I redesigned on-call.",
       ],
       tr_hint:
-        "'Beyond my current scope' = kapsam disi (anahtar terfi sinyali). 'Drove a X% lift' = somut sonuc. 'Owned' = sahiplenme, 'helped' degil.",
+        "'Beyond my current scope' = kapsam dışı (anahtar terfi sinyali). 'Drove a X% lift' = somut sonuç. 'Owned' = sahiplenme, 'helped' değil.",
     },
     {
       id: "ex.wpa38.6.3",
@@ -1980,7 +1980,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
       answer: "drove",
       distractors: ["made", "did", "had"],
       tr_hint:
-        "'Drove a lift' = artisa yol acti. Sonuc baglayan en guclu fiil. 'Made/did' zayif.",
+        "'Drove a lift' = artışa yol açtı. Sonuç bağlayan en güçlü fiil. 'Made/did' zayıf.",
     },
     {
       id: "ex.wpa38.6.4",
@@ -1996,7 +1996,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
         "quarters",
       ],
       correct_sentence: "Beyond my current scope for two quarters",
-      tr_translation: "Iki ceyrektir mevcut kapsamimin disinda.",
+      tr_translation: "İki çeyrektir mevcut kapsamımın dışında.",
     },
     {
       id: "ex.wpa38.6.5",
@@ -2007,7 +2007,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
       correct_sentence:
         "Last quarter I shipped two beyond-scope projects — the onboarding redesign drove a 15% conversion lift, and I led the on-call rebuild end-to-end.",
       tr_explanation:
-        "'Worked very hard' = caba, olcum yok. 'Helped team a lot' = belirsiz + 'helped' = pasif. 'Many things' = somutluk yok. Doğru: sayilabilir proje + sayisal sonuc + 'beyond scope' = terfi sinyali. Turk profesyonel tuzak: alçakgönüllülük abartisi 'helped'-e kacar — sahiplenme fiili lazim.",
+        "'Worked very hard' = çaba, ölçüm yok. 'Helped team a lot' = belirsiz + 'helped' = pasif. 'Many things' = somutluk yok. Doğru: sayılabilir proje + sayısal sonuç + 'beyond scope' = terfi sinyali. Türk profesyonel tuzak: alçakgönüllülük abartısı 'helped'-e kaçar — sahiplenme fiili lazım.",
     },
     {
       id: "ex.wpa38.6.6",
@@ -2029,7 +2029,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
           ],
           model_answers: ["Last quarter I shipped X — that drove Y%. Plus I owned Z, which was beyond my current scope."],
           hint_tr:
-            "Sablon: 'Last quarter I shipped X — that drove Y%. Plus I owned Z, which was beyond my current scope.'",
+            "Şablon: 'Last quarter I shipped X — that drove Y%. Plus I owned Z, which was beyond my current scope.'",
         },
         {
           speaker: "npc",
@@ -2046,7 +2046,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
           ],
           model_answers: ["The incident response rebuild — typically owned by tech lead, but no one was. I set the direction, unblocked three teams."],
           hint_tr:
-            "En guclu kart: 'The incident response rebuild — typically owned by tech lead, but no one was. I set the direction, unblocked three teams.'",
+            "En güçlü kart: 'The incident response rebuild — typically owned by tech lead, but no one was. I set the direction, unblocked three teams.'",
         },
         {
           speaker: "npc",
@@ -2083,7 +2083,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'I shipped X' (aksiyon + sahiplik) + 'that drove Y%' (olcum) = profesyonel sonuc cumlesi. Bu yapi kullanilmazsa manager 'sense' yapamaz.",
+            "'I shipped X' (aksiyon + sahiplik) + 'that drove Y%' (ölçüm) = profesyonel sonuç cümlesi. Bu yapı kullanılmazsa manager 'sense' yapamaz.",
         },
         {
           question: "'Beyond my current scope' kalibi NIYE altin?",
@@ -2095,7 +2095,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Beyond scope' = zaten next-level. Manager risk almaz, sirket 'realiteyi yazili hale getirir'. En guvenli terfi argumani.",
+            "'Beyond scope' = zaten next-level. Manager risk almaz, şirket 'realiteyi yazılı hale getirir'. En güvenli terfi argümanı.",
         },
         {
           question: "Turk alcakgonullulugu tuzaginda EN sik hata?",
@@ -2107,7 +2107,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Helped' = ekibe katki ama sahiplik yok. ABD/UK kulturu 'led/drove/owned' bekler. Alçakgönüllülük != gercegi gizlemek. Sahiplik = gercek.",
+            "'Helped' = ekibe katkı ama sahiplik yok. ABD/UK kültürü 'led/drove/owned' bekler. Alçakgönüllülük != gerçeği gizlemek. Sahiplik = gerçek.",
         },
       ],
     },
@@ -2119,7 +2119,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
         "Last quarter I shipped the redesign — that drove a 22% lift in conversion.",
       ipa: "/lɑːst ˈkwɔːtər aɪ ʃɪpt ðə riːˈdɪzaɪn — ðæt drəʊv ə ˈtwɛnti tuː pəˈsɛnt lɪft ɪn kənˈvɜːʒən/",
       tr_hint:
-        "Vaka cumlesi — kararli + olculu. 'Shipped' kisa stop. '22%' = 'twenty-two percent' net. 'Drove a lift' baglanir.",
+        "Vaka cümlesi — kararlı + ölçülü. 'Shipped' kısa stop. '22%' = 'twenty-two percent' net. 'Drove a lift' bağlanır.",
     },
     {
       id: "ex.wpa38.6.sp1",
@@ -2277,11 +2277,11 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "My target is X based on market and impact",
-      tr_translation: "Hedefim X — piyasa ve etkime dayali (anchor + gerekce)",
+      tr_translation: "Hedefim X — piyasa ve etkime dayalı (anchor + gerekçe)",
       example:
         "My target is 185, based on market data for senior and the impact I've delivered.",
       example_tr:
-        "Hedefim 185 — senior piyasa verisi ve teslim ettigim etkiye dayali.",
+        "Hedefim 185 — senior piyasa verisi ve teslim ettiğim etkiye dayalı.",
     },
     {
       id: "ex.wpa38.7.2",
@@ -2299,7 +2299,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
         "I'm aiming for 185 — that's grounded in market data (175-195) and the work I've delivered.",
       ],
       tr_hint:
-        "Yapi: 'My target is X — given market (range) and impact, upper end is fair.' Anchor (185) once, gerekce (market + impact) sonra. 'Feels fair' = muzakereye yer birakir.",
+        "Yapı: 'My target is X — given market (range) and impact, upper end is fair.' Anchor (185) önce, gerekçe (market + impact) sonra. 'Feels fair' = müzakereye yer bırakır.",
     },
     {
       id: "ex.wpa38.7.3",
@@ -2309,7 +2309,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
       answer: "target",
       distractors: ["wish", "dream", "need"],
       tr_hint:
-        "'Target' = profesyonel anchor kelimesi. 'Wish/dream' duygusal, 'need' kisisel — uçunde de sirket cevap vermez.",
+        "'Target' = profesyonel anchor kelimesi. 'Wish/dream' duygusal, 'need' kişisel — uçunde de şirket cevap vermez.",
     },
     {
       id: "ex.wpa38.7.4",
@@ -2328,7 +2328,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
         "185",
       ],
       correct_sentence: "Based on market and my impact my target is 185",
-      tr_translation: "Piyasa ve etkime dayali hedefim 185.",
+      tr_translation: "Piyasa ve etkime dayalı hedefim 185.",
     },
     {
       id: "ex.wpa38.7.5",
@@ -2339,7 +2339,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
       correct_sentence:
         "My target is 185 — given market rate at 175-195 and the impact I've delivered, that's where I'd like to land.",
       tr_explanation:
-        "'Maybe you can give me' = izin isteme tonu, anchor yok. 'Whatever you think is okay' = SEN karar ver demek = sirketin lowball'una zemin acmak. ABD/UK kulturu icin Turk profesyonelin en buyuk tuzagi. Doğru: somut sayi (anchor) + objektif gerekce + kararli ton.",
+        "'Maybe you can give me' = izin isteme tonu, anchor yok. 'Whatever you think is okay' = SEN karar ver demek = şirketin lowball'una zemin açmak. ABD/UK kültürü için Türk profesyonelin en büyük tuzağı. Doğru: somut sayı (anchor) + objektif gerekçe + kararlı ton.",
     },
     {
       id: "ex.wpa38.7.6",
@@ -2361,7 +2361,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
           ],
           model_answers: ["My target is 185, based on market rate at 175-195 and the impact I've delivered."],
           hint_tr:
-            "Yapi: 'My target is 185, based on market rate at 175-195 and the impact I've delivered.' Once sayi, sonra gerekce.",
+            "Yapı: 'My target is 185, based on market rate at 175-195 and the impact I've delivered.' Önce sayı, sonra gerekçe.",
         },
         {
           speaker: "npc",
@@ -2418,7 +2418,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Once sayi atmayan kaybeder. ABD/UK muzakere standardi: ilk anchor zemini belirler. Sayi vermezsen sirket lowball atar, sen tepkili pozisyona gecersin.",
+            "Önce sayı atmayan kaybeder. ABD/UK müzakere standardı: ilk anchor zemini belirler. Sayı vermezsen şirket lowball atar, sen tepkili pozisyona geçersin.",
         },
         {
           question: "Anchor'un gerekcesi NE olmali?",
@@ -2430,7 +2430,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
           ],
           correct_index: 2,
           tr_explanation:
-            "Sirket karari = is karari. Subjektif gerekce ('hard worker', 'need money') cevap almaz. Market data + delivered impact = HR'in dayanabilecegi zemin.",
+            "Şirket kararı = iş kararı. Subjektif gerekçe ('hard worker', 'need money') cevap almaz. Market data + delivered impact = HR'ın dayanabileceği zemin.",
         },
         {
           question: "Turk profesyonelin en buyuk anchor tuzagi?",
@@ -2442,7 +2442,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kultur farki: TR'de 'sen karar ver' kibardir. US/UK comp'ta 'sen karar ver' = pozisyonsuzluk = sirket kendi avantajina karar verir. Anchor = kibar degil pozisyonel zorunluluk.",
+            "Kültür farkı: TR'de 'sen karar ver' kibardır. US/UK comp'ta 'sen karar ver' = pozisyonsuzluk = şirket kendi avantajına karar verir. Anchor = kibar değil pozisyonel zorunluluk.",
         },
       ],
     },
@@ -2454,7 +2454,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
         "My target is 185, based on market rate and the impact I've delivered.",
       ipa: "/maɪ ˈtɑːɡɪt ɪz wʌn ˈeɪti faɪv, beɪst ɒn ˈmɑːkɪt reɪt ənd ði ˈɪmpækt aɪv dɪˈlɪvərd/",
       tr_hint:
-        "Anchor cumlesi — kararli, tereddutsuz. '185' = 'one-eighty-five' tek nefes. 'Based on' yumusak, virgul sonra durak yok. Soru tonu kesinlikle yok.",
+        "Anchor cümlesi — kararlı, tereddütsüz. '185' = 'one-eighty-five' tek nefes. 'Based on' yumuşak, virgül sonra durak yok. Soru tonu kesinlikle yok.",
     },
     {
       id: "ex.wpa38.7.sp1",
@@ -2612,11 +2612,11 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "I appreciate that — could we get closer to X?",
-      tr_translation: "Bunu takdir ediyorum — X'e daha yaklasabilir miyiz? (counter)",
+      tr_translation: "Bunu takdir ediyorum — X'e daha yaklaşabilir miyiz? (counter)",
       example:
         "I appreciate the offer at 170 — could we get closer to 185 given the impact?",
       example_tr:
-        "170 teklifini takdir ediyorum — etkim goz onunde olursa 185'e daha yaklasabilir miyiz?",
+        "170 teklifini takdir ediyorum — etkim göz önünde olursa 185'e daha yaklaşabilir miyiz?",
     },
     {
       id: "ex.wpa38.8.2",
@@ -2634,7 +2634,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
         "Thanks for the proposal — is there flex to get us to 185 instead of 175? Impact + market support that.",
       ],
       tr_hint:
-        "Yapi: '(saygi) + could we get closer to (anchor)? + gerekce.' 'Appreciate' = sert degil pozitif acilis. 'Closer to' = uzlasma sinyali, 'must have 185' degil.",
+        "Yapı: '(saygı) + could we get closer to (anchor)? + gerekçe.' 'Appreciate' = sert değil pozitif açılış. 'Closer to' = uzlaşma sinyali, 'must have 185' değil.",
     },
     {
       id: "ex.wpa38.8.3",
@@ -2644,7 +2644,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
       answer: "get",
       distractors: ["come", "go", "make"],
       tr_hint:
-        "'Get closer to X' = X'e daha yaklasmak. Counter-offer standart kalip. 'Come/go close' yanlis.",
+        "'Get closer to X' = X'e daha yaklaşmak. Counter-offer standart kalıp. 'Come/go close' yanlış.",
     },
     {
       id: "ex.wpa38.8.4",
@@ -2662,7 +2662,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
         "top",
       ],
       correct_sentence: "Is there room to push closer to the top",
-      tr_translation: "Ust sinira yaklasmak icin esneklik var mi?",
+      tr_translation: "Üst sınıra yaklaşmak için esneklik var mı?",
     },
     {
       id: "ex.wpa38.8.5",
@@ -2673,7 +2673,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
       correct_sentence:
         "I appreciate the 175 offer — could we get closer to 185? Given the impact and market rate, that's where the number lands for me.",
       tr_explanation:
-        "'Too low' = duygusal yargi. 'Cannot accept' = ultimatom = manager savunmaya. 'Minimum 185' = pazarlik degil dayatma. Doğru: 'appreciate' (saygi) + 'could we get closer' (yumusak iletim) + objektif gerekce. Aynı sonucu hedefler ama iliskiyi yakmadan.",
+        "'Too low' = duygusal yargı. 'Cannot accept' = ultimatom = manager savunmaya. 'Minimum 185' = pazarlık değil dayatma. Doğru: 'appreciate' (saygı) + 'could we get closer' (yumuşak iletim) + objektif gerekçe. Aynı sonucu hedefler ama ilişkiyi yakmadan.",
     },
     {
       id: "ex.wpa38.8.6",
@@ -2695,7 +2695,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
           ],
           model_answers: ["I appreciate the 175 — could we get closer to 185? Given the impact and market, that's where it lands. Open to equity/sign-on too."],
           hint_tr:
-            "Yapi: 'I appreciate the 175 — could we get closer to 185? Given the impact and market, that's where it lands. Open to equity/sign-on too.'",
+            "Yapı: 'I appreciate the 175 — could we get closer to 185? Given the impact and market, that's where it lands. Open to equity/sign-on too.'",
         },
         {
           speaker: "npc",
@@ -2714,7 +2714,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
           ],
           model_answers: ["Appreciate the flex — could we land at 181 plus the sign-on? Comfortable closing there."],
           hint_tr:
-            "Karsi karsi: 'Appreciate the flex — could we land at 181 plus the sign-on? Comfortable closing there.' VEYA 'Let me sit with it overnight.'",
+            "Karşı karşı: 'Appreciate the flex — could we land at 181 plus the sign-on? Comfortable closing there.' VEYA 'Let me sit with it overnight.'",
         },
         {
           speaker: "npc",
@@ -2752,7 +2752,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Appreciate' = duvar yikmaz, pozitif acilis. 'Could we get closer' = uzlasma kapisi acik. Sirket muzakere oynamak ister, kavga oynamak istemez.",
+            "'Appreciate' = duvar yıkmaz, pozitif açılış. 'Could we get closer' = uzlaşma kapısı açık. Şirket müzakere oynamak ister, kavga oynamak istemez.",
         },
         {
           question: "Manager pasit final teklif verdi (rakam + sign-on). Iki secenek?",
@@ -2764,7 +2764,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Let me sit with it overnight' = baski yapmaz, dusunme zamani alir, sirket donmez. Acele 'yes' = sirket bir daha pazarlik etmedigini ogrenir.",
+            "'Let me sit with it overnight' = baskı yapmaz, düşünme zamanı alır, şirket dönmez. Acele 'yes' = şirket bir daha pazarlık etmediğini öğrenir.",
         },
         {
           question: "'Where's the flex?' sorusu NE ozellik tasir?",
@@ -2776,7 +2776,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Buyuk sirketlerde base sik kilitlidir ama equity/sign-on/title oynayabilir. 'Where's the flex?' = gercek lego paçalari sorar.",
+            "Büyük şirketlerde base sık kilitlidir ama equity/sign-on/title oynayabilir. 'Where's the flex?' = gerçek lego paçaları sorar.",
         },
       ],
     },
@@ -2788,7 +2788,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
         "I appreciate that — could we get closer to 185?",
       ipa: "/aɪ əˈpriːʃieɪt ðæt — kʊd wi ɡɛt ˈkləʊsər tə wʌn ˈeɪti faɪv/",
       tr_hint:
-        "Counter-offer kalibi — sicak ton, talep degil davet. 'Appreciate' icinde 'priːʃ' kayma sesi. 'Closer to' bagli akis. '185' net.",
+        "Counter-offer kalıbı — sıcak ton, talep değil davet. 'Appreciate' içinde 'priːʃ' kayma sesi. 'Closer to' bağlı akış. '185' net.",
     },
     {
       id: "ex.wpa38.8.sp1",

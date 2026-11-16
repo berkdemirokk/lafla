@@ -238,7 +238,7 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
         "Okay, I have to ask — what's your most unimpressive talent?",
       ipa: "/ˈəʊkeɪ aɪ hæv tə ɑːsk — wɒts jɔː məʊst ʌnɪmˈprɛsɪv ˈtælənt/",
       tr_hint:
-        "Casual + meraklı ton. 'I have to ask' bağlı söyle. 'Unimpressive' icindeki 'un' kisa, 'press' vurgulu.",
+        "Casual + meraklı ton. 'I have to ask' bağlı söyle. 'Unimpressive' içindeki 'un' kısa, 'press' vurgulu.",
     },
     {
       id: "ex.f1.1.9",
@@ -248,7 +248,7 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
         "Random question — would you rather only do brunch or only do late dinners for the rest of your life?",
       voice_hint: "warm_us",
       tr_hint:
-        "Eglenceli opener tonlamasi — hafif yukseltme sonda. 'Would you rather' bağlı kalip, ritmiyle akici.",
+        "Eğlenceli opener tonlaması — hafif yükseltme sonda. 'Would you rather' bağlı kalıp, ritmiyle akıcı.",
     },
     {
       id: "ex.f1.1.10",
@@ -259,7 +259,7 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
       transcription_target:
         "Honestly more of a wing-it person — my friends say I'm allergic to plans.",
       tr_hint:
-        "Match cevabi. 'Allergic to plans' = plana alerjik (mizah). 'Wing-it' = casual ifade.",
+        "Match cevabı. 'Allergic to plans' = plana alerjik (mizah). 'Wing-it' = casual ifade.",
     },
     {
       id: "ex.f1.1.11",
@@ -271,7 +271,7 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
       example:
         "Quick question for you — coffee snob or 'whatever's hot' kind of person?",
       example_tr:
-        "Sana hızlı bir soru — kahve uzmani misin yoksa 'ne sicaksa olur' tipinde misin?",
+        "Sana hızlı bir soru — kahve uzmanı misin yoksa 'ne sıcaksa olur' tipinde misin?",
     },
     {
       id: "ex.f1.1.12",
@@ -313,7 +313,7 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
         "(what'?s|tell me) the (weirdest|best) thing",
       ],
       tr_hint:
-        "NPC 'what's up?' demis. Generic 'good you?' verme — soruyla cevapla, sohbet aç. 'Quick question — are you a planner or wing-it person?' tipi.",
+        "NPC 'what's up?' demiş. Generic 'good you?' verme — soruyla cevapla, sohbet aç. 'Quick question — are you a planner or wing-it person?' tipi.",
       ideal_answer: "Quick question — are you more of a planner or 'wing it' person?",
     },
     {
@@ -329,7 +329,7 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "NPC merakli soru sordu. 3 saniye düşün, sonra spesifik cevap ver. 'Probably a screenshot of...' yapısı en doğal. Türk: 'I don't know' deme — yaratıcı bir tahmin at.",
+        "NPC meraklı soru sordu. 3 saniye düşün, sonra spesifik cevap ver. 'Probably a screenshot of...' yapısı en doğal. Türk: 'I don't know' deme — yaratıcı bir tahmin at.",
       ideal_response: "Honestly, probably a screenshot of a recipe I'll never make.",
     },
     {
@@ -789,7 +789,7 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
       transcription_target:
         "Definitely Sushi Zen in Brooklyn — go for the omakase if you ever try it.",
       tr_hint:
-        "Match'in oneri cevabi. 'Omakase' = sef onerisi menu (Japonca). 'Go for' = denemekten cekinme.",
+        "Match'in öneri cevabı. 'Omakase' = şef önerisi menü (Japonca). 'Go for' = denemekten çekinme.",
     },
     {
       id: "ex.f1.2.11",
@@ -797,11 +797,11 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Caught the X reference in your bio",
-      tr_translation: "Bio'ndaki X referansini yakaladim",
+      tr_translation: "Bio'ndaki X referansını yakaladım",
       example:
         "Caught the Wes Anderson reference in your bio — Tenenbaums or Grand Budapest?",
       example_tr:
-        "Bio'ndaki Wes Anderson referansini yakaladim — Tenenbaums mi Grand Budapest mi?",
+        "Bio'ndaki Wes Anderson referansını yakaladım — Tenenbaums mi Grand Budapest mi?",
     },
     {
       id: "ex.f1.2.12",
@@ -812,7 +812,7 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
       correct_sentence:
         "Your bio mentions climbing — what's the best route you've done lately?",
       tr_explanation:
-        "Vucut yorumu + 'go to gym' = transactional, modern apps'te red flag. Doğru: bio'da yazilana referans + spesifik soru. Insan olarak ilgili, beden olarak degil.",
+        "Vücut yorumu + 'go to gym' = transactional, modern apps'te red flag. Doğru: bio'da yazılana referans + spesifik soru. İnsan olarak ilgili, beden olarak değil.",
     },
     {
       id: "ex.f1.2.sp1",
@@ -1281,7 +1281,7 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
         "I'm aware 'hi' is technically an opener, but you deserve better.",
       ipa: "/aɪm əˈweə haɪ ɪz ˈtɛknɪkli ən ˈəʊpənə bʌt juː dɪˈzɜːv ˈbɛtə/",
       tr_hint:
-        "Kendinle dalga geçen ton — kuru komedi. 'Technically' icindeki 'tek' net. Sonda 'better' yumuşak.",
+        "Kendinle dalga geçen ton — kuru komedi. 'Technically' içindeki 'tek' net. Sonda 'better' yumuşak.",
     },
     {
       id: "ex.f1.3.9",
@@ -1291,7 +1291,7 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
         "Disclaimer up front — my opening game is mid at best, but I promise I get more interesting after the first message.",
       voice_hint: "warm_us",
       tr_hint:
-        "Self-aware tonu — utangac degil, oz farkindali. 'Mid at best' = ortalama (Gen-Z slang). Akiciligi koru.",
+        "Self-aware tonu — utangaç değil, öz farkındalı. 'Mid at best' = ortalama (Gen-Z slang). Akıcılığı koru.",
     },
     {
       id: "ex.f1.3.10",
@@ -1302,7 +1302,7 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
       transcription_target:
         "Refreshing honesty — okay, ask me something then. Make it good.",
       tr_hint:
-        "Match'in self-aware'a olumlu cevabi. 'Refreshing' = ferahlatici. 'Make it good' = iyi bir tane sor (oyuncak).",
+        "Match'in self-aware'a olumlu cevabı. 'Refreshing' = ferahlatıcı. 'Make it good' = iyi bir tane sor (oyuncak).",
     },
     {
       id: "ex.f1.3.11",
@@ -1314,7 +1314,7 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
       example:
         "Fair warning — my opening game is mid at best, but the actual conversation is decent.",
       example_tr:
-        "Pesinen uyari — aciliş atişlarim orta seviye, ama asıl sohbet fena değil.",
+        "Peşinen uyarı — aciliş atışlarım orta seviye, ama asıl sohbet fena değil.",
     },
     {
       id: "ex.f1.3.12",
@@ -1792,7 +1792,7 @@ export const flirtOpenerLesson_1_4: BundledLesson = {
       transcription_target:
         "Wow okay, smooth opener — I respect it. What kind of vibe do my photos give you?",
       tr_hint:
-        "Match'in olumlu cevabi. 'Smooth' = pürüzsüz, ozgüvenli. 'I respect it' = oyunu kabul etme.",
+        "Match'in olumlu cevabı. 'Smooth' = pürüzsüz, özgüvenli. 'I respect it' = oyunu kabul etme.",
     },
     {
       id: "ex.f1.4.11",
@@ -1815,7 +1815,7 @@ export const flirtOpenerLesson_1_4: BundledLesson = {
       correct_sentence:
         "Your photos are giving 'spontaneous Sunday adventures' energy — what's your actual ideal Sunday?",
       tr_explanation:
-        "'DTF' + 'send photos to DMs' = direkt transactional = modern apps'te otomatik unmatch. Doğru: enerji/vibe yorumu + spesifik soru. Olgun flirt fiziksel degil, kisilik üzerine.",
+        "'DTF' + 'send photos to DMs' = direkt transactional = modern apps'te otomatik unmatch. Doğru: enerji/vibe yorumu + spesifik soru. Olgun flirt fiziksel değil, kişilik üzerine.",
     },
     {
       id: "ex.f1.4.sp1",
@@ -2704,7 +2704,7 @@ export const flirtOpenerLesson_1_6: BundledLesson = {
         "I see you're into climbing — best route you've done?",
       ipa: "/aɪ siː jɔː ˈɪntə ˈklaɪmɪŋ — bɛst ruːt juːv dʌn/",
       tr_hint:
-        "Casual + meraklı. 'You're into' bağlı söyle. 'Best route you've done' tek nefes, sonu yukseltici (soru).",
+        "Casual + meraklı. 'You're into' bağlı söyle. 'Best route you've done' tek nefes, sonu yükseltici (soru).",
     },
     {
       id: "ex.f1.6.sp1",
@@ -3151,7 +3151,7 @@ export const flirtOpenerLesson_1_7: BundledLesson = {
         "Empty bio — let me draft one for you: 'Loves dogs and carbs.' Close?",
       ipa: "/ˈɛmpti ˈbaɪəʊ — lɛt miː drɑːft wʌn fɔː juː — lʌvz dɒɡz ænd kɑːbz — kləʊs/",
       tr_hint:
-        "Oyuncu, davetkar ton. 'Let me draft' bağlı, 'one for you' yumuşak. 'Close?' sonda yukseltici, kucuk gulus.",
+        "Oyuncu, davetkar ton. 'Let me draft' bağlı, 'one for you' yumuşak. 'Close?' sonda yükseltici, küçük gülüş.",
     },
     {
       id: "ex.f1.7.sp1",

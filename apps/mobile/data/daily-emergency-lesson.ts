@@ -169,7 +169,7 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
         "Hi 911 — friend out cold at 245 Park, breathing OK.",
       ],
       tr_hint:
-        "911 cagrisi: ADRES + DURUM + BREATHING durumu hayat kurtarir.",
+        "911 çağrısı: ADRES + DURUM + BREATHING durumu hayat kurtarır.",
     },
     {
       id: "ex.de22.1.3",
@@ -226,7 +226,7 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
           ],
           model_answers: ["911, emergency at 245 Park Ave — friend collapsed, breathing but unconscious."],
           hint_tr:
-            "Hizli: '911, emergency at 245 Park Ave — friend collapsed, breathing but unconscious.'",
+            "Hızlı: '911, emergency at 245 Park Ave — friend collapsed, breathing but unconscious.'",
         },
         {
           speaker: "npc",
@@ -269,7 +269,7 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cagri kesilebilir. Adres = en oncelikli. Dispatcher 'GPS gormüyor olabilir.",
+            "Çağrı kesilebilir. Adres = en öncelikli. Dispatcher 'GPS görmüyor olabilir.",
         },
         {
           question: "'Stay on the line' niye onemli?",
@@ -281,7 +281,7 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "CPR, ilkyardim, sakinlestirme talimatlari hatta calisir.",
+            "CPR, ilkyardım, sakinleştirme talimatları hatta çalışır.",
         },
         {
           question: "'Don't move him' niye? (klasik talimat)",
@@ -293,7 +293,7 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Dusus, kaza = bilinmeyen ic hasar. Paramedik gelene kadar SABIT.",
+            "Düşüş, kaza = bilinmeyen iç hasar. Paramedik gelene kadar SABİT.",
         },
       ],
     },
@@ -637,7 +637,7 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
         "About an hour ago — phone snatched on the metro. Filing a report.",
       ],
       tr_hint:
-        "'File a police report' = polis raporu olustur. Insurance icin kanit, hirsizlik sonrasi sart.",
+        "'File a police report' = polis raporu oluştur. Insurance için kanıt, hırsızlık sonrası şart.",
     },
     {
       id: "ex.de22.2.3",
@@ -647,7 +647,7 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
       answer: "case",
       distractors: ["ticket", "claim", "id"],
       tr_hint:
-        "'Case number' = dava numarasi. Polis raporu = insurance claim icin gerek.",
+        "'Case number' = dava numarası. Polis raporu = insurance claim için gerek.",
     },
     {
       id: "ex.de22.2.4",
@@ -712,7 +712,7 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
           ],
           model_answers: ["Didn't catch them — too crowded. Need case number for insurance."],
           hint_tr:
-            "Detay + ihtiyac: 'Didn't catch them — too crowded. Need case number for insurance.'",
+            "Detay + ihtiyaç: 'Didn't catch them — too crowded. Need case number for insurance.'",
         },
         {
           speaker: "npc",
@@ -748,7 +748,7 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "AppleCare, ev sigortasi, kredit karti = case number ister. Bu olmadan claim red.",
+            "AppleCare, ev sigortası, kredit kartı = case number ister. Bu olmadan claim red.",
         },
         {
           question: "Description vermek niye onemli?",
@@ -760,7 +760,7 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cogu hirsiz birden cok kez yapar. Birikim halinde yakalama olasiligi.",
+            "Çoğu hırsız birden çok kez yapar. Birikim halinde yakalama olasılığı.",
         },
       ],
     },
@@ -1104,7 +1104,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
         "999 — Oxford / Regent corner, Apple shop. Man in cardiac arrest.",
       ],
       tr_hint:
-        "Konum kalibi: 'corner of X and Y' + 'in front of LANDMARK'. Landmark = dispatcher'in haritada bulmasi kolay.",
+        "Konum kalıbı: 'corner of X and Y' + 'in front of LANDMARK'. Landmark = dispatcher'in haritada bulması kolay.",
     },
     {
       id: "ex.de22.3.3",
@@ -1114,7 +1114,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
       answer: "outside",
       distractors: ["inside", "across", "between"],
       tr_hint:
-        "'Right outside' = tam disinda. Landmark + 'outside/across from' = en hizli konum tarifi.",
+        "'Right outside' = tam dışında. Landmark + 'outside/across from' = en hızlı konum tarifi.",
     },
     {
       id: "ex.de22.3.4",
@@ -1180,7 +1180,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
           ],
           model_answers: ["Near the bus stop, the sign says 14th Street."],
           hint_tr:
-            "Kose net degilse landmark ver: 'Near the bus stop, the sign says 14th Street.'",
+            "Köşe net değilse landmark ver: 'Near the bus stop, the sign says 14th Street.'",
         },
         {
           speaker: "npc",
@@ -1204,7 +1204,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turkiye 112'ye alisik. ABD = 911, UK = 999. 112 her ikisinde yedek olarak calisir.",
+            "Türkiye 112'ye alışık. ABD = 911, UK = 999. 112 her ikisinde yedek olarak çalışır.",
         },
         {
           question: "Stres altinda konum vermenin EN iyi kalıbı?",
@@ -1216,7 +1216,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kose + landmark = dispatcher haritada saniyede bulur. GPS yoksa hayat kurtaran detay.",
+            "Köşe + landmark = dispatcher haritada saniyede bulur. GPS yoksa hayat kurtaran detay.",
         },
         {
           question: "'Wave them down' ne demek?",
@@ -1228,7 +1228,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sokakta paramedikler dogru adresi bulsa bile sen gorunmelisin. El salla = saniyeler kurtarir.",
+            "Sokakta paramedikler doğru adresi bulsa bile sen görünmelisin. El salla = saniyeler kurtarır.",
         },
       ],
     },
@@ -1239,7 +1239,7 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
       phrase: "I'm at the corner of 5th and Main.",
       ipa: "/aɪm ət ðə ˈkɔːrnər əv fɪfθ ənd meɪn/",
       tr_hint:
-        "Stres altinda yavas + net. 'Corner' = 'KOR-nır'. '5th' = 'fifθ' (th = dil ısırma). Sayilari net soyle.",
+        "Stres altında yavaş + net. 'Corner' = 'KOR-nır'. '5th' = 'fifθ' (th = dil ısırma). Sayıları net söyle.",
     },
     {
       id: "ex.de22.3.sp1",
@@ -1545,7 +1545,7 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
       answer: "seven",
       distractors: ["lot", "big", "much"],
       tr_hint:
-        "ER standart: '1 to 10 pain scale'. Sayi soyle ('seven' veya '7'). 'Big/much' = kabul edilmez.",
+        "ER standart: '1 to 10 pain scale'. Sayı söyle ('seven' veya '7'). 'Big/much' = kabul edilmez.",
     },
     {
       id: "ex.de22.4.4",
@@ -1609,7 +1609,7 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
           ],
           model_answers: ["About a seven. No allergies, no medications."],
           hint_tr:
-            "Sayi + alerji + ilac. 'About a seven. No allergies, no medications.' Net + kisa.",
+            "Sayı + alerji + ilaç. 'About a seven. No allergies, no medications.' Net + kısa.",
         },
         {
           speaker: "npc",
@@ -1633,7 +1633,7 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Triaj standart: WHAT + WHERE + WHEN + HOW BAD. Bu 4 = oncelik sirasini belirler.",
+            "Triaj standart: WHAT + WHERE + WHEN + HOW BAD. Bu 4 = öncelik sırasını belirler.",
         },
         {
           question: "'Vitals' ne demek?",
@@ -1645,7 +1645,7 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "BP (blood pressure), pulse, temp, O2 = vitals. ER'da ilk olcum bunlar.",
+            "BP (blood pressure), pulse, temp, O2 = vitals. ER'da ilk ölçüm bunlar.",
         },
         {
           question: "'On a scale of 1 to 10' — niye SAYI istenir?",
@@ -1657,7 +1657,7 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Cok agir' farkli kisilere farkli gelir. Sayi = standart. 7+ = acil tedavi.",
+            "'Çok ağır' farklı kişilere farklı gelir. Sayı = standart. 7+ = acil tedavi.",
         },
       ],
     },
@@ -1965,7 +1965,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
         "I've lost my passport. Turkish national here on a visit. How can I get a temporary travel paper?",
       ],
       tr_hint:
-        "Konsolosluk kalibi: KIMLIK ('Turkish citizen visiting X') + DURUM + 'emergency travel document'. Bu tam terim.",
+        "Konsolosluk kalıbı: KİMLİK ('Turkish citizen visiting X') + DURUM + 'emergency travel document'. Bu tam terim.",
     },
     {
       id: "ex.de22.5.3",
@@ -1975,7 +1975,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
       answer: "replacement",
       distractors: ["change", "renew", "exchange"],
       tr_hint:
-        "'Replacement' = yenisini al (kayip durumunda). 'Renew' = suresi gecmis. Kayip icin 'replacement' dogru.",
+        "'Replacement' = yenisini al (kayıp durumunda). 'Renew' = süresi geçmiş. Kayıp için 'replacement' doğru.",
     },
     {
       id: "ex.de22.5.4",
@@ -2000,7 +2000,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
       correct_sentence:
         "I lost my passport — I'm a Turkish citizen visiting the UK. Could you walk me through the replacement process?",
       tr_explanation:
-        "'Fastly' yanlış kelime (= quickly). Konsolosluk tonu kibar olmali: 'Could you walk me through' = sureci anlatir misiniz. 'I am Turkish' yerine 'Turkish citizen' resmi.",
+        "'Fastly' yanlış kelime (= quickly). Konsolosluk tonu kibar olmalı: 'Could you walk me through' = süreci anlatır misiniz. 'I am Turkish' yerine 'Turkish citizen' resmi.",
     },
     {
       id: "ex.de22.5.6",
@@ -2022,7 +2022,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
           ],
           model_answers: ["Hi, I lost my passport. I'm a Turkish citizen visiting London. How do I get an emergency travel document?"],
           hint_tr:
-            "Sira: 'Hi, I lost my passport. I'm a Turkish citizen visiting London. How do I get an emergency travel document?'",
+            "Sıra: 'Hi, I lost my passport. I'm a Turkish citizen visiting London. How do I get an emergency travel document?'",
         },
         {
           speaker: "npc",
@@ -2065,7 +2065,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Konsolosluk replacement icin 'case number' ister. Polis raporu = ilk adim.",
+            "Konsolosluk replacement için 'case number' ister. Polis raporu = ilk adım.",
         },
         {
           question: "'Emergency travel document' nedir?",
@@ -2077,7 +2077,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Acil seyahat icin (ucak kalkmadan once) konsolosluk verir. Tek yon, sinirli kullanim.",
+            "Acil seyahat için (uçak kalkmadan önce) konsolosluk verir. Tek yön, sınırlı kullanım.",
         },
         {
           question: "Konsoloslukta kibar kalip neden onemli?",
@@ -2089,7 +2089,7 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Konsoloslukta resmi ton beklenir. Kibar + net = islem hızlı.",
+            "Konsoloslukta resmi ton beklenir. Kibar + net = işlem hızlı.",
         },
       ],
     },
@@ -2396,7 +2396,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
         "My bag's gone — stolen at subway, twenty minutes ago. Wallet, passport, phone inside. Could we file a report?",
       ],
       tr_hint:
-        "Polis kalibi: NE + NEREDE + NE ZAMAN + ICERIK + 'file a report?' (4 bilgi + istek).",
+        "Polis kalıbı: NE + NEREDE + NE ZAMAN + İÇERİK + 'file a report?' (4 bilgi + istek).",
     },
     {
       id: "ex.de22.6.3",
@@ -2406,7 +2406,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
       answer: "file",
       distractors: ["do", "make", "open"],
       tr_hint:
-        "'File a report' sabit kalip = rapor olustur. 'Make a report' yanlis. Sadece 'file'.",
+        "'File a report' sabit kalıp = rapor oluştur. 'Make a report' yanlış. Sadece 'file'.",
     },
     {
       id: "ex.de22.6.4",
@@ -2430,7 +2430,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
       correct_sentence:
         "Someone stole my bag — I'd like to file a report.",
       tr_explanation:
-        "'Stole me my bag' fazla — 'stole my bag' yeter. 'Make report' yerine 'file a report' (sabit kalip). 'I want' yerine 'I'd like' kibar polis tonu.",
+        "'Stole me my bag' fazla — 'stole my bag' yeter. 'Make report' yerine 'file a report' (sabit kalıp). 'I want' yerine 'I'd like' kibar polis tonu.",
     },
     {
       id: "ex.de22.6.6",
@@ -2470,7 +2470,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
           ],
           model_answers: ["Wallet, passport, phone, about 50 pounds cash. Too crowded — no clear witnesses."],
           hint_tr:
-            "Icerik + sahit: 'Wallet, passport, phone, about 50 pounds cash. Too crowded — no clear witnesses.'",
+            "İçerik + şahit: 'Wallet, passport, phone, about 50 pounds cash. Too crowded — no clear witnesses.'",
         },
         {
           speaker: "npc",
@@ -2494,7 +2494,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Polis bunlari standart sirayla yazar. Bu 4 + case number = insurance icin yeterli.",
+            "Polis bunları standart sırayla yazar. Bu 4 + case number = insurance için yeterli.",
         },
         {
           question: "'File a report' niye 'make a report' degil?",
@@ -2506,7 +2506,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Ingilizce'de bazi fiiller sabit. 'File a report / claim / complaint' — hepsi 'file'.",
+            "İngilizce'de bazı fiiller sabit. 'File a report / claim / complaint' — hepsi 'file'.",
         },
         {
           question: "Pasaport da calindiysa raporda mutlaka belirt — NIYE?",
@@ -2518,7 +2518,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Calintigi pasaport baska birinin eline gecerse kimlik suistimali. Polis raporu = konsolosluk + finansal koruma.",
+            "Çalıntığı pasaport başka birinin eline geçerse kimlik suistimali. Polis raporu = konsolosluk + finansal koruma.",
         },
       ],
     },
@@ -2529,7 +2529,7 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
       phrase: "Could I file a report? My bag was stolen.",
       ipa: "/kʊd aɪ faɪl ə rɪˈpɔːrt maɪ bæɡ wəz ˈstoʊlən/",
       tr_hint:
-        "'File' = 'fayl'. 'Stolen' = 'STOU-lın' (vurgu ilk hece). Polis tonu sakin + net. Soruyu yukselt sonu.",
+        "'File' = 'fayl'. 'Stolen' = 'STOU-lın' (vurgu ilk hece). Polis tonu sakin + net. Soruyu yükselt sonu.",
     },
     {
       id: "ex.de22.6.sp1",

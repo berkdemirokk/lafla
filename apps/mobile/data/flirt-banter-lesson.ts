@@ -239,7 +239,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
         "Okay, now you have to explain that — I need the full story.",
       ipa: "/ˈəʊkeɪ naʊ juː hæv tʊ ɪkˈspleɪn ðæt — aɪ niːd ðə fʊl ˈstɔːri/",
       tr_hint:
-        "Meraklı tonu — hafif yukseltme sonda. 'Have to explain' bağlı vurgu. 'Full story' kararli.",
+        "Meraklı tonu — hafif yükseltme sonda. 'Have to explain' bağlı vurgu. 'Full story' kararlı.",
     },
     {
       id: "ex.fb2.1.9",
@@ -249,7 +249,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
         "Okay that's a sentence I didn't expect today — I'm gonna need more context immediately.",
       voice_hint: "warm_us",
       tr_hint:
-        "Hafif sürpriz + komedi tonu. 'Wasn't expecting' kalip. 'Immediately' = abartili komik vurgu.",
+        "Hafif sürpriz + komedi tonu. 'Wasn't expecting' kalıp. 'Immediately' = abartılı komik vurgu.",
     },
     {
       id: "ex.fb2.1.10",
@@ -260,7 +260,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       transcription_target:
         "It's a long story but basically my college roommate had three ferrets and we got bored.",
       tr_hint:
-        "Hikaye acan match cevabi. 'College roommate' = universite oda arkadasi. 'Got bored' = sikildik.",
+        "Hikaye açan match cevabı. 'College roommate' = üniversite oda arkadaşı. 'Got bored' = sıkıldık.",
     },
     {
       id: "ex.fb2.1.11",
@@ -272,7 +272,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       example:
         "Wait, you build telescopes for fun? Okay, this just got a lot more interesting.",
       example_tr:
-        "Dur, eglence icin teleskop mu yapiyorsun? Tamam, bu sohbet birden daha ilginç hale geldi.",
+        "Dur, eğlence için teleskop mu yapıyorsun? Tamam, bu sohbet birden daha ilginç hale geldi.",
     },
     {
       id: "ex.fb2.1.12",
@@ -282,7 +282,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       correct_sentence:
         "Okay now you have to explain that — and 'fun' is a vague follow-up, give me the weird details.",
       tr_explanation:
-        "'Ok. Then what do you do for fun anyway?' = momentum öldürür + temadan kacar. Doğru: kisinin actigi spesifik konuyu kazi. Generic 'what do you do for fun' = small talk geri sayım.",
+        "'Ok. Then what do you do for fun anyway?' = momentum öldürür + temadan kaçar. Doğru: kişinin açtığı spesifik konuyu kazı. Generic 'what do you do for fun' = small talk geri sayım.",
     },
     {
       id: "ex.flirtbanter1.sp1",
@@ -656,7 +656,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
         "Bold of you to assume that's the only red flag I'm working with.",
       ipa: "/bəʊld əv juː tʊ əˈsjuːm ðæts ði ˈəʊnli rɛd flæɡ aɪm ˈwɜːkɪŋ wɪð/",
       tr_hint:
-        "Banter tonu — kuru komedi, savunmaci degil. 'Bold of you' bağlı kalip, 'red flag' net.",
+        "Banter tonu — kuru komedi, savunmacı değil. 'Bold of you' bağlı kalıp, 'red flag' net.",
     },
     {
       id: "ex.fb2.2.9",
@@ -666,7 +666,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
         "Wow, coming out swinging today — okay, give me your worst, I can take it.",
       voice_hint: "warm_us",
       tr_hint:
-        "Banter kabul tonu — eglenceli, sicak. 'Coming out swinging' = saldırırcasına basla idiom. Akıcı söyle.",
+        "Banter kabul tonu — eğlenceli, sıcak. 'Coming out swinging' = saldırırcasına başla idiom. Akıcı söyle.",
     },
     {
       id: "ex.fb2.2.10",
@@ -677,7 +677,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       transcription_target:
         "My red flag is I listen to podcasts on 1.5x speed — like even music.",
       tr_hint:
-        "Match'in self-mocking red flag itirafi. '1.5x speed' = bir buçuk hız. Sayi + 'x' = carpan.",
+        "Match'in self-mocking red flag itirafı. '1.5x speed' = bir buçuk hız. Sayı + 'x' = çarpan.",
     },
     {
       id: "ex.fb2.2.11",
@@ -685,11 +685,11 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Coming for me already?",
-      tr_translation: "Bana saldiriya geçtin bile mi?",
+      tr_translation: "Bana saldırıya geçtin bile mi?",
       example:
         "Three messages in and you're coming for me already? Bold strategy.",
       example_tr:
-        "Üç mesaj oldu ve bana saldiriya geçtin bile mi? Cesur strateji.",
+        "Üç mesaj oldu ve bana saldırıya geçtin bile mi? Cesur strateji.",
     },
     {
       id: "ex.fb2.2.12",
@@ -700,7 +700,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       correct_sentence:
         "Bold of you to assume that's the worst thing about me — I have a whole list.",
       tr_explanation:
-        "'Why you say bad' savunmaci + bozuk yapı. 'I am very good person' = defansif oz-savunma, banter'i kırar. Doğru: espriyle kabul + ust yap = oyun devam eder.",
+        "'Why you say bad' savunmacı + bozuk yapı. 'I am very good person' = defansif öz-savunma, banter'i kırar. Doğru: espriyle kabul + üst yap = oyun devam eder.",
     },
     {
       id: "ex.flirtbanter2.sp1",
@@ -1068,7 +1068,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
         "Random one — what's something you used to believe but completely changed your mind on?",
       voice_hint: "warm_us",
       tr_hint:
-        "Derin soru acilis — meraklı, juge etmeden. 'Changed your mind on' bağlı söyle, sonda hafif yukseltme.",
+        "Derin soru açılış — meraklı, juge etmeden. 'Changed your mind on' bağlı söyle, sonda hafif yükseltme.",
     },
     {
       id: "ex.fb2.3.10",
@@ -1079,7 +1079,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
       transcription_target:
         "Honestly, my most irrational fear is butterflies — can't even explain why.",
       tr_hint:
-        "Match'in samimi cevabi. 'Irrational fear' = mantiksiz korku. 'Can't even explain why' = kendim bile aciklayamiyorum.",
+        "Match'in samimi cevabı. 'Irrational fear' = mantıksız korku. 'Can't even explain why' = kendim bile açıklayamıyorum.",
     },
     {
       id: "ex.fb2.3.11",
@@ -1101,7 +1101,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
       correct_sentence:
         "Can I ask something a little personal? Totally fine to skip.",
       tr_explanation:
-        "'Tell me all your trauma' = sınır asmak + therapist rolu. Modern apps'te red flag. Doğru: izin iste + çıkış kapısı. 'Totally fine to skip' güven yaratır = aslında daha çok paylaşır.",
+        "'Tell me all your trauma' = sınır aşmak + therapist rolü. Modern apps'te red flag. Doğru: izin iste + çıkış kapısı. 'Totally fine to skip' güven yaratır = aslında daha çok paylaşır.",
     },
     {
       id: "ex.flirtbanter3.sp1",
@@ -1503,7 +1503,7 @@ export const flirtBanterLesson_2_4: BundledLesson = {
       correct_sentence:
         "Had a tough chapter last year — therapy helped, I'm in a much better place now.",
       tr_explanation:
-        "Eski sevgili + 'destroyed me' + 'cry every night' = trauma dumping = ilk sohbette unmatch. Modern olgun: kabul + ne yaptin (terapi, vs.) + simdiki durum. Vulnerability = saglikli sınır.",
+        "Eski sevgili + 'destroyed me' + 'cry every night' = trauma dumping = ilk sohbette unmatch. Modern olgun: kabul + ne yaptın (terapi, vs.) + şimdiki durum. Vulnerability = sağlıklı sınır.",
     },
     {
       id: "ex.flirtbanter4.sp1",

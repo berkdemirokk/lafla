@@ -91,7 +91,7 @@ export const airportLesson_44_21: BundledLesson = {
           ],
           model_answers: ["Thanks, much easier"],
           hint_tr:
-            "Tesekkur: 'Thanks, much easier'.",
+            "Teşekkür: 'Thanks, much easier'.",
         },
         {
           speaker: "npc",
@@ -127,7 +127,7 @@ export const airportLesson_44_21: BundledLesson = {
           ],
           model_answers: ["Printed, please"],
           hint_tr:
-            "Boarding pass: 'Printed, please' (yedek icin guvenli).",
+            "Boarding pass: 'Printed, please' (yedek için güvenli).",
         },
         {
           speaker: "npc",
@@ -236,9 +236,9 @@ export const airportLesson_44_22: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "oversize charge",
-      tr_translation: "Asiri boyut ucreti",
+      tr_translation: "Aşırı boyut ücreti",
       example: "Is there really an oversize charge for this?",
-      example_tr: "Bunun icin gercekten asiri ucret var mi?",
+      example_tr: "Bunun için gerçekten aşırı ücret var mı?",
     },
     {
       id: "ex.44.22.2",
@@ -265,7 +265,7 @@ export const airportLesson_44_22: BundledLesson = {
           ],
           model_answers: ["Could I repack to avoid the fee?"],
           hint_tr:
-            "Itiraz: 'Could I repack to avoid the fee?'",
+            "İtiraz: 'Could I repack to avoid the fee?'",
         },
         {
           speaker: "npc",
@@ -283,7 +283,7 @@ export const airportLesson_44_22: BundledLesson = {
           ],
           model_answers: ["Thanks, I'll do that"],
           hint_tr:
-            "Yeniden duzenle: 'Thanks, I'll do that'.",
+            "Yeniden düzenle: 'Thanks, I'll do that'.",
         },
         {
           speaker: "npc",
@@ -428,9 +428,9 @@ export const airportLesson_44_23: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "frequent flyer",
-      tr_translation: "Sik ucan musteri (loyalty programi)",
+      tr_translation: "Sık uçan müşteri (loyalty programı)",
       example: "I have frequent flyer status.",
-      example_tr: "Frequent flyer statum var.",
+      example_tr: "Frequent flyer statüm var.",
     },
     {
       id: "ex.44.23.2",
@@ -475,7 +475,7 @@ export const airportLesson_44_23: BundledLesson = {
           ],
           model_answers: ["It's [number]"],
           hint_tr:
-            "Numarayi soyle: 'It's [number]'.",
+            "Numarayı söyle: 'It's [number]'.",
         },
         {
           speaker: "npc",
@@ -493,7 +493,7 @@ export const airportLesson_44_23: BundledLesson = {
           ],
           model_answers: ["Yes, please!"],
           hint_tr:
-            "Avantaj: 'Yes, please!'. Gold = lounge erisimi.",
+            "Avantaj: 'Yes, please!'. Gold = lounge erişimi.",
         },
         {
           speaker: "npc",
@@ -511,7 +511,7 @@ export const airportLesson_44_23: BundledLesson = {
           ],
           model_answers: ["Thank you so much!"],
           hint_tr:
-            "Sukran: 'Thank you so much!'",
+            "Şükran: 'Thank you so much!'",
         },
         {
           speaker: "npc",
@@ -621,9 +621,9 @@ export const airportLesson_44_24: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "special meal",
-      tr_translation: "Ozel yemek (diyet/dini)",
+      tr_translation: "Özel yemek (diyet/dini)",
       example: "Can I request a special meal?",
-      example_tr: "Ozel yemek talep edebilir miyim?",
+      example_tr: "Özel yemek talep edebilir miyim?",
     },
     {
       id: "ex.44.24.2",
@@ -650,7 +650,7 @@ export const airportLesson_44_24: BundledLesson = {
           ],
           model_answers: ["Can I request a halal meal?"],
           hint_tr:
-            "Ozel yemek: 'Can I request a halal meal?'. Turkler icin halal yaygin.",
+            "Özel yemek: 'Can I request a halal meal?'. Türkler için halal yaygın.",
         },
         {
           speaker: "npc",
@@ -686,7 +686,7 @@ export const airportLesson_44_24: BundledLesson = {
           ],
           model_answers: ["Thank you so much, life saver!"],
           hint_tr:
-            "Sukran: 'Thank you so much, life saver!'",
+            "Şükran: 'Thank you so much, life saver!'",
         },
         {
           speaker: "npc",
@@ -813,9 +813,9 @@ export const airportLesson_44_25: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "pet carrier",
-      tr_translation: "Evcil hayvan tasiyici (kafes)",
+      tr_translation: "Evcil hayvan taşıyıcı (kafes)",
       example: "My cat is in the pet carrier.",
-      example_tr: "Kedim tasiyicinin icinde.",
+      example_tr: "Kedim taşıyıcının içinde.",
     },
     {
       id: "ex.44.25.2",
@@ -823,9 +823,9 @@ export const airportLesson_44_25: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "health certificate",
-      tr_translation: "Saglik raporu (veterinerden)",
+      tr_translation: "Sağlık raporu (veterinerden)",
       example: "Here's the health certificate.",
-      example_tr: "Saglik raporu burada.",
+      example_tr: "Sağlık raporu burada.",
     },
     {
       id: "ex.44.25.3",
@@ -906,7 +906,7 @@ export const airportLesson_44_25: BundledLesson = {
           ],
           model_answers: ["Card, here you go"],
           hint_tr:
-            "Ode: 'Card, here you go'.",
+            "Öde: 'Card, here you go'.",
         },
         {
           speaker: "npc",
@@ -1016,9 +1016,9 @@ export const airportLesson_44_26: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "excess baggage",
-      tr_translation: "Asiri bagaj (limit ustu)",
+      tr_translation: "Aşırı bagaj (limit üstü)",
       example: "I'm worried about excess baggage fees.",
-      example_tr: "Asiri bagaj ucretinden endiseliyim.",
+      example_tr: "Aşırı bagaj ücretinden endişeliyim.",
     },
     {
       id: "ex.44.26.2",
@@ -1028,7 +1028,7 @@ export const airportLesson_44_26: BundledLesson = {
       word_or_phrase: "host family",
       tr_translation: "Konak aile (Erasmus/exchange)",
       example: "I'm bringing gifts for my host family.",
-      example_tr: "Konak ailem icin hediye getiriyorum.",
+      example_tr: "Konak ailem için hediye getiriyorum.",
     },
     {
       id: "ex.44.26.3",
@@ -1055,7 +1055,7 @@ export const airportLesson_44_26: BundledLesson = {
           ],
           model_answers: ["It's mostly gifts — lokum and Turkish coffee for my host family"],
           hint_tr:
-            "Aciklik: 'It's mostly gifts — lokum and Turkish coffee for my host family'.",
+            "Açıklık: 'It's mostly gifts — lokum and Turkish coffee for my host family'.",
         },
         {
           speaker: "npc",
@@ -1073,7 +1073,7 @@ export const airportLesson_44_26: BundledLesson = {
           ],
           model_answers: ["Could I move some items to my carry-on?"],
           hint_tr:
-            "Itiraz: 'Could I move some items to my carry-on?'",
+            "İtiraz: 'Could I move some items to my carry-on?'",
         },
         {
           speaker: "npc",
@@ -1220,9 +1220,9 @@ export const airportLesson_44_27: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "connecting flight",
-      tr_translation: "Aktarma ucusu",
+      tr_translation: "Aktarma uçuşu",
       example: "I have a connecting flight to Istanbul.",
-      example_tr: "Istanbul'a aktarma ucusum var.",
+      example_tr: "İstanbul'a aktarma uçuşum var.",
     },
     {
       id: "ex.44.27.2",
@@ -1267,7 +1267,7 @@ export const airportLesson_44_27: BundledLesson = {
           ],
           model_answers: ["How long does the shuttle take?"],
           hint_tr:
-            "Sure: 'How long does the shuttle take?'",
+            "Süre: 'How long does the shuttle take?'",
         },
         {
           speaker: "npc",
@@ -1303,7 +1303,7 @@ export const airportLesson_44_27: BundledLesson = {
           ],
           model_answers: ["Thank you so much, appreciate the help"],
           hint_tr:
-            "Tesekkur: 'Thank you so much, appreciate the help'.",
+            "Teşekkür: 'Thank you so much, appreciate the help'.",
         },
         {
           speaker: "npc",
@@ -1413,9 +1413,9 @@ export const airportLesson_44_28: BundledLesson = {
       difficulty: 2,
       cefr_band: "B1",
       word_or_phrase: "lounge access",
-      tr_translation: "Lounge erisimi (havalimani VIP)",
+      tr_translation: "Lounge erişimi (havalimanı VIP)",
       example: "Do I have lounge access?",
-      example_tr: "Lounge erisimi var mi?",
+      example_tr: "Lounge erişimi var mı?",
     },
     {
       id: "ex.44.28.2",
@@ -1442,7 +1442,7 @@ export const airportLesson_44_28: BundledLesson = {
           ],
           model_answers: ["Here's my Priority Pass"],
           hint_tr:
-            "Kart goster: 'Here's my Priority Pass'.",
+            "Kart göster: 'Here's my Priority Pass'.",
         },
         {
           speaker: "npc",
@@ -1496,7 +1496,7 @@ export const airportLesson_44_28: BundledLesson = {
           ],
           model_answers: ["Thank you, amazing"],
           hint_tr:
-            "Tesekkur: 'Thank you, amazing'.",
+            "Teşekkür: 'Thank you, amazing'.",
         },
         {
           speaker: "npc",
@@ -1606,9 +1606,9 @@ export const airportLesson_44_29: BundledLesson = {
       difficulty: 4,
       cefr_band: "C1",
       word_or_phrase: "TSA Pre-check",
-      tr_translation: "ABD'de hizli guvenlik kontrolu",
+      tr_translation: "ABD'de hızlı güvenlik kontrolü",
       example: "Do I have TSA Pre-check?",
-      example_tr: "TSA Pre-check'im var mi?",
+      example_tr: "TSA Pre-check'im var mı?",
     },
     {
       id: "ex.44.29.2",
@@ -1635,7 +1635,7 @@ export const airportLesson_44_29: BundledLesson = {
           ],
           model_answers: ["Here you go — do I have TSA Pre-check?"],
           hint_tr:
-            "Goster: 'Here you go — do I have TSA Pre-check?'",
+            "Göster: 'Here you go — do I have TSA Pre-check?'",
         },
         {
           speaker: "npc",
@@ -1689,7 +1689,7 @@ export const airportLesson_44_29: BundledLesson = {
           ],
           model_answers: ["Thanks for the info"],
           hint_tr:
-            "Tesekkur: 'Thanks for the info'.",
+            "Teşekkür: 'Thanks for the info'.",
         },
         {
           speaker: "npc",
@@ -1828,7 +1828,7 @@ export const airportLesson_44_30: BundledLesson = {
           ],
           model_answers: ["Could we be seated together?"],
           hint_tr:
-            "Iste: 'Could we be seated together?'",
+            "İşte: 'Could we be seated together?'",
         },
         {
           speaker: "npc",
@@ -1864,7 +1864,7 @@ export const airportLesson_44_30: BundledLesson = {
           ],
           model_answers: ["Thanks for trying — what's the gate number?"],
           hint_tr:
-            "Tesekkur: 'Thanks for trying — what's the gate number?'",
+            "Teşekkür: 'Thanks for trying — what's the gate number?'",
         },
         {
           speaker: "npc",
@@ -1997,9 +1997,9 @@ export const airportLesson_44_31: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "swap seats",
-      tr_translation: "Koltuk degistirmek",
+      tr_translation: "Koltuk değiştirmek",
       example: "Would you mind swapping seats?",
-      example_tr: "Koltuk degistirmek ister misin?",
+      example_tr: "Koltuk değiştirmek ister misin?",
     },
     {
       id: "ex.44.31.2",
@@ -2026,7 +2026,7 @@ export const airportLesson_44_31: BundledLesson = {
           ],
           model_answers: ["Would you mind swapping seats? My mother-in-law is over there"],
           hint_tr:
-            "Yumusak: 'Would you mind swapping seats? My mother-in-law is over there'. Türk: 'kayinvalide' = mother-in-law.",
+            "Yumuşak: 'Would you mind swapping seats? My mother-in-law is over there'. Türk: 'kayınvalide' = mother-in-law.",
         },
         {
           speaker: "npc",
@@ -2062,7 +2062,7 @@ export const airportLesson_44_31: BundledLesson = {
           ],
           model_answers: ["Yes, aisle seat — same as yours"],
           hint_tr:
-            "Acik ol: 'Yes, aisle seat — same as yours'. Aldatma.",
+            "Açık ol: 'Yes, aisle seat — same as yours'. Aldatma.",
         },
         {
           speaker: "npc",
@@ -2080,7 +2080,7 @@ export const airportLesson_44_31: BundledLesson = {
           ],
           model_answers: ["Thank you so much, really appreciate it"],
           hint_tr:
-            "Sukran: 'Thank you so much, really appreciate it'.",
+            "Şükran: 'Thank you so much, really appreciate it'.",
         },
         {
           speaker: "npc",
@@ -2192,7 +2192,7 @@ export const airportLesson_44_32: BundledLesson = {
       word_or_phrase: "empty row",
       tr_translation: "Bos sira",
       example: "Could I move to that empty row?",
-      example_tr: "Su bos siraya gecebilir miyim?",
+      example_tr: "Şu boş sıraya geçebilir miyim?",
     },
     {
       id: "ex.44.32.2",
@@ -2219,7 +2219,7 @@ export const airportLesson_44_32: BundledLesson = {
           ],
           model_answers: ["Could I move to that empty row?"],
           hint_tr:
-            "Iste: 'Could I move to that empty row?'",
+            "İşte: 'Could I move to that empty row?'",
         },
         {
           speaker: "npc",
@@ -2237,7 +2237,7 @@ export const airportLesson_44_32: BundledLesson = {
           ],
           model_answers: ["Got it, I'll wait"],
           hint_tr:
-            "Anladim: 'Got it, I'll wait'.",
+            "Anladım: 'Got it, I'll wait'.",
         },
         {
           speaker: "npc",
@@ -2255,7 +2255,7 @@ export const airportLesson_44_32: BundledLesson = {
           ],
           model_answers: ["I'm good, thanks"],
           hint_tr:
-            "Hayir: 'I'm good, thanks'.",
+            "Hayır: 'I'm good, thanks'.",
         },
         {
           speaker: "npc",
@@ -2273,7 +2273,7 @@ export const airportLesson_44_32: BundledLesson = {
           ],
           model_answers: ["Thank you, much appreciated"],
           hint_tr:
-            "Tesekkur: 'Thank you, much appreciated'.",
+            "Teşekkür: 'Thank you, much appreciated'.",
         },
         {
           speaker: "npc",
@@ -2386,7 +2386,7 @@ export const airportLesson_44_33: BundledLesson = {
       word_or_phrase: "no worries at all",
       tr_translation: "Hic dert etme",
       example: "No worries at all — babies cry.",
-      example_tr: "Hic dert etme — bebekler aglar.",
+      example_tr: "Hiç dert etme — bebekler ağlar.",
     },
     {
       id: "ex.44.33.2",
@@ -2431,7 +2431,7 @@ export const airportLesson_44_33: BundledLesson = {
           ],
           model_answers: ["Have you tried a pacifier?"],
           hint_tr:
-            "Yardim: 'Have you tried a pacifier?'",
+            "Yardım: 'Have you tried a pacifier?'",
         },
         {
           speaker: "npc",
@@ -2467,7 +2467,7 @@ export const airportLesson_44_33: BundledLesson = {
           ],
           model_answers: ["Hope she settles soon"],
           hint_tr:
-            "Bitis: 'Hope she settles soon'.",
+            "Bitiş: 'Hope she settles soon'.",
         },
         {
           speaker: "npc",
@@ -2578,9 +2578,9 @@ export const airportLesson_44_34: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "air sick",
-      tr_translation: "Ucakta midesi bulanmak",
+      tr_translation: "Uçakta midesi bulanmak",
       example: "I'm feeling a bit air sick.",
-      example_tr: "Biraz ucak tutmasi yapiyor.",
+      example_tr: "Biraz uçak tutması yapıyor.",
     },
     {
       id: "ex.44.34.2",
@@ -2588,9 +2588,9 @@ export const airportLesson_44_34: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "sick bag",
-      tr_translation: "Kustugum torba (ucak)",
+      tr_translation: "Kustuğum torba (uçak)",
       example: "Could I get a sick bag?",
-      example_tr: "Bir kusma torbasi alabilir miyim?",
+      example_tr: "Bir kusma torbası alabilir miyim?",
     },
     {
       id: "ex.44.34.3",
@@ -2617,7 +2617,7 @@ export const airportLesson_44_34: BundledLesson = {
           ],
           model_answers: ["I'm feeling air sick — could I get a sick bag?"],
           hint_tr:
-            "Soyle: 'I'm feeling air sick — could I get a sick bag?'",
+            "Söyle: 'I'm feeling air sick — could I get a sick bag?'",
         },
         {
           speaker: "npc",
@@ -2635,7 +2635,7 @@ export const airportLesson_44_34: BundledLesson = {
           ],
           model_answers: ["Thank you, appreciate it"],
           hint_tr:
-            "Tesekkur: 'Thank you, appreciate it'.",
+            "Teşekkür: 'Thank you, appreciate it'.",
         },
         {
           speaker: "npc",
@@ -2671,7 +2671,7 @@ export const airportLesson_44_34: BundledLesson = {
           ],
           model_answers: ["I'll see how it goes"],
           hint_tr:
-            "Sec: 'I'll see how it goes' veya 'Maybe a small dose'.",
+            "Seç: 'I'll see how it goes' veya 'Maybe a small dose'.",
         },
         {
           speaker: "npc",
@@ -2811,7 +2811,7 @@ export const airportLesson_44_35: BundledLesson = {
           ],
           model_answers: ["Could I have an extra blanket and a sleep mask?"],
           hint_tr:
-            "Iste: 'Could I have an extra blanket and a sleep mask?'",
+            "İşte: 'Could I have an extra blanket and a sleep mask?'",
         },
         {
           speaker: "npc",
@@ -2847,7 +2847,7 @@ export const airportLesson_44_35: BundledLesson = {
           ],
           model_answers: ["Just water, please"],
           hint_tr:
-            "Icecek: 'Just water, please'.",
+            "İçecek: 'Just water, please'.",
         },
         {
           speaker: "npc",
@@ -2865,7 +2865,7 @@ export const airportLesson_44_35: BundledLesson = {
           ],
           model_answers: ["Thank you, appreciate it"],
           hint_tr:
-            "Tesekkur: 'Thank you, appreciate it'.",
+            "Teşekkür: 'Thank you, appreciate it'.",
         },
         {
           speaker: "npc",
@@ -2934,7 +2934,7 @@ export const airportLesson_44_35: BundledLesson = {
     { id: "ex.44.35.v02", type: "vocab_tile", difficulty: 1, cefr_band: "A1", word_or_phrase: "warm", tr_translation: "Sıcak", example: "Keep me warm.", example_tr: "Beni sıcak tut." },
     { id: "ex.44.35.v03", type: "vocab_tile", difficulty: 1, cefr_band: "A1", word_or_phrase: "pillow", tr_translation: "Yastık", example: "A pillow, please.", example_tr: "Bir yastık, lütfen." },
     { id: "ex.44.35.v04", type: "vocab_tile", difficulty: 2, cefr_band: "A2", word_or_phrase: "extra pillow", tr_translation: "Ek yastık", example: "Could I get an extra pillow?", example_tr: "Bir ek yastık alabilir miyim?" },
-    { id: "ex.44.35.v05", type: "vocab_tile", difficulty: 2, cefr_band: "A2", word_or_phrase: "I'm freezing", tr_translation: "Donuyorum", example: "I'm freezing — could you turn the air down?", example_tr: "Donuyorum — havayı kısar mısınız?" },
+    { id: "ex.44.35.v05", type: "vocab_tile", difficulty: 2, cefr_band: "A2", word_or_phrase: "I'm freezing", tr_translation: "Dönüyorum", example: "I'm freezing — could you turn the air down?", example_tr: "Dönüyorum — havayı kısar mısınız?" },
     { id: "ex.44.35.v06", type: "vocab_tile", difficulty: 2, cefr_band: "A2", word_or_phrase: "AC is too cold", tr_translation: "Klima çok soğuk", example: "The AC is too cold at my seat.", example_tr: "Koltuğumda klima çok soğuk." },
     { id: "ex.44.35.v07", type: "vocab_tile", difficulty: 3, cefr_band: "B1", word_or_phrase: "try to sleep", tr_translation: "Uyumaya çalışmak", example: "I'll try to sleep for a few hours.", example_tr: "Birkaç saat uyumaya çalışacağım." },
     { id: "ex.44.35.v08", type: "vocab_tile", difficulty: 3, cefr_band: "B1", word_or_phrase: "sleep mask", tr_translation: "Uyku maskesi", example: "Do you have a spare sleep mask?", example_tr: "Yedek uyku maskesi var mı?" },
@@ -2975,9 +2975,9 @@ export const airportLesson_44_36: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "audio jack",
-      tr_translation: "Kulaklik girisi",
+      tr_translation: "Kulaklık girişi",
       example: "The audio jack isn't working.",
-      example_tr: "Kulaklik girisi calismiyor.",
+      example_tr: "Kulaklık girişi çalışmıyor.",
     },
     {
       id: "ex.44.36.2",
@@ -3058,7 +3058,7 @@ export const airportLesson_44_36: BundledLesson = {
           ],
           model_answers: ["Works now, thank you!"],
           hint_tr:
-            "Sonuc: 'Works now, thank you!'",
+            "Sonuç: 'Works now, thank you!'",
         },
         {
           speaker: "npc",
@@ -3169,9 +3169,9 @@ export const airportLesson_44_37: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "tight connection",
-      tr_translation: "Sikisik (kisa sureli) aktarma",
+      tr_translation: "Sıkışık (kısa süreli) aktarma",
       example: "I have a tight connection.",
-      example_tr: "Sikisik aktarmam var.",
+      example_tr: "Sıkışık aktarmam var.",
     },
     {
       id: "ex.44.37.2",
@@ -3198,7 +3198,7 @@ export const airportLesson_44_37: BundledLesson = {
           ],
           model_answers: ["I have a tight connection — could I deplane first?"],
           hint_tr:
-            "Soyle: 'I have a tight connection — could I deplane first?'",
+            "Söyle: 'I have a tight connection — could I deplane first?'",
         },
         {
           speaker: "npc",
@@ -3216,7 +3216,7 @@ export const airportLesson_44_37: BundledLesson = {
           ],
           model_answers: ["It's at 3:15, less than an hour"],
           hint_tr:
-            "Sure: 'It's at 3:15, less than an hour'.",
+            "Süre: 'It's at 3:15, less than an hour'.",
         },
         {
           speaker: "npc",
@@ -3234,7 +3234,7 @@ export const airportLesson_44_37: BundledLesson = {
           ],
           model_answers: ["Thank you so much, life saver!"],
           hint_tr:
-            "Sukran: 'Thank you so much, life saver!'",
+            "Şükran: 'Thank you so much, life saver!'",
         },
         {
           speaker: "npc",
@@ -3252,7 +3252,7 @@ export const airportLesson_44_37: BundledLesson = {
           ],
           model_answers: ["Got it, I'll move fast"],
           hint_tr:
-            "Hizla: 'Got it, I'll move fast'.",
+            "Hızla: 'Got it, I'll move fast'.",
         },
         {
           speaker: "npc",
@@ -3362,9 +3362,9 @@ export const airportLesson_44_38: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "customs declaration",
-      tr_translation: "Gumruk beyanname formu",
+      tr_translation: "Gümrük beyanname formu",
       example: "Here's the customs declaration form.",
-      example_tr: "Gumruk beyanname formu burada.",
+      example_tr: "Gümrük beyanname formu burada.",
     },
     {
       id: "ex.44.38.2",
@@ -3372,9 +3372,9 @@ export const airportLesson_44_38: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "country of citizenship",
-      tr_translation: "Vatandaslik ulkesi",
+      tr_translation: "Vatandaşlık ülkesi",
       example: "Country of citizenship: Turkey.",
-      example_tr: "Vatandaslik ulkesi: Turkiye.",
+      example_tr: "Vatandaşlık ülkesi: Türkiye.",
     },
     {
       id: "ex.44.38.3",
@@ -3401,7 +3401,7 @@ export const airportLesson_44_38: BundledLesson = {
           ],
           model_answers: ["Could you help me fill this out?"],
           hint_tr:
-            "Yardim: 'Could you help me fill this out?'",
+            "Yardım: 'Could you help me fill this out?'",
         },
         {
           speaker: "npc",
@@ -3570,9 +3570,9 @@ export const airportLesson_44_39: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "turbulence",
-      tr_translation: "Turbulans (hava cep)",
+      tr_translation: "Türbülans (hava cep)",
       example: "Is the turbulence going to last?",
-      example_tr: "Turbulans surecek mi?",
+      example_tr: "Türbülans sürecek mi?",
     },
     {
       id: "ex.44.39.2",
@@ -3635,7 +3635,7 @@ export const airportLesson_44_39: BundledLesson = {
           ],
           model_answers: ["Maybe some tea, please"],
           hint_tr:
-            "Iste: 'Maybe some tea, please'.",
+            "İşte: 'Maybe some tea, please'.",
         },
         {
           speaker: "npc",
@@ -3653,7 +3653,7 @@ export const airportLesson_44_39: BundledLesson = {
           ],
           model_answers: ["Thank you, appreciate it"],
           hint_tr:
-            "Tesekkur: 'Thank you, appreciate it'.",
+            "Teşekkür: 'Thank you, appreciate it'.",
         },
         {
           speaker: "npc",
@@ -3672,7 +3672,7 @@ export const airportLesson_44_39: BundledLesson = {
         { accepted: ["turbulence", "shaking", "movement", "bumps"], distractors: ["plane", "weather"] },
         { accepted: ["normal", "going to last", "common", "safe"], distractors: ["danger", "okay normal"] },
       ],
-      tr_hint: "Turbulans rahatlatma kalıbı: 'I'm a bit nervous about the turbulence — is this normal?'",
+      tr_hint: "Türbülans rahatlatma kalıbı: 'I'm a bit nervous about the turbulence — is this normal?'",
       example_filled: "I'm a bit nervous about the turbulence — is this normal?",
     },
     {
@@ -3764,9 +3764,9 @@ export const airportLesson_44_40: BundledLesson = {
       difficulty: 2,
       cefr_band: "B1",
       word_or_phrase: "last call",
-      tr_translation: "Son siparis (icecek/servis)",
+      tr_translation: "Son sipariş (içecek/servis)",
       example: "Is this the last call for drinks?",
-      example_tr: "Iceceklerde son siparis mi?",
+      example_tr: "İçeceklerde son sipariş mi?",
     },
     {
       id: "ex.44.40.2",
@@ -3793,7 +3793,7 @@ export const airportLesson_44_40: BundledLesson = {
           ],
           model_answers: ["Coffee please, with milk and sugar"],
           hint_tr:
-            "Iste: 'Coffee please, with milk and sugar'.",
+            "İşte: 'Coffee please, with milk and sugar'.",
         },
         {
           speaker: "npc",
@@ -3811,7 +3811,7 @@ export const airportLesson_44_40: BundledLesson = {
           ],
           model_answers: ["I'll take some pretzels"],
           hint_tr:
-            "Sec: 'I'll take some pretzels'.",
+            "Seç: 'I'll take some pretzels'.",
         },
         {
           speaker: "npc",
@@ -3962,9 +3962,9 @@ export const airportLesson_44_41: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "damaged bag",
-      tr_translation: "Hasarli bagaj",
+      tr_translation: "Hasarlı bagaj",
       example: "My bag is damaged.",
-      example_tr: "Bagajim hasarli.",
+      example_tr: "Bagajım hasarlı.",
     },
     {
       id: "ex.44.41.2",
@@ -3972,9 +3972,9 @@ export const airportLesson_44_41: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "file a claim",
-      tr_translation: "Talep (sikayet) dosyalamak",
+      tr_translation: "Talep (şikayet) dosyalamak",
       example: "I need to file a claim.",
-      example_tr: "Sikayet dosyalamam lazim.",
+      example_tr: "Şikayet dosyalamam lazım.",
     },
     {
       id: "ex.44.41.3",
@@ -4037,7 +4037,7 @@ export const airportLesson_44_41: BundledLesson = {
           ],
           model_answers: ["Compensation might work better — I'm only here a few days"],
           hint_tr:
-            "Sec: 'Compensation might work better — I'm only here a few days'.",
+            "Seç: 'Compensation might work better — I'm only here a few days'.",
         },
         {
           speaker: "npc",
@@ -4169,9 +4169,9 @@ export const airportLesson_44_42: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "duty-free limit",
-      tr_translation: "Gumruksuz alisveris siniri",
+      tr_translation: "Gümrüksüz alışveriş sınırı",
       example: "What's the duty-free limit?",
-      example_tr: "Gumruksuz alisveris siniri ne?",
+      example_tr: "Gümrüksüz alışveriş sınırı ne?",
     },
     {
       id: "ex.44.42.2",
@@ -4349,9 +4349,9 @@ export const airportLesson_44_43: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "exchange rate",
-      tr_translation: "Doviz kuru",
+      tr_translation: "Döviz kuru",
       example: "What's the exchange rate?",
-      example_tr: "Doviz kuru ne?",
+      example_tr: "Döviz kuru ne?",
     },
     {
       id: "ex.44.43.2",
@@ -4378,7 +4378,7 @@ export const airportLesson_44_43: BundledLesson = {
           ],
           model_answers: ["I need some euros — what's the rate?"],
           hint_tr:
-            "Iste: 'I need some euros — what's the rate?'",
+            "İşte: 'I need some euros — what's the rate?'",
         },
         {
           speaker: "npc",
@@ -4396,7 +4396,7 @@ export const airportLesson_44_43: BundledLesson = {
           ],
           model_answers: ["Is there a better place nearby?"],
           hint_tr:
-            "Pazarlik: 'Is there a better place nearby?'",
+            "Pazarlık: 'Is there a better place nearby?'",
         },
         {
           speaker: "npc",
@@ -4432,7 +4432,7 @@ export const airportLesson_44_43: BundledLesson = {
           ],
           model_answers: ["Thanks for the tip!"],
           hint_tr:
-            "Tesekkur: 'Thanks for the tip!'",
+            "Teşekkür: 'Thanks for the tip!'",
         },
         {
           speaker: "npc",
@@ -4530,7 +4530,7 @@ export const airportLesson_44_44: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "hotel shuttle",
-      tr_translation: "Otel servis araci (ucretsiz/transfer)",
+      tr_translation: "Otel servis aracı (ücretsiz/transfer)",
       example: "Where do I catch the hotel shuttle?",
       example_tr: "Otel shuttle'i nerden binerim?",
     },
@@ -4577,7 +4577,7 @@ export const airportLesson_44_44: BundledLesson = {
           ],
           model_answers: ["I'm at the Hilton"],
           hint_tr:
-            "Soyle: 'The Marriott' veya 'I'm at the Hilton'.",
+            "Söyle: 'The Marriott' veya 'I'm at the Hilton'.",
         },
         {
           speaker: "npc",
@@ -4595,7 +4595,7 @@ export const airportLesson_44_44: BundledLesson = {
           ],
           model_answers: ["Got it — which way is Door 4?"],
           hint_tr:
-            "Yon: 'Got it — which way is Door 4?'",
+            "Yön: 'Got it — which way is Door 4?'",
         },
         {
           speaker: "npc",
@@ -4613,7 +4613,7 @@ export const airportLesson_44_44: BundledLesson = {
           ],
           model_answers: ["Got it, heading there now"],
           hint_tr:
-            "Tesekkur: 'Got it, heading there now'.",
+            "Teşekkür: 'Got it, heading there now'.",
         },
         {
           speaker: "npc",
@@ -4709,9 +4709,9 @@ export const airportLesson_44_45: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "city center",
-      tr_translation: "Sehir merkezi",
+      tr_translation: "Şehir merkezi",
       example: "How do I get to the city center?",
-      example_tr: "Sehir merkezine nasil giderim?",
+      example_tr: "Şehir merkezine nasıl giderim?",
     },
     {
       id: "ex.44.45.2",
@@ -4738,7 +4738,7 @@ export const airportLesson_44_45: BundledLesson = {
           ],
           model_answers: ["I need a ticket to the city center"],
           hint_tr:
-            "Soyle: 'I need a ticket to the city center'.",
+            "Söyle: 'I need a ticket to the city center'.",
         },
         {
           speaker: "npc",
@@ -4756,7 +4756,7 @@ export const airportLesson_44_45: BundledLesson = {
           ],
           model_answers: ["Day pass please — I'm exploring"],
           hint_tr:
-            "Sec: 'Day pass please — I'm exploring'.",
+            "Seç: 'Day pass please — I'm exploring'.",
         },
         {
           speaker: "npc",
@@ -4774,7 +4774,7 @@ export const airportLesson_44_45: BundledLesson = {
           ],
           model_answers: ["Card please"],
           hint_tr:
-            "Ode: 'Card please' veya 'Cash'.",
+            "Öde: 'Card please' veya 'Cash'.",
         },
         {
           speaker: "npc",
@@ -4889,9 +4889,9 @@ export const airportLesson_44_46: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "gift, not for sale",
-      tr_translation: "Hediye, satilik degil",
+      tr_translation: "Hediye, satılık değil",
       example: "These are gifts, not for sale.",
-      example_tr: "Bunlar hediye, satilik degil.",
+      example_tr: "Bunlar hediye, satılık değil.",
     },
     {
       id: "ex.44.46.2",
@@ -4936,7 +4936,7 @@ export const airportLesson_44_46: BundledLesson = {
           ],
           model_answers: ["This is just lokum — gifts for friends"],
           hint_tr:
-            "Aciklik: 'This is just lokum — gifts for friends'.",
+            "Açıklık: 'This is just lokum — gifts for friends'.",
         },
         {
           speaker: "npc",
@@ -4954,7 +4954,7 @@ export const airportLesson_44_46: BundledLesson = {
           ],
           model_answers: ["Four boxes — gifts for friends"],
           hint_tr:
-            "Sayi: 'Four boxes — gifts for friends'.",
+            "Sayı: 'Four boxes — gifts for friends'.",
         },
         {
           speaker: "npc",
@@ -5071,9 +5071,9 @@ export const airportLesson_44_47: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "running late",
-      tr_translation: "Gec kaldi (yola cikti ama)",
+      tr_translation: "Geç kaldı (yola çıktı ama)",
       example: "He's running late.",
-      example_tr: "Gec kaldi.",
+      example_tr: "Geç kaldı.",
     },
     {
       id: "ex.44.47.2",
@@ -5252,9 +5252,9 @@ export const airportLesson_44_48: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "rental reservation",
-      tr_translation: "Arac kiralama rezervasyonu",
+      tr_translation: "Araç kiralama rezervasyonu",
       example: "I have a rental reservation.",
-      example_tr: "Bir arac kiralama rezervasyonum var.",
+      example_tr: "Bir araç kiralama rezervasyonum var.",
     },
     {
       id: "ex.44.48.2",
@@ -5281,7 +5281,7 @@ export const airportLesson_44_48: BundledLesson = {
           ],
           model_answers: ["It's Yilmaz"],
           hint_tr:
-            "Soyad soyle: 'It's Yilmaz' (Türk soyadi).",
+            "Soyad söyle: 'It's Yilmaz' (Türk soyadı).",
         },
         {
           speaker: "npc",
@@ -5317,7 +5317,7 @@ export const airportLesson_44_48: BundledLesson = {
           ],
           model_answers: ["I'll take full"],
           hint_tr:
-            "Sec: 'I'll take full' veya 'Basic is fine'.",
+            "Seç: 'I'll take full' veya 'Basic is fine'.",
         },
         {
           speaker: "npc",
@@ -5335,7 +5335,7 @@ export const airportLesson_44_48: BundledLesson = {
           ],
           model_answers: ["GPS please — no roaming"],
           hint_tr:
-            "Sec: 'Phone is fine' veya 'GPS please — no roaming'.",
+            "Seç: 'Phone is fine' veya 'GPS please — no roaming'.",
         },
         {
           speaker: "npc",
@@ -5434,9 +5434,9 @@ export const airportLesson_44_49: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "something familiar",
-      tr_translation: "Bildigim/tanidigim bir sey",
+      tr_translation: "Bildiğim/tanıdığım bir şey",
       example: "Anywhere serving something familiar?",
-      example_tr: "Bildigim bir sey servis eden yer var mi?",
+      example_tr: "Bildiğim bir şey servis eden yer var mı?",
     },
     {
       id: "ex.44.49.2",
@@ -5625,7 +5625,7 @@ export const airportLesson_44_50: BundledLesson = {
       difficulty: 4,
       cefr_band: "B1",
       word_or_phrase: "people mover",
-      tr_translation: "Otomatik tasima sistemi (havalimani ici)",
+      tr_translation: "Otomatik taşıma sistemi (havalimanı içi)",
       example: "Take the people mover to Terminal F.",
       example_tr: "Terminal F'ye people mover ile git.",
     },
@@ -5654,7 +5654,7 @@ export const airportLesson_44_50: BundledLesson = {
           ],
           model_answers: ["I'm totally lost — where's Gate B22?"],
           hint_tr:
-            "Yardim iste: 'I'm totally lost — where's Gate B22?'",
+            "Yardım iste: 'I'm totally lost — where's Gate B22?'",
         },
         {
           speaker: "npc",
@@ -5690,7 +5690,7 @@ export const airportLesson_44_50: BundledLesson = {
           ],
           model_answers: ["How long will it take?"],
           hint_tr:
-            "Sure: 'How long will it take?'",
+            "Süre: 'How long will it take?'",
         },
         {
           speaker: "npc",
@@ -5708,7 +5708,7 @@ export const airportLesson_44_50: BundledLesson = {
           ],
           model_answers: ["Thank you so much, life saver!"],
           hint_tr:
-            "Tesekkur: 'Thank you so much, life saver!'",
+            "Teşekkür: 'Thank you so much, life saver!'",
         },
         {
           speaker: "npc",

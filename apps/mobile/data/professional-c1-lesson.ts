@@ -161,7 +161,7 @@ export const professionalC1Lesson_1: BundledLesson = {
           ],
           model_answers: ["With respect, I'd push back — the reprice is surgical, tier-specific. Margin drag is 30-40 bps, absorbed through mix. Already in our Q2 model."],
           hint_tr:
-            "Itiraz et + veri ver. 'With respect, I'd push back — the reprice is surgical, tier-specific. Margin drag is 30-40 bps, absorbed through mix. Already in our Q2 model.'",
+            "İtiraz et + veri ver. 'With respect, I'd push back — the reprice is surgical, tier-specific. Margin drag is 30-40 bps, absorbed through mix. Already in our Q2 model.'",
         },
         {
           speaker: "npc",
@@ -1661,7 +1661,7 @@ export const professionalC1Lesson_5: BundledLesson = {
       correct_sentence:
         "I won't get into specifics on that particular point — but what I can tell you is the broader picture: our growth strategy is on track, and we'll be sharing more at the upcoming investor day.",
       tr_explanation:
-        "'No comment' = düşmanca + kaçınmacı. C1 basın: 'won't get into specifics ON THAT' + köprü ('but what I can tell you') + olumlu çerçeve = mesajda kal, sıkışma. Sıfır bilgi değil, kontrollu bilgi.",
+        "'No comment' = düşmanca + kaçınmacı. C1 basın: 'won't get into specifics ON THAT' + köprü ('but what I can tell you') + olumlu çerçeve = mesajda kal, sıkışma. Sıfır bilgi değil, kontrollü bilgi.",
     },
     {
       id: "ex.pc1.5.6",

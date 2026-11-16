@@ -454,7 +454,7 @@ export const dailyBankLesson_30_1: BundledLesson = {
         "(i'd like|i'?m here) to (report|withdraw)",
       ],
       tr_hint:
-        "Memur 'How can I help?' demis — net problem söyle. Selamlama + spesifik problem. 'Hi, the ATM ate my card' tipi direkt giriş.",
+        "Memur 'How can I help?' demiş — net problem söyle. Selamlama + spesifik problem. 'Hi, the ATM ate my card' tipi direkt giriş.",
       ideal_answer: "Hi, the ATM ate my card — could you help me get it back?",
     },
     {

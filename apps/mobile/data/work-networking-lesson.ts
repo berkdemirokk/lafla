@@ -51,7 +51,7 @@ export const workNetworkingLesson_39_1: BundledLesson = {
       answer: "was",
       distractors: ["is", "be", "been"],
       tr_hint:
-        "'Your talk was great' = sunum bitti, simple past. Iltifat + spesifik = guclu acilis.",
+        "'Your talk was great' = sunum bitti, simple past. İltifat + spesifik = güçlü açılış.",
     },
     {
       id: "ex.wn39.1.4",

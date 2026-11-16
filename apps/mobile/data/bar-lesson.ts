@@ -1193,7 +1193,7 @@ export const barLesson_7_3: BundledLesson = {
       native_text: "Last call! Anyone want one more before we shut it down?",
       voice_hint: "male_us",
       tr_hint:
-        "Native ile aynı anda söyle. 'Last call' bağırılır — bartender anonsudur. 'Shut it down' = kapatma slangi.",
+        "Native ile aynı anda söyle. 'Last call' bağırılır — bartender anonsudur. 'Shut it down' = kapatma slangı.",
     },
     {
       id: "ex.7.3.10",
