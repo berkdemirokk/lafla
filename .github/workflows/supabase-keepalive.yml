@@ -1,0 +1,41 @@
+name: Supabase keep-alive
+
+# Free-tier Supabase projects pause after about a week without activity. A
+# paused project breaks sign-in and the leaderboard in the live app, and the
+# TestFlight workflow's `supabase db push` step fails with "project is paused"
+# (this happened on 2026-11-16). One real database query a day keeps it awake.
+#
+# Scheduled workflows only run from the default branch.
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Query the leaderboard RPC
+        env:
+          SUPABASE_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "::error::Supabase URL or anon key secret is missing"
+            exit 1
+          fi
+          code=$(curl -sS -o /tmp/body -w "%{http_code}" --max-time 30 \
+            -X POST "${SUPABASE_URL%/}/rest/v1/rpc/get_leaderboard" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{"row_limit": 1}')
+          echo "HTTP $code"
+          if [ "$code" != "200" ]; then
+            echo "::error::Supabase did not answer the keep-alive query (HTTP $code). The project may be paused."
+            head -c 300 /tmp/body
+            exit 1
+          fi
