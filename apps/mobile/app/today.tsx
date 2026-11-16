@@ -61,6 +61,7 @@ import {
   markHomeTutorialSeen,
 } from "../lib/tutorial-state";
 import { TutorialOverlay } from "../components/TutorialOverlay";
+import { DailyWordsCard } from "../components/DailyWordsCard";
 import { AdBanner } from "../components/AdBanner";
 import { VoiceWaveform } from "../components/VoiceWaveform";
 import { Icon } from "../components/Icon";
@@ -782,6 +783,10 @@ export default function Today() {
             </View>
           </Animated.View>
         ) : null}
+
+        <Animated.View entering={FadeInDown.delay(150).duration(360)}>
+          <DailyWordsCard />
+        </Animated.View>
 
         {/* 2×2 ACTION GRID — 4 hızlı eylem her zaman görünür.
             Önceki "banner cap 2" 3 ayrı dikey kart üretiyordu (vocab/surprise/

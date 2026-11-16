@@ -288,6 +288,7 @@ function ThemedRootNavigator() {
           <Stack.Screen name="freechat" />
           <Stack.Screen name="leaderboard" />
           <Stack.Screen name="review" />
+          <Stack.Screen name="daily-words" />
           <Stack.Screen name="placement" />
           <Stack.Screen name="paywall" />
           <Stack.Screen name="profile" />

@@ -263,6 +263,12 @@ export async function getVocabStats(): Promise<VocabStats> {
   };
 }
 
+/** Lowercased English words already in the review queue, from any source. */
+export async function getQueuedWordKeys(): Promise<Set<string>> {
+  const q = await readQueue();
+  return new Set(q.items.map((it) => it.word.trim().toLowerCase()));
+}
+
 /** Reset queue — account silme veya manual reset için. */
 export async function clearVocabQueue(): Promise<void> {
   try {

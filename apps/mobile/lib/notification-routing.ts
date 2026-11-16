@@ -3,6 +3,7 @@ const ALLOWED_NOTIFICATION_ROUTES = new Set([
   "/today",
   "/freechat",
   "/review",
+  "/daily-words",
 ]);
 
 let pendingRoute: string | null = null;

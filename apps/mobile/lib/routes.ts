@@ -5,6 +5,7 @@ export type AppRoute =
   | "/auth"
   | "/accent-lab"
   | "/certificates"
+  | "/daily-words"
   | "/diary"
   | "/freechat"
   | "/history"

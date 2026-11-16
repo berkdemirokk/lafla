@@ -64,7 +64,7 @@ const METADATA = {
   bundleId: "com.lafla.app",
   // Apple "App Store Connect" version string (CFBundleShortVersionString).
   // app.json'daki version ile aynı olmalı.
-  appStoreVersion: "1.0.5",
+  appStoreVersion: "1.0.6",
 
   // tr-TR primary
   tr: {
@@ -119,16 +119,12 @@ const METADATA = {
     keywords:
       "ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz,akıcı,fonem",
     whatsNew: [
-      "Lafla artık daha hızlı, güvenilir ve erişilebilir:",
+      "Yeni: Bugünün 10 Kelimesi",
       "",
-      "• Üretken yapay zekâ gerektirmeyen algoritmik konuşma motoru",
-      "• Eksiksiz Türkçe ve İngilizce arayüz",
-      "• Yenilenen açık ve koyu temalar",
-      "• Daha güçlü gerçek hayat senaryoları ve adaptif pratik",
-      "• Geliştirilen dinleme, telaffuz ve kelime egzersizleri",
-      "• Açık yüklenme, hata ve yeniden deneme durumları",
-      "• VoiceOver ve sınırsız Dynamic Type desteği",
-      "• Güçlendirilmiş gizlilik ve yerel veri temizliği",
+      "• Her gün seviyene göre 10 yeni kelime, örnek cümle ve sesli okunuş",
+      "• 2 dakikalık hızlı testle pekiştir, kelimeler tekrar listene eklensin",
+      "• Günlük kelimeleri bitirmek serini korur",
+      "• Akşam hatırlatması: kelimeler bitmediyse haber veririz",
       "• Genel performans ve kararlılık iyileştirmeleri",
     ].join("\n"),
   },
@@ -186,16 +182,12 @@ const METADATA = {
     keywords:
       "speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation,interview",
     whatsNew: [
-      "Lafla is now faster, more reliable, and more accessible:",
+      "New: Today's 10 Words",
       "",
-      "• Algorithmic conversation engine—no generative AI required",
-      "• Complete English and Turkish localization",
-      "• Redesigned light and dark themes",
-      "• Stronger real-life scenarios and adaptive practice",
-      "• Improved listening, pronunciation, and vocabulary exercises",
-      "• Clear loading, error, and retry states",
-      "• VoiceOver and unrestricted Dynamic Type support",
-      "• Stronger privacy and local-data cleanup",
+      "• Ten new words a day at your level, with example sentences and audio",
+      "• A 2-minute quick check, then every word joins your review list",
+      "• Finishing your daily words keeps your streak alive",
+      "• Evening reminder if today's words are still waiting",
       "• General performance and stability improvements",
     ].join("\n"),
   },
