@@ -169,7 +169,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
         "What's a low-dose painkiller for headache?",
       ],
       tr_hint:
-        "'Mild / Gentle / Low-dose' = hafif. Spesifik semptom + tip sorma kalibi.",
+        "'Mild / Gentle / Low-dose' = hafif. Spesifik semptom + tip sorma kalıbı.",
     },
     {
       id: "ex.dp19.1.3",
@@ -179,7 +179,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
       answer: "side",
       distractors: ["bad", "main", "extra"],
       tr_hint:
-        "'Side effects' = yan etkiler. Ilac alirken kritik soru.",
+        "'Side effects' = yan etkiler. İlaç alırken kritik soru.",
     },
     {
       id: "ex.dp19.1.4",
@@ -225,8 +225,9 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(mild|gentle|low-dose)",
             "(don'?t (want|need) (strong|prescription))",
           ],
+          model_answers: ["Hi, could you suggest something OTC for headaches?"],
           hint_tr:
-            "Saygili acilis: 'Hi, could you suggest something OTC for headaches?'",
+            "Saygılı açılış: 'Hi, could you suggest something OTC for headaches?'",
         },
         {
           speaker: "npc",
@@ -243,8 +244,9 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(dosage|how much|how often)",
             "(thanks|appreciate (the help|the time))",
           ],
+          model_answers: ["No allergies. Any side effects to watch?"],
           hint_tr:
-            "Saglik + dozaj: 'No allergies. Any side effects to watch?'",
+            "Sağlık + dozaj: 'No allergies. Any side effects to watch?'",
         },
         {
           speaker: "npc",
@@ -262,6 +264,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(occasionally )?(advil|tylenol|aspirin)( for .{0,20})?",
             "(no other meds|i'?m clean otherwise)",
           ],
+          model_answers: ["No, nothing else right now"],
           hint_tr:
             "İlaç bilgisi paylaş: 'No, nothing else right now' veya 'Just a daily vitamin'. Türk: 'eczacı' = US 'pharmacist'; UK 'chemist'. ABD eczacısı daha çok danışmanlık yapar, ilacı genelde teknisyen verir.",
         },
@@ -281,6 +284,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(can i take it (with|alongside) (coffee|water|food))",
             "(let me write that down|making a mental note)",
           ],
+          model_answers: ["Got it — 500mg every six. How long before relief?"],
           hint_tr:
             "Doz teyit + ek soru: 'Got it — 500mg every six. How long before relief?' veya 'When should I see a doctor?'. Türk: Türkiye'de 'eczacı' = mini-doktor, ABD'de pharmacist daha çok danışman. Bu yüzden ABD'de net sorular sor.",
         },
@@ -300,6 +304,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
             "(also )?(do you take|where do i (pay|check out))",
             "(should i (call|stop by) (again|back) if it (lingers|keeps up))",
           ],
+          model_answers: ["Got it — three days max. Thanks for the heads up!"],
           hint_tr:
             "Uyarı kabul + teşekkür: 'Got it — three days max. Thanks for the heads up!'. Türk: 'baş üstüne' = direkt çevirisi yok; 'will do' veya 'got it' karşılığı. Eczacının uyarılarını kabul etmek nezaket gereği.",
         },
@@ -325,7 +330,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Eczacidan alabilirsin ama doktor reçetesi yok. Tylenol, Advil, Benadryl gibi.",
+            "Eczacıdan alabilirsin ama doktor reçetesi yok. Tylenol, Advil, Benadryl gibi.",
         },
         {
           question: "Ilac sorarken NE eklenmeli?",
@@ -337,7 +342,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Eczaci icin tam bilgi = guvenli ilac. 'I'm on blood thinners' demeden Advil tehlikeli.",
+            "Eczacı için tam bilgi = güvenli ilaç. 'I'm on blood thinners' demeden Advil tehlikeli.",
         },
         {
           question: "'Side effects' niye sorulmali?",
@@ -349,7 +354,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mide bulantisi, uyku basmasi, vs onceden bilmek = uyumayasak yerlerde uyumak.",
+            "Mide bulantısı, uyku basması, vs önceden bilmek = uyumayasak yerlerde uyumak.",
         },
       ],
     },
@@ -378,7 +383,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
       audio_text: "Take one tablet every six hours with food.",
       transcription_target: "Take one tablet every six hours with food.",
       tr_hint:
-        "Dozaj talimati. 'Every six hours' = altı saatte bir. 'With food' = yemekle. Klasik eczaci kalibi.",
+        "Dozaj talimatı. 'Every six hours' = altı saatte bir. 'With food' = yemekle. Klasik eczacı kalıbı.",
     },
     {
       id: "ex.dp19.1.11",
@@ -388,7 +393,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
       word_or_phrase: "painkiller",
       tr_translation: "Agri kesici",
       example: "I need a mild painkiller for my back.",
-      example_tr: "Sirtim için hafif bir agri kesici lazim.",
+      example_tr: "Sırtım için hafif bir ağrı kesici lazım.",
     },
     {
       id: "ex.dp19.1.12",
@@ -689,7 +694,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
         "Doc sent over a script — what's the ETA?",
       ],
       tr_hint:
-        "'Called it in' / 'Phoned it in' = telefonla siparis etti. Doktor-eczane islemi.",
+        "'Called it in' / 'Phoned it in' = telefonla sipariş etti. Doktor-eczane işlemi.",
     },
     {
       id: "ex.dp19.2.3",
@@ -699,7 +704,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
       answer: "Berk",
       distractors: ["mr", "for", "of"],
       tr_hint:
-        "'Under the name X' = ... adi altinda. Pharmacy / restaurant'ta isim kontrol.",
+        "'Under the name X' = ... adı altında. Pharmacy / restaurant'ta isim kontrol.",
     },
     {
       id: "ex.dp19.2.4",
@@ -723,7 +728,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
       correct_sentence:
         "Picking up a prescription — last name Yilmaz, doctor called it in this morning.",
       tr_explanation:
-        "'Medicine for me' = belirsiz + kotu grammatik. Doğru: 'Picking up' + isim + onceki konum.",
+        "'Medicine for me' = belirsiz + kötü grammatik. Doğru: 'Picking up' + isim + önceki konum.",
     },
     {
       id: "ex.dp19.2.6",
@@ -744,8 +749,9 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
             "(under the name|last name)",
             "(any (id|insurance card) need)",
           ],
+          model_answers: ["Hi, picking up a prescription — doctor called it in. Name: Yilmaz."],
           hint_tr:
-            "Net acilis: 'Hi, picking up a prescription — doctor called it in. Name: Yilmaz.'",
+            "Net açılış: 'Hi, picking up a prescription — doctor called it in. Name: Yilmaz.'",
         },
         {
           speaker: "npc",
@@ -762,6 +768,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
             "(generic available|brand only)",
             "(how (long|often) (should i take|do i refill))",
           ],
+          model_answers: ["Here's my ID and insurance. Any copay?"],
           hint_tr:
             "Doc + sorma: 'Here's my ID and insurance. Any copay?'",
         },
@@ -787,7 +794,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "ID = sen oldugunu kanitlayan. Insurance = kim odeyecek. Ikisi yoksa ilac vermez.",
+            "ID = sen olduğunu kanıtlayan. Insurance = kim ödeyecek. İkisi yoksa ilaç vermez.",
         },
         {
           question: "'Doctor called it in' ne demek?",
@@ -799,7 +806,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Eski elden kagit recete yok. Doktor eczaneye electronically/telefonla yollar.",
+            "Eski elden kağıt reçete yok. Doktor eczaneye electronically/telefonla yollar.",
         },
         {
           question: "Refill ne sik?",
@@ -811,7 +818,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Eczaci sayar. 'Last refill' uyarisinda yeni doktor randevusu zamani.",
+            "Eczacı sayar. 'Last refill' uyarısında yeni doktor randevusu zamanı.",
         },
       ],
     },
@@ -840,7 +847,7 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
       audio_text: "Your copay today is fifteen dollars.",
       transcription_target: "Your copay today is fifteen dollars.",
       tr_hint:
-        "'Copay' = sigortali hastanin cebinden katki payi. Kasada duyacagin standart cumle.",
+        "'Copay' = sigortalı hastanın cebinden katkı payı. Kasada duyacağın standart cümle.",
     },
     {
       id: "ex.dp19.2.11",
@@ -848,9 +855,9 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "copay",
-      tr_translation: "Sigorta katki payi (cep odeme)",
+      tr_translation: "Sigorta katkı payı (cep ödeme)",
       example: "What's the copay on this medication?",
-      example_tr: "Bu ilacin katki payi ne kadar?",
+      example_tr: "Bu ilacın katkı payı ne kadar?",
     },
     {
       id: "ex.dp19.2.12",
@@ -1157,7 +1164,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
         "Head pounding for 48 hours, can't handle bright light.",
       ],
       tr_hint:
-        "'Throbbing' = zonklayan. 'Sensitive to light' = isiga hassas. Klasik migrane sinyal.",
+        "'Throbbing' = zonklayan. 'Sensitive to light' = ışığa hassas. Klasik migrane sinyal.",
     },
     {
       id: "ex.dp19.3.3",
@@ -1167,7 +1174,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
       answer: "on a scale of",
       distractors: ["from", "between", "at"],
       tr_hint:
-        "'Pain on a scale of 1-10' = aci 1'den 10'a kadar nerede. Klasik klinik soru.",
+        "'Pain on a scale of 1-10' = acı 1'den 10'a kadar nerede. Klasik klinik soru.",
     },
     {
       id: "ex.dp19.3.4",
@@ -1192,7 +1199,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
       correct_sentence:
         "Two-day headache — throbbing, gets worse with light. Around an 8/10.",
       tr_explanation:
-        "'Sick. Help.' = belirsiz, doktor cozemez. Doğru: spesifik tip + sure + skala.",
+        "'Sick. Help.' = belirsiz, doktor çözemez. Doğru: spesifik tip + süre + skala.",
     },
     {
       id: "ex.dp19.3.6",
@@ -1213,6 +1220,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
             "(scale|level|rating) (of )?(\\d+|seven|eight)",
             "(haven'?t (slept|eaten|tried (anything|much)))",
           ],
+          model_answers: ["Headache for 2 days. Throbbing. Gets worse with light. About 7/10."],
           hint_tr:
             "Spesifik: 'Headache for 2 days. Throbbing. Gets worse with light. About 7/10.'",
         },
@@ -1231,6 +1239,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
             "(when (do i|should i) (see a doctor|escalate))",
             "(thanks|appreciate the recommendation)",
           ],
+          model_answers: ["Tried Advil — didn't help. When should I see a doctor?"],
           hint_tr:
             "Plan: 'Tried Advil — didn't help. When should I see a doctor?'",
         },
@@ -1256,7 +1265,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Acinin nerede + nasil + ne kadar + ne kadar yogun = tam tani icin kritik.",
+            "Acının nerede + nasıl + ne kadar + ne kadar yoğun = tam tanı için kritik.",
         },
         {
           question: "'Pain on a scale of 1-10' niye standart?",
@@ -1268,7 +1277,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Subjective aci olcusu. ICU'dan family doc'a kadar standart soru.",
+            "Subjective acı ölçüsü. ICU'dan family doc'a kadar standart soru.",
         },
         {
           question: "'When should I see a doctor' niye iyi soru?",
@@ -1280,7 +1289,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Eczaci doktor degil ama uyari kriterleri bilir. Hayat kurtarıcı bilgi.",
+            "Eczacı doktor değil ama uyarı kriterleri bilir. Hayat kurtarıcı bilgi.",
         },
       ],
     },
@@ -1291,7 +1300,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
       phrase: "On a scale of one to ten, it's about a seven.",
       ipa: "ɒn ə skeɪl əv wʌn tə tɛn ɪts əˈbaʊt ə ˈsɛvən",
       tr_hint:
-        "Klinik standart kalip. 'On a scale of' bagli → 'on-ə-skeyl-əv'. 'About a' → 'ə-baw-də'.",
+        "Klinik standart kalıp. 'On a scale of' bağlı → 'on-ə-skeyl-əv'. 'About a' → 'ə-baw-də'.",
     },
     {
       id: "ex.dp19.3.9",
@@ -1309,7 +1318,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
       audio_text: "If symptoms persist for more than three days, see a doctor.",
       transcription_target: "If symptoms persist for more than three days, see a doctor.",
       tr_hint:
-        "Eczaci uyarisi. 'Persist' = devam etmek. 'See a doctor' = doktora git. Standart eskalasyon kriterleri.",
+        "Eczacı uyarısı. 'Persist' = devam etmek. 'See a doctor' = doktora git. Standart eskalasyon kriterleri.",
     },
     {
       id: "ex.dp19.3.11",
@@ -1319,7 +1328,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
       word_or_phrase: "throbbing pain",
       tr_translation: "Zonklayan agri",
       example: "It's a throbbing pain behind my left eye.",
-      example_tr: "Sol gozumun arkasinda zonklayan bir agri.",
+      example_tr: "Sol gözümün arkasında zonklayan bir ağrı.",
     },
     {
       id: "ex.dp19.3.12",
@@ -1329,7 +1338,7 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
       correct_sentence:
         "Sharp pain in my lower back since Monday — about an 8 out of 10.",
       tr_explanation:
-        "Belirsiz olcek + sure. Doğru: tip (sharp) + yer (lower back) + sure (since Monday) + skala (8/10).",
+        "Belirsiz ölçek + süre. Doğru: tip (sharp) + yer (lower back) + süre (since Monday) + skala (8/10).",
     },
     {
       id: "ex.dp19.3.sp1",
@@ -1609,9 +1618,9 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "Something for a cold",
-      tr_translation: "Soguk alginligi icin bir sey",
+      tr_translation: "Soğuk algınlığı için bir şey",
       example: "Do you have something for a cold? Non-drowsy if possible.",
-      example_tr: "Soguk alginligi icin bir seyiniz var mi? Uyku yapmayan olursa.",
+      example_tr: "Soğuk algınlığı için bir şeyiniz var mı? Uyku yapmayan olursa.",
     },
     {
       id: "ex.dp19.5.2",
@@ -1627,7 +1636,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
         "Need a non-drowsy cold remedy — runny nose, throat hurts.",
       ],
       tr_hint:
-        "'Non-drowsy' = uyku yapmayan. 'Daytime' = gunduz formul. Is/seyahatte kritik fark.",
+        "'Non-drowsy' = uyku yapmayan. 'Daytime' = gündüz formül. İş/seyahatte kritik fark.",
     },
     {
       id: "ex.dp19.5.3",
@@ -1637,7 +1646,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
       answer: "non",
       distractors: ["no", "not", "un"],
       tr_hint:
-        "'Non-drowsy' = sabit kalip. NyQuil (uyku yapan) vs DayQuil (non-drowsy) ayrimi.",
+        "'Non-drowsy' = sabit kalıp. NyQuil (uyku yapan) vs DayQuil (non-drowsy) ayrımı.",
     },
     {
       id: "ex.dp19.5.4",
@@ -1651,7 +1660,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
         "sleepy",
       ],
       correct_sentence: "Will this make me sleepy",
-      tr_translation: "Bu beni uykulu yapar mi?",
+      tr_translation: "Bu beni uykulu yapar mı?",
     },
     {
       id: "ex.dp19.5.5",
@@ -1661,7 +1670,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
       correct_sentence:
         "I'm not feeling well — got a sore throat and runny nose. Anything non-drowsy?",
       tr_explanation:
-        "'I have illness' = Turkce-bicim, garip. Dogru: 'I'm not feeling well' + spesifik semptom + non-drowsy isteme.",
+        "'I have illness' = Türkçe-biçim, garip. Doğru: 'I'm not feeling well' + spesifik semptom + non-drowsy isteme.",
     },
     {
       id: "ex.dp19.5.6",
@@ -1682,6 +1691,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
             "(flying|traveling|driving) (tomorrow|today|later)",
             "(any recommendation|what do you suggest)",
           ],
+          model_answers: ["Hi, anything non-drowsy for a cold? Got a runny nose and sore throat — flying tomorrow."],
           hint_tr:
             "Spesifik: 'Hi, anything non-drowsy for a cold? Got a runny nose and sore throat — flying tomorrow.'",
         },
@@ -1700,6 +1710,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
             "(any (side effects|interactions))",
             "(thanks|appreciate it|great)",
           ],
+          model_answers: ["No allergies, not on anything. How often do I take it?"],
           hint_tr:
             "Tam bilgi: 'No allergies, not on anything. How often do I take it?'",
         },
@@ -1725,7 +1736,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "DayQuil = non-drowsy (gunduz). NyQuil = drowsy (gece, uyutucu). Karistirma!",
+            "DayQuil = non-drowsy (gündüz). NyQuil = drowsy (gece, uyutucu). Karıştırma!",
         },
         {
           question: "Eczacida soguk alginligi sorarken NE soylenmeli?",
@@ -1737,7 +1748,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Detayli semptom = dogru urun. 'Sick' = belirsiz. Spesifiklik = daha iyi oneri.",
+            "Detaylı semptom = doğru ürün. 'Sick' = belirsiz. Spesifiklik = daha iyi öneri.",
         },
         {
           question: "'Ask your pharmacist' niye ABD'de yaygin?",
@@ -1749,7 +1760,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ABD/UK eczacisi resmi danismanlik verir. Turkiye'den farkli — bu hizmet ucretsiz, kullan.",
+            "ABD/UK eczacısı resmi danışmanlık verir. Türkiye'den farklı — bu hizmet ücretsiz, kullan.",
         },
       ],
     },
@@ -2038,9 +2049,9 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "I'm picking up a prescription",
-      tr_translation: "Reçeteli ilacimi almaya geldim",
+      tr_translation: "Reçeteli ilacımı almaya geldim",
       example: "Hi, I'm picking up a prescription for Yilmaz.",
-      example_tr: "Merhaba, Yilmaz adina reçeteli ilacimi almaya geldim.",
+      example_tr: "Merhaba, Yılmaz adına reçeteli ilacımı almaya geldim.",
     },
     {
       id: "ex.dp19.6.2",
@@ -2081,7 +2092,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
         "yet",
       ],
       correct_sentence: "Is it ready for pickup yet",
-      tr_translation: "Teslim almaya hazir mi?",
+      tr_translation: "Teslim almaya hazır mı?",
     },
     {
       id: "ex.dp19.6.5",
@@ -2112,6 +2123,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
             "(how long is|what'?s) (the wait|the wait time|the eta)",
             "(is it ready|ready (for|yet))",
           ],
+          model_answers: ["Hi, picking up a prescription for Yilmaz — how long is the wait?"],
           hint_tr:
             "Net: 'Hi, picking up a prescription for Yilmaz — how long is the wait?'",
         },
@@ -2130,6 +2142,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
             "(any (text|notification) when ready)",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Sure, I'll wait. Can you text me when it's ready?"],
           hint_tr:
             "Esnek: 'Sure, I'll wait. Can you text me when it's ready?'",
         },
@@ -2155,7 +2168,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ABD'de doktor reçeteyi elektronik yollar, eczaci hazirlar, sen pickup yapasin.",
+            "ABD'de doktor reçeteyi elektronik yollar, eczacı hazırlar, sen pickup yapasın.",
         },
         {
           question: "'How long is the wait?' niye iyi soru?",
@@ -2167,7 +2180,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pharmacy yogun olabilir — 5 dk mi 1 saat mi onceden bilmek = zaman planlama.",
+            "Pharmacy yoğun olabilir — 5 dk mi 1 saat mi önceden bilmek = zaman planlama.",
         },
         {
           question: "Reseteli ilacta pickup icin NE gerek?",
@@ -2179,7 +2192,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ID = sen oldugunu kanit. Insurance = odeme. Yanlis isimle alma = hapis riski.",
+            "ID = sen olduğunu kanıt. Insurance = ödeme. Yanlış isimle alma = hapis riski.",
         },
       ],
     },
@@ -2190,7 +2203,7 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
       phrase: "How long is the wait for pickup?",
       ipa: "haʊ lɔŋ ɪz ðə weɪt fər ˈpɪkʌp",
       tr_hint:
-        "'How long is' baglanir → 'haw-LONG-iz'. 'Pickup' = 'PIK-ap' (vurgu ilk hece, tek kelime).",
+        "'How long is' bağlanır → 'haw-LONG-iz'. 'Pickup' = 'PIK-ap' (vurgu ilk hece, tek kelime).",
     },
     {
       id: "ex.dp19.6.sp1",
@@ -2469,9 +2482,9 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "Will this make me drowsy?",
-      tr_translation: "Bu beni uykulu yapar mi?",
+      tr_translation: "Bu beni uykulu yapar mı?",
       example: "Will this allergy med make me drowsy? I have to drive.",
-      example_tr: "Bu alerji ilaci beni uykulu yapar mi? Araba kullanmam lazim.",
+      example_tr: "Bu alerji ilacı beni uykulu yapar mı? Araba kullanmam lazım.",
     },
     {
       id: "ex.dp19.7.2",
@@ -2487,7 +2500,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
         "Already on Advil — does this clash with it?",
       ],
       tr_hint:
-        "'Interactions' = ilac etkilesimi. Eczacida sormak kritik — bazi kombolar tehlikeli.",
+        "'Interactions' = ilaç etkileşimi. Eczacıda sormak kritik — bazı kombolar tehlikeli.",
     },
     {
       id: "ex.dp19.7.3",
@@ -2497,7 +2510,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
       answer: "interactions",
       distractors: ["effects", "problems", "issues"],
       tr_hint:
-        "'Drug interactions' = ilac etkilesimi. Standart eczaci sorusu — guvenli kombinasyon kontrolu.",
+        "'Drug interactions' = ilaç etkileşimi. Standart eczacı sorusu — güvenli kombinasyon kontrolü.",
     },
     {
       id: "ex.dp19.7.4",
@@ -2522,7 +2535,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
       correct_sentence:
         "I'm on Advil daily — will this allergy med interact with it? And will it make me drowsy?",
       tr_explanation:
-        "'I take pill. Allergy. Safe?' = parcali, belirsiz. Doğru: spesifik ilac (Advil) + 'interact' + 'drowsy' sorusu.",
+        "'I take pill. Allergy. Safe?' = parçalı, belirsiz. Doğru: spesifik ilaç (Advil) + 'interact' + 'drowsy' sorusu.",
     },
     {
       id: "ex.dp19.7.6",
@@ -2543,8 +2556,9 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
             "(any (interactions|interaction|side effects))",
             "(non-?drowsy|won'?t affect (driving|work))",
           ],
+          model_answers: ["Hi, anything non-drowsy for pollen allergies? Sneezing and itchy eyes."],
           hint_tr:
-            "Acilis: 'Hi, anything non-drowsy for pollen allergies? Sneezing and itchy eyes.'",
+            "Açılış: 'Hi, anything non-drowsy for pollen allergies? Sneezing and itchy eyes.'",
         },
         {
           speaker: "npc",
@@ -2561,6 +2575,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
             "(side effects (to watch|to know about))",
             "(thanks for checking|appreciate the thoroughness)",
           ],
+          model_answers: ["On Advil daily for back pain. Any interactions? Side effects?"],
           hint_tr:
             "Tam bilgi: 'On Advil daily for back pain. Any interactions? Side effects?'",
         },
@@ -2586,7 +2601,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Full disclosure = guvenli ilac. Advil + kan sulandirici = tehlike. Eczaci uyaracak.",
+            "Full disclosure = güvenli ilaç. Advil + kan sulandırıcı = tehlike. Eczacı uyaracak.",
         },
         {
           question: "'Drug interactions' niye onemli?",
@@ -2598,7 +2613,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Warfarin + Advil = ic kanama. MAOI + soguk ilaci = krize. Etkilesim = hayat-olum konusu.",
+            "Warfarin + Advil = iç kanama. MAOI + soğuk ilacı = krize. Etkileşim = hayat-ölüm konusu.",
         },
         {
           question: "'Will it make me drowsy?' niye standart soru?",
@@ -2621,7 +2636,7 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
       phrase: "Any interactions with my current medications?",
       ipa: "ˈɛni ˌɪntərˈækʃənz wɪð maɪ ˈkɜrənt ˌmɛdɪˈkeɪʃənz",
       tr_hint:
-        "'Interactions' = 'in-ter-AK-shenz' (4 hece, vurgu ucuncu). 'Medications' = 'me-di-KEY-shenz' (4 hece).",
+        "'Interactions' = 'in-ter-AK-shenz' (4 hece, vurgu üçüncü). 'Medications' = 'me-di-KEY-shenz' (4 hece).",
     },
     {
       id: "ex.dp19.7.sp1",
@@ -2899,9 +2914,9 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "Should I see a doctor?",
-      tr_translation: "Doktora gormeli miyim?",
+      tr_translation: "Doktora görmeli miyim?",
       example: "Should I see a doctor for this, or is OTC enough?",
-      example_tr: "Bunun icin doktora gormeli miyim, yoksa reçetesiz yeterli mi?",
+      example_tr: "Bunun için doktora görmeli miyim, yoksa reçetesiz yeterli mi?",
     },
     {
       id: "ex.dp19.8.2",
@@ -2917,7 +2932,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
         "Fever 5 days in — when's it time to escalate?",
       ],
       tr_hint:
-        "'When should I be worried?' = ne zaman ciddi. Eczaci esik degerlerini bilir.",
+        "'When should I be worried?' = ne zaman ciddi. Eczacı eşik değerlerini bilir.",
     },
     {
       id: "ex.dp19.8.3",
@@ -2927,7 +2942,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
       answer: "for",
       distractors: ["of", "with", "about"],
       tr_hint:
-        "'See a doctor FOR X' = X icin doktor. Sabit prepozisyon. 'About' yanlis burada.",
+        "'See a doctor FOR X' = X için doktor. Sabit prepozisyon. 'About' yanlış burada.",
     },
     {
       id: "ex.dp19.8.4",
@@ -2943,7 +2958,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
         "this",
       ],
       correct_sentence: "When should I be worried about this",
-      tr_translation: "Bu konuda ne zaman endiselenmeliyim?",
+      tr_translation: "Bu konuda ne zaman endişelenmeliyim?",
     },
     {
       id: "ex.dp19.8.5",
@@ -2974,6 +2989,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
             "(or (wait|ride it out|see if it passes))",
             "(otc enough|just keep (taking|using))",
           ],
+          model_answers: ["Quick question — fever 5 days, not improving. Should I see a doctor or wait?"],
           hint_tr:
             "Net soru: 'Quick question — fever 5 days, not improving. Should I see a doctor or wait?'",
         },
@@ -2992,6 +3008,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
             "(when (should i|do i) (go to (er|urgent care)))",
             "(thanks for the (info|guidance|help))",
           ],
+          model_answers: ["No chest pain. Just fever + cough. When should I be worried?"],
           hint_tr:
             "Detay: 'No chest pain. Just fever + cough. When should I be worried?'",
         },
@@ -3017,7 +3034,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Eczaci OTC + dozaj uzmani ama tani koyamaz. 'Beyond OTC' = doktora gerek.",
+            "Eczacı OTC + dozaj uzmanı ama tanı koyamaz. 'Beyond OTC' = doktora gerek.",
         },
         {
           question: "'When should I be worried?' niye gucly soru?",
@@ -3029,7 +3046,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Eczaci 'red flag' kriterleri bilir: nefes alma, ates 103+, dakika 30+ kanama. Hayat kurtarici.",
+            "Eczacı 'red flag' kriterleri bilir: nefes alma, ateş 103+, dakika 30+ kanama. Hayat kurtarıcı.",
         },
         {
           question: "'Wait it out' ne demek?",
@@ -3041,7 +3058,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bazi viral hastaliklar 5-7 gunde kendi gecer. 'Wait it out' = aktif tedavi etmeden bekle.",
+            "Bazı viral hastalıklar 5-7 günde kendi geçer. 'Wait it out' = aktif tedavi etmeden bekle.",
         },
       ],
     },
@@ -3052,7 +3069,7 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
       phrase: "Should I see a doctor, or wait it out?",
       ipa: "ʃʊd aɪ siː ə ˈdɒktər ɔr weɪt ɪt aʊt",
       tr_hint:
-        "'Should I' = 'shud-AI'. 'Wait it out' baglanir → 'wey-di-DAWT'. Iki secenek arasi tonlama: ilk yukari, ikinci asagi.",
+        "'Should I' = 'shud-AI'. 'Wait it out' bağlanır → 'wey-di-DAWT'. İki seçenek arası tonlama: ilk yukarı, ikinci aşağı.",
     },
     {
       id: "ex.dp19.8.sp1",

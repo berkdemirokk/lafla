@@ -14,11 +14,13 @@
     },
     "preview": {
       "distribution": "internal",
+      "channel": "preview",
       "ios": {
         "resourceClass": "m-medium"
       }
     },
     "production": {
+      "channel": "production",
       "autoIncrement": true,
       "ios": {
         "resourceClass": "m-medium"
@@ -26,6 +28,12 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "berkkdemirok@gmail.com",
+        "ascAppId": "6769138297",
+        "appleTeamId": "44B88YK392"
+      }
+    }
   }
 }

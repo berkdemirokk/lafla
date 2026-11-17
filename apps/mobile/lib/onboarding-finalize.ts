@@ -12,7 +12,7 @@
 //   - setOnboarded(true)
 //   - setOnboardingStep(null)
 //   - completeOnboarding (Supabase sync, best effort)
-//   - requestAttOnce → initAnalytics (granted ise)
+//   - requestAttOnce → initAnalytics (granted ise) → initAds
 //   - trackEvent("onboarding_completed")
 //
 // intro Match yönlendirmesi caller'da. Bu helper sadece state finalize eder.
@@ -20,7 +20,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { initAnalytics, trackEvent } from "./analytics";
-import { requestAttOnce } from "./att";
+import { getAttStatus, requestAttOnce } from "./att";
 import { completeOnboarding } from "./auth";
 import { setCefrLevel, type CefrLevel } from "./cefr-level";
 import {
@@ -51,22 +51,46 @@ export async function finalizeOnboarding(opts: FinalizeOpts): Promise<void> {
 
   try {
     await setCefrLevel(opts.level);
-    await setInterests(opts.interests).catch(() => {});
-    await AsyncStorage.removeItem("lafla.track").catch(() => {});
+    await setInterests(opts.interests);
 
     const trimmed = opts.displayName.trim();
     if (trimmed.length > 0) {
-      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed);
+    } else {
+      await AsyncStorage.removeItem(K_DISPLAY_NAME);
     }
 
+    // Completion is the commit marker and is intentionally written last.
+    // A failure before this point keeps the learner in onboarding so retrying
+    // repairs any earlier partial writes instead of entering a broken home.
     await setOnboarded(true);
-    await setOnboardingStep(null);
+
+    // Cleanup and remote/analytics work must not invalidate a locally durable
+    // completion. A stale step is ignored while `lafla.onboarded` is true.
+    await setOnboardingStep(null).catch(() => {});
+    await AsyncStorage.removeItem("lafla.track").catch(() => {});
     await completeOnboarding(opts.interests, trimmed).catch(() => {});
 
     // ATT — value seen (Apple HIG önerisi). Granted ise analytics re-init.
     const attStatus = await requestAttOnce().catch(() => null);
     if (attStatus === "granted") {
       await initAnalytics().catch(() => {});
+    }
+    // AdMob cold start'ta onboarding sırasında başlatılmaz
+    // (lib/att-ads-bootstrap.ts); ATT denendikten sonra burada başlar.
+    // Lazy require: native ads modülü onboarding ekranının import ağacına
+    // girmesin.
+    // ATT prompt sunulamadıysa (not-determined) başlatma; sonraki cold start
+    // bootstrap'i tekrar sorar ve o zaman başlatır.
+    try {
+      const attNow = await getAttStatus().catch(() => "not-determined" as const);
+      if (attNow !== "not-determined") {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const ads = require("./ads") as typeof import("./ads");
+        void ads.initAds().catch(() => {});
+      }
+    } catch {
+      // ads non-critical
     }
 
     addBreadcrumb({

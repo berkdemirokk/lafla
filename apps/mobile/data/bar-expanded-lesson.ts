@@ -67,6 +67,7 @@ export const barLesson_7_8: BundledLesson = {
             "(give me|hit me with) (a|one) (beer|pint)",
             "(could i get|i'?ll take) a pint of (lager|ipa|something light)",
           ],
+          model_answers: ["Could I get a pint?"],
           hint_tr:
             "Bira siparişi: 'Could I get a pint?' veya 'Whatever's on tap, please'.",
         },
@@ -84,6 +85,7 @@ export const barLesson_7_8: BundledLesson = {
             "(yeah|yes|definitely)[,. ]+ (is it close|how'?s the game going)",
             "(catching up|trying to catch up)[,. ]+ (whats|whats the) score",
           ],
+          model_answers: ["Who's winning?"],
           hint_tr:
             "'What's the score?' = skor sor. 'Who's winning?' = kim önde sor.",
         },
@@ -101,6 +103,7 @@ export const barLesson_7_8: BundledLesson = {
             "(any idea|do you know) (how much|how long) (is|'?s) (left|to go)",
             "(perfect|right on time|good timing)",
           ],
+          model_answers: ["Oh nice, close game!"],
           hint_tr:
             "Tepki ver: 'Oh nice, close game!' veya 'Damn, that's intense'.",
         },
@@ -118,6 +121,7 @@ export const barLesson_7_8: BundledLesson = {
             "(let'?s|i'?ll) (do|open) a tab",
             "(uhh|i mean|sure) tab please",
           ],
+          model_answers: ["No thanks, just this one"],
           hint_tr:
             "Tab aç: 'Yeah, start a tab' veya tek içkilik: 'No thanks, just this one'.",
         },
@@ -442,6 +446,7 @@ export const barLesson_7_9: BundledLesson = {
             "(could you|can you) (suggest|recommend) something",
             "(i'?m new here|first time)[,. ]+ (any recs|what should i try)",
           ],
+          model_answers: ["What would you recommend?"],
           hint_tr:
             "Öneri iste: 'What would you recommend?' veya 'What's your signature?'",
         },
@@ -461,6 +466,7 @@ export const barLesson_7_9: BundledLesson = {
             "(i love|i'?m into) (bitter|smoky|whiskey-based) (drinks|cocktails)",
             "(surprise me|your call|dealer'?s choice)",
           ],
+          model_answers: ["Not too sweet, please"],
           hint_tr:
             "Tercih söyle: 'Not too sweet, please' veya 'I love bitter drinks'.",
         },
@@ -479,6 +485,7 @@ export const barLesson_7_9: BundledLesson = {
             "(i'?ll have|let me try) (the smoked negroni|that one|one of those)",
             "(could i|can i) (get|try|have) (one|that|it)",
           ],
+          model_answers: ["Sounds amazing, I'll try one"],
           hint_tr:
             "Kabul: 'Sounds amazing, I'll try one' veya 'Let's do it'.",
         },
@@ -496,6 +503,7 @@ export const barLesson_7_9: BundledLesson = {
             "(no thanks|just this one|pay as i go)",
             "(uhh|sure) (tab please|please)",
           ],
+          model_answers: ["Yeah, here's my card"],
           hint_tr:
             "Onay + kart: 'Yeah, here's my card' veya 'Tab works, thanks'.",
         },
@@ -816,6 +824,7 @@ export const barLesson_7_10: BundledLesson = {
             "(a round|drinks) for (the|that) table( please)?",
             "(uhh|i mean) (a round|some drinks) for (us|the group)",
           ],
+          model_answers: ["A round for the table"],
           hint_tr:
             "Grup sipariş: 'A round for the table' veya 'Four beers, please'.",
         },
@@ -833,6 +842,7 @@ export const barLesson_7_10: BundledLesson = {
             "(can you|could you) (do|make) (two beers|three ipas|a mix)",
             "(i'?ll have|i'?d like) (two|three) (of these|of those|beers)",
           ],
+          model_answers: ["Three lagers and a wine"],
           hint_tr:
             "Sayı + içki: 'Three lagers and a wine' veya 'Two beers and a gin tonic'.",
         },
@@ -851,6 +861,7 @@ export const barLesson_7_10: BundledLesson = {
             "(i'?ll pay|let me pay) now",
             "(card please|i'?ll pay with card)",
           ],
+          model_answers: ["Start a tab, here's my card"],
           hint_tr:
             "Tab aç: 'Start a tab, here's my card' veya direkt öde: 'Card, please'.",
         },
@@ -867,6 +878,7 @@ export const barLesson_7_10: BundledLesson = {
             "(thanks|cheers)[,. ]+ (we'?ll be|i'?ll be) (at|over at) (that|the) table",
             "(you'?re a|you'?re the) (legend|hero|best)",
           ],
+          model_answers: ["Cheers, we'll be at that table"],
           hint_tr:
             "Teşekkür et: 'Thanks, no rush' veya 'Cheers, we'll be at that table'.",
         },
@@ -1188,6 +1200,7 @@ export const barLesson_7_11: BundledLesson = {
             "(no thanks|i'?m good|i'?ll pass)",
             "(actually|nope)[,. ]+ (i'?m good|i'?m done)",
           ],
+          model_answers: ["One for the road, please"],
           hint_tr:
             "Son içki: 'Yeah, one more' veya 'One for the road, please'. Bitir: 'I'm good, thanks'.",
         },
@@ -1206,6 +1219,7 @@ export const barLesson_7_11: BundledLesson = {
             "(uhh|i mean) (same is good|same works)",
             "(yeah|yes)[,. ]+ (same|same one)( please)?",
           ],
+          model_answers: ["Same, please"],
           hint_tr:
             "Aynı: 'Same, please' veya değişiklik: 'Switch to a whiskey this time'.",
         },
@@ -1223,6 +1237,7 @@ export const barLesson_7_11: BundledLesson = {
             "(i'?ll|i should) (head out|be out) (in|around) (ten|fifteen|twenty) (minutes|min)",
             "(when'?s|when is) (last call|closing)",
           ],
+          model_answers: ["What time do you close?"],
           hint_tr:
             "Saat sor: 'What time do you close?' veya 'I'll head out in fifteen'.",
         },
@@ -1240,6 +1255,7 @@ export const barLesson_7_11: BundledLesson = {
             "(i'?ll|let me) (finish this|finish my drink) and (head out|take off|leave)",
             "(thanks|cool)[,. ]+ (i'?ll|i should) (be out|head out|leave) (soon|by then)",
           ],
+          model_answers: ["Perfect, I'll finish and head out"],
           hint_tr:
             "Onay + plan: 'Perfect, I'll finish and head out' veya 'Close me out, please'.",
         },
@@ -1560,6 +1576,7 @@ export const barLesson_7_12: BundledLesson = {
             "(i'?m driving|driving tonight)[,. ]+ (so |)(something non-?alcoholic|just water|just a soda)",
             "(could i get|can i have) (a|an) (alcohol-free|non-?alcoholic) (beer|cocktail|drink)",
           ],
+          model_answers: ["Something non-alcoholic — I'm the designated driver"],
           hint_tr:
             "Direkt söyle: 'Something non-alcoholic — I'm the designated driver'.",
         },
@@ -1579,6 +1596,7 @@ export const barLesson_7_12: BundledLesson = {
             "(surprise me|your call|whatever you recommend) (non-?alcoholic)?",
             "(could you|can you) (make|recommend) (a good|something) (mocktail|non-?alcoholic)",
           ],
+          model_answers: ["I'll try a mocktail"],
           hint_tr:
             "Seç: 'I'll try a mocktail' veya 'What's your virgin mojito like?'",
         },
@@ -1597,6 +1615,7 @@ export const barLesson_7_12: BundledLesson = {
             "(the classic|original|traditional one)( please)?",
             "(whichever|whatever) (is better|you recommend|is more popular)",
           ],
+          model_answers: ["Lime and mint, please"],
           hint_tr:
             "Tercih: 'Lime and mint, please' veya 'Whatever you recommend'.",
         },
@@ -1613,6 +1632,7 @@ export const barLesson_7_12: BundledLesson = {
             "(thanks)[,. ]+ (no judgment on the no-alcohol|appreciate the options)",
             "(thanks)[,. ]+ (someone has to drive|gotta drive tonight)",
           ],
+          model_answers: ["Perfect, gotta drive tonight"],
           hint_tr:
             "Teşekkür: 'Thanks, looks great' veya 'Perfect, gotta drive tonight'.",
         },
@@ -1933,6 +1953,7 @@ export const barLesson_7_13: BundledLesson = {
             "(yeah|yes)[,. ]+ (how much|whats the total|what do we owe)",
             "(can we|could we) (see|get) the tab",
           ],
+          model_answers: ["Can we see the tab?"],
           hint_tr:
             "Kapatma iste: 'Close us out, please' veya 'Can we see the tab?'",
         },
@@ -1951,6 +1972,7 @@ export const barLesson_7_13: BundledLesson = {
             "(split four ways|four cards|each pay separately)",
             "(can|could) (each of us|we each) (pay|tap) separately",
           ],
+          model_answers: ["I'll cover it with card"],
           hint_tr:
             "Böl: 'Split four ways, please' veya tek öde: 'I'll cover it with card'.",
         },
@@ -1968,6 +1990,7 @@ export const barLesson_7_13: BundledLesson = {
             "(uhh|i mean) (twenty|fifteen) (percent|%) (sounds good|works)",
             "(add|just add) (a |the )?(standard|usual) tip",
           ],
+          model_answers: ["Add twenty percent, please"],
           hint_tr:
             "Bahşiş: 'Add twenty percent, please' veya 'We'll handle the tip'.",
         },
@@ -1984,6 +2007,7 @@ export const barLesson_7_13: BundledLesson = {
             "(uhh|cool) (thanks|cheers)[,. ]+ (have a good (one|night))",
             "(you'?re|you'?re a) (the best|a legend|awesome)",
           ],
+          model_answers: ["Thanks, great night"],
           hint_tr:
             "Teşekkür: 'Thanks, great night' veya 'Cheers, you're awesome'.",
         },
@@ -2300,6 +2324,7 @@ export const barApproachLesson_24_9: BundledLesson = {
             "(quick q|excuse me)[,. ]+ have you seen (a tall guy|someone) (with|in)",
             "(hey)[,. ]+ (sorry to interrupt|just real quick)[,. ]+ have you (seen|spotted)",
           ],
+          model_answers: ["Sorry to bother you, have you seen a guy in a red shirt?"],
           hint_tr:
             "Aç: 'Sorry to bother you, have you seen a guy in a red shirt?'",
         },
@@ -2317,6 +2342,7 @@ export const barApproachLesson_24_9: BundledLesson = {
             "(curly hair|short hair|with a beard|with glasses)[,. ]+ (red|blue|black) (shirt|tee)",
             "(he'?s wearing|he has on) (a red shirt|a black hoodie|a backpack)",
           ],
+          model_answers: ["Tall, in a red shirt"],
           hint_tr:
             "Tarif: 'Tall, in a red shirt' veya 'Curly hair, blue jacket'.",
         },
@@ -2334,6 +2360,7 @@ export const barApproachLesson_24_9: BundledLesson = {
             "(thanks|appreciate it|you'?re a legend)",
             "(uhh|cool) (which|what) (direction|way) is that",
           ],
+          model_answers: ["Thanks! Where's the pool table?"],
           hint_tr:
             "Teşekkür + soru: 'Thanks! Where's the pool table?'",
         },
@@ -2351,6 +2378,7 @@ export const barApproachLesson_24_9: BundledLesson = {
             "(thanks)[,. ]+ (i owe you one|appreciate the help)",
             "(perfect|got it)[,. ]+ (thanks again|cheers)",
           ],
+          model_answers: ["Thanks so much, you're the best!"],
           hint_tr:
             "Kapanış: 'Thanks so much, you're the best!'",
         },
@@ -2667,6 +2695,7 @@ export const barApproachLesson_24_10: BundledLesson = {
             "(quick question|sorry)[,. ]+ (is this|that) (chair|seat) (taken|free)",
             "(hey|hi)[,. ]+ (mind if i join|can i join you guys)",
           ],
+          model_answers: ["Hey, is this seat taken?"],
           hint_tr:
             "Aç: 'Hey, is this seat taken?' veya 'Mind if I join?'",
         },
@@ -2684,6 +2713,7 @@ export const barApproachLesson_24_10: BundledLesson = {
             "(appreciate it|you'?re a lifesaver|legend)",
             "(thanks)[,. ]+ (mind if i join|hope i'?m not (intruding|interrupting))",
           ],
+          model_answers: ["Thanks, it's crazy in here tonight!"],
           hint_tr:
             "Teşekkür + smalltalk: 'Thanks, it's crazy in here tonight!'",
         },
@@ -2701,6 +2731,7 @@ export const barApproachLesson_24_10: BundledLesson = {
             "(yeah|yes)[,. ]+ (kind of|sort of) (a solo|spontaneous) (night|trip)",
             "(no)[,. ]+ (waiting on|expecting) (a couple of|some) friends",
           ],
+          model_answers: ["Yeah, my friend's running late"],
           hint_tr:
             "Cevap: 'Yeah, my friend's running late' veya 'Kind of solo tonight'.",
         },
@@ -2718,6 +2749,7 @@ export const barApproachLesson_24_10: BundledLesson = {
             "(yeah|kind of|sort of)[,. ]+ (more of a|i prefer) (rock|indie|electronic) (shows|gigs)",
             "(not really|not my thing|i'?m more of a) (club|chill) (person|guy|girl)",
           ],
+          model_answers: ["Yeah, love live music — who's playing?"],
           hint_tr:
             "Devam: 'Yeah, love live music — who's playing?'",
         },
@@ -3038,6 +3070,7 @@ export const barApproachLesson_24_11: BundledLesson = {
             "(hey sarah|sarah)[,. ]+ this is (burak|my friend)[,. ]+ (he'?s|hes) (cool|awesome|into the same stuff)",
             "(yeah)[,. ]+ (introducing|wanted to introduce) (you|him) to (sarah|my friend)",
           ],
+          model_answers: ["Hey, this is my friend Burak — he's also here for Erasmus"],
           hint_tr:
             "Tanıştır: 'Hey, this is my friend Burak — he's also here for Erasmus'.",
         },
@@ -3055,6 +3088,7 @@ export const barApproachLesson_24_11: BundledLesson = {
             "(so)[,. ]+ (you two|you both) (love|are into) (hiking|live music|photography) (right|i think)",
             "(actually|by the way)[,. ]+ (you should ask him about|tell her about) (the cappadocia trip|that show)",
           ],
+          model_answers: ["He's super into hiking — you two should chat!"],
           hint_tr:
             "Yardım et: 'He's super into hiking — you two should chat!'",
         },
@@ -3072,6 +3106,7 @@ export const barApproachLesson_24_11: BundledLesson = {
             "(perfect|nice)[,. ]+ (i'?ll be right back|back in a sec)",
             "(yeah|see)[,. ]+ (you two|you guys) (have so much in common|hit it off)",
           ],
+          model_answers: ["I'll let you two chat — grabbing a drink!"],
           hint_tr:
             "Geri çekil: 'I'll let you two chat — grabbing a drink!'",
         },
@@ -3089,6 +3124,7 @@ export const barApproachLesson_24_11: BundledLesson = {
             "(later|see you guys later|catch you in a bit)",
             "(thank yourself|you got it|consider it done)",
           ],
+          model_answers: ["No worries — have fun!"],
           hint_tr:
             "Kapan: 'No worries — have fun!' veya 'I'll be at the bar'.",
         },
@@ -3409,6 +3445,7 @@ export const barApproachLesson_24_12: BundledLesson = {
             "(thanks)[,. ]+ but (no thanks|i'?m okay|i'?m good for now)",
             "(appreciate the offer|sweet of you)[,. ]+ but (i'?m fine|i'?m good)",
           ],
+          model_answers: ["Thanks, that's sweet, but I'm good"],
           hint_tr:
             "Kibar red: 'Thanks, that's sweet, but I'm good'.",
         },
@@ -3426,6 +3463,7 @@ export const barApproachLesson_24_12: BundledLesson = {
             "(uhh|look) (i'?ll be|i'?m gonna be) honest[,. ]+ (i'?m not interested|not feeling it)",
             "(thanks|sweet of you)[,. ]+ but (i'?m here with my partner|with my friends|just here to hang)",
           ],
+          model_answers: ["I'm flattered but I'm not really looking — sorry"],
           hint_tr:
             "Net ol: 'I'm flattered but I'm not really looking — sorry'.",
         },
@@ -3443,6 +3481,7 @@ export const barApproachLesson_24_12: BundledLesson = {
             "(it'?s fine|really fine|honestly fine)[,. ]+ (you'?re cool|no harm done)",
             "(no problem|don'?t worry)[,. ]+ (have fun|good vibes)",
           ],
+          model_answers: ["No worries, have a great night!"],
           hint_tr:
             "Yumuşat: 'No worries, have a great night!'",
         },
@@ -3460,6 +3499,7 @@ export const barApproachLesson_24_12: BundledLesson = {
             "(cheers|peace|enjoy)",
             "(thanks|appreciate it)[,. ]+ (be safe|take care)",
           ],
+          model_answers: ["You too, take care!"],
           hint_tr:
             "Veda: 'You too, take care!'",
         },
@@ -3780,6 +3820,7 @@ export const barApproachLesson_24_13: BundledLesson = {
             "(sounds|that sounds) good[,. ]+ (hey|but) (mind if we|wanna) swap numbers",
             "(yeah|cool)[,. ]+ (this was|today was) (great|fun)[,. ]+ wanna (exchange|trade) (numbers|@s)",
           ],
+          model_answers: ["This was fun — wanna swap numbers?"],
           hint_tr:
             "Köprü: 'This was fun — wanna swap numbers?'",
         },
@@ -3797,6 +3838,7 @@ export const barApproachLesson_24_13: BundledLesson = {
             "(actually|wait)[,. ]+ (instagram|insta) (works|is easier|might be better)",
             "(i'?ll|let me) text you[,. ]+ (so you have my number|that way you have it)",
           ],
+          model_answers: ["Let me text you — that way you have it"],
           hint_tr:
             "Paylaş: 'Let me text you — that way you have it'.",
         },
@@ -3814,6 +3856,7 @@ export const barApproachLesson_24_13: BundledLesson = {
             "(no pressure on my end either|same vibe)",
             "(yeah)[,. ]+ (if you wanna|if you'?re ever around)[,. ]+ (grab a coffee|drinks|hang)",
           ],
+          model_answers: ["Same here — maybe grab a coffee sometime"],
           hint_tr:
             "Aynı tonu yansıt: 'Same here — maybe grab a coffee sometime'.",
         },
@@ -3831,6 +3874,7 @@ export const barApproachLesson_24_13: BundledLesson = {
             "(great meeting you|so good to meet you)[,. ]+ (you too|have fun)",
             "(have fun|enjoy|stay safe)",
           ],
+          model_answers: ["You too — great meeting you!"],
           hint_tr:
             "Sıcak veda: 'You too — great meeting you!'",
         },
@@ -4147,6 +4191,7 @@ export const barApproachLesson_24_14: BundledLesson = {
             "(quick question|hey)[,. ]+ (are you guys|y'?all) playing doubles[?,]? (could i join|need a partner)",
             "(hey)[,. ]+ (i'?m next|i'?ll play winner|i'?ve got next)",
           ],
+          model_answers: ["Hey, got room for one more?"],
           hint_tr:
             "Aç: 'Hey, got room for one more?' veya 'Mind if I jump in?'",
         },
@@ -4165,6 +4210,7 @@ export const barApproachLesson_24_14: BundledLesson = {
             "(decent|okay|i can hold my own)[,. ]+ (no promises|no guarantees)",
             "(honestly|to be honest)[,. ]+ (i'?m not amazing|i'?ll be the weak link)",
           ],
+          model_answers: ["I'm rusty but down to play"],
           hint_tr:
             "Mütevazı: 'I'm rusty but down to play' veya 'I'll give it a shot'.",
         },
@@ -4182,6 +4228,7 @@ export const barApproachLesson_24_14: BundledLesson = {
             "(burak|ali)[,. ]+ (thanks for letting me play|appreciate the invite)",
             "(hi|hey)[,. ]+ (i'?m|name'?s) (burak|ali)",
           ],
+          model_answers: ["I'm Burak, nice to meet you"],
           hint_tr:
             "Tanış: 'I'm Burak, nice to meet you'.",
         },
@@ -4199,6 +4246,7 @@ export const barApproachLesson_24_14: BundledLesson = {
             "(whatever you want|whatever'?s left|doesn'?t matter to me)",
             "(uhh) (you call it|you decide)[,. ]+ (i'?m flexible|i don'?t mind)",
           ],
+          model_answers: ["Whatever, your call"],
           hint_tr:
             "Seç: 'Whatever, your call' veya 'Stripes works'.",
         },
@@ -4216,6 +4264,7 @@ export const barApproachLesson_24_14: BundledLesson = {
             "(let'?s go|sounds good)[,. ]+ (cheers|good luck)",
             "(i'?ll do my best|i got you|i'?m on it)",
           ],
+          model_answers: ["I'll do my best!"],
           hint_tr:
             "Enerjik: 'Let's go, partner!' veya 'I'll do my best!'",
         },

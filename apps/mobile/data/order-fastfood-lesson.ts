@@ -100,6 +100,7 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
             "(big mac|quarter pounder|mcchicken) (combo|meal)",
             "let me get (a |the )?(number )?(one|two|big mac|combo)",
           ],
+          model_answers: ["Can I get a Big Mac meal?"],
           hint_tr:
             "Net giriş: 'I'll have the number one combo' veya 'Can I get a Big Mac meal?'",
         },
@@ -120,6 +121,7 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
             "(no|nah),? medium('s| is) fine",
             "(i'?ll )?stick with medium",
           ],
+          model_answers: ["Yes, make it a large"],
           hint_tr:
             "Evet: 'Yes, make it a large'. Hayır: 'No thanks, medium is fine'.",
         },
@@ -139,6 +141,7 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
             "(it's )?fine as (it )?is",
             "(no|nothing),? thanks",
           ],
+          model_answers: ["Hold the onions"],
           hint_tr:
             "Çıkar: 'No pickles' veya 'Hold the onions'. Ekle: 'Extra cheese'.",
         },
@@ -155,6 +158,7 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
             "(can|could) I (sub|switch) (it )?(out )?(for|to) (a )?(coke|sprite|diet coke)",
             "(coke|sprite) instead( of .+)?",
           ],
+          model_answers: ["Can I get a Sprite instead?"],
           hint_tr:
             "İçeceği söyle: 'A Coke, please' veya 'Can I get a Sprite instead?'",
         },
@@ -172,6 +176,7 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
             "(actually )?(could|can) i (also |)?(add|get) (a |an )?(apple pie|mcflurry|nugget)",
             "(no|nope) thanks(,)? (that'?s|thats) all",
           ],
+          model_answers: ["Could I also get an apple pie?"],
           hint_tr:
             "Bitir: 'That's it, thanks' veya ekleme: 'Could I also get an apple pie?'",
         },
@@ -189,6 +194,7 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
             "on my way",
             "(thanks|thank you) so much",
           ],
+          model_answers: ["Got it, thanks!"],
           hint_tr:
             "Onayla: 'Got it, thanks!' veya 'Pulling up now'.",
         },
@@ -565,6 +571,7 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
             "i'?ll (have|take|get) (a |the )?(bowl|burrito|tacos)",
             "let me (do|get) (a |the )?(bowl|burrito)",
           ],
+          model_answers: ["I'll have a burrito."],
           hint_tr:
             "Base'ini söyle: 'A bowl, please' veya 'I'll have a burrito.'",
         },
@@ -582,6 +589,7 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
             "(both|all) of (them|it)",
             "(half (and|n) half|half (white|brown))",
           ],
+          model_answers: ["White rice and black beans."],
           hint_tr:
             "Pilav ve fasulyeni seç: 'White rice and black beans.'",
         },
@@ -598,6 +606,7 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
             "(double )?(chicken|steak)",
             "let me (do|get|try) (the )?(chicken|steak|barbacoa)",
           ],
+          model_answers: ["I'll have the steak."],
           hint_tr:
             "Proteini söyle: 'Chicken, please' veya 'I'll have the steak.'",
         },
@@ -616,6 +625,7 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
             "(no )?salsa",
             "(skip|no) (the )?salsa",
           ],
+          model_answers: ["Mild and corn, please"],
           hint_tr:
             "Salsa seç: 'Mild and corn, please' veya 'All the salsas.'",
         },
@@ -634,6 +644,7 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
             "(could|can) I (have|get) (extra |some )?guac",
             "(everything|all of it)",
           ],
+          model_answers: ["Cheese, lettuce, and extra guac, please."],
           hint_tr:
             "Topping'leri seç: 'Cheese, lettuce, and extra guac, please.'",
         },
@@ -651,6 +662,7 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
             "(i'?ll have |let me get )?(a )?(coke|sprite|water)",
             "(that's|that is) it( for me)?",
           ],
+          model_answers: ["Just a water"],
           hint_tr:
             "İçecek: 'Just a water' veya 'A Coke, please.' Yoksa 'That's it.'",
         },
@@ -1044,6 +1056,7 @@ export const orderFastfoodLesson_43_3: BundledLesson = {
             "i can'?t have (gluten|nuts|peanuts|dairy)",
             "(could|can) I (have|get) (a )?(turkey|chicken|veggie|tuna)( sub| sandwich)?",
           ],
+          model_answers: ["Heads up — I'm allergic to gluten. Do you have gluten-free bread?"],
           hint_tr:
             "Alerjini önce söyle: 'Heads up — I'm allergic to gluten. Do you have gluten-free bread?'",
         },
@@ -1061,6 +1074,7 @@ export const orderFastfoodLesson_43_3: BundledLesson = {
             "(turkey breast|oven roasted chicken|tuna|italian bmt)",
             "thanks( for changing gloves)?",
           ],
+          model_answers: ["I'll have the chicken."],
           hint_tr:
             "Proteini seç: 'Turkey, please' veya 'I'll have the chicken.'",
         },
@@ -1078,6 +1092,7 @@ export const orderFastfoodLesson_43_3: BundledLesson = {
             "(mustard|oil and vinegar|sweet onion)( please)?",
             "(no |without )?(cheese|onions|pickles|mayo)",
           ],
+          model_answers: ["All the veggies but no mayo, please."],
           hint_tr:
             "Mayonezi atla: 'All the veggies but no mayo, please.'",
         },
@@ -1095,6 +1110,7 @@ export const orderFastfoodLesson_43_3: BundledLesson = {
             "(no thanks|no chips|nothing|just the sandwich)",
             "(is it|are they) (gluten.?free)\\??",
           ],
+          model_answers: ["Could I sub the chips for a side salad, please?"],
           hint_tr:
             "Substitution: 'Could I sub the chips for a side salad, please?'",
         },
@@ -1483,6 +1499,7 @@ export const orderFastfoodLesson_43_4: BundledLesson = {
             "(can|could) you help,? .{0,20}(wrong|mix.?up)",
             "i came back because (this|my order)( is| isn'?t)",
           ],
+          model_answers: ["Hi, I think there's been a mix-up with my order."],
           hint_tr:
             "Yumuşak giriş: 'Hi, I think there's been a mix-up with my order.'",
         },
@@ -1499,6 +1516,7 @@ export const orderFastfoodLesson_43_4: BundledLesson = {
             "(i had|i got) (the )?(number )?(one|two|big mac|.+) (combo|meal)",
             "(a |the )?(number )?(one|two|three|four|five|six) (combo|meal)",
           ],
+          model_answers: ["I ordered the number two combo."],
           hint_tr:
             "Ne sipariş ettiğini söyle: 'I ordered the number two combo.'",
         },
@@ -1516,6 +1534,7 @@ export const orderFastfoodLesson_43_4: BundledLesson = {
             "(the )?(chicken|fish|wrong)( one| burger| sandwich)?",
             "(also )?my (fries|drink|nuggets) (are|were|is) missing",
           ],
+          model_answers: ["I got a chicken sandwich instead"],
           hint_tr:
             "Aldığın şeyi söyle: 'I got a chicken sandwich instead' veya 'My fries are missing.'",
         },
@@ -1534,6 +1553,7 @@ export const orderFastfoodLesson_43_4: BundledLesson = {
             "(thanks|thank you),? (the )?(right|correct) order('s| is) fine",
             "(refund|the right one),? (either|whichever) (is fine|works)",
           ],
+          model_answers: ["Just the right order is fine, thanks"],
           hint_tr:
             "Tercih et: 'Just the right order is fine, thanks' veya 'Could I get a refund, please?'",
         },
@@ -1923,6 +1943,7 @@ export const orderFastfoodLesson_43_5: BundledLesson = {
             "(a )?whopper( combo| meal)?( with .+)?",
             "let me get (a |the )?(number )?(one|two|three|whopper)",
           ],
+          model_answers: ["Could I get a number three?"],
           hint_tr:
             "Net başla: 'Could I get a number three?' veya 'I'll have a Whopper combo.'",
         },
@@ -1940,6 +1961,7 @@ export const orderFastfoodLesson_43_5: BundledLesson = {
             "(just )?(a )?water( please)?",
             "(with )?(a )?(coke|sprite|diet coke)",
           ],
+          model_answers: ["A Coke, please"],
           hint_tr:
             "İçeceği net söyle: 'A Coke, please' — mikrofonda 'Coke' net telaffuz.",
         },
@@ -1957,6 +1979,7 @@ export const orderFastfoodLesson_43_5: BundledLesson = {
             "(let me repeat|repeating)( that)?,? (a )?(coke|sprite)",
             "sorry,? (a )?(coke|sprite|diet coke)",
           ],
+          model_answers: ["A Coke, please."],
           hint_tr:
             "Mikrofon kesildi — tekrar et: 'A Coke, please.' Yavaş + net.",
         },
@@ -1975,6 +1998,7 @@ export const orderFastfoodLesson_43_5: BundledLesson = {
             "(yes|yeah),? (could|can) I (also )?(get|have) (a |an |some )?.+",
             "(also|and) (a |an |some )?.+",
           ],
+          model_answers: ["No, that's it, please."],
           hint_tr:
             "Bitir: 'No, that's it, please.' Veya ekle: 'Also a small fries.'",
         },
@@ -2327,6 +2351,7 @@ export const orderFastfoodLesson_43_6: BundledLesson = {
             "(sure|sounds good),? (large )?please",
             "(yes|yeah)( please)?",
           ],
+          model_answers: ["Yes please, make it a large."],
           hint_tr:
             "Evet de: 'Yes please, make it a large.' Net + kısa.",
         },
@@ -2345,6 +2370,7 @@ export const orderFastfoodLesson_43_6: BundledLesson = {
             "(no thanks|no thank you)",
             "(nope|no)( thanks)?,? (i'?m good|that'?s it)",
           ],
+          model_answers: ["Yes, add a chocolate shake."],
           hint_tr:
             "Ekle: 'Yes, add a chocolate shake.' Veya geç: 'No thanks, I'm good.'",
         },
@@ -2363,6 +2389,7 @@ export const orderFastfoodLesson_43_6: BundledLesson = {
             "(just )?(ketchup|ranch)( please)?",
             "(no thanks|no sauce|i'?m good)",
           ],
+          model_answers: ["Some ranch and ketchup, please."],
           hint_tr:
             "Sos seç: 'Some ranch and ketchup, please.' Veya yok: 'No thanks.'",
         },
@@ -2380,6 +2407,7 @@ export const orderFastfoodLesson_43_6: BundledLesson = {
             "(no thanks|nothing else)",
             "(yes|yeah)( also)?,? (could|can) I (have|get|add) (a |an |some )?.+",
           ],
+          model_answers: ["That'll be all, thanks."],
           hint_tr:
             "Bitir: 'That'll be all, thanks.' Veya ekle: 'Also a side of fries.'",
         },
@@ -2731,6 +2759,7 @@ export const orderFastfoodLesson_43_7: BundledLesson = {
             "(number )?(one|two|three|four|five) (combo|meal)?",
             "let me get (a |the )?(chicken|spicy|deluxe)",
           ],
+          model_answers: ["Could I get a spicy chicken sandwich combo?"],
           hint_tr:
             "Sandviçi söyle: 'Could I get a spicy chicken sandwich combo?'",
         },
@@ -2749,6 +2778,7 @@ export const orderFastfoodLesson_43_7: BundledLesson = {
             "(extra |add )?(cheese|sauce|chick.?fil.?a sauce|pickles)",
             "(could|can) I (have|get) (it )?(with )?(extra |no )?(cheese|sauce|pickles|mayo)",
           ],
+          model_answers: ["No pickles, hold the mayo, extra cheese, please."],
           hint_tr:
             "Değişiklikleri söyle: 'No pickles, hold the mayo, extra cheese, please.'",
         },
@@ -2766,6 +2796,7 @@ export const orderFastfoodLesson_43_7: BundledLesson = {
             "(sweet|unsweet) (tea|iced tea)( please)?",
             "(just )?(a )?water( please)?",
           ],
+          model_answers: ["A sweet tea, please."],
           hint_tr:
             "İçecek seç: 'A sweet tea, please.' (Chick-fil-A'in klasiği.)",
         },
@@ -2783,6 +2814,7 @@ export const orderFastfoodLesson_43_7: BundledLesson = {
             "(both|all of them|one of each)( please)?",
             "(no thanks|no sauce|i'?m good)",
           ],
+          model_answers: ["Could I get two Chick-fil-A sauces and a Polynesian?"],
           hint_tr:
             "Sos seç: 'Could I get two Chick-fil-A sauces and a Polynesian?'",
         },
@@ -3131,6 +3163,7 @@ export const orderFastfoodLesson_43_8: BundledLesson = {
             "(hi|hey),? (i )?(ordered (it )?on the app|placed (a |an )?mobile order)",
             "(i'?m here for|here to grab) (a )?mobile order .{0,20}",
           ],
+          model_answers: ["Hi, I'm here to pick up a mobile order under Berk."],
           hint_tr:
             "Net giriş: 'Hi, I'm here to pick up a mobile order under Berk.'",
         },
@@ -3147,6 +3180,7 @@ export const orderFastfoodLesson_43_8: BundledLesson = {
             "\\w{2,20}( please)?",
             "(it'?s |that'?s )?\\w{2,20},? .+",
           ],
+          model_answers: ["It's under Berk."],
           hint_tr:
             "Adını söyle: 'It's under Berk.' Veya sadece 'Berk, please.'",
         },
@@ -3165,6 +3199,7 @@ export const orderFastfoodLesson_43_8: BundledLesson = {
             "(thanks|no rush),? (i'?ll )?wait",
             "(ok|alright)( thanks)?",
           ],
+          model_answers: ["Sure, I'll grab a seat, thanks."],
           hint_tr:
             "Bekle: 'Sure, I'll grab a seat, thanks.' Veya: 'Could you call me when it's ready?'",
         },
@@ -3182,6 +3217,7 @@ export const orderFastfoodLesson_43_8: BundledLesson = {
             "(sounds good|got it)( thanks)?",
             "(appreciate it|cheers)",
           ],
+          model_answers: ["Thanks, I'll grab it when it's up."],
           hint_tr:
             "Teşekkür et: 'Thanks, I'll grab it when it's up.' Veya 'Sounds good, thanks.'",
         },

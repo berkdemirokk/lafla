@@ -13,8 +13,11 @@ import type { SceneMode } from "../data/scenes";
 
 const K_HISTORY = "lafla.sceneHistory";
 const MAX_HISTORY = 200;
+let historyWriteChain: Promise<unknown> = Promise.resolve();
 
 export interface SceneHistoryEntry {
+  /** Stable for one mounted completion; used to collapse duplicate callbacks. */
+  completionId?: string;
   /** Lesson ID — sahneye dön linkleri için. */
   lessonId: string;
   /** Sahne başlığı — UI'da gösterilir. */
@@ -36,24 +39,31 @@ export interface SceneHistoryEntry {
 export async function recordSceneCompletion(
   entry: Omit<SceneHistoryEntry, "completedAt">,
 ): Promise<void> {
-  try {
-    const existing = await readHistory();
+  const job = historyWriteChain.then(async () => {
+    const existing = await readHistoryRaw();
+    const now = new Date();
+    if (
+      entry.completionId &&
+      existing.some((item) => item.completionId === entry.completionId)
+    ) {
+      return;
+    }
     const next: SceneHistoryEntry = {
       ...entry,
-      completedAt: new Date().toISOString(),
+      completedAt: now.toISOString(),
     };
     // Yeni kayıt en başa (en yeniler önce)
     const updated = [next, ...existing].slice(0, MAX_HISTORY);
     await AsyncStorage.setItem(K_HISTORY, JSON.stringify(updated));
-  } catch {
-    // best effort
-  }
+  });
+  historyWriteChain = job.catch(() => undefined);
+  await job.catch(() => undefined);
 }
 
 /**
  * Tüm history'i oku (en yeni → en eski sıralı).
  */
-export async function readHistory(): Promise<SceneHistoryEntry[]> {
+async function readHistoryRaw(): Promise<SceneHistoryEntry[]> {
   try {
     const raw = await AsyncStorage.getItem(K_HISTORY);
     if (!raw) return [];
@@ -62,6 +72,11 @@ export async function readHistory(): Promise<SceneHistoryEntry[]> {
   } catch {
     return [];
   }
+}
+
+export async function readHistory(): Promise<SceneHistoryEntry[]> {
+  await historyWriteChain.catch(() => undefined);
+  return readHistoryRaw();
 }
 
 /**

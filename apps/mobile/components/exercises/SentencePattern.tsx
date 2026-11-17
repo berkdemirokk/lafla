@@ -16,6 +16,7 @@ import { Button } from "../Button";
 import { tokens } from "../../theme";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { type ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface Slot {
   /** Accepted answers — first entry treated as the canonical. */
@@ -46,6 +47,7 @@ export function SentencePattern({
   example_filled,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const parts = useMemo(() => splitTemplate(template), [template]);
 
   // Per-slot user selection — null = boş.
@@ -129,8 +131,12 @@ export function SentencePattern({
       correct,
       score,
       feedback: correct
-        ? "Şablon eksiksiz!"
-        : `${correctCount}/${slots.length} doğru. Örnek: "${example_filled}"`,
+        ? t("exercise.feedback.pattern_complete")
+        : t("exercise.feedback.pattern_score", {
+            correct: String(correctCount),
+            total: String(slots.length),
+            example: example_filled,
+          }),
     };
     setResult(r);
     hapticForScore(score);
@@ -138,7 +144,7 @@ export function SentencePattern({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Şablonu doldur</Text>
+      <Text style={styles.prompt}>{t("exercise.sentence_pattern.title")}</Text>
 
       {/* Template rendered with inline filled-slot chips */}
       <Animated.View
@@ -179,8 +185,15 @@ export function SentencePattern({
                   accessibilityRole="button"
                   accessibilityLabel={
                     filled[i]
-                      ? `${i + 1}. boşluk: ${filled[i]}`
-                      : `${i + 1}. boşluk, ${slots[i]?.placeholder ?? "boş"}`
+                      ? t("exercise.sentence_pattern.filled_slot", {
+                          number: String(i + 1),
+                          value: filled[i] ?? "",
+                        })
+                      : t("exercise.sentence_pattern.empty_slot", {
+                          number: String(i + 1),
+                          placeholder:
+                            slots[i]?.placeholder ?? t("exercise.empty"),
+                        })
                   }
                 >
                   {filled[i] ?? slots[i]?.placeholder ?? "_____"}
@@ -198,7 +211,9 @@ export function SentencePattern({
           style={styles.bankBlock}
         >
           <Text style={styles.bankLabel}>
-            {activeSlot + 1}. boşluk için seç
+            {t("exercise.sentence_pattern.choose_slot", {
+              number: String(activeSlot + 1),
+            })}
           </Text>
           <View style={styles.chipRow}>
             {(optionsPerSlot[activeSlot] ?? []).map((opt, i) => {
@@ -209,7 +224,7 @@ export function SentencePattern({
                   onPress={() => handleChipTap(opt)}
                   style={[styles.chip, isPicked && styles.chipPicked]}
                   accessibilityRole="button"
-                  accessibilityLabel={`${opt} seç`}
+                  accessibilityLabel={t("exercise.select_option", { option: opt })}
                   accessibilityState={{ selected: isPicked }}
                 >
                   <Text
@@ -228,8 +243,13 @@ export function SentencePattern({
       )}
 
       {!result && (
-        <Text style={styles.hint} accessibilityLabel={`İpucu: ${tr_hint}`}>
-          💡 {tr_hint}
+        <Text
+          style={styles.hint}
+          accessibilityLabel={t("exercise.hint_label", {
+            hint: locale === "tr" ? tr_hint : t("learning.hint_fallback_en"),
+          })}
+        >
+          💡 {locale === "tr" ? tr_hint : t("learning.hint_fallback_en")}
         </Text>
       )}
 
@@ -246,14 +266,14 @@ export function SentencePattern({
           {result.feedback && (
             <Text style={styles.feedbackText}>{result.feedback}</Text>
           )}
-          <Text style={styles.feedbackExampleLabel}>Örnek doldurulmuş</Text>
+          <Text style={styles.feedbackExampleLabel}>{t("exercise.sentence_pattern.filled_example")}</Text>
           <Text style={styles.feedbackExample}>{example_filled}</Text>
         </View>
       )}
 
       <View style={styles.footer}>
         <Button
-          label={result ? "Devam et →" : "Kontrol et"}
+          label={result ? `${t("common.continue")} →` : t("exercise.check")}
           onPress={result ? () => onComplete(result) : submit}
           disabled={!result && !allFilled}
         />

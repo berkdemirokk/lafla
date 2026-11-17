@@ -169,7 +169,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
         "Bill has a charge that's not mine, please investigate.",
       ],
       tr_hint:
-        "'Charge I don't recognize' = tanımadığım ucret. Fatura sikayet kalibi.",
+        "'Charge I don't recognize' = tanımadığım ücret. Fatura şikayet kalıbı.",
     },
     {
       id: "ex.dph21.1.3",
@@ -179,7 +179,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
       answer: "reference",
       distractors: ["ticket", "claim", "case"],
       tr_hint:
-        "'Reference number' = takip numarasi. Cagri sonrasi sorunun cozumunde gerek.",
+        "'Reference number' = takip numarası. Çağrı sonrası sorunun çözümünde gerek.",
     },
     {
       id: "ex.dph21.1.4",
@@ -204,7 +204,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
       correct_sentence:
         "Could you reverse the duplicate charge from October 5? Receipt's in front of me.",
       tr_explanation:
-        "'I want money' = belirsiz + saldiri. Doğru: spesifik islem + tarih + kanıt.",
+        "'I want money' = belirsiz + saldırı. Doğru: spesifik işlem + tarih + kanıt.",
     },
     {
       id: "ex.dph21.1.6",
@@ -225,6 +225,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
             "(account number|phone number) (is|ends in)",
             "(verify (identity)|confirm)",
           ],
+          model_answers: ["Hi, calling about a charge I don't recognize. My number ends in 8742."],
           hint_tr:
             "Net: 'Hi, calling about a charge I don't recognize. My number ends in 8742.'",
         },
@@ -243,6 +244,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
             "(getting back to|so about) (the issue|the charge|my bill)",
             "(october 5|date)",
           ],
+          model_answers: ["Sure — last 4 is 1234. So the charge from Oct 5..."],
           hint_tr:
             "Doğrula + konuya don: 'Sure — last 4 is 1234. So the charge from Oct 5...'",
         },
@@ -268,7 +270,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Verification yapmadan agent ile gerek yok = vakit kayip yok.",
+            "Verification yapmadan agent ile gerek yok = vakit kayıp yok.",
         },
         {
           question: "'Reference number' niye istenmeli?",
@@ -280,7 +282,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Agent kotu davranabilir veya soz tutmaz. Reference number = backup.",
+            "Agent kötü davranabilir veya söz tutmaz. Reference number = backup.",
         },
         {
           question: "'Could I speak to a supervisor' NE zaman?",
@@ -292,7 +294,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Agent 'cant authorize' dedigi anda supervisor istemek normal.",
+            "Agent 'cant authorize' dediği anda supervisor istemek normal.",
         },
       ],
     },
@@ -321,7 +323,7 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
       audio_text: "Please hold while I transfer you to a specialist.",
       transcription_target: "Please hold while I transfer you to a specialist.",
       tr_hint:
-        "Agent klasik gecis cumlesi. 'Hold' = bekle. 'Transfer' = yonlendir. 'Specialist' = uzman.",
+        "Agent klasik geçiş cümlesi. 'Hold' = bekle. 'Transfer' = yönlendir. 'Specialist' = uzman.",
     },
     {
       id: "ex.dph21.1.11",
@@ -329,9 +331,9 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "reference number",
-      tr_translation: "Takip numarasi (cagri referansi)",
+      tr_translation: "Takip numarası (çağrı referansı)",
       example: "Can I get a reference number in case I need to call back?",
-      example_tr: "Geri ararsam diye takip numarasi alabilir miyim?",
+      example_tr: "Geri ararsam diye takip numarası alabilir miyim?",
     },
     {
       id: "ex.dph21.1.12",
@@ -642,7 +644,7 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
       answer: "BCBS",
       distractors: ["any", "all", "every"],
       tr_hint:
-        "'Do you take X insurance?' = X sigortasi geciyor mu. Klinik standart soru.",
+        "'Do you take X insurance?' = X sigortası geçiyor mu. Klinik standart soru.",
     },
     {
       id: "ex.dph21.2.4",
@@ -686,6 +688,7 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
             "(insurance (questions|verification))",
             "(do you take|cover)",
           ],
+          model_answers: ["Hi, I'd like to schedule a cleaning. New patient."],
           hint_tr:
             "Net: 'Hi, I'd like to schedule a cleaning. New patient.'",
         },
@@ -704,8 +707,9 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
             "(arrival time|how early|forms)",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Tuesday 2pm works. Do you take Aetna?"],
           hint_tr:
-            "Sec + sor: 'Tuesday 2pm works. Do you take Aetna?'",
+            "Seç + sor: 'Tuesday 2pm works. Do you take Aetna?'",
         },
         {
           speaker: "npc",
@@ -729,7 +733,7 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Tip = ne kadar zaman ayrilir. New patient = daha uzun ilk randevu.",
+            "Tip = ne kadar zaman ayrılır. New patient = daha uzun ilk randevu.",
         },
         {
           question: "'Do you take X insurance?' niye onemli?",
@@ -741,7 +745,7 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'In-network' = sigorta cok kapsiyor. 'Out-of-network' = ekstra ucret. Onceden bilmek = surpriz yok.",
+            "'In-network' = sigorta çok kapsıyor. 'Out-of-network' = ekstra ücret. Önceden bilmek = sürpriz yok.",
         },
         {
           question: "'Arrive 15 min early' niye?",
@@ -753,7 +757,7 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Form doldurma + ID gosterme + insurance verification = randevudan once.",
+            "Form doldurma + ID gösterme + insurance verification = randevudan önce.",
         },
       ],
     },
@@ -1100,7 +1104,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
         "Hi, Berk leaving a message about Friday — call back please.",
       ],
       tr_hint:
-        "Voicemail = isim + konu + geri arama istegi. Kisa + net.",
+        "Voicemail = isim + konu + geri arama isteği. Kısa + net.",
     },
     {
       id: "ex.dph21.3.3",
@@ -1110,7 +1114,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
       answer: "is",
       distractors: ["are", "be", "do"],
       tr_hint:
-        "'My number is X' = numaramin X. Voicemail sonu kalibi.",
+        "'My number is X' = numaramın X. Voicemail sonu kalıbı.",
     },
     {
       id: "ex.dph21.3.4",
@@ -1136,7 +1140,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
       correct_sentence:
         "Hi, this is Berk calling about the booking. Reach me at 555-1234 — text or call works.",
       tr_explanation:
-        "'Call me' = belirsiz. Doğru: isim + konu + numara + tercih edilen iletisim.",
+        "'Call me' = belirsiz. Doğru: isim + konu + numara + tercih edilen iletişim.",
     },
     {
       id: "ex.dph21.3.6",
@@ -1157,6 +1161,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
             "(reservation|booking|appointment) (for friday|tomorrow night)",
             "(call me back|give me a call|reach me)",
           ],
+          model_answers: ["Hi, this is Berk calling about Friday's reservation."],
           hint_tr:
             "Standart: 'Hi, this is Berk calling about Friday's reservation.'",
         },
@@ -1175,8 +1180,9 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
             "(text or call works|either works|whichever)",
             "(thanks|appreciate (it|the help))",
           ],
+          model_answers: ["Want to change table from 4 to 6 people. Reach me at 555-1234, text or call."],
           hint_tr:
-            "Detay + iletisim: 'Want to change table from 4 to 6 people. Reach me at 555-1234, text or call.'",
+            "Detay + iletişim: 'Want to change table from 4 to 6 people. Reach me at 555-1234, text or call.'",
         },
         {
           speaker: "npc",
@@ -1200,7 +1206,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Karsı taraf kim ve neden aradigini hizla anlamali. Eksik = geri donmez.",
+            "Karşı taraf kim ve neden aradığını hızla anlamalı. Eksik = geri dönmez.",
         },
         {
           question: "Voicemail'i SAYDIRARAK birakmak niye iyi?",
@@ -1253,7 +1259,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
       audio_text: "Please leave a message after the beep.",
       transcription_target: "Please leave a message after the beep.",
       tr_hint:
-        "Standart voicemail karşilama. 'Leave a message' = mesaj birak. 'Beep' = bip sesi.",
+        "Standart voicemail karşılama. 'Leave a message' = mesaj bırak. 'Beep' = bip sesi.",
     },
     {
       id: "ex.dph21.3.11",
@@ -1273,7 +1279,7 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
       correct_sentence:
         "Hi, this is Berk leaving a message about Friday's reservation — please call me at 555-1234.",
       tr_explanation:
-        "Tek kelime parcalari = belirsiz. Doğru: isim + konu + spesifik (Friday's reservation) + numara.",
+        "Tek kelime parçaları = belirsiz. Doğru: isim + konu + spesifik (Friday's reservation) + numara.",
     },
     {
       id: "ex.dph21.3.sp1",
@@ -1555,7 +1561,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
       word_or_phrase: "Could you hold a moment?",
       tr_translation: "Bir saniye bekler misiniz?",
       example: "Could you hold a moment? Let me check that for you.",
-      example_tr: "Bir saniye bekler misiniz? Sizin icin kontrol edeyim.",
+      example_tr: "Bir saniye bekler misiniz? Sizin için kontrol edeyim.",
     },
     {
       id: "ex.dph21.5.2",
@@ -1572,7 +1578,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
         "Let me put you through to the right team — hold please.",
       ],
       tr_hint:
-        "'Transfer' = yonlendir. 'Let me' = kibar baslangic. 'Wait a minute' = sert, kullanma.",
+        "'Transfer' = yönlendir. 'Let me' = kibar başlangıç. 'Wait a minute' = sert, kullanma.",
     },
     {
       id: "ex.dph21.5.3",
@@ -1582,7 +1588,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
       answer: "through",
       distractors: ["over", "across", "around"],
       tr_hint:
-        "'Put through to X' = X'e yonlendir (UK + US). Telefonun klasik phrasal verb.",
+        "'Put through to X' = X'e yönlendir (UK + US). Telefonun klasik phrasal verb.",
     },
     {
       id: "ex.dph21.5.4",
@@ -1597,7 +1603,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
         "that",
       ],
       correct_sentence: "Please hold while I check that",
-      tr_translation: "Ben kontrol ederken bekleyin lutfen.",
+      tr_translation: "Ben kontrol ederken bekleyin lütfen.",
     },
     {
       id: "ex.dph21.5.5",
@@ -1607,7 +1613,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
       correct_sentence:
         "Could you hold a moment? I'll transfer you to the right department.",
       tr_explanation:
-        "'Wait a minute' = sert + emir kipi. Dogru: 'Could you hold' + 'I'll transfer' = kibar + sebep belli.",
+        "'Wait a minute' = sert + emir kipi. Doğru: 'Could you hold' + 'I'll transfer' = kibar + sebep belli.",
     },
     {
       id: "ex.dph21.5.6",
@@ -1632,8 +1638,9 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
             "(billing|fatura|a charge|my account|invoice)",
             "(issue|problem|question)",
           ],
+          model_answers: ["Hi, this is Berk — calling about a billing issue on my account."],
           hint_tr:
-            "Tanit + konu: 'Hi, this is Berk — calling about a billing issue on my account.'",
+            "Tanıt + konu: 'Hi, this is Berk — calling about a billing issue on my account.'",
         },
         {
           speaker: "npc",
@@ -1647,8 +1654,9 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
             "(thanks|appreciate it|thank you)",
             "(i'?ll hold|happy to hold|go ahead)",
           ],
+          model_answers: ["Sure, I'll hold. Thanks."],
           hint_tr:
-            "Kabul + tesekkur: 'Sure, I'll hold. Thanks.'",
+            "Kabul + teşekkür: 'Sure, I'll hold. Thanks.'",
         },
         {
           speaker: "npc",
@@ -1672,7 +1680,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Hold istegine 'Sure / Of course' = standart. Tesekkur = profesyonel.",
+            "Hold isteğine 'Sure / Of course' = standart. Teşekkür = profesyonel.",
         },
         {
           question: "'Transfer you to X department' ne demek?",
@@ -1684,7 +1692,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Transfer' = baglantiyi baska hatta aktar. 'Put through to' = ayni anlam.",
+            "'Transfer' = bağlantıyı başka hatta aktar. 'Put through to' = aynı anlam.",
         },
         {
           question: "'This is Sarah speaking' niye 'speaking' eklenir?",
@@ -1696,7 +1704,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'This is X speaking' = telefonda standart kendini tanitma. Yuz yuze degil — 'speaking' eklenir.",
+            "'This is X speaking' = telefonda standart kendini tanıtma. Yüz yüze değil — 'speaking' eklenir.",
         },
       ],
     },
@@ -1707,7 +1715,7 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
       phrase: "Could you hold a moment? Let me transfer you.",
       ipa: "kʊd juː hoʊld ə ˈmoʊmənt lɛt miː ˈtrænsfɜːr juː",
       tr_hint:
-        "'Could you' baglanir → 'kud-ju'. 'Hold a moment' = akici. 'Transfer you' vurgu ilk hece: TRANS-fer.",
+        "'Could you' bağlanır → 'kud-ju'. 'Hold a moment' = akıcı. 'Transfer you' vurgu ilk hece: TRANS-fer.",
     },
     {
       id: "ex.dph21.5.sp1",
@@ -1987,9 +1995,9 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "Please call me back at",
-      tr_translation: "Lutfen beni geri ara — numaram...",
+      tr_translation: "Lütfen beni geri ara — numaram...",
       example: "Please call me back at 555-1234 when you get a chance.",
-      example_tr: "Uygun olunca 555-1234'ten beni geri ara lutfen.",
+      example_tr: "Uygun olunca 555-1234'ten beni geri ara lütfen.",
     },
     {
       id: "ex.dph21.6.2",
@@ -2006,7 +2014,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
         "Hey, Berk here — calling about the meeting Tuesday — call back at 555-9876.",
       ],
       tr_hint:
-        "Voicemail = isim + konu + numara. Sadece bu 3 sey, 15 saniye.",
+        "Voicemail = isim + konu + numara. Sadece bu 3 şey, 15 saniye.",
     },
     {
       id: "ex.dph21.6.3",
@@ -2016,7 +2024,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
       answer: "this",
       distractors: ["here", "it", "that"],
       tr_hint:
-        "'This is X' = telefonda kendini tanitma. 'I am X' degil — telefonda her zaman 'this is'.",
+        "'This is X' = telefonda kendini tanıtma. 'I am X' değil — telefonda her zaman 'this is'.",
     },
     {
       id: "ex.dph21.6.4",
@@ -2034,7 +2042,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
         "ring",
       ],
       correct_sentence: "Sorry I missed you — give me a ring",
-      tr_translation: "Seni yakalayamadim — beni ara.",
+      tr_translation: "Seni yakalayamadım — beni ara.",
     },
     {
       id: "ex.dph21.6.5",
@@ -2044,7 +2052,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
       correct_sentence:
         "Hi, this is Berk — calling about last week's invoice. Please call back at 555-3344. Thanks.",
       tr_explanation:
-        "Voicemail uzun + belirsiz = silinir. Dogru: 15 saniye, isim + spesifik konu + numara.",
+        "Voicemail uzun + belirsiz = silinir. Doğru: 15 saniye, isim + spesifik konu + numara.",
     },
     {
       id: "ex.dph21.6.6",
@@ -2069,8 +2077,9 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
             "(appointment|randevu|booking|cleaning|checkup)",
             "(next (week|tuesday|friday)|tomorrow|monday)",
           ],
+          model_answers: ["Hi, this is Berk calling about my appointment next Tuesday."],
           hint_tr:
-            "Acilis: 'Hi, this is Berk calling about my appointment next Tuesday.'",
+            "Açılış: 'Hi, this is Berk calling about my appointment next Tuesday.'",
         },
         {
           speaker: "npc",
@@ -2086,8 +2095,9 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
             "(\\d{3}-?\\d{4}|555-?\\d+)",
             "(thanks|appreciate it|thank you)",
           ],
+          model_answers: ["Need to reschedule. Please call back at 555-3344. Thanks."],
           hint_tr:
-            "Sebep + numara + tesekkur: 'Need to reschedule. Please call back at 555-3344. Thanks.'",
+            "Sebep + numara + teşekkür: 'Need to reschedule. Please call back at 555-3344. Thanks.'",
         },
       ],
     },
@@ -2106,7 +2116,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Uzun voicemail = silinir. Karsi tarafa 'kim, niye, nasil ulasacam' net olmalı.",
+            "Uzun voicemail = silinir. Karşı tarafa 'kim, niye, nasıl ulaşacam' net olmalı.",
         },
         {
           question: "Voicemail'da niye numarani TEKRAR soylersin?",
@@ -2118,7 +2128,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bir kez sondan hizli soylersen yazamaz. Sondaki yavas tekrar = pratik.",
+            "Bir kez sondan hızlı söylersen yazamaz. Sondaki yavaş tekrar = pratik.",
         },
         {
           question: "Telefonda 'I am Berk' niye yanlis?",
@@ -2130,7 +2140,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yuz yuze 'I am Berk', telefonda 'This is Berk'. Kalibi degistir.",
+            "Yüz yüze 'I am Berk', telefonda 'This is Berk'. Kalıbı değiştir.",
         },
       ],
     },
@@ -2141,7 +2151,7 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
       phrase: "Hi, this is Berk — please call me back.",
       ipa: "haɪ ðɪs ɪz bɜːrk pliːz kɔːl miː bæk",
       tr_hint:
-        "'This is' baglanir → 'di-siz'. 'Call me back' = vurgu CALL + BACK. Aradaki 'me' zayif.",
+        "'This is' bağlanır → 'di-siz'. 'Call me back' = vurgu CALL + BACK. Aradaki 'me' zayıf.",
     },
     {
       id: "ex.dph21.6.sp1",
@@ -2421,9 +2431,9 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
       cefr_band: "A2",
       difficulty: 2,
       word_or_phrase: "I think I have the wrong number",
-      tr_translation: "Yanlis numarayi aradim galiba",
+      tr_translation: "Yanlış numarayı aradım galiba",
       example: "Sorry, I think I have the wrong number. Have a good one.",
-      example_tr: "Pardon, yanlis numarayi aradim galiba. Iyi gunler.",
+      example_tr: "Pardon, yanlış numarayı aradım galiba. İyi günler.",
     },
     {
       id: "ex.dph21.7.2",
@@ -2440,7 +2450,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
         "Sorry to bother you — wrong number on my end.",
       ],
       tr_hint:
-        "'Dialed wrong' = yanlis cevirdim. 'Apologies for the trouble' = rahatsizlik icin ozur. Kisa + kibar.",
+        "'Dialed wrong' = yanlış çevirdim. 'Apologies for the trouble' = rahatsızlık için özür. Kısa + kibar.",
     },
     {
       id: "ex.dph21.7.3",
@@ -2450,7 +2460,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
       answer: "bother",
       distractors: ["disturb", "trouble", "annoy"],
       tr_hint:
-        "'Sorry to bother you' = telefonda rahatsizlik kalibi. 'Disturb' daha sert, 'bother' daha gunluk.",
+        "'Sorry to bother you' = telefonda rahatsızlık kalıbı. 'Disturb' daha sert, 'bother' daha günlük.",
     },
     {
       id: "ex.dph21.7.4",
@@ -2466,7 +2476,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
         "one",
       ],
       correct_sentence: "No worries — have a good one",
-      tr_translation: "Sorun degil — iyi gunler.",
+      tr_translation: "Sorun değil — iyi günler.",
     },
     {
       id: "ex.dph21.7.5",
@@ -2476,7 +2486,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
       correct_sentence:
         "Oh sorry — I think I have the wrong number. Apologies for the trouble.",
       tr_explanation:
-        "'Who is this? Wrong!' = saldirgan + nezaketsiz. Dogru: ozur dilemek + kabul + kibar kapama.",
+        "'Who is this? Wrong!' = saldırgan + nezaketsiz. Doğru: özür dilemek + kabul + kibar kapama.",
     },
     {
       id: "ex.dph21.7.6",
@@ -2499,8 +2509,9 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
             "(is this|am i speaking (with|to)|is that)",
             "(luigi'?s|the restaurant|\\w+'s)",
           ],
+          model_answers: ["Hi, is this Luigi's restaurant?"],
           hint_tr:
-            "Aradigin yeri dogrula: 'Hi, is this Luigi's restaurant?'",
+            "Aradığın yeri doğrula: 'Hi, is this Luigi's restaurant?'",
         },
         {
           speaker: "npc",
@@ -2515,8 +2526,9 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
             "(sorry (to bother|about that|for the trouble)|apologies for the trouble)",
             "(have a good (one|day)|take care|enjoy your (day|evening))",
           ],
+          model_answers: ["Oh sorry — I have the wrong number. Apologies for the trouble. Have a good one."],
           hint_tr:
-            "Ozur + kibar bitir: 'Oh sorry — I have the wrong number. Apologies for the trouble. Have a good one.'",
+            "Özür + kibar bitir: 'Oh sorry — I have the wrong number. Apologies for the trouble. Have a good one.'",
         },
         {
           speaker: "npc",
@@ -2540,7 +2552,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Birden kapatma = kaba. Iki saniye ozur = profesyonel + Amerikan/Ingiliz normu.",
+            "Birden kapatma = kaba. İki saniye özür = profesyonel + Amerikan/İngiliz normu.",
         },
         {
           question: "'Have a good one' ne demek?",
@@ -2552,7 +2564,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Have a good day' uzun. 'Have a good one' kisa + samimi. Telefon kapanisi icin idealdir.",
+            "'Have a good day' uzun. 'Have a good one' kısa + samimi. Telefon kapanışı için idealdir.",
         },
         {
           question: "Yanlis numara karsisindan 'No worries' duydun. Anlami?",
@@ -2564,7 +2576,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'No worries' = 'sorun degil'. 'No problem' ile esit, daha samimi.",
+            "'No worries' = 'sorun değil'. 'No problem' ile eşit, daha samimi.",
         },
       ],
     },
@@ -2575,7 +2587,7 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
       phrase: "Sorry, I think I have the wrong number.",
       ipa: "ˈsɒri aɪ θɪŋk aɪ hæv ðə rɒŋ ˈnʌmbər",
       tr_hint:
-        "'Sorry' kisa + ust ton. 'I think I' baglanir → 'ay-thingk-ay'. 'Wrong number' vurgu WRONG + NUM.",
+        "'Sorry' kısa + üst ton. 'I think I' bağlanır → 'ay-thingk-ay'. 'Wrong number' vurgu WRONG + NUM.",
     },
     {
       id: "ex.dph21.7.sp1",
@@ -2875,7 +2887,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
         "Missed that — could you repeat the last sentence?",
       ],
       tr_hint:
-        "'Lost you' = kaybettim (sesini). 'Cut out' = kesildi. 'Could you repeat' = kibar tekrar istegi.",
+        "'Lost you' = kaybettim (sesini). 'Cut out' = kesildi. 'Could you repeat' = kibar tekrar isteği.",
     },
     {
       id: "ex.dph21.8.3",
@@ -2885,7 +2897,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
       answer: "is bad",
       distractors: ["have bad", "going bad", "be bad"],
       tr_hint:
-        "'Signal is bad' = sinyal kotu. 'Have bad' yanlis — signal SAHIPLENILEMEZ, durum ifade eder.",
+        "'Signal is bad' = sinyal kötü. 'Have bad' yanlış — signal SAHİPLENİLEMEZ, durum ifade eder.",
     },
     {
       id: "ex.dph21.8.4",
@@ -2900,7 +2912,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
         "back",
       ],
       correct_sentence: "Let me call you right back",
-      tr_translation: "Seni hemen geri arayayim.",
+      tr_translation: "Seni hemen geri arayayım.",
     },
     {
       id: "ex.dph21.8.5",
@@ -2910,7 +2922,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
       correct_sentence:
         "Sorry, you're breaking up — could you say that again, a bit louder?",
       tr_explanation:
-        "'What? What? Say again!' = panik + emir. Dogru: sorunu acikla (breaking up) + kibar istek + cozum onerisi (louder).",
+        "'What? What? Say again!' = panik + emir. Doğru: sorunu açıkla (breaking up) + kibar istek + çözüm önerisi (louder).",
     },
     {
       id: "ex.dph21.8.6",
@@ -2934,8 +2946,9 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
             "(could you (say that|repeat|go over that)|can you (say|repeat))",
             "(again|one more time|the last (part|bit))",
           ],
+          model_answers: ["Sorry, you're breaking up — could you say that again?"],
           hint_tr:
-            "Sorunu acikla + tekrar iste: 'Sorry, you're breaking up — could you say that again?'",
+            "Sorunu açıkla + tekrar iste: 'Sorry, you're breaking up — could you say that again?'",
         },
         {
           speaker: "npc",
@@ -2950,6 +2963,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
             "(if (we|i) (lose|get cut off|get disconnected)|in case (we|the line) drops)?",
             "(call (you|me) (right )?back|i'?ll ring (you|back)|let me call)",
           ],
+          model_answers: ["Yes, got it — thanks. If we lose signal again I'll call you right back."],
           hint_tr:
             "Onayla + yedek plan: 'Yes, got it — thanks. If we lose signal again I'll call you right back.'",
         },
@@ -2975,7 +2989,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Telefon idiomu. Iliski degil — sinyal/hat sorunu. 'Cutting out' = ayni anlam.",
+            "Telefon idiomu. İlişki değil — sinyal/hat sorunu. 'Cutting out' = aynı anlam.",
         },
         {
           question: "Sinyal cok kotu — EN iyi cozum?",
@@ -2987,7 +3001,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tekrar tekrar 'what?' demek profesyonel degil. Geri arama = hat reset + acik alanda iyi sinyal.",
+            "Tekrar tekrar 'what?' demek profesyonel değil. Geri arama = hat reset + açık alanda iyi sinyal.",
         },
         {
           question: "'Could you say that again?' niye 'Say again!'den iyi?",
@@ -3010,7 +3024,7 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
       phrase: "You're breaking up — could you say that again?",
       ipa: "jʊr ˈbreɪkɪŋ ʌp kʊd juː seɪ ðæt əˈɡɛn",
       tr_hint:
-        "'You're breaking up' vurgu BREAK. 'Could you' baglanir → 'kud-ju'. 'Say that again' akici, 'that' zayif.",
+        "'You're breaking up' vurgu BREAK. 'Could you' bağlanır → 'kud-ju'. 'Say that again' akıcı, 'that' zayıf.",
     },
     {
       id: "ex.dph21.8.sp1",

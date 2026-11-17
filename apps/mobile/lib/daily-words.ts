@@ -1,0 +1,494 @@
+// Lafla — Daily 10 words.
+//
+// Every local calendar day the learner gets DAILY_WORD_COUNT new words at
+// their CEFR level, drawn from the vocab_tile exercises already bundled in
+// the lesson packs (~12k tiles), topped up at C1/C2 by the curated list in
+// data/daily-words-extra.ts. Words the learner has met before — in a
+// previous daily set or anywhere in the SRS review queue — are skipped, so
+// the set is always new material. Finishing the set feeds every word into
+// the existing SRS queue and counts toward the streak.
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Notifications from "expo-notifications";
+
+import type { BundledLesson } from "./engine";
+import type { CefrLevel } from "./cefr-level";
+import type { ExtraDailyWord } from "../data/daily-words-extra";
+import { CEFR_LEVELS, getCefrLevel } from "./cefr-level";
+import { buildAsciiFoldIndex, cleanLessonEntry, wordCount } from "./daily-words-quality";
+import { localDayKey } from "./day-key";
+import { enqueueVocab, getQueuedWordKeys } from "./srs-vocab";
+import { bumpDailyActivity, bumpStreak, bumpXp } from "./local-progress";
+import { isNotificationsEnabled } from "./notifications";
+import { trackEvent } from "./analytics";
+import { t } from "./i18n";
+
+export const DAILY_WORD_COUNT = 10;
+export const DAILY_WORDS_XP = 10;
+
+const K_STATE = "lafla.dailyWords.state.v1";
+const K_SEEN = "lafla.dailyWords.seen.v1";
+const ID_WORDS_NUDGE = "lafla.dailyWords.nudge";
+const NUDGE_HOUR = 20;
+const NUDGE_MINUTE = 30;
+const DEFAULT_LEVEL: CefrLevel = "A2";
+const MAX_WORDS_IN_TILE = 4;
+const MAX_TILE_LENGTH = 32;
+const SHORT_WORDS = 2;
+
+export interface DailyWord {
+  /** Lowercased English word — stable across lessons. */
+  key: string;
+  word: string;
+  translation: string;
+  example?: string;
+  exampleTr?: string;
+  cefr: CefrLevel;
+  lessonId: string;
+  lessonTitle: string;
+}
+
+interface DailyWordsState {
+  dayKey: string;
+  keys: string[];
+  completedAt?: string;
+  correctCount?: number;
+}
+
+export interface DailyWordsToday {
+  dayKey: string;
+  words: DailyWord[];
+  completed: boolean;
+  correctCount: number | null;
+}
+
+// ─── pool ─────────────────────────────────────────────────────────────
+
+function isCefr(value: unknown): value is CefrLevel {
+  return typeof value === "string" && (CEFR_LEVELS as string[]).includes(value);
+}
+
+function str(value: unknown): string | undefined {
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
+}
+
+/** "Bilet" → "bilet" for lowercase English words; leaves acronyms ("ATM") alone. */
+function matchCase(word: string, translation: string): string {
+  if (!/^[a-z]/.test(word)) return translation;
+  const [first, second] = translation;
+  if (!first || !second || second !== second.toLocaleLowerCase("tr")) return translation;
+  return first.toLocaleLowerCase("tr") + translation.slice(1);
+}
+
+function loadExtraList(): ReadonlyArray<ExtraDailyWord> {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  return (require("../data/daily-words-extra") as { DAILY_WORDS_EXTRA: ReadonlyArray<ExtraDailyWord> })
+    .DAILY_WORDS_EXTRA;
+}
+
+/** Extract unique, short vocab tiles from bundled lessons. First occurrence wins. */
+export function buildWordPool(
+  lessons: ReadonlyArray<BundledLesson>,
+  trusted: ReadonlyArray<{ translation: string }> = loadExtraList(),
+): DailyWord[] {
+  const byKey = new Map<string, DailyWord>();
+  // ASCII-ized Turkish detection: fold index over every raw lesson gloss + the curated list.
+  const rawTranslations: string[] = [];
+  for (const lesson of lessons) {
+    for (const ex of lesson.exercises) {
+      const tr = ex["type"] === "vocab_tile" ? str(ex["tr_translation"]) : undefined;
+      if (tr) rawTranslations.push(tr);
+    }
+  }
+  const trustedTranslations = trusted.map((e) => e.translation);
+  const asciiFoldIndex = buildAsciiFoldIndex(
+    [...rawTranslations, ...trustedTranslations],
+    trustedTranslations,
+  );
+  for (const lesson of lessons) {
+    for (const ex of lesson.exercises) {
+      if (ex["type"] !== "vocab_tile") continue;
+      const word = str(ex["word_or_phrase"]);
+      const translation = str(ex["tr_translation"]);
+      const cefr = ex["cefr_band"];
+      if (!word || !translation || !isCefr(cefr)) continue;
+      if (word.length > MAX_TILE_LENGTH) continue;
+      if (word.split(/\s+/).length > MAX_WORDS_IN_TILE) continue;
+      const key = word.toLowerCase();
+      if (byKey.has(key)) continue;
+      // Quality gate: drop fragments / sentences, normalise casing + glosses.
+      const cleaned = cleanLessonEntry(word, translation, asciiFoldIndex);
+      if (!cleaned) continue;
+      byKey.set(key, {
+        key,
+        word: cleaned.word,
+        translation: matchCase(cleaned.word, cleaned.translation),
+        example: str(ex["example"]),
+        exampleTr: str(ex["example_tr"]),
+        cefr,
+        lessonId: lesson.id,
+        lessonTitle: lesson.title,
+      });
+    }
+  }
+  return Array.from(byKey.values());
+}
+
+/**
+ * Synthetic lesson id for words from data/daily-words-extra.ts. It only feeds
+ * srs-vocab's `${source_lesson_id}::${word}` id, which never resolves it as a
+ * real lesson, so any stable string works.
+ */
+export const EXTRA_LESSON_ID = "daily-extra";
+const EXTRA_LESSON_TITLE = "Daily words";
+
+/** Turn the curated extra list (C1/C2 top-up) into pool entries. First occurrence wins. */
+export function buildExtraWordPool(
+  extra: ReadonlyArray<{
+    word: string;
+    translation: string;
+    cefr: string;
+    example?: string;
+    exampleTr?: string;
+  }>,
+): DailyWord[] {
+  const byKey = new Map<string, DailyWord>();
+  for (const e of extra) {
+    const word = str(e.word);
+    const translation = str(e.translation);
+    if (!word || !translation || !isCefr(e.cefr)) continue;
+    if (word.split(/\s+/).length > MAX_WORDS_IN_TILE) continue;
+    const key = word.toLowerCase();
+    if (byKey.has(key)) continue;
+    byKey.set(key, {
+      key,
+      word,
+      translation,
+      example: str(e.example),
+      exampleTr: str(e.exampleTr),
+      cefr: e.cefr,
+      lessonId: EXTRA_LESSON_ID,
+      lessonTitle: EXTRA_LESSON_TITLE,
+    });
+  }
+  return Array.from(byKey.values());
+}
+
+/** Lesson words first; extra words are appended only when their key is new. */
+export function mergeWordPools(
+  lessonPool: ReadonlyArray<DailyWord>,
+  extraPool: ReadonlyArray<DailyWord>,
+): DailyWord[] {
+  const keys = new Set(lessonPool.map((w) => w.key));
+  return [...lessonPool, ...extraPool.filter((w) => !keys.has(w.key))];
+}
+
+let cachedPool: DailyWord[] | null = null;
+
+export function getPool(): DailyWord[] {
+  if (!cachedPool) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { allLessons } = require("../data/lessons") as {
+      allLessons: ReadonlyArray<BundledLesson>;
+    };
+    const DAILY_WORDS_EXTRA = loadExtraList();
+    cachedPool = mergeWordPools(
+      buildWordPool(allLessons, DAILY_WORDS_EXTRA),
+      buildExtraWordPool(DAILY_WORDS_EXTRA),
+    );
+  }
+  return cachedPool;
+}
+
+// ─── selection ────────────────────────────────────────────────────────
+
+function hashString(input: string): number {
+  let h = 5381;
+  for (let i = 0; i < input.length; i += 1) {
+    h = ((h << 5) + h + input.charCodeAt(i)) | 0;
+  }
+  return h >>> 0;
+}
+
+function seededRandom(seed: number): () => number {
+  let a = seed || 1;
+  return () => {
+    a = (a + 0x6d2b79f5) | 0;
+    let r = Math.imul(a ^ (a >>> 15), 1 | a);
+    r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r;
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function seededShuffle<T>(items: T[], seed: string): T[] {
+  const out = items.slice();
+  const rand = seededRandom(hashString(seed));
+  for (let i = out.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(rand() * (i + 1));
+    [out[i], out[j]] = [out[j]!, out[i]!];
+  }
+  return out;
+}
+
+/** Level first, then the level below, then above, widening outward. */
+function levelOrder(level: CefrLevel): CefrLevel[] {
+  const idx = CEFR_LEVELS.indexOf(level);
+  const order: CefrLevel[] = [level];
+  for (let d = 1; d < CEFR_LEVELS.length; d += 1) {
+    const below = CEFR_LEVELS[idx - d];
+    const above = CEFR_LEVELS[idx + d];
+    if (below) order.push(below);
+    if (above) order.push(above);
+  }
+  return order;
+}
+
+/**
+ * Deterministic pick: the same pool, level, exclusions and day always give
+ * the same words, so reopening the app never reshuffles today's set.
+ */
+export function pickDailyWords(
+  pool: ReadonlyArray<DailyWord>,
+  opts: {
+    level: CefrLevel;
+    exclude: ReadonlySet<string>;
+    dayKey: string;
+    count?: number;
+  },
+): DailyWord[] {
+  const count = opts.count ?? DAILY_WORD_COUNT;
+  const picked: DailyWord[] = [];
+  for (const level of levelOrder(opts.level)) {
+    if (picked.length >= count) break;
+    const candidates = pool.filter(
+      (w) => w.cefr === level && !opts.exclude.has(w.key),
+    );
+    // Real words / collocations (<=2 words) before longer phrases; still seeded.
+    const shuffled = seededShuffle(candidates, `${opts.dayKey}:${level}`);
+    const short = shuffled.filter((w) => wordCount(w.word) <= SHORT_WORDS);
+    const long = shuffled.filter((w) => wordCount(w.word) > SHORT_WORDS);
+    shuffled.splice(0, shuffled.length, ...short, ...long);
+    picked.push(...shuffled.slice(0, count - picked.length));
+  }
+  return picked;
+}
+
+/** Three wrong English options for a multiple-choice question, same CEFR band when possible. */
+export function pickDistractors(
+  target: DailyWord,
+  pool: ReadonlyArray<DailyWord>,
+  count = 3,
+): string[] {
+  const sameBand = pool.filter(
+    (w) => w.key !== target.key && w.cefr === target.cefr && w.translation !== target.translation,
+  );
+  const source =
+    sameBand.length >= count
+      ? sameBand
+      : pool.filter((w) => w.key !== target.key && w.translation !== target.translation);
+  // Prefer options with a similar word count (stable sort keeps the seeded order).
+  const targetLen = wordCount(target.word);
+  const shuffled = seededShuffle(source, `distractor:${target.key}`);
+  const ranked = shuffled
+    .map((w, i) => ({ w, i, d: Math.abs(wordCount(w.word) - targetLen) }))
+    .sort((a, b) => a.d - b.d || a.i - b.i)
+    .map((x) => x.w);
+  return ranked
+    .slice(0, count)
+    .map((w) => w.word);
+}
+
+export function getDistractorsFor(target: DailyWord, count = 3): string[] {
+  return pickDistractors(target, getPool(), count);
+}
+
+// ─── persistence ──────────────────────────────────────────────────────
+
+async function readState(): Promise<DailyWordsState | null> {
+  try {
+    const raw = await AsyncStorage.getItem(K_STATE);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as DailyWordsState;
+    if (typeof parsed.dayKey !== "string" || !Array.isArray(parsed.keys)) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+async function readSeen(): Promise<Set<string>> {
+  try {
+    const raw = await AsyncStorage.getItem(K_SEEN);
+    const parsed = raw ? (JSON.parse(raw) as unknown) : [];
+    return new Set(Array.isArray(parsed) ? parsed.filter((k) => typeof k === "string") : []);
+  } catch {
+    return new Set();
+  }
+}
+
+/** Today's set — created on first call of the day, then stable until local midnight. */
+export async function getTodayWords(now = new Date()): Promise<DailyWordsToday> {
+  const dayKey = localDayKey(now);
+  const pool = getPool();
+  const byKey = new Map(pool.map((w) => [w.key, w]));
+  const existing = await readState();
+
+  if (existing && existing.dayKey === dayKey) {
+    const words = existing.keys
+      .map((k) => byKey.get(k))
+      .filter((w): w is DailyWord => Boolean(w));
+    if (words.length > 0) {
+      return {
+        dayKey,
+        words,
+        completed: Boolean(existing.completedAt),
+        correctCount: existing.correctCount ?? null,
+      };
+    }
+  }
+
+  const [level, seen, queued] = await Promise.all([
+    getCefrLevel().catch(() => null),
+    readSeen(),
+    getQueuedWordKeys().catch(() => new Set<string>()),
+  ]);
+  const exclude = new Set<string>([...seen, ...queued]);
+  const words = pickDailyWords(pool, {
+    level: level ?? DEFAULT_LEVEL,
+    exclude,
+    dayKey,
+  });
+  const state: DailyWordsState = { dayKey, keys: words.map((w) => w.key) };
+  await AsyncStorage.setItem(K_STATE, JSON.stringify(state));
+  return { dayKey, words, completed: false, correctCount: null };
+}
+
+/**
+ * Finish today's set: every word goes into the SRS queue (missed ones with a
+ * short half-life), words are marked seen, and the day counts for streak/XP.
+ * Idempotent — a second call for the same day changes nothing, and concurrent
+ * calls (double tap) share one in-flight save.
+ *
+ * Pass `dayKey` (from the `getTodayWords` result the screen showed) so a set
+ * opened before midnight and finished after it is saved against the day it was
+ * studied, not against a freshly generated set for the new day.
+ */
+let inFlight: Promise<{ correctCount: number; alreadyCompleted: boolean }> | null = null;
+
+export function completeTodayWords(
+  results: ReadonlyArray<{ key: string; correct: boolean }>,
+  now = new Date(),
+  dayKey?: string,
+): Promise<{ correctCount: number; alreadyCompleted: boolean }> {
+  if (inFlight) return inFlight.then((r) => ({ ...r, alreadyCompleted: true }));
+  inFlight = completeInner(results, now, dayKey).finally(() => {
+    inFlight = null;
+  });
+  return inFlight;
+}
+
+async function completeInner(
+  results: ReadonlyArray<{ key: string; correct: boolean }>,
+  now: Date,
+  studiedDayKey: string | undefined,
+): Promise<{ correctCount: number; alreadyCompleted: boolean }> {
+  const currentKey = localDayKey(now);
+  let today: Pick<DailyWordsToday, "dayKey" | "words" | "completed" | "correctCount">;
+  if (studiedDayKey && studiedDayKey !== currentKey) {
+    // The day rolled over while the screen was open — rebuild the studied set
+    // from stored state if it still matches, else from the submitted keys.
+    const existing = await readState();
+    const byKey = new Map(getPool().map((w) => [w.key, w]));
+    const keys =
+      existing && existing.dayKey === studiedDayKey ? existing.keys : results.map((r) => r.key);
+    today = {
+      dayKey: studiedDayKey,
+      words: keys.map((k) => byKey.get(k)).filter((w): w is DailyWord => Boolean(w)),
+      completed: Boolean(existing && existing.dayKey === studiedDayKey && existing.completedAt),
+      correctCount: existing?.correctCount ?? null,
+    };
+  } else {
+    today = await getTodayWords(now);
+  }
+  if (today.completed) {
+    return { correctCount: today.correctCount ?? 0, alreadyCompleted: true };
+  }
+  const correctByKey = new Map(results.map((r) => [r.key, r.correct]));
+  let correctCount = 0;
+  for (const word of today.words) {
+    const correct = correctByKey.get(word.key) ?? false;
+    if (correct) correctCount += 1;
+    await enqueueVocab({
+      word: word.word,
+      translation: word.translation,
+      source_lesson_id: word.lessonId,
+      source_lesson_title: t("dailyWords.source_title"),
+      was_correct: correct,
+    });
+  }
+
+  const seen = await readSeen();
+  for (const word of today.words) seen.add(word.key);
+  await AsyncStorage.setItem(K_SEEN, JSON.stringify(Array.from(seen)));
+  const stored = await readState();
+  // Never overwrite a newer day's set that was already generated.
+  if (!stored || stored.dayKey === today.dayKey || stored.dayKey < today.dayKey) {
+    const state: DailyWordsState = {
+      dayKey: today.dayKey,
+      keys: today.words.map((w) => w.key),
+      completedAt: now.toISOString(),
+      correctCount,
+    };
+    await AsyncStorage.setItem(K_STATE, JSON.stringify(state));
+  }
+
+  await bumpDailyActivity(DAILY_WORDS_XP);
+  await bumpXp(DAILY_WORDS_XP);
+  await bumpStreak();
+  await cancelDailyWordsNudge();
+  void trackEvent("daily_words_completed", {
+    correct: correctCount,
+    total: today.words.length,
+  }).catch(() => {});
+  return { correctCount, alreadyCompleted: false };
+}
+
+// ─── evening nudge ────────────────────────────────────────────────────
+
+async function cancelDailyWordsNudge(): Promise<void> {
+  try {
+    await Notifications.cancelScheduledNotificationAsync(ID_WORDS_NUDGE);
+  } catch {
+    // ignore
+  }
+}
+
+/**
+ * One-shot 20:30 reminder for today when the set is unfinished. Only runs
+ * if the user already opted into notifications — never prompts.
+ */
+export async function syncDailyWordsNudge(completed: boolean, now = new Date()): Promise<void> {
+  await cancelDailyWordsNudge();
+  if (completed) return;
+  if (!(await isNotificationsEnabled().catch(() => false))) return;
+  const fireAt = new Date(now);
+  fireAt.setHours(NUDGE_HOUR, NUDGE_MINUTE, 0, 0);
+  if (fireAt.getTime() <= now.getTime()) return;
+  try {
+    await Notifications.scheduleNotificationAsync({
+      identifier: ID_WORDS_NUDGE,
+      content: {
+        title: t("dailyWords.nudge_title"),
+        body: t("dailyWords.nudge_body", { count: String(DAILY_WORD_COUNT) }),
+        sound: "default",
+        data: { deepLink: "lafla://daily-words" },
+      },
+      trigger: {
+        type: Notifications.SchedulableTriggerInputTypes.DATE,
+        date: fireAt,
+      },
+    });
+  } catch {
+    // best effort
+  }
+}

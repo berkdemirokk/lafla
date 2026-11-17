@@ -49,7 +49,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
       answer: "on",
       distractors: ["in", "at", "from"],
       tr_hint:
-        "'Grab time on your calendar' = takvimde slot ayirma. Profesyonel networking kalibi.",
+        "'Grab time on your calendar' = takvimde slot ayırma. Profesyonel networking kalıbı.",
     },
     {
       id: "ex.wcc13.1.4",
@@ -74,7 +74,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
       correct_sentence:
         "Would love to grab 15 min on your calendar — happy to work around you.",
       tr_explanation:
-        "'Call me now' = baskici + saygisiz. Doğru: zaman belirt + esnek ol + saygili.",
+        "'Call me now' = baskıcı + saygısız. Doğru: zaman belirt + esnek ol + saygılı.",
     },
     {
       id: "ex.wcc13.1.6",
@@ -95,8 +95,9 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(career path|how you (got|navigated)|the (transition|switch))",
             "(happy to|will) (work around|fit your schedule|find a time)",
           ],
+          model_answers: ["Hi Sarah — saw your post on X. Would love to grab 15 min to pick your brain."],
           hint_tr:
-            "Net acilis: 'Hi Sarah — saw your post on X. Would love to grab 15 min to pick your brain.'",
+            "Net açılış: 'Hi Sarah — saw your post on X. Would love to grab 15 min to pick your brain.'",
         },
         {
           speaker: "npc",
@@ -113,6 +114,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(prep|prepare) (some questions|specific things) (ahead)",
             "(open to|happy to) (any structure|whatever works)",
           ],
+          model_answers: ["Curious about how you moved from IC to manager — will prep questions."],
           hint_tr:
             "Spesifik konu: 'Curious about how you moved from IC to manager — will prep questions.'",
         },
@@ -131,6 +133,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(not yet|not officially|kind of)",
             "(in (a )?senior (engineer|ic)|staff level)",
           ],
+          model_answers: ["Currently an IC, been engineering for 4 years"],
           hint_tr:
             "Mevcut rol: 'Currently an IC, been engineering for 4 years' veya 'Still exploring the path'.",
         },
@@ -149,6 +152,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(could you talk about|happy to focus on) (.+)",
             "(any |all )?(your experience|examples) (helpful|valuable)",
           ],
+          model_answers: ["Your current company would be great"],
           hint_tr:
             "Esnek ol: 'Whatever you're comfortable sharing' veya 'Your current company would be great'.",
         },
@@ -166,6 +170,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
             "(perfect|great|sounds good)(,)? (thanks|thank you)",
             "(really )?(appreciate|grateful for) (this|your time)",
           ],
+          model_answers: ["Will do — sending a few slots by EOD. Really appreciate this!"],
           hint_tr:
             "Teşekkür + onay: 'Will do — sending a few slots by EOD. Really appreciate this!'",
         },
@@ -191,7 +196,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'15 min' = 'sure az' sinyali = kabul orani yuksek. Belirsiz = red.",
+            "'15 min' = 'süre az' sinyali = kabul oranı yüksek. Belirsiz = red.",
         },
         {
           question: "'Pick your brain' tabiri kullanmaz misin?",
@@ -203,7 +208,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Fikrini almak' = saygili + cana yakin. ABD ve UK iste norm.",
+            "'Fikrini almak' = saygılı + cana yakın. ABD ve UK işte norm.",
         },
         {
           question: "Coffee chat istemenin RISKI?",
@@ -215,7 +220,7 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Buyuklenmis tonu = saygisizlik hissi. Saygi + spesifik = pro.",
+            "Büyüklenmiş tonu = saygısızlık hissi. Saygı + spesifik = pro.",
         },
       ],
     },
@@ -524,7 +529,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
         "What surprised you most along the way?",
       ],
       tr_hint:
-        "'What do you wish you'd known' = retrospektif soru. Hicbir CV'de yok = degerli.",
+        "'What do you wish you'd known' = retrospektif soru. Hiçbir CV'de yok = değerli.",
     },
     {
       id: "ex.wcc13.2.3",
@@ -534,7 +539,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
       answer: "do",
       distractors: ["go", "make", "be"],
       tr_hint:
-        "'Do differently' = farkli yapardim. Retrospektif soru standart.",
+        "'Do differently' = farklı yapardım. Retrospektif soru standart.",
     },
     {
       id: "ex.wcc13.2.4",
@@ -559,7 +564,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
       correct_sentence:
         "What's a non-obvious lesson you learned in your last role?",
       tr_explanation:
-        "'Tell me about yourself' = LinkedIn'de var = enerji israfi. Doğru: spesifik + derin = degerli sohbet.",
+        "'Tell me about yourself' = LinkedIn'de var = enerji israfı. Doğru: spesifik + derin = değerli sohbet.",
     },
     {
       id: "ex.wcc13.2.6",
@@ -580,8 +585,9 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
             "(what do you wish|if you could go back)",
             "(skill (you think is|that'?s) underrated)",
           ],
+          model_answers: ["Thanks for the time — what's a non-obvious lesson from your IC-to-manager move?"],
           hint_tr:
-            "Acilis + derin soru: 'Thanks for the time — what's a non-obvious lesson from your IC-to-manager move?'",
+            "Açılış + derin soru: 'Thanks for the time — what's a non-obvious lesson from your IC-to-manager move?'",
         },
         {
           speaker: "npc",
@@ -597,8 +603,9 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
             "(how do you (balance|practice|stay))",
             "(any (book|resource|framework))",
           ],
+          model_answers: ["That resonates — what signal told you it was time to stop coding?"],
           hint_tr:
-            "Derinlestir: 'That resonates — what signal told you it was time to stop coding?'",
+            "Derinleştir: 'That resonates — what signal told you it was time to stop coding?'",
         },
         {
           speaker: "npc",
@@ -622,7 +629,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Karsi tarafa onceden bilgi sun, sonra spesifik sor = saygili + degerli.",
+            "Karşı tarafa önceden bilgi sun, sonra spesifik sor = saygılı + değerli.",
         },
         {
           question: "Niye 'non-obvious lesson' iyi bir soru?",
@@ -634,7 +641,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yuzey cevaplar herkes verebilir. Derin soru = derin cevap = hatirlanan sohbet.",
+            "Yüzey cevaplar herkes verebilir. Derin soru = derin cevap = hatırlanan sohbet.",
         },
         {
           question: "Coffee chat'te 'follow-up question' niye onemli?",
@@ -646,7 +653,7 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bir sorudan sonraki cevabi 'noted' = pasif. Follow-up = aktif dinleyici.",
+            "Bir sorudan sonraki cevabı 'noted' = pasif. Follow-up = aktif dinleyici.",
         },
       ],
     },
@@ -865,7 +872,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
         "This was helpful — mind if I reach out again with follow-ups?",
       ],
       tr_hint:
-        "'Door open' / 'Circle back' = kapi acik. Iliski sosyal sermaye olarak korumak.",
+        "'Door open' / 'Circle back' = kapı açık. İlişki sosyal sermaye olarak korumak.",
     },
     {
       id: "ex.wcc13.3.3",
@@ -875,7 +882,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
       answer: "helpful",
       distractors: ["good", "useful", "right"],
       tr_hint:
-        "'Be helpful to you' = sana yardimci olmak. Iliski two-way yapma kalibi.",
+        "'Be helpful to you' = sana yardımcı olmak. İlişki two-way yapma kalıbı.",
     },
     {
       id: "ex.wcc13.3.4",
@@ -903,7 +910,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
       correct_sentence:
         "Thanks so much — door open for a follow-up? And anyone you'd suggest I talk to next?",
       tr_explanation:
-        "'Ok bye thanks bye' = iliskiyi kapatir. Doğru: kapi acik + intro istegi = sosyal sermaye buyutur.",
+        "'Ok bye thanks bye' = ilişkiyi kapatır. Doğru: kapı açık + intro isteği = sosyal sermaye büyütür.",
     },
     {
       id: "ex.wcc13.3.6",
@@ -924,8 +931,9 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
             "(how can i (be helpful|return the favor))",
             "(anyone (i should|you'?d (suggest|recommend)))",
           ],
+          model_answers: ["This was so helpful — door open for follow-ups? Anyone you'd suggest next?"],
           hint_tr:
-            "Saglikli kapat: 'This was so helpful — door open for follow-ups? Anyone you'd suggest next?'",
+            "Sağlıklı kapat: 'This was so helpful — door open for follow-ups? Anyone you'd suggest next?'",
         },
         {
           speaker: "npc",
@@ -942,6 +950,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
             "(let me know|whichever is easier)",
             "(grateful|really helpful)",
           ],
+          model_answers: ["Would you mind doing an intro? Or happy to reach out cold."],
           hint_tr:
             "Intro talep et: 'Would you mind doing an intro? Or happy to reach out cold.'",
         },
@@ -967,7 +976,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cofee chat 30 dakika. Intro 1 dakikalik mesaj = ag buyumesi. Atlamak = enerji israf.",
+            "Cofee chat 30 dakika. Intro 1 dakikalık mesaj = ağ büyümesi. Atlamak = enerji israf.",
         },
         {
           question: "'How can I be helpful to you?' niye guclu?",
@@ -979,7 +988,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sadece alici degil 'reciprocal' sinyal verir. Iliski uzun donem ihtiyacin var.",
+            "Sadece alıcı değil 'reciprocal' sinyal verir. İlişki uzun dönem ihtiyacın var.",
         },
         {
           question: "'Or I can reach out cold' optionsi niye eklemeli?",
@@ -991,7 +1000,7 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Iyilik = enerji. Esnek olmak = karsi tarafa zaman kazandirir = saygi sinyali.",
+            "İyilik = enerji. Esnek olmak = karşı tarafa zaman kazandırır = saygı sinyali.",
         },
       ],
     },
@@ -1192,9 +1201,9 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Would love to pick your brain",
-      tr_translation: "Fikrini almak isterim (saygili networking kalibi)",
+      tr_translation: "Fikrini almak isterim (saygılı networking kalıbı)",
       example: "Would love to pick your brain about your switch from Google to a startup.",
-      example_tr: "Google'dan startup'a gecisin hakkinda fikrini almak isterim.",
+      example_tr: "Google'dan startup'a geçişin hakkında fikrini almak isterim.",
     },
     {
       id: "ex.wcc13.5.2",
@@ -1210,7 +1219,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
         "Loved your write-up — any chance of 20 min on Zoom? No stress if not a fit.",
       ],
       tr_hint:
-        "'Totally fine if not' = 'opt-out yolu'. Turk gozune fazla soguk gelir ama ABD/UK'da SAYGI sinyali.",
+        "'Totally fine if not' = 'opt-out yolu'. Türk gözüne fazla soğuk gelir ama ABD/UK'da SAYGI sinyali.",
     },
     {
       id: "ex.wcc13.5.3",
@@ -1220,7 +1229,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
       answer: "open",
       distractors: ["ready", "willing", "available"],
       tr_hint:
-        "'Be open to' = '...e acik misin'. 'Willing' fazla resmi, 'open' standart networking.",
+        "'Be open to' = '...e açık misin'. 'Willing' fazla resmi, 'open' standart networking.",
     },
     {
       id: "ex.wcc13.5.4",
@@ -1236,7 +1245,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
         "right",
       ],
       correct_sentence: "No pressure if the timing isn't right",
-      tr_translation: "Zamanlama uygun degilse hicbir baski yok.",
+      tr_translation: "Zamanlama uygun değilse hiçbir baskı yok.",
     },
     {
       id: "ex.wcc13.5.5",
@@ -1246,7 +1255,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
       correct_sentence:
         "Hi Sarah — loved your post on staff promo. Would you be open to 20 min over Zoom? No pressure if not.",
       tr_explanation:
-        "'Can you help me' = transactional + acil = soguk + kacis sinyali. Dogru: spesifik referans + kisa sure + opt-out. Turk profesyoneller 'help me' kalibini cok kullaniyor — bu iste agir kalir.",
+        "'Can you help me' = transactional + acil = soğuk + kaçış sinyali. Doğru: spesifik referans + kısa süre + opt-out. Türk profesyoneller 'help me' kalıbını çok kullanıyor — bu işte ağır kalır.",
     },
     {
       id: "ex.wcc13.5.6",
@@ -1267,8 +1276,9 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
             "(no (pressure|worries|stress)|totally fine|happy to skip) (if (not|timing))",
             "(pick your brain|learn from)",
           ],
+          model_answers: ["Hi Sarah — loved your post on X. Would you be open to 20 min over Zoom? No pressure if not."],
           hint_tr:
-            "Sablon: 'Hi Sarah — loved your post on X. Would you be open to 20 min over Zoom? No pressure if not.'",
+            "Şablon: 'Hi Sarah — loved your post on X. Would you be open to 20 min over Zoom? No pressure if not.'",
         },
         {
           speaker: "npc",
@@ -1285,8 +1295,9 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
             "(prep|prepare|send) (specific questions|a few questions) (ahead|in advance|beforehand)",
             "(open to|happy with) (any (format|structure)|whatever works)",
           ],
+          model_answers: ["Curious about your move from IC to PM. Can prep questions ahead."],
           hint_tr:
-            "Spesifik konu + 'sorulari onceden gondereyim': 'Curious about your move from IC to PM. Can prep questions ahead.'",
+            "Spesifik konu + 'soruları önceden göndereyim': 'Curious about your move from IC to PM. Can prep questions ahead.'",
         },
         {
           speaker: "npc",
@@ -1310,7 +1321,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Spesifik = karsi tarafa zaman ayirdigini gosterir. Sure = enerji esigi. Opt-out = saygi.",
+            "Spesifik = karşı tarafa zaman ayırdığını gösterir. Süre = enerji eşiği. Opt-out = saygı.",
         },
         {
           question: "'No pressure if not' niye Turk profesyonele tuhaf gelir?",
@@ -1322,7 +1333,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turkce: 'lutfen kabul edin'. Ingilizcede: 'baski yapmiyorum'. Ikincisi profesyonel norm.",
+            "Türkçe: 'lütfen kabul edin'. İngilizcede: 'baskı yapmıyorum'. İkincisi profesyonel norm.",
         },
         {
           question: "'Pick your brain' tehlikeli bir ifade mi?",
@@ -1334,7 +1345,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Direkt cevirisi tuhaf ama ABD/UK iste cok yaygin. 'Fikrini almak' = saygili.",
+            "Direkt çevirisi tuhaf ama ABD/UK işte çok yaygın. 'Fikrini almak' = saygılı.",
         },
       ],
     },
@@ -1343,7 +1354,7 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "Would you be open to 20 min over Zoom? No pressure if not.",
-      tr_translation: "20 dakika Zoom'da musait olur musun? Olmazsa baski yok.",
+      tr_translation: "20 dakika Zoom'da müsait olur musun? Olmazsa baskı yok.",
       ipa: "/wʊd ju biː ˈəʊpən tə ˈtwɛnti mɪn ˈəʊvə zuːm | nəʊ ˈprɛʃə ɪf nɒt/",
     },
     {
@@ -1502,9 +1513,9 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Quick about me",
-      tr_translation: "Kisaca kendimden (30 saniyelik tanitim kalibi)",
+      tr_translation: "Kısaca kendimden (30 saniyelik tanıtım kalıbı)",
       example: "Quick about me: I'm a backend engineer working on payments infra at a fintech.",
-      example_tr: "Kisaca: bir fintech'te odeme altyapisi uzerinde calisan backend muhendisiyim.",
+      example_tr: "Kısaca: bir fintech'te ödeme altyapısı üzerinde çalışan backend mühendisiyim.",
     },
     {
       id: "ex.wcc13.6.2",
@@ -1520,7 +1531,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
         "Quickly — I'm 5 years into backend, on payments now, eyeing developer experience next.",
       ],
       tr_hint:
-        "Sablon: 'rol + kac yil + simdiki konu + nereye gitmek istiyorum'. Son parca = 'why this chat'.",
+        "Şablon: 'rol + kaç yıl + şimdiki konu + nereye gitmek istiyorum'. Son parça = 'why this chat'.",
     },
     {
       id: "ex.wcc13.6.3",
@@ -1530,7 +1541,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
       answer: "working",
       distractors: ["work", "worked", "to work"],
       tr_hint:
-        "'A [role] working on [thing]' = sabit kalip. 'Working' = simdiki zaman + sade.",
+        "'A [role] working on [thing]' = sabit kalıp. 'Working' = şimdiki zaman + sade.",
     },
     {
       id: "ex.wcc13.6.4",
@@ -1546,7 +1557,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
         "experience",
       ],
       correct_sentence: "I'm looking to move into developer experience",
-      tr_translation: "Developer experience'a gecmek istiyorum.",
+      tr_translation: "Developer experience'a geçmek istiyorum.",
     },
     {
       id: "ex.wcc13.6.5",
@@ -1556,7 +1567,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
       correct_sentence:
         "Quick about me: I graduated from Bogazici in 2019, and I've been a software engineer at a large fintech since then — currently on payments.",
       tr_explanation:
-        "Turk hata 1: 'I am graduated' yanlis, dogrusu 'I graduated' (past). Hata 2: 'I am working since' yanlis, dogrusu 'I've been working/I've been a [role] since' (present perfect). Hata 3: CV gibi degil — 'Quick about me' kalibiyla acmali. 'Big company' = soguk, 'large fintech' = spesifik.",
+        "Türk hata 1: 'I am graduated' yanlış, doğrusu 'I graduated' (past). Hata 2: 'I am working since' yanlış, doğrusu 'I've been working/I've been a [role] since' (present perfect). Hata 3: CV gibi değil — 'Quick about me' kalıbıyla açmalı. 'Big company' = soğuk, 'large fintech' = spesifik.",
     },
     {
       id: "ex.wcc13.6.6",
@@ -1582,8 +1593,9 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
             "(payments|infra|api|platform|web|growth)",
             "(looking to|hoping to|curious about) (move|shift|transition) (into|to|toward)",
           ],
+          model_answers: ["Quick about me — I'm a [rol] working on [konu], looking to move into [hedef]."],
           hint_tr:
-            "Sablon: 'Quick about me — I'm a [rol] working on [konu], looking to move into [hedef].'",
+            "Şablon: 'Quick about me — I'm a [rol] working on [konu], looking to move into [hedef].'",
         },
         {
           speaker: "npc",
@@ -1599,6 +1611,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
             "(prep|prepared) (a few questions|some specific things)",
             "(open to|happy with) (any (direction|structure))",
           ],
+          model_answers: ["Your path from backend to DX is exactly the move I'm considering — prepped a few questions."],
           hint_tr:
             "'Why this chat': 'Your path from backend to DX is exactly the move I'm considering — prepped a few questions.'",
         },
@@ -1619,7 +1632,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi taraf 'why this chat' anlamali. Hedef = sohbet pusulasi. CV listesi = enerji israfi.",
+            "Karşı taraf 'why this chat' anlamalı. Hedef = sohbet pusulası. CV listesi = enerji israfı.",
         },
         {
           question: "Niye 'I'm working as a' yerine 'I'm a [role] working on'?",
@@ -1643,7 +1656,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "30 saniye 'why this chat' a yatirim = sohbet derinlesir. CV = 'tell me about yourself' tuzagi.",
+            "30 saniye 'why this chat' a yatırım = sohbet derinleşir. CV = 'tell me about yourself' tuzağı.",
         },
       ],
     },
@@ -1652,7 +1665,7 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "Quick about me: I'm a backend engineer working on payments.",
-      tr_translation: "Kisaca: odeme sistemleri uzerinde calisan bir backend muhendisiyim.",
+      tr_translation: "Kısaca: ödeme sistemleri üzerinde çalışan bir backend mühendisiyim.",
       ipa: "/kwɪk əˈbaʊt miː | aɪm ə ˈbæk.ɛnd ˌɛn.dʒɪˈnɪə ˈwɜː.kɪŋ ɒn ˈpeɪ.mənts/",
     },
     {
@@ -1811,9 +1824,9 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "In my shoes",
-      tr_translation: "Benim yerimde (empatik tavsiye sorma kalibi)",
+      tr_translation: "Benim yerimde (empatik tavsiye sorma kalıbı)",
       example: "What would you do in my shoes — stay at the startup or take the FAANG offer?",
-      example_tr: "Benim yerimde olsan ne yapardin — startup'ta mi kalirdin yoksa FAANG teklifini mi alirdin?",
+      example_tr: "Benim yerimde olsan ne yapardın — startup'ta mı kalırdın yoksa FAANG teklifini mi alırdın?",
     },
     {
       id: "ex.wcc13.7.2",
@@ -1829,7 +1842,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
         "How did you pivot from backend to DX, and what was the hardest part of that move?",
       ],
       tr_hint:
-        "'How did you transition' = ABD/UK'de en standart kariyer sorusu. Spesifik + retrospektif = saygili.",
+        "'How did you transition' = ABD/UK'de en standart kariyer sorusu. Spesifik + retrospektif = saygılı.",
     },
     {
       id: "ex.wcc13.7.3",
@@ -1839,7 +1852,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
       answer: "in",
       distractors: ["on", "at", "with"],
       tr_hint:
-        "'In my shoes' = sabit kalip. 'On my shoes' yanlis. Empatik tavsiye istegi.",
+        "'In my shoes' = sabit kalıp. 'On my shoes' yanlış. Empatik tavsiye isteği.",
     },
     {
       id: "ex.wcc13.7.4",
@@ -1854,7 +1867,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
         "decision",
       ],
       correct_sentence: "How did you navigate that decision",
-      tr_translation: "O karari nasil yonettin?",
+      tr_translation: "O kararı nasıl yönettin?",
     },
     {
       id: "ex.wcc13.7.5",
@@ -1864,7 +1877,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
       correct_sentence:
         "How did you make the jump from backend to DX — and what would you do in my shoes?",
       tr_explanation:
-        "Hata 1: 'Help me find a job' = mentor degil, recruiter rolu yukleyen transaksiyonel istek = Turk profesyonellerin tipik tuzagi. Hata 2: 'What should I do' = direkt direktif istegi = karsi tarafa yuk. Dogru: SPESIFIK retrospektif soru ('how did you...') + empatik tavsiye ('in my shoes') = iliski temelli, mentor seven kalip.",
+        "Hata 1: 'Help me find a job' = mentor değil, recruiter rolü yükleyen transaksiyonel istek = Türk profesyonellerin tipik tuzağı. Hata 2: 'What should I do' = direkt direktif isteği = karşı tarafa yük. Doğru: SPESİFİK retrospektif soru ('how did you...') + empatik tavsiye ('in my shoes') = ilişki temelli, mentor seven kalıp.",
     },
     {
       id: "ex.wcc13.7.6",
@@ -1884,6 +1897,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
             "(how did you (navigate|approach|handle|make)) (that|the call|the decision)",
             "(early on|at the (start|beginning)|in the (first|early) days)",
           ],
+          model_answers: ["How did you make the jump from backend to DX — what was the hardest call early on?"],
           hint_tr:
             "Spesifik soru: 'How did you make the jump from backend to DX — what was the hardest call early on?'",
         },
@@ -1902,8 +1916,9 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
             "(any (signal|sign|framework|lens))",
             "(how did you (decide|weigh) (when|that it was time))",
           ],
+          model_answers: ["That resonates — I'm facing a similar call. What would you do in my shoes?"],
           hint_tr:
-            "Konuyu kendine bag: 'That resonates — I'm facing a similar call. What would you do in my shoes?'",
+            "Konuyu kendine bağ: 'That resonates — I'm facing a similar call. What would you do in my shoes?'",
         },
         {
           speaker: "npc",
@@ -1918,8 +1933,9 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
             "(let me sit with that|gonna chew on that|will think on that)",
             "(thanks for|appreciate) (the lens|the frame|that perspective)",
           ],
+          model_answers: ["That's such a helpful lens — gonna chew on that."],
           hint_tr:
-            "Cevabi sahiplen: 'That's such a helpful lens — gonna chew on that.'",
+            "Cevabı sahiplen: 'That's such a helpful lens — gonna chew on that.'",
         },
       ],
     },
@@ -1938,7 +1954,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turk profesyoneller cogunlukla bu hataya dusuyor. Mentor = tecrubeli refakatci. Recruiter = transaksiyon.",
+            "Türk profesyoneller çoğunlukla bu hataya düşüyor. Mentor = tecrübeli refakatçı. Recruiter = transaksiyon.",
         },
         {
           question: "'In my shoes' niye 'what should I do' dan iyi?",
@@ -1950,7 +1966,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mentor 'sen yerime gec' istemiyor. Kendi cercevesini paylasmak istiyor. 'In my shoes' bu kapiyi acar.",
+            "Mentor 'sen yerime geç' istemiyor. Kendi çerçevesini paylaşmak istiyor. 'In my shoes' bu kapıyı açar.",
         },
         {
           question: "Mentor cevabi alinca yapilacak EN GUCLU adim?",
@@ -1962,7 +1978,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mentor'lar 'yatirimin sonucunu' gormek ister. Cevabi sahiplenmek = ileride tekrar sorabilme hakki kazanir.",
+            "Mentor'lar 'yatırımın sonucunu' görmek ister. Cevabı sahiplenmek = ileride tekrar sorabilme hakkı kazanır.",
         },
       ],
     },
@@ -1971,7 +1987,7 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
       type: "pronounce_phrase",
       difficulty: 4,
       phrase: "What would you do in my shoes?",
-      tr_translation: "Benim yerimde olsan ne yapardin?",
+      tr_translation: "Benim yerimde olsan ne yapardın?",
       ipa: "/wɒt wʊd ju duː ɪn maɪ ʃuːz/",
     },
     {
@@ -2130,9 +2146,9 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Genuinely helpful",
-      tr_translation: "Gercekten faydali (samimi takdir kalibi)",
+      tr_translation: "Gerçekten faydalı (samimi takdir kalıbı)",
       example: "This was genuinely helpful — especially the part about saying no to scope creep.",
-      example_tr: "Bu gercekten faydaliydi — ozellikle 'scope creep'e hayir deme kismi.",
+      example_tr: "Bu gerçekten faydalıydı — özellikle 'scope creep'e hayır deme kısmı.",
     },
     {
       id: "ex.wcc13.8.2",
@@ -2148,7 +2164,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
         "Cool if I follow up if more comes up? Your 'in my shoes' point was the takeaway.",
       ],
       tr_hint:
-        "Spesifik takdir = 'ezbere tesekkur degilim, dinledim' sinyali. 'Mind if' = nazik izin.",
+        "Spesifik takdir = 'ezbere teşekkür değilim, dinledim' sinyali. 'Mind if' = nazik izin.",
     },
     {
       id: "ex.wcc13.8.3",
@@ -2158,7 +2174,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
       answer: "follow",
       distractors: ["call", "write", "reach"],
       tr_hint:
-        "'Follow up' = takip et / tekrar dön. Kapanis kalibinin standart parcasi.",
+        "'Follow up' = takip et / tekrar dön. Kapanış kalıbının standart parçası.",
     },
     {
       id: "ex.wcc13.8.4",
@@ -2174,7 +2190,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
         "time",
       ],
       correct_sentence: "I really appreciate you making the time",
-      tr_translation: "Vakit ayirdigin icin gercekten minnettarim.",
+      tr_translation: "Vakit ayırdığın için gerçekten minnettarım.",
     },
     {
       id: "ex.wcc13.8.5",
@@ -2184,7 +2200,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
       correct_sentence:
         "This was genuinely helpful — especially the 'in my shoes' framing. Mind if I follow up if more questions come up?",
       tr_explanation:
-        "Hata 1: 'Sir' + 'may god bless you' = asiri resmi + Turk/Hint Ingilizcesi kokenli = ABD/UK'de tuhaf kalir. Hata 2: 'Very much grateful' = abartili + sicaktan uzak. Dogru: SPESIFIK takdir ('the in my shoes part') + kapi acik kalibi. Spesifiklik = dinledigini kanitlar.",
+        "Hata 1: 'Sir' + 'may god bless you' = aşırı resmi + Türk/Hint İngilizcesi kökenli = ABD/UK'de tuhaf kalır. Hata 2: 'Very much grateful' = abartılı + sıcaktan uzak. Doğru: SPESİFİK takdir ('the in my shoes part') + kapı açık kalıbı. Spesifiklik = dinlediğini kanıtlar.",
     },
     {
       id: "ex.wcc13.8.6",
@@ -2203,6 +2219,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
             "(in my shoes|the lens|the framing|saying no|scope creep|that signal)",
             "(stuck with me|landed|will sit with that|chew on that|gonna think on)",
           ],
+          model_answers: ["Genuinely helpful — especially the in-my-shoes framing. That'll stick with me."],
           hint_tr:
             "Spesifik takdir: 'Genuinely helpful — especially the in-my-shoes framing. That'll stick with me.'",
         },
@@ -2219,8 +2236,9 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
             "(more questions come up|something comes up|i hit a wall|i'm at a fork)",
             "(also|and) (how can i|happy to|let me know if i can) (be helpful|return the favor)",
           ],
+          model_answers: ["Mind if I follow up if more comes up? And let me know if I can return the favor."],
           hint_tr:
-            "Kapi + reciprocity: 'Mind if I follow up if more comes up? And let me know if I can return the favor.'",
+            "Kapı + reciprocity: 'Mind if I follow up if more comes up? And let me know if I can return the favor.'",
         },
         {
           speaker: "npc",
@@ -2234,8 +2252,9 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
             "(thanks again|once more|really)",
             "(have a (good|great)|take care|talk soon|catch you later)",
           ],
+          model_answers: ["Will do — thanks again. Take care."],
           hint_tr:
-            "Cikis: 'Will do — thanks again. Take care.'",
+            "Çıkış: 'Will do — thanks again. Take care.'",
         },
       ],
     },
@@ -2254,7 +2273,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turk/Hint English'de 'sir' yaygin. ABD/UK iste 'thanks so much' yeterli, daha samimi.",
+            "Türk/Hint English'de 'sir' yaygın. ABD/UK işte 'thanks so much' yeterli, daha samimi.",
         },
         {
           question: "'This was genuinely helpful — especially X' yapisi niye guclu?",
@@ -2266,7 +2285,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Thanks, very helpful' = kibar ama gecici. 'Especially the X part' = ezbere degil, dinleyici hatirlanir.",
+            "'Thanks, very helpful' = kibar ama geçici. 'Especially the X part' = ezbere değil, dinleyici hatırlanır.",
         },
         {
           question: "Niye 'mind if I follow up' + 'how can I return the favor' birlikte?",
@@ -2278,7 +2297,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sadece almak isteyen = enerji emici. 'Return the favor' eklemek = uzun donem iliski sermaye.",
+            "Sadece almak isteyen = enerji emici. 'Return the favor' eklemek = uzun dönem ilişki sermaye.",
         },
       ],
     },
@@ -2287,7 +2306,7 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "Mind if I follow up if more questions come up?",
-      tr_translation: "Daha fazla sorum olursa tekrar yazmamda sakinca var mi?",
+      tr_translation: "Daha fazla sorum olursa tekrar yazmamda sakınca var mı?",
       ipa: "/maɪnd ɪf aɪ ˈfɒləʊ ʌp ɪf mɔː ˈkwɛstʃənz kʌm ʌp/",
     },
     {

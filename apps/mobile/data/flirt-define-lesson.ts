@@ -39,7 +39,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
         "Where are we on the whole exclusive thing?",
       ],
       tr_hint:
-        "Direkt sor ama suclayici degil. 'Curious' / 'Wanted to ask' = yumusak giris.",
+        "Direkt sor ama suçlayıcı değil. 'Curious' / 'Wanted to ask' = yumuşak giriş.",
     },
     {
       id: "ex.fd6.1.3",
@@ -75,7 +75,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
       correct_sentence:
         "Hey, want to talk about where this is going — are we exclusive?",
       tr_explanation:
-        "'You are my girlfriend now right?' = baskici + erken. Doğru: sormak + dialog ac, etiket sonra.",
+        "'You are my girlfriend now right?' = baskıcı + erken. Doğru: sormak + dialog aç, etiket sonra.",
     },
     {
       id: "ex.fd6.1.6",
@@ -95,8 +95,9 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(where'?s your head|where are we) (at )?(on this|with this)",
             "(curious|just wondering) (about|where)",
           ],
+          model_answers: ["Hey, wanted to ask — where's your head at on us?"],
           hint_tr:
-            "Yumusak giris: 'Hey, wanted to ask — where's your head at on us?'",
+            "Yumuşak giriş: 'Hey, wanted to ask — where's your head at on us?'",
         },
         {
           speaker: "npc",
@@ -112,6 +113,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(you'?re |you are )(the only one|the only person) (i'?m )?seeing",
             "(been|im) really into this",
           ],
+          model_answers: ["I want to stop seeing other people — you?"],
           hint_tr:
             "Pozisyon al: 'I want to stop seeing other people — you?'",
         },
@@ -131,6 +133,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(apps off|apps gone|off the apps)(,)? (sounds good|works for me)",
             "(no )?(more|need for) (tinder|bumble|hinge|apps)",
           ],
+          model_answers: ["Yes — deleting them tonight, together?"],
           hint_tr:
             "Plan netleştir: 'Yes — deleting them tonight, together?' Türk: 'apps' = uygulamalar (dating app, dating app vs). 'Delete tonight' = bu gece sil; sevimli ortak ritüel.",
         },
@@ -150,6 +153,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(time apart|space|me time) (still |sometimes )?(matters|is important)",
             "(no )?(games|ghosting|drama) (please|for me)",
           ],
+          model_answers: ["Nothing crazy, just no ghosting"],
           hint_tr:
             "Deal-breaker net: 'Honestly, communication is big for me — if something's off, just tell me' veya 'Nothing crazy, just no ghosting'. Türk: 'sınırım' = 'deal-breaker' (modern) veya 'red line' (resmi).",
         },
@@ -169,6 +173,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(just )?(the people )?(closest|important) (to us|first)",
             "(let'?s )?(wait|see) (a few weeks|how it goes)( first)?",
           ],
+          model_answers: ["Close friends yes, but no Instagram for a while"],
           hint_tr:
             "Public/private karar: 'Close friends yes, but no Instagram for a while' veya 'Let's soft launch in a few weeks'. Türk: 'soft launch' = sosyal medyada yarı-açık paylaşma; modern dating jargonu.",
         },
@@ -194,7 +199,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cok erken = baskici. Cok gec = sinyaller bulanik. 3-6 hafta = tatli nokta.",
+            "Çok erken = baskıcı. Çok geç = sinyaller bulanık. 3-6 hafta = tatlı nokta.",
         },
         {
           question: "Niye 'Are you my girlfriend now?' RISKLI?",
@@ -206,7 +211,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Diyalog ac + ortak karar = saglikli. Etiket dayatma = kaçma reaksiyonu.",
+            "Diyalog aç + ortak karar = sağlıklı. Etiket dayatma = kaçma reaksiyonu.",
         },
         {
           question: "'Where's your head at?' niye GUVENLI?",
@@ -218,7 +223,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi tarafa duygu/dusunce alani aciyor. Cevap zorlanmiyor.",
+            "Karşı tarafa duygu/düşünce alanı açıyor. Cevap zorlanmıyor.",
         },
       ],
     },
@@ -432,7 +437,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
         "Need to take this at my own pace if that's okay.",
       ],
       tr_hint:
-        "'Take it slow' = yavas git. Pacing isteme = sinir cizmek, kibar yontem.",
+        "'Take it slow' = yavaş git. Pacing isteme = sınır çizmek, kibar yöntem.",
     },
     {
       id: "ex.fd6.2.3",
@@ -442,7 +447,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
       answer: "space",
       distractors: ["room", "place", "spot"],
       tr_hint:
-        "'Need space to process' = duygulari sindirmek icin alan istiyorum. Sinir cizmek.",
+        "'Need space to process' = duyguları sindirmek için alan istiyorum. Sınır çizmek.",
     },
     {
       id: "ex.fd6.2.4",
@@ -490,8 +495,9 @@ export const flirtDefineLesson_6_2: BundledLesson = {
             "(need (some |a little )?space|need my own pace)",
             "(hope (that'?s|it'?s|this is) okay|hope you understand)",
           ],
+          model_answers: ["Hey, I want to share — I think I'd like to take this slow."],
           hint_tr:
-            "Acilis: 'Hey, I want to share — I think I'd like to take this slow.'",
+            "Açılış: 'Hey, I want to share — I think I'd like to take this slow.'",
         },
         {
           speaker: "npc",
@@ -508,8 +514,9 @@ export const flirtDefineLesson_6_2: BundledLesson = {
             "(this is |that is )(what works|whats comfortable) for me",
             "(thank you|thanks)( so much)? for (asking|listening|understanding)",
           ],
+          model_answers: ["A few weeks more, hanging out twice a week, no sleepovers yet — that's what works."],
           hint_tr:
-            "Detaylandir: 'A few weeks more, hanging out twice a week, no sleepovers yet — that's what works.'",
+            "Detaylandır: 'A few weeks more, hanging out twice a week, no sleepovers yet — that's what works.'",
         },
         {
           speaker: "npc",
@@ -525,6 +532,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
             "(love that|appreciate that|sounds healthy)(,)? .{0,40}",
             "(open communication|keeping it open) (matters|works for me)",
           ],
+          model_answers: ["Yes — let's revisit in two weeks. Open communication matters."],
           hint_tr:
             "Düzenli kontrol önerisini kabul et: 'Yes — let's revisit in two weeks. Open communication matters.' Sınır sabit değil, yaşayan bir anlaşma.",
         },
@@ -545,7 +553,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I need / I want' (ben formati) + spesifik = saglikli. 'You did X' (sen formati) = saldiri.",
+            "'I need / I want' (ben formatı) + spesifik = sağlıklı. 'You did X' (sen formatı) = saldırı.",
         },
         {
           question: "'Take it slow' demek isteyen biri NEYI imkansiz kilar?",
@@ -557,7 +565,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Slow' = aceleci olma. Sevgili olmayi engellemiyor, sadece pacing.",
+            "'Slow' = aceleci olma. Sevgili olmayı engellemiyor, sadece pacing.",
         },
         {
           question: "Diger taraf siniri RED ederse?",
@@ -569,7 +577,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Saglikli iliski = sinirler saygili tutulur. Saygi yoksa = uyum yoktur.",
+            "Sağlıklı ilişki = sınırler saygılı tutulur. Saygı yoksa = uyum yoktur.",
         },
       ],
     },
@@ -845,7 +853,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
         "I want something serious, what about you?",
       ],
       tr_hint:
-        "'Cards on the table' / 'Be upfront' = kartlarini ac, durust ol. Niyet konusmasinda kullan.",
+        "'Cards on the table' / 'Be upfront' = kartlarını aç, dürüst ol. Niyet konuşmasında kullan.",
     },
     {
       id: "ex.fd6.3.3",
@@ -855,7 +863,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
       answer: "long",
       distractors: ["far", "deep", "right"],
       tr_hint:
-        "'Long-term' = uzun donem. 'Short-term' = kisa donem. App profillerinde sik gecer.",
+        "'Long-term' = uzun dönem. 'Short-term' = kısa dönem. App profillerinde sık geçer.",
     },
     {
       id: "ex.fd6.3.4",
@@ -880,7 +888,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
       correct_sentence:
         "I see a real future with you — want to talk about where this is going?",
       tr_explanation:
-        "'Marry me' = direkt evlilik = baskici + erken. Doğru: uzun donem niyetini paylas, diyalog ac.",
+        "'Marry me' = direkt evlilik = baskıcı + erken. Doğru: uzun dönem niyetini paylaş, diyalog aç.",
     },
     {
       id: "ex.fd6.3.6",
@@ -901,8 +909,9 @@ export const flirtDefineLesson_6_3: BundledLesson = {
             "(serious|real|long-?term) (relationship|thing|love)",
             "(want to|wanted to) (be upfront|put cards on the table|be real)",
           ],
+          model_answers: ["Wanted to be upfront — I'm looking for long-term. You?"],
           hint_tr:
-            "Ac: 'Wanted to be upfront — I'm looking for long-term. You?'",
+            "Aç: 'Wanted to be upfront — I'm looking for long-term. You?'",
         },
         {
           speaker: "npc",
@@ -918,6 +927,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
             "(want to|i want to|hope to) (build|grow|move forward)",
             "(glad we|happy we) (talked|are aligned|are on the same page)",
           ],
+          model_answers: ["Glad we're aligned — I see this going somewhere real."],
           hint_tr:
             "Devam: 'Glad we're aligned — I see this going somewhere real.'",
         },
@@ -935,6 +945,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
             "(day by day|no rush)(,)? but (.+) (feels real|is the direction)",
             "(want to (visit|meet) (your|my) (family|friends))",
           ],
+          model_answers: ["Honestly, I see us still building — same city, maybe a trip in spring. Day by day, but that's the direction."],
           hint_tr:
             "Somut zaman + niyet: 'Honestly, I see us still building — same city, maybe a trip in spring. Day by day, but that's the direction.' Türk öğrenci 'evlilik' atlama yapar; ölçülü ol.",
         },
@@ -955,7 +966,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cok erken = baskici. Cok gec = bos zamanini kaybedersin. 1-3 ay = optimal.",
+            "Çok erken = baskıcı. Çok geç = boş zamanını kaybedersin. 1-3 ay = optimal.",
         },
         {
           question: "Niyetler UYUSMAZSA?",
@@ -967,7 +978,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bir kisi serious, digeri casual ise = farkli yollar. Erken farketmek = ikiniz icin iyi.",
+            "Bir kişi serious, diğeri casual ise = farklı yollar. Erken farketmek = ikiniz için iyi.",
         },
         {
           question: "'I see this going somewhere real' niye GUCLU?",
@@ -979,7 +990,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Hem niyetini gosteriyor, hem duygunu hem de uzun donem gelecek gorduğunu. Kapsamli.",
+            "Hem niyetini gösteriyor, hem duygunu hem de uzun dönem gelecek gördüğünü. Kapsamlı.",
         },
       ],
     },
@@ -1237,7 +1248,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Need to pump the brakes",
-      tr_translation: "Frene basmak / yavaslamak gerek",
+      tr_translation: "Frene basmak / yavaşlamak gerek",
       example: "Hey, I think I need to pump the brakes a little.",
       example_tr: "Hey, biraz frene basmam gerekiyor.",
     },
@@ -1255,7 +1266,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
         "I need to slow the pace down — overwhelmed a little.",
       ],
       tr_hint:
-        "'Need a breather' = nefes almaya ihtiyac. 'Moving fast' = hizli ilerliyor (negatif).",
+        "'Need a breather' = nefes almaya ihtiyaç. 'Moving fast' = hızlı ilerliyor (negatif).",
     },
     {
       id: "ex.fd6.4.3",
@@ -1265,7 +1276,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
       answer: "over",
       distractors: ["under", "out", "off"],
       tr_hint:
-        "'Overwhelmed' = bunalmis, fazla yuk altinda. Duygu ifadesi.",
+        "'Overwhelmed' = bunalmış, fazla yük altında. Duygu ifadesi.",
     },
     {
       id: "ex.fd6.4.4",
@@ -1311,8 +1322,9 @@ export const flirtDefineLesson_6_4: BundledLesson = {
             "(it'?s not |this is not )(you|us)",
             "(it'?s |this is )(the pace|the speed|too much for me)",
           ],
+          model_answers: ["Hey, this is moving fast for me — need a breather."],
           hint_tr:
-            "Empati ile baslat: 'Hey, this is moving fast for me — need a breather.'",
+            "Empati ile başlat: 'Hey, this is moving fast for me — need a breather.'",
         },
         {
           speaker: "npc",
@@ -1329,6 +1341,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
             "(no sleepovers|less plans) (for a bit|for now|just for a while)",
             "(it'?s not |this is not )(you|because of you) — (just|its just)? (me|my pace)",
           ],
+          model_answers: ["Maybe seeing each other once a week, fewer texts. It's not you, it's me."],
           hint_tr:
             "Spesifik ol: 'Maybe seeing each other once a week, fewer texts. It's not you, it's me.'",
         },
@@ -1351,6 +1364,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
             "(what about you|you too|same on your end)",
             "(honestly|truthfully) (just )?(you|us)",
           ],
+          model_answers: ["Just you — slowing down isn't about anyone else. What about you?"],
           hint_tr:
             "Dürüst cevap + soruyu iade et: 'Just you — slowing down isn't about anyone else. What about you?' Reciprocate = sağlıklı.",
         },
@@ -1371,7 +1385,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sessiz kalmak = iliski olur. Konusmak = pacingi ayarlayip iliskiyi yasatma sansi.",
+            "Sessiz kalmak = ilişki ölür. Konuşmak = pacingi ayarlayıp ilişkiyi yaşatma şansı.",
         },
         {
           question: "'It's not you, it's the pace' niye iyi?",
@@ -1383,7 +1397,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi tarafi yaralamadan kendi sinirini koruyorsun. Pacing degisken, kim oldugu degil.",
+            "Karşı tarafı yaralamadan kendi sınırını koruyorsun. Pacing değişken, kim olduğu değil.",
         },
         {
           question: "Yavaslatma istegi REDDEDILIRSE?",
@@ -1395,7 +1409,7 @@ export const flirtDefineLesson_6_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pacing istegi saygi gormezse uzun donemde de saygi olmaz. Temel uyum konusu.",
+            "Pacing isteği saygı görmezse uzun dönemde de saygı olmaz. Temel uyum konusu.",
         },
       ],
     },
@@ -1653,9 +1667,9 @@ export const flirtDefineLesson_6_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Can I ask you something?",
-      tr_translation: "Sana bir sey sorabilir miyim?",
+      tr_translation: "Sana bir şey sorabilir miyim?",
       example: "Hey, can I ask you something — no pressure?",
-      example_tr: "Hey, sana bir sey sorabilir miyim — baski yok?",
+      example_tr: "Hey, sana bir şey sorabilir miyim — baskı yok?",
     },
     {
       id: "ex.fd6.5.2",
@@ -1671,7 +1685,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
         "Just wondering where your head is on us.",
       ],
       tr_hint:
-        "'Where do you see this going?' = klasik DTR acilis. Baski yok, sadece netlik istegi.",
+        "'Where do you see this going?' = klasik DTR açılış. Baskı yok, sadece netlik isteği.",
     },
     {
       id: "ex.fd6.5.3",
@@ -1681,7 +1695,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
       answer: "pressure",
       distractors: ["stress", "worry", "rush"],
       tr_hint:
-        "'No pressure' = baski yok. DTR konusmasinda kritik yumusatici.",
+        "'No pressure' = baskı yok. DTR konuşmasında kritik yumuşatıcı.",
     },
     {
       id: "ex.fd6.5.4",
@@ -1696,7 +1710,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
         "going",
       ],
       correct_sentence: "Where do you see this going",
-      tr_translation: "Bunu nereye gittigini goruyorsun?",
+      tr_translation: "Bunu nereye gittiğini görüyorsun?",
     },
     {
       id: "ex.fd6.5.5",
@@ -1706,7 +1720,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
       correct_sentence:
         "Can I ask you something — where do you see this going? No pressure.",
       tr_explanation:
-        "'Tell me now' = ultimatom + baski. Doğru: izin iste ('Can I ask') + acik soru + 'no pressure' = sicak diyalog acilisi.",
+        "'Tell me now' = ültimatom + baskı. Doğru: izin iste ('Can I ask') + açık soru + 'no pressure' = sıcak diyalog açılışı.",
     },
     {
       id: "ex.fd6.5.6",
@@ -1726,8 +1740,9 @@ export const flirtDefineLesson_6_5: BundledLesson = {
             "(how are you feeling|how do you feel) about (us|this|where we are)",
             "(wanted to (ask|chat)|been thinking) about (us|this)",
           ],
+          model_answers: ["Hey, can I ask you something — no pressure — where do you see this going?"],
           hint_tr:
-            "Acilis: 'Hey, can I ask you something — no pressure — where do you see this going?'",
+            "Açılış: 'Hey, can I ask you something — no pressure — where do you see this going?'",
         },
         {
           speaker: "npc",
@@ -1743,6 +1758,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
             "(curious|wondering) (what|where) (you'?re )?thinking",
             "(want to hear|tell me) (your side|what you think)",
           ],
+          model_answers: ["Glad we're talking — what are your thoughts? I'm really into this."],
           hint_tr:
             "Devam: 'Glad we're talking — what are your thoughts? I'm really into this.'",
         },
@@ -1760,6 +1776,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
             "(you'?re the only|just one) (person|one) (i'?m (interested in|seeing))",
             "(what about you|how about you|same on your end)",
           ],
+          model_answers: ["Just you — been off the apps for a few weeks. What about you?"],
           hint_tr:
             "Dürüst + reciprocate: 'Just you — been off the apps for a few weeks. What about you?' Türk öğrenci kaçar; net cevap ver + soruyu iade et.",
         },
@@ -1780,7 +1797,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi taraf savunmaya gecmesin diye 'no pressure' + acik uclu soru = guvenli diyalog.",
+            "Karşı taraf savunmaya geçmesin diye 'no pressure' + açık uçlu soru = güvenli diyalog.",
         },
         {
           question: "'No pressure' niye GUCLU?",
@@ -1792,7 +1809,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi tarafa 'cevabin ne olursa olsun saygi duyacagim' sinyali. Savunma kalmaz.",
+            "Karşı tarafa 'cevabın ne olursa olsun saygı duyacağım' sinyali. Savunma kalmaz.",
         },
         {
           question: "'Where do you see this going?' niye IDEAL acilis?",
@@ -1804,7 +1821,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Onlarin gozunden gelecegi soruyorsun — bu, hem netlik veriyor hem de saygi gosteriyor.",
+            "Onların gözünden geleceği soruyorsun — bu, hem netlik veriyor hem de saygı gösteriyor.",
         },
       ],
     },
@@ -1815,7 +1832,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
       phrase: "Where do you see this going?",
       ipa: "weə dʊ juː siː ðɪs ˈɡəʊɪŋ",
       tr_hint:
-        "'Where do you' baglanır → 'weə-də-yə'. 'Going' sonda yukari ton — soru. Sakin, meraklı ses tonu — baski yok.",
+        "'Where do you' bağlanır → 'weə-də-yə'. 'Going' sonda yukarı ton — soru. Sakin, meraklı ses tonu — baskı yok.",
     },
     {
       id: "ex.fd6.5.sp1",
@@ -2042,7 +2059,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
         "Want to put my focus on just this — you in?",
       ],
       tr_hint:
-        "'Focus on just us' = sadece bize odaklan. 'Same page' = ayni dusunce — uyum sorusu.",
+        "'Focus on just us' = sadece bize odaklan. 'Same page' = aynı düşünce — uyum sorusu.",
     },
     {
       id: "ex.fd6.6.3",
@@ -2052,7 +2069,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
       answer: "people",
       distractors: ["dates", "matches", "options"],
       tr_hint:
-        "'Stop seeing other people' = baskalariyla gorusmeyi birakmak. Exclusive teklifi standart kalibi.",
+        "'Stop seeing other people' = başkalarıyla görüşmeyi bırakmak. Exclusive teklifi standart kalıbı.",
     },
     {
       id: "ex.fd6.6.4",
@@ -2078,7 +2095,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
       correct_sentence:
         "I'd love for us to be exclusive — ready to focus on just you. How do you feel?",
       tr_explanation:
-        "'Stop talking to other guys' = kontrolcu emir. Doğru: kendi pozisyonunu paylas ('I'd love') + onlarin duygusunu sor = saygili teklif.",
+        "'Stop talking to other guys' = kontrolcü emir. Doğru: kendi pozisyonunu paylaş ('I'd love') + onların duygusunu sor = saygılı teklif.",
     },
     {
       id: "ex.fd6.6.6",
@@ -2098,8 +2115,9 @@ export const flirtDefineLesson_6_6: BundledLesson = {
             "(i'?d (like|love) |i want) to (focus on just (us|you)|be exclusive)",
             "(ready to|happy to) (stop|drop) (seeing|talking to) other (people|matches)",
           ],
+          model_answers: ["Hey, wanted to ask — are you seeing other people? Because I'd love to focus on just us."],
           hint_tr:
-            "Ac: 'Hey, wanted to ask — are you seeing other people? Because I'd love to focus on just us.'",
+            "Aç: 'Hey, wanted to ask — are you seeing other people? Because I'd love to focus on just us.'",
         },
         {
           speaker: "npc",
@@ -2115,6 +2133,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
             "(if you'?re |are you )?(in|ready|down|good with that)",
             "(no rush |take your time)? (think about it)",
           ],
+          model_answers: ["I'd love for us to be exclusive — delete the apps, focus on just us. Are you in?"],
           hint_tr:
             "Net ol: 'I'd love for us to be exclusive — delete the apps, focus on just us. Are you in?'",
         },
@@ -2132,6 +2151,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
             "(tell her|say) (we'?re )?(seeing each other|together|exclusive)",
             "(your call|whatever you'?re comfortable telling her)",
           ],
+          model_answers: ["Tell her we're exclusive — labels can wait, no rush."],
           hint_tr:
             "Label ya da intentional ambiguity + boundary. 'Tell her we're exclusive — labels can wait, no rush.' Türk öğrenci direkt 'boyfriend' der; karşı tarafın komforuna alan bırak.",
         },
@@ -2152,7 +2172,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I want X — how do you feel?' = ikiniz de secim hakki var hissi. Saglikli.",
+            "'I want X — how do you feel?' = ikiniz de seçim hakkı var hissi. Sağlıklı.",
         },
         {
           question: "'Are you seeing other people?' niye NORMAL?",
@@ -2164,7 +2184,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ABD/UK'de aplerin oldugu donemde insanlar coklu gorusur. Bu konusma normalize.",
+            "ABD/UK'de aplerin olduğu dönemde insanlar çoklu görüşür. Bu konuşma normalize.",
         },
         {
           question: "Karsi taraf 'henuz hazir degil' derse?",
@@ -2176,7 +2196,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Hazir olmamasi hak. Ama senin de bekleyip beklemeyecegine karar verme hakkin var.",
+            "Hazır olmaması hak. Ama senin de bekleyip beklemeyeceğine karar verme hakkın var.",
         },
       ],
     },
@@ -2396,7 +2416,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Comfortable being my girlfriend?",
-      tr_translation: "Sevgilim olmak konusunda rahat misin?",
+      tr_translation: "Sevgilim olmak konusunda rahat mısın?",
       example: "Hey — comfortable being my girlfriend? I'd love that.",
       example_tr: "Hey — sevgilim olmak konusunda rahat misin? Çok isterim.",
     },
@@ -2414,7 +2434,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
         "I'd love to call you mine — how do you feel?",
       ],
       tr_hint:
-        "'Make it official' = resmilestir. 'How does that sit with you?' = sana nasil hissettiriyor — empati sorusu.",
+        "'Make it official' = resmileştir. 'How does that sit with you?' = sana nasıl hissettiriyor — empati sorusu.",
     },
     {
       id: "ex.fd6.7.3",
@@ -2424,7 +2444,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
       answer: "official",
       distractors: ["formal", "open", "real"],
       tr_hint:
-        "'Make it official' = ilskiyi resmilestir / etiket ekle. Standart deyim.",
+        "'Make it official' = ilşkiyi resmileştir / etiket ekle. Standart deyim.",
     },
     {
       id: "ex.fd6.7.4",
@@ -2469,8 +2489,9 @@ export const flirtDefineLesson_6_7: BundledLesson = {
             "(call you|introduce you as) my (girlfriend|boyfriend|partner)",
             "(how does that sit|how do you feel|what do you think) (with you|about it)",
           ],
+          model_answers: ["Been thinking — comfortable being my girlfriend? I'd love that."],
           hint_tr:
-            "Sicak baslat: 'Been thinking — comfortable being my girlfriend? I'd love that.'",
+            "Sıcak başlat: 'Been thinking — comfortable being my girlfriend? I'd love that.'",
         },
         {
           speaker: "npc",
@@ -2486,6 +2507,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
             "(want to |let'?s )(tell|share|introduce) (everyone|my (friends|family))",
             "(been hoping|been waiting) (for this|to hear that)",
           ],
+          model_answers: ["Yes — officially yours. So happy we're here."],
           hint_tr:
             "Onayla: 'Yes — officially yours. So happy we're here.'",
         },
@@ -2503,6 +2525,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
             "(same page|aligned) (on that|here)",
             "(want this )?(to be )?(serious|real)(,)? (.+)",
           ],
+          model_answers: ["Yes — apps are gone, just you. We're on the same page."],
           hint_tr:
             "Net teyit + boundary: 'Yes — apps are gone, just you. We're on the same page.' Belirsizlik bırakma; net çerçeveleme güven yaratır.",
         },
@@ -2523,7 +2546,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Once exclusive, sonra etiket. Sira: exclusive → label → introduce to friends.",
+            "Önce exclusive, sonra etiket. Sıra: exclusive → label → introduce to friends.",
         },
         {
           question: "'Comfortable being my girlfriend?' niye GUZEL?",
@@ -2535,7 +2558,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Rahatligini soruyorsun — etiketin gucu ortak karardan geliyor.",
+            "Rahatlığını soruyorsun — etiketin gücü ortak karardan geliyor.",
         },
         {
           question: "'How does that sit with you?' anlam?",
@@ -2547,7 +2570,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Standart deyim — onlarin ic dunyasini soruyorsun. DTR'de cok faydali.",
+            "Standart deyim — onların iç dünyasını soruyorsun. DTR'de çok faydalı.",
         },
       ],
     },
@@ -2558,7 +2581,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
       phrase: "Comfortable being my girlfriend?",
       ipa: "ˈkʌmftəbl ˈbiːɪŋ maɪ ˈɡɜːlfrend",
       tr_hint:
-        "'Comfortable' = 'KUMF-tə-bl' (3 hece). 'Being my' baglanır → 'biːɪŋ-maɪ'. Sicak, sevecen ton — soru yukari ton.",
+        "'Comfortable' = 'KUMF-tə-bl' (3 hece). 'Being my' bağlanır → 'biːɪŋ-maɪ'. Sıcak, sevecen ton — soru yukarı ton.",
     },
     {
       id: "ex.fd6.7.sp1",
@@ -2768,7 +2791,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
       word_or_phrase: "I'm enjoying this — can we keep flowing?",
       tr_translation: "Bunu seviyorum — akmaya devam edebilir miyiz?",
       example: "Honestly I'm enjoying this so much — can we keep flowing for now?",
-      example_tr: "Cidden bunu cok seviyorum — su an akmaya devam edebilir miyiz?",
+      example_tr: "Cidden bunu çok seviyorum — şu an akmaya devam edebilir miyiz?",
     },
     {
       id: "ex.fd6.8.2",
@@ -2784,7 +2807,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
         "Let's just enjoy this — labels can wait.",
       ],
       tr_hint:
-        "'Not put labels yet' = henuz etiket koymayalim. 'I love being with you' = duygunu onayla — reddetme degil.",
+        "'Not put labels yet' = henüz etiket koymayalım. 'I love being with you' = duygunu onayla — reddetme değil.",
     },
     {
       id: "ex.fd6.8.3",
@@ -2810,7 +2833,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
         "yet",
       ],
       correct_sentence: "Let's not put labels on this yet",
-      tr_translation: "Buna henuz etiket koymayalim.",
+      tr_translation: "Buna henüz etiket koymayalım.",
     },
     {
       id: "ex.fd6.8.5",
@@ -2840,8 +2863,9 @@ export const flirtDefineLesson_6_8: BundledLesson = {
             "(can we |let'?s )(keep flowing|not put labels|skip labels) (for now|just yet)",
             "(it'?s not |this is not )(about you|because of you)",
           ],
+          model_answers: ["I'm so enjoying this — can we keep flowing without labels for now?"],
           hint_tr:
-            "Once duyguyu onayla: 'I'm so enjoying this — can we keep flowing without labels for now?'",
+            "Önce duyguyu onayla: 'I'm so enjoying this — can we keep flowing without labels for now?'",
         },
         {
           speaker: "npc",
@@ -2857,8 +2881,9 @@ export const flirtDefineLesson_6_8: BundledLesson = {
             "(love (being |what we have)|happy with us|into you) — (just|but) (no label|not yet)",
             "(promise|i promise|swear) (to (revisit|come back|talk again))",
           ],
+          model_answers: ["Not you at all — it's my own pace. Love being with you, just no label yet."],
           hint_tr:
-            "Aciklayici ol: 'Not you at all — it's my own pace. Love being with you, just no label yet.'",
+            "Açıklayıcı ol: 'Not you at all — it's my own pace. Love being with you, just no label yet.'",
         },
         {
           speaker: "npc",
@@ -2874,6 +2899,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
             "(if things shift|if either of us)(,)? (we'?ll )?(say|talk)",
             "(thank you|so grateful) for (being patient|getting it)",
           ],
+          model_answers: ["Yes — a month sounds fair. If things shift either way, we'll talk. Thanks for getting it."],
           hint_tr:
             "Somut zaman + saygı: 'Yes — a month sounds fair. If things shift either way, we'll talk. Thanks for getting it.' Sınır net + kapı açık.",
         },
@@ -2894,7 +2920,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I love this — but no label yet' = mesaj net: iliski iyi, sadece etiket erken. Karsi taraf kendini reddedilmis hissetmez.",
+            "'I love this — but no label yet' = mesaj net: ilişki iyi, sadece etiket erken. Karşı taraf kendini reddedilmiş hissetmez.",
         },
         {
           question: "Karsi taraf 'sebep ne?' diye sorarsa?",
@@ -2906,7 +2932,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Suclama yok, sadece kendi durumun. 'My own pace' / 'coming out of something' = saygili aciklama.",
+            "Suçlama yok, sadece kendi durumun. 'My own pace' / 'coming out of something' = saygılı açıklama.",
         },
         {
           question: "'Let's keep flowing' niye GUZEL ifade?",
@@ -2918,7 +2944,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Flowing' = akiyor, ilerliyor — durmus degil. Etiketsiz ama dinamik iliski sinyali.",
+            "'Flowing' = akıyor, ilerliyor — durmuş değil. Etiketsiz ama dinamik ilişki sinyali.",
         },
       ],
     },

@@ -139,9 +139,9 @@ These features run entirely against local state and do not need a network:
 These features call out to the network and will return errors or stale
 state until connectivity returns:
 
-- **FreeChat** (`app/freechat.tsx`) — requires a network round-trip to the
-  LLM router (`lib/llm-router.ts`). Surface the offline state to the user
-  before they hit "send"; do not silently swallow.
+- **FreeChat and Real Life tools** continue working fully offline through the
+  local conversation engine and scenario blueprint catalog. Their input text
+  is not queued for later upload.
 - **Cloud sync** — Supabase auth + progress sync (`lib/supabase.ts`,
   `lib/auth.ts`). Local progress keeps accumulating and will be flushed
   on the next online run; the banner copy ("ilerlemen güvende, internet

@@ -24,33 +24,29 @@ export async function getOnboardingStep(): Promise<string | null> {
 }
 
 export async function setOnboardingStep(step: string | null): Promise<void> {
-  try {
-    if (step === null) {
-      await AsyncStorage.removeItem(K_STEP);
-    } else {
-      await AsyncStorage.setItem(K_STEP, step);
-    }
-  } catch {
-    // ignore — onboarding resume is a nice-to-have, never blocks the flow.
+  if (step === null) {
+    await AsyncStorage.removeItem(K_STEP);
+  } else {
+    await AsyncStorage.setItem(K_STEP, step);
   }
 }
 
 export async function setOnboarded(value: boolean): Promise<void> {
+  if (value) {
+    await AsyncStorage.setItem(K_ONBOARDED, "true");
+  } else {
+    await AsyncStorage.removeItem(K_ONBOARDED);
+  }
+}
+
+export async function isOnboarded(): Promise<boolean> {
   try {
-    if (value) {
-      await AsyncStorage.setItem(K_ONBOARDED, "true");
-    } else {
-      await AsyncStorage.removeItem(K_ONBOARDED);
-    }
+    return (await AsyncStorage.getItem(K_ONBOARDED)) === "true";
   } catch {
-    // ignore
+    return false;
   }
 }
 
 export async function setInterests(interests: string[]): Promise<void> {
-  try {
-    await AsyncStorage.setItem(K_INTERESTS, JSON.stringify(interests));
-  } catch {
-    // ignore
-  }
+  await AsyncStorage.setItem(K_INTERESTS, JSON.stringify(interests));
 }

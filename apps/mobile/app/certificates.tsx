@@ -6,7 +6,7 @@
 //
 // Tek tıklayışta share card opsiyonu — sosyal medyada paylaşılır.
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -14,7 +14,7 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -24,34 +24,35 @@ import {
   type Certificate,
 } from "../lib/certificate";
 import type { CefrLevel } from "../lib/cefr-level";
+import { useTranslation, type Locale } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 const ALL_LEVELS: CefrLevel[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-const LEVEL_LABEL_TR: Record<CefrLevel, string> = {
-  A1: "Başlangıç",
-  A2: "Temel",
-  B1: "Orta",
-  B2: "Orta-Üstü",
-  C1: "İleri",
-  C2: "Ustalık",
-};
-
 export default function CertificatesScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [certs, setCerts] = useState<Certificate[]>([]);
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
-  useEffect(() => {
-    (async () => {
+  const load = useCallback(async () => {
+    setStatus("loading");
+    try {
       const c = await getCertificates();
       setCerts(c);
-    })();
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
+
+  useEffect(() => { void load(); }, [load]);
 
   const earnedMap = new Map(certs.map((c) => [c.level, c]));
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
@@ -59,17 +60,20 @@ export default function CertificatesScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.title}>Sertifikalarım</Text>
+        <Text style={styles.title}>{t("certificates.title")}</Text>
         <View style={styles.backBtn} />
       </View>
 
+      {status !== "ready" ? (
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      ) : <>
       <View style={styles.summaryBar}>
         <Text style={styles.summaryText}>
-          {certs.length} / {ALL_LEVELS.length} seviye tamamlandı
+          {t("certificates.summary", { earned: String(certs.length), total: String(ALL_LEVELS.length) })}
         </Text>
       </View>
 
@@ -99,11 +103,11 @@ export default function CertificatesScreen() {
                   earned ? styles.labelEarned : styles.labelLocked,
                 ]}
               >
-                {LEVEL_LABEL_TR[level]}
+                {t(`certificates.level.${level}`)}
               </Text>
               {earned ? (
                 <Text style={styles.cardDate}>
-                  {formatDate(cert.awardedAt)}
+                  {formatDate(cert.awardedAt, locale)}
                 </Text>
               ) : (
                 <Text style={styles.cardLock}>🔒</Text>
@@ -115,17 +119,17 @@ export default function CertificatesScreen() {
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>
-          Sertifikalar CEFR seviyesi atlayınca otomatik kazanılır. Sahne
-          tamamlayarak ilerlemeni artır.
+          {t("certificates.footer")}
         </Text>
       </View>
+      </>}
     </SafeAreaView>
   );
 }
 
-function formatDate(iso: string): string {
+function formatDate(iso: string, locale: Locale): string {
   const d = new Date(iso);
-  return d.toLocaleDateString("tr-TR", {
+  return d.toLocaleDateString(locale === "tr" ? "tr-TR" : "en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",

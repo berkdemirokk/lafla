@@ -1,0 +1,6 @@
+{
+  "NSMicrophoneUsageDescription": "Microphone access is required to evaluate your pronunciation and let you answer scenes by voice.",
+  "NSPhotoLibraryUsageDescription": "Photo library access is required so you can save your progress card.",
+  "NSSpeechRecognitionUsageDescription": "Speech recognition is used to understand the English sentences you speak.",
+  "NSUserTrackingUsageDescription": "Your anonymous advertising ID (IDFA) is used only to show more relevant ads in the free version. If you decline, you will see non-personalized ads."
+}

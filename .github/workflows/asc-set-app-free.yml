@@ -25,6 +25,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
+          version: 9.0.0
           run_install: false
 
       - name: Install workspace deps
@@ -44,7 +45,7 @@ jobs:
         env:
           ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-        run: pnpm exec tsx scripts/asc-set-app-free.ts
+        run: pnpm asc:set-free
 
       - name: Set app free
         if: ${{ inputs.apply == true }}
@@ -52,4 +53,4 @@ jobs:
         env:
           ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-        run: pnpm exec tsx scripts/asc-set-app-free.ts -- --apply
+        run: pnpm asc:set-free:apply

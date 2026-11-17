@@ -39,7 +39,7 @@ export const workReviewLesson_12_1: BundledLesson = {
         "Built and launched the new cookie system, resulting in 30% more users.",
       ],
       tr_hint:
-        "Self review = aksiyonu sahiplen + sayilarla destekle. 'Helped' = zayif. 'Led / Drove / Owned' = guclu.",
+        "Self review = aksiyonu sahiplen + sayılarla destekle. 'Helped' = zayıf. 'Led / Drove / Owned' = güçlü.",
     },
     {
       id: "ex.wr12.1.3",
@@ -49,7 +49,7 @@ export const workReviewLesson_12_1: BundledLesson = {
       answer: "in",
       distractors: ["to", "from", "with"],
       tr_hint:
-        "'Resulted in X' = X ile sonuclandi. Metrik gosterme kalibi.",
+        "'Resulted in X' = X ile sonuçlandı. Metrik gösterme kalıbı.",
     },
     {
       id: "ex.wr12.1.4",
@@ -75,7 +75,7 @@ export const workReviewLesson_12_1: BundledLesson = {
       correct_sentence:
         "Led delivery of the new auth flow — 40% drop in login failures.",
       tr_explanation:
-        "'Helped with some stuff' = sifir bilgi. Doğru: spesifik aksiyon + olcum + impact.",
+        "'Helped with some stuff' = sıfır bilgi. Doğru: spesifik aksiyon + ölçüm + impact.",
     },
     {
       id: "ex.wr12.1.6",
@@ -96,8 +96,9 @@ export const workReviewLesson_12_1: BundledLesson = {
             "(resulted in|led to|drove) (a |\\d+ ?%)",
             "(lift|improvement|reduction|drop)",
           ],
+          model_answers: ["Led the auth redesign end-to-end — 40% drop in login fails."],
           hint_tr:
-            "Net olarak basla: 'Led the auth redesign end-to-end — 40% drop in login fails.'",
+            "Net olarak başla: 'Led the auth redesign end-to-end — 40% drop in login fails.'",
         },
         {
           speaker: "npc",
@@ -114,6 +115,7 @@ export const workReviewLesson_12_1: BundledLesson = {
             "(mentored|onboarded) (\\d+|a few) (new |junior )?(engineer|hire)",
             "(documentation|the runbook) (i wrote|i created)",
           ],
+          model_answers: ["Partnered with design to ship auth — unblocked the platform team."],
           hint_tr:
             "Cross-functional vurguda: 'Partnered with design to ship auth — unblocked the platform team.'",
         },
@@ -132,6 +134,7 @@ export const workReviewLesson_12_1: BundledLesson = {
             "(mentorship|coaching|sponsorship)",
             "(want to (be intentional|invest|focus) (on|in))",
           ],
+          model_answers: ["Honestly, broader cross-team visibility — want to be intentional about it next year."],
           hint_tr:
             "Growth area framing: 'Honestly, broader cross-team visibility — want to be intentional about it next year.'",
         },
@@ -152,7 +155,7 @@ export const workReviewLesson_12_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Aksiyon = role demonstrate. Sayi = etki demonstrate. Ikisi olmadan sirket karar veremez.",
+            "Aksiyon = role demonstrate. Sayı = etki demonstrate. İkisi olmadan şirket karar veremez.",
         },
         {
           question: "Niye 'helped' kelimesi ZAYIF?",
@@ -164,7 +167,7 @@ export const workReviewLesson_12_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Helped' = takim adina yardim = kim oldugun anlasilmaz. Sahiplenmek = isim koymak.",
+            "'Helped' = takım adına yardım = kim olduğun anlaşılmaz. Sahiplenmek = isim koymak.",
         },
         {
           question: "Self review'de mutevazi olmak RISKI?",
@@ -176,7 +179,7 @@ export const workReviewLesson_12_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sirket politik. Sessiz iyiler unutulur. Olcumle kaniti olan herkes hatirlanir.",
+            "Şirket politik. Sessiz iyiler unutulur. Ölçümle kanıtı olan herkes hatırlanır.",
         },
       ],
     },
@@ -187,7 +190,7 @@ export const workReviewLesson_12_1: BundledLesson = {
       phrase: "I led the auth redesign end-to-end.",
       ipa: "/aɪ lɛd ði ɔθ riˈdɪzaɪn ɛnd tu ɛnd/",
       tr_articulation_hint:
-        "'Led' = led (past tense of lead). 'Auth' = oth, kisa. 'End-to-end' birlesik tek deyim. Kararli + iddialı tonla — sahiplenmek.",
+        "'Led' = led (past tense of lead). 'Auth' = oth, kısa. 'End-to-end' birleşik tek deyim. Kararlı + iddialı tonla — sahiplenmek.",
     },
     {
       id: "ex.wr12.1.9",
@@ -196,7 +199,7 @@ export const workReviewLesson_12_1: BundledLesson = {
       native_text: "Drove the project from kickoff to launch — shipped two weeks early.",
       voice_hint: "female_us",
       tr_hint:
-        "'Drove' kararli + aktif fiil. 'Kickoff to launch' deyim — basindan sonuna. 'Shipped early' somut sonuc. Self review tonu: sade + olgun ozguven.",
+        "'Drove' kararlı + aktif fiil. 'Kickoff to launch' deyim — başından sonuna. 'Shipped early' somut sonuç. Self review tonu: sade + olgun özgüven.",
     },
     {
       id: "ex.wr12.1.10",
@@ -206,7 +209,7 @@ export const workReviewLesson_12_1: BundledLesson = {
       transcription_target:
         "Resulted in a 30% lift in user engagement quarter-over-quarter.",
       tr_hint:
-        "'Lift' = artis (metrik jargon). 'Engagement' = en-geyc-mınt, vurgu ortada. 'Quarter-over-quarter' (QoQ) = ceyrekten ceyrege. Veri sunum tonu.",
+        "'Lift' = artış (metrik jargon). 'Engagement' = en-geyc-mınt, vurgu ortada. 'Quarter-over-quarter' (QoQ) = çeyrekten çeyreğe. Veri sunum tonu.",
     },
     {
       id: "ex.wr12.1.11",
@@ -217,7 +220,7 @@ export const workReviewLesson_12_1: BundledLesson = {
       tr_translation: "İğneyi oynattı / gerçek etki yaptı",
       example_en: "The new onboarding moved the needle on activation rates.",
       example_tr:
-        "Yeni onboarding aktivasyon oranlarinda gercek etki yapti.",
+        "Yeni onboarding aktivasyon oranlarında gerçek etki yaptı.",
     },
     {
       id: "ex.wr12.1.12",
@@ -227,7 +230,7 @@ export const workReviewLesson_12_1: BundledLesson = {
       correct_sentence:
         "Led the auth redesign — owned scoping, delivery, and rollout.",
       tr_explanation:
-        "'Was part of the team' = gorunmez = manager 'kim ne yapti?' diye sorar. Self review: 'Led / Owned / Drove' fiilleri + spesifik aksiyon.",
+        "'Was part of the team' = görünmez = manager 'kim ne yaptı?' diye sorar. Self review: 'Led / Owned / Drove' fiilleri + spesifik aksiyon.",
     },
     {
       id: "ex.wr12.1.sp1",
@@ -544,7 +547,7 @@ export const workReviewLesson_12_2: BundledLesson = {
       answer: "with",
       distractors: ["on", "in", "by"],
       tr_hint:
-        "'Sit with X' = sindir, dusun. Feedback'i defansiv olmadan kabul etme kalibi.",
+        "'Sit with X' = sindir, düşün. Feedback'i defansiv olmadan kabul etme kalıbı.",
     },
     {
       id: "ex.wr12.2.4",
@@ -569,7 +572,7 @@ export const workReviewLesson_12_2: BundledLesson = {
       correct_sentence:
         "Taking that in — could you share a concrete example so I can act on it?",
       tr_explanation:
-        "'It wasn't my fault' = defansif = buyume yok. Doğru: kabul + somut talep = ogrenme.",
+        "'It wasn't my fault' = defansif = büyüme yok. Doğru: kabul + somut talep = öğrenme.",
     },
     {
       id: "ex.wr12.2.6",
@@ -590,6 +593,7 @@ export const workReviewLesson_12_2: BundledLesson = {
             "(specific|concrete) (example|instance|case)",
             "(when did this|where (did this|does this) show up)",
           ],
+          model_answers: ["Thanks for the candor — can you give a concrete example?"],
           hint_tr:
             "Olgun: 'Thanks for the candor — can you give a concrete example?'",
         },
@@ -608,6 +612,7 @@ export const workReviewLesson_12_2: BundledLesson = {
             "(apologize|reach out) (to (them|the team))",
             "(work on|focus on) (creating space|listening)",
           ],
+          model_answers: ["That lands — I'll pause more. Will reach out to them. Flag me if I slip again."],
           hint_tr:
             "Aksiyon: 'That lands — I'll pause more. Will reach out to them. Flag me if I slip again.'",
         },
@@ -626,6 +631,7 @@ export const workReviewLesson_12_2: BundledLesson = {
             "(come back with|bring) (data|examples|what'?s (working|landing))",
             "(open to|happy to) (course-?correct|adjust)",
           ],
+          model_answers: ["Absolutely — would appreciate the check-in. Will bring specific moments where it landed."],
           hint_tr:
             "Plan kabul: 'Absolutely — would appreciate the check-in. Will bring specific moments where it landed.'",
         },
@@ -646,7 +652,7 @@ export const workReviewLesson_12_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Savunma = kontrol kaybi. Kabul + somutlama = buyume + saglikli iliski.",
+            "Savunma = kontrol kaybı. Kabul + somutlama = büyüme + sağlıklı ilişki.",
         },
         {
           question: "'Sit with that' kalibinin gucu?",
@@ -658,7 +664,7 @@ export const workReviewLesson_12_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Anlik tepki = reaktif. Dusunup donmek = olgun + profesyonel.",
+            "Anlık tepki = reaktif. Düşünüp dönmek = olgun + profesyonel.",
         },
         {
           question: "Feedback sonrasi aksiyon plani niye onemli?",
@@ -670,7 +676,7 @@ export const workReviewLesson_12_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Manager geleceginiz hakkinda emin olmak ister. 'Will do X' = aksiyon kanitlama.",
+            "Manager geleceğiniz hakkında emin olmak ister. 'Will do X' = aksiyon kanıtlama.",
         },
       ],
     },
@@ -681,7 +687,7 @@ export const workReviewLesson_12_2: BundledLesson = {
       phrase: "Thanks for the candor.",
       ipa: "/θæŋks fɔr ðə ˈkændər/",
       tr_articulation_hint:
-        "'Thanks' (th: dil dislerin arasinda). 'Candor' = ken-dır, vurgu basta — durust konusma kelimesi. Sicakkanli ton, defansiv degil.",
+        "'Thanks' (th: dil dişlerin arasında). 'Candor' = ken-dır, vurgu başta — dürüst konuşma kelimesi. Sıcakkanlı ton, defansif değil.",
     },
     {
       id: "ex.wr12.2.9",
@@ -690,7 +696,7 @@ export const workReviewLesson_12_2: BundledLesson = {
       native_text: "Hearing you — want to sit with that and come back with a plan.",
       voice_hint: "male_us",
       tr_hint:
-        "'Hearing you' = anliyorum, kabul (idiom). 'Sit with that' = sindirmek. Olgun yetiskin tonu — anlik tepki yok, dusunup donus.",
+        "'Hearing you' = anlıyorum, kabul (idiom). 'Sit with that' = sindirmek. Olgun yetişkin tonu — anlık tepki yok, düşünüp dönüş.",
     },
     {
       id: "ex.wr12.2.10",
@@ -700,7 +706,7 @@ export const workReviewLesson_12_2: BundledLesson = {
       transcription_target:
         "That tracks — appreciate you flagging it instead of letting it fester.",
       tr_hint:
-        "'That tracks' deyim = mantikli, dogru. 'Fester' = icin icin buyumek (kullanim metaforik). Senior manager ton — kabul + tesekkur.",
+        "'That tracks' deyim = mantıklı, doğru. 'Fester' = için için büyümek (kullanım metaforik). Senior manager ton — kabul + teşekkür.",
     },
     {
       id: "ex.wr12.2.11",
@@ -720,7 +726,7 @@ export const workReviewLesson_12_2: BundledLesson = {
       correct_sentence:
         "Want to make sure I understand — can you share a concrete example?",
       tr_explanation:
-        "'Not fair, you are wrong' = defansif + saldirgan = iliski + buyume kaybi. Olgun: 'understand isteyerek' + 'concrete example' istemek.",
+        "'Not fair, you are wrong' = defansif + saldırgan = ilişki + büyüme kaybı. Olgun: 'understand isteyerek' + 'concrete example' istemek.",
     },
     {
       id: "ex.wr12.2.sp1",
@@ -897,7 +903,7 @@ export const workReviewLesson_12_3: BundledLesson = {
         "Want to have a comp talk — here's the case.",
       ],
       tr_hint:
-        "'Compensation conversation' = maas konusmasi. 'Open up' = baslatmak. 'Make a case' = argumanini sun.",
+        "'Compensation conversation' = maaş konuşması. 'Open up' = başlatmak. 'Make a case' = argümanını sun.",
     },
     {
       id: "ex.wr12.3.3",
@@ -907,7 +913,7 @@ export const workReviewLesson_12_3: BundledLesson = {
       answer: "data",
       distractors: ["price", "value", "level"],
       tr_hint:
-        "'Market rate data' = piyasa veri. Zam talebi icin sayisal destek.",
+        "'Market rate data' = piyasa veri. Zam talebi için sayısal destek.",
     },
     {
       id: "ex.wr12.3.4",
@@ -933,7 +939,7 @@ export const workReviewLesson_12_3: BundledLesson = {
       correct_sentence:
         "Want to open a comp conversation — based on Q3 impact and market data.",
       tr_explanation:
-        "'Give me a raise' = talep tonu = saygisiz. Doğru: konusmayı 'open' et + kanit + market.",
+        "'Give me a raise' = talep tonu = saygısız. Doğru: konuşmayı 'open' et + kanıt + market.",
     },
     {
       id: "ex.wr12.3.6",
@@ -954,8 +960,9 @@ export const workReviewLesson_12_3: BundledLesson = {
             "(love to (discuss|hear)|happy to share)",
             "(let me know|appreciate) (the path forward|how to navigate)",
           ],
+          model_answers: ["Wanted to open a comp conversation — based on Q3 + market data."],
           hint_tr:
-            "Ac: 'Wanted to open a comp conversation — based on Q3 + market data.'",
+            "Aç: 'Wanted to open a comp conversation — based on Q3 + market data.'",
         },
         {
           speaker: "npc",
@@ -972,6 +979,7 @@ export const workReviewLesson_12_3: BundledLesson = {
             "(my (current|present) (level|comp))",
             "(\\d+%|\\$\\d+k)",
           ],
+          model_answers: ["Led auth redesign — 40% impact. Market data shows X level at +15%."],
           hint_tr:
             "Veriyle: 'Led auth redesign — 40% impact. Market data shows X level at +15%.'",
         },
@@ -990,6 +998,7 @@ export const workReviewLesson_12_3: BundledLesson = {
             "(mentorship|onboarding|ramped|coached)",
             "(happy to (send|share)|will send) (a one-?pager|the doc|highlights)",
           ],
+          model_answers: ["The cross-team impact and the 40% drop — happy to send a one-pager today."],
           hint_tr:
             "Spesifik anchor: 'The cross-team impact and the 40% drop — happy to send a one-pager today.'",
         },
@@ -1010,7 +1019,7 @@ export const workReviewLesson_12_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "1:1 = guvenli alan. Manager hazirlanabilir. Topluluga acmak = utandirma.",
+            "1:1 = güvenli alan. Manager hazırlanabilir. Topluluğa açmak = utandırma.",
         },
         {
           question: "Zam talebi icin EN guclu uc ayak?",
@@ -1022,7 +1031,7 @@ export const workReviewLesson_12_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Impact = ne yaptin. Market = neye degersin. Iliski = nasil iletirsin. Uc ayak.",
+            "Impact = ne yaptın. Market = neye değersin. İlişki = nasıl iletirsin. Üç ayak.",
         },
         {
           question: "'I need more money' kalibinin riski?",
@@ -1034,7 +1043,7 @@ export const workReviewLesson_12_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Sirket arz/talep. 'Need money' = duygusal. 'Market shows + I deliver' = isim.",
+            "Şirket arz/talep. 'Need money' = duygusal. 'Market shows + I deliver' = işim.",
         },
       ],
     },
@@ -1045,7 +1054,7 @@ export const workReviewLesson_12_3: BundledLesson = {
       phrase: "I'd like to open a comp conversation.",
       ipa: "/aɪd laɪk tu ˈoʊpən ə kɑmp ˌkɑnvərˈseɪʃən/",
       tr_articulation_hint:
-        "'Comp' (compensation kisaltma) = kamp, kisa. 'Conversation' = uzun, vurgu 'sey' hecesinde. Kararli + nazik ton — istek degil davetiye.",
+        "'Comp' (compensation kısaltma) = kamp, kısa. 'Conversation' = uzun, vurgu 'sey' hecesinde. Kararlı + nazik ton — istek değil davetiye.",
     },
     {
       id: "ex.wr12.3.9",
@@ -1054,7 +1063,7 @@ export const workReviewLesson_12_3: BundledLesson = {
       native_text: "Want to make a case for a senior-level move — grounded in last year's impact.",
       voice_hint: "male_us",
       tr_hint:
-        "'Make a case' deyim = argumanini sunmak. 'Grounded in' = dayanarak. 'Senior-level' birlesik. Kanit ile destekli + emin tonu.",
+        "'Make a case' deyim = argümanını sunmak. 'Grounded in' = dayanarak. 'Senior-level' birleşik. Kanıt ile destekli + emin tonu.",
     },
     {
       id: "ex.wr12.3.10",
@@ -1064,7 +1073,7 @@ export const workReviewLesson_12_3: BundledLesson = {
       transcription_target:
         "Compelling case — let me take it to HR and circle back by Friday.",
       tr_hint:
-        "'Compelling' = ikna edici (vurgu pel hecesinde). 'Take it to HR' = HR'a ilet. 'Circle back' = donus yapacak. Manager onaylama tonu.",
+        "'Compelling' = ikna edici (vurgu pel hecesinde). 'Take it to HR' = HR'a ilet. 'Circle back' = dönüş yapacak. Manager onaylama tonu.",
     },
     {
       id: "ex.wr12.3.11",
@@ -1074,7 +1083,7 @@ export const workReviewLesson_12_3: BundledLesson = {
       word_or_phrase: "bring the data",
       tr_translation: "Veriyi sun / ölçüm getir",
       example_en: "Happy to bring the data and walk you through it.",
-      example_tr: "Veriyi getirip seninle adim adim gecmek isterim.",
+      example_tr: "Veriyi getirip seninle adım adım geçmek isterim.",
     },
     {
       id: "ex.wr12.3.12",
@@ -1084,7 +1093,7 @@ export const workReviewLesson_12_3: BundledLesson = {
       correct_sentence:
         "Want to open a comp conversation — based on impact, market data, and growth trajectory.",
       tr_explanation:
-        "'Working too long, deserve raise' = duygusal + kidem argumani. Modern is dunyasinda etki + market verisi konusur. Sahsi ihtiyac sirket karari uretmiyor.",
+        "'Working too long, deserve raise' = duygusal + kıdem argümanı. Modern iş dünyasında etki + market verisi konuşur. Şahsi ihtiyaç şirket kararı üretmiyor.",
     },
     {
       id: "ex.wr12.3.sp1",
@@ -1261,7 +1270,7 @@ export const workReviewLesson_12_4: BundledLesson = {
         "Major asset on docs. Growth: meeting presence.",
       ],
       tr_hint:
-        "Peer feedback formati: Strength (somut) + Growth area (actionable). Iki dengelisi olmalı.",
+        "Peer feedback formatı: Strength (somut) + Growth area (actionable). İki dengelisi olmalı.",
     },
     {
       id: "ex.wr12.4.3",
@@ -1271,7 +1280,7 @@ export const workReviewLesson_12_4: BundledLesson = {
       answer: "amplify",
       distractors: ["speed", "grow", "build"],
       tr_hint:
-        "'Could amplify' = daha cok gosterebilir. Buyume noktasini hafifletici.",
+        "'Could amplify' = daha çok gösterebilir. Büyüme noktasını hafifletici.",
     },
     {
       id: "ex.wr12.4.4",
@@ -1296,7 +1305,7 @@ export const workReviewLesson_12_4: BundledLesson = {
       correct_sentence:
         "Strength: documentation. Growth: more proactive PR reviews would help unblock the team.",
       tr_explanation:
-        "'Lazy' = kisi saldirisi = HR riski. Doğru: davranis + impact + actionable.",
+        "'Lazy' = kişi saldırısı = HR riski. Doğru: davranış + impact + actionable.",
     },
     {
       id: "ex.wr12.4.6",
@@ -1317,8 +1326,9 @@ export const workReviewLesson_12_4: BundledLesson = {
             "(speaking up|proactive|visible|asking for help)",
             "(actionable|concrete|specific) (suggestion)",
           ],
+          model_answers: ["Strength: technical depth. Growth: more visible in meetings."],
           hint_tr:
-            "Yapi: 'Strength: technical depth. Growth: more visible in meetings.'",
+            "Yapı: 'Strength: technical depth. Growth: more visible in meetings.'",
         },
         {
           speaker: "npc",
@@ -1335,6 +1345,7 @@ export const workReviewLesson_12_4: BundledLesson = {
             "(would (help|unblock) the team)",
             "(open to|happy to) (peer it with|model the behavior)",
           ],
+          model_answers: ["Could share a take every standup — would help others learn."],
           hint_tr:
             "Spesifik: 'Could share a take every standup — would help others learn.'",
         },
@@ -1353,6 +1364,7 @@ export const workReviewLesson_12_4: BundledLesson = {
             "(positive feedback (in writing|in person)|public (kudos|recognition))",
             "(also (shout (her |it )?out|tag her)) (in the (channel|thread|standup))",
           ],
+          model_answers: ["Absolutely — will drop her a note this week. Want her to hear it directly."],
           hint_tr:
             "İlişki yatırımı: 'Absolutely — will drop her a note this week. Want her to hear it directly.'",
         },
@@ -1373,7 +1385,7 @@ export const workReviewLesson_12_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Strength = guven. Growth = ogrenme. Actionable = nasil yap. Uc ayak.",
+            "Strength = güven. Growth = öğrenme. Actionable = nasıl yap. Üç ayak.",
         },
         {
           question: "Peer feedback'te NE asla yapilmamali?",
@@ -1385,7 +1397,7 @@ export const workReviewLesson_12_4: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Davranis = duzeltilebilir. Kisilik = duzeltilemez. Ikinci = kotu kullanim.",
+            "Davranış = düzeltilebilir. Kişilik = düzeltilemez. İkinci = kötü kullanım.",
         },
         {
           question: "Feedback'i 'actionable' yapmak ne demek?",
@@ -1397,7 +1409,7 @@ export const workReviewLesson_12_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Be better' = belirsiz. 'Share a take in standups' = somut, ertesi gun denenebilir.",
+            "'Be better' = belirsiz. 'Share a take in standups' = somut, ertesi gün denenebilir.",
         },
       ],
     },
@@ -1408,7 +1420,7 @@ export const workReviewLesson_12_4: BundledLesson = {
       phrase: "One area to double down on.",
       ipa: "/wʌn ˈɛəriə tu ˈdʌbəl daʊn ɑn/",
       tr_articulation_hint:
-        "'Double down' deyim = uzerine daha cok bin. 'Area' = e-ri-ya, iki hece. Yapici, anlayisli ton — eksiklik yumusatici dil.",
+        "'Double down' deyim = üzerine daha çok bin. 'Area' = e-ri-ya, iki hece. Yapıcı, anlayışlı ton — eksiklik yumuşatıcı dil.",
     },
     {
       id: "ex.wr12.4.9",
@@ -1417,7 +1429,7 @@ export const workReviewLesson_12_4: BundledLesson = {
       native_text: "Sara's biggest strength is technical depth — could amplify by speaking up more.",
       voice_hint: "female_us",
       tr_hint:
-        "'Strength' (s-trength) + 'depth' iki th sesi — dili dislere koy. 'Amplify' = arttirmak (vurgu basta). Peer feedback ritmi: olumlu + buyume.",
+        "'Strength' (s-trength) + 'depth' iki th sesi — dili dişlere koy. 'Amplify' = arttırmak (vurgu başta). Peer feedback ritmi: olumlu + büyüme.",
     },
     {
       id: "ex.wr12.4.10",
@@ -1427,7 +1439,7 @@ export const workReviewLesson_12_4: BundledLesson = {
       transcription_target:
         "Constructive — I'll pass it along in a way that lands well.",
       tr_hint:
-        "'Constructive' = yapici (vurgu ortada). 'Pass along' = aktarmak. 'Lands well' deyim = iyi karsilanir. Manager geri donus tonu.",
+        "'Constructive' = yapıcı (vurgu ortada). 'Pass along' = aktarmak. 'Lands well' deyim = iyi karşılanır. Manager geri dönüş tonu.",
     },
     {
       id: "ex.wr12.4.11",
@@ -1437,7 +1449,7 @@ export const workReviewLesson_12_4: BundledLesson = {
       word_or_phrase: "go-to person for",
       tr_translation: "... için başvurulacak kişi",
       example_en: "She's the go-to person for code review on the team.",
-      example_tr: "Ekipte kod incelemesi icin basvurulacak kisi o.",
+      example_tr: "Ekipte kod incelemesi için başvurulacak kişi o.",
     },
     {
       id: "ex.wr12.4.12",
@@ -1447,7 +1459,7 @@ export const workReviewLesson_12_4: BundledLesson = {
       correct_sentence:
         "Strength: thoughtful code reviews. Growth: could share progress updates more proactively.",
       tr_explanation:
-        "'Too quiet, slow always' = etiket + kisi saldirisi = HR riski. Peer feedback: davranis (proactive updates) + actionable oneri.",
+        "'Too quiet, slow always' = etiket + kişi saldırısı = HR riski. Peer feedback: davranış (proactive updates) + actionable öneri.",
     },
     {
       id: "ex.wr12.4.sp1",
@@ -1566,10 +1578,10 @@ export const workReviewLesson_12_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Took ownership of",
-      tr_translation: "Sahiplendim / sorumlulugunu aldim",
+      tr_translation: "Sahiplendim / sorumluluğunu aldım",
       example: "Took ownership of onboarding — cut activation time in half.",
       example_tr:
-        "Onboarding'i sahiplendim — aktivasyon suresini yariya indirdim.",
+        "Onboarding'i sahiplendim — aktivasyon süresini yarıya indirdim.",
     },
     {
       id: "ex.wr12.5.1a",
@@ -1627,7 +1639,7 @@ export const workReviewLesson_12_5: BundledLesson = {
         "Took on mobile churn — shipped a push redesign that delivered a 22% drop.",
       ],
       tr_hint:
-        "Formul: 'Drove X% improvement in Y by Z' — aksiyon fiili + olcum + nasil yaptin.",
+        "Formül: 'Drove X% improvement in Y by Z' — aksiyon fiili + ölçüm + nasıl yaptın.",
     },
     {
       id: "ex.wr12.5.3",
@@ -1637,7 +1649,7 @@ export const workReviewLesson_12_5: BundledLesson = {
       answer: "in",
       distractors: ["on", "for", "to"],
       tr_hint:
-        "'Improvement in X' = X'te iyilesme. Metrik sahiplenme kalibi.",
+        "'Improvement in X' = X'te iyileşme. Metrik sahiplenme kalıbı.",
     },
     {
       id: "ex.wr12.5.4",
@@ -1652,7 +1664,7 @@ export const workReviewLesson_12_5: BundledLesson = {
         "rewrite",
       ],
       correct_sentence: "Took ownership of the billing rewrite",
-      tr_translation: "Billing yeniden yazimini sahiplendim.",
+      tr_translation: "Billing yeniden yazımını sahiplendim.",
     },
     {
       id: "ex.wr12.5.5",
@@ -1662,7 +1674,7 @@ export const workReviewLesson_12_5: BundledLesson = {
       correct_sentence:
         "Drove a 30% improvement in checkout conversion by rebuilding the payment flow.",
       tr_explanation:
-        "'Worked very hard on many things' = Turk hatasi: emek-odakli, somut yok. ABD review: olcum + nasil + sonuc. Emek goruunmez, etki gorulur.",
+        "'Worked very hard on many things' = Türk hatası: emek-odaklı, somut yok. ABD review: ölçüm + nasıl + sonuç. Emek görüünmez, etki görülür.",
     },
     {
       id: "ex.wr12.5.6",
@@ -1683,8 +1695,9 @@ export const workReviewLesson_12_5: BundledLesson = {
             "(this year|in q[1-4]|over the last (six|6) months)",
             "(end-?to-?end|kickoff to launch)",
           ],
+          model_answers: ["Took ownership of X — drove Y% improvement in Z by doing W."],
           hint_tr:
-            "Tek cumle formul: 'Took ownership of X — drove Y% improvement in Z by doing W.'",
+            "Tek cümle formül: 'Took ownership of X — drove Y% improvement in Z by doing W.'",
         },
         {
           speaker: "npc",
@@ -1701,8 +1714,9 @@ export const workReviewLesson_12_5: BundledLesson = {
             "(set up the team to|positioned (us|the team))",
             "(measurable|sustained|durable) (impact|gain|win)",
           ],
+          model_answers: ["Translates to ~$400k ARR — unlocked enterprise segment for next year."],
           hint_tr:
-            "Is etkisi: 'Translates to ~$400k ARR — unlocked enterprise segment for next year.'",
+            "İş etkisi: 'Translates to ~$400k ARR — unlocked enterprise segment for next year.'",
         },
         {
           speaker: "npc",
@@ -1719,6 +1733,7 @@ export const workReviewLesson_12_5: BundledLesson = {
             "(in (your )?inbox|in slack|over (in dm|in a doc))",
             "(quantified|measurable|with the (number|stat))",
           ],
+          model_answers: ["Absolutely — three bullets, each with the number, by EOD in your inbox."],
           hint_tr:
             "Tight commit: 'Absolutely — three bullets, each with the number, by EOD in your inbox.'",
         },
@@ -1739,7 +1754,7 @@ export const workReviewLesson_12_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turkiye'de 'cok calistim' makbul. ABD/UK review'de 'X% improvement by Y' istenir. Emek gorulmez — sonuc ve metod gorulur.",
+            "Türkiye'de 'çok çalıştım' makbul. ABD/UK review'de 'X% improvement by Y' istenir. Emek görülmez — sonuç ve metod görülür.",
         },
         {
           question: "'Drove a 30% improvement' formulunde ne eksik olursa zayiflar?",
@@ -1751,7 +1766,7 @@ export const workReviewLesson_12_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Aksiyon (Drove) + olcum (30%) + alan (in retention) + metod (by redesigning push) — dort parca tam bir self-review cumlesi.",
+            "Aksiyon (Drove) + ölçüm (30%) + alan (in retention) + metod (by redesigning push) — dört parça tam bir self-review cümlesi.",
         },
         {
           question: "Niye basariyi 'is etkisine' baglamak gerekir?",
@@ -1763,7 +1778,7 @@ export const workReviewLesson_12_5: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Calibration = managerlar promotion karari aliyor. Senin metrigini $ARR / kullaniciya cevirmek = manager seni savunabilir.",
+            "Calibration = managerlar promotion kararı alıyor. Senin metriğini $ARR / kullanıcıya çevirmek = manager seni savunabilir.",
         },
       ],
     },
@@ -1774,7 +1789,7 @@ export const workReviewLesson_12_5: BundledLesson = {
       phrase: "Drove a 30% improvement in retention.",
       ipa: "/droʊv ə ˈθɜrti pərˈsɛnt ɪmˈpruvmənt ɪn rɪˈtɛnʃən/",
       tr_articulation_hint:
-        "'Drove' (drive past tense) sert d ile. 'Percent' = pır-sent, vurgu sonda. 'Retention' = ri-ten-sın, vurgu ortada. Veri sunum tonu — sakin + kararli + kanitla.",
+        "'Drove' (drive past tense) sert d ile. 'Percent' = pır-sent, vurgu sonda. 'Retention' = ri-ten-sın, vurgu ortada. Veri sunum tonu — sakin + kararlı + kanıtla.",
     },
     {
       id: "ex.wr12.5.sp1",
@@ -1893,9 +1908,9 @@ export const workReviewLesson_12_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "That's fair",
-      tr_translation: "Bu adil / hakli noktan var",
+      tr_translation: "Bu adil / haklı noktan var",
       example: "That's fair — I can see where you're coming from.",
-      example_tr: "Bu adil — nereden geldigini anliyorum.",
+      example_tr: "Bu adil — nereden geldiğini anlıyorum.",
     },
     {
       id: "ex.wr12.6.1a",
@@ -1963,7 +1978,7 @@ export const workReviewLesson_12_6: BundledLesson = {
       answer: "understand",
       distractors: ["know", "see", "tell"],
       tr_hint:
-        "'Help me understand' = anlamana yardim et = defansif yerine ogrenme tutumu.",
+        "'Help me understand' = anlamana yardım et = defansif yerine öğrenme tutumu.",
     },
     {
       id: "ex.wr12.6.4",
@@ -1979,7 +1994,7 @@ export const workReviewLesson_12_6: BundledLesson = {
         "properly",
       ],
       correct_sentence: "I want to take this in properly",
-      tr_translation: "Bunu duzgun sindirmek istiyorum.",
+      tr_translation: "Bunu düzgün sindirmek istiyorum.",
     },
     {
       id: "ex.wr12.6.5",
@@ -1989,7 +2004,7 @@ export const workReviewLesson_12_6: BundledLesson = {
       correct_sentence:
         "That's fair — help me understand more. What did you observe specifically?",
       tr_explanation:
-        "'Actually, you don't understand' = defansif + manager'i kucumseme = iliski zarari. Doğru: kabul jesti + somutlama talebi. Once kabul, sonra context anlat.",
+        "'Actually, you don't understand' = defansif + manager'ı küçümseme = ilişki zararı. Doğru: kabul jesti + somutlama talebi. Önce kabul, sonra context anlat.",
     },
     {
       id: "ex.wr12.6.6",
@@ -2010,8 +2025,9 @@ export const workReviewLesson_12_6: BundledLesson = {
             "(appreciate|thank you for) (the (candor|feedback|honesty))",
             "(want to (get this right|grow on this))",
           ],
+          model_answers: ["That's fair — help me understand more. When did this come up?"],
           hint_tr:
-            "Defansif degil: 'That's fair — help me understand more. When did this come up?'",
+            "Defansif değil: 'That's fair — help me understand more. When did this come up?'",
         },
         {
           speaker: "npc",
@@ -2028,6 +2044,7 @@ export const workReviewLesson_12_6: BundledLesson = {
             "(reach out to ali|apologize|circle back with ali)",
             "(flag me|nudge me|call me out) (if i slip|in the moment)",
           ],
+          model_answers: ["That lands — didn't realize. Will create more space, reach out to Ali. Nudge me if I slip."],
           hint_tr:
             "Aksiyon: 'That lands — didn't realize. Will create more space, reach out to Ali. Nudge me if I slip.'",
         },
@@ -2046,6 +2063,7 @@ export const workReviewLesson_12_6: BundledLesson = {
             "(grateful|appreciate) (the (heads-?up|directness))",
             "(both works|either works) (depending on (the )?severity)",
           ],
+          model_answers: ["Real-time works best — a quick DM after the meeting while it's fresh."],
           hint_tr:
             "Tercih netleştir: 'Real-time works best — a quick DM after the meeting while it's fresh.'",
         },
@@ -2066,7 +2084,7 @@ export const workReviewLesson_12_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turk kulturunde kritik = saldiri. Profesyonel ortamda kritik = geri bildirim verisi. 'That's fair' refleksi savunmadan merakla degistirir.",
+            "Türk kültüründe kritik = saldırı. Profesyonel ortamda kritik = geri bildirim verisi. 'That's fair' refleksi savunmadan merakla değiştirir.",
         },
         {
           question: "'Help me understand more' niye 'But here's what happened'tan iyi?",
@@ -2078,7 +2096,7 @@ export const workReviewLesson_12_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sira onemli: kabul -> somutlama -> sonra (varsa) context. Hemen 'but'la baslamak = defansif sinyali = manager bilgi vermeyi keser.",
+            "Sıra önemli: kabul -> somutlama -> sonra (varsa) context. Hemen 'but'la başlamak = defansif sinyali = manager bilgi vermeyi keser.",
         },
         {
           question: "Kritige defansif tepkinin gizli maliyeti?",
@@ -2090,7 +2108,7 @@ export const workReviewLesson_12_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bir kere defansif gorulen kisi 'feedback-resistant' etiketi alir. Manager artik politik konusur. Buyume datasi kesilir.",
+            "Bir kere defansif görülen kişi 'feedback-resistant' etiketi alır. Manager artık politik konuşur. Büyüme datası kesilir.",
         },
       ],
     },
@@ -2101,7 +2119,7 @@ export const workReviewLesson_12_6: BundledLesson = {
       phrase: "Help me understand more.",
       ipa: "/hɛlp mi ˌʌndərˈstænd mɔr/",
       tr_articulation_hint:
-        "'Understand' = an-dır-stend, vurgu sonda. 'More' uzun, kapatici degil davetkar. Ton kritik: merak + acik, yargi yok. Sakin tempo, hafif yukselen son.",
+        "'Understand' = an-dır-stend, vurgu sonda. 'More' uzun, kapatıcı değil davetkar. Ton kritik: merak + açık, yargı yok. Sakin tempo, hafif yükselen son.",
     },
     {
       id: "ex.wr12.6.sp1",
@@ -2220,9 +2238,9 @@ export const workReviewLesson_12_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Growth opportunity",
-      tr_translation: "Buyume firsati",
+      tr_translation: "Büyüme fırsatı",
       example: "Where do you see a growth opportunity for me?",
-      example_tr: "Bende nerede bir buyume firsati goruyorsun?",
+      example_tr: "Bende nerede bir büyüme fırsatı görüyorsun?",
     },
     {
       id: "ex.wr12.7.1a",
@@ -2280,7 +2298,7 @@ export const workReviewLesson_12_7: BundledLesson = {
         "Curious to hear — what's one thing you'd push me on?",
       ],
       tr_hint:
-        "'One thing I could do better' = tek konu hafif. 'What's the biggest gap?' = agir basi. Akrana hafif, manager'a daha somut.",
+        "'One thing I could do better' = tek konu hafif. 'What's the biggest gap?' = ağır başı. Akrana hafif, manager'a daha somut.",
     },
     {
       id: "ex.wr12.7.3",
@@ -2290,7 +2308,7 @@ export const workReviewLesson_12_7: BundledLesson = {
       answer: "growth",
       distractors: ["job", "money", "salary"],
       tr_hint:
-        "'Growth opportunities' = buyume firsatlari. 360 feedback istegi icin doğal kalip.",
+        "'Growth opportunities' = büyüme fırsatları. 360 feedback isteği için doğal kalıp.",
     },
     {
       id: "ex.wr12.7.4",
@@ -2306,7 +2324,7 @@ export const workReviewLesson_12_7: BundledLesson = {
         "better",
       ],
       correct_sentence: "What's one thing I could do better",
-      tr_translation: "Daha iyi yapabilecegim tek sey ne?",
+      tr_translation: "Daha iyi yapabileceğim tek şey ne?",
     },
     {
       id: "ex.wr12.7.5",
@@ -2316,7 +2334,7 @@ export const workReviewLesson_12_7: BundledLesson = {
       correct_sentence:
         "What's one thing I could do better? Want a direct read on where I should focus.",
       tr_explanation:
-        "'Am I good?' = evet/hayir = ise yaramaz cevap (manager 'evet' der). Doğru: tek konu, somut + actionable cevabi mumkun kilan soru.",
+        "'Am I good?' = evet/hayır = işe yaramaz cevap (manager 'evet' der). Doğru: tek konu, somut + actionable cevabı mümkün kılan soru.",
     },
     {
       id: "ex.wr12.7.6",
@@ -2337,6 +2355,7 @@ export const workReviewLesson_12_7: BundledLesson = {
             "(honest take|unfiltered|real feedback)",
             "(working with me|on the team) (recently|the last few months|this quarter)",
           ],
+          model_answers: ["Appreciate you making time. Want to be direct — what's one thing I could do better?"],
           hint_tr:
             "Davet: 'Appreciate you making time. Want to be direct — what's one thing I could do better?'",
         },
@@ -2355,8 +2374,9 @@ export const workReviewLesson_12_7: BundledLesson = {
             "(what would (good|great|ideal) look like)",
             "(open to|happy to) (try|test) (a (different|new) format)",
           ],
+          model_answers: ["That lands — can you double-click? What would great look like?"],
           hint_tr:
-            "Derinles: 'That lands — can you double-click? What would great look like?'",
+            "Derinleş: 'That lands — can you double-click? What would great look like?'",
         },
         {
           speaker: "npc",
@@ -2373,6 +2393,7 @@ export const workReviewLesson_12_7: BundledLesson = {
             "(would (mean a lot|really help)|grateful for that)",
             "(send the (next|first) doc by|will share before the next launch)",
           ],
+          model_answers: ["Yes please — call me out if you don't see the doc. Trying to make this stick."],
           hint_tr:
             "Hesap verme açma: 'Yes please — call me out if you don't see the doc. Trying to make this stick.'",
         },
@@ -2393,7 +2414,7 @@ export const workReviewLesson_12_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Year-end review'de yeni feedback duymak = surpriz + savunma reflexi. Yil icinde toplayinca = aksiyon almak icin zaman + manager'a 'coachable' sinyali.",
+            "Year-end review'de yeni feedback duymak = sürpriz + savunma reflexi. Yıl içinde toplayınca = aksiyon almak için zaman + manager'a 'coachable' sinyali.",
         },
         {
           question: "'Am I doing well?' niye kotu soru?",
@@ -2405,7 +2426,7 @@ export const workReviewLesson_12_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sorunun kalitesi cevabin kalitesini belirler. 'One thing I could do better' = tek + spesifik + actionable cevap zorlar.",
+            "Sorunun kalitesi cevabın kalitesini belirler. 'One thing I could do better' = tek + spesifik + actionable cevap zorlar.",
         },
         {
           question: "Peer'dan feedback istemek niye manager'dan daha degerli olabilir?",
@@ -2417,7 +2438,7 @@ export const workReviewLesson_12_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Manager seni toplantilarda + outputlarda gorur. Peer kod review, sync, Slack tonu gibi detaylari yakalar. Iki goz daha komple resim.",
+            "Manager seni toplantılarda + outputlarda görür. Peer kod review, sync, Slack tonu gibi detayları yakalar. İki göz daha komple resim.",
         },
       ],
     },
@@ -2428,7 +2449,7 @@ export const workReviewLesson_12_7: BundledLesson = {
       phrase: "What's one thing I could do better?",
       ipa: "/wʌts wʌn θɪŋ aɪ kʊd du ˈbɛtər/",
       tr_articulation_hint:
-        "'What's' (wats) — t sesi yumusak. 'Thing' = th sesi, dil dislerin arasinda. 'Better' = be-tır, vurgu basta. Ton merakli + ozguvenli — savunmasiz ama zayif degil.",
+        "'What's' (wats) — t sesi yumuşak. 'Thing' = th sesi, dil dişlerin arasında. 'Better' = be-tır, vurgu başta. Ton meraklı + özgüvenli — savunmasız ama zayıf değil.",
     },
     {
       id: "ex.wr12.7.sp1",
@@ -2547,9 +2568,9 @@ export const workReviewLesson_12_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "level up",
-      tr_translation: "Bir ust seviyeye cikmak",
+      tr_translation: "Bir üst seviyeye çıkmak",
       example: "How can I level up to a Senior rating next cycle?",
-      example_tr: "Sonraki donemde Senior rating'e nasil cikabilirim?",
+      example_tr: "Sonraki dönemde Senior rating'e nasıl çıkabilirim?",
     },
     {
       id: "ex.wr12.8.1a",
@@ -2607,7 +2628,7 @@ export const workReviewLesson_12_8: BundledLesson = {
         "Sat with it — want a clear picture of what great looks like.",
       ],
       tr_hint:
-        "'Level up' = ust seviye. 'What does great look like' = mukemmel nasil gorunur. Drama yerine plan.",
+        "'Level up' = üst seviye. 'What does great look like' = mükemmel nasıl görünür. Drama yerine plan.",
     },
     {
       id: "ex.wr12.8.3",
@@ -2617,7 +2638,7 @@ export const workReviewLesson_12_8: BundledLesson = {
       answer: "look",
       distractors: ["take", "feel", "go"],
       tr_hint:
-        "'What does great look like' sabit kalip = mukemmel performans nasil gorunur.",
+        "'What does great look like' sabit kalıp = mükemmel performans nasıl görünür.",
     },
     {
       id: "ex.wr12.8.4",
@@ -2633,7 +2654,7 @@ export const workReviewLesson_12_8: BundledLesson = {
         "level",
       ],
       correct_sentence: "What's the gap to the next level",
-      tr_translation: "Bir ust seviyeye olan fark ne?",
+      tr_translation: "Bir üst seviyeye olan fark ne?",
     },
     {
       id: "ex.wr12.8.5",
@@ -2644,7 +2665,7 @@ export const workReviewLesson_12_8: BundledLesson = {
       correct_sentence:
         "Sat with the rating — how can I level up? What does great look like at this level?",
       tr_explanation:
-        "'Unfair, I worked harder' = duygusal + emek argumani + kiyaslama = manager kapanir. Doğru: kabul + plan sorusu. Drama gostermek = 'not promotion ready' sinyali.",
+        "'Unfair, I worked harder' = duygusal + emek argümanı + kıyaslama = manager kapanır. Doğru: kabul + plan sorusu. Drama göstermek = 'not promotion ready' sinyali.",
     },
     {
       id: "ex.wr12.8.6",
@@ -2665,8 +2686,9 @@ export const workReviewLesson_12_8: BundledLesson = {
             "(what does (great|exceeds) look like (at this level|here))",
             "(open to|grateful for) (your (read|coaching))",
           ],
+          model_answers: ["Sat with the rating. Want to focus on next cycle — what does great look like here?"],
           hint_tr:
-            "Olgun acilis: 'Sat with the rating. Want to focus on next cycle — what does great look like here?'",
+            "Olgun açılış: 'Sat with the rating. Want to focus on next cycle — what does great look like here?'",
         },
         {
           speaker: "npc",
@@ -2683,6 +2705,7 @@ export const workReviewLesson_12_8: BundledLesson = {
             "(check (in|back) (monthly|every (two|2) weeks))",
             "(want to come back with|going to draft) (a plan)",
           ],
+          model_answers: ["That lands. Can we pick one cross-team project I could own? Will draft a plan and check in monthly."],
           hint_tr:
             "Plan: 'That lands. Can we pick one cross-team project I could own? Will draft a plan and check in monthly.'",
         },
@@ -2701,6 +2724,7 @@ export const workReviewLesson_12_8: BundledLesson = {
             "(monthly|biweekly) (check-?ins|syncs) (on (progress|the plan))",
             "(honest (read|feedback) (in the moment|along the way)|coaching as i go)",
           ],
+          model_answers: ["Appreciate that — biggest thing is air-cover with leadership and monthly check-ins to course-correct."],
           hint_tr:
             "Spesifik talep: 'Appreciate that — biggest thing is air-cover with leadership and monthly check-ins to course-correct.'",
         },
@@ -2721,7 +2745,7 @@ export const workReviewLesson_12_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Rating = veri. Tepkin = karakter sinavi. Manager 'bu kisi senior olunca kritige nasil tepki verir?' diye okur. Olgun = bir sonraki donem destekleyebilir.",
+            "Rating = veri. Tepkin = karakter sınavı. Manager 'bu kişi senior olunca kritiğe nasıl tepki verir?' diye okur. Olgun = bir sonraki dönem destekleyebilir.",
         },
         {
           question: "'What does great look like?' sorusunun gizli gucu?",
@@ -2733,7 +2757,7 @@ export const workReviewLesson_12_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Great' kriteri manager kafasinda. Sorunca yazili / sozlu acmak zorunda = sonraki cycle'da kanit toplayabilirsin. Hedef = adil mucadele.",
+            "'Great' kriteri manager kafasında. Sorunca yazılı / sözlü açmak zorunda = sonraki cycle'da kanıt toplayabilirsin. Hedef = adil mücadele.",
         },
         {
           question: "Iyilesme planinda 'check-in' niye sart?",
@@ -2745,7 +2769,7 @@ export const workReviewLesson_12_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Aylik check-in = manager seninle birlikte calisma hissi = bir sonraki rating'de 'gordum, gelisti' soyleyebilsin. Kor donemde calismak = ayni hata.",
+            "Aylık check-in = manager seninle birlikte çalışma hissi = bir sonraki rating'de 'gördüm, gelişti' söyleyebilsin. Kör dönemde çalışmak = aynı hata.",
         },
       ],
     },
@@ -2756,7 +2780,7 @@ export const workReviewLesson_12_8: BundledLesson = {
       phrase: "What does great look like at this level?",
       ipa: "/wʌt dʌz greɪt lʊk laɪk æt ðɪs ˈlɛvəl/",
       tr_articulation_hint:
-        "'Great' (g-reyt) — gercek r sesi. 'Look' kisa, 'like' uzun ay sesi. 'Level' = le-vıl, vurgu basta. Ton: meraki + kararli + savunmasiz. Drama yok, plan modu.",
+        "'Great' (g-reyt) — gerçek r sesi. 'Look' kısa, 'like' uzun ay sesi. 'Level' = le-vıl, vurgu başta. Ton: meraki + kararlı + savunmasız. Drama yok, plan modu.",
     },
     {
       id: "ex.wr12.8.sp1",

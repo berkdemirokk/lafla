@@ -1,0 +1,56 @@
+name: TestFlight beta report
+description: Structured Lafla v1.0.4 device and usability evidence
+title: "[TestFlight] "
+labels: ["testflight", "qa"]
+body:
+  - type: input
+    id: build
+    attributes:
+      label: Build
+      placeholder: "1.0.4 (99)"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and iOS
+      placeholder: "iPhone 15, iOS 26.x"
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        ["P0 — blocks use/release", "P1 — major", "P2 — minor", "No issue"]
+    validations:
+      required: true
+  - type: checkboxes
+    id: path
+    attributes:
+      label: Completed paths
+      options:
+        - label: Fresh install and onboarding
+        - label: Guided roleplay with voice
+        - label: Text fallback / denied microphone
+        - label: Purchase or restore
+        - label: Free Chat
+        - label: Account deletion
+        - label: VoiceOver / large text
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and observed result
+      description: Do not attach raw voice recordings or credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshot, screen recording, or log link
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true

@@ -5,9 +5,11 @@
 // request permission via ATT before doing so. Calling this before tracking is
 // the only way to keep the app on the Store.
 //
-// We trigger this once on first launch (from app/_layout.tsx), gated to fire
-// only when the app is foreground-active and sequenced BEFORE AdMob init so no
-// IDFA is read pre-consent. The result is cached locally — but ONLY once iOS
+// We trigger this once AFTER onboarding completes (lib/onboarding-finalize.ts;
+// returning onboarded users who were never asked get it once on a later
+// launch via lib/att-ads-bootstrap.ts — never on a fresh install's cold
+// start). It fires only when the app is foreground-active and is sequenced
+// BEFORE AdMob init so no IDFA is read pre-consent. The result is cached locally — but ONLY once iOS
 // returns a determinate answer — so we ask exactly once and never lose the
 // prompt to a failed presentation (e.g. a request fired during the splash).
 

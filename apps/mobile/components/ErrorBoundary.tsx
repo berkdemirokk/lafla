@@ -27,6 +27,7 @@ import {
 } from "react-native";
 import { tokens } from "../theme";
 import { captureException } from "../lib/sentry";
+import { t } from "../lib/i18n";
 
 interface Props {
   children: React.ReactNode;
@@ -115,10 +116,8 @@ export class ErrorBoundary extends React.Component<Props, State> {
       <View style={styles.root}>
         <View style={styles.content}>
           <Text style={styles.emoji}>💥</Text>
-          <Text style={styles.title}>Bir şey ters gitti</Text>
-          <Text style={styles.subtitle}>
-            Beklenmedik bir hata oluştu. Tekrar deneyebilir veya bize bildirebilirsin.
-          </Text>
+          <Text style={styles.title}>{t("error_boundary.title")}</Text>
+          <Text style={styles.subtitle}>{t("error_boundary.subtitle")}</Text>
 
           {__DEV__ && error ? (
             <ScrollView
@@ -146,8 +145,10 @@ export class ErrorBoundary extends React.Component<Props, State> {
                 styles.btnPrimary,
                 pressed && styles.btnPressed,
               ]}
+              accessibilityRole="button"
+              accessibilityLabel={t("error_boundary.restart_label")}
             >
-              <Text style={styles.btnPrimaryLabel}>Yeniden başlat</Text>
+              <Text style={styles.btnPrimaryLabel}>{t("error_boundary.restart")}</Text>
             </Pressable>
 
             <Pressable
@@ -157,8 +158,10 @@ export class ErrorBoundary extends React.Component<Props, State> {
                 styles.btnGhost,
                 pressed && styles.btnPressed,
               ]}
+              accessibilityRole="button"
+              accessibilityLabel={t("error_boundary.report")}
             >
-              <Text style={styles.btnGhostLabel}>Hatayı bildir</Text>
+              <Text style={styles.btnGhostLabel}>{t("error_boundary.report")}</Text>
             </Pressable>
           </View>
         </View>
@@ -170,7 +173,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: tokens.bg.onBackground,
+    backgroundColor: tokens.bg.app,
     paddingHorizontal: tokens.spacing.md,
     paddingVertical: tokens.spacing.lg,
     justifyContent: "center",
@@ -185,7 +188,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: tokens.weight.extrabold,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     textAlign: "center",
     marginBottom: tokens.spacing.sm,
     letterSpacing: 0.3,
@@ -201,10 +204,10 @@ const styles = StyleSheet.create({
   debugBox: {
     width: "100%",
     maxHeight: 220,
-    backgroundColor: tokens.bg.inverseSurface,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
     borderRadius: tokens.radius.base,
     borderWidth: 1,
-    borderColor: tokens.bg.inverseSurfaceLight,
+    borderColor: tokens.border.outline,
     marginBottom: tokens.spacing.lg,
   },
   debugContent: {
@@ -223,7 +226,7 @@ const styles = StyleSheet.create({
   },
   debugText: {
     fontSize: 12,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     fontFamily: "monospace",
     lineHeight: 16,
   },
@@ -244,7 +247,7 @@ const styles = StyleSheet.create({
   btnGhost: {
     backgroundColor: "transparent",
     borderWidth: 1,
-    borderColor: tokens.bg.inverseSurfaceLight,
+    borderColor: tokens.border.outline,
   },
   btnPressed: {
     opacity: 0.85,
@@ -259,7 +262,7 @@ const styles = StyleSheet.create({
   btnGhostLabel: {
     fontSize: 16,
     fontWeight: tokens.weight.semibold,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     letterSpacing: 0.3,
   },
 });

@@ -179,7 +179,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
       answer: "check",
       distractors: ["look", "see", "find"],
       tr_hint:
-        "'Check stock in the back' = depoda kontrol et. Magaza klasigi.",
+        "'Check stock in the back' = depoda kontrol et. Mağaza klasiği.",
     },
     {
       id: "ex.ds18.1.4",
@@ -225,6 +225,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(any chance|by any chance)",
             "(would (work|fit|do))",
           ],
+          model_answers: ["Hi — do you have this shirt in a medium?"],
           hint_tr:
             "Net soru: 'Hi — do you have this shirt in a medium?'",
         },
@@ -243,8 +244,9 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(when (the )?next (shipment|delivery) (comes in|expected))",
             "(other stores in the area)",
           ],
+          model_answers: ["Thanks! If not — any other branches stock it?"],
           hint_tr:
-            "Tesekkur + plan B: 'Thanks! If not — any other branches stock it?'",
+            "Teşekkür + plan B: 'Thanks! If not — any other branches stock it?'",
         },
         {
           speaker: "npc",
@@ -262,6 +264,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(yeah )?grab it (please|thanks)",
             "(could you also bring|while you'?re at it) (a small|a large) too",
           ],
+          model_answers: ["Yes please — could I try it on?"],
           hint_tr:
             "Onay veya alternatif: 'Yes please — could I try it on?' veya 'While you're at it, a small too?'. Türk: 'denerim' = 'I'll try it on' (mağaza için sabit kalıp). 'Denemek' = try ama 'try on' = giysi denemek.",
         },
@@ -281,6 +284,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(while i'?m here)(,)? .{0,40}",
             "(any (new arrivals|fall collection))",
           ],
+          model_answers: ["Yes, looking for jeans too, any in size 32?"],
           hint_tr:
             "Ek alışveriş veya kapat: 'Yes, looking for jeans too, any in size 32?' veya 'No, just this for now, thanks'. Türk öğrenci 'indirim' = 'discount' direkt çevirir; 'sale' veya 'deals' daha doğal.",
         },
@@ -300,6 +304,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
             "(20 percent off )?(awesome|amazing|nice)",
             "(do i need a code|is there a coupon)",
           ],
+          model_answers: ["Oh perfect — does it stack with other offers?"],
           hint_tr:
             "Sale haberi: 'Oh perfect — does it stack with other offers?' veya 'Great, I'll check the denim wall'. Türk: 'kapışırım' = direkt çevirisi yok; 'I'll grab some' modern karşılık.",
         },
@@ -325,7 +330,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Spesifik = hizla cevap. Belirsiz = yanlis getirebilir.",
+            "Spesifik = hızla cevap. Belirsiz = yanlış getirebilir.",
         },
         {
           question: "Stok yoksa B plani NE sorulmali?",
@@ -337,7 +342,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Magaza ag bilir. Sok cikarmak = sansli olabilirsin.",
+            "Mağaza ağ bilir. Şok çıkarmak = şanslı olabilirsin.",
         },
         {
           question: "ABD bedeni TR bedeninden farkli mi?",
@@ -349,7 +354,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Beden cetveline bak. Yanlis beden = vakit kayip + degisim sorunu.",
+            "Beden cetveline bak. Yanlış beden = vakit kayıp + değişim sorunu.",
         },
       ],
     },
@@ -360,7 +365,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
       phrase: "Do you have this in a medium?",
       ipa: "də jə hæv ðɪs ɪn ə ˈmiːdiəm",
       tr_hint:
-        "Magaza klasigi. 'Do you' bağlanır → 'dyə'. 'In a medium' birleşik akış.",
+        "Mağaza klasiği. 'Do you' bağlanır → 'dyə'. 'In a medium' birleşik akış.",
     },
     {
       id: "ex.ds18.1.9",
@@ -378,7 +383,7 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
       audio_text: "Sorry, that's the last one we have in stock.",
       transcription_target: "Sorry, that's the last one we have in stock.",
       tr_hint:
-        "Magaza calisan klasigi. 'Last one' = sonuncu. 'In stock' = stokta. Vakit kaybetme.",
+        "Mağaza çalışan klasiği. 'Last one' = sonuncu. 'In stock' = stokta. Vakit kaybetme.",
     },
     {
       id: "ex.ds18.1.11",
@@ -689,7 +694,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
         "A bit small — go up one size?",
       ],
       tr_hint:
-        "'Tight / Snug' = dar. 'Size up' = bir buyuk. 'Size down' = bir kucuk.",
+        "'Tight / Snug' = dar. 'Size up' = bir büyük. 'Size down' = bir küçük.",
     },
     {
       id: "ex.ds18.2.3",
@@ -699,7 +704,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
       answer: "a bit",
       distractors: ["very", "too", "real"],
       tr_hint:
-        "'Runs a bit small' = bu marka genelde kucuk gelir. Magaza icgorusu.",
+        "'Runs a bit small' = bu marka genelde küçük gelir. Mağaza içgörüsü.",
     },
     {
       id: "ex.ds18.2.4",
@@ -723,7 +728,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
       correct_sentence:
         "Bit tight in the shoulders — could you bring a size up?",
       tr_explanation:
-        "'Bad size give other' = grammatik + kaba. Doğru: spesifik problem + ne istedigin.",
+        "'Bad size give other' = grammatik + kaba. Doğru: spesifik problem + ne istediğin.",
     },
     {
       id: "ex.ds18.2.6",
@@ -744,6 +749,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
             "(in the (shoulders|chest|waist|legs))",
             "(size up|size down|one (size )?(larger|smaller))",
           ],
+          model_answers: ["Excuse me — this shirt is tight in the shoulders. Size up?"],
           hint_tr:
             "Spesifik: 'Excuse me — this shirt is tight in the shoulders. Size up?'",
         },
@@ -761,6 +767,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
             "(any (other (colors|prints))) (in (my )?size)",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Same color, thanks. Does this brand run small?"],
           hint_tr:
             "Devam: 'Same color, thanks. Does this brand run small?'",
         },
@@ -786,7 +793,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ASOS, Zara, Uniqlo gibi markalar farkli kaliplar yapar. Sat anlik ogrenmek = dogru beden.",
+            "ASOS, Zara, Uniqlo gibi markalar farklı kalıplar yapar. Sat anlık öğrenmek = doğru beden.",
         },
         {
           question: "Soyunma odasinda yardim isterken EN onemli ipucu?",
@@ -798,7 +805,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Bring me another' = belirsiz. 'Tight in shoulders, size up' = hizla dogru getirir.",
+            "'Bring me another' = belirsiz. 'Tight in shoulders, size up' = hızla doğru getirir.",
         },
         {
           question: "'Try on' kullanildiginda?",
@@ -810,7 +817,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Try this on' = bunu uzerimde denemeliyim. Magaza standardi.",
+            "'Try this on' = bunu üzerimde denemeliyim. Mağaza standardı.",
         },
       ],
     },
@@ -821,7 +828,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
       phrase: "Could I try these on, please?",
       ipa: "kʊd aɪ traɪ ðiːz ɒn pliːz",
       tr_hint:
-        "Soyunma odasi klasigi. 'Try on' birleşik fiil → 'tray-on'. 'These' net çoğul.",
+        "Soyunma odası klasiği. 'Try on' birleşik fiil → 'tray-on'. 'These' net çoğul.",
     },
     {
       id: "ex.ds18.2.9",
@@ -839,7 +846,7 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
       audio_text: "This brand tends to run a bit small.",
       transcription_target: "This brand tends to run a bit small.",
       tr_hint:
-        "Magaza calisan tavsiyesi. 'Tends to run small' = kalibi kucuk gelir. Beden secimi icin kritik.",
+        "Mağaza çalışan tavsiyesi. 'Tends to run small' = kalıbı küçük gelir. Beden seçimi için kritik.",
     },
     {
       id: "ex.ds18.2.11",
@@ -847,9 +854,9 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "size up",
-      tr_translation: "Bir buyuk beden (almak)",
+      tr_translation: "Bir büyük beden (almak)",
       example: "I'll size up — the medium feels snug.",
-      example_tr: "Bir buyuk alacagim — medium dar geliyor.",
+      example_tr: "Bir büyük alacağım — medium dar geliyor.",
     },
     {
       id: "ex.ds18.2.12",
@@ -1157,7 +1164,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
         "Return please — original tags + receipt with me.",
       ],
       tr_hint:
-        "'Tags still on' = etiket cikarilmamis. 'Receipt' = fis. Iade icin ikisi de kritik.",
+        "'Tags still on' = etiket çıkarılmamış. 'Receipt' = fiş. İade için ikisi de kritik.",
     },
     {
       id: "ex.ds18.3.3",
@@ -1167,7 +1174,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
       answer: "30",
       distractors: ["7", "60", "14"],
       tr_hint:
-        "'Within 30 days' = 30 gun icinde. ABD standart return policy.",
+        "'Within 30 days' = 30 gün içinde. ABD standart return policy.",
     },
     {
       id: "ex.ds18.3.4",
@@ -1213,6 +1220,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
             "(have (the )?receipt|tags (are )?still on)",
             "(unworn|new|never used)",
           ],
+          model_answers: ["Hi, I'd like to return this shirt. Receipt's here, tags still on."],
           hint_tr:
             "Net: 'Hi, I'd like to return this shirt. Receipt's here, tags still on.'",
         },
@@ -1231,6 +1239,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
             "(could i get|how would i get) (a refund|store credit)",
             "(to my (original )?card)",
           ],
+          model_answers: ["Didn't fit. Refund to my original card if possible."],
           hint_tr:
             "Sebep + refund: 'Didn't fit. Refund to my original card if possible.'",
         },
@@ -1256,7 +1265,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Etiket yok = giyilmis kabul edilir. Fis = satin alma kanıtı.",
+            "Etiket yok = giyilmiş kabul edilir. Fiş = satın alma kanıtı.",
         },
         {
           question: "'Refund to my card' vs 'Store credit' fark?",
@@ -1280,7 +1289,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Fis = satin alma kanıtı. Yoksa sirket fiyatini bilemez = riskli iade.",
+            "Fiş = satın alma kanıtı. Yoksa şirket fiyatını bilemez = riskli iade.",
         },
       ],
     },
@@ -1291,7 +1300,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
       phrase: "I'd like to return this, please.",
       ipa: "aɪd laɪk tə rɪˈtɜːrn ðɪs pliːz",
       tr_hint:
-        "Return desk acilis. 'Return' vurgu ikinci hece: rə-TURN. 'Please' uzun 'iː'.",
+        "Return desk açılış. 'Return' vurgu ikinci hece: rə-TURN. 'Please' uzun 'iː'.",
     },
     {
       id: "ex.ds18.3.9",
@@ -1300,7 +1309,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
       native_text: "I have the receipt and the tags are still on.",
       voice_hint: "female_us",
       tr_hint:
-        "Iade icin iki sart. 'I have the receipt' net. 'Tags are still on' = etiketler hala uzerinde.",
+        "İade için iki şart. 'I have the receipt' net. 'Tags are still on' = etiketler hala üzerinde.",
     },
     {
       id: "ex.ds18.3.10",
@@ -1309,7 +1318,7 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
       audio_text: "Refunds usually take three to five business days.",
       transcription_target: "Refunds usually take three to five business days.",
       tr_hint:
-        "Standart iade süresi. 'Business days' = is günü. ABD bankacilik standardi.",
+        "Standart iade süresi. 'Business days' = iş günü. ABD bankacılık standardı.",
     },
     {
       id: "ex.ds18.3.11",
@@ -1317,9 +1326,9 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "store credit",
-      tr_translation: "Magaza kredisi (hediye karti)",
+      tr_translation: "Mağaza kredisi (hediye kartı)",
       example: "Would you prefer a refund or store credit?",
-      example_tr: "Iade mi yoksa magaza kredisi mi tercih edersiniz?",
+      example_tr: "İade mi yoksa mağaza kredisi mi tercih edersiniz?",
     },
     {
       id: "ex.ds18.3.12",
@@ -1625,7 +1634,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
         "Mind plugging in this discount code?",
       ],
       tr_hint:
-        "'Apply / Plug in / Input' = kodu sisteme gir. ABD'de yaygin kalip.",
+        "'Apply / Plug in / Input' = kodu sisteme gir. ABD'de yaygın kalıp.",
     },
     {
       id: "ex.ds18.4.3",
@@ -1635,7 +1644,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
       answer: "do",
       distractors: ["offer", "give", "have"],
       tr_hint:
-        "'Do you do price match' = fiyat eslestirme yapiyor musun. Rakibe karsi fiyat.",
+        "'Do you do price match' = fiyat eşleştirme yapıyor musun. Rakibe karşı fiyat.",
     },
     {
       id: "ex.ds18.4.4",
@@ -1681,8 +1690,9 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
             "(this (\\w+) is (\\$\\d+|cheaper) (online|at \\w+))",
             "(promo code)",
           ],
+          model_answers: ["Quick question — any student discount available?"],
           hint_tr:
-            "Saygili: 'Quick question — any student discount available?'",
+            "Saygılı: 'Quick question — any student discount available?'",
         },
         {
           speaker: "npc",
@@ -1699,6 +1709,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
             "(let'?s do it|sounds great)",
             "(no thanks|i'?ll pass on the app)",
           ],
+          model_answers: ["Not yet — happy to sign up if it's quick. Let's do it."],
           hint_tr:
             "Karar ver: 'Not yet — happy to sign up if it's quick. Let's do it.'",
         },
@@ -1724,7 +1735,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Saygili dil + bilen indirim turlerini sıra = kabul orani yuksek.",
+            "Saygılı dil + bilen indirim türlerini sıra = kabul oranı yüksek.",
         },
         {
           question: "'Price match' ne demek?",
@@ -1736,7 +1747,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Best Buy, Target, Walmart bunu sik yapar. Sormak = tasarruf.",
+            "Best Buy, Target, Walmart bunu sık yapar. Sormak = tasarruf.",
         },
         {
           question: "App sign-up indirimi NE icin?",
@@ -1748,7 +1759,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Magaza email/notifikasyon ile geri davetlik. App'i sonra silebilirsin.",
+            "Mağaza email/notifikasyon ile geri davetlik. App'i sonra silebilirsin.",
         },
       ],
     },
@@ -1768,7 +1779,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
       native_text: "Could you apply this promo code at checkout?",
       voice_hint: "female_us",
       tr_hint:
-        "'Apply this promo code' = bu kodu uygula. 'At checkout' = kasada. Yaygin online + offline kalip.",
+        "'Apply this promo code' = bu kodu uygula. 'At checkout' = kasada. Yaygın online + offline kalıp.",
     },
     {
       id: "ex.ds18.4.10",
@@ -1777,7 +1788,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
       audio_text: "All sale items are final sale, no returns.",
       transcription_target: "All sale items are final sale, no returns.",
       tr_hint:
-        "Indirim uyarisi. 'Final sale' = kesin satis (iade yok). 'No returns' = iade kabul edilmez.",
+        "İndirim uyarısı. 'Final sale' = kesin satış (iade yok). 'No returns' = iade kabul edilmez.",
     },
     {
       id: "ex.ds18.4.11",
@@ -1787,7 +1798,7 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
       word_or_phrase: "price match",
       tr_translation: "Fiyat eşleştirme (rakibe gore)",
       example: "Do you do price match if I show you the competitor's price?",
-      example_tr: "Rakibin fiyatini gostersem fiyat eslestirme yapar misiniz?",
+      example_tr: "Rakibin fiyatını göstersem fiyat eşleştirme yapar mısınız?",
     },
     {
       id: "ex.ds18.4.12",
@@ -2075,9 +2086,9 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
       cefr_band: "A2",
       difficulty: 3,
       word_or_phrase: "Do you have this in a medium?",
-      tr_translation: "Bunun medium bedeni var mi?",
+      tr_translation: "Bunun medium bedeni var mı?",
       example: "I bought a small but do you have this in a medium?",
-      example_tr: "Small aldim ama medium beden var mi?",
+      example_tr: "Small aldım ama medium beden var mı?",
     },
     {
       id: "ex.ds18.5.2",
@@ -2093,7 +2104,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
         "Doesn't quite fit — happy to exchange for a size larger.",
       ],
       tr_hint:
-        "Turk hatasi: 'I want change this' YANLIS. Dogru: 'Could I exchange this?'. 'Runs small' = kalibi kucuk gelir.",
+        "Türk hatası: 'I want change this' YANLIŞ. Doğru: 'Could I exchange this?'. 'Runs small' = kalıbı küçük gelir.",
     },
     {
       id: "ex.ds18.5.3",
@@ -2103,7 +2114,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
       answer: "runs",
       distractors: ["goes", "makes", "feels"],
       tr_hint:
-        "'Runs small/large' = kalip kucuk/buyuk gelir. ABD klasigi — sadece 'small' bedeninin numarasi degil, kalip da kastedilir.",
+        "'Runs small/large' = kalıp küçük/büyük gelir. ABD klasiği — sadece 'small' bedeninin numarası değil, kalıp da kastedilir.",
     },
     {
       id: "ex.ds18.5.4",
@@ -2120,7 +2131,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
         "size",
       ],
       correct_sentence: "Could I exchange this for a larger size",
-      tr_translation: "Bunu daha buyuk bir bedenle degistirebilir miyim?",
+      tr_translation: "Bunu daha büyük bir bedenle değiştirebilir miyim?",
     },
     {
       id: "ex.ds18.5.5",
@@ -2130,7 +2141,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
       correct_sentence:
         "Could I exchange this for a larger size? It runs a bit small on me.",
       tr_explanation:
-        "'I want change' = grammatik yanlis (need 'to'). 'Big size give' = kaba emir. Dogru: 'Could I exchange' + sebep (runs small).",
+        "'I want change' = grammatik yanlış (need 'to'). 'Big size give' = kaba emir. Doğru: 'Could I exchange' + sebep (runs small).",
     },
     {
       id: "ex.ds18.5.6",
@@ -2151,8 +2162,9 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
             "(bought it (yesterday|last week))",
             "(in (a )?(medium|large|size up|bigger size))",
           ],
+          model_answers: ["Hi, I'd like to exchange this shirt — it runs a bit small. Do you have it in a medium?"],
           hint_tr:
-            "Net acilis: 'Hi, I'd like to exchange this shirt — it runs a bit small. Do you have it in a medium?'",
+            "Net açılış: 'Hi, I'd like to exchange this shirt — it runs a bit small. Do you have it in a medium?'",
         },
         {
           speaker: "npc",
@@ -2169,6 +2181,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
             "(took it home (and )?tried it on)",
             "(only tried (it )?on (once|at home))",
           ],
+          model_answers: ["Yes — receipt's here, tags still on. Only tried it on at home."],
           hint_tr:
             "Onayla: 'Yes — receipt's here, tags still on. Only tried it on at home.'",
         },
@@ -2194,7 +2207,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'This brand runs small' = bu marka kalip kucuk yapar. Bedenden 1 buyuk almak gerekebilir.",
+            "'This brand runs small' = bu marka kalıp küçük yapar. Bedenden 1 büyük almak gerekebilir.",
         },
         {
           question: "Degisim icin Turk hatasi 'I want change this' — duzelt:",
@@ -2206,7 +2219,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Want' + 'to' + fiil. Daha kibar: 'Could I exchange?'. Beden degisimi icin 'exchange' fiili 'change'den daha dogal.",
+            "'Want' + 'to' + fiil. Daha kibar: 'Could I exchange?'. Beden değişimi için 'exchange' fiili 'change'den daha doğal.",
         },
         {
           question: "Beden degisimi icin EN onemli iki sart?",
@@ -2218,7 +2231,7 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Etiket cikmis = giyilmis kabul. Receipt = satin alma kanit. Ikisi olmadan exchange zor.",
+            "Etiket çıkmış = giyilmiş kabul. Receipt = satın alma kanıt. İkisi olmadan exchange zor.",
         },
       ],
     },
@@ -2505,9 +2518,9 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "Can I return this without a receipt?",
-      tr_translation: "Bunu fis olmadan iade edebilir miyim?",
+      tr_translation: "Bunu fiş olmadan iade edebilir miyim?",
       example: "Can I return this without a receipt? I paid by card.",
-      example_tr: "Bunu fis olmadan iade edebilir miyim? Kartla odedim.",
+      example_tr: "Bunu fiş olmadan iade edebilir miyim? Kartla ödedim.",
     },
     {
       id: "ex.ds18.6.2",
@@ -2523,7 +2536,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
         "Receipt's gone, but I have the card I paid with.",
       ],
       tr_hint:
-        "'Look it up' = sistemden bulmak. ABD magazalar kart numarasiyla satin almayi bulabilir. 'On file' = kayitlarda.",
+        "'Look it up' = sistemden bulmak. ABD mağazalar kart numarasıyla satın almayı bulabilir. 'On file' = kayıtlarda.",
     },
     {
       id: "ex.ds18.6.3",
@@ -2533,7 +2546,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
       answer: "credit",
       distractors: ["money", "refund", "card"],
       tr_hint:
-        "'Store credit' = magaza kredisi (kart yerine magazada kullanilacak). Receipt yoksa, ABD standart sonuc.",
+        "'Store credit' = mağaza kredisi (kart yerine mağazada kullanılacak). Receipt yoksa, ABD standart sonuç.",
     },
     {
       id: "ex.ds18.6.4",
@@ -2550,7 +2563,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
         "unworn",
       ],
       correct_sentence: "The tags are still on and it's unworn",
-      tr_translation: "Etiketler hala uzerinde ve hic giyilmemis.",
+      tr_translation: "Etiketler hala üzerinde ve hiç giyilmemiş.",
     },
     {
       id: "ex.ds18.6.5",
@@ -2560,7 +2573,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
       correct_sentence:
         "I don't have the receipt — would store credit be an option since the tags are still attached?",
       tr_explanation:
-        "'Give me anyway' = kaba + grammatik degil. Dogru: durumu anlat (no receipt) + esnek opsiyon iste (store credit) + kanit (tags attached).",
+        "'Give me anyway' = kaba + grammatik değil. Doğru: durumu anlat (no receipt) + esnek opsiyon iste (store credit) + kanıt (tags attached).",
     },
     {
       id: "ex.ds18.6.6",
@@ -2581,8 +2594,9 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
             "(don'?t have (the )?receipt|no receipt|without (a |the )?receipt)",
             "(tags (are )?still (on|attached)|unworn|brand new)",
           ],
+          model_answers: ["Hi — I'd like to return this. It was a gift, so I don't have the receipt, but tags are still on."],
           hint_tr:
-            "Acik ol: 'Hi — I'd like to return this. It was a gift, so I don't have the receipt, but tags are still on.'",
+            "Açık ol: 'Hi — I'd like to return this. It was a gift, so I don't have the receipt, but tags are still on.'",
         },
         {
           speaker: "npc",
@@ -2599,6 +2613,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
             "(does it (expire|have a date))",
             "(thank you|appreciate it)",
           ],
+          model_answers: ["That works. Quick question — does the store credit expire?"],
           hint_tr:
             "Kabul + sor: 'That works. Quick question — does the store credit expire?'",
         },
@@ -2624,7 +2639,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Receipt yoksa sirket ne fiyata satin aldigini bilemez. Mevcut fiyattan store credit = kompromis.",
+            "Receipt yoksa şirket ne fiyata satın aldığını bilemez. Mevcut fiyattan store credit = kompromis.",
         },
         {
           question: "'Tags still on' ne icin onemli?",
@@ -2636,7 +2651,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Etiket cikmis = giyilmis kabul = iade reddi olabilir. Etiket uzerinde = brand new state.",
+            "Etiket çıkmış = giyilmiş kabul = iade reddi olabilir. Etiket üzerinde = brand new state.",
         },
         {
           question: "Hediye iade icin EN dogru baslangic?",
@@ -2648,7 +2663,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Durust + bilgi + kanit = magaza anlayisli. 'Gift return' yaygin durum, calisanlar bilir.",
+            "Dürüst + bilgi + kanıt = mağaza anlayışlı. 'Gift return' yaygın durum, çalışanlar bilir.",
         },
       ],
     },
@@ -2659,7 +2674,7 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
       phrase: "Can I return this without a receipt?",
       ipa: "kæn aɪ rɪˈtɜːrn ðɪs wɪˈðaʊt ə rɪˈsiːt",
       tr_hint:
-        "'Receipt' vurgu ikinci hece: rə-SEET ('p' SESSIZ!). Turklerin yaygin hatasi: 'reseept' DEGIL — 'rə-SEET'.",
+        "'Receipt' vurgu ikinci hece: rə-SEET ('p' SESSİZ!). Türklerin yaygın hatası: 'reseept' DEĞİL — 'rə-SEET'.",
     },
     {
       id: "ex.ds18.6.sp1",
@@ -2938,9 +2953,9 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
       cefr_band: "B1",
       difficulty: 3,
       word_or_phrase: "I think there's a sale on this",
-      tr_translation: "Bunda bir indirim oldugunu dusunuyorum",
+      tr_translation: "Bunda bir indirim olduğunu düşünüyorum",
       example: "Quick — I think there's a sale on this. The sign said 30% off.",
-      example_tr: "Hizli — bunda bir indirim var sanirim. Tabela 30% indirim diyordu.",
+      example_tr: "Hızlı — bunda bir indirim var sanırım. Tabela 30% indirim diyordu.",
     },
     {
       id: "ex.ds18.7.2",
@@ -2956,7 +2971,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
         "Looks like the promo didn't register — same total.",
       ],
       tr_hint:
-        "'Apply / Go through / Kick in' = sisteme uygulanmak. 'Showing full' = tam fiyat gozukuyor. Saygili dil — hata sucu yok.",
+        "'Apply / Go through / Kick in' = sisteme uygulanmak. 'Showing full' = tam fiyat gözüküyor. Saygılı dil — hata suçu yok.",
     },
     {
       id: "ex.ds18.7.3",
@@ -2966,7 +2981,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
       answer: "30%",
       distractors: ["thirty", "discount", "sale"],
       tr_hint:
-        "'30% off' = %30 indirim. 'Shelf tag' = raf etiketi. ABD'de spesifik yuzde + 'off' yapisi standart.",
+        "'30% off' = %30 indirim. 'Shelf tag' = raf etiketi. ABD'de spesifik yüzde + 'off' yapısı standart.",
     },
     {
       id: "ex.ds18.7.4",
@@ -2982,7 +2997,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
         "this",
       ],
       correct_sentence: "Could you double-check the price on this",
-      tr_translation: "Bunun fiyatini bir daha kontrol edebilir misiniz?",
+      tr_translation: "Bunun fiyatını bir daha kontrol edebilir misiniz?",
     },
     {
       id: "ex.ds18.7.5",
@@ -2992,7 +3007,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
       correct_sentence:
         "I think the sale price didn't apply — the shelf tag showed 30% off. Could you double-check?",
       tr_explanation:
-        "'You wrong' = kaba sucalama. 'Give me' = emir. Dogru: 'I think' (yumusak) + delil (shelf tag) + saygili istek (double-check).",
+        "'You wrong' = kaba suçalama. 'Give me' = emir. Doğru: 'I think' (yumuşak) + delil (shelf tag) + saygılı istek (double-check).",
     },
     {
       id: "ex.ds18.7.6",
@@ -3013,8 +3028,9 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
             "(\\d+% off|on sale)",
             "(could you (check|double-check|verify))",
           ],
+          model_answers: ["Sorry — I think the discount didn't apply. The shelf tag showed 40% off. Could you double-check?"],
           hint_tr:
-            "Saygili: 'Sorry — I think the discount didn't apply. The shelf tag showed 40% off. Could you double-check?'",
+            "Saygılı: 'Sorry — I think the discount didn't apply. The shelf tag showed 40% off. Could you double-check?'",
         },
         {
           speaker: "npc",
@@ -3031,8 +3047,9 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
             "(stocked under the (sale|discount) (sign|rack))",
             "(it (still has|is under) the sale tag)",
           ],
+          model_answers: ["Sure — it's by the wool sweaters. Any chance you'd still honor the tag price?"],
           hint_tr:
-            "Gosterek + saygili pazarlik: 'Sure — it's by the wool sweaters. Any chance you'd still honor the tag price?'",
+            "Gösterek + saygılı pazarlık: 'Sure — it's by the wool sweaters. Any chance you'd still honor the tag price?'",
         },
         {
           speaker: "npc",
@@ -3056,7 +3073,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turkler genelde utangaç olabilir — ama haklarini kibarca savunmak ABD'de standart. 'I think' = yumusatici.",
+            "Türkler genelde utangaç olabilir — ama haklarını kibarca savunmak ABD'de standart. 'I think' = yumuşatıcı.",
         },
         {
           question: "'Honor the posted price' ne demek?",
@@ -3068,7 +3085,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "ABD/UK'de magaza tabelasinda/raftaki fiyati genelde 'honor' eder. Sormak = haklarinin korunmasi.",
+            "ABD/UK'de mağaza tabelasında/raftaki fiyatı genelde 'honor' eder. Sormak = haklarının korunması.",
         },
         {
           question: "Kupon uygulanmadiginda Turk hatasi NEDIR?",
@@ -3080,7 +3097,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
           ],
           correct_index: 2,
           tr_explanation:
-            "Iki uc: utangaclik (paray kaybedersin) ve agresif (calisan yardim etmez). Orta yol = saygili net iletisim.",
+            "İki uç: utangaçlık (paray kaybedersin) ve agresif (çalışan yardım etmez). Orta yol = saygılı net iletişim.",
         },
       ],
     },
@@ -3091,7 +3108,7 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
       phrase: "I don't think the discount applied.",
       ipa: "aɪ doʊnt θɪŋk ðə ˈdɪskaʊnt əˈplaɪd",
       tr_hint:
-        "'I don't think' = yumusatici (sucalama yok). 'Discount' vurgu ilk hece: DIS-kaunt. 'Applied' vurgu ikinci hece: ə-PLAID.",
+        "'I don't think' = yumuşatıcı (suçalama yok). 'Discount' vurgu ilk hece: DIS-kaunt. 'Applied' vurgu ikinci hece: ə-PLAID.",
     },
     {
       id: "ex.ds18.7.sp1",
@@ -3371,7 +3388,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
       word_or_phrase: "Excuse me, where would I find...?",
       tr_translation: "Affedersiniz, ... nerede bulabilirim?",
       example: "Excuse me, where would I find men's socks?",
-      example_tr: "Affedersiniz, erkek coraplari nerede bulabilirim?",
+      example_tr: "Affedersiniz, erkek çorapları nerede bulabilirim?",
     },
     {
       id: "ex.ds18.8.2",
@@ -3387,7 +3404,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
         "Searching for cotton sports socks — you have those in store?",
       ],
       tr_hint:
-        "'Do you carry / Do you stock' = bu urunu satar misiniz. 'Looking for' = ariyorum. 'Cotton' = pamuklu. Malzeme adi vocab.",
+        "'Do you carry / Do you stock' = bu ürünü satar misiniz. 'Looking for' = arıyorum. 'Cotton' = pamuklu. Malzeme adı vocab.",
     },
     {
       id: "ex.ds18.8.3",
@@ -3397,7 +3414,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
       answer: "aisle",
       distractors: ["floor", "side", "row"],
       tr_hint:
-        "'Aisle' (telaffuz: 'AIL', 's' sessiz) = magaza koridoru. 'What aisle?' = hangi koridor. Buyuk magazalarda kritik.",
+        "'Aisle' (telaffuz: 'AIL', 's' sessiz) = mağaza koridoru. 'What aisle?' = hangi koridor. Büyük mağazalarda kritik.",
     },
     {
       id: "ex.ds18.8.4",
@@ -3414,7 +3431,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
         "chance",
       ],
       correct_sentence: "Do you carry wool scarves by any chance",
-      tr_translation: "Yun atki satar misiniz acaba?",
+      tr_translation: "Yün atkı satar mısınız acaba?",
     },
     {
       id: "ex.ds18.8.5",
@@ -3424,7 +3441,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
       correct_sentence:
         "Excuse me, where would I find the socks? I'm looking for cotton ones.",
       tr_explanation:
-        "'Where is sock' = grammatik (article + plural eksik). 'I want find' = 'to' eksik. Dogru: 'Excuse me' + 'where would I find' + spesifik.",
+        "'Where is sock' = grammatik (article + plural eksik). 'I want find' = 'to' eksik. Doğru: 'Excuse me' + 'where would I find' + spesifik.",
     },
     {
       id: "ex.ds18.8.6",
@@ -3445,8 +3462,9 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
             "(where (would|can) i find)",
             "(polyester|rain jacket|raincoat|waterproof)",
           ],
+          model_answers: ["Excuse me — I'm looking for a polyester rain jacket. Do you carry those?"],
           hint_tr:
-            "Acilis: 'Excuse me — I'm looking for a polyester rain jacket. Do you carry those?'",
+            "Açılış: 'Excuse me — I'm looking for a polyester rain jacket. Do you carry those?'",
         },
         {
           speaker: "npc",
@@ -3463,8 +3481,9 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
             "(rain check)",
             "(any (other (colors|styles|brands))) (in (the )?store)",
           ],
+          model_answers: ["Thanks! Medium. Also — if they're out of stock, do you do rain checks?"],
           hint_tr:
-            "Tesekkur + detay: 'Thanks! Medium. Also — if they're out of stock, do you do rain checks?'",
+            "Teşekkür + detay: 'Thanks! Medium. Also — if they're out of stock, do you do rain checks?'",
         },
         {
           speaker: "npc",
@@ -3488,7 +3507,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Carry' = satmak / stokta tutmak (magaza icin). 'Do you sell' de olur ama 'carry' daha dogal magaza dili.",
+            "'Carry' = satmak / stokta tutmak (mağaza için). 'Do you sell' de olur ama 'carry' daha doğal mağaza dili.",
         },
         {
           question: "'Out of stock' vs 'In stock' fark?",
@@ -3500,7 +3519,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Out of stock' = tukenmis. 'In stock' = mevcut. Soru sorarken: 'Is this in stock?' standart.",
+            "'Out of stock' = tükenmiş. 'In stock' = mevcut. Soru sorarken: 'Is this in stock?' standart.",
         },
         {
           question: "'Rain check' ne demek?",
@@ -3512,7 +3531,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Rain check' = ABD klasik magaza taahhudu. Sale urunu yoksa, geldigi zaman ayni fiyattan alabilirsin. Sormak = pro hareketi.",
+            "'Rain check' = ABD klasik mağaza taahhüdü. Sale ürünü yoksa, geldiği zaman aynı fiyattan alabilirsin. Sormak = pro hareketi.",
         },
       ],
     },
@@ -3523,7 +3542,7 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
       phrase: "Excuse me, where would I find the socks?",
       ipa: "ɪkˈskjuːz mi wɛr wʊd aɪ faɪnd ðə sɒks",
       tr_hint:
-        "'Excuse me' = standart acilis. 'Where would I find' = nazik soru kalibi (direkt 'where is' den daha kibar). Akici telaffuz.",
+        "'Excuse me' = standart açılış. 'Where would I find' = nazik soru kalıbı (direkt 'where is' den daha kibar). Akıcı telaffuz.",
     },
     {
       id: "ex.ds18.8.sp1",

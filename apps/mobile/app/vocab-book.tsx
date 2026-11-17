@@ -4,7 +4,7 @@
 // burada görür: "Bu hafta 24 kelime, toplam 87". /vocab-book route.
 // Profile sayfasından erişilir.
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -14,7 +14,7 @@ import {
   FlatList,
   type ListRenderItemInfo,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -25,16 +25,8 @@ import {
   type VocabBookEntry,
 } from "../lib/vocab-book";
 import type { SceneMode } from "../data/scenes";
-
-const MODE_LABEL: Record<SceneMode, string> = {
-  flirt: "Flört",
-  work: "İş",
-  bar: "Bar",
-  airport: "Havaalanı",
-  daily: "Günlük",
-  order: "Sipariş",
-  ielts: "IELTS",
-};
+import { useTranslation, type Locale } from "../lib/i18n";
+import { AsyncScreenState, type AsyncScreenStatus } from "../components/AsyncScreenState";
 
 const MODE_EMOJI: Record<SceneMode, string> = {
   flirt: "💕",
@@ -50,6 +42,7 @@ type Filter = "all" | SceneMode;
 
 export default function VocabBookScreen() {
   const router = useRouter();
+  const { t, locale } = useTranslation();
   const [entries, setEntries] = useState<VocabBookEntry[]>([]);
   const [summary, setSummary] = useState({
     total: 0,
@@ -57,14 +50,20 @@ export default function VocabBookScreen() {
     topMode: null as SceneMode | null,
   });
   const [filter, setFilter] = useState<Filter>("all");
+  const [status, setStatus] = useState<AsyncScreenStatus>("loading");
 
-  useEffect(() => {
-    (async () => {
+  const load = useCallback(async () => {
+    setStatus("loading");
+    try {
       const [b, s] = await Promise.all([getVocabBook(), getVocabBookSummary()]);
       setEntries(b);
       setSummary(s);
-    })();
+      setStatus("ready");
+    } catch {
+      setStatus("error");
+    }
   }, []);
+  useEffect(() => { void load(); }, [load]);
 
   const filtered = useMemo(() => {
     if (filter === "all") return entries;
@@ -78,13 +77,13 @@ export default function VocabBookScreen() {
   }, [entries]);
 
   const renderItem = ({ item }: ListRenderItemInfo<VocabBookEntry>) => {
-    const date = formatRelativeDate(new Date(item.addedAt));
+    const date = formatRelativeDate(new Date(item.addedAt), locale);
     return (
       <Pressable
         onPress={() => router.push(`/scenario/${item.lessonId}` as never)}
         style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
         accessibilityRole="button"
-        accessibilityLabel={`${item.en}, anlamı: ${item.tr}, ${date}`}
+        accessibilityLabel={t("vocab_book.item_label", { word: item.en, meaning: item.tr, date })}
       >
         <View style={styles.cardHeader}>
           <Text style={styles.modeEmoji}>{MODE_EMOJI[item.mode]}</Text>
@@ -114,7 +113,7 @@ export default function VocabBookScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       <View style={styles.header}>
         <Pressable
@@ -122,28 +121,31 @@ export default function VocabBookScreen() {
           style={styles.backBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Geri"
+          accessibilityLabel={t("common.back")}
         >
           <Text style={styles.backText}>‹</Text>
         </Pressable>
-        <Text style={styles.title}>Kelime Defterin</Text>
+        <Text style={styles.title}>{t("vocab_book.title")}</Text>
         <View style={styles.backBtn} />
       </View>
 
+      {status !== "ready" ? (
+        <AsyncScreenState status={status} onRetry={() => void load()} />
+      ) : <>
       <View style={styles.summaryRow}>
         <View style={styles.summaryCell}>
           <Text style={styles.summaryNum}>{summary.total}</Text>
-          <Text style={styles.summaryLbl}>toplam kelime</Text>
+          <Text style={styles.summaryLbl}>{t("vocab_book.total")}</Text>
         </View>
         <View style={styles.summaryCell}>
           <Text style={styles.summaryNum}>{summary.thisWeek}</Text>
-          <Text style={styles.summaryLbl}>bu hafta</Text>
+          <Text style={styles.summaryLbl}>{t("vocab_book.this_week")}</Text>
         </View>
         <View style={styles.summaryCell}>
           <Text style={styles.summaryNum}>
             {summary.topMode ? MODE_EMOJI[summary.topMode] : "—"}
           </Text>
-          <Text style={styles.summaryLbl}>en sık alan</Text>
+          <Text style={styles.summaryLbl}>{t("vocab_book.top_mode")}</Text>
         </View>
       </View>
 
@@ -154,14 +156,16 @@ export default function VocabBookScreen() {
           contentContainerStyle={styles.filterRow}
         >
           <FilterChip
-            label="Hepsi"
+            label={t("vocab_book.all")}
+            accessibilityLabel={t("vocab_book.filter_label", { filter: t("vocab_book.all") })}
             active={filter === "all"}
             onPress={() => setFilter("all")}
           />
           {availableModes.map((m) => (
             <FilterChip
               key={m}
-              label={`${MODE_EMOJI[m]} ${MODE_LABEL[m]}`}
+              label={`${MODE_EMOJI[m]} ${t(`mode.${m}`)}`}
+              accessibilityLabel={t("vocab_book.filter_label", { filter: t(`mode.${m}`) })}
               active={filter === m}
               onPress={() => setFilter(m)}
             />
@@ -172,18 +176,18 @@ export default function VocabBookScreen() {
       {filtered.length === 0 ? (
         <View style={styles.emptyWrap}>
           <Text style={styles.emptyEmoji}>📖</Text>
-          <Text style={styles.emptyTitle}>Defterin boş</Text>
-          <Text style={styles.emptySub}>
-            Sahne tamamladıkça öğrendiğin kelimeler burada birikecek.
-          </Text>
+          <Text style={styles.emptyTitle}>{t("vocab_book.empty_title")}</Text>
+          <Text style={styles.emptySub}>{t("vocab_book.empty_body")}</Text>
           <Pressable
             onPress={() => router.replace("/today" as never)}
             style={({ pressed }) => [
               styles.emptyCta,
               pressed && { opacity: 0.86 },
             ]}
+            accessibilityRole="button"
+            accessibilityLabel={t("vocab_book.go_today")}
           >
-            <Text style={styles.emptyCtaText}>Bugüne git</Text>
+            <Text style={styles.emptyCtaText}>{t("vocab_book.go_today")}</Text>
           </Pressable>
         </View>
       ) : (
@@ -194,16 +198,19 @@ export default function VocabBookScreen() {
           contentContainerStyle={styles.listContent}
         />
       )}
+      </>}
     </SafeAreaView>
   );
 }
 
 function FilterChip({
   label,
+  accessibilityLabel,
   active,
   onPress,
 }: {
   label: string;
+  accessibilityLabel: string;
   active: boolean;
   onPress: () => void;
 }) {
@@ -216,6 +223,7 @@ function FilterChip({
         pressed && !active && { opacity: 0.85 },
       ]}
       accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
       accessibilityState={{ selected: active }}
     >
       <Text style={[styles.chipText, active && styles.chipTextActive]}>
@@ -225,17 +233,17 @@ function FilterChip({
   );
 }
 
-function formatRelativeDate(d: Date): string {
+function formatRelativeDate(d: Date, locale: Locale): string {
   const diffMs = Date.now() - d.getTime();
   const diffMin = Math.floor(diffMs / 60000);
-  if (diffMin < 60) return `${Math.max(1, diffMin)} dk`;
+  const formatter = new Intl.RelativeTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { numeric: "auto" });
+  if (diffMin < 60) return formatter.format(-Math.max(1, diffMin), "minute");
   const diffH = Math.floor(diffMin / 60);
-  if (diffH < 24) return `${diffH} sa`;
+  if (diffH < 24) return formatter.format(-diffH, "hour");
   const diffD = Math.floor(diffH / 24);
-  if (diffD === 1) return "dün";
-  if (diffD < 7) return `${diffD} gün`;
-  if (diffD < 30) return `${Math.floor(diffD / 7)} hafta`;
-  return d.toLocaleDateString("tr-TR", { day: "numeric", month: "short" });
+  if (diffD < 7) return formatter.format(-diffD, "day");
+  if (diffD < 30) return formatter.format(-Math.floor(diffD / 7), "week");
+  return d.toLocaleDateString(locale === "tr" ? "tr-TR" : "en-US", { day: "numeric", month: "short" });
 }
 
 const styles = StyleSheet.create({

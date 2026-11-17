@@ -31,6 +31,15 @@ import { storyArcV2Scenes } from "./story-arc-v2-scenes";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
+/**
+ * Lessons that are intentionally outside the swipe-feed registry still need
+ * an authored CEFR anchor. The forced onboarding roleplay is the only such
+ * lesson today; keeping it explicit prevents silent inference drift.
+ */
+export const LESSON_LEVEL_OVERRIDES: Readonly<Record<string, CefrLevel>> = {
+  "intro.match.0.1": "A2",
+};
+
 // Six user-facing modes (post-2026-05-20 radical cut).
 // Migration table for old SceneMode values, used in adım 8:
 //   banter   + bar context   → bar
@@ -117,6 +126,78 @@ const C2_SCENE_LESSON_IDS = new Set<string>([
   "ielts.w2.8",
 ]);
 
+const EMOJI_BY_LESSON_ID: Record<string, string> = {
+  "daily.directions.16.7": "🗺️",
+  "daily.a2.morningroutine.1": "🌅",
+  "daily.expand.1": "🩺",
+  "daily.expand.2": "🚑",
+  "daily.expand.3": "💊",
+  "daily.expand.4": "🦷",
+  "daily.expand.5": "🤧",
+  "daily.expand.6": "💉",
+  "daily.expand.7": "👓",
+  "daily.expand.8": "🧠",
+  "daily.expand.9": "🏥",
+  "daily.expand.10": "👶",
+  "daily.expand.11": "🏠",
+  "daily.expand.12": "🏠",
+  "daily.expand.13": "🏠",
+  "daily.expand.14": "📶",
+  "daily.expand.15": "🔧",
+  "daily.expand.16": "📄",
+  "daily.expand.17": "💰",
+  "daily.expand.18": "🔇",
+  "daily.expand.19": "🛠️",
+  "daily.expand.20": "🧳",
+  "daily.expand.21": "📦",
+  "daily.expand.22": "💳",
+  "daily.expand.23": "📱",
+  "daily.expand.24": "🪪",
+  "daily.expand.25": "🏦",
+  "daily.expand.26": "💸",
+  "daily.expand.27": "🚲",
+  "daily.expand.28": "📚",
+  "daily.expand.29": "🗳️",
+  "daily.expand.30": "📦",
+  "daily.expand.31": "🏋️",
+  "daily.expand.32": "📺",
+  "daily.expand.33": "↩️",
+  "daily.expand.34": "🍽️",
+  "daily.expand.35": "✂️",
+  "daily.expand.36": "👔",
+  "daily.expand.37": "🔑",
+  "daily.expand.38": "🚚",
+  "daily.expand.39": "📦",
+  "daily.expand.40": "🐾",
+  "daily.expand.41": "🌧️",
+  "daily.expand.42": "🗺️",
+  "daily.expand.43": "🧒",
+  "daily.expand.44": "🚓",
+  "daily.expand.46": "📚",
+  "daily.expand.47": "🚇",
+  "daily.expand.48": "🏧",
+  "daily.expand.49": "🚆",
+  "daily.expand.50": "🎟️",
+};
+
+function isCoffeeScene(scene: Scene): boolean {
+  const text = `${scene.skillId} ${scene.title} ${scene.description}`.toLowerCase();
+  return (
+    scene.skillId.includes("cafe") ||
+    text.includes("kafe") ||
+    text.includes("cafe") ||
+    text.includes("coffee") ||
+    text.includes("kahve")
+  );
+}
+
+function normalizedEmojiForScene(scene: Scene): string {
+  if (scene.emoji !== "☕") return scene.emoji;
+  const mapped = EMOJI_BY_LESSON_ID[scene.lessonId];
+  if (mapped) return mapped;
+  return isCoffeeScene(scene) ? scene.emoji : "💬";
+}
+
 function normalizeScene(scene: Scene): Scene {
   let normalized = scene;
   if (normalized.skillId === "arc.freelance") {
@@ -126,6 +207,10 @@ function normalizeScene(scene: Scene): Scene {
   }
   if (C2_SCENE_LESSON_IDS.has(normalized.lessonId)) {
     normalized = { ...normalized, cefrLevel: "C2" };
+  }
+  const emoji = normalizedEmojiForScene(normalized);
+  if (emoji !== normalized.emoji) {
+    normalized = { ...normalized, emoji };
   }
   return normalized;
 }

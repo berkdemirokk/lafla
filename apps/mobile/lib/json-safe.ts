@@ -1,7 +1,7 @@
 // Lafla — Safe JSON parsing helper.
 //
 // Universal wrapper around JSON.parse for AsyncStorage payloads and other
-// untrusted strings (LLM output, legacy blobs, corrupted writes). The native
+// untrusted strings (imported content, legacy blobs, corrupted writes). The native
 // JSON.parse throws on malformed input, which has historically been a top
 // source of "blank screen" crashes: a corrupt key bubbles all the way up
 // to render code that never expected to see a SyntaxError.
@@ -43,7 +43,7 @@ export interface ParseSafeOptions {
  * Generic T is the declared return type; the validator (if supplied) is
  * the only runtime guard. Callers that skip the validator are TRUSTING
  * the on-disk shape — fine for tightly-scoped keys we own end-to-end,
- * dangerous for anything the LLM or a future migration might touch.
+ * dangerous for anything imported from outside the app or touched by a future migration.
  */
 export function parseSafe<T>(
   raw: string | null | undefined,

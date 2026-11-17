@@ -103,6 +103,7 @@ export const complaintLesson_5_1: BundledLesson = {
             "(sorry|excuse me),? (this|the steak|chicken) is",
             "actually,? (this|it) is",
           ],
+          model_answers: ["I'm sorry, but this is undercooked."],
           hint_tr:
             "Yumuşat + söyle: 'I'm sorry, but this is undercooked.'",
         },
@@ -121,6 +122,7 @@ export const complaintLesson_5_1: BundledLesson = {
             "(get|something) (else|different)( please)?",
             "(could|can) i (get|have) the (chicken|salmon|pasta|burger) instead",
           ],
+          model_answers: ["Could you send it back?"],
           hint_tr:
             "Çözüm: 'Could you send it back?' veya 'Could I have something else?'",
         },
@@ -139,6 +141,7 @@ export const complaintLesson_5_1: BundledLesson = {
             "(could|can) i see the menu (again|once more)",
             "(let'?s )?try (the )?(chicken|salmon|pasta) instead",
           ],
+          model_answers: ["Could you bring the menu again?"],
           hint_tr:
             "Bekleyebilirsin: 'I'll just wait, thanks'. Veya menüyü tekrar iste: 'Could you bring the menu again?'. Türk öğrenci 'wait' yerine 'I expect' der — burada 'wait' fiili gerek.",
         },
@@ -157,6 +160,7 @@ export const complaintLesson_5_1: BundledLesson = {
             "(yes|sure)(,)? (some )?bread (would be lovely|sounds good)",
             "(i'?m|i am) (good|fine|ok)(,)? (thanks|thank you)",
           ],
+          model_answers: ["Sure, some bread would be great"],
           hint_tr:
             "Beklerken bir şey ister misin? 'Sure, some bread would be great' veya 'Just some water, thanks'. Reddet: 'I'm good, thanks'.",
         },
@@ -175,6 +179,7 @@ export const complaintLesson_5_1: BundledLesson = {
             "(oh )?(no need|that'?s not necessary)(,)? but thank you",
             "i appreciate (that|it)( a lot)?",
           ],
+          model_answers: ["You don't have to, but thank you"],
           hint_tr:
             "Jest karşısında: 'Thank you, that's very kind' veya 'I appreciate it'. Reddet: 'You don't have to, but thank you'. Türk: 'helal olsun' direkt çevrilemez — 'I appreciate it' en yakın.",
         },
@@ -649,6 +654,7 @@ export const complaintLesson_5_2: BundledLesson = {
             "this isn'?t (my|what i) (order|ordered)",
             "(actually|hold on),? i (ordered|asked for)",
           ],
+          model_answers: ["I think there's been a mix-up — I ordered the salmon."],
           hint_tr:
             "Sorunu söyle: 'I think there's been a mix-up — I ordered the salmon.'",
         },
@@ -666,6 +672,7 @@ export const complaintLesson_5_2: BundledLesson = {
             "(actually|no),? (it was|i had) (the )?(pasta|steak|chicken)",
             "correct,? salmon",
           ],
+          model_answers: ["Yes, the salmon, please."],
           hint_tr: "Doğrula: 'Yes, the salmon, please.'",
         },
         {
@@ -1135,6 +1142,7 @@ export const complaintLesson_5_3: BundledLesson = {
             "(it'?s been|over) (\\d+|forty|thirty|twenty) minutes",
             "i('?m| am) just (a bit )?disappointed",
           ],
+          model_answers: ["Thanks for coming. The food came cold and we've been waiting too long."],
           hint_tr:
             "Açıkla: 'Thanks for coming. The food came cold and we've been waiting too long.'",
         },
@@ -1153,6 +1161,7 @@ export const complaintLesson_5_3: BundledLesson = {
             "(thanks|thank you),? (off the bill|fresh one|new one)",
             "(yes|yeah) (please ),?(off|fresh|new)",
           ],
+          model_answers: ["Could you take it off the bill?"],
           hint_tr:
             "Tercih et: 'Could you take it off the bill?' veya 'A fresh one, please.'",
         },
@@ -1169,6 +1178,7 @@ export const complaintLesson_5_3: BundledLesson = {
             "(no |) (worries|problem)",
             "(really )?(appreciate|thank) (it|you)",
           ],
+          model_answers: ["Thanks, appreciate it."],
           hint_tr: "Teşekkür: 'Thanks, appreciate it.' veya 'That's very kind.'",
         },
       ],
@@ -1631,6 +1641,7 @@ export const complaintLesson_5_5: BundledLesson = {
             "(this|it) (isn'?t|is not) (quite |really )?(warm|hot)",
             "i think (this|it) (came out|might be) cold",
           ],
+          model_answers: ["Sorry, this came out a bit cold — could we get it reheated?"],
           hint_tr:
             "Sakin söyle: 'Sorry, this came out a bit cold — could we get it reheated?'",
         },
@@ -1648,6 +1659,7 @@ export const complaintLesson_5_5: BundledLesson = {
             "(thanks|cheers),? (appreciate it)?",
             "(yeah|yes),? thanks",
           ],
+          model_answers: ["Thanks, appreciate it."],
           hint_tr: "Teşekkür et: 'Thanks, appreciate it.'",
         },
         {
@@ -2081,6 +2093,7 @@ export const complaintLesson_5_6: BundledLesson = {
             "(i think |maybe )?(there might be|there'?s) (a mistake|an extra)",
             "this (doesn'?t|does not) (look|seem) (quite )?right",
           ],
+          model_answers: ["Sorry, I think there's something off with the bill — could we double-check?"],
           hint_tr:
             "Yumuşat: 'Sorry, I think there's something off with the bill — could we double-check?'",
         },
@@ -2098,6 +2111,7 @@ export const complaintLesson_5_6: BundledLesson = {
             "(i think |looks like )?(the )?(dessert|drink|coffee) (is on there twice|appears twice)",
             "(we'?re |i'?m )?being charged for (two|something we didn'?t)",
           ],
+          model_answers: ["I think we were charged for two desserts instead of one."],
           hint_tr:
             "Spesifik ol: 'I think we were charged for two desserts instead of one.'",
         },
@@ -2533,6 +2547,7 @@ export const complaintLesson_5_7: BundledLesson = {
             "(we'?re |i'?m )?(just )?(wondering|checking) (about|on) (our|the) (order|food)",
             "(how much longer|when can we expect)",
           ],
+          model_answers: ["Sorry to bother you — it's been about 30 minutes. Any update on our order?"],
           hint_tr:
             "Sabırla: 'Sorry to bother you — it's been about 30 minutes. Any update on our order?'",
         },
@@ -2550,6 +2565,7 @@ export const complaintLesson_5_7: BundledLesson = {
             "(thanks|cheers),? (appreciate it)?",
             "(yeah |) (sure|of course),? (thanks)?",
           ],
+          model_answers: ["Thanks, appreciate it."],
           hint_tr: "Kibar tut: 'Thanks, appreciate it.'",
         },
         {
@@ -2566,6 +2582,7 @@ export const complaintLesson_5_7: BundledLesson = {
             "(really )?appreciate (it|that)",
             "(oh )?(wow,? )?thank you",
           ],
+          model_answers: ["That's very kind — thanks."],
           hint_tr: "Teşekkür: 'That's very kind — thanks.'",
         },
       ],
@@ -2997,6 +3014,7 @@ export const complaintLesson_5_8: BundledLesson = {
             "(it'?s |there'?s )(too )?(noisy|loud|cold|hot) in (my room|the room)",
             "(i'?m having|we'?re having) (an issue|some trouble) with",
           ],
+          model_answers: ["Hi, there's an issue with my room — the AC isn't working."],
           hint_tr:
             "Aç: 'Hi, there's an issue with my room — the AC isn't working.'",
         },
@@ -3016,6 +3034,7 @@ export const complaintLesson_5_8: BundledLesson = {
             "(is there|can i have) (someone|a manager) (i can speak to)?",
             "(that'?s |it'?s )?(quite )?(a long|too long) (wait)?",
           ],
+          model_answers: ["Sorry to be difficult, but 20 minutes is a bit long — could I speak to a manager?"],
           hint_tr:
             "Eskalasyon: 'Sorry to be difficult, but 20 minutes is a bit long — could I speak to a manager?'",
         },
@@ -3033,6 +3052,7 @@ export const complaintLesson_5_8: BundledLesson = {
             "(thanks|cheers),? (i appreciate it)?",
             "(of course|sure),? thanks",
           ],
+          model_answers: ["Thanks, I appreciate it."],
           hint_tr: "Sakin teşekkür: 'Thanks, I appreciate it.'",
         },
       ],

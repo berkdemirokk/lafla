@@ -99,6 +99,7 @@ export const deliveryLesson_8_1: BundledLesson = {
             "(please )(make )?(no |without )?(onions|nuts|gluten)",
             "(could|can) you (make|cook) it (hot|fresh|extra hot)",
           ],
+          model_answers: ["Sauce on the side"],
           hint_tr:
             "Özel istek: 'Sauce on the side', 'No onions, I'm allergic', 'Make it extra hot'.",
         },
@@ -116,6 +117,7 @@ export const deliveryLesson_8_1: BundledLesson = {
             "(no |without )(cutlery|utensils)",
             "(thanks )(so much )?(for letting me know)?",
           ],
+          model_answers: ["Could you include cutlery?"],
           hint_tr:
             "Teşekkür: 'Thanks!' veya ekstra: 'Could you include cutlery?' veya 'No utensils'.",
         },
@@ -590,6 +592,7 @@ export const deliveryLesson_8_2: BundledLesson = {
             "(buzz|ring) apt (\\d+\\w?)",
             "i'?ll (come down|meet you outside|wait outside)",
           ],
+          model_answers: ["I'll come down, gate is locked"],
           hint_tr:
             "Apartman: 'Buzz apt 4B' veya 'I'll come down, gate is locked'.",
         },
@@ -608,6 +611,7 @@ export const deliveryLesson_8_2: BundledLesson = {
             "(yeah|yes) (please )?(knock|ring)( when you arrive)?",
             "leave (it )?outside( please)?",
           ],
+          model_answers: ["Leave at door, no knock"],
           hint_tr:
             "Tercih: 'Leave at door, no knock' veya 'Please knock when you arrive'.",
         },
@@ -623,6 +627,7 @@ export const deliveryLesson_8_2: BundledLesson = {
             "(thanks )(so much )?(for the delivery)?",
             "(have a good one|have a great night|cheers)",
           ],
+          model_answers: ["Cheers, have a good one!"],
           hint_tr: "Teşekkür: 'Thanks, appreciate it!' veya 'Cheers, have a good one!'",
         },
       ],
@@ -1084,6 +1089,7 @@ export const deliveryLesson_8_5: BundledLesson = {
             "(extra |more )(napkins?|ketchup|sauce)",
             "(please )?(hold the )(onions?|cheese|pickles?)",
           ],
+          model_answers: ["Could you include extra napkins?"],
           hint_tr:
             "İki istek: 'No onions please' + 'Could you include extra napkins?'",
         },
@@ -1101,6 +1107,7 @@ export const deliveryLesson_8_5: BundledLesson = {
             "(could|can) you (tell|let) the driver (to )?(leave|drop)",
             "(just )?(leave )?(it )?(at )?(the )?door( please)?",
           ],
+          model_answers: ["Leave at door, don't knock"],
           hint_tr:
             "Kurye notu: 'Leave at door, don't knock' veya 'Contactless please'.",
         },
@@ -1530,6 +1537,7 @@ export const deliveryLesson_8_6: BundledLesson = {
             "(missing|forgot) (the )?(fries|drinks|appetizers?|side|sauce)",
             "i'?m missing (the |my )?\\w+",
           ],
+          model_answers: ["My order was missing the fries"],
           hint_tr:
             "Net bildir: 'My order was missing the fries' veya 'I didn't get my drink'.",
         },
@@ -1548,6 +1556,7 @@ export const deliveryLesson_8_6: BundledLesson = {
             "(refund|credit)( please)?",
             "(could|can) you refund (it|the missing item|that)",
           ],
+          model_answers: ["A refund would be fine, thanks"],
           hint_tr:
             "Talep: 'Could I get a refund?' veya 'A refund would be fine, thanks'.",
         },
@@ -1563,6 +1572,7 @@ export const deliveryLesson_8_6: BundledLesson = {
             "(thanks )(so much|a lot)?( for the help)?",
             "(great|perfect|sounds good)",
           ],
+          model_answers: ["Thanks, appreciate it!"],
           hint_tr: "Teşekkür: 'Thanks, appreciate it!' veya 'Sounds good, thanks!'",
         },
       ],
@@ -1988,6 +1998,7 @@ export const deliveryLesson_8_7: BundledLesson = {
             "(i didn'?t order|never ordered) this",
             "(wrong|incorrect) (order|item)",
           ],
+          model_answers: ["I got someone else's order by mistake"],
           hint_tr:
             "Net: 'This isn't what I ordered' veya 'I got someone else's order by mistake'.",
         },
@@ -2006,6 +2017,7 @@ export const deliveryLesson_8_7: BundledLesson = {
             "(could|can) (i (get|have)|you give me) (a )?(refund|redelivery)",
             "(swap (it|items)|just refund)",
           ],
+          model_answers: ["Could you re-deliver the correct one?"],
           hint_tr:
             "Seçim: 'Could you re-deliver the correct one?' veya 'A refund would be fine, thanks'.",
         },
@@ -2021,6 +2033,7 @@ export const deliveryLesson_8_7: BundledLesson = {
             "(perfect|sounds good)",
             "(thanks )(so much|for sorting)?",
           ],
+          model_answers: ["Thanks, appreciate it!"],
           hint_tr: "Teşekkür: 'Thanks, appreciate it!'",
         },
       ],
@@ -2457,6 +2470,7 @@ export const deliveryLesson_8_8: BundledLesson = {
             "(the )?(side (gate|door)) is (open|unlocked)",
             "(main (door|gate) is locked,? )?(use|take) (the )?side",
           ],
+          model_answers: ["Go around the building, there's a side entrance"],
           hint_tr:
             "Yön: 'Use the side gate' veya 'Go around the building, there's a side entrance'.",
         },
@@ -2474,6 +2488,7 @@ export const deliveryLesson_8_8: BundledLesson = {
             "(meet|see) you (downstairs|in the lobby)",
             "(just )?(wait|stay) (there|in the lobby),? i'?ll (come down|be there)",
           ],
+          model_answers: ["I'll meet you at the lobby"],
           hint_tr:
             "Buluşma: 'I'll meet you at the lobby' veya 'Come up to apt 4B'.",
         },
@@ -2490,6 +2505,7 @@ export const deliveryLesson_8_8: BundledLesson = {
             "(see you|on my way|coming down)",
             "(thanks )(so much|for being patient)?",
           ],
+          model_answers: ["Thanks, I added a tip in the app!"],
           hint_tr:
             "Kapanış + tip: 'Thanks, I added a tip in the app!' (ABD'de %15-20 tip beklenir).",
         },

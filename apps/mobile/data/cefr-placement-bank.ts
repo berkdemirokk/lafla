@@ -685,10 +685,21 @@ export function pickQuestionFromLevel(
   level: CefrLevel,
   usedIds: Set<string>,
 ): PlacementQuestion | null {
-  const pool = PLACEMENT_BANK[level] ?? [];
-  const candidates = pool.filter((q) => !usedIds.has(q.id));
-  if (candidates.length === 0) return pool[0] ?? null;
-  return candidates[Math.floor(Math.random() * candidates.length)]!;
+  const targetIndex = CEFR_ORDER.indexOf(level);
+  const levelsByDistance = [...CEFR_ORDER].sort(
+    (a, b) =>
+      Math.abs(CEFR_ORDER.indexOf(a) - targetIndex) -
+      Math.abs(CEFR_ORDER.indexOf(b) - targetIndex),
+  );
+  for (const candidateLevel of levelsByDistance) {
+    const candidates = (PLACEMENT_BANK[candidateLevel] ?? []).filter(
+      (question) => !usedIds.has(question.id),
+    );
+    if (candidates.length > 0) {
+      return candidates[Math.floor(Math.random() * candidates.length)]!;
+    }
+  }
+  return null;
 }
 
 /**

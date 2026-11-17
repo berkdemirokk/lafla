@@ -100,6 +100,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
             "(that'?s a sentence|sentence i didn'?t expect|did not expect)",
             "(this is a plot twist|plot twist|wild)",
           ],
+          model_answers: ["Okay now I'm intrigued, you have to explain"],
           hint_tr:
             "Reaksiyon ver: 'Okay now I'm intrigued, you have to explain' veya 'No way — competitive ferret racing??'",
         },
@@ -118,6 +119,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
             "(that tracks|of course they do|naturally)",
             "(college does this to people|sounds like college)",
           ],
+          model_answers: ["Tiny costumes?? I need photos."],
           hint_tr:
             "Devam: 'Tiny costumes?? I need photos.' veya 'This story just got better.'",
         },
@@ -136,6 +138,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
             "(my thing is|i'?m secretly into) (.+)",
             "i'?ve (memorized|watched|read) (every|all the) (.+)",
           ],
+          model_answers: ["Honestly, I've watched every Studio Ghibli film three times"],
           hint_tr:
             "Garip hobini paylaş: 'Honestly, I've watched every Studio Ghibli film three times' veya 'Don't judge me — I collect vintage stamps'.",
         },
@@ -155,6 +158,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
             "(a bit of |kind of )?all three",
             "(i'?m on|currently on) exchange",
           ],
+          model_answers: ["I'm on Erasmus from Turkey, studying [field]"],
           hint_tr:
             "Cevap: 'Honestly, work and a little chaos' veya 'I'm on Erasmus from Turkey, studying [field]'.",
         },
@@ -173,6 +177,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
             "(too many things|where do i start)",
             "(the |my )?(neighborhood|street|view|sea|bosphorus)",
           ],
+          model_answers: ["The view of the Bosphorus, hands down"],
           hint_tr:
             "Türk öğrencinin klasik özlemi: 'Honestly, my mom's cooking — and Turkish breakfast' veya 'The view of the Bosphorus, hands down'.",
         },
@@ -234,7 +239,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
         "Okay, now you have to explain that — I need the full story.",
       ipa: "/ˈəʊkeɪ naʊ juː hæv tʊ ɪkˈspleɪn ðæt — aɪ niːd ðə fʊl ˈstɔːri/",
       tr_hint:
-        "Meraklı tonu — hafif yukseltme sonda. 'Have to explain' bağlı vurgu. 'Full story' kararli.",
+        "Meraklı tonu — hafif yükseltme sonda. 'Have to explain' bağlı vurgu. 'Full story' kararlı.",
     },
     {
       id: "ex.fb2.1.9",
@@ -244,7 +249,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
         "Okay that's a sentence I didn't expect today — I'm gonna need more context immediately.",
       voice_hint: "warm_us",
       tr_hint:
-        "Hafif sürpriz + komedi tonu. 'Wasn't expecting' kalip. 'Immediately' = abartili komik vurgu.",
+        "Hafif sürpriz + komedi tonu. 'Wasn't expecting' kalıp. 'Immediately' = abartılı komik vurgu.",
     },
     {
       id: "ex.fb2.1.10",
@@ -255,7 +260,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       transcription_target:
         "It's a long story but basically my college roommate had three ferrets and we got bored.",
       tr_hint:
-        "Hikaye acan match cevabi. 'College roommate' = universite oda arkadasi. 'Got bored' = sikildik.",
+        "Hikaye açan match cevabı. 'College roommate' = üniversite oda arkadaşı. 'Got bored' = sıkıldık.",
     },
     {
       id: "ex.fb2.1.11",
@@ -267,7 +272,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       example:
         "Wait, you build telescopes for fun? Okay, this just got a lot more interesting.",
       example_tr:
-        "Dur, eglence icin teleskop mu yapiyorsun? Tamam, bu sohbet birden daha ilginç hale geldi.",
+        "Dur, eğlence için teleskop mu yapıyorsun? Tamam, bu sohbet birden daha ilginç hale geldi.",
     },
     {
       id: "ex.fb2.1.12",
@@ -277,7 +282,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       correct_sentence:
         "Okay now you have to explain that — and 'fun' is a vague follow-up, give me the weird details.",
       tr_explanation:
-        "'Ok. Then what do you do for fun anyway?' = momentum öldürür + temadan kacar. Doğru: kisinin actigi spesifik konuyu kazi. Generic 'what do you do for fun' = small talk geri sayım.",
+        "'Ok. Then what do you do for fun anyway?' = momentum öldürür + temadan kaçar. Doğru: kişinin açtığı spesifik konuyu kazı. Generic 'what do you do for fun' = small talk geri sayım.",
     },
     {
       id: "ex.flirtbanter1.sp1",
@@ -510,6 +515,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
             "i can'?t (engage|defend|do this)",
             "(i was about to|funny) (say|come at)",
           ],
+          model_answers: ["Bold of you to assume that's the only red flag."],
           hint_tr:
             "Banter: 'Bold of you to assume that's the only red flag.' veya 'Wow calling me out — okay let's hear yours.'",
         },
@@ -528,6 +534,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
             "(this is|that'?s a) (bigger|worse|the actual) red flag",
             "(now|okay) you'?re the red flag",
           ],
+          model_answers: ["Music at 1.5x?? That's criminal — bigger red flag than mine."],
           hint_tr:
             "Devam: 'Music at 1.5x?? That's criminal — bigger red flag than mine.'",
         },
@@ -547,6 +554,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
             "(i refuse|i can'?t)( accept|believe) (that|this)",
             "(no one|nobody) reads at (1\\.5x|fast)",
           ],
+          model_answers: ["Books don't even have a playback speed — now you're just unhinged"],
           hint_tr:
             "Karşı takılma: 'Books don't even have a playback speed — now you're just unhinged'. 'Unhinged' = çatlak (espri). Türk: 'manyak' direkt çeviri 'crazy' ama 'unhinged' modern + casual.",
         },
@@ -566,6 +574,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
             "(no )?(rush|hurry) (on |when )?(weekend|sunday|morning)",
             "(long )?(walks|baths|dinners)( without my phone)?",
           ],
+          model_answers: ["Honestly, long Sunday breakfasts — no phone, just coffee and reading"],
           hint_tr:
             "Slow ritual söyle: 'Honestly, long Sunday breakfasts — no phone, just coffee and reading'. Spesifiklik (Sunday, coffee, reading) çekici. Türk: 'yavaş kahvaltı' = 'slow breakfast' (long breakfast da olur).",
         },
@@ -585,6 +594,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
             "(adding|writing) (it|that) down (for the record|in stone)",
             "(case )?closed",
           ],
+          model_answers: ["Thank you, finally someone sees it"],
           hint_tr:
             "Zaferi kabul: 'Thank you, finally someone sees it' veya 'Took you long enough'. Türk: kazandığını sevimli göster, kibirli değil.",
         },
@@ -646,7 +656,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
         "Bold of you to assume that's the only red flag I'm working with.",
       ipa: "/bəʊld əv juː tʊ əˈsjuːm ðæts ði ˈəʊnli rɛd flæɡ aɪm ˈwɜːkɪŋ wɪð/",
       tr_hint:
-        "Banter tonu — kuru komedi, savunmaci degil. 'Bold of you' bağlı kalip, 'red flag' net.",
+        "Banter tonu — kuru komedi, savunmacı değil. 'Bold of you' bağlı kalıp, 'red flag' net.",
     },
     {
       id: "ex.fb2.2.9",
@@ -656,7 +666,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
         "Wow, coming out swinging today — okay, give me your worst, I can take it.",
       voice_hint: "warm_us",
       tr_hint:
-        "Banter kabul tonu — eglenceli, sicak. 'Coming out swinging' = saldırırcasına basla idiom. Akıcı söyle.",
+        "Banter kabul tonu — eğlenceli, sıcak. 'Coming out swinging' = saldırırcasına başla idiom. Akıcı söyle.",
     },
     {
       id: "ex.fb2.2.10",
@@ -667,7 +677,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       transcription_target:
         "My red flag is I listen to podcasts on 1.5x speed — like even music.",
       tr_hint:
-        "Match'in self-mocking red flag itirafi. '1.5x speed' = bir buçuk hız. Sayi + 'x' = carpan.",
+        "Match'in self-mocking red flag itirafı. '1.5x speed' = bir buçuk hız. Sayı + 'x' = çarpan.",
     },
     {
       id: "ex.fb2.2.11",
@@ -675,11 +685,11 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Coming for me already?",
-      tr_translation: "Bana saldiriya geçtin bile mi?",
+      tr_translation: "Bana saldırıya geçtin bile mi?",
       example:
         "Three messages in and you're coming for me already? Bold strategy.",
       example_tr:
-        "Üç mesaj oldu ve bana saldiriya geçtin bile mi? Cesur strateji.",
+        "Üç mesaj oldu ve bana saldırıya geçtin bile mi? Cesur strateji.",
     },
     {
       id: "ex.fb2.2.12",
@@ -690,7 +700,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       correct_sentence:
         "Bold of you to assume that's the worst thing about me — I have a whole list.",
       tr_explanation:
-        "'Why you say bad' savunmaci + bozuk yapı. 'I am very good person' = defansif oz-savunma, banter'i kırar. Doğru: espriyle kabul + ust yap = oyun devam eder.",
+        "'Why you say bad' savunmacı + bozuk yapı. 'I am very good person' = defansif öz-savunma, banter'i kırar. Doğru: espriyle kabul + üst yap = oyun devam eder.",
     },
     {
       id: "ex.flirtbanter2.sp1",
@@ -965,6 +975,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
             "(what'?s something|tell me something) (you'?ve|you have) (changed|learned|realized)",
             "would you rather",
           ],
+          model_answers: ["Can I ask something a little personal?"],
           hint_tr:
             "İzinle başla: 'Can I ask something a little personal?' veya direkt 'What's your most irrational fear?'",
         },
@@ -983,6 +994,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
             "(i need|tell me|i must) (the )?(origin|story|backstory)",
             "(strangely|honestly) i (respect|love) that",
           ],
+          model_answers: ["Butterflies?? Tell me the origin story."],
           hint_tr:
             "Reaksiyon + soru: 'Butterflies?? Tell me the origin story.'",
         },
@@ -1056,7 +1068,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
         "Random one — what's something you used to believe but completely changed your mind on?",
       voice_hint: "warm_us",
       tr_hint:
-        "Derin soru acilis — meraklı, juge etmeden. 'Changed your mind on' bağlı söyle, sonda hafif yukseltme.",
+        "Derin soru açılış — meraklı, juge etmeden. 'Changed your mind on' bağlı söyle, sonda hafif yükseltme.",
     },
     {
       id: "ex.fb2.3.10",
@@ -1067,7 +1079,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
       transcription_target:
         "Honestly, my most irrational fear is butterflies — can't even explain why.",
       tr_hint:
-        "Match'in samimi cevabi. 'Irrational fear' = mantiksiz korku. 'Can't even explain why' = kendim bile aciklayamiyorum.",
+        "Match'in samimi cevabı. 'Irrational fear' = mantıksız korku. 'Can't even explain why' = kendim bile açıklayamıyorum.",
     },
     {
       id: "ex.fb2.3.11",
@@ -1089,7 +1101,7 @@ export const flirtBanterLesson_2_3: BundledLesson = {
       correct_sentence:
         "Can I ask something a little personal? Totally fine to skip.",
       tr_explanation:
-        "'Tell me all your trauma' = sınır asmak + therapist rolu. Modern apps'te red flag. Doğru: izin iste + çıkış kapısı. 'Totally fine to skip' güven yaratır = aslında daha çok paylaşır.",
+        "'Tell me all your trauma' = sınır aşmak + therapist rolü. Modern apps'te red flag. Doğru: izin iste + çıkış kapısı. 'Totally fine to skip' güven yaratır = aslında daha çok paylaşır.",
     },
     {
       id: "ex.flirtbanter3.sp1",
@@ -1371,6 +1383,7 @@ export const flirtBanterLesson_2_4: BundledLesson = {
             "(don'?t get me started on|once i start on)",
             "(my biggest|the biggest) (passion|obsession) is",
           ],
+          model_answers: ["Honestly, I could talk about [X] for hours"],
           hint_tr:
             "Coşkulu cevap: 'Honestly, I could talk about [X] for hours' veya 'Don't get me started on [X]'.",
         },
@@ -1389,6 +1402,7 @@ export const flirtBanterLesson_2_4: BundledLesson = {
             "(when i first|the first time i)",
             "(the moment|when) i (realized|saw|heard)",
           ],
+          model_answers: ["The thing is, when I first [X], I realized [Y]."],
           hint_tr:
             "Spesifik ol: 'The thing is, when I first [X], I realized [Y].'",
         },
@@ -1489,7 +1503,7 @@ export const flirtBanterLesson_2_4: BundledLesson = {
       correct_sentence:
         "Had a tough chapter last year — therapy helped, I'm in a much better place now.",
       tr_explanation:
-        "Eski sevgili + 'destroyed me' + 'cry every night' = trauma dumping = ilk sohbette unmatch. Modern olgun: kabul + ne yaptin (terapi, vs.) + simdiki durum. Vulnerability = saglikli sınır.",
+        "Eski sevgili + 'destroyed me' + 'cry every night' = trauma dumping = ilk sohbette unmatch. Modern olgun: kabul + ne yaptın (terapi, vs.) + şimdiki durum. Vulnerability = sağlıklı sınır.",
     },
     {
       id: "ex.flirtbanter4.sp1",
@@ -1770,6 +1784,7 @@ export const flirtBanterLesson_2_5: BundledLesson = {
             "(bold claim|strong claim)",
             "(main character energy|that'?s main character)",
           ],
+          model_answers: ["Bet you can't name 3 songs without Googling 😏"],
           hint_tr:
             "Meydan oku: 'Bet you can't name 3 songs without Googling 😏' veya 'Bold claim — prove it.'",
         },
@@ -1788,6 +1803,7 @@ export const flirtBanterLesson_2_5: BundledLesson = {
             "(fine|fair|okay) you win (this )?(round|one)?",
             "(now do|okay now) (a harder|the deep cuts)",
           ],
+          model_answers: ["Easy show-off. Now do the deep cuts."],
           hint_tr:
             "Kabul et oyunla: 'Okay you passed — respect.' veya 'Easy show-off. Now do the deep cuts.'",
         },
@@ -2126,6 +2142,7 @@ export const flirtBanterLesson_2_6: BundledLesson = {
             "(noted|duly noted|filed away)",
             "(this is|that'?s) main character (behavior|energy)",
           ],
+          model_answers: ["Okay, kombucha guy alert — iconic."],
           hint_tr:
             "Sıcak takıl: 'Okay, kombucha guy alert — iconic.' veya 'Four jars?? Wellness girlie energy, noted.'",
         },
@@ -2144,6 +2161,7 @@ export const flirtBanterLesson_2_6: BundledLesson = {
             "(prove it|sell me on it|convince me)",
             "(this is the most|most main character) (thing|move)",
           ],
+          model_answers: ["That was a compliment, genuinely — convert me."],
           hint_tr:
             "Yumuşat + ilerle: 'That was a compliment, genuinely — convert me.' veya 'Not roasting, sell me on it.'",
         },
@@ -2483,6 +2501,7 @@ export const flirtBanterLesson_2_7: BundledLesson = {
             "(easy|alright) menace",
             "(not unmatched yet|still here|keep going)",
           ],
+          model_answers: ["Wow, came for my whole personality huh?"],
           hint_tr:
             "Tatlı karşılık: 'Wow, came for my whole personality huh?' veya 'Easy menace — I'm not unmatched yet.'",
         },
@@ -2502,6 +2521,7 @@ export const flirtBanterLesson_2_7: BundledLesson = {
             "(only if|on one condition|fine but)",
             "(you'?re lucky|lucky for you|saved by)",
           ],
+          model_answers: ["Bold of you to assume you're coming — but name a band."],
           hint_tr:
             "Oyunu kabul et: 'Plan it then.' veya 'Bold of you to assume you're coming — but name a band.'",
         },
@@ -2844,6 +2864,7 @@ export const flirtBanterLesson_2_8: BundledLesson = {
             "(speaking of|reminds me of) (the )?kombucha",
             "(told you|i said) the kombucha (was|would) (pay off|save you)",
           ],
+          model_answers: ["This is why you ferment your own kombucha — as we discussed earlier."],
           hint_tr:
             "Callback: 'This is why you ferment your own kombucha — as we discussed earlier.' veya 'Per our previous kombucha discussion, you're ahead of the curve.'",
         },
@@ -2863,6 +2884,7 @@ export const flirtBanterLesson_2_8: BundledLesson = {
             "(filed|officially filed) (under|in)",
             "(building (a |our )?lore|lore is building)",
           ],
+          model_answers: ["Too iconic to drop — building our lore."],
           hint_tr:
             "Sıcak kabul: 'It's our recurring bit now.' veya 'Too iconic to drop — building our lore.'",
         },

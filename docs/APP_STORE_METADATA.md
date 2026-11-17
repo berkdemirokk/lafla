@@ -2,9 +2,11 @@
 
 > Ready-to-paste package for the App Store Connect submission. All fields are within Apple's character limits. Primary locale: **tr-TR**. Secondary locale: **en-US**.
 >
+> **2026-11-16 — v1.0.6 update:** Name, subtitle, descriptions, keywords, promotional text and What's New now mirror `apps/mobile/scripts/asc-sync.ts` (new "Bugünün 10 Kelimesi / Today's 10 Words" feature). Name/subtitle push is available behind `--app-info` (§11). Historical notes below are kept for context.
+>
 > **2026-05-23 — v0.9.0 update (Faz 1-3 sonrası):**
 > - Mod sayısı 6 → 7 (IELTS Speaking Part 1/2/3 simülatörü geri eklendi)
-> - Sahne sayısı ~480 → **935** (daily 268, work 259, flirt 141, order 93, airport 89, ielts 44, bar 41)
+> - Sahne sayısı **971**; içerik A1–C2 aralığında denetlendi.
 > - 2 yeni mod eklendi: **Phoneme Drill** (fonem-bazlı telaffuz) + **Listen & Transcribe** (dinleme + yazım)
 > - Yıllık plan **₺999/yıl** geri eklendi (Trend Researcher audit'i sonrası — Duolingo Super eşdeğeri annual tier)
 > - v0.9.0: **LLM-siz smart conversation** — NPC bridge phrases (mini-Markov), adaptif force-show hint, 5sn idle glow
@@ -23,25 +25,25 @@
 
 ## 1. Names & IDs
 
+> **Source of truth:** `apps/mobile/scripts/asc-sync.ts` → `METADATA`. The blocks in this document mirror the strings that script pushes (v1.0.6, "Bugünün 10 Kelimesi" release). If they drift, the script wins; update this file in the same PR.
+
 ### App Name (max 30 characters)
 
-| # | Option | Chars | Notes |
-|---|---|---|---|
-| **A (recommended)** | `Lafla: İngilizce Konuşma` | 24 | Brand + the single highest-volume TR intent keyword. Brand-recognition is zero today, so the algorithm needs an explicit category signal. |
-| B | `Lafla — Konuş, Çalış` | 21 | Brand + tagline. More personality, less searchability — keep as fallback if A loses out in CTR testing. |
-| C | `Lafla: İngilizce Pratik` | 23 | Same shape as A with "Pratik" instead of "Konuşma". "Konuşma" outsearches "Pratik" ~2:1 in TR App Store, so A wins. |
-
-> **Decision:** Ship Option A. Re-evaluate after 90 days if CTR < 3.5%.
+| Locale | Value | Chars |
+|---|---|---|
+| **tr** (primary) | `Lafla: İngilizce Konuşma Öğren` | 30 / 30 |
+| **en-US** | `Lafla: Learn English Speaking` | 29 / 30 |
 
 ### Subtitle (max 30 characters)
 
-| # | Option | Chars | Notes |
-|---|---|---|---|
-| **A (recommended)** | `Donma. Konuş. Türkçe ipuçlu.` | 28 | Anti-pain hook + Türk-first differentiator. Emotional anchor — the cold-discovery user with zero brand context understands "ben de donuyorum" in 0.4 saniye. |
-| B | `Flört · İş · IELTS · Bar` | 24 | Pure mode-list (4 prominent + iceberg). Solid search index for "ielts" + "flört" exact-match, but emotional hook is stronger. Use as A/B variant after launch. |
-| C | `7 mod · 935 sahne · A1–C1` | 26 | Proof-of-scope. Use after we hit ranking traction; weak as a cold-discovery subtitle but high credibility with returning visitors. |
+| Locale | Value | Chars |
+|---|---|---|
+| **tr** (primary) | `Günlük 10 Kelime, Sesli Pratik` | 30 / 30 |
+| **en-US** | `Daily 10 Words, Voice Practice` | 30 / 30 |
 
-> **Decision:** Ship Option A — anti-pain emotional hook beats keyword stuffing when the moat is regional-language correction. 2026-05-23 v0.9.0 update: IELTS modu kodda geri olduğu için Option B artık dürüst, ama A hala converts better in cold discovery (anchor on regret, not feature list).
+> **Rationale:** Name keeps brand + the highest-volume TR intent ("İngilizce konuşma") and adds the verb "Öğren". Subtitle leads with the new daily-words feature (habit hook) and keeps "Sesli Pratik" as the speaking differentiator. Both TR strings sit exactly at the 30-char limit, so any edit must stay within it — the script's pre-flight check aborts otherwise.
+>
+> **How it is pushed:** name/subtitle live on `appInfoLocalizations`, not on the version localization. `asc-sync.ts` only touches them with the opt-in `--app-info` flag (see §11). Without that flag a normal sync never renames the app.
 
 ### Identifiers
 
@@ -87,54 +89,62 @@
 
 ## 2. Description — Türkçe (primary)
 
-> **Char limit:** 4000. **Target:** 1500–1800 chars (Apple truncates after ~170 in the preview; the rest is the "Daha Fazla" tap).
+> **Char limit:** 4000. Apple truncates after ~170 chars in the preview; the opening paragraph carries the pain hook + daily-words promise. Emojis are stripped by the API push, so the canonical text uses none.
 
 ```
-Yabancıyla İngilizce konuşurken donmak yok. Lafla, Türkçe düşünen birine göre tasarlanmış konuşma pratiği uygulaması.
+İngilizceyi okuyorsun ama konuşma anı gelince donuyor musun? Lafla, Türkçe düşünen biri için tasarlanmış İngilizce konuşma pratiği ve günlük kelime uygulaması. Her gün 10 yeni kelime öğren, gerçek sahnelerde sesli pratik yap, hatalarını Türkçe açıklamalarla düzelt.
 
-Her sahne 60 saniyenin altında. Telefonun kasarsa kasasın — Lafla beklemiyor, anında geri bildirim veriyor.
+YENİ: BUGÜNÜN 10 KELİMESİ
 
-✨ NE BULURSUN
+• Her gün seviyene uygun 10 yeni İngilizce kelime
+• Her kelime için örnek cümle, Türkçe anlam ve sesli okunuş
+• 2 dakikalık hızlı testle pekiştir; kelimeler otomatik olarak tekrar listene eklenir
+• Unutmaya başladığın kelimeleri aralıklı tekrarla yeniden sorar
+• Günlük kelimeleri bitirmek serini korur; istersen akşam hatırlatması alırsın
 
-🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking
-🎬 935 gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası
-🎙️ Phoneme Drill — Türk kulağı için zor sesleri (th, æ, v/w) targetli alıştırmalar
-🎧 Dinleme + yazım modu — sessiz ortamda da pratik yap
-🇹🇷 Türkçeye özel hata yakalama — article eksik, "I am go" hatası, "make picture" tuzakları
-⚡ 3 saniyenin altında geri bildirim — donduğunda Lafla zaten yanıt vermiş
-🧠 Akıllı konuşma — NPC karakterler doğal "Hmm, evet,..." başlangıçlarla cevap veriyor, scripted hissi azalıyor
-💭 Voice Journal — kendi sesini kaydet, 1 hafta sonraki sesinle karşılaştır
-🎨 Karanlık, premium tasarım — gözünüzü yormaz, gece de çalışır
+İNGİLİZCE KONUŞMA PRATİĞİ
 
-🤔 BU UYGULAMA NEDİR?
+• 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking
+• 971 gerçek sahne, A1 başlangıçtan C2 ileri seviyeye CEFR haritası
+• Her sahne 60 saniyenin altında; 3 saniyenin altında geri bildirim
+• Telaffuz pratiği: Türk kulağının zorlandığı sesler (th, æ, v/w) için hedefli alıştırmalar
+• Dinleme pratiği: cümleyi dinle, duyduğunu yaz; sessiz ortamda da çalışır
+• Sesli günlük: kendi sesini kaydet, gelişimini zamanla dinle (kayıtlar cihazında kalır)
+• Doğal diyaloglar: karakterler gerçek bir sohbetteki gibi cevap verir
+• Açık ve koyu tema
 
-Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — 935 gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Hiçbir cevabın internete gönderilmiyor.
+TÜRKLERE ÖZEL HATA YAKALAMA
 
-🚀 NEDEN LAFLA?
-
-Çoğu uygulama İngilizceyi çeviri olarak öğretir. Lafla, Türk düşünce yapısının nerede tıkandığını bilir:
+Çoğu uygulama İngilizceyi çeviri olarak öğretir. Lafla, Türkçe düşünce yapısının nerede tıkandığını bilir:
 
 • "Want make appointment" → "I'd like to make an appointment"
 • "I have problem" → "I'm having an issue with..."
 • "I am go to home" → "I'm going home"
 
-Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açıklamalı — "neden hata olduğunu" anla, ezberleme.
+Her düzeltme Türkçe açıklamalı: ezberleme, nedenini anla.
 
-🎓 IELTS Speaking moduyla Part 1, 2, 3 simulasyonu — band 7+ için gerekli yapıyı kazan.
+IELTS VE SINAVLARA HAZIRLIK
 
-💎 LAFLA PRO ÜYELİK
+IELTS Speaking modu Part 1, 2 ve 3 yapısını çalıştırır. Günlük kelime setleri; IELTS, TOEFL ve YDS gibi sınavlara hazırlanırken kelime dağarcığını düzenli büyütmene yardımcı olur.
 
-Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
+GÜVENİLİR VE ÖZEL
 
-📋 Fiyat: ₺99/ay veya ₺999/yıl (yıllık planda %16 tasarruf)
-🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin
-⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir
-📜 Şartlar: https://berkdemirokk.github.io/lafla/terms.html · Gizlilik: https://berkdemirokk.github.io/lafla/privacy.html
+971 senaryonun tamamı önceden yazılmıştır; uydurma cevap yok, pratik tamamen algoritmiktir, üretken yapay zekâ kullanılmaz. Cevapların Lafla sunucularına gönderilmez; sesli giriş iOS konuşma tanıma sistemi tarafından işlenebilir.
+
+LAFLA PRO ÜYELİK
+
+Tüm 971 sahneye erişim, sınırsız tekrar, yönlendirmeli telaffuz pratiği, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
+
+• Aylık ve yıllık planlar mevcut. App Store satın alma ekranı onaydan önce kesin yerel fiyatı ve faturalama dönemini gösterir.
+• Abonelik, iptal etmediğin sürece dönem sonunda otomatik yenilenir.
+• İstediğin zaman iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden iptal edebilirsin.
+• Şartlar: https://berkdemirokk.github.io/lafla/terms.html
+• Gizlilik: https://berkdemirokk.github.io/lafla/privacy.html
 
 Destek: berkkdemirok@gmail.com
 ```
 
-*(approx. 1,800 / 4,000 characters)*
+*(2,639 / 4,000 characters)*
 
 ---
 
@@ -143,27 +153,28 @@ Destek: berkkdemirok@gmail.com
 > **Audience:** Turkish learners who understand some written English but freeze when speaking. Not yet optimized for non-Turkish learners.
 
 ```
-Stop freezing when you have to speak English. Lafla is built for Turkish speakers who can read English but lock up the moment a conversation starts.
+Can you read English but freeze the moment you have to speak? Lafla is an English speaking practice and daily vocabulary app built for Turkish speakers. Learn 10 new words every day, practice out loud in real scenes, and get every mistake explained in Turkish.
 
-Every scene runs under 60 seconds. Real moments, real corrections, sub-3-second feedback.
+NEW: TODAY'S 10 WORDS
 
-✨ WHAT YOU GET
+• Ten new English words a day, matched to your level
+• Example sentence, Turkish meaning and audio for every word
+• A quick 2-minute check, then every word joins your review list automatically
+• Spaced review brings words back right when you start to forget them
+• Finishing your daily words keeps your streak alive; optional evening reminder
 
-🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking
-🎬 935 real scenarios — CEFR-mapped from A1 to C1
-🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse (th, æ, v/w)
-🎧 Listen & Transcribe — practice in silent environments too
-🇹🇷 Turkish-tailored error feedback — dropped articles, "I am go" mistakes, "make picture" traps
-⚡ Sub-3-second feedback loop — corrections land before the freeze sets in
-🧠 Smart conversation — NPCs reply with natural "Hmm, yes,..." openers; less scripted feel
-💭 Voice Journal — record yourself, compare your voice from a week ago
-🎨 Dark, premium design — readable at night, no eye fatigue
+ENGLISH SPEAKING PRACTICE
 
-🤔 WHAT IS THIS?
+• 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking
+• 971 real scenarios, CEFR-mapped from A1 to C2
+• Every scene runs under 60 seconds, with sub-3-second feedback
+• Pronunciation practice for sounds Turkish ears confuse (th, æ, v/w)
+• Listen & Transcribe: hear a sentence, type what you heard; works in silent places
+• Voice Journal: record yourself and hear your progress over time (recordings stay on your device)
+• Natural dialogues: characters reply the way a real conversation partner would
+• Light and dark themes
 
-Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — 935 real scenarios, all pre-authored, zero runtime AI hallucination. Nothing you type or say leaves your device.
-
-🚀 WHY LAFLA?
+BUILT FOR TURKISH SPEAKERS
 
 Most apps teach English as translation. Lafla knows where Turkish thinking gets stuck:
 
@@ -171,124 +182,101 @@ Most apps teach English as translation. Lafla knows where Turkish thinking gets 
 • "I have problem" → "I'm having an issue with..."
 • "I am go to home" → "I'm going home"
 
-Every scene targets these specific traps. Every correction is explained in Turkish — understand the "why," don't just memorize.
+Every correction is explained in Turkish: understand the why, don't just memorize.
 
-🎓 IELTS Speaking mode covers Parts 1, 2, and 3 — the structure you need for band 7+.
+IELTS AND EXAM PREP
 
-💎 LAFLA PRO MEMBERSHIP
+IELTS Speaking mode drills the structure of Parts 1, 2 and 3. Daily word sets help you grow your vocabulary steadily while preparing for IELTS, TOEFL or YDS.
 
-All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.
+PRIVATE AND PREDICTABLE
 
-📋 Pricing: ₺99/month or ₺999/year (16% savings on annual)
-🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions
-⏰ Renewal continues at the end of each period unless cancelled
-📜 Terms: https://berkdemirokk.github.io/lafla/terms.html · Privacy: https://berkdemirokk.github.io/lafla/privacy.html
+All 971 scenarios are pre-authored and practice is fully algorithmic; no generative AI, no made-up answers. Answers are not sent to Lafla servers; voice input may be processed by iOS Speech Recognition.
+
+LAFLA PRO MEMBERSHIP
+
+All 971 scenes unlocked, unlimited replays, guided pronunciation practice, IELTS Band estimate, personal weakness report, advanced progress dashboard.
+
+• Monthly and yearly plans are available. The App Store purchase sheet shows the exact localized price and billing period before confirmation.
+• Subscriptions auto-renew at the end of each period unless cancelled.
+• Cancel anytime in iPhone Settings → Apple ID → Subscriptions.
+• Terms: https://berkdemirokk.github.io/lafla/terms.html
+• Privacy: https://berkdemirokk.github.io/lafla/privacy.html
 
 Support: berkkdemirok@gmail.com
 ```
 
-*(approx. 1,750 / 4,000 characters)*
+*(2,571 / 4,000 characters)*
 
 ---
 
 ## 4. Keywords — Türkçe (max 100 chars, comma-separated, no spaces)
 
 ```
-ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz,akıcı,fonem
+ielts,yds,yökdil,toefl,speaking,english,telaffuz,ezber,sohbet,dil,yabancı,akıcı,mülakat,dinleme
 ```
 
 *(95 / 100 characters)*
 
-> **2026-05-23 update:** IELTS modu kodda olduğu için "ielts speaking" anahtarı artık dürüst dual-purpose: hem ASO trafiği hem in-product feature match. "fonem" eklendi çünkü v0.8.0'da gerçek Phoneme Drill modu shipte — niş ama yüksek-niyet ("fonem" + "telaffuz" tekrar değil, "fonem" Türk dilbilim cohort'unu çekiyor; "telaffuz" genel audience).
->
-> **2026-05-20 note (history):** IELTS / TOEFL / YDS *keywords* were initially kept after the testprep mode cut. Faz 2'de IELTS modu geri eklenince dürüstlük katsayısı geri geldi.
-
 **Rationale:**
 
-| Keyword | Volume | Intent |
-|---|---|---|
-| `ingilizce konuşma` | Very high | Primary category intent — TR App Store top-volume English-learning term |
-| `ielts speaking` | High | Exam-prep audience, high ARPU. We catch the speaking-fluency intent without promising IELTS-specific content |
-| `flört ingilizcesi` | Medium | Owns this niche entirely; competitors do not index this term |
-| `yds` | High | Cold post-exam audience — they passed YDS but can't speak |
-| `toefl` | Medium | Complements IELTS audience, premium-spend segment |
-| `mülakat` | Medium | Spans job + academic + visa intents under one anchor |
-| `telaffuz` | Medium | Direct match to Lafla Pro pronunciation feature |
-| `akıcı` | Medium | Outcome-anchor — "akıcı İngilizce" is the audience aspiration |
-| `konuşma pratiği` | Medium | "Speaking practice" Turkish equivalent — broad-tail catcher |
+- Exam cohort: `ielts`, `yds`, `yökdil`, `toefl` — high-intent, high-ARPU; IELTS Speaking mode + daily word sets serve them honestly.
+- English-script terms Turkish users type: `speaking`, `english`.
+- Feature/outcome anchors: `telaffuz`, `ezber` (daily words), `sohbet`, `dinleme`, `akıcı`, `mülakat`.
+- Broad-tail: `dil`, `yabancı` (combine with name words "İngilizce", "Konuşma", "Öğren").
 
 **Excluded:**
-- ❌ `lafla`, `ingilizce` — already in App Name (Apple auto-indexes, duplicate spend)
-- ❌ `duolingo`, `babbel`, `talkpal`, `cambly`, `lerna` — Apple rejects competitor brand names since 2025
-- ❌ `learn english` — brutal competition, English keyword cannibalizes TR slot
+- ❌ `lafla`, `ingilizce`, `konuşma`, `öğren`, `kelime`, `pratik` — already in App Name / Subtitle (Apple auto-indexes, duplicate spend)
+- ❌ Competitor brand names (`duolingo`, `babbel`, `cambly` …) — Apple rejects them
 
 ---
 
 ## 5. Keywords — English (max 100 chars)
 
 ```
-speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation,interview
+ielts,toefl,turkish,esl,vocabulary,vocab,pronunciation,fluency,conversation,interview,accent,cefr
 ```
 
-*(91 / 100 characters)*
+*(97 / 100 characters)*
 
 **Rationale:**
 
-| Keyword | Intent |
-|---|---|
-| `speak english` | Primary intent for English-language App Store browsers |
-| `english practice` | Captures "practice English" search variant |
-| `esl turkish` | Hyper-niche, low competition, exact-match for our audience |
-| `fluency` | Outcome anchor |
-| `pronunciation` | Lafla Pro feature match |
-| `ielts` | Same exam-prep segment as TR list |
-| `toefl` | Same |
-| `conversation` | Generic but high-tail |
-| `interview` | Cross-mode anchor (job, academic, visa) |
+- Exam + level: `ielts`, `toefl`, `cefr`.
+- Audience niche: `turkish`, `esl`.
+- Daily-words feature: `vocabulary`, `vocab`.
+- Speaking outcomes: `pronunciation`, `fluency`, `conversation`, `interview`, `accent`.
+- Not repeated: `learn`, `english`, `speaking`, `daily`, `words`, `voice`, `practice` (already in Name / Subtitle).
 
 ---
 
-## 6. What's New (release notes) — v1.0.0 (built on v0.9.0)
+## 6. What's New (release notes) — v1.0.6
 
 > **TR (primary):**
 
 ```
-Lafla — ilk sürüm. Konuş, çalış.
+Yeni: Bugünün 10 Kelimesi
 
-🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS
-🎬 935 oynanabilir sahne — A1'den C1'e CEFR ile haritalı
-🎙️ Phoneme Drill — Türk kulağı için zor sesleri targetli alıştır
-🎧 Dinle + yaz modu — sessiz ortamda da pratik
-🇹🇷 Türkçeye özel hata geri bildirimi (article, doğrudan çeviri tuzakları)
-⚡ Sub-3-saniye geri bildirim — donduğunda Lafla zaten cevap vermiş
-🧠 Akıllı konuşma — NPC karakterler doğal başlangıçlarla konuşuyor
-💭 Voice Journal — kendi sesini kaydet, ilerlemeyi duy
-🌙 Neon Noir tema — premium, gece dostu
-
-Geri bildirim: berkkdemirok@gmail.com
+• Her gün seviyene göre 10 yeni kelime, örnek cümle ve sesli okunuş
+• 2 dakikalık hızlı testle pekiştir, kelimeler tekrar listene eklensin
+• Günlük kelimeleri bitirmek serini korur
+• Akşam hatırlatması: kelimeler bitmediyse haber veririz
+• Genel performans ve kararlılık iyileştirmeleri
 ```
 
-*(approx. 530 chars)*
+*(313 / 4,000 characters)*
 
 > **EN (secondary):**
 
 ```
-Lafla — first launch. Speak. Work.
+New: Today's 10 Words
 
-🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS
-🎬 935 scenarios playable at launch — CEFR-mapped A1 to C1
-🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse
-🎧 Listen & Transcribe — practice in silent environments
-🇹🇷 Turkish-tailored error feedback (articles, direct-translation traps)
-⚡ Sub-3-second feedback loop
-🧠 Smart conversation — NPCs reply with natural openers
-💭 Voice Journal — record yourself, hear your progress
-🌙 Neon Noir theme — premium, night-friendly
-
-Feedback: berkkdemirok@gmail.com
+• Ten new words a day at your level, with example sentences and audio
+• A 2-minute quick check, then every word joins your review list
+• Finishing your daily words keeps your streak alive
+• Evening reminder if today's words are still waiting
+• General performance and stability improvements
 ```
 
-*(approx. 530 chars)*
+*(313 / 4,000 characters)*
 
 ---
 
@@ -300,7 +288,7 @@ Feedback: berkkdemirok@gmail.com
 
 - **Show:** Lafla wordmark + app icon centered on the dark gradient. Subtle neon-pink underline glow under the wordmark. Small caption strip beneath: 7 mode chips (Flört / İş / Bar / Havaalanı / Günlük / Sipariş / IELTS) wrapping on two rows.
 - **Headline overlay (TR):** `Donmadan İngilizce.`
-- **Sub:** `7 mod · 935 sahne · CEFR A1–C1`
+- **Sub:** `7 mod · 971 sahne · CEFR A1–C2`
 - **Why first:** The first 1–3 screenshots auto-play in App Store search. Frame 1 answers "what is this" in under a second.
 
 ### Screenshot 2 — Differentiator (Modes Feed)
@@ -336,14 +324,14 @@ Feedback: berkkdemirok@gmail.com
 
 ### Screenshot 6 — Pricing / Value
 
-- **Show:** Lafla Pro paywall surface. Hero: `Lafla Pro — Tüm sahneler` with a glowing border. Segmented toggle (Aylık / Yıllık) at the top with **Yıllık** preselected. Price row: `₺999 / yıl` (with `%16 indirim` pill). Below: four feature rows with checkmark icons:
-  - `✓ 935 sahnenin tamamı`
+- **Show:** Lafla Pro paywall surface. Hero: `Lafla Pro — Tüm sahneler` with a glowing border. Segmented toggle (Aylık / Yıllık) at the top with **Yıllık** preselected. Price row uses the live localized App Store price, with a savings pill only when the live annual price is cheaper than 12 monthly periods. Below: four feature rows with checkmark icons:
+  - `✓ 971 sahnenin tamamı`
   - `✓ Sınırsız tekrar ve telaffuz analizi`
   - `✓ IELTS Band tahmini + kişisel zayıflık raporu`
   - `✓ Erken erişim — yeni modlar`
   - Restore Purchases link visible at the bottom (compliance signal to Apple).
 - **Headline overlay (TR):** `Bir kahvenin yarısı.`
-- **Sub:** `Yıllık ₺999 veya aylık ₺99. İstediğin an iptal.`
+- **Sub:** `Aylık veya yıllık seç. Fiyatı App Store onay ekranında gör. İstediğin an iptal.`
 - **Why:** Closes the funnel with the value proposition. Restore link visible = clean signal for Apple's reviewer. Annual-default segmented toggle reflects the live paywall behavior (yearly is the recommended tier in v0.9.0).
 
 > **Localization note:** Upload TR captions on the TR locale and EN captions on the EN locale. Images are identical — only the overlay text swaps. EN overlay equivalents: `Stop freezing.` / `Open, swipe, speak.` / `A real scene, a real mistake.` / `We explain mistakes in Turkish.` / `Real progress, mapped to CEFR.` / `Half a coffee.`
@@ -352,21 +340,21 @@ Feedback: berkkdemirok@gmail.com
 
 ## 8. Promotional Text — 170-char (updatable without re-review)
 
-### Türkçe (recommended for launch)
+### Türkçe
 
 ```
-Lafla geldi. 7 mod, 935 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçe ipuçlu hata feedback. Flörtten mülakata, donma. Konuş.
+Yeni: Bugünün 10 Kelimesi! Her gün seviyene uygun 10 kelime, sesli okunuş ve 2 dakikalık test. Gerçek sahnelerle konuşma pratiği; tamamen algoritmik.
 ```
 
-*(160 / 170 characters)*
+*(149 / 170 characters)*
 
 ### English
 
 ```
-Lafla just launched. 7 modes, 935 scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.
+New: Today's 10 Words! Ten fresh words a day at your level, with audio and a quick 2-minute check. Real-scene speaking practice, fully algorithmic.
 ```
 
-*(152 / 170 characters)*
+*(147 / 170 characters)*
 
 > **Why promo text:** This field updates without re-review. Use it for content drops (new modes, exam-season pushes, Black Friday) and for narrative hooks the reviewer doesn't need to approve.
 
@@ -408,9 +396,9 @@ Lafla is a Turkish-first English speaking-practice app. The home feed is gated b
 
 Two iOS permissions (Microphone, Speech Recognition) are requested lazily — only when the user first taps a voice exercise, not on first launch. Denying either still leaves the rest of the app usable; we present a graceful "go to Settings" prompt.
 
-Two In-App Purchases ship: `lafla.premium.monthly` (₺99/mo) and `lafla.premium.yearly` (₺999/yr) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.
+Two In-App Purchases ship: `lafla.premium.monthly` and `lafla.premium.yearly` — both via RevenueCat. The App Store purchase sheet shows the exact localized price and billing period before confirmation. Restore Purchases is reachable from both the paywall and Settings.
 
-App Tracking Transparency (ATT) prompt is shown after onboarding completes (Apple HIG: prompt at first meaningful value moment, not on launch). AdMob initialization is sequenced after ATT response. PostHog analytics are gated by ATT — denied users get zero tracking.
+App Tracking Transparency (ATT) prompt is requested from the root app shell before AdMob initialization. PostHog analytics are gated by ATT — denied users get zero tracking.
 
 Two side-rail practice modes exist for silent environments:
 - Phoneme Drill (/phoneme-drill): targeted pronunciation alıştırması for hard sounds
@@ -420,7 +408,7 @@ Voice Journal (/voice-journal): users can record up to 2-minute audio entries; s
 
 Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → immediate deletion via Supabase edge function. No 30-day grace.
 
-No runtime LLM. All NPC dialogue and feedback is pre-authored TypeScript; runtime "smart conversation" uses a deterministic mini-Markov model for bridge phrases (lib/npc-bridge.ts), not an external API. Voice Journal audio never leaves the device.
+The 971 guided scenarios are pre-authored and scored on-device. Free Chat and Real Life tools (Emergency English and custom-scenario generation) also run on-device using bundled deterministic rules; text entered in those tools is not transmitted to an AI provider or Lafla server. Voice Journal audio remains local.
 
 Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: berkkdemirok@gmail.com (Istanbul business hours, <4h response).
 ```
@@ -460,7 +448,7 @@ The single most "Apple Editorial"-friendly hook we have:
 
 Secondary hooks to pitch in the Featured submission form:
 
-- **"No runtime LLM, ever."** — Genuinely rare in 2026's app market; data flywheel architecture is a story.
+- **"Guided scenarios are pre-authored and locally scored."** — Reliable, fast feedback without presenting generated dialogue as authored lesson content.
 - **"6 modes including Flört and Bar"** — Mood-driven category framing the Apple editors will not have seen elsewhere.
 - **"Sub-3-second feedback loop"** — Speed as a feature, defensible because we pre-generate everything.
 
@@ -482,7 +470,25 @@ Secondary hooks to pitch in the Featured submission form:
 
 ---
 
+## 11. Pushing this metadata — `asc-sync.ts`
+
+All text fields above are pushed by `apps/mobile/scripts/asc-sync.ts` via the App Store Connect API. Run from `apps/mobile`:
+
+| Command | Effect |
+|---|---|
+| `pnpm asc:sync` | Dry-run. Pre-flight limit check, then prints what would be PATCHed (version localizations, review detail, build attach). No writes. |
+| `pnpm asc:sync -- --app-info` | Dry-run + prints the current-vs-target name/subtitle diff per locale. No writes. |
+| `pnpm asc:sync:apply` | Pushes description, keywords, promotional text, what's new, support/marketing URLs (`appStoreVersionLocalizations`), review detail, build attach. **Does not touch name/subtitle.** |
+| `pnpm asc:sync:apply -- --app-info` | Same as above **plus** PATCHes name/subtitle on `appInfoLocalizations` (only fields that differ). |
+
+- `--app-info` is opt-in so a routine sync never renames the live listing. It requires an editable appInfo (a version in Prepare for Submission / rejected state); if only the live `READY_FOR_DISTRIBUTION` appInfo exists the script warns and skips. The new name/subtitle ship with that version's release.
+- **Pre-flight validation** runs before any network call: name ≤30, subtitle ≤30, keywords ≤100, promotional text ≤170, description and what's new ≤4000 (counted as Unicode characters after emoji stripping). Any violation aborts the run with the offending field and length.
+- **Credentials (env):** `ASC_KEY_ID` (alias `APP_STORE_CONNECT_KEY_ID`), `ASC_ISSUER_ID` (alias `APP_STORE_CONNECT_ISSUER_ID`), and either `ASC_PRIVATE_KEY_PATH` (path to the `.p8`) or `ASC_PRIVATE_KEY` (PEM contents); `APP_STORE_CONNECT_PRIVATE_KEY[_PATH]` aliases also work. Review-detail extras: `DEMO_ACCOUNT_EMAIL`, `DEMO_ACCOUNT_PASSWORD`, `CONTACT_*`.
+- **GitHub Actions:** `.github/workflows/asc-sync.yml` exposes only the `apply` input today; adding `--app-info` there needs a new workflow input. Until then run the name/subtitle push locally.
+
+---
+
 **Owner:** App Store Optimizer
-**Document version:** v1.2 (post-2026-05-23 Faz 1-3 + 7-mode + yearly tier)
-**Last updated:** 2026-05-23
-**Status:** Ready to paste into App Store Connect (v0.9.0 → v1.0)
+**Document version:** v1.3 (v1.0.6 "Bugünün 10 Kelimesi" metadata, synced with asc-sync.ts)
+**Last updated:** 2026-11-16
+**Status:** Mirrors `apps/mobile/scripts/asc-sync.ts` METADATA

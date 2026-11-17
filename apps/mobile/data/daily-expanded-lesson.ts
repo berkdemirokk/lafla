@@ -222,6 +222,7 @@ export const dailyExpandedLesson_neighbor: BundledLesson = {
             "(i'?m|i am) in (3b|4a|apartment|the apartment)",
             "(last week|a few days ago|recently)",
           ],
+          model_answers: ["Hi, yes — I just moved in last week. I'm in 3B."],
           hint_tr: "'Hi, yes — I just moved in last week. I'm in 3B.'",
         },
         {
@@ -236,6 +237,7 @@ export const dailyExpandedLesson_neighbor: BundledLesson = {
             "my name is [a-z]+",
             "thanks?",
           ],
+          model_answers: ["Nice to meet you, Sarah. I'm Berk."],
           hint_tr: "İsim ver: 'Nice to meet you, Sarah. I'm Berk.'",
         },
         {
@@ -251,6 +253,7 @@ export const dailyExpandedLesson_neighbor: BundledLesson = {
             "i('ll| will) keep that in mind",
             "(actually|by the way).{0,40}(recycling|trash|garbage|wifi|laundry)",
           ],
+          model_answers: ["Thanks, that's really kind."],
           hint_tr:
             "Teşekkür et: 'Thanks, that's really kind.' veya ufak soru sor.",
         },
@@ -266,6 +269,7 @@ export const dailyExpandedLesson_neighbor: BundledLesson = {
             "bye",
             "thanks again",
           ],
+          model_answers: ["See you around!"],
           hint_tr: "'See you around!' veya 'Take care!' — kısa veda yeter.",
         },
       ],
@@ -613,6 +617,7 @@ export const dailyExpandedLesson_partytalk: BundledLesson = {
             "(nice|good|pleased) to meet you",
             "yeah.{0,30}(big|crowded|packed|lot of people)",
           ],
+          model_answers: ["Hey, I'm Berk. Yeah, big crowd."],
           hint_tr: "İsmini ver, kalabalığı onayla: 'Hey, I'm Berk. Yeah, big crowd.'",
         },
         {
@@ -628,6 +633,7 @@ export const dailyExpandedLesson_partytalk: BundledLesson = {
             "(through|from) (work|uni|university|college|the gym|a friend)",
             "we met (at|through|in) [a-z]+",
           ],
+          model_answers: ["We work together"],
           hint_tr:
             "Nereden tanışıyorsunuz: 'We work together' veya 'From uni'.",
         },
@@ -644,6 +650,7 @@ export const dailyExpandedLesson_partytalk: BundledLesson = {
             "(software|product|design|marketing|engineering|finance|sales|teaching|nursing|consulting)",
             "i('m| am) a (developer|designer|teacher|nurse|engineer|manager|student)",
           ],
+          model_answers: ["I'm a software engineer"],
           hint_tr:
             "İşini söyle: 'I'm a software engineer' veya 'I work in marketing'.",
         },
@@ -660,6 +667,7 @@ export const dailyExpandedLesson_partytalk: BundledLesson = {
             "since [a-z0-9]+",
             "(yeah|yes).{0,30}(while|years|long)",
           ],
+          model_answers: ["A couple of years"],
           hint_tr: "Süre: 'About four years' veya 'A couple of years'.",
         },
         {
@@ -676,6 +684,7 @@ export const dailyExpandedLesson_partytalk: BundledLesson = {
             "good (talking|chatting|meeting) you",
             "enjoy (the|your) (party|evening|night)",
           ],
+          model_answers: ["Anyway — I'll let you mingle. Really nice chatting!"],
           hint_tr:
             "Nazikçe ayrıl: 'Anyway — I'll let you mingle. Really nice chatting!'",
         },
@@ -1040,6 +1049,7 @@ export const dailyExpandedLesson_gymsub: BundledLesson = {
             "i'?m new",
             "(yeah|yes).{0,20}(first|new)",
           ],
+          model_answers: ["Yeah, it's my first day."],
           hint_tr: "Evet de: 'Yeah, it's my first day.'",
         },
         {
@@ -1055,6 +1065,7 @@ export const dailyExpandedLesson_gymsub: BundledLesson = {
             "(some )?(upper body|lower body|legs|chest|cardio)",
             "(any|some) suggestion",
           ],
+          model_answers: ["I'd like to do some weights — could you show me the chest press?"],
           hint_tr:
             "Tercih söyle: 'I'd like to do some weights — could you show me the chest press?'",
         },
@@ -1071,6 +1082,7 @@ export const dailyExpandedLesson_gymsub: BundledLesson = {
             "(could you|can you) show me how it works",
             "i('ve| have) used (one|it) (a few times|before|once)",
           ],
+          model_answers: ["No, could you show me how it works?"],
           hint_tr: "Dürüst ol: 'No, could you show me how it works?'",
         },
         {
@@ -1085,6 +1097,7 @@ export const dailyExpandedLesson_gymsub: BundledLesson = {
             "(how much|what) weight should i (start with|use)",
             "is that (good|fine|okay) for (a beginner|me)",
           ],
+          model_answers: ["Got it, thanks!"],
           hint_tr: "Anladığını göster: 'Got it, thanks!' veya ağırlık sor.",
         },
         {
@@ -1098,6 +1111,7 @@ export const dailyExpandedLesson_gymsub: BundledLesson = {
             "thanks a lot",
             "(really )?appreciate the help",
           ],
+          model_answers: ["Will do, thanks a lot!"],
           hint_tr: "Teşekkür et: 'Will do, thanks a lot!'",
         },
       ],
@@ -1394,6 +1408,7 @@ export const dailyExpandedLesson_yogaclass: BundledLesson = {
             "(i'?m|just) looking for a (yoga|class|drop-in)",
             "first time",
           ],
+          model_answers: ["Hi, I'd like to try a class — it's my first time."],
           hint_tr: "İstediğini söyle: 'Hi, I'd like to try a class — it's my first time.'",
         },
         {
@@ -1409,6 +1424,7 @@ export const dailyExpandedLesson_yogaclass: BundledLesson = {
             "(i'?m|kind of) new (to (yoga|this))?",
             "intermediate",
           ],
+          model_answers: ["I'm a complete beginner."],
           hint_tr: "Dürüst ol: 'I'm a complete beginner.'",
         },
         {
@@ -1424,6 +1440,7 @@ export const dailyExpandedLesson_yogaclass: BundledLesson = {
             "(let'?s do|i'?ll (do|take|go with))",
             "(the )?(first|second|earlier|later) one",
           ],
+          model_answers: ["The 6 pm Hatha works, thanks."],
           hint_tr: "Saati seç: 'The 6 pm Hatha works, thanks.'",
         },
         {
@@ -1439,6 +1456,7 @@ export const dailyExpandedLesson_yogaclass: BundledLesson = {
             "(can i|could i) pay (by|with) card",
             "(card|cash)( please)?",
           ],
+          model_answers: ["I'll do the intro pack, please. Card okay?"],
           hint_tr: "Seç ve öde: 'I'll do the intro pack, please. Card okay?'",
         },
         {
@@ -1452,6 +1470,7 @@ export const dailyExpandedLesson_yogaclass: BundledLesson = {
             "(do you|where can i) (provide|get|rent) (a )?mat",
             "do i need (to bring )?(a )?(mat|towel)",
           ],
+          model_answers: ["Do you provide mats?"],
           hint_tr: "Teşekkür et: 'Thanks!' İstersen mat sor: 'Do you provide mats?'",
         },
       ],
@@ -1804,6 +1823,7 @@ export const dailyExpandedLesson_library: BundledLesson = {
             "(can|could) i (apply for|get|sign up for) (a )?library card",
             "(i'?m|just) (new here|here for a card)",
           ],
+          model_answers: ["Hi, I'd like to apply for a library card, please."],
           hint_tr: "'Hi, I'd like to apply for a library card, please.'",
         },
         {
@@ -1818,6 +1838,7 @@ export const dailyExpandedLesson_library: BundledLesson = {
             "(will|would|does) (a |my )?(passport|residence permit) work",
             "(i have|i'?ve got) (a )?passport (and|with) (a |my )?(rental agreement|utility bill|bank statement)",
           ],
+          model_answers: ["Yes — here's my passport and a utility bill with my address."],
           hint_tr:
             "'Yes — here's my passport and a utility bill with my address.'",
         },
@@ -1834,6 +1855,7 @@ export const dailyExpandedLesson_library: BundledLesson = {
             "(could you|can you) help me find",
             "(i'?d like to|can i) put (a |this )?(book )?on hold",
           ],
+          model_answers: ["Actually, I'm looking for a book — could you put it on hold for me?"],
           hint_tr:
             "'Actually, I'm looking for a book — could you put it on hold for me?'",
         },
@@ -1849,7 +1871,9 @@ export const dailyExpandedLesson_library: BundledLesson = {
             "i (think|believe) it'?s [a-z]+",
             "(by|the author is) [a-z]+",
           ],
-          hint_tr: "Kitabın adını ver — yazarı varsa ekle.",
+          model_answers: ["It's called The Midnight Library by Matt Haig."],
+          hint_tr:
+            "Kitabın adını ver — yazarı varsa ekle. Örnek: “It's called The Midnight Library by Matt Haig.”",
         },
         {
           speaker: "npc",
@@ -1864,6 +1888,7 @@ export const dailyExpandedLesson_library: BundledLesson = {
             "(i'?ll|let'?s) (wait|do that)",
             "(how will|how do) (i|you) (know|notify|let me know)",
           ],
+          model_answers: ["That works, please put me on the list."],
           hint_tr: "Onayla: 'That works, please put me on the list.'",
         },
         {
@@ -2228,6 +2253,7 @@ export const dailyExpandedLesson_transitdelay: BundledLesson = {
             "is the (\\d+:\\d+|next|this) (train|service) (delayed|running late|cancelled)",
             "(why is|is) (the )?(train|service) (delayed|so late)",
           ],
+          model_answers: ["Hi — do you know why the 8:15 is delayed?"],
           hint_tr: "'Hi — do you know why the 8:15 is delayed?'",
         },
         {
@@ -2243,6 +2269,7 @@ export const dailyExpandedLesson_transitdelay: BundledLesson = {
             "(could i|can i) (take|get on) (a |the )?(different|another) (train|line|bus)",
             "what (are|do) my (options|alternatives)",
           ],
+          model_answers: ["Can I take a different line?"],
           hint_tr:
             "Alternatif sor: 'Are there any alternatives?' veya 'Can I take a different line?'",
         },
@@ -2259,6 +2286,7 @@ export const dailyExpandedLesson_transitdelay: BundledLesson = {
             "(sounds|that sounds) (good|fine|okay)",
             "(can|could) i (get|have) (a )?refund",
           ],
+          model_answers: ["Will my ticket be valid on the bus?"],
           hint_tr:
             "Süre / bilet sor: 'Will my ticket be valid on the bus?'",
         },
@@ -2273,6 +2301,7 @@ export const dailyExpandedLesson_transitdelay: BundledLesson = {
             "(got it|okay|alright)",
             "(have a|cheers|take care)",
           ],
+          model_answers: ["Thanks for the help — appreciate it."],
           hint_tr: "Teşekkür et: 'Thanks for the help — appreciate it.'",
         },
       ],
@@ -2624,6 +2653,7 @@ export const dailyExpandedLesson_landlord: BundledLesson = {
             "(this is|it'?s) [a-z]+ (from|in) (3b|apartment|flat)",
             "(hi|hello),? (i'?m|this is) (your tenant)",
           ],
+          model_answers: ["Hi Mr. Brown, this is Berk from 3B."],
           hint_tr: "Kendini tanıt: 'Hi Mr. Brown, this is Berk from 3B.'",
         },
         {
@@ -2638,6 +2668,7 @@ export const dailyExpandedLesson_landlord: BundledLesson = {
             "(it'?s been|for) (two|2|three|3) days",
             "(my|the) (radiator|boiler|heating) (is )?(out|broken|dead)",
           ],
+          model_answers: ["Actually, the heating hasn't been working for two days now."],
           hint_tr:
             "'Actually, the heating hasn't been working for two days now.'",
         },
@@ -2654,6 +2685,7 @@ export const dailyExpandedLesson_landlord: BundledLesson = {
             "(it'?s|they'?re) (set|on) (right|correctly|properly)",
             "(no|not yet) — (how|where|what)",
           ],
+          model_answers: ["Yes — I checked both. The thermostat is set right."],
           hint_tr: "'Yes — I checked both. The thermostat is set right.'",
         },
         {
@@ -2669,6 +2701,7 @@ export const dailyExpandedLesson_landlord: BundledLesson = {
             "(could|can) (someone|they) come (today|tomorrow|asap)",
             "(the )?sooner the better",
           ],
+          model_answers: ["Any time tomorrow after 5 pm."],
           hint_tr: "Müsait zamanını ver: 'Any time tomorrow after 5 pm.'",
         },
         {
@@ -2682,6 +2715,7 @@ export const dailyExpandedLesson_landlord: BundledLesson = {
             "(thanks?|thank you|appreciate (it|that))",
             "(see you|talk to you) (tomorrow|then)",
           ],
+          model_answers: ["Sounds good — thanks a lot."],
           hint_tr: "Onayla ve teşekkür et: 'Sounds good — thanks a lot.'",
         },
       ],
@@ -3033,6 +3067,7 @@ export const dailyExpandedLesson_utilities: BundledLesson = {
             "i'?d like to (set up|start|order|sign up for) (internet|service|broadband|wi-?fi)",
             "(could|can) i (set up|start|get) internet",
           ],
+          model_answers: ["Hi, I just moved into a new place and I'd like to set up internet."],
           hint_tr: "'Hi, I just moved into a new place and I'd like to set up internet.'",
         },
         {
@@ -3048,6 +3083,7 @@ export const dailyExpandedLesson_utilities: BundledLesson = {
             "(standard|basic|premium|the middle one)",
             "(just )?(two|three|a couple of) (people|users)",
           ],
+          model_answers: ["I work from home, lots of video calls."],
           hint_tr:
             "Kullanımı söyle: 'I work from home, lots of video calls.'",
         },
@@ -3063,6 +3099,7 @@ export const dailyExpandedLesson_utilities: BundledLesson = {
             "(what'?s|how'?s) the price (difference|like)",
             "(i'?ll|let'?s) (go with|do|take) (month-?to-?month|the contract|annual)",
           ],
+          model_answers: ["Month-to-month, please — is the price the same?"],
           hint_tr:
             "Tercih: 'Month-to-month, please — is the price the same?'",
         },
@@ -3079,6 +3116,7 @@ export const dailyExpandedLesson_utilities: BundledLesson = {
             "what (slots|times) (do you have|are available)",
             "as soon as possible",
           ],
+          model_answers: ["Saturday morning works, if possible."],
           hint_tr: "Tarih ver: 'Saturday morning works, if possible.'",
         },
         {
@@ -3092,6 +3130,7 @@ export const dailyExpandedLesson_utilities: BundledLesson = {
             "(sounds good|perfect|great)",
             "(do|will) i need to (be there|sign anything|provide)",
           ],
+          model_answers: ["Perfect, thanks!"],
           hint_tr: "Onayla: 'Perfect, thanks!' veya gereklilik sor.",
         },
       ],
@@ -3453,6 +3492,7 @@ export const dailyExpandedLesson_bankopen: BundledLesson = {
             "(could|can) i open (a |an )?(checking |savings |new |bank )?account",
             "i'?m here to open (a |an )?account",
           ],
+          model_answers: ["Hi — I'd like to open a checking account, please."],
           hint_tr: "'Hi — I'd like to open a checking account, please.'",
         },
         {
@@ -3467,6 +3507,7 @@ export const dailyExpandedLesson_bankopen: BundledLesson = {
             "(and|with) (a )?(utility bill|bank statement|rental agreement|lease)",
             "(will|would) (this|these) work",
           ],
+          model_answers: ["Yes — my passport, residence permit, and a utility bill."],
           hint_tr:
             "'Yes — my passport, residence permit, and a utility bill.'",
         },
@@ -3483,6 +3524,7 @@ export const dailyExpandedLesson_bankopen: BundledLesson = {
             "the standard (sounds|works|is) (better|fine)",
             "(can i|could i) (change|upgrade) later",
           ],
+          model_answers: ["What's the difference between them?"],
           hint_tr:
             "Seç veya farkı sor: 'What's the difference between them?'",
         },
@@ -3498,6 +3540,7 @@ export const dailyExpandedLesson_bankopen: BundledLesson = {
             "(is there|any) (a )?fee (for|with) (the )?(card|debit)",
             "(can i|could i) get (a )?contactless",
           ],
+          model_answers: ["Yes, please — is there a card fee?"],
           hint_tr: "'Yes, please — is there a card fee?'",
         },
         {
@@ -3512,6 +3555,7 @@ export const dailyExpandedLesson_bankopen: BundledLesson = {
             "(can i|could i) use (my account|the account) (right away|today)",
             "(do i|will i) get (an account number|online banking) (today|now)",
           ],
+          model_answers: ["Thanks. Can I start using the account today?"],
           hint_tr:
             "'Thanks. Can I start using the account today?'",
         },
@@ -3870,6 +3914,7 @@ export const dailyExpandedLesson_insurance: BundledLesson = {
             "i'?d like (a quote|to get a quote)",
             "(could|can) i get (a |some )?(quote|info|information) on",
           ],
+          model_answers: ["Hi — I'm looking for a renters insurance quote, please."],
           hint_tr:
             "'Hi — I'm looking for a renters insurance quote, please.'",
         },
@@ -3885,6 +3930,7 @@ export const dailyExpandedLesson_insurance: BundledLesson = {
             "(an? )?house",
             "i (rent|live in) (an? )?(apartment|house|flat)",
           ],
+          model_answers: ["A one-bedroom apartment."],
           hint_tr: "'A one-bedroom apartment.'",
         },
         {
@@ -3899,6 +3945,7 @@ export const dailyExpandedLesson_insurance: BundledLesson = {
             "what'?s (the difference|covered) (between them|in each)",
             "(does it|do they) cover (theft|fire|water|electronics|my laptop)",
           ],
+          model_answers: ["Mainly theft — what's the difference between the two plans?"],
           hint_tr:
             "'Mainly theft — what's the difference between the two plans?'",
         },
@@ -3914,6 +3961,7 @@ export const dailyExpandedLesson_insurance: BundledLesson = {
             "(per |a )?month",
             "(can i|could i) (see|get) (the )?(numbers|breakdown|details)",
           ],
+          model_answers: ["How much is each one per month?"],
           hint_tr: "Fiyat sor: 'How much is each one per month?'",
         },
         {
@@ -3928,6 +3976,7 @@ export const dailyExpandedLesson_insurance: BundledLesson = {
             "(can i|could i) (take|get) (a brochure|something to read|the details by email)",
             "(can you|could you) (send|email) me the (details|quote)",
           ],
+          model_answers: ["I'll go with the comprehensive, please."],
           hint_tr:
             "Karar ver veya zaman al: 'I'll go with the comprehensive, please.' veya 'Could you email me the details?'",
         },
@@ -4286,6 +4335,7 @@ export const dailyExpandedLesson_salondetailed: BundledLesson = {
             "(something|nothing) (drastic|too short)",
             "(a |an )?inch (off|shorter)",
           ],
+          model_answers: ["Hi — just a trim, please. About an inch off."],
           hint_tr: "'Hi — just a trim, please. About an inch off.'",
         },
         {
@@ -4300,6 +4350,7 @@ export const dailyExpandedLesson_salondetailed: BundledLesson = {
             "(maybe|actually) (a little|a bit) (shorter|longer|tidier)",
             "(could you|can you) (clean up|tidy|shape) (it|the top)",
           ],
+          model_answers: ["Yeah, same style — maybe a bit tidier around the ears."],
           hint_tr: "'Yeah, same style — maybe a bit tidier around the ears.'",
         },
         {
@@ -4315,6 +4366,7 @@ export const dailyExpandedLesson_salondetailed: BundledLesson = {
             "(low|mid|high) (fade|taper)",
             "(what would you|any) (recommend|suggest)",
           ],
+          model_answers: ["A low fade, please."],
           hint_tr: "Bir stil seç: 'A low fade, please.'",
         },
         {
@@ -4330,6 +4382,7 @@ export const dailyExpandedLesson_salondetailed: BundledLesson = {
             "(something )?light",
             "whatever you (recommend|use)",
           ],
+          model_answers: ["Matte finish, please — nothing heavy."],
           hint_tr: "Tercih: 'Matte finish, please — nothing heavy.'",
         },
         {
@@ -4342,6 +4395,7 @@ export const dailyExpandedLesson_salondetailed: BundledLesson = {
             "(thanks?|thank you)",
             "(sounds good|sure|alright|cool)",
           ],
+          model_answers: ["Thanks!"],
           hint_tr: "Kısa: 'Thanks!'",
         },
       ],
@@ -4694,6 +4748,7 @@ export const dailyExpandedLesson_optician: BundledLesson = {
             "(i'?m|i am) (having trouble|struggling) (to|seeing)",
             "(i )?think my prescription (has )?changed",
           ],
+          model_answers: ["Hi, I'd like an eye test — my prescription might have changed."],
           hint_tr:
             "'Hi, I'd like an eye test — my prescription might have changed.'",
         },
@@ -4709,6 +4764,7 @@ export const dailyExpandedLesson_optician: BundledLesson = {
             "(i'?m )?not sure",
             "(it'?s been|a while|too long)",
           ],
+          model_answers: ["About two years ago."],
           hint_tr: "'About two years ago.'",
         },
         {
@@ -4721,6 +4777,7 @@ export const dailyExpandedLesson_optician: BundledLesson = {
             "(sounds good|sure|okay|alright|thanks)",
             "(perfect|great)",
           ],
+          model_answers: ["Sounds good, thanks."],
           hint_tr: "Onayla: 'Sounds good, thanks.'",
         },
         {
@@ -4735,6 +4792,7 @@ export const dailyExpandedLesson_optician: BundledLesson = {
             "(any |what'?s) (recommendation|on sale|good)",
             "(something|i'?d like) (lightweight|metal|plastic|simple|round|square)",
           ],
+          model_answers: ["Yes, please — something lightweight, if possible."],
           hint_tr: "'Yes, please — something lightweight, if possible.'",
         },
         {
@@ -4749,6 +4807,7 @@ export const dailyExpandedLesson_optician: BundledLesson = {
             "(do (you|they)|are (they|those)) (come|available) in (other colours|black|brown|tortoise)",
             "(i )?(like|prefer|love) (these|those|them)",
           ],
+          model_answers: ["Can I try these on?"],
           hint_tr: "Dene veya fiyat sor: 'Can I try these on?'",
         },
         {
@@ -4762,6 +4821,7 @@ export const dailyExpandedLesson_optician: BundledLesson = {
             "(can i|could i) pay (a deposit|now|by card)",
             "(do you|will you) (call|email) me",
           ],
+          model_answers: ["Great, thanks — can I pay a deposit now?"],
           hint_tr: "Onayla: 'Great, thanks — can I pay a deposit now?'",
         },
       ],
@@ -5115,6 +5175,7 @@ export const dailyExpandedLesson_dentist: BundledLesson = {
             "(it'?s|i'?ve been) (hurting|sensitive) (to|when) (cold|hot|sweet)",
             "(i'?m also )?(due for|here for) (a )?(cleaning|check-?up)",
           ],
+          model_answers: ["My bottom tooth hurts when I drink something cold."],
           hint_tr:
             "'My bottom tooth hurts when I drink something cold.'",
         },
@@ -5130,6 +5191,7 @@ export const dailyExpandedLesson_dentist: BundledLesson = {
             "(it started|started) (a |last )(week|few days)",
             "(recently|lately)",
           ],
+          model_answers: ["About a week ago."],
           hint_tr: "'About a week ago.'",
         },
         {
@@ -5145,6 +5207,7 @@ export const dailyExpandedLesson_dentist: BundledLesson = {
             "(how long|how much time) (does it|will it) take",
             "(can|could) (you|i) (use|have) (numbing|anesthetic|something for the pain)",
           ],
+          model_answers: ["Okay. Will I need numbing for it?"],
           hint_tr:
             "Onay/soru: 'Okay. Will I need numbing for it?'",
         },
@@ -5160,6 +5223,7 @@ export const dailyExpandedLesson_dentist: BundledLesson = {
             "(how much|will|does) (extra|that cost|it cost extra)",
             "(yes,? )?(might )?as well",
           ],
+          model_answers: ["Yes, might as well — how much extra is it?"],
           hint_tr:
             "Karar: 'Yes, might as well — how much extra is it?'",
         },
@@ -5174,6 +5238,7 @@ export const dailyExpandedLesson_dentist: BundledLesson = {
             "(okay|alright|let'?s do it)",
             "(can i|could i) pay (after|at the desk|by card)",
           ],
+          model_answers: ["Perfect, let's do it — thanks."],
           hint_tr: "'Perfect, let's do it — thanks.'",
         },
       ],
@@ -5534,6 +5599,7 @@ export const dailyExpandedLesson_worship: BundledLesson = {
             "(i'?m|just) (here )?(to look|visiting|a visitor)",
             "(for|here for) prayer",
           ],
+          model_answers: ["Hi — just a visit, please."],
           hint_tr: "'Hi — just a visit, please.'",
         },
         {
@@ -5548,6 +5614,7 @@ export const dailyExpandedLesson_worship: BundledLesson = {
             "(yes|yeah).{0,30}(years ago|long time|once)",
             "(could you|can you) tell me (what|the rules|the etiquette)",
           ],
+          model_answers: ["No, it's my first time — could you tell me the etiquette?"],
           hint_tr:
             "'No, it's my first time — could you tell me the etiquette?'",
         },
@@ -5563,6 +5630,7 @@ export const dailyExpandedLesson_worship: BundledLesson = {
             "(is it okay|can i|may i) (to )?take (a )?(photo|photos|pictures)",
             "(where do i|where can i) (leave|put) (my )?shoes",
           ],
+          model_answers: ["Got it. Is it okay to take photos?"],
           hint_tr:
             "Soru ekle: 'Got it. Is it okay to take photos?'",
         },
@@ -5577,6 +5645,7 @@ export const dailyExpandedLesson_worship: BundledLesson = {
             "(thanks?|thank you|appreciate it)",
             "(is there|do you have) (a |any )?(guide|brochure|map)",
           ],
+          model_answers: ["Understood — thank you."],
           hint_tr: "'Understood — thank you.' Rehber var mı sorabilirsin.",
         },
         {
@@ -5933,6 +6002,7 @@ export const dailyExpandedLesson_beachsafe: BundledLesson = {
             "(yes|yeah)",
             "(i'?m|we'?re) (here|staying) (with|at).{0,30}",
           ],
+          model_answers: ["Hi, yeah — first time here."],
           hint_tr: "'Hi, yeah — first time here.'",
         },
         {
@@ -5947,6 +6017,7 @@ export const dailyExpandedLesson_beachsafe: BundledLesson = {
             "(is there|do you have) (a )?(shallow|kids|children'?s) (area|end|section|pool)",
             "(any )?(advice|tips) for (kids|children)",
           ],
+          model_answers: ["My child can't swim yet — is there a shallow area?"],
           hint_tr:
             "Çocuğu söyle: 'My child can't swim yet — is there a shallow area?'",
         },
@@ -5962,6 +6033,7 @@ export const dailyExpandedLesson_beachsafe: BundledLesson = {
             "(do i|should i|do we) need (life jackets|floaties)",
             "(is there|any) (specific|certain) (time|hours)",
           ],
+          model_answers: ["Got it, thanks. Are there any strong currents today?"],
           hint_tr: "'Got it, thanks. Are there any strong currents today?'",
         },
         {
@@ -5974,6 +6046,7 @@ export const dailyExpandedLesson_beachsafe: BundledLesson = {
             "(of course|sure|got it|understood|will do)",
             "(thanks?|thank you|appreciate it)",
           ],
+          model_answers: ["Of course — thanks!"],
           hint_tr: "Onayla: 'Of course — thanks!'",
         },
         {
@@ -5986,6 +6059,7 @@ export const dailyExpandedLesson_beachsafe: BundledLesson = {
             "(thanks?|thank you|cheers)",
             "(have a good|appreciate it)",
           ],
+          model_answers: ["Thanks!"],
           hint_tr: "Kısa: 'Thanks!'",
         },
       ],
@@ -6380,6 +6454,7 @@ export const dailyExpandedLesson_vet: BundledLesson = {
             "(her|his) name is [a-z]+",
             "(she'?s|he'?s) (here for|due for) (a |her |his )?(annual )?(checkup|check-?up|vaccinations?)",
           ],
+          model_answers: ["Hi, this is Luna — she's here for her annual checkup."],
           hint_tr:
             "Hayvanı tanıt: 'Hi, this is Luna — she's here for her annual checkup.'",
         },
@@ -6396,6 +6471,7 @@ export const dailyExpandedLesson_vet: BundledLesson = {
             "(seems|looks) (a bit|kind of) (tired|low-?energy|sluggish|lethargic)",
             "(for|since) (a few|several|two|three) days",
           ],
+          model_answers: ["Yes — she's been off her food for a few days and seems a bit low-energy."],
           hint_tr:
             "'Yes — she's been off her food for a few days and seems a bit low-energy.'",
         },
@@ -6411,6 +6487,7 @@ export const dailyExpandedLesson_vet: BundledLesson = {
             "(once|twice|a little) (last night|yesterday)",
             "(no )?diarrhoea|diarrhea",
           ],
+          model_answers: ["No vomiting. She's still drinking water normally."],
           hint_tr:
             "Net cevap: 'No vomiting. She's still drinking water normally.'",
         },
@@ -6426,6 +6503,7 @@ export const dailyExpandedLesson_vet: BundledLesson = {
             "(her|his) last (shots?|vaccinations?) (were|was)",
             "(i'?m )?not sure — could you check (the )?records?",
           ],
+          model_answers: ["Yes, she should be up to date — her last shots were in spring."],
           hint_tr:
             "'Yes, she should be up to date — her last shots were in spring.'",
         },
@@ -6441,6 +6519,7 @@ export const dailyExpandedLesson_vet: BundledLesson = {
             "(will|does) (it|she) need (fasting|to fast)",
             "(thanks?|thank you)",
           ],
+          model_answers: ["Sounds good — how much will the blood test be?"],
           hint_tr:
             "Onayla + soru: 'Sounds good — how much will the blood test be?'",
         },
@@ -6812,6 +6891,7 @@ export const dailyExpandedLesson_drycleaner: BundledLesson = {
             "(i have|i'?ve got) (a )?(suit|jacket|shirt|dress|coat)",
             "(this )?(suit|jacket|shirt|dress) (needs|for) (a )?clean(ing)?",
           ],
+          model_answers: ["Hi — I'd like to drop off this suit for cleaning."],
           hint_tr:
             "'Hi — I'd like to drop off this suit for cleaning.'",
         },
@@ -6827,6 +6907,7 @@ export const dailyExpandedLesson_drycleaner: BundledLesson = {
             "(on|near) the (lapel|sleeve|collar|cuff|front)",
             "(do you think|will) (it|they|the stain) come out",
           ],
+          model_answers: ["Yeah, there's a coffee stain on the lapel — will it come out?"],
           hint_tr:
             "Lekeyi göster: 'Yeah, there's a coffee stain on the lapel — will it come out?'",
         },
@@ -6842,6 +6923,7 @@ export const dailyExpandedLesson_drycleaner: BundledLesson = {
             "(please )?(try|do) your best",
             "(that'?s )?fine",
           ],
+          model_answers: ["Got it — please do your best, thanks."],
           hint_tr: "'Got it — please do your best, thanks.'",
         },
         {
@@ -6856,6 +6938,7 @@ export const dailyExpandedLesson_drycleaner: BundledLesson = {
             "(how long for these to be ready)",
             "(could i|can i) (get|have) (it|them) (by|on|before)",
           ],
+          model_answers: ["Standard is fine, thanks."],
           hint_tr:
             "Karar: 'Standard is fine, thanks.' veya 'Let's do express.'",
         },
@@ -6870,6 +6953,7 @@ export const dailyExpandedLesson_drycleaner: BundledLesson = {
             "(see you|i'?ll see you) (then|thursday)",
             "(do i|should i) (pay now|pay on pickup)",
           ],
+          model_answers: ["Perfect, thanks — see you Thursday."],
           hint_tr: "'Perfect, thanks — see you Thursday.'",
         },
       ],
@@ -7241,6 +7325,7 @@ export const dailyExpandedLesson_postoffice: BundledLesson = {
             "(i'?m )?sending (this|a package) to [a-z]+",
             "(this is going to|destination is) [a-z]+",
           ],
+          model_answers: ["Hi — I'd like to send this package to Turkey, please."],
           hint_tr:
             "'Hi — I'd like to send this package to Turkey, please.'",
         },
@@ -7256,6 +7341,7 @@ export const dailyExpandedLesson_postoffice: BundledLesson = {
             "(it'?s )?(just|only) [a-z]+",
             "(no|nothing) (like that|special)",
           ],
+          model_answers: ["No, just clothes and a couple of books."],
           hint_tr:
             "Net cevap: 'No, just clothes and a couple of books.'",
         },
@@ -7271,6 +7357,7 @@ export const dailyExpandedLesson_postoffice: BundledLesson = {
             "(let'?s do|i'?ll go with|i'?ll take) (priority|first-?class)",
             "(what'?s the cheapest|the cheaper one)",
           ],
+          model_answers: ["How much is the difference? And how long for each?"],
           hint_tr:
             "Önce fiyat/süre sor: 'How much is the difference? And how long for each?'",
         },
@@ -7286,6 +7373,7 @@ export const dailyExpandedLesson_postoffice: BundledLesson = {
             "(is )?tracking included",
             "(does it|do they) come with (a )?tracking (number)?",
           ],
+          model_answers: ["Let's go with priority. Is tracking included?"],
           hint_tr:
             "Karar + takip sor: 'Let's go with priority. Is tracking included?'",
         },
@@ -7300,6 +7388,7 @@ export const dailyExpandedLesson_postoffice: BundledLesson = {
             "(could i|can i) (get|add) (extra )?insurance",
             "(do i|should i) (fill out|need) (a )?(customs )?form",
           ],
+          model_answers: ["Great — do I need to fill out a customs form?"],
           hint_tr:
             "Onayla + gümrük formu sor: 'Great — do I need to fill out a customs form?'",
         },
@@ -7314,6 +7403,7 @@ export const dailyExpandedLesson_postoffice: BundledLesson = {
             "(could i|can i) pay (by card|with card|cash)",
             "(perfect|alright)",
           ],
+          model_answers: ["Got it — can I pay by card?"],
           hint_tr: "'Got it — can I pay by card?'",
         },
       ],
@@ -7685,6 +7775,7 @@ export const dailyExpandedLesson_dmv: BundledLesson = {
             "(i have|i'?ve got) (an )?appointment",
             "(i'?m here for|i came in for) (a )?(license )?renewal",
           ],
+          model_answers: ["Hi — I'm here to renew my driver's license. I have a 10 o'clock appointment."],
           hint_tr:
             "'Hi — I'm here to renew my driver's license. I have a 10 o'clock appointment.'",
         },
@@ -7699,6 +7790,7 @@ export const dailyExpandedLesson_dmv: BundledLesson = {
             "(here'?s|this is) (my )?(license|id|utility bill|lease)",
             "(i'?ve got|i brought) (a )?(utility bill|lease|bank statement)",
           ],
+          model_answers: ["Sure, here you go — and here's a utility bill for proof of address."],
           hint_tr: "'Sure, here you go — and here's a utility bill for proof of address.'",
         },
         {
@@ -7713,6 +7805,7 @@ export const dailyExpandedLesson_dmv: BundledLesson = {
             "(i )?moved (recently|last (month|year))",
             "(no|nothing|everything'?s the same)",
           ],
+          model_answers: ["Yes — my address has changed. I moved last month."],
           hint_tr:
             "'Yes — my address has changed. I moved last month.'",
         },
@@ -7728,6 +7821,7 @@ export const dailyExpandedLesson_dmv: BundledLesson = {
             "(is it|that'?s) required",
             "(sure|okay|yes).{0,20}(if|that)",
           ],
+          model_answers: ["Actually, do I need to retake the eye test? I wasn't sure."],
           hint_tr:
             "Sor: 'Actually, do I need to retake the eye test? I wasn't sure.'",
         },
@@ -7742,6 +7836,7 @@ export const dailyExpandedLesson_dmv: BundledLesson = {
             "(thanks?|thank you)",
             "(without|with) my glasses",
           ],
+          model_answers: ["Sure, got it — with my glasses, right?"],
           hint_tr: "'Sure, got it — with my glasses, right?'",
         },
         {
@@ -7756,6 +7851,7 @@ export const dailyExpandedLesson_dmv: BundledLesson = {
             "(thanks?|thank you|perfect)",
             "(how long|when will|when does) (the new one|my license) (arrive|come)",
           ],
+          model_answers: ["Got it. How long until the new license arrives?"],
           hint_tr:
             "'Got it. How long until the new license arrives?'",
         },

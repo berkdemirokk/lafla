@@ -100,6 +100,7 @@ export const restaurantLesson_2_1: BundledLesson = {
             "we are (one|two|three|four|five|six|\\d+)",
             "(one|two|three|four|five|six|\\d+) people",
           ],
+          model_answers: ["Table for two"],
           hint_tr:
             "Kişi sayısı söyle: 'Two, please' veya 'Table for two'.",
         },
@@ -117,6 +118,7 @@ export const restaurantLesson_2_1: BundledLesson = {
             "we'?ll (sit|take) (inside|outside|the patio)",
             "by the window",
           ],
+          model_answers: ["By the window"],
           hint_tr:
             "Tercih: 'Inside, please', 'Outside', veya 'By the window'.",
         },
@@ -134,6 +136,7 @@ export const restaurantLesson_2_1: BundledLesson = {
             "(yes|it'?s) under [a-z]+",
             "we don'?t have one",
           ],
+          model_answers: ["Yes, under [name]"],
           hint_tr:
             "Rezervasyon: 'Yes, under [name]' veya 'No, just walking in'. Türk öğrenci 'walk-in' der genelde — anlaşılmaz değil ama tam karşılığı 'rezervasyonsuz'.",
         },
@@ -149,6 +152,7 @@ export const restaurantLesson_2_1: BundledLesson = {
             "(thanks|thank you) so much",
             "(cool|nice|great)(,)? thanks",
           ],
+          model_answers: ["Great, thank you"],
           hint_tr:
             "Teşekkür: 'Thanks!' veya 'Great, thank you'.",
         },
@@ -167,6 +171,7 @@ export const restaurantLesson_2_1: BundledLesson = {
             "(give us|let us have) (a moment|a minute|a sec)",
             "just (water|tap water)(,)? thanks",
           ],
+          model_answers: ["A glass of wine, please"],
           hint_tr:
             "İçecek: 'Just water, please' veya 'A glass of wine, please'. ABD'de su ücretsiz — 'tap water' = musluk suyu.",
         },
@@ -634,6 +639,7 @@ export const restaurantLesson_2_2: BundledLesson = {
             "(any|got any) recommend",
             "what('s| is) (good|popular|the special)",
           ],
+          model_answers: ["Could we have a few more minutes?"],
           hint_tr:
             "Hazırsan: 'Yes, we're ready'. Süre istersen: 'Could we have a few more minutes?'. Veya öneri sor.",
         },
@@ -651,6 +657,7 @@ export const restaurantLesson_2_2: BundledLesson = {
             "sounds good",
             "i('ll take|d like) (it|that|the special)",
           ],
+          model_answers: ["I'll have the salmon, please"],
           hint_tr:
             "Sipariş ver: 'I'll have the salmon, please' veya 'I'd like the special'.",
         },
@@ -669,6 +676,7 @@ export const restaurantLesson_2_2: BundledLesson = {
             "still water",
             "house red",
           ],
+          model_answers: ["A glass of red wine"],
           hint_tr: "İçecek: 'Water, please', 'A glass of red wine', 'Just water'.",
         },
         {
@@ -686,6 +694,7 @@ export const restaurantLesson_2_2: BundledLesson = {
             "what (else )?(do you have|would you recommend)",
             "(actually )?(yes|let'?s try) (the )?(burrata|bruschetta|salad)",
           ],
+          model_answers: ["Sure, the burrata sounds good"],
           hint_tr:
             "Başlangıç ister misin? 'Sure, the burrata sounds good' veya 'No thanks, just the main'. Türk: pidemiz ekmek olarak gelir, burada appetizer ayrı menü kalemi.",
         },
@@ -704,6 +713,7 @@ export const restaurantLesson_2_2: BundledLesson = {
             "(not too |not very |a little )?(rare|pink|done)",
             "medium,? please",
           ],
+          model_answers: ["However the chef recommends"],
           hint_tr:
             "Pişirme: 'Medium, please' veya 'However the chef recommends'. Salmon için 'medium' güvenli; biftek soruşunda 'medium rare' klasik.",
         },
@@ -722,6 +732,7 @@ export const restaurantLesson_2_2: BundledLesson = {
             "(could you )?(skip|leave out|hold) the (cheese|onion|garlic)",
             "no(,)? (thanks|none|nothing serious)",
           ],
+          model_answers: ["I'm vegetarian — could you leave out the bacon?"],
           hint_tr:
             "Alerji var mı? 'No allergies' yeter. Varsa 'I'm allergic to nuts'. Vejetaryen için: 'I'm vegetarian — could you leave out the bacon?'",
         },
@@ -1183,6 +1194,7 @@ export const restaurantLesson_2_3: BundledLesson = {
             "(we're|we are) (all )?good( thanks)?",
             "could (we|i) (get|have)",
           ],
+          model_answers: ["Everything is great, thanks"],
           hint_tr:
             "Övgü ile başla: 'Everything is great, thanks'. Eksik bir şey varsa ekle.",
         },
@@ -1202,6 +1214,7 @@ export const restaurantLesson_2_3: BundledLesson = {
             "we'?re fine",
             "could (i|we) get a (refill|fork|knife|spoon)",
           ],
+          model_answers: ["Could we get more bread, please?"],
           hint_tr:
             "İstersen: 'Could we get more bread, please?'. İstemiyorsan: 'No thanks, we're good'.",
         },
@@ -1673,6 +1686,7 @@ export const restaurantLesson_2_4: BundledLesson = {
             "(could|can) we settle up",
             "no thanks(, the bill)?",
           ],
+          model_answers: ["Could we get the check, please?"],
           hint_tr: "Hesap isteme: 'Could we get the check, please?'",
         },
         {
@@ -1691,6 +1705,7 @@ export const restaurantLesson_2_4: BundledLesson = {
             "all on (one|my) card",
             "(i'?ll|i will) (get|pay for) (it|this)( one)?",
           ],
+          model_answers: ["One card, all on mine"],
           hint_tr:
             "Bölme: 'Could we split it?' veya 'Split, please'. Tek kart: 'One card, all on mine'.",
         },
@@ -1707,6 +1722,7 @@ export const restaurantLesson_2_4: BundledLesson = {
             "(thanks|thank you) (so much )?(for everything)?",
             "appreciate it",
           ],
+          model_answers: ["Thanks so much"],
           hint_tr: "Teşekkür: 'Thanks!', 'Thanks so much', 'Appreciate it'.",
         },
       ],
@@ -2166,6 +2182,7 @@ export const restaurantLesson_2_5: BundledLesson = {
             "i have a (nut|gluten|peanut|dairy) (allergy|intolerance)",
             "(could|can) (you|i) (help|ask|tell)",
           ],
+          model_answers: ["I'm vegetarian and I have a gluten allergy"],
           hint_tr:
             "Önce kendini tanıt: 'I'm vegetarian and I have a gluten allergy'. Sağlık bilgisi net olmalı.",
         },
@@ -2184,6 +2201,7 @@ export const restaurantLesson_2_5: BundledLesson = {
             "(any|are there) nuts in",
             "is there (any )?(nut|peanut|wheat|gluten|dairy) in",
           ],
+          model_answers: ["Does the risotto contain nuts?"],
           hint_tr:
             "Spesifik bir yemek soruşur: 'Does the risotto contain nuts?' veya 'Is the soup vegan?'",
         },
@@ -2201,6 +2219,7 @@ export const restaurantLesson_2_5: BundledLesson = {
             "(yes|yeah) (i'?ll|let'?s) (have|go with) that",
             "(could|can) you (please )?(double check|confirm)",
           ],
+          model_answers: ["The grilled vegetable plate sounds great, I'll have that"],
           hint_tr:
             "Tavsiyeyi kabul et: 'The grilled vegetable plate sounds great, I'll have that'. Veya emin olmak istersen: 'Could you double check with the kitchen?'",
         },
@@ -2630,6 +2649,7 @@ export const restaurantLesson_2_6: BundledLesson = {
             "what (do|would) you (recommend|suggest)",
             "any (recommendations|favorites)",
           ],
+          model_answers: ["It's our first time here, what would you recommend?"],
           hint_tr:
             "İlk gelişin olduğunu söyle, tavsiye iste: 'It's our first time here, what would you recommend?'",
         },
@@ -2648,6 +2668,7 @@ export const restaurantLesson_2_6: BundledLesson = {
             "is (the |it )?(spicy|heavy|big|sharing)",
             "what (do you|would you) (have|go with) (yourself|personally)",
           ],
+          model_answers: ["Could you tell me more about the lamb?"],
           hint_tr:
             "Detay sor veya kabul et: 'Could you tell me more about the lamb?' veya 'Sounds great, we'll have both'.",
         },
@@ -2665,6 +2686,7 @@ export const restaurantLesson_2_6: BundledLesson = {
             "(thanks|thank you)( for the recommendation)?",
             "(we'?ll|let'?s) trust (you|your judgment)",
           ],
+          model_answers: ["Sounds great, we'll do the lamb and the house red"],
           hint_tr:
             "Karar ver: 'Let's go with that' veya 'Sounds great, we'll do the lamb and the house red'.",
         },
@@ -3099,6 +3121,7 @@ export const restaurantLesson_2_7: BundledLesson = {
             "(what (else|would you) recommend|any (suggestion|alternative))",
             "what (do you have|else is good)",
           ],
+          model_answers: ["No worries"],
           hint_tr:
             "Hayal kırıklığını yumuşat: 'No worries' veya 'No problem'. Hemen alternatif iste.",
         },
@@ -3118,6 +3141,7 @@ export const restaurantLesson_2_7: BundledLesson = {
             "the (trout|chicken|roulade)( please| sounds good)?",
             "what (do|would) you recommend (between|of) (the )?(two|those)",
           ],
+          model_answers: ["I'll go with the trout, then"],
           hint_tr:
             "Bilgi iste veya doğrudan seç: 'How is the trout?' / 'I'll go with the trout, then'.",
         },
@@ -3135,6 +3159,7 @@ export const restaurantLesson_2_7: BundledLesson = {
             "(yes|yeah|okay)?( i'?ll have)? (the )?trout( please)?",
             "(thanks|thank you)( for (the )?suggestion)?",
           ],
+          model_answers: ["Sounds perfect, I'll take the trout"],
           hint_tr:
             "Karar ver: 'The trout, then. Thanks!' veya 'Sounds perfect, I'll take the trout'.",
         },
@@ -3567,6 +3592,7 @@ export const restaurantLesson_2_8: BundledLesson = {
             "(table for )?(three|3)( please)?( with a little one)?",
             "(actually|no),? (three|we have a)",
           ],
+          model_answers: ["Actually, three — we have a little one with us"],
           hint_tr:
             "Düzelt: 'Actually, three — we have a little one with us'. 'Little one' = küçük (çocuk için sıcak ifade).",
         },
@@ -3585,6 +3611,7 @@ export const restaurantLesson_2_8: BundledLesson = {
             "(yes|please)?, (a |the )?high chair( please| would be great)?",
             "(she'?s|he'?s) (\\d+|two|three|four)( years old)?,? (a |the )?high chair",
           ],
+          model_answers: ["She's three — a high chair would be great, thanks"],
           hint_tr:
             "Yaş söyle ve mama sandalyesini iste: 'She's three — a high chair would be great, thanks'.",
         },
@@ -3603,6 +3630,7 @@ export const restaurantLesson_2_8: BundledLesson = {
             "(could|can) (you|we) (get|do|have) a (smaller|half) portion",
             "(any |do you have )?crayons? (or coloring)?",
           ],
+          model_answers: ["Yes, the kids menu, please. And maybe some crayons if you have any?"],
           hint_tr:
             "Onayla ve ekstra iste: 'Yes, the kids menu, please. And maybe some crayons if you have any?'",
         },

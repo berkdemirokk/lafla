@@ -13,18 +13,19 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
 import {
-  Dimensions,
   FlatList,
   Pressable,
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
   type LayoutChangeEvent,
   type ListRenderItemInfo,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
+  type ViewToken,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -47,24 +48,24 @@ import { tokens } from "../theme";
 import { SwipeSceneCard } from "../components/SwipeSceneCard";
 import { AdBanner } from "../components/AdBanner";
 import { TabBar, TAB_BAR_HEIGHT } from "../components/TabBar";
+import { useTranslation } from "../lib/i18n";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 const MIN_FEED = 5;
-const SCREEN = Dimensions.get("window");
 const TOP_BAR_HEIGHT = 48;
 
 // Mode label haritası — top bar başlığında ve aria-label'larda kullanılır.
 // Order ve sceneMode değerleri data/scenes.ts SceneMode tipiyle birebir.
 // 2026-05-24 — emoji eklendi (onboarding chip'leriyle senkron); başlıkta
 // görsel ayırıcı olarak kullanılır.
-const MODE_LABELS: Record<SceneMode, string> = {
-  flirt: "Flört",
-  work: "İş",
-  bar: "Bar",
-  airport: "Havaalanı",
-  daily: "Günlük",
-  order: "Sipariş",
-  ielts: "IELTS",
+const MODE_LABEL_KEYS: Record<SceneMode, string> = {
+  flirt: "mode.flirt",
+  work: "mode.work",
+  bar: "mode.bar",
+  airport: "mode.airport",
+  daily: "mode.daily",
+  order: "mode.order",
+  ielts: "mode.ielts",
 };
 
 const MODE_EMOJI: Record<SceneMode, string> = {
@@ -130,11 +131,17 @@ const EMPTY: FeedState = {
 
 export default function Home() {
   const router = useRouter();
+  const { t } = useTranslation();
+  const { height: windowHeight } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const [state, setState] = useState<FeedState>(EMPTY);
   const listRef = useRef<FlatList<Scene>>(null);
   const lastIndexRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const viewabilityConfig = useRef({
+    itemVisiblePercentThreshold: 65,
+    minimumViewTime: 80,
+  }).current;
 
   // 2026-05-23 — Mode filter override.
   // Profile ekranındaki mod chip'leri "/home?mode=<key>" ile push eder.
@@ -275,7 +282,7 @@ export default function Home() {
   // render'da measured yok → computed fallback (AdBanner hesaba katılmaz
   // ama bu sadece ilk frame; ikinci frame'de measured devreye girer).
   const computedHeight =
-    SCREEN.height - insets.top - insets.bottom - TOP_BAR_HEIGHT - TAB_BAR_HEIGHT;
+    windowHeight - insets.top - insets.bottom - TOP_BAR_HEIGHT - TAB_BAR_HEIGHT;
   const cardHeight = measuredHeight ?? computedHeight;
 
   const renderItem = useCallback(
@@ -302,24 +309,39 @@ export default function Home() {
     [cardHeight],
   );
 
+  const commitActiveIndex = useCallback((idx: number) => {
+    if (idx < 0 || idx === lastIndexRef.current) return;
+    lastIndexRef.current = idx;
+    setActiveIndex(idx);
+    try {
+      void Haptics.selectionAsync();
+    } catch {}
+  }, []);
+
+  const onViewableItemsChanged = useCallback(
+    ({ viewableItems }: { viewableItems: Array<ViewToken<Scene>> }) => {
+      const dominant = viewableItems.find(
+        (item) => item.isViewable && typeof item.index === "number",
+      );
+      if (typeof dominant?.index === "number") {
+        commitActiveIndex(dominant.index);
+      }
+    },
+    [commitActiveIndex],
+  );
+
   const onMomentumScrollEnd = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {
       const y = e.nativeEvent.contentOffset.y;
       const idx = Math.round(y / Math.max(cardHeight, 1));
-      if (idx !== lastIndexRef.current) {
-        lastIndexRef.current = idx;
-        setActiveIndex(idx);
-        try {
-          void Haptics.selectionAsync();
-        } catch {}
-      }
+      commitActiveIndex(idx);
     },
-    [cardHeight],
+    [cardHeight, commitActiveIndex],
   );
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
 
       {/* Top bar — başlık + (varsa) filtrelenen mod chip'i + "tümü" reset.
           2026-05-24 polish: mod aktifken emoji ile birlikte gösterilir
@@ -327,9 +349,9 @@ export default function Home() {
           gri yerine — Neon Noir semantic). */}
       <View style={styles.topBar}>
         <Text style={styles.title} numberOfLines={1}>
-          Akış
+          {t("feed.title")}
           {modeOverride
-            ? ` · ${MODE_EMOJI[modeOverride]} ${MODE_LABELS[modeOverride]}`
+            ? ` · ${MODE_EMOJI[modeOverride]} ${t(MODE_LABEL_KEYS[modeOverride])}`
             : ""}
         </Text>
         {modeOverride && (
@@ -340,10 +362,12 @@ export default function Home() {
               pressed && { opacity: 0.6 },
             ]}
             accessibilityRole="button"
-            accessibilityLabel="Mod filtresini kaldır, tüm akışı göster"
+            accessibilityLabel={t("feed.clear_filter_label")}
             hitSlop={8}
           >
-            <Text style={styles.clearFilterText}>Tümü ✕</Text>
+            <Text style={styles.clearFilterText}>
+              {t("feed.clear_filter")}
+            </Text>
           </Pressable>
         )}
       </View>
@@ -377,6 +401,8 @@ export default function Home() {
             windowSize={3}
             maxToRenderPerBatch={2}
             removeClippedSubviews
+            viewabilityConfig={viewabilityConfig}
+            onViewableItemsChanged={onViewableItemsChanged}
             onMomentumScrollEnd={onMomentumScrollEnd}
           />
         )}
@@ -391,13 +417,13 @@ export default function Home() {
 // 2026-05-26 — Apple Guideline 2.1: "yakında" / "coming soon" tetik kelimeleri
 // reviewer'a app eksik gibi görünüyor. Mesaj filter sonucuna nötr çevrildi.
 function EmptyState({ onTo }: { onTo: () => void }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.emptyWrap}>
       <Text style={styles.emptyEmoji}>🌙</Text>
-      <Text style={styles.emptyTitle}>Bu filtrede sahne yok</Text>
+      <Text style={styles.emptyTitle}>{t("feed.empty_title")}</Text>
       <Text style={styles.emptySub}>
-        Filtreyi temizleyip tüm sahnelere bak ya da Bugün sekmesindeki planına
-        dön.
+        {t("feed.empty_sub")}
       </Text>
       <Pressable
         onPress={onTo}
@@ -406,9 +432,9 @@ function EmptyState({ onTo }: { onTo: () => void }) {
           pressed && { opacity: 0.86, transform: [{ scale: 0.97 }] },
         ]}
         accessibilityRole="button"
-        accessibilityLabel="Bugün sekmesine git"
+        accessibilityLabel={t("feed.go_today_label")}
       >
-        <Text style={styles.emptyCtaText}>Bugüne git</Text>
+        <Text style={styles.emptyCtaText}>{t("feed.go_today")}</Text>
       </Pressable>
     </View>
   );

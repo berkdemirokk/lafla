@@ -46,7 +46,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "../components/ThemedStatusBar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -58,6 +58,7 @@ import {
   getCurrentProfile,
 } from "../lib/auth";
 import { isSupabaseConfigured } from "../lib/supabase";
+import { useTranslation } from "../lib/i18n";
 import { tokens } from "../theme";
 
 // 2026-05-25 — Routing helper: sign-in sonrası returning user'ı /today'e,
@@ -106,6 +107,7 @@ function PressScale({
   accessibilityLabel,
   accessibilityRole,
   hitSlop,
+  testID,
   children,
 }: {
   onPress: () => void;
@@ -114,6 +116,7 @@ function PressScale({
   accessibilityLabel?: string;
   accessibilityRole?: "button" | "link";
   hitSlop?: number;
+  testID?: string;
   children: React.ReactNode;
 }) {
   const scale = useSharedValue(1);
@@ -137,6 +140,7 @@ function PressScale({
       accessibilityRole={accessibilityRole ?? "button"}
       accessibilityLabel={accessibilityLabel}
       hitSlop={hitSlop}
+      testID={testID}
     >
       {children}
     </AnimatedPressable>
@@ -234,9 +238,16 @@ function GlowInput({
 function ModeTabs({
   mode,
   onChange,
+  labels,
 }: {
   mode: Mode;
   onChange: (m: Mode) => void;
+  labels: {
+    signin: string;
+    signup: string;
+    signinAccessibility: string;
+    signupAccessibility: string;
+  };
 }) {
   const [width, setWidth] = useState(0);
   const indicatorX = useSharedValue(0);
@@ -277,7 +288,7 @@ function ModeTabs({
         style={tabStyles.tab}
         onPress={() => onChange("signin")}
         accessibilityRole="button"
-        accessibilityLabel="Giriş yap sekmesine geç"
+        accessibilityLabel={labels.signinAccessibility}
         hitSlop={8}
       >
         <Text
@@ -286,14 +297,14 @@ function ModeTabs({
             mode !== "signup" && tabStyles.labelActive,
           ]}
         >
-          Giriş yap
+          {labels.signin}
         </Text>
       </Pressable>
       <Pressable
         style={tabStyles.tab}
         onPress={() => onChange("signup")}
         accessibilityRole="button"
-        accessibilityLabel="Hesap aç sekmesine geç"
+        accessibilityLabel={labels.signupAccessibility}
         hitSlop={8}
       >
         <Text
@@ -302,7 +313,7 @@ function ModeTabs({
             mode === "signup" && tabStyles.labelActive,
           ]}
         >
-          Hesap aç
+          {labels.signup}
         </Text>
       </Pressable>
     </View>
@@ -368,6 +379,7 @@ function ErrorChip({
 
 export default function Auth() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [mode, setMode] = useState<Mode>("signup");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -464,19 +476,17 @@ export default function Auth() {
     // anlamlı sinyal ver, EAS Secret eksikliğini hızlı yakalamak için.
     if (!isSupabaseConfigured) {
       setErrorTone("error");
-      setError(
-        "Yapılandırma hatası — uygulamayı tekrar başlatmayı dene. (DEV: Supabase env eksik)",
-      );
+      setError(t("auth.error_config"));
       return;
     }
     if (!email.trim()) {
       setErrorTone("error");
-      setError("Email adresini gir.");
+      setError(t("auth.error_email_required"));
       return;
     }
     if (mode !== "forgot" && password.length < 6) {
       setErrorTone("error");
-      setError("Parola en az 6 karakter olmalı.");
+      setError(t("auth.error_password_short"));
       return;
     }
     setLoading(true);
@@ -485,9 +495,7 @@ export default function Auth() {
       if (mode === "forgot") {
         await sendPasswordReset(email.trim());
         setErrorTone("info");
-        setError(
-          "Sıfırlama linkini gönderdik. Email'inden devam edip yeni parolanı belirle, sonra giriş yap.",
-        );
+        setError(t("auth.info_reset_sent"));
         setMode("signin");
         return;
       }
@@ -497,9 +505,7 @@ export default function Auth() {
         if (!result.session) {
           // Email confirmation enabled in Supabase
           setErrorTone("info");
-          setError(
-            "Doğrulama linkini email'ine gönderdik. Linke tıkla ve geri dön.",
-          );
+          setError(t("auth.info_verification_sent"));
           setMode("signin");
           return;
         }
@@ -516,7 +522,7 @@ export default function Auth() {
         : await decidePostAuthRoute();
       router.replace(route as never);
     } catch (e: any) {
-      const msg = e?.message ?? "Bir şeyler ters gitti.";
+      const msg = e?.message ?? t("auth.error_generic");
       setErrorTone("error");
       // 2026-05-25 — Diagnostic için tam Supabase error'ını console'a düş.
       // Kullanıcıya friendly Türkçe çevirim, ama TestFlight log'undan
@@ -527,13 +533,13 @@ export default function Auth() {
       }
       // Friendlier Turkish messages for common errors
       if (msg.toLowerCase().includes("invalid login credentials")) {
-        setError("Email veya parola yanlış.");
+        setError(t("auth.error_invalid_credentials"));
       } else if (msg.toLowerCase().includes("already registered")) {
-        setError("Bu email zaten kayıtlı. Giriş yapmayı dene.");
+        setError(t("auth.error_already_registered"));
       } else if (msg.toLowerCase().includes("email not confirmed")) {
-        setError("Email henüz doğrulanmadı. Inbox'ını kontrol et.");
+        setError(t("auth.error_email_not_confirmed"));
       } else if (msg.toLowerCase().includes("network") || msg.toLowerCase().includes("fetch")) {
-        setError("Bağlantı problemi. İnternet kontrolü yap, tekrar dene.");
+        setError(t("auth.error_network"));
       } else {
         setError(msg);
       }
@@ -567,19 +573,19 @@ export default function Auth() {
   // -------- Copy that varies by mode --------
   const ctaLabel =
     mode === "signup"
-      ? "Hesabı oluştur"
+      ? t("auth.cta_signup")
       : mode === "forgot"
-        ? "Sıfırlama linki gönder"
-        : "Devam et";
+        ? t("auth.cta_forgot")
+        : t("auth.cta_signin");
 
   const subtitle =
     mode === "forgot"
-      ? "Email'ini gir, sıfırlama linki yolluyoruz."
-      : "5 dakikada gerçek İngilizce. Donma. Konuş.";
+      ? t("auth.subtitle_forgot")
+      : t("auth.subtitle_default");
 
   return (
     <SafeAreaView style={styles.safe}>
-      <StatusBar style="light" />
+      <ThemedStatusBar />
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -593,11 +599,12 @@ export default function Auth() {
           <PressScale
             style={styles.skipBtn}
             onPress={skipAuth}
+            testID="auth-skip"
             hitSlop={12}
             accessibilityRole="button"
-            accessibilityLabel="Girişi atla"
+            accessibilityLabel={t("auth.skip_label")}
           >
-            <Text style={styles.skipText}>Atla →</Text>
+            <Text style={styles.skipText}>{t("auth.skip")}</Text>
           </PressScale>
 
           {/* Hero */}
@@ -618,10 +625,21 @@ export default function Auth() {
           <Animated.View style={[styles.formCard, formStyle, formPulseStyle]}>
             {/* Mode tabs — hidden in forgot mode (the link below acts as nav) */}
             {mode !== "forgot" ? (
-              <ModeTabs mode={mode} onChange={switchMode} />
+              <ModeTabs
+                mode={mode}
+                onChange={switchMode}
+                labels={{
+                  signin: t("auth.signin_tab"),
+                  signup: t("auth.signup_tab"),
+                  signinAccessibility: t("auth.signin_tab_label"),
+                  signupAccessibility: t("auth.signup_tab_label"),
+                }}
+              />
             ) : (
               <View style={styles.forgotHeader}>
-                <Text style={styles.forgotHeaderTitle}>Parolanı sıfırla</Text>
+                <Text style={styles.forgotHeaderTitle}>
+                  {t("auth.forgot_header")}
+                </Text>
               </View>
             )}
 
@@ -633,7 +651,7 @@ export default function Auth() {
                 placeholder="email@adresin.com"
                 keyboardType="email-address"
                 autoComplete="email"
-                accessibilityLabel="Email adresi"
+                accessibilityLabel={t("auth.email_label")}
                 onSubmitEditing={() => {
                   if (mode === "forgot") {
                     void submit();
@@ -650,12 +668,12 @@ export default function Auth() {
                   icon="🔒"
                   value={password}
                   onChangeText={setPassword}
-                  placeholder="En az 6 karakter"
+                  placeholder={t("auth.password_placeholder")}
                   secureTextEntry
                   autoComplete={
                     mode === "signup" ? "new-password" : "current-password"
                   }
-                  accessibilityLabel="Parola"
+                  accessibilityLabel={t("auth.password_label")}
                   onSubmitEditing={submit}
                   returnKeyType="go"
                 />
@@ -680,7 +698,7 @@ export default function Auth() {
             {mode === "signup" && (
               <View style={styles.signupTermsBlock}>
                 <Text style={styles.signupTermsPrefix}>
-                  Hesap açarak şunları kabul edersin:
+                  {t("auth.terms_prefix")}
                 </Text>
                 <View style={styles.signupTermsRow}>
                   <Pressable
@@ -691,9 +709,11 @@ export default function Auth() {
                     }
                     hitSlop={6}
                     accessibilityRole="link"
-                    accessibilityLabel="Kullanım koşulları"
+                    accessibilityLabel={t("auth.terms")}
                   >
-                    <Text style={styles.signupTermsLink}>Kullanım Koşulları</Text>
+                    <Text style={styles.signupTermsLink}>
+                      {t("auth.terms")}
+                    </Text>
                   </Pressable>
                   <Text style={styles.signupTermsDot}> · </Text>
                   <Pressable
@@ -704,9 +724,11 @@ export default function Auth() {
                     }
                     hitSlop={6}
                     accessibilityRole="link"
-                    accessibilityLabel="Gizlilik politikası"
+                    accessibilityLabel={t("auth.privacy")}
                   >
-                    <Text style={styles.signupTermsLink}>Gizlilik Politikası</Text>
+                    <Text style={styles.signupTermsLink}>
+                      {t("auth.privacy")}
+                    </Text>
                   </Pressable>
                 </View>
               </View>
@@ -719,9 +741,11 @@ export default function Auth() {
                 style={styles.forgotLink}
                 hitSlop={10}
                 accessibilityRole="button"
-                accessibilityLabel="Parolamı unuttum"
+                accessibilityLabel={t("auth.forgot_link_label")}
               >
-                <Text style={styles.forgotLinkText}>Şifremi unuttum</Text>
+                <Text style={styles.forgotLinkText}>
+                  {t("auth.forgot_link")}
+                </Text>
               </Pressable>
             )}
 
@@ -732,9 +756,11 @@ export default function Auth() {
                 style={styles.forgotLink}
                 hitSlop={10}
                 accessibilityRole="button"
-                accessibilityLabel="Giriş yapma ekranına geri dön"
+                accessibilityLabel={t("auth.back_to_signin_label")}
               >
-                <Text style={styles.forgotLinkText}>← Giriş ekranına dön</Text>
+                <Text style={styles.forgotLinkText}>
+                  {t("auth.back_to_signin")}
+                </Text>
               </Pressable>
             )}
           </Animated.View>
@@ -745,7 +771,7 @@ export default function Auth() {
             <View style={styles.appleBlock}>
               <View style={styles.divider}>
                 <View style={styles.dividerLine} />
-                <Text style={styles.dividerText}>VEYA</Text>
+                <Text style={styles.dividerText}>{t("auth.apple_divider")}</Text>
                 <View style={styles.dividerLine} />
               </View>
               <AppleSignInButton
@@ -755,7 +781,7 @@ export default function Auth() {
                   setError(msg);
                 }}
               />
-              <Text style={styles.appleHint}>iCloud ile tek dokunuş giriş</Text>
+              <Text style={styles.appleHint}>{t("auth.apple_hint")}</Text>
             </View>
           ) : null}
         </ScrollView>
@@ -1146,11 +1172,11 @@ const chipStyles = StyleSheet.create({
   },
   wrapError: {
     backgroundColor: tokens.semantic.errorContainer,
-    borderColor: "rgba(255, 77, 109, 0.35)",
+    borderColor: tokens.semantic.error,
   },
   wrapInfo: {
     backgroundColor: tokens.brand.primarySoft,
-    borderColor: "rgba(255, 6, 122, 0.35)",
+    borderColor: tokens.brand.primary,
   },
   text: {
     fontSize: 13,
@@ -1161,6 +1187,6 @@ const chipStyles = StyleSheet.create({
     color: tokens.semantic.onErrorContainer,
   },
   textInfo: {
-    color: "#ffb7d8",
+    color: tokens.brand.primary,
   },
 });

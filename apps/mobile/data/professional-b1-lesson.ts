@@ -108,6 +108,7 @@ export const professionalB1Lesson_1: BundledLesson = {
             "(current|checking|savings) account",
             "(inquire|ask) about (opening|an account)",
           ],
+          model_answers: ["Good morning. I'd like to open a current account, please."],
           hint_tr:
             "Selamla + niyet belirt: 'Good morning. I'd like to open a current account, please.'",
         },
@@ -125,6 +126,7 @@ export const professionalB1Lesson_1: BundledLesson = {
             "what('s| is) the difference",
             "could you (explain|clarify) the difference",
           ],
+          model_answers: ["Could you clarify the difference?"],
           hint_tr:
             "Seç ya da fark sor: 'A current account, please.' veya 'Could you clarify the difference?'",
         },
@@ -142,6 +144,7 @@ export const professionalB1Lesson_1: BundledLesson = {
             "(proof of address)",
             "i('ve| have) brought",
           ],
+          model_answers: ["Here you are — my passport and a utility bill as proof of address."],
           hint_tr:
             "Belgeleri uzat: 'Here you are — my passport and a utility bill as proof of address.'",
         },
@@ -158,6 +161,7 @@ export const professionalB1Lesson_1: BundledLesson = {
             "could you (clarify|explain) (the|that) fee",
             "is there a (way|account) (to|that) (avoid|waive)",
           ],
+          model_answers: ["Is there a way to waive the monthly fee?"],
           hint_tr:
             "Kabul et ya da koşulları sor: 'That's fine, thank you.' veya 'Is there a way to waive the monthly fee?'",
         },
@@ -174,6 +178,7 @@ export const professionalB1Lesson_1: BundledLesson = {
             "(by post|posted|sent to my address)",
             "(whichever|whatever) is (faster|quicker|easier)",
           ],
+          model_answers: ["I'd prefer it issued today, please."],
           hint_tr:
             "Tercih belirt: 'I'd prefer it issued today, please.' veya 'Could you post it to my address?'",
         },
@@ -560,6 +565,7 @@ export const professionalB1Lesson_2: BundledLesson = {
             "(car|auto|vehicle|motor) insurance",
             "(a quote|some information|policy)",
           ],
+          model_answers: ["Good afternoon. I'd like to inquire about auto insurance for my car."],
           hint_tr:
             "Niyet belirt: 'Good afternoon. I'd like to inquire about auto insurance for my car.'",
         },
@@ -576,6 +582,7 @@ export const professionalB1Lesson_2: BundledLesson = {
             "what('s| is) (covered|included) in",
             "i('m not| am not) sure",
           ],
+          model_answers: ["Could you walk me through the difference between them?"],
           hint_tr:
             "Seç ya da fark sor: 'Could you walk me through the difference between them?'",
         },
@@ -592,6 +599,7 @@ export const professionalB1Lesson_2: BundledLesson = {
             "is there a (deductible|excess|monthly option)",
             "(can|could) i pay (it )?(monthly|in installments)",
           ],
+          model_answers: ["Could you tell me about the deductible?"],
           hint_tr:
             "Detay sor: 'Could you tell me about the deductible?' veya 'Can I pay monthly?'",
         },
@@ -608,6 +616,7 @@ export const professionalB1Lesson_2: BundledLesson = {
             "what happens if (i have|there is) an accident",
             "what('s| is) the procedure",
           ],
+          model_answers: ["Could you walk me through the claims process if I have an accident?"],
           hint_tr:
             "Hasar süreci: 'Could you walk me through the claims process if I have an accident?'",
         },
@@ -624,6 +633,7 @@ export const professionalB1Lesson_2: BundledLesson = {
             "i('d| would) like to (proceed|go ahead|sign up)",
             "could i (take|have) (a copy|the documents|some time)",
           ],
+          model_answers: ["That's clear, thank you. I'd like to proceed."],
           hint_tr:
             "Karar ver: 'That's clear, thank you. I'd like to proceed.' veya 'Could I take the documents home to review?'",
         },
@@ -881,6 +891,7 @@ export const professionalB1Lesson_3: BundledLesson = {
             "i have a (legal|small) (concern|matter|issue|question)",
             "(regarding|about|involving|concerning)",
           ],
+          model_answers: ["Thank you for seeing me. I'd like to seek your advice on a legal matter involving my employer."],
           hint_tr:
             "Aç: 'Thank you for seeing me. I'd like to seek your advice on a legal matter involving my employer.'",
         },
@@ -898,6 +909,7 @@ export const professionalB1Lesson_3: BundledLesson = {
             "(i was|i have been) (dismissed|let go|terminated|asked to leave)",
             "(there is|there's) a (disagreement|dispute)",
           ],
+          model_answers: ["My employer hasn't paid the overtime in my contract, and there's a dispute about my notice period."],
           hint_tr:
             "Kısa açıkla: 'My employer hasn't paid the overtime in my contract, and there's a dispute about my notice period.'",
         },
@@ -914,6 +926,7 @@ export const professionalB1Lesson_3: BundledLesson = {
             "(here you are|here they are)",
             "i can (send|forward|email) (them|you) (later|after)",
           ],
+          model_answers: ["Yes, I've brought a copy of my contract and the emails. Here you are."],
           hint_tr:
             "Belgeleri belirt: 'Yes, I've brought a copy of my contract and the emails. Here you are.'",
         },
@@ -930,6 +943,7 @@ export const professionalB1Lesson_3: BundledLesson = {
             "how do you (charge|bill)",
             "(rough )?(estimate|idea) of (the )?(cost|total)",
           ],
+          model_answers: ["May I ask what your hourly rate is, and could you give me a rough estimate of the total cost?"],
           hint_tr:
             "Ücret sor: 'May I ask what your hourly rate is, and could you give me a rough estimate of the total cost?'",
         },
@@ -946,6 +960,7 @@ export const professionalB1Lesson_3: BundledLesson = {
             "what (are |would be )?the next steps",
             "(when|how soon) (can|would) we (start|proceed|move forward)",
           ],
+          model_answers: ["That's clear, thank you. Could you send a written quote, and what are the next steps?"],
           hint_tr:
             "Sonraki adım: 'That's clear, thank you. Could you send a written quote, and what are the next steps?'",
         },
@@ -1203,6 +1218,7 @@ export const professionalB1Lesson_4: BundledLesson = {
             "yesterday (at|around|about)",
             "(two people|two men|two women|an argument|an incident)",
           ],
+          model_answers: ["My name is Berk Aksoy. Yesterday at around five, I witnessed an argument outside a café."],
           hint_tr:
             "İsim + olay özeti: 'My name is Berk Aksoy. Yesterday at around five, I witnessed an argument outside a café.'",
         },
@@ -1220,6 +1236,7 @@ export const professionalB1Lesson_4: BundledLesson = {
             "(started|began) (arguing|shouting|pushing)",
             "(to the best of my recollection|as far as i remember)",
           ],
+          model_answers: ["I was walking past the café when I saw two people start shouting."],
           hint_tr:
             "Past continuous + past simple: 'I was walking past the café when I saw two people start shouting.'",
         },
@@ -1237,6 +1254,7 @@ export const professionalB1Lesson_4: BundledLesson = {
             "(to my recollection|as far as i could tell)",
             "i did not (see|witness) (anything|any) (physical|violence)",
           ],
+          model_answers: ["Yes, one of them pushed the other."],
           hint_tr:
             "Net cevap: 'Yes, one of them pushed the other.' veya 'No, I didn't see anything physical.'",
         },
@@ -1253,6 +1271,7 @@ export const professionalB1Lesson_4: BundledLesson = {
             "(i was|i think i was) the only",
             "(i can't|cannot) (be certain|say for sure)",
           ],
+          model_answers: ["There were a few other people nearby, including a waiter from the café."],
           hint_tr:
             "Diğer tanıklar: 'There were a few other people nearby, including a waiter from the café.'",
         },
@@ -1269,6 +1288,7 @@ export const professionalB1Lesson_4: BundledLesson = {
             "(i('d| would) like) a copy of the statement",
             "(when|how) will (this be|it be) (processed|filed)",
           ],
+          model_answers: ["That's everything I remember. Could I have a copy of the statement, please?"],
           hint_tr:
             "Kapat ve nüsha iste: 'That's everything I remember. Could I have a copy of the statement, please?'",
         },
@@ -1525,6 +1545,7 @@ export const professionalB1Lesson_5: BundledLesson = {
             "(a certified copy|an official copy|a document|a certificate)",
             "(residence|tax|civil status|birth)",
           ],
+          model_answers: ["Good morning. I'm here to request a certified copy of my proof of residence."],
           hint_tr:
             "Niyet belirt: 'Good morning. I'm here to request a certified copy of my proof of residence.'",
         },
@@ -1541,6 +1562,7 @@ export const professionalB1Lesson_5: BundledLesson = {
             "(my previous|the old) (document|certificate)",
             "(here you are|here it is)",
           ],
+          model_answers: ["Yes, here you are — my passport and my previous residence permit."],
           hint_tr:
             "Belge sun: 'Yes, here you are — my passport and my previous residence permit.'",
         },
@@ -1557,6 +1579,7 @@ export const professionalB1Lesson_5: BundledLesson = {
             "(where|which way) (is|to) window seven",
             "(how long|how much time) (does it|will it) (take|usually take)",
           ],
+          model_answers: ["Thank you. Could you tell me where window seven is, and how long the processing usually takes?"],
           hint_tr:
             "Yön + süre sor: 'Thank you. Could you tell me where window seven is, and how long the processing usually takes?'",
         },
@@ -1573,6 +1596,7 @@ export const professionalB1Lesson_5: BundledLesson = {
             "(could i|can i) (collect|pick (it )?up) (in person|here)",
             "is there a (fee|charge|cost)",
           ],
+          model_answers: ["Is there a way to fast-track it, or a fee for collection in person?"],
           hint_tr:
             "Detay sor: 'Is there a way to fast-track it, or a fee for collection in person?'",
         },
@@ -1589,6 +1613,7 @@ export const professionalB1Lesson_5: BundledLesson = {
             "(could|may) i pay (here|at the counter|by card)",
             "thank you (for|so much) (your help|the information)",
           ],
+          model_answers: ["That's helpful — I'd like the express option, please. May I pay by card?"],
           hint_tr:
             "Karar ver: 'That's helpful — I'd like the express option, please. May I pay by card?'",
         },
@@ -1853,6 +1878,7 @@ export const professionalB1Lesson_6: BundledLesson = {
             "i('m| am) afraid (i('m| am)|i can'?t)",
             "i (need to|have to) call in sick",
           ],
+          model_answers: ["Good morning, sorry for the early call. I'm afraid I have to call in sick today."],
           hint_tr:
             "Aç: 'Good morning, sorry for the early call. I'm afraid I have to call in sick today.'",
         },
@@ -1869,6 +1895,7 @@ export const professionalB1Lesson_6: BundledLesson = {
             "(running|i have) a (high )?fever",
             "(i('m| am)) (not feeling well|feeling quite ill)",
           ],
+          model_answers: ["I've come down with the flu and I'm running a high fever."],
           hint_tr:
             "Kısa belirti: 'I've come down with the flu and I'm running a high fever.'",
         },
@@ -1885,6 +1912,7 @@ export const professionalB1Lesson_6: BundledLesson = {
             "i('ll| will) (see|visit) (the |a )?doctor",
             "(get|bring|provide) a (doctor('s)?|medical|sick) (note|certificate)",
           ],
+          model_answers: ["I'm hoping just today, but I may need tomorrow too. I'll see a doctor and bring a note."],
           hint_tr:
             "Süreyi belirt: 'I'm hoping just today, but I may need tomorrow too. I'll see a doctor and bring a note.'",
         },
@@ -1902,6 +1930,7 @@ export const professionalB1Lesson_6: BundledLesson = {
             "(could you|would you mind) (covering|covering the|asking)",
             "(nothing |i don't think there's anything) urgent",
           ],
+          model_answers: ["There's the 10 a.m. call — I've asked Aylin to cover, but could you confirm?"],
           hint_tr:
             "Devir teslim: 'There's the 10 a.m. call — I've asked Aylin to cover, but could you confirm?'",
         },
@@ -1918,6 +1947,7 @@ export const professionalB1Lesson_6: BundledLesson = {
             "i('ll| will) (be back|return) as soon as",
             "really appreciate",
           ],
+          model_answers: ["Thank you so much. I'll keep you updated and be back as soon as I can."],
           hint_tr:
             "Kapanış: 'Thank you so much. I'll keep you updated and be back as soon as I can.'",
         },
@@ -2174,6 +2204,7 @@ export const professionalB1Lesson_7: BundledLesson = {
             "thank you for showing me",
             "i('d| would) like to ask a few questions",
           ],
+          model_answers: ["I really like the flat, thank you for showing me. I'd like to ask a few questions."],
           hint_tr:
             "Pozitif aç: 'I really like the flat, thank you for showing me. I'd like to ask a few questions.'",
         },
@@ -2190,6 +2221,7 @@ export const professionalB1Lesson_7: BundledLesson = {
             "(how much|what) (the |is the )?(security |the )?deposit",
             "what (the |is the )?(upfront cost|upfront payment)",
           ],
+          model_answers: ["Could you confirm whether the rent includes the bills, and what the security deposit is?"],
           hint_tr:
             "Maliyet sor: 'Could you confirm whether the rent includes the bills, and what the security deposit is?'",
         },
@@ -2206,6 +2238,7 @@ export const professionalB1Lesson_7: BundledLesson = {
             "(the |what the )?(minimum |length of |duration of the )?(lease|tenancy|contract)",
             "(how long|what term)",
           ],
+          model_answers: ["Thank you for clarifying. Could you also tell me the minimum length of the lease?"],
           hint_tr:
             "Süre sor: 'Thank you for clarifying. Could you also tell me the minimum length of the lease?'",
         },
@@ -2223,6 +2256,7 @@ export const professionalB1Lesson_7: BundledLesson = {
             "(reducing|lowering|adjusting) (the |a bit on the )?(rent|deposit|price)",
             "in exchange for",
           ],
+          model_answers: ["Would you be open to a twelve-month lease in exchange for slightly lower rent?"],
           hint_tr:
             "Pazarlık: 'Would you be open to a twelve-month lease in exchange for slightly lower rent?'",
         },
@@ -2239,6 +2273,7 @@ export const professionalB1Lesson_7: BundledLesson = {
             "i('d| would) like to (proceed|go ahead|sign)",
             "(could i|may i) (have|take) a (copy of the contract|written offer)",
           ],
+          model_answers: ["That sounds fair. Could we put that in writing, and may I have a copy of the contract?"],
           hint_tr:
             "Sonuca bağla: 'That sounds fair. Could we put that in writing, and may I have a copy of the contract?'",
         },
@@ -2499,6 +2534,7 @@ export const professionalB1Lesson_8: BundledLesson = {
             "(an unresolved|an ongoing|a long-standing) (issue|problem|case|matter)",
             "(reference|case) (number|id)",
           ],
+          model_answers: ["Good afternoon. I'm calling to follow up on an unresolved issue — case number 47823."],
           hint_tr:
             "Net aç: 'Good afternoon. I'm calling to follow up on an unresolved issue — case number 47823.'",
         },
@@ -2516,6 +2552,7 @@ export const professionalB1Lesson_8: BundledLesson = {
             "i('m| am) (not willing|not prepared|unable) to wait",
             "this is (no longer|simply not) acceptable",
           ],
+          model_answers: ["With respect, this has been unresolved for three weeks. I'm not willing to wait any longer."],
           hint_tr:
             "Kararlı ol: 'With respect, this has been unresolved for three weeks. I'm not willing to wait any longer.'",
         },
@@ -2531,6 +2568,7 @@ export const professionalB1Lesson_8: BundledLesson = {
             "i('d| would) like to (escalate|speak with a supervisor|escalate this)",
             "(could|may|would) (you|i) (connect|put me through to|speak with) (your supervisor|a manager)",
           ],
+          model_answers: ["I'm afraid that's not sufficient. I'd like to escalate this — could you connect me with your supervisor?"],
           hint_tr:
             "Yükselt: 'I'm afraid that's not sufficient. I'd like to escalate this — could you connect me with your supervisor?'",
         },
@@ -2547,6 +2585,7 @@ export const professionalB1Lesson_8: BundledLesson = {
             "(within |by |before )?(\\d+|seven|five|three) (business days|working days|days)",
             "(could|may) i (have|receive) (a written record|written confirmation)",
           ],
+          model_answers: ["A full refund within seven business days, and a written confirmation by email."],
           hint_tr:
             "Beklentini net söyle: 'A full refund within seven business days, and a written confirmation by email.'",
         },
@@ -2563,6 +2602,7 @@ export const professionalB1Lesson_8: BundledLesson = {
             "i('ll| will) (hold|wait)",
             "(i('ll| will) be|i('m| am)) recording this call",
           ],
+          model_answers: ["Thank you. Could I also have a reference number for this escalation?"],
           hint_tr:
             "Kayıt iste: 'Thank you. Could I also have a reference number for this escalation?'",
         },
@@ -2828,6 +2868,7 @@ export const professionalB1Lesson_9: BundledLesson = {
             "i('d| would) like to (report|file)",
             "(a theft|a stolen bag|a stolen wallet|a stolen phone)",
           ],
+          model_answers: ["Good afternoon. I'd like to report a theft."],
           hint_tr:
             "Net aç: 'Good afternoon. I'd like to report a theft.'",
         },
@@ -2844,6 +2885,7 @@ export const professionalB1Lesson_9: BundledLesson = {
             "(at|around|about) (\\d+|two|three|four|five|six)",
             "(at|in|inside|on) the (metro|underground|bus|train) (station|stop)",
           ],
+          model_answers: ["It occurred this afternoon at around three, at the metro station near Central Square."],
           hint_tr:
             "Zaman + yer: 'It occurred this afternoon at around three, at the metro station near Central Square.'",
         },
@@ -2860,6 +2902,7 @@ export const professionalB1Lesson_9: BundledLesson = {
             "(inside|it contained|with) (it|my)",
             "(my id|my cards|my keys|cash|euros|pounds|dollars)",
           ],
+          model_answers: ["My bag was stolen — it contained my passport, my bank cards, and around fifty euros."],
           hint_tr:
             "İçerik: 'My bag was stolen — it contained my passport, my bank cards, and around fifty euros.'",
         },
@@ -2877,6 +2920,7 @@ export const professionalB1Lesson_9: BundledLesson = {
             "(tall|short|wearing|in a)",
             "i can('t| not) (be certain|describe in detail)",
           ],
+          model_answers: ["To the best of my recollection, I noticed a man in a dark jacket, but I can't be certain."],
           hint_tr:
             "Tarif: 'To the best of my recollection, I noticed a man in a dark jacket, but I can't be certain.'",
         },
@@ -2893,6 +2937,7 @@ export const professionalB1Lesson_9: BundledLesson = {
             "for (insurance|insurance purposes|my insurance)",
             "(a reference|the reference|a case) (number|id)",
           ],
+          model_answers: ["Could I have a copy of the report for insurance purposes, and a reference number?"],
           hint_tr:
             "Nüsha + numara: 'Could I have a copy of the report for insurance purposes, and a reference number?'",
         },
@@ -3151,6 +3196,7 @@ export const professionalB1Lesson_10: BundledLesson = {
             "(my )?(residence permit|id|identification card|stay permit)",
             "i('d| would) like to (renew|extend)",
           ],
+          model_answers: ["Good morning. I'm here to renew my residence permit."],
           hint_tr:
             "Niyet: 'Good morning. I'm here to renew my residence permit.'",
         },
@@ -3167,6 +3213,7 @@ export const professionalB1Lesson_10: BundledLesson = {
             "(this month|next month|on \\d|in \\d+ weeks)",
             "it expired (last week|recently)",
           ],
+          model_answers: ["It's still valid — it expires at the end of this month."],
           hint_tr:
             "Geçerlilik: 'It's still valid — it expires at the end of this month.'",
         },
@@ -3183,6 +3230,7 @@ export const professionalB1Lesson_10: BundledLesson = {
             "(here you are|here they are)",
             "(i('m| am) afraid|unfortunately) i don't have",
           ],
+          model_answers: ["Yes, here you are — my passport, current permit, and a recent photo."],
           hint_tr:
             "Belgeleri sun: 'Yes, here you are — my passport, current permit, and a recent photo.'",
         },
@@ -3199,6 +3247,7 @@ export const professionalB1Lesson_10: BundledLesson = {
             "(could|may) i (pay|settle the fee) (by card|in cash)",
             "is (there a |the )?(express|fast-track) option",
           ],
+          model_answers: ["Yes, I'd like to proceed today. May I pay by card?"],
           hint_tr:
             "Devam et: 'Yes, I'd like to proceed today. May I pay by card?'",
         },
@@ -3215,6 +3264,7 @@ export const professionalB1Lesson_10: BundledLesson = {
             "i('ll| will) wait (for the letter|until i hear)",
             "(whichever|whatever) is (easier|standard|more reliable)",
           ],
+          model_answers: ["Could I book a collection appointment now, please?"],
           hint_tr:
             "Tercih: 'Could I book a collection appointment now, please?'",
         },
@@ -3485,6 +3535,7 @@ export const professionalB1Lesson_11: BundledLesson = {
             "(could|may) i (ask|take) (your name|a few details)",
             "(how many|what size) (team|users)",
           ],
+          model_answers: ["Thank you for your interest! Could I ask how many users you're looking for?"],
           hint_tr:
             "Sıcak aç + kalifiye et: 'Thank you for your interest! Could I ask how many users you're looking for?'",
         },
@@ -3501,6 +3552,7 @@ export const professionalB1Lesson_11: BundledLesson = {
             "per (user|month|seat)",
             "let me (walk you through|talk you through|explain)",
           ],
+          model_answers: ["The team plan includes unlimited projects, priority support, and is twelve pounds per user per month."],
           hint_tr:
             "Net içerik + fiyat: 'The team plan includes unlimited projects, priority support, and is twelve pounds per user per month.'",
         },
@@ -3517,6 +3569,7 @@ export const professionalB1Lesson_11: BundledLesson = {
             "(annual billing|paying annually) (gives|saves) you",
             "let me check on (availability|the current offer|that)",
           ],
+          model_answers: ["Yes, we offer a 14-day free trial, and annual billing saves you about 15 percent."],
           hint_tr:
             "Olumlu cevap + değer: 'Yes, we offer a 14-day free trial, and annual billing saves you about 15 percent.'",
         },
@@ -3533,6 +3586,7 @@ export const professionalB1Lesson_11: BundledLesson = {
             "i('ll| will) (send|email|share) (a summary|the pricing|the details)",
             "(by end of day|within the hour|shortly|right after this call)",
           ],
+          model_answers: ["Absolutely. Could I take your work email? I'll send the pricing and trial link within the hour."],
           hint_tr:
             "Sonraki adımı kilitle: 'Absolutely. Could I take your work email? I'll send the pricing and trial link within the hour.'",
         },
@@ -3804,6 +3858,7 @@ export const professionalB1Lesson_12: BundledLesson = {
             "(thanks for|thanks everyone for) joining",
             "(we have|there are) three (items|things) on the agenda",
           ],
+          model_answers: ["Right, let's get started. Thanks for joining — we have three items on the agenda today."],
           hint_tr:
             "Resmi aç: 'Right, let's get started. Thanks for joining — we have three items on the agenda today.'",
         },
@@ -3820,6 +3875,7 @@ export const professionalB1Lesson_12: BundledLesson = {
             "(Q2 deliverables|the deliverables|project status|the launch)",
             "(can|could) (you|someone) (walk us through|give us a quick update)",
           ],
+          model_answers: ["First item on the agenda is the Q2 deliverables. Could you walk us through the status?"],
           hint_tr:
             "İlk madde: 'First item on the agenda is the Q2 deliverables. Could you walk us through the status?'",
         },
@@ -3836,6 +3892,7 @@ export const professionalB1Lesson_12: BundledLesson = {
             "(we'll come back to|i'll add that to)",
             "(any other items|under any other business)",
           ],
+          model_answers: ["Thanks for the update. Let's park the budget point — I'll add it to AOB and we'll come back to it."],
           hint_tr:
             "Konuyu yönet: 'Thanks for the update. Let's park the budget point — I'll add it to AOB and we'll come back to it.'",
         },
@@ -3852,6 +3909,7 @@ export const professionalB1Lesson_12: BundledLesson = {
             "(stakeholder alignment|the stakeholder update|next week('s| is) priorities)",
             "(we'll be|we are going to) (looking at|discussing)",
           ],
+          model_answers: ["Moving on — second item is stakeholder alignment. We'll be discussing next week's priorities."],
           hint_tr:
             "İkinci madde: 'Moving on — second item is stakeholder alignment. We'll be discussing next week's priorities.'",
         },
@@ -3868,6 +3926,7 @@ export const professionalB1Lesson_12: BundledLesson = {
             "(i('ll| will) send|i('ll| will) follow up with) (the minutes|a recap)",
             "(thanks everyone|thanks all|thank you for your time)",
           ],
+          model_answers: ["Let me summarise the action items — I'll send the minutes by end of day. Thanks everyone."],
           hint_tr:
             "Kapanış: 'Let me summarise the action items — I'll send the minutes by end of day. Thanks everyone.'",
         },
@@ -4137,6 +4196,7 @@ export const professionalB1Lesson_13: BundledLesson = {
             "(this week|so far this week)",
             "(i('ve| have) completed|we('ve| have) (completed|shipped|wrapped up))",
           ],
+          model_answers: ["Of course — here's a quick recap. This week I've completed the onboarding flow."],
           hint_tr:
             "Hazır cevap: 'Of course — here's a quick recap. This week I've completed the onboarding flow.'",
         },
@@ -4153,6 +4213,7 @@ export const professionalB1Lesson_13: BundledLesson = {
             "(the dashboard|analytics|stakeholder alignment|launch preparation)",
             "(my main focus|the priority) (will be|is)",
           ],
+          model_answers: ["Next week I'll be focusing on the dashboard polish and stakeholder alignment."],
           hint_tr:
             "Future continuous: 'Next week I'll be focusing on the dashboard polish and stakeholder alignment.'",
         },
@@ -4169,6 +4230,7 @@ export const professionalB1Lesson_13: BundledLesson = {
             "(it would help|it would be useful) if (you could|we could)",
             "(could you|would you mind) (chasing|pinging|nudging)",
           ],
+          model_answers: ["One blocker to flag — I'm waiting on the analytics API key. Could you nudge the data team?"],
           hint_tr:
             "Net blocker + spesifik istek: 'One blocker to flag — I'm waiting on the analytics API key. Could you nudge the data team?'",
         },
@@ -4185,6 +4247,7 @@ export const professionalB1Lesson_13: BundledLesson = {
             "(i('ll| will) send|i('ll| will) share) (the full update|the written version) (in email|by email|in the channel)",
             "(let me know|happy to walk through) (if you need more detail|if anything is unclear)",
           ],
+          model_answers: ["That's everything for now — I'll send the full written update in email. Thanks for the support!"],
           hint_tr:
             "Profesyonel kapanış: 'That's everything for now — I'll send the full written update in email. Thanks for the support!'",
         },
@@ -4453,6 +4516,7 @@ export const professionalB1Lesson_14: BundledLesson = {
             "(that('s| is)) (not (good enough|acceptable)|absolutely not what we want)",
             "(let me|allow me to) (take ownership|look into this|put this right)",
           ],
+          model_answers: ["I'm really sorry — I understand your frustration. Let me take ownership and put this right."],
           hint_tr:
             "Empati + sahiplenme: 'I'm really sorry — I understand your frustration. Let me take ownership and put this right.'",
         },
@@ -4469,6 +4533,7 @@ export const professionalB1Lesson_14: BundledLesson = {
             "(you should see|the funds will be back) (in your account|within \\d+ (business )?days)",
             "(no need to|you don't have to) (return|send back|wait for) (a replacement|another product)",
           ],
+          model_answers: ["Absolutely — let me process a full refund right away. You should see the funds in three to five business days."],
           hint_tr:
             "Talebi kabul + spesifik aksiyon: 'Absolutely — let me process a full refund right away. You should see the funds in three to five business days.'",
         },
@@ -4485,6 +4550,7 @@ export const professionalB1Lesson_14: BundledLesson = {
             "(i('ll| will)) (email|send) (you|over) (a prepaid label|disposal instructions) if needed",
             "(consider that|keep it|please dispose of it) (on us|safely)",
           ],
+          model_answers: ["Please don't worry about sending it back — consider it on us. I'll email you disposal instructions."],
           hint_tr:
             "Müşteri yükünü azalt: 'Please don't worry about sending it back — consider it on us. I'll email you disposal instructions.'",
         },
@@ -4501,6 +4567,7 @@ export const professionalB1Lesson_14: BundledLesson = {
             "(i('d| would) like to|let me) (add a credit|offer a discount|apply a) (to your account|on your next order)",
             "(let me|i('ll| will)) follow up (personally )?(by email|with confirmation) (today|right after this call)",
           ],
+          model_answers: ["That's completely fair. Let me add a credit to your account and follow up by email today with confirmation."],
           hint_tr:
             "Müşteriyi geri kazan: 'That's completely fair. Let me add a credit to your account and follow up by email today with confirmation.'",
         },

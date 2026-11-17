@@ -1,7 +1,7 @@
 # Email + Notification Templates
 
 Centralized copy catalog for system communications, written in Maya's voice
-(see `apps/mobile/lib/coach.ts`). Two surfaces:
+(kept in the template source as a local copy contract). Two surfaces:
 
 - **Email templates** — `apps/mobile/data/email-templates.ts` (15 templates,
   Turkish-first, dark HTML + plain-text fallback).

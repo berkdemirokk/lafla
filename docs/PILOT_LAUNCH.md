@@ -15,7 +15,7 @@ The pilot is a hypothesis test, not a launch. We are answering exactly four ques
 
 1. **Do Turkish users come back?** (retention)
 2. **Does our scoring feel fair when they speak English?** (product honesty)
-3. **Is the content good enough that they'd pay $9.99/mo?** (willingness-to-pay signal)
+3. **Is the content good enough that they'd pay ₺99/ay?** (willingness-to-pay signal)
 4. **Is anything fundamentally broken that Apple would reject for?** (launch safety)
 
 ### Numeric Targets
@@ -118,7 +118,7 @@ Ranked by **ROI for solo dev** — installs per hour of founder time. Each chann
 > 4/ Şu an beta'da. 50 Türk kullanıcıyı 30 gün boyunca arıyorum. Bedava. TestFlight üzerinden:
 > [link]
 >
-> 5/ Geri bildirimin uygulamayı şekillendirecek. Sevmezsen tek tweet at, sileyim sıkıntı yok. Sevenler için: ücretli sürüm $9.99/ay olacak, beta'cılara ömür boyu indirim.
+> 5/ Geri bildirimin uygulamayı şekillendirecek. Sevmezsen tek tweet at, sileyim sıkıntı yok. Sevenler için: ücretli sürüm ₺99/ay olacak, beta'cılara ömür boyu indirim.
 
 - **Tactical tip**: Pin the thread. Tag 2–3 Turkish indie hacker accounts (don't beg — just mention). Reply to every comment within 2 hours for the first 48h to feed the algorithm.
 
@@ -287,7 +287,7 @@ Use Google Forms (free, dead simple, exports to Sheets). Send the link via DM wi
 2. **En faydalı bulduğun mod hangisi oldu?**
    - Flört / İş / Kafe / Seyahat / Banter / Diğer (yazınız)
 3. **En sinir bozucu olan şey neydi?** (open text — 1 zorunlu cümle)
-4. **Şu anki haliyle aylık $9.99 öder miydin?**
+4. **Şu anki haliyle aylık ₺99 öder miydin?**
    - Kesinlikle / Belki / Hayır / Önce şunlar düzelmeli: [text]
 5. **Eklemek istediğin başka bir şey?** (open text, optional)
 
@@ -300,8 +300,8 @@ Use Google Forms (free, dead simple, exports to Sheets). Send the link via DM wi
 5. **Hangi sahne / konu eksik kaldı?** (open text)
 6. **Hangi rakip uygulamalarla karşılaştırdın?** (Speak, Cambly, Duolingo, hiçbiri, diğer)
 7. **Aylık fiyat algın**:
-   - $9.99/ay çok ucuz / tam doğru / pahalı / asla ödemem
-8. **Sınav hazırlığı (IELTS / TOEFL) için $99 tek seferlik öder miydin?** (evet / hayır / belki)
+   - ₺99/ay çok ucuz / tam doğru / pahalı / asla ödemem
+8. **Sınav hazırlığı (IELTS / TOEFL) için ₺500 tek seferlik öder miydin?** (evet / hayır / belki)
 9. **Demografik**: yaş aralığı + meslek + İngilizce seviyen (kendi tahminin)
 10. **Lafla hakkında bir cümle yazsan — ne yazardın?** (open text — bu pazarlama için altın)
 
@@ -381,7 +381,7 @@ Do not submit to App Store Review until ALL of these are true:
 - [ ] **`docs/APP_REVIEW_NOTES.md` finalized** — demo account, scenario walkthrough, ATT/microphone rationale
 - [ ] **`docs/APP_STORE_METADATA.md` finalized** — Turkish + English descriptions, keywords, 6 screenshots, preview video optional
 - [ ] **Build 20 (Chatterbox voices) shipped and audio-quality survey question scores ≥ 4/5 average**
-- [ ] **RevenueCat production products approved** — `lafla.premium.monthly` live, Exam Pass one-time product configured (currently broken — see lafla_project.md)
+- [ ] **RevenueCat production products approved** — `lafla.premium.monthly` and `lafla.premium.yearly` live in the same subscription group.
 - [ ] **Info.plist usage strings translated to English** (currently Turkish — Apple has rejected for less on global apps)
 - [ ] **Apple sandbox-tested purchase flow on 3 devices** without issue
 
@@ -469,7 +469,7 @@ Once exit criteria (section 8) are met, here's the launch sequence. None of this
 > 3/ 30 günlük beta'da 50 kullanıcı, [D7 retention rakamı]% D7 retention, [NPS skoru] NPS. Buradan dürüst geri bildirim aldım, ürünü onlarla şekillendirdim.
 >
 > 4/ İndirme: [App Store link]
-> Ücretsiz başla, sevdiysen Lafla Pro $9.99/ay.
+> Ücretsiz başla, sevdiysen Lafla Pro ₺99/ay.
 >
 > 5/ Beta'cılara: ömür boyu %50 indirim koduniz e-postanızda. Buradaki herkese: ilk hafta retweet edenlere 3 ay ücretsiz, DM atın.
 >

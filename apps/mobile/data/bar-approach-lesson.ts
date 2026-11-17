@@ -39,7 +39,7 @@ export const barApproachLesson_24_1: BundledLesson = {
         "Excuse me — what should I order?",
       ],
       tr_hint:
-        "Cevre temelli soru = oda paylasiyorsunuz = uygun. Kisilik / gorunum sormak yerine bag.",
+        "Çevre temelli soru = oda paylaşıyorsunuz = uygun. Kişilik / görünüm sormak yerine bağ.",
     },
     {
       id: "ex.bb24.1.3",
@@ -49,7 +49,7 @@ export const barApproachLesson_24_1: BundledLesson = {
       answer: "out",
       distractors: ["in", "at", "of"],
       tr_hint:
-        "'First time out here?' = bu mekana ilk gelisin mi. Bar small talk klasigi.",
+        "'First time out here?' = bu mekana ilk gelişin mi. Bar small talk klasiği.",
     },
     {
       id: "ex.bb24.1.4",
@@ -73,7 +73,7 @@ export const barApproachLesson_24_1: BundledLesson = {
       correct_sentence:
         "That cocktail looks unreal — mind sharing what it is?",
       tr_explanation:
-        "'You're hot' = creepy + direkt iltifat tehlikeli. Doğru: paylasilan environment-based soru.",
+        "'You're hot' = creepy + direkt iltifat tehlikeli. Doğru: paylaşılan environment-based soru.",
     },
     {
       id: "ex.bb24.1.6",
@@ -94,8 +94,9 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(crazy (crowd|night|vibe))",
             "(first time (in|here|at this place))",
           ],
+          model_answers: ["Quick question — that looks good. What are you drinking?"],
           hint_tr:
-            "Cevre-bazli ac: 'Quick question — that looks good. What are you drinking?'",
+            "Çevre-bazlı aç: 'Quick question — that looks good. What are you drinking?'",
         },
         {
           speaker: "npc",
@@ -112,6 +113,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(how is it|worth the smoke|how strong)",
             "(any (other|favorite) (drinks|recs))",
           ],
+          model_answers: ["Oh nice — usually a gin person but might try. Worth it?"],
           hint_tr:
             "Devam: 'Oh nice — usually a gin person but might try. Worth it?'",
         },
@@ -131,6 +133,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(actually )?(hometown|new in town)(,)? (still exploring)",
             "(it'?s on my list|been meaning to come)",
           ],
+          model_answers: ["No, first time — my friend recommended it"],
           hint_tr:
             "Yer ilişkisi: 'No, first time — my friend recommended it' veya 'Kind of a regular, come once a month'. Türk öğrenci 'evet'/'hayır' kuru bırakır; bir cümle daha ekle (sebep, sıklık, kaynak).",
         },
@@ -150,6 +153,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(just (out|in town))(,)? (figured i'?d explore)",
             "(no real plan)(,)? (just (here|out for a bit))",
           ],
+          model_answers: ["Yeah, just unwinding — long week"],
           hint_tr:
             "Tonight neden? 'Yeah, just unwinding — long week' veya 'Meeting a friend, waiting for them now'. Türk: 'Kafa dağıtmak için' = 'to unwind / to decompress' (modern).",
         },
@@ -169,6 +173,7 @@ export const barApproachLesson_24_1: BundledLesson = {
             "(might (try|check) (somewhere new|a new spot))",
             "(low-key (weekend|plans)|low key)",
           ],
+          model_answers: ["Just rolling with it — maybe brunch Sunday"],
           hint_tr:
             "Hafta sonu paylaş: 'Just rolling with it — maybe brunch Sunday' veya 'Open to suggestions, honestly'. Türk: 'kafama göre takılıyorum' = 'playing it by ear / rolling with it' (modern).",
         },
@@ -194,7 +199,7 @@ export const barApproachLesson_24_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cevre paylasiyorsunuz = ortak konu var. Personal cek = creepy hissi.",
+            "Çevre paylaşıyorsunuz = ortak konu var. Personal çek = creepy hissi.",
         },
         {
           question: "'First time here?' niye iyi sosyal opener?",
@@ -206,7 +211,7 @@ export const barApproachLesson_24_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Evet/Hayir cevabi + detaylanabilir. Sohbet zincirini baslatir.",
+            "Evet/Hayır cevabı + detaylanabilir. Sohbet zincirini başlatır.",
         },
         {
           question: "'You're hot' kullanmaktan KACIN niye?",
@@ -218,7 +223,7 @@ export const barApproachLesson_24_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Tanidigin kisilere bile risky. Yabanci karsida = grossly inappropriate.",
+            "Tanıdığın kişilere bile risky. Yabancı karşıda = grossly inappropriate.",
         },
       ],
     },
@@ -566,7 +571,7 @@ export const barApproachLesson_24_2: BundledLesson = {
         "Want me to grab you another?",
       ],
       tr_hint:
-        "'No expectations' / 'If that's cool' = saygili sinyali. Karsi taraf rahat reddedebilir.",
+        "'No expectations' / 'If that's cool' = saygılı sinyali. Karşı taraf rahat reddedebilir.",
     },
     {
       id: "ex.bb24.2.3",
@@ -576,7 +581,7 @@ export const barApproachLesson_24_2: BundledLesson = {
       answer: "worries",
       distractors: ["problem", "trouble", "bother"],
       tr_hint:
-        "'No worries if you'd rather not' = istemiyorsan sorun degil. Saygili cikis yolu.",
+        "'No worries if you'd rather not' = istemiyorsan sorun değil. Saygılı çıkış yolu.",
     },
     {
       id: "ex.bb24.2.4",
@@ -621,8 +626,9 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(just a (friendly|kind) gesture)",
             "(if (you'?d rather not|that'?s weird))",
           ],
+          model_answers: ["Hey, can I grab you another? No strings — just friendly."],
           hint_tr:
-            "Saygili: 'Hey, can I grab you another? No strings — just friendly.'",
+            "Saygılı: 'Hey, can I grab you another? No strings — just friendly.'",
         },
         {
           speaker: "npc",
@@ -639,8 +645,9 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(what was that|that was)",
             "(more chat|hang|stick around)",
           ],
+          model_answers: ["Of course! Same drink or something else? Cheers!"],
           hint_tr:
-            "Bag kur: 'Of course! Same drink or something else? Cheers!'",
+            "Bağ kur: 'Of course! Same drink or something else? Cheers!'",
         },
         {
           speaker: "npc",
@@ -658,6 +665,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(the (silent|tricky) part is) .{0,20}",
             "(rhymes with )?.{0,20}",
           ],
+          model_answers: ["It's Berk — rhymes with"],
           hint_tr:
             "İsmini öğret: 'It's Berk — rhymes with 'work'. The 'B' is hard' veya 'Sounds like 'bear-k', basically'. Türk: 'Berk' = İngilizce'de zor; rhyme veya phonetic spelling kullan. Türk isimleri Batı'da zorlu — heceleme + rhyme en hızlı.",
         },
@@ -677,6 +685,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(freelance )?(\\w+)( for a few years)?",
             "(short answer)(,)? .{0,40}",
           ],
+          model_answers: ["I'm a software engineer — building a language app right now"],
           hint_tr:
             "Mesleğini paylaş: 'I'm a software engineer — building a language app right now' veya 'In tech, leading payments'. Türk: 'mühendis' = engineer; spesifik ekle (software / mechanical / electrical).",
         },
@@ -696,6 +705,7 @@ export const barApproachLesson_24_2: BundledLesson = {
             "(came from (a )?(different|other) (field|background))",
             "(love it (so far|honestly|now))",
           ],
+          model_answers: ["Recent pivot from finance, love it"],
           hint_tr:
             "Kariyer arkı: 'Five years in — started as a junior, now lead' veya 'Recent pivot from finance, love it'. Türk öğrenci 'X yıldır' = 'for X years' direkt çevirir; doğal 'I've been doing it for X years' (present perfect).",
         },
@@ -721,7 +731,7 @@ export const barApproachLesson_24_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Saygili teklif = saygili cevap. Borc hissi = creepy + reddedilir.",
+            "Saygılı teklif = saygılı cevap. Borç hissi = creepy + reddedilir.",
         },
         {
           question: "Karsi taraf REDDEDERSE NE yapilmali?",
@@ -733,7 +743,7 @@ export const barApproachLesson_24_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Saygili kabullenme = klasik centilmen. Sosyal sermaye buyutur.",
+            "Saygılı kabullenme = klasik centilmen. Sosyal sermaye büyütür.",
         },
         {
           question: "Sessizce icki gondermek IYI fikir mi?",
@@ -745,7 +755,7 @@ export const barApproachLesson_24_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Anonim ilgi = karsi taraf rahatsiz. Yuz yuze, kibarca = saglikli.",
+            "Anonim ilgi = karşı taraf rahatsız. Yüz yüze, kibarca = sağlıklı.",
         },
       ],
     },
@@ -1093,7 +1103,7 @@ export const barApproachLesson_24_3: BundledLesson = {
         "I'm here with Sarah — we did college together.",
       ],
       tr_hint:
-        "'Go way back' = uzun zaman geri gider. 'College buddies' = uni arkadaslari.",
+        "'Go way back' = uzun zaman geri gider. 'College buddies' = üni arkadaşları.",
     },
     {
       id: "ex.bb24.3.3",
@@ -1103,7 +1113,7 @@ export const barApproachLesson_24_3: BundledLesson = {
       answer: "back",
       distractors: ["far", "behind", "up"],
       tr_hint:
-        "'Go way back' = uzun zaman onceden tanidigimiz. Iliski yasi belirten kalıp.",
+        "'Go way back' = uzun zaman önceden tanıdığımız. İlişki yaşı belirten kalıp.",
     },
     {
       id: "ex.bb24.3.4",
@@ -1148,8 +1158,9 @@ export const barApproachLesson_24_3: BundledLesson = {
             "(i'?m berk|been chatting with sarah)",
             "(working on (\\w+)|been working on)",
           ],
+          model_answers: ["Hey, mind if I jump in? How do you know Sarah?"],
           hint_tr:
-            "Saygili katil: 'Hey, mind if I jump in? How do you know Sarah?'",
+            "Saygılı katıl: 'Hey, mind if I jump in? How do you know Sarah?'",
         },
         {
           speaker: "npc",
@@ -1166,6 +1177,7 @@ export const barApproachLesson_24_3: BundledLesson = {
             "(how was|how were they) (the team|the project)",
             "(any (good|funny|wild) (stories|memories))",
           ],
+          model_answers: ["College friends — we go way back. What did you do at Acme?"],
           hint_tr:
             "Devam: 'College friends — we go way back. What did you do at Acme?'",
         },
@@ -1191,7 +1203,7 @@ export const barApproachLesson_24_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sosyal izin + ortak nokta = saygili giris. Direkt katilmak = rude.",
+            "Sosyal izin + ortak nokta = saygılı giriş. Direkt katılmak = rude.",
         },
         {
           question: "'How do you know X?' niye guclu network sorusu?",
@@ -1203,7 +1215,7 @@ export const barApproachLesson_24_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sosyal grafini buyutur. 'Sarah'tan' yerine 'Acme'tan' demek = ortak ag.",
+            "Sosyal grafını büyütür. 'Sarah'tan' yerine 'Acme'tan' demek = ortak ağ.",
         },
         {
           question: "'Small world' kalibinin gucu?",
@@ -1215,7 +1227,7 @@ export const barApproachLesson_24_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pozitif suprize ifade. 'Ben de orada calistim' / 'Ben de o okuldaydim' = warm spark.",
+            "Pozitif süprize ifade. 'Ben de orada çalıştım' / 'Ben de o okuldaydım' = warm spark.",
         },
       ],
     },
@@ -1618,6 +1630,7 @@ export const barApproachLesson_24_4: BundledLesson = {
             "(i'?ll have|i'?ll take|let me get) (an? )?",
             "(only if|just) (next round'?s on me|i get the next)",
           ],
+          model_answers: ["Sure, I'd love one — but the next round's on me."],
           hint_tr:
             "Kabul + karşılık niyeti: 'Sure, I'd love one — but the next round's on me.'",
         },
@@ -1633,6 +1646,7 @@ export const barApproachLesson_24_4: BundledLesson = {
             "(surprise me|barista'?s choice|bartender'?s pick)",
             "(just )?(a beer|something light|nothing too strong)",
           ],
+          model_answers: ["whatever you're having"],
           hint_tr:
             "Spesifik içki söyle veya 'whatever you're having'.",
         },
@@ -1649,6 +1663,7 @@ export const barApproachLesson_24_4: BundledLesson = {
             "(buddy|friend|coworker) (brought me|recommended)",
             "(stumbled in|just walked by|saw the sign)",
           ],
+          model_answers: ["Yeah, first time — a friend recommended it."],
           hint_tr:
             "Kısa cevap + sohbet açıklama hint: 'Yeah, first time — a friend recommended it.'",
         },
@@ -1724,7 +1739,7 @@ export const barApproachLesson_24_5: BundledLesson = {
         "Is anyone using this seat?",
       ],
       tr_hint:
-        "'Seat taken' / 'seat free' = standart bar kalibi. Direkt oturmak yerine sor = saygili.",
+        "'Seat taken' / 'seat free' = standart bar kalıbı. Direkt oturmak yerine sor = saygılı.",
     },
     {
       id: "ex.bb24.5.3",
@@ -1734,7 +1749,7 @@ export const barApproachLesson_24_5: BundledLesson = {
       answer: "are",
       distractors: ["is", "do", "have"],
       tr_hint:
-        "'What are you drinking?' = bar small talk klasigi. Cevre-bazli, guvenli soru.",
+        "'What are you drinking?' = bar small talk klasiği. Çevre-bazlı, güvenli soru.",
     },
     {
       id: "ex.bb24.5.4",
@@ -1758,7 +1773,7 @@ export const barApproachLesson_24_5: BundledLesson = {
       correct_sentence:
         "Hey — this seat taken? Mind if I grab it?",
       tr_explanation:
-        "'I sit here. Talk with me' = emir, kaba + iletişim acmiyor. Doğru: izin sor + sohbet kapisi acık.",
+        "'I sit here. Talk with me' = emir, kaba + iletişim açmıyor. Doğru: izin sor + sohbet kapısı açık.",
     },
     {
       id: "ex.bb24.5.6",
@@ -1774,13 +1789,14 @@ export const barApproachLesson_24_5: BundledLesson = {
           acceptable_patterns: [
             "(hey|hi|excuse me)",
             "(this seat (taken|free)|anyone (sitting|using) (here|this))",
-            "(mind if (i|i'?d)) (grab|take|sit))?",
+            "(mind if (i|i'?d)) (grab|take|sit)?",
             "(place is (packed|wild|busy)|crazy crowd)",
             "(what are you (drinking|having))",
             "(looks (good|solid|interesting))",
           ],
+          model_answers: ["Hey, this seat taken? Place is packed tonight."],
           hint_tr:
-            "Acilis: 'Hey, this seat taken? Place is packed tonight.'",
+            "Açılış: 'Hey, this seat taken? Place is packed tonight.'",
         },
         {
           speaker: "npc",
@@ -1797,6 +1813,7 @@ export const barApproachLesson_24_5: BundledLesson = {
             "(cool|nice|awesome) (vibe|spot|place)",
             "(stuck around|hanging|solo tonight)",
           ],
+          model_answers: ["First time here — any drink recs?"],
           hint_tr:
             "Devam: 'First time here — any drink recs?' veya 'What are you having? Looks good.'",
         },
@@ -1822,7 +1839,7 @@ export const barApproachLesson_24_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Izin sormak = sosyal hassasiyet. Direkt oturmak rude algilanir.",
+            "İzin sormak = sosyal hassasiyet. Direkt oturmak rude algılanır.",
         },
         {
           question: "Reddedilirse (yer dolu) NE yapilmali?",
@@ -1834,7 +1851,7 @@ export const barApproachLesson_24_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Reddi kibarca kabullenmek = saygi sinyali. Sosyal sermayeni korur.",
+            "Reddi kibarca kabullenmek = saygı sinyali. Sosyal sermayeni korur.",
         },
         {
           question: "'What are you drinking?' niye GUVENLI acilis?",
@@ -1846,7 +1863,7 @@ export const barApproachLesson_24_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Drink konusu = paylasilan ortam. Personal soru gibi tehdit hissi vermez.",
+            "Drink konusu = paylaşılan ortam. Personal soru gibi tehdit hissi vermez.",
         },
       ],
     },
@@ -1857,7 +1874,7 @@ export const barApproachLesson_24_5: BundledLesson = {
       phrase: "Hey, this seat taken? Place is packed tonight.",
       ipa: "heɪ ðɪs siːt ˈteɪkən pleɪs ɪz pækt təˈnaɪt",
       tr_hint:
-        "'This seat' = 'ðɪs-siːt' bağlı. 'Taken' = 'teɪ-kən', sonda yumuşak. 'Packed' = 'pækt' kısa + sert. Rahat, gevsek ton.",
+        "'This seat' = 'ðɪs-siːt' bağlı. 'Taken' = 'teɪ-kən', sonda yumuşak. 'Packed' = 'pækt' kısa + sert. Rahat, gevşek ton.",
     },
     {
       id: "ex.bb24.5.sp1",
@@ -2137,9 +2154,9 @@ export const barApproachLesson_24_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Mind if I join",
-      tr_translation: "Katilmamin sakincasi var mi?",
+      tr_translation: "Katılmamın sakıncası var mı?",
       example: "Hey guys — mind if I join?",
-      example_tr: "Selam millet — katilabilir miyim?",
+      example_tr: "Selam millet — katılabilir miyim?",
     },
     {
       id: "ex.bb24.6.2",
@@ -2155,7 +2172,7 @@ export const barApproachLesson_24_6: BundledLesson = {
         "Hi all — what were you laughing about?",
       ],
       tr_hint:
-        "Izin sor + topic'i sor = ilgili oldugunu gosterir. Sessiz dinlemek = creepy.",
+        "İzin sor + topic'i sor = ilgili olduğunu gösterir. Sessiz dinlemek = creepy.",
     },
     {
       id: "ex.bb24.6.3",
@@ -2165,7 +2182,7 @@ export const barApproachLesson_24_6: BundledLesson = {
       answer: "one",
       distractors: ["a", "any", "some"],
       tr_hint:
-        "'Room for one more?' = bir kisi daha sigar mi. Casual + samimi grup giris kalibi.",
+        "'Room for one more?' = bir kişi daha sığar mı. Casual + samimi grup giriş kalıbı.",
     },
     {
       id: "ex.bb24.6.4",
@@ -2205,14 +2222,15 @@ export const barApproachLesson_24_6: BundledLesson = {
           speaker: "user",
           acceptable_patterns: [
             "(hey|hi|hey guys|hey all)",
-            "(mind if (i|i'?d)) (join|jump in|crash))?",
+            "(mind if (i|i'?d)) (join|jump in|crash)?",
             "(room for one more|space for me)",
             "(looked like (fun|a blast|a good time))",
             "(what were you (guys|all) (talking|laughing|chatting) about)",
             "(what'?s (the )?(convo|topic|story))",
           ],
+          model_answers: ["Hey guys, mind if I join? Looked like fun."],
           hint_tr:
-            "Saygili katilim: 'Hey guys, mind if I join? Looked like fun.'",
+            "Saygılı katılım: 'Hey guys, mind if I join? Looked like fun.'",
         },
         {
           speaker: "npc",
@@ -2229,6 +2247,7 @@ export const barApproachLesson_24_6: BundledLesson = {
             "(can'?t (top|beat) that|hard act to follow)",
             "(set me up|hit me|fill me in)",
           ],
+          model_answers: ["Oh no — that's gold. Whose was the worst?"],
           hint_tr:
             "Devam: 'Oh no — that's gold. Whose was the worst?'",
         },
@@ -2254,7 +2273,7 @@ export const barApproachLesson_24_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Izin sorma + grubu kompliman = davet edici tonun. Sessiz dinlemek creepy.",
+            "İzin sorma + grubu kompliman = davet edici tonun. Sessiz dinlemek creepy.",
         },
         {
           question: "'What were you guys talking about?' niye iyi?",
@@ -2266,7 +2285,7 @@ export const barApproachLesson_24_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Grubun zaten konusan konuya 'tap-in' edersin. Yeni konu acmaktan kolay.",
+            "Grubun zaten konuşan konuya 'tap-in' edersin. Yeni konu açmaktan kolay.",
         },
         {
           question: "Grup HAYIR derse NE yapilmali?",
@@ -2278,7 +2297,7 @@ export const barApproachLesson_24_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Grubun ozeline saygi = saglikli sinir. Reddedilen kisi olmak utanc degil, normal.",
+            "Grubun özeline saygı = sağlıklı sınır. Reddedilen kişi olmak utanç değil, normal.",
         },
       ],
     },
@@ -2569,9 +2588,9 @@ export const barApproachLesson_24_7: BundledLesson = {
       difficulty: 2,
       cefr_band: "A2",
       word_or_phrase: "Catch you later",
-      tr_translation: "Sonra goruruz (casual veda)",
+      tr_translation: "Sonra görürüz (casual veda)",
       example: "Cool chatting — catch you later.",
-      example_tr: "Sohbet guzeldi — sonra goruruz.",
+      example_tr: "Sohbet güzeldi — sonra görürüz.",
     },
     {
       id: "ex.bb24.7.2",
@@ -2587,7 +2606,7 @@ export const barApproachLesson_24_7: BundledLesson = {
         "Refill time — talk soon, hopefully.",
       ],
       tr_hint:
-        "Bahane + sicak veda = klasik graceful exit. 'Catch you in a bit' = belki gorusuruz, ucu acik.",
+        "Bahane + sıcak veda = klasik graceful exit. 'Catch you in a bit' = belki görüşürüz, ucu açık.",
     },
     {
       id: "ex.bb24.7.3",
@@ -2597,7 +2616,7 @@ export const barApproachLesson_24_7: BundledLesson = {
       answer: "meeting",
       distractors: ["meet", "to meet", "met"],
       tr_hint:
-        "'Great meeting you' = sicak veda kalibi. -ing formu standart.",
+        "'Great meeting you' = sıcak veda kalıbı. -ing formu standart.",
     },
     {
       id: "ex.bb24.7.4",
@@ -2621,7 +2640,7 @@ export const barApproachLesson_24_7: BundledLesson = {
       correct_sentence:
         "Cool chatting — I'm gonna grab another. Catch you in a bit.",
       tr_explanation:
-        "'I go now. Bye' = aniden + soguk. Doğru: sicak gozlem + dogal bahane + ucu acik veda = saygili exit.",
+        "'I go now. Bye' = aniden + soğuk. Doğru: sıcak gözlem + doğal bahane + ucu açık veda = saygılı exit.",
     },
     {
       id: "ex.bb24.7.6",
@@ -2642,8 +2661,9 @@ export const barApproachLesson_24_7: BundledLesson = {
             "(great (meeting|chatting with) you|so glad we talked)",
             "(don'?t (be a stranger|disappear)|stick around)",
           ],
+          model_answers: ["Cool chatting! Gonna grab another — catch you in a bit."],
           hint_tr:
-            "Sicak exit: 'Cool chatting! Gonna grab another — catch you in a bit.'",
+            "Sıcak exit: 'Cool chatting! Gonna grab another — catch you in a bit.'",
         },
         {
           speaker: "npc",
@@ -2660,8 +2680,9 @@ export const barApproachLesson_24_7: BundledLesson = {
             "(cheers|peace|alright)",
             "(don'?t (let me|wanna) keep you)",
           ],
+          model_answers: ["For sure — enjoy the rest of your night. Cheers!"],
           hint_tr:
-            "Kapanis: 'For sure — enjoy the rest of your night. Cheers!'",
+            "Kapanış: 'For sure — enjoy the rest of your night. Cheers!'",
         },
         {
           speaker: "npc",
@@ -2685,7 +2706,7 @@ export const barApproachLesson_24_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "3'lu kalip: kompliman + bahane + veda = saygili + dogal exit. Karsı taraf rahatsiz olmaz.",
+            "3'lü kalıp: kompliman + bahane + veda = saygılı + doğal exit. Karşı taraf rahatsız olmaz.",
         },
         {
           question: "'Catch you in a bit' niye guzel bitis?",
@@ -2709,7 +2730,7 @@ export const barApproachLesson_24_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yumusak gecis. 'Sikildim' demek kotu — ama 'icecek alacagim' nautral. Sosyal yagcilik.",
+            "Yumuşak geçiş. 'Sıkıldım' demek kötü — ama 'içecek alacağım' nautral. Sosyal yağcılık.",
         },
       ],
     },
@@ -3000,9 +3021,9 @@ export const barApproachLesson_24_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Stay in touch",
-      tr_translation: "Iletisimde kal (samimi + ucu acik)",
+      tr_translation: "İletişimde kal (samimi + ucu açık)",
       example: "This was fun — wanna stay in touch?",
-      example_tr: "Sohbet guzeldi — iletisimde kalalim mi?",
+      example_tr: "Sohbet güzeldi — iletişimde kalalım mı?",
     },
     {
       id: "ex.bb24.8.2",
@@ -3018,7 +3039,7 @@ export const barApproachLesson_24_8: BundledLesson = {
         "Let's stay in touch — what's your handle?",
       ],
       tr_hint:
-        "'@' = Insta handle. Modern + casual. Numara yerine Insta = sosyal mecra, daha az baski.",
+        "'@' = Insta handle. Modern + casual. Numara yerine Insta = sosyal mecra, daha az baskı.",
     },
     {
       id: "ex.bb24.8.3",
@@ -3028,7 +3049,7 @@ export const barApproachLesson_24_8: BundledLesson = {
       answer: "@",
       distractors: ["name", "phone", "email"],
       tr_hint:
-        "'What's your @?' = Insta sor. 2026 jargon. 'Name' ilk soruda olmali, simdi degil.",
+        "'What's your @?' = Insta sor. 2026 jargon. 'Name' ilk soruda olmalı, şimdi değil.",
     },
     {
       id: "ex.bb24.8.4",
@@ -3052,7 +3073,7 @@ export const barApproachLesson_24_8: BundledLesson = {
       correct_sentence:
         "This was fun — what's your @? Or your number, whatever's easier.",
       tr_explanation:
-        "'Can I number you?' = Turk hatasi, ingilizcede yok. Doğru: 'What's your @ / your number?' = standart kalip. Sec sundan birini ver.",
+        "'Can I number you?' = Türk hatası, ingilizcede yok. Doğru: 'What's your @ / your number?' = standart kalıp. Seç şundan birini ver.",
     },
     {
       id: "ex.bb24.8.6",
@@ -3073,8 +3094,9 @@ export const barApproachLesson_24_8: BundledLesson = {
             "(no (pressure|worries|stress)|totally cool if not)",
             "(whatever'?s (easier|cool|fine))",
           ],
+          model_answers: ["This was fun — wanna swap Instas? No pressure."],
           hint_tr:
-            "Saygili istek: 'This was fun — wanna swap Instas? No pressure.'",
+            "Saygılı istek: 'This was fun — wanna swap Instas? No pressure.'",
         },
         {
           speaker: "npc",
@@ -3091,6 +3113,7 @@ export const barApproachLesson_24_8: BundledLesson = {
             "(talk soon|chat soon|catch you online)",
             "(have a good (rest of (the )?night|one))",
           ],
+          model_answers: ["Cool, mine's berk.eng. I'll shoot you a DM. Have a good rest of the night!"],
           hint_tr:
             "Onayla: 'Cool, mine's berk.eng. I'll shoot you a DM. Have a good rest of the night!'",
         },
@@ -3116,7 +3139,7 @@ export const barApproachLesson_24_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Insta = sosyal mecra, dusuk baski. 'No pressure' eklemek = saygi sinyali.",
+            "Insta = sosyal mecra, düşük baskı. 'No pressure' eklemek = saygı sinyali.",
         },
         {
           question: "'Can I number you?' niye HATA?",
@@ -3128,7 +3151,7 @@ export const barApproachLesson_24_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Can I number you?' Ingilizce'de anlamsiz. 'Can I get/grab your number?' dogru kalip.",
+            "'Can I number you?' İngilizce'de anlamsız. 'Can I get/grab your number?' doğru kalıp.",
         },
         {
           question: "Karsi taraf REDDEDERSE NE yapilmali?",
@@ -3140,7 +3163,7 @@ export const barApproachLesson_24_8: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Red = saygili sinir koymak. 'No worries' diyip sicak ayrilmak = klassik centilmen tepkisi.",
+            "Red = saygılı sınır koymak. 'No worries' diyip sıcak ayrılmak = klassik centilmen tepkisi.",
         },
       ],
     },

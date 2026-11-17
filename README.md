@@ -4,7 +4,7 @@
 
 Türk 18-35 yaş için: gerçek hayatta donduğun anlarda İngilizce hazırlığı. Match'te bir mesaja cevap, Slack'te bir feedback, havaalanında check-in, bardaki bir tanışma, IELTS Speaking Part 2 — sahne sahne pratik, hata desenleri Türkçe.
 
-**Current shipping version:** `v0.9.0` (Faz 3 — LLM-siz smart conversation).
+**Uygulama sürümü:** `1.0.5` (`apps/mobile/app.json`). Tarihçe: [`CHANGELOG.md`](CHANGELOG.md) (v0.9.x'e kadar) + `docs/RELEASE_NOTES.md`.
 
 ---
 
@@ -30,7 +30,7 @@ Türkçe konuşan 18-35 yaş, İngilizce **okuyabilen ama gerçek anda donan** g
 | 🎧 **Listen & Transcribe** | TTS clip dinle + Türkçe ipucu ile yaz, sessiz ortamda da pratik |
 | 💭 **Voice Journal** | Kendi sesini kaydet (local-only, 2dk cap), 1 hafta sonraki sesinle karşılaştır |
 
-Onboarding'de 6 chip'ten en az 2 seçersin; feed CEFR seviyene + ilgi alanlarına göre kişiselleşir. **935 sahne, 92 lesson dosyası.**
+Onboarding'de 6 chip'ten en az 2 seçersin; feed CEFR seviyene + ilgi alanlarına göre kişiselleşir. **971 sahne/lesson** (`qa:content` denetimine göre), `apps/mobile/data/` altında ~90 içerik dosyası.
 
 ### Faz 1-3 Özellikleri (v0.7 → v0.9)
 
@@ -64,7 +64,7 @@ Onboarding'de 6 chip'ten en az 2 seçersin; feed CEFR seviyene + ilgi alanların
 ```bash
 git clone git@github.com:berkdemirokk/lafla.git
 cd lafla
-pnpm install
+corepack pnpm install   # repo pnpm@9 sabitler (packageManager)
 
 cp apps/mobile/.env.local.example apps/mobile/.env.local
 # Doldur:
@@ -72,15 +72,25 @@ cp apps/mobile/.env.local.example apps/mobile/.env.local
 #   EXPO_PUBLIC_SUPABASE_ANON_KEY=
 #   (gerekirse PostHog / Sentry / RevenueCat anahtarları — opsiyonel)
 
-pnpm --filter mobile start
-# Expo CLI'da "i" → iOS simulator
+corepack pnpm dev:mobile
+# Expo CLI'da "i" → iOS simulator (macOS) veya Expo Go / dev build ile iPhone'da tara
+# Not: react-native-web kurulu değil — `w` (web) çalışmaz; uygulama iOS-only.
 ```
 
 Root scriptleri:
 
 ```bash
-pnpm typecheck       # workspace typecheck
-pnpm dev:mobile      # Expo dev server
+corepack pnpm typecheck        # tsc --noEmit (apps/mobile)
+corepack pnpm test             # Jest — apps/mobile
+corepack pnpm test:functions   # Deno — supabase/functions handler testleri
+corepack pnpm dev:mobile       # Expo dev server
+
+# apps/mobile içinde içerik/kalite denetimleri:
+corepack pnpm --dir apps/mobile run qa:content   # roleplay + kalite kapısı + CEFR tag
+corepack pnpm --dir apps/mobile run qa:visual    # sahne görselleri
+corepack pnpm --dir apps/mobile run qa:perf      # performans bütçesi
+corepack pnpm --dir apps/mobile run qa:smoke     # TestFlight smoke ön-kontrolü
+corepack pnpm --dir apps/mobile run expo:check   # Expo SDK bağımlılık uyumu
 ```
 
 ## Project Structure
@@ -89,7 +99,7 @@ pnpm dev:mobile      # Expo dev server
 lafla/
 ├── apps/
 │   └── mobile/              # Expo iOS uygulaması — tek aktif workspace
-│       ├── app/             # expo-router — 16 route (auth, onboarding, home, scenario/[id], paywall, profile, settings, diary, voice-journal, relationships, phoneme-drill, listen-mode, placement, freechat, review, today)
+│       ├── app/             # expo-router — ~30 route (auth, onboarding, today, home, scenario/[id], placement, paywall, profile, settings, review, vocab-book, mistake-coach, weakness-report, ielts-band, accent-lab, voice-journal, ...)
 │       ├── components/      # Paylaşılan UI bileşenleri (SwipeSceneCard, Icon, exercises/, ...)
 │       ├── data/            # Bundled lesson + scene paketleri (92 lesson dosyası, 935 scene)
 │       ├── lib/             # engine, srs, supabase, iap, speech, analytics, sentry, npc-bridge, npc-names, ads, theme tüketicileri
@@ -98,8 +108,9 @@ lafla/
 │       ├── scripts/         # generate-arc-scenes.ts (Scene[] auto-gen), audit-cefr-tags.ts (CEFR difficulty audit)
 │       └── assets/          # icon, splash, audio (vc_*/ MP3'ler — ~32MB)
 ├── docs/                    # ADR'lar, App Store metadata, integration guides, TESTFLIGHT_v0.9.md
-├── supabase/migrations/     # initial schema (profiles, lesson_state, skill_mastery, attempts)
-├── .github/workflows/       # expo-testflight.yml + pages.yml
+├── supabase/migrations/     # şema + RLS migration'ları
+├── supabase/functions/      # Edge Functions (Deno) + handler_test.ts testleri
+├── .github/workflows/       # expo-testflight, pages, supabase-test, supabase-deploy, asc-*
 ├── eas.json                 # build profilleri
 └── pnpm-workspace.yaml      # mobile-only
 ```
@@ -134,8 +145,8 @@ Yeni lesson eklerken:
 3. `accepted_variants` cömertçe doldur — pattern matcher'a yardım.
 4. `apps/mobile/data/lessons.ts` dispatcher'a import et.
 5. `apps/mobile/data/scenes.ts`'e karşılık gelen Scene ekle (mode + lessonId) — VEYA Story Arc V2 ise `scripts/generate-arc-scenes.ts` çalıştır.
-6. CEFR tag denetimi: `pnpm --filter mobile run audit-cefr` — yeni lesson'daki dil seviyesi tag'le tutuyor mu.
-7. `pnpm --filter mobile typecheck`.
+6. İçerik + CEFR tag denetimi: `corepack pnpm --dir apps/mobile run qa:content` — yeni lesson'daki dil seviyesi tag'le tutuyor mu.
+7. `corepack pnpm typecheck` ve `corepack pnpm test`.
 
 Türkçe kalite notları: doğrudan çeviri yapma, gündelik tonu koru, `tr_translation`/`tr_hint`/`tr_explanation` alanlarını gerçek Türk-İngilizce hata desenine yedir.
 
@@ -143,24 +154,26 @@ Türkçe kalite notları: doğrudan çeviri yapma, gündelik tonu koru, `tr_tran
 
 Design system: **Neon Noir**. Tüm token'lar [`apps/mobile/theme/index.ts`](apps/mobile/theme/index.ts).
 
-- **Mode:** dark only (`userInterfaceStyle: "dark"`)
+- **Mode:** light + dark (`userInterfaceStyle: "automatic"`, uygulama içi tercih de var; `lib/__tests__/theme-config.test.ts`)
 - **Primary:** `#FF067A` (hot pink) — CTA, brand identity, streak
 - **Tertiary:** `#00FFFF` (electric cyan) — accent, success
 - **Surface:** near-black `#000`/`#0a0a0a` ile elevation tints
 
 Bileşenler token tüketir; **hardcoded hex yasak**. Token yoksa önce `theme/index.ts`'e ekle.
 
-> **Not:** Şu an Space Grotesk + Inter font'ları kodda yazıyor ama yüklü değil — system fallback. `expo-font` ile yüklemek follow-up.
+Font'lar: Space Grotesk + Inter, `app/_layout.tsx` içinde `expo-font` `useFonts` ile yüklenir.
 
 ## Testing
 
-> **No automated tests yet.** Bu açık bir teknik borç ve `engine.ts` için Jest'i ayrı bir PR'da ekleyeceğiz. Şu an her release manuel iPhone smoke ile gidiyor.
+Otomatik testler mevcut ve yerelde geçiyor:
 
-Planlanan kapsama:
-- **Unit** — `lib/engine.ts` (Levenshtein, normalize, evaluateTranslate, evaluateRoleplayTurn).
-- **Content lint** — her `*-lesson.ts` schema validation (id uniqueness, accepted_variants non-empty, regex compiles).
-- **Component** — RN Testing Library: scenario, paywall, onboarding.
-- **E2E** — Maestro: onboarding → first lesson → verdict → streak.
+- **Unit / contract (Jest)** — `apps/mobile/lib/__tests__/` (engine, SRS, placement, roleplay, auth recovery, tema, içerik sayıları vb.). `corepack pnpm test`.
+- **Edge Functions (Deno)** — `supabase/functions/*/handler_test.ts`. `corepack pnpm test:functions`.
+- **Veritabanı** — `.github/workflows/supabase-test.yml` (CI'da Supabase CLI ile).
+- **İçerik kapıları** — `qa:content`, `qa:visual`, `qa:perf`, `qa:smoke`, `qa:linguist:check` (bkz. Getting Started).
+- **E2E** — Maestro akışları CI'da iOS simülatörde (`expo-testflight.yml`).
+
+Gerçek cihaz smoke'u hâlâ manuel: [`docs/TESTFLIGHT_ACCEPTANCE_v1.0.4.md`](docs/TESTFLIGHT_ACCEPTANCE_v1.0.4.md).
 
 ## Deployment
 
@@ -169,7 +182,7 @@ GitHub Actions → EAS Build → TestFlight → App Store Connect.
 - Workflow: [`.github/workflows/expo-testflight.yml`](.github/workflows/expo-testflight.yml)
 - Trigger: `lafla-v*` tag push veya `workflow_dispatch`.
 - Required secrets: `EXPO_TOKEN`, `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APP_STORE_CONNECT_PRIVATE_KEY`, `APPLE_TEAM_ID`.
-- Build profilleri: [`eas.json`](eas.json). `ascAppId` hâlâ `FILL_AFTER_APP_CREATED` — App Store Connect'te ürün oluşturulduktan sonra güncellenecek.
+- Build profilleri: [`eas.json`](eas.json) (`ascAppId` dolu).
 - Bundle ID: `com.lafla.app`.
 
 Release tag flow:

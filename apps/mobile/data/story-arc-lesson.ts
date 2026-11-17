@@ -64,6 +64,7 @@ export const erasmusDay0: BundledLesson = {
             "(study|studying) (at|in) (humboldt|berlin|germany)",
             "(here )?for (a )?(semester|year) abroad",
           ],
+          model_answers: ["I'm here to study"],
           hint_tr:
             "Erasmus = 'exchange student' veya direkt 'Erasmus'. 'I'm here to study' da olur. Türk: 'I came for Erasmus' yerine 'I'm here for' daha doğal.",
         },
@@ -81,6 +82,7 @@ export const erasmusDay0: BundledLesson = {
             "(until|till) (january|february|march|june|july)",
             "(one|two) semester(s)?",
           ],
+          model_answers: ["For one semester"],
           hint_tr:
             "Süre: 'For one semester' veya 'four months'. Üniversite ismi: 'Humboldt University'. Türk: 'I will stay for' yerine 'For + süre' yeterli.",
         },
@@ -98,6 +100,7 @@ export const erasmusDay0: BundledLesson = {
             "(everything'?s here|all the documents are here)",
             "(let me )?(find|get) (them|it) (out|right now)",
           ],
+          model_answers: ["Here's my acceptance letter"],
           hint_tr:
             "'Here's my acceptance letter' = işte kabul mektubum. Yurdun varsa: 'dorm confirmation'. Türk: belgeyi uzatırken 'here you go' veya 'here it is' yeterli.",
         },
@@ -115,6 +118,7 @@ export const erasmusDay0: BundledLesson = {
             "(i have a |got a )?(room in a |spot in a )?(shared flat|wg)",
             "(student housing )?(in berlin)",
           ],
+          model_answers: ["student dorm"],
           hint_tr:
             "Yurt = 'student dorm' veya 'student housing'. Almanca 'WG' (shared flat) İngilizce'de 'shared flat' veya 'flatshare'. Bölge: 'Kreuzberg' diyebilirsin.",
         },
@@ -132,6 +136,7 @@ export const erasmusDay0: BundledLesson = {
             "(i already booked|i have) (an appointment|a slot)",
             "(noted|understood)(,)? thank you",
           ],
+          model_answers: ["I already booked an appointment"],
           hint_tr:
             "'I'll handle it' = halledeceğim. Randevun varsa: 'I already booked an appointment'. Türk: 'I will do' yerine 'I'll handle it' veya 'I'll take care of it' daha doğal.",
         },
@@ -148,6 +153,7 @@ export const erasmusDay0: BundledLesson = {
             "(appreciate it|much appreciated)",
             "(thank you|danke)(,)? (have a good one|take care)",
           ],
+          model_answers: ["Thanks, have a good day"],
           hint_tr:
             "Veda: 'Thanks, have a good day' veya kısaca 'Thank you'. Almanya'da 'Danke' atmak da hoş. Türk: 'Thank you very much' her zaman güvenli.",
         },
@@ -467,6 +473,7 @@ export const erasmusDay1: BundledLesson = {
             "(yes)(,)? (my name (is|'?s)|i'?m) [a-z]+",
             "(checking in|i'?m new)(,)? (erasmus|exchange student)",
           ],
+          model_answers: ["Yes, I'm checking in"],
           hint_tr:
             "'Yes, I'm checking in' = evet, check-in yapacağım. İsim de söyle: 'My name is...'. Türk: 'I will check in' yerine 'I'm checking in' (şimdiki durum).",
         },
@@ -483,6 +490,7 @@ export const erasmusDay1: BundledLesson = {
             "(let me )?(find|grab) (them|it)",
             "(one (second|moment) |hold on )?(here you go)",
           ],
+          model_answers: ["Here you go"],
           hint_tr:
             "Belgeyi uzatırken: 'Here you go' veya 'Here they are'. Türk: 'Take it' yerine 'Here you go' daha kibar.",
         },
@@ -500,6 +508,7 @@ export const erasmusDay1: BundledLesson = {
             "(okay|alright)(,)? (forty euros)(,)? (yikes|got it)",
             "(thanks)(,)? (i'?ll )?(hold onto it tight|not lose it)",
           ],
+          model_answers: ["I'll keep it safe"],
           hint_tr:
             "'Got it' = anladım, en yaygın. 'I'll keep it safe' = kaybetmem. Türk: 'I will not lose' yerine 'I won't lose it' (kısa form daha doğal).",
         },
@@ -517,6 +526,7 @@ export const erasmusDay1: BundledLesson = {
             "(do i need|will i need) (any other|more) (info|details)",
             "(got it|okay)(,)? (i'?ll |i will )?(register tonight|do it later)",
           ],
+          model_answers: ["Could you write the password down?"],
           hint_tr:
             "'Could you write the password down?' = şifreyi yazar mısın? Türk: 'Where I register' yerine 'Where do I register' (soru sırası).",
         },
@@ -534,6 +544,7 @@ export const erasmusDay1: BundledLesson = {
             "(quiet hours )?(noted|good to know)",
             "(any |is there )?(common (room|kitchen|area)|laundry)( on this floor)?",
           ],
+          model_answers: ["Got it, quiet hours noted"],
           hint_tr:
             "'Got it, quiet hours noted' = anladım. 'Any common room?' = ortak alan var mı? Türk: 'Thanks' yetiyor, 'thank you very much for the printout' fazla resmi.",
         },
@@ -550,6 +561,7 @@ export const erasmusDay1: BundledLesson = {
             "(appreciate it|cheers)",
             "(thanks)(,)? (have a (good|nice) day)",
           ],
+          model_answers: ["Thanks, excited to be here!"],
           hint_tr:
             "Veda: 'Thanks, excited to be here!' = sağol, heyecanlıyım! Türk: ilk gün enerji göster, 'happy to be here' samimi.",
         },
@@ -859,6 +871,7 @@ export const erasmusDay2: BundledLesson = {
             "(i study|i'?m studying) (economics|business|engineering|cs|computer science|sociology|history|law|psychology|architecture|literature)",
             "(i'?m doing|i'?m in) (my second|my third|the third) year",
           ],
+          model_answers: ["Hi, I'm [name]. I'm a visiting student from Turkey. I study [major]."],
           hint_tr:
             "Kalıp: 'Hi, I'm [name]. I'm a visiting student from Turkey. I study [major].' Üç cümle. Türk: 'I am studying' yerine 'I study' (genel durum).",
         },
@@ -875,6 +888,7 @@ export const erasmusDay2: BundledLesson = {
             "(for )?(four|five|six) months",
             "(just |only )?(this semester|the winter|the summer term)",
           ],
+          model_answers: ["For one semester"],
           hint_tr:
             "Süre: 'For one semester' veya 'Until February'. Türk: 'I will stay for' yerine 'For + zaman' daha doğal.",
         },
@@ -892,6 +906,7 @@ export const erasmusDay2: BundledLesson = {
             "(at my home (university|uni)|back in turkey)(,)? (i (took|did)|we covered)",
             "(i'?m familiar with (the basics|some of it))",
           ],
+          model_answers: ["I've taken similar courses"],
           hint_tr:
             "'I've taken similar courses' = benzer dersler aldım. 'Back in Turkey' = Türkiye'de. Türk: 'I took' yerine 'I've taken' (deneyim için present perfect).",
         },
@@ -909,6 +924,7 @@ export const erasmusDay2: BundledLesson = {
             "(is there a |do you have |any )?(reading list|recommended) (in advance|to start with)",
             "(thanks)(,)? (i'?ll let you know if i (struggle|get stuck))",
           ],
+          model_answers: ["I'll ask if I get stuck"],
           hint_tr:
             "'I'll ask if I get stuck' = takılırsam sorarım. Türk: 'I will ask' yerine 'I'll ask' (kısa form sınıf konuşması için doğal).",
         },
@@ -925,6 +941,7 @@ export const erasmusDay2: BundledLesson = {
             "(appreciate it)",
             "(excited to be here)",
           ],
+          model_answers: ["Thanks, looking forward to it"],
           hint_tr:
             "Kapanış: 'Thanks, looking forward to it'. Türk: 'I am excited' yerine 'Excited to be here' (eksiltili, doğal).",
         },
@@ -1236,6 +1253,7 @@ export const erasmusDay4: BundledLesson = {
             "(do you (carry|sell)|do you have) (bulgur|lentils|red lentils)",
             "(hi)(,)? (i need|i'?m after) (some )?(lentils|bulgur)",
           ],
+          model_answers: ["Where can I find the X?"],
           hint_tr:
             "Şablon: 'Where can I find the X?'. Türk: 'I am searching' yerine 'I'm looking for' daha doğal. Bulgur/mercimek için 'lentils' İngilizce'de yaygın.",
         },
@@ -1253,6 +1271,7 @@ export const erasmusDay4: BundledLesson = {
             "(is the international aisle |is it )?(this way|that way|over there)",
             "(thanks)(,)? (i'?ll find it|i'?ll have a look)",
           ],
+          model_answers: ["Could you point me to it?"],
           hint_tr:
             "'Aisle' = reyon/koridor. 'Could you point me to it?' = beni o reyona yönlendirir misin? Türk: 'Show me the way' yerine 'Point me to' daha kısa.",
         },
@@ -1270,6 +1289,7 @@ export const erasmusDay4: BundledLesson = {
             "(thanks)(,)? (very helpful|appreciate it)",
             "(perfect|great|got it)",
           ],
+          model_answers: ["past the dairy, on the right"],
           hint_tr:
             "Talimatı tekrar et: 'past the dairy, on the right' = mandıranın ötesinde, sağda. Türk: 'I got' yerine 'Got it' daha doğal.",
         },
@@ -1287,6 +1307,7 @@ export const erasmusDay4: BundledLesson = {
             "(thanks)(,)? (that'?s perfect|exactly what i need)",
             "(anything else)( for traditional turkish )?(no|i'?m good)",
           ],
+          model_answers: ["Oh, that's great!"],
           hint_tr:
             "Sevinç: 'Oh, that's great!' (Türk markası bulmak güzel sürpriz). 'I'd love to try it' = denemek isterim. Türk: 'I want' yerine 'I'd love to' kibar.",
         },
@@ -1303,6 +1324,7 @@ export const erasmusDay4: BundledLesson = {
             "(you'?re|that'?s) a (life|big) saver",
             "(thanks)(,)? (i (really )?owe you one|much appreciated)",
           ],
+          model_answers: ["You're a lifesaver!"],
           hint_tr:
             "Minnet: 'You're a lifesaver!' = hayat kurtardın. Türk: 'Thank you very much' resmi, 'You're a lifesaver' samimi günlük.",
         },
@@ -1613,6 +1635,7 @@ export const erasmusDay7: BundledLesson = {
             "(i just (got|arrived) here|i'?m new)",
             "(this is my first erasmus (party|event))",
           ],
+          model_answers: ["Hi, I'm [name], nice to meet you."],
           hint_tr:
             "Tanışma: 'Hi, I'm [name], nice to meet you.' Lena'nın adını tekrar etmen sıcak gösterir. Türk: 'My name is' kullanabilirsin ama 'I'm [name]' daha doğal/genç.",
         },
@@ -1629,6 +1652,7 @@ export const erasmusDay7: BundledLesson = {
             "(from )?(istanbul|ankara|izmir)(,)? (turkey|in turkey)",
             "(istanbul )?(originally|born and raised)",
           ],
+          model_answers: ["I'm from Istanbul"],
           hint_tr:
             "'I'm from Istanbul' kısa, doğal. Türk: 'I am from Turkey' yerine şehir + ülke daha ilginç ve konuşma açıcı.",
         },
@@ -1646,6 +1670,7 @@ export const erasmusDay7: BundledLesson = {
             "(spending|doing) (a |one |the )?(semester|year) (abroad|here)",
             "(wait|oh)(,)? you (went to|visited) istanbul",
           ],
+          model_answers: ["I'm here on Erasmus"],
           hint_tr:
             "'I'm here on Erasmus' veya 'Exchange semester'. Türk: 'I came for' yerine 'I'm here for/on' (mevcut durum).",
         },
@@ -1663,6 +1688,7 @@ export const erasmusDay7: BundledLesson = {
             "(the (people|food|nightlife|public transport) (is|are))",
             "(honestly|to be honest)(,)? (i love it|it'?s great)",
           ],
+          model_answers: ["I'm loving it so far"],
           hint_tr:
             "'I'm loving it so far' = şimdilik çok seviyorum. Türk: 'I love' yerine 'I'm loving' (şu anki his). 'A bit overwhelming' = biraz bunaltıcı (dürüst cevap).",
         },
@@ -1680,6 +1706,7 @@ export const erasmusDay7: BundledLesson = {
             "(let me |i'?ll )?(grab a drink first|finish this drink)",
             "(what time)(,)? (where do we meet)",
           ],
+          model_answers: ["Sounds good, I'd love to"],
           hint_tr:
             "Davet kabul: 'Sounds good, I'd love to'. Türk: 'I want to come' yerine 'I'd love to come' (kibar/sıcak).",
         },
@@ -1696,6 +1723,7 @@ export const erasmusDay7: BundledLesson = {
             "(let'?s )?(swap numbers|trade numbers)",
             "(could|can) (i|we) (add each other on|exchange) (whatsapp|instagram|insta)",
           ],
+          model_answers: ["Let's swap numbers"],
           hint_tr:
             "'Let's swap numbers' veya 'Add me on Instagram'. Türk: 'Give me your number' yerine 'Let's swap' karşılıklı, daha kibar.",
         },
@@ -2009,6 +2037,7 @@ export const erasmusDay8: BundledLesson = {
             "(no idea how i made it home|don'?t ask)",
             "(yours)( though)?\\?",
           ],
+          model_answers: ["My head's killing me"],
           hint_tr:
             "Hangover banter: 'Rough!' veya 'My head's killing me'. Türk: 'I am tired' düz, 'I'm wrecked' (mahvolmuş) daha eğlenceli, dating app DM için doğru ton.",
         },
@@ -2026,6 +2055,7 @@ export const erasmusDay8: BundledLesson = {
             "(the (line|crowd|smoke) (got|was) (too much|insane))",
             "(let me|i should) make it up to you",
           ],
+          model_answers: ["Sorry, I lost my group"],
           hint_tr:
             "'Sorry, I lost my group' veya 'I had to bail' (sıvışmak zorunda kaldım). Türk: 'I went home' yerine 'I had to head home' (gitmek zorundaydım) daha doğal.",
         },
@@ -2041,8 +2071,9 @@ export const erasmusDay8: BundledLesson = {
             "(yeah|definitely|absolutely)(,)? (i'?d love to)",
             "(thursday|friday|saturday|wednesday) (works|sounds good|is good)",
             "(when (are you|works for you|are you free))",
-            "(coffee )?(or wine|or a drink)(?)?",
+            "(coffee )?(or wine|or a drink)\\??",
           ],
+          model_answers: ["Or wine?"],
           hint_tr:
             "Karşı flört: 'Or wine?' = ya da şarap? Türk: 'I am free Thursday' yerine 'Thursday works' (daha doğal, daha az kalıp).",
         },
@@ -2060,6 +2091,7 @@ export const erasmusDay8: BundledLesson = {
             "(you (pick|choose)|your call)",
             "(can'?t wait|looking forward to it)",
           ],
+          model_answers: ["Done, you pick the spot"],
           hint_tr:
             "Onay: 'Perfect, where?' veya 'Done, you pick the spot'. Türk: 'I am ok' yerine 'Works for me' (doğal hızlı onay).",
         },
@@ -2077,6 +2109,7 @@ export const erasmusDay8: BundledLesson = {
             "(see you (then|thursday)|can'?t wait)",
             "(do i need to|should i) (dress (up|nice)|reserve a spot)",
           ],
+          model_answers: ["I'm in"],
           hint_tr:
             "'I'm in' = varım. Türk: 'I will come' yerine 'I'm in' (kısa, kararlı, samimi). 'Never been' = hiç gitmedim — kalıp ifade.",
         },
@@ -2386,6 +2419,7 @@ export const erasmusDay12: BundledLesson = {
             "(make it )?(a double|a large)(,)? please",
             "(yes)(,)? (and|with) (a croissant|something to eat)",
           ],
+          model_answers: ["You got it!"],
           hint_tr:
             "'The usual' = her zamanki. 'You got it!' = aynen! Türk: 'Yes, same thing' yerine 'You got it' (samimi onay). 'Switch it up' = bu kez değiştir.",
         },
@@ -2403,6 +2437,7 @@ export const erasmusDay12: BundledLesson = {
             "(what'?s (good|fresh) today)",
             "(make it |add )?(a (cookie|muffin|sandwich))",
           ],
+          model_answers: ["Just the coffee"],
           hint_tr:
             "'Just the coffee' = sadece kahve. 'What's fresh today?' = bugün ne taze? Türk: 'Nothing else' düz, 'That's it' veya 'I'm good' daha doğal.",
         },
@@ -2420,6 +2455,7 @@ export const erasmusDay12: BundledLesson = {
             "(yes)(,)? (warm croissant|how can i (resist|say no))",
             "(let'?s do it|i'?m sold)",
           ],
+          model_answers: ["Go on then"],
           hint_tr:
             "Eğlenceli cevap: 'Twisting my arm!' = kolumu büküyorsun! (mecbur kalıyorum). Türk: 'Yes please' güvenli ama 'Why not' veya 'Go on then' daha doğal/samimi.",
         },
@@ -2437,6 +2473,7 @@ export const erasmusDay12: BundledLesson = {
             "(here'?s )?(my card|the card)",
             "(do you take |is )?(contactless okay)",
           ],
+          model_answers: ["Card, please"],
           hint_tr:
             "Ödeme: 'Card, please' veya 'Contactless'. Türk: 'I will pay with card' uzun, 'Card please' yeterli.",
         },
@@ -2453,6 +2490,7 @@ export const erasmusDay12: BundledLesson = {
             "(have a good one)",
             "(see you (tomorrow|soon|monday))",
           ],
+          model_answers: ["Have a good one"],
           hint_tr:
             "Mahalleli veda: 'See you tomorrow!' Türk: 'Goodbye' resmi, 'See you tomorrow' veya 'Have a good one' samimi tekrar gelirim sinyali.",
         },
@@ -2758,6 +2796,7 @@ export const erasmusDay14: BundledLesson = {
             "(thinking of|i was thinking) (dinner|grabbing food)",
             "(any plans this |free this )?(weekend|saturday|sunday)",
           ],
+          model_answers: ["Hey, had a great time. Wanna grab dinner this weekend?"],
           hint_tr:
             "Yumuşak giriş: 'Hey, had a great time. Wanna grab dinner this weekend?' Türk: 'Do you want to eat?' direkt, 'wanna grab dinner' samimi/oyuncu.",
         },
@@ -2775,6 +2814,7 @@ export const erasmusDay14: BundledLesson = {
             "(you (pick|choose)|your call)",
             "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
           ],
+          model_answers: ["How about Turkish food?"],
           hint_tr:
             "'How about Turkish food?' veya 'You pick'. Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
         },
@@ -2792,6 +2832,7 @@ export const erasmusDay14: BundledLesson = {
             "(saturday at (seven|8|eight))",
             "(i'?ll )?(make a reservation|book it)",
           ],
+          model_answers: ["Challenge accepted"],
           hint_tr:
             "'Challenge accepted' = meydan okumayı kabul ettim. Türk: 'Okay I will' düz, 'I got you' veya 'Challenge accepted' oyuncu.",
         },
@@ -2809,6 +2850,7 @@ export const erasmusDay14: BundledLesson = {
             "(can'?t wait|looking forward)",
             "(don'?t (cancel|bail) on me)",
           ],
+          model_answers: ["Locked in!"],
           hint_tr:
             "Onay: 'Locked in!' = kesinleşti. Türk: 'Okay see you' standart, 'Locked in, can't wait' enerjik/flörtöz.",
         },
@@ -2826,6 +2868,7 @@ export const erasmusDay14: BundledLesson = {
             "(text you (later|tomorrow))",
             "(don'?t (work too hard|study too much))",
           ],
+          model_answers: ["Don't work too hard"],
           hint_tr:
             "Veda flört: 'Don't work too hard' = çok çalışma (caring + casual). Türk: 'Bye' düz, 'Don't work too hard' samimi/ilgili.",
         },
@@ -3139,6 +3182,7 @@ export const erasmusDay15: BundledLesson = {
             "(wait )?(till you try the lahmacun)",
             "(the bar is on the floor|low bar)",
           ],
+          model_answers: ["I'll take the compliment"],
           hint_tr:
             "Şaka karşılığı: 'Mother tongue' = anadil. 'I'll take the compliment' = övgüyü kabul ediyorum. Türk: 'Yes I know Turkish' düz, 'twenty years of practice' eğlenceli/mütevazı.",
         },
@@ -3156,6 +3200,7 @@ export const erasmusDay15: BundledLesson = {
             "(meeting people like you helps)",
             "(i'?m settling in|finding my rhythm)",
           ],
+          model_answers: ["meeting people like you helps"],
           hint_tr:
             "Samimi cevap: 'Honestly, better than expected'. Türk: 'I am good' yüzeysel, derinlik ekle 'finding my rhythm' veya 'meeting people like you helps'.",
         },
@@ -3173,6 +3218,7 @@ export const erasmusDay15: BundledLesson = {
             "(this is exactly what i needed)",
             "(then we both win|then this was the right call)",
           ],
+          model_answers: ["Glad you didn't"],
           hint_tr:
             "Sıcak karşılık: 'Glad you didn't' (cancel etmediğine sevindim). Türk: 'Me too' yetersiz, 'I'm really glad you didn't' tam karşılık.",
         },
@@ -3190,6 +3236,7 @@ export const erasmusDay15: BundledLesson = {
             "(the smell of (the bosphorus|simit|sea))",
             "(i miss (my mom'?s|the (food|noise|chaos)))",
           ],
+          model_answers: ["I miss my mom's cooking"],
           hint_tr:
             "Detay anlat: 'Chaotic but alive' veya 'I miss my mom's cooking'. Türk: 'Istanbul is nice' yetersiz, duygu + 5 duyu detayı ekle.",
         },
@@ -3207,6 +3254,7 @@ export const erasmusDay15: BundledLesson = {
             "(summer (break|in june)|next semester)",
             "(but )?(only if you bring proper appetite)",
           ],
+          model_answers: ["Deal"],
           hint_tr:
             "Romantik onay: 'Deal' veya 'I'd love that'. Türk: 'Okay I will take you' soğuk, 'Deal — I'd love to' sıcak + flörtöz.",
         },
@@ -3224,6 +3272,7 @@ export const erasmusDay15: BundledLesson = {
             "(absolutely)(,)? (no take(-| )?backs)",
             "(consider it (booked|done))",
           ],
+          model_answers: ["Pinky promise"],
           hint_tr:
             "Söz verme oyunu: 'Pinky promise' (çocuksu/samimi). Türk: 'Yes' düz, 'I promise' veya 'Pinky promise' dating app/genç ton.",
         },
@@ -3535,6 +3584,7 @@ export const erasmusDay18: BundledLesson = {
             "(i wanted to (clarify|check)|i was hoping to clarify)",
             "(the brief is a bit )?(unclear|vague|confusing)",
           ],
+          model_answers: ["Yes, I had a question about the assignment."],
           hint_tr:
             "Resmi giriş: 'Yes, I had a question about the assignment.' Türk: 'I have problem' eksik, 'I had a question' daha kibar/yetişkin.",
         },
@@ -3552,6 +3602,7 @@ export const erasmusDay18: BundledLesson = {
             "(could you (clarify|explain) (the (scope|word count|format)))",
             "(can i (pick|choose) (my own |a different )?case (study)?)",
           ],
+          model_answers: ["I wasn't sure if X or Y"],
           hint_tr:
             "Soru çerçevesi: 'I wasn't sure if X or Y'. Türk: 'I don't understand' kapalı, 'Could you clarify the scope?' net + kibar.",
         },
@@ -3569,6 +3620,7 @@ export const erasmusDay18: BundledLesson = {
             "(thanks )?(that'?s clearer|much clearer)",
             "(one more (question|thing))",
           ],
+          model_answers: ["So I could go with X?"],
           hint_tr:
             "Anladığını göster: 'So I could go with X?' (örnek ver). Türk: 'Ok thanks' düz, anladığını cümleyle göster — profesör beğenir.",
         },
@@ -3586,6 +3638,7 @@ export const erasmusDay18: BundledLesson = {
             "(any (sources|readings) you'?d recommend)",
             "(no)(,)? (i think i'?m good|that covers it)",
           ],
+          model_answers: ["Deadline?"],
           hint_tr:
             "Pratik ek sorular: 'Word count?' 'Deadline?' 'Can I send a draft?'. Türk: 'How many words?' yerine 'What's the word count?' (akademik).",
         },
@@ -3603,6 +3656,7 @@ export const erasmusDay18: BundledLesson = {
             "(this was (really )?helpful|that helps a lot)",
             "(see you in (class|seminar))",
           ],
+          model_answers: ["Thanks, this was really helpful."],
           hint_tr:
             "Kapanış: 'Thanks, this was really helpful.' Türk: 'Thank you' kuru, 'this was really helpful' geri bildirim verir, profesör sever.",
         },
@@ -3915,6 +3969,7 @@ export const erasmusDay20: BundledLesson = {
             "(before we order)",
             "(could you (talk us through|recommend) (a few things))",
           ],
+          model_answers: ["Yes, we're ready to order — quick question first."],
           hint_tr:
             "Açılış: 'Yes, we're ready to order — quick question first.' Türk: 'Yes I look' düz, 'we'd like to order' kibar.",
         },
@@ -3932,6 +3987,7 @@ export const erasmusDay20: BundledLesson = {
             "(could you (suggest|recommend) something) (dairy(-| )?free)",
             "(any modifications i can make)",
           ],
+          model_answers: ["I'm lactose intolerant"],
           hint_tr:
             "'I'm lactose intolerant' = laktoz intoleransım var. Türk: 'I cannot eat milk' eksik, 'I'm lactose intolerant' resmi tıbbi terim.",
         },
@@ -3949,6 +4005,7 @@ export const erasmusDay20: BundledLesson = {
             "(can i (sub|substitute|swap) (cream|butter) for)",
             "(what about (the noodles|the appetizers))",
           ],
+          model_answers: ["Could you do the ramen dairy-free?"],
           hint_tr:
             "İstek: 'Could you do the ramen dairy-free?' Türk: 'No milk please' eksik, 'Could you do it dairy-free?' tam, kibar.",
         },
@@ -3966,6 +4023,7 @@ export const erasmusDay20: BundledLesson = {
             "(could we (also )?(start with|add)) (an appetizer|the spring rolls)",
             "(she (orders|will order) (the same|the noodles))",
           ],
+          model_answers: ["She'll have the pad thai."],
           hint_tr:
             "Eşin için sipariş: 'She'll have the pad thai.' Türk: 'My friend want' yanlış, 'She'll have' veya 'She'd like' doğru.",
         },
@@ -3983,6 +4041,7 @@ export const erasmusDay20: BundledLesson = {
             "(something (light|crisp|dry|low(-| )?intervention))",
             "(sparkling water)( for the table)?",
           ],
+          model_answers: ["A glass of red, please"],
           hint_tr:
             "İçecek: 'A glass of red, please' veya 'What do you recommend?'. Türk: 'I want wine' eksik, 'A glass of red, something dry' net.",
         },
@@ -3999,6 +4058,7 @@ export const erasmusDay20: BundledLesson = {
             "(actually )?(could we get|can we add) (some )?(water|bread)",
             "(no thanks|i think we'?re set)",
           ],
+          model_answers: ["That's it, thanks!"],
           hint_tr:
             "Kapanış: 'That's it, thanks!' Türk: 'No more' eksik, 'That's all' veya 'We're good' tam.",
         },
@@ -4309,8 +4369,9 @@ export const erasmusDay22: BundledLesson = {
             "(i got a |i have a )?(notification|note|slip)",
             "(this is the (tracking|notification) (number|slip))",
             "(it'?s from|coming from) turkey",
-            "(do (i|you) need (any (id|paperwork))",
+            "(do (i|you) need (any (id|paperwork)))",
           ],
+          model_answers: ["Hi, I'm here to pick up a package."],
           hint_tr:
             "Açılış: 'Hi, I'm here to pick up a package.' Türk: 'I want my package' eksik, 'I'm here to pick up a package' tam, kibar.",
         },
@@ -4328,6 +4389,7 @@ export const erasmusDay22: BundledLesson = {
             "(i (have|brought) (my passport|my id))",
             "(one second|hold on)",
           ],
+          model_answers: ["Here's the tracking and my passport."],
           hint_tr:
             "Belge: 'Here's the tracking and my passport.' Türk: 'Take it' eksik, 'Here you go' veya 'Here's the tracking' kibar.",
         },
@@ -4345,6 +4407,7 @@ export const erasmusDay22: BundledLesson = {
             "(how do i declare|do i sign something)",
             "(can i pay (by |with )?(card|cash))",
           ],
+          model_answers: ["It's from my mom — food and personal stuff."],
           hint_tr:
             "İçerik: 'It's from my mom — food and personal stuff.' Türk: 'My mother send food' eksik, 'It's from my mom — food and clothes' doğal.",
         },
@@ -4362,6 +4425,7 @@ export const erasmusDay22: BundledLesson = {
             "(can i tap)",
             "(any (receipt|email confirmation))",
           ],
+          model_answers: ["Card is fine — can I tap?"],
           hint_tr:
             "Onay: 'Card is fine — can I tap?' Türk: 'I will pay with card' uzun, 'Card, please' yeterli.",
         },
@@ -4379,6 +4443,7 @@ export const erasmusDay22: BundledLesson = {
             "(any (chance of a |idea where i can grab a) (cab|taxi))",
             "(haha|i'?m not surprised)",
           ],
+          model_answers: ["My mom always overpacks!"],
           hint_tr:
             "Sıcak son: 'My mom always overpacks!' Türk: 'My mother sent too much' düz, 'My mom overpacks' kalıp + samimi.",
         },
@@ -4690,6 +4755,7 @@ export const erasmusDay26: BundledLesson = {
             "(go ahead|i'?m listening)",
             "(sounds (serious|important))",
           ],
+          model_answers: ["Of course, what's up?"],
           hint_tr:
             "Yumuşak hazırlık: 'Of course, what's up?' Türk: 'Yes ask' düz, 'Of course, ask me anything' sıcak/açık.",
         },
@@ -4707,6 +4773,7 @@ export const erasmusDay26: BundledLesson = {
             "(i care too|same here|i feel the same)",
             "(this matters to me too|this isn'?t nothing)",
           ],
+          model_answers: ["You're not being stupid — I've been thinking the same."],
           hint_tr:
             "Empati önce: 'You're not being stupid — I've been thinking the same.' Türk: 'I don't know' tek başına soğuk, 'I've been thinking the same' samimi.",
         },
@@ -4724,6 +4791,7 @@ export const erasmusDay26: BundledLesson = {
             "(let'?s be honest about (what we want|what this is))",
             "(i don'?t want to (stop|end this) (just because))",
           ],
+          model_answers: ["Let's not pretend, but we don't have to solve it tonight."],
           hint_tr:
             "Olgun cevap: 'Let's not pretend, but we don't have to solve it tonight.' Türk: 'I don't know what to do' kaçınma, 'let's be honest' yüzleşme.",
         },
@@ -4741,6 +4809,7 @@ export const erasmusDay26: BundledLesson = {
             "(i don'?t want to (ghost|drop|disappear) after i leave)",
             "(let'?s try|let'?s see what happens)",
           ],
+          model_answers: ["I want to see where this goes."],
           hint_tr:
             "Açık ifade: 'I want to see where this goes.' Türk: 'I want you' direkt, 'I want to keep seeing you' daha olgun + ölçülü.",
         },
@@ -4758,6 +4827,7 @@ export const erasmusDay26: BundledLesson = {
             "(let'?s not (decide for the future me|write the ending yet))",
             "(or)(,)? (we (don'?t do labels|figure it out as we go))",
           ],
+          model_answers: ["I hear you. But let's not write the ending yet."],
           hint_tr:
             "Kabul + alternatif: 'I hear you. But let's not write the ending yet.' Türk: 'It will work' iyimser/zayıf, 'let's not write the ending yet' olgun.",
         },
@@ -4775,6 +4845,7 @@ export const erasmusDay26: BundledLesson = {
             "(come here|come closer)",
             "(i'?m glad we talked)",
           ],
+          model_answers: ["Deal. I'm glad we talked."],
           hint_tr:
             "Kapanış: 'Deal. I'm glad we talked.' Türk: 'OK' yetersiz, 'I'm glad we talked' duygusal kabul.",
         },
@@ -5088,6 +5159,7 @@ export const erasmusDay29: BundledLesson = {
             "(too late|already breaking the rule)",
             "(give me one (chance|second))",
           ],
+          model_answers: ["No promises."],
           hint_tr:
             "Hafifletme: 'No promises.' Türk: 'OK' düz, 'No promises' veya 'Rules are made to be broken' duygu yüklü hafif.",
         },
@@ -5105,6 +5177,7 @@ export const erasmusDay29: BundledLesson = {
             "(the freedom|being anonymous|starting over)",
             "(cliché|i know)(,)? (but it'?s you)",
           ],
+          model_answers: ["Honestly, meeting you."],
           hint_tr:
             "Samimi cevap: 'Honestly, meeting you.' Türk: 'I like Berlin' yüzeysel, 'meeting you' romantik kapanış.",
         },
@@ -5122,6 +5195,7 @@ export const erasmusDay29: BundledLesson = {
             "(don'?t make me say it twice)",
             "(haha|guilty)",
           ],
+          model_answers: ["I mean it."],
           hint_tr:
             "Flört geri dönüş: 'I mean it.' Türk: 'Yes really' düz, 'I mean it' samimi onay.",
         },
@@ -5139,6 +5213,7 @@ export const erasmusDay29: BundledLesson = {
             "(my mom will (love|adopt) you)",
             "(deal|done|locked in)",
           ],
+          model_answers: ["I'll hold you to that."],
           hint_tr:
             "Plan onayı: 'I'll hold you to that.' Türk: 'OK come' düz, 'I'll hold you to that' beklenti ifade eden samimi onay.",
         },
@@ -5156,6 +5231,7 @@ export const erasmusDay29: BundledLesson = {
             "(don'?t (forget me|disappear))",
             "(see you in (istanbul|spring|march))",
           ],
+          model_answers: ["I'll miss this place — and you."],
           hint_tr:
             "Son veda: 'I'll miss this place — and you.' Türk: 'Goodbye' soğuk, 'I'll miss you' + plan referansı (Istanbul) duygu kapanışı.",
         },
@@ -5173,6 +5249,7 @@ export const erasmusDay29: BundledLesson = {
             "(don'?t look (back|at me))",
             "(see you soon)",
           ],
+          model_answers: ["See you in spring"],
           hint_tr:
             "Çıkış: 'One last hug.' Türk: 'I am going' düz, 'One last hug' veya 'See you in spring' duygusal son.",
         },
@@ -5483,6 +5560,7 @@ export const erasmusDay10: BundledLesson = {
             "(i'?m an |i am an )?(erasmus|exchange) student",
             "(i need to register my residence)",
           ],
+          model_answers: ["Hi, I'd like to book an appointment for my residence permit."],
           hint_tr:
             "Açılış: 'Hi, I'd like to book an appointment for my residence permit.' Türk: 'I want' yerine 'I'd like' resmi/kibar konuşmada zorunlu.",
         },
@@ -5499,6 +5577,7 @@ export const erasmusDay10: BundledLesson = {
             "(turkey|turkish)(,)? (so )?(non eu)",
             "(non eu)(,)? (turkish (passport|citizen))",
           ],
+          model_answers: ["Non-EU"],
           hint_tr:
             "'Non-EU' = AB dışı. 'Turkish citizen' veya 'Turkish national'. Türk: pasaport yerine 'citizen' daha resmi/doğru.",
         },
@@ -5515,6 +5594,7 @@ export const erasmusDay10: BundledLesson = {
             "(i entered with a |on a )?(student visa|national visa|d visa)",
             "(my visa expires|valid until) (in )?(january|february|march|december)",
           ],
+          model_answers: ["I hold a student visa"],
           hint_tr:
             "'I hold a student visa' = öğrenci vizem var. Türk: 'I have visa' eksik, 'I have a student visa' tam. 'Issued in Istanbul' = İstanbul'dan alındı.",
         },
@@ -5532,6 +5612,7 @@ export const erasmusDay10: BundledLesson = {
             "(could|can) (i|we) (do|get) (anything earlier|sooner)",
             "(three weeks )?(is fine|works for me)",
           ],
+          model_answers: ["Anything sooner?"],
           hint_tr:
             "'Anything sooner?' = daha erken? Türk: 'I want earlier' yerine 'Any chance of an earlier slot?' (kibar resmi).",
         },
@@ -5549,6 +5630,7 @@ export const erasmusDay10: BundledLesson = {
             "(one second|hold on)(,)? (let me )?(find|get) (it|my passport)",
             "(do you need me to spell it)",
           ],
+          model_answers: ["My passport number is U12345678"],
           hint_tr:
             "Bilgi verme: 'My passport number is U12345678'. Türk: 'My number' eksik, 'My passport number' tam. 'Let me find it' = bulayım.",
         },
@@ -5566,6 +5648,7 @@ export const erasmusDay10: BundledLesson = {
             "(visa|passport|photo|enrollment|insurance)(,)? got it",
             "(anything else|is that everything)",
           ],
+          model_answers: ["Could you send me an email with the list?"],
           hint_tr:
             "Liste isteme: 'Could you send me an email with the list?' Türk: 'Send me email' eksik, 'Send me an email with that list' tam, resmi.",
         },
@@ -5582,6 +5665,7 @@ export const erasmusDay10: BundledLesson = {
             "(thanks )?(for (the )?help)",
             "(have a (good|nice|great) day)",
           ],
+          model_answers: ["Thanks, you too!"],
           hint_tr:
             "Kapanış: 'Thanks, you too!' Türk: 'Thank you very much' resmi ama kısa 'Thanks, you too!' daha doğal.",
         },
@@ -5898,6 +5982,7 @@ export const nycDay0Immigration: BundledLesson = {
             "(seeing (the city|new york))",
             "(just )?tourism",
           ],
+          model_answers: ["Tourism."],
           hint_tr:
             "Kısa cevap kural: 'Tourism.' Türk: 'I came for tourism' uzun, tek kelime 'Tourism' tam. Lafı uzatma.",
         },
@@ -5914,6 +5999,7 @@ export const nycDay0Immigration: BundledLesson = {
             "(a week)(,)? (then back to (turkey|istanbul))",
             "(seven nights)",
           ],
+          model_answers: ["Seven days."],
           hint_tr:
             "Sayı + zaman: 'Seven days.' Türk: 'I will stay one week' uzun, 'One week' yeterli.",
         },
@@ -5929,6 +6015,7 @@ export const nycDay0Immigration: BundledLesson = {
             "(airbnb in (brooklyn|williamsburg))",
             "(midtown|manhattan)",
           ],
+          model_answers: ["A hotel in Midtown."],
           hint_tr:
             "Konaklama: 'A hotel in Midtown.' Türk: 'I will stay in hotel' eksik, 'A hotel in Midtown' tam, lokasyonu da ekle.",
         },
@@ -5944,6 +6031,7 @@ export const nycDay0Immigration: BundledLesson = {
             "(it (is|'?s)|yes)(,)? (first time)",
             "(no)(,)? (i'?ve been before)",
           ],
+          model_answers: ["Yes, first time."],
           hint_tr:
             "Resmi onay: 'Yes, first time.' Türk: 'Yes I never come' yanlış, 'Yes, first time' net.",
         },
@@ -5959,6 +6047,7 @@ export const nycDay0Immigration: BundledLesson = {
             "(got it)",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Thank you."],
           hint_tr:
             "Kapanış: 'Thank you.' Türk: gereksiz konuşma yapma, 'Thank you' yeterli.",
         },
@@ -6267,6 +6356,7 @@ export const nycDay0Hotel: BundledLesson = {
             "(reservation under)",
             "(hi)(,)? (i'?m here to check in)",
           ],
+          model_answers: ["Yes, I have a reservation under [name]."],
           hint_tr:
             "Açılış: 'Yes, I have a reservation under [name].' Türk: 'I want room' eksik, rezervasyon adıyla.",
         },
@@ -6282,6 +6372,7 @@ export const nycDay0Hotel: BundledLesson = {
             "(both right here|let me grab them)",
             "([a-z]+)(,)? (here'?s |here is )?(my passport|id)",
           ],
+          model_answers: ["[Name], here's my passport."],
           hint_tr:
             "Soyad + pasaport: '[Name], here's my passport.' Türk: 'Take' yerine 'Here you go' kibar.",
         },
@@ -6298,6 +6389,7 @@ export const nycDay0Hotel: BundledLesson = {
             "(what (are|do you mean) incidentals)",
             "(let me grab my card)",
           ],
+          model_answers: ["Sure, here's my card."],
           hint_tr:
             "'Incidentals' = ekstra masraflar (mini bar, oda servisi). 'Sure, here's my card.' Türk: 'What is incidentals?' soru sormakta sakınca yok.",
         },
@@ -6315,6 +6407,7 @@ export const nycDay0Hotel: BundledLesson = {
             "(twenty)(,)? (steep|wow|that'?s expensive)",
             "(thanks)(,)? (i'?ll (decide|figure it out) tomorrow)",
           ],
+          model_answers: ["Is there a coffee place nearby?"],
           hint_tr:
             "'Steep' = pahalı (samimi). 'Is there a coffee place nearby?' Türk: 'Where coffee?' eksik, 'Is there a coffee place nearby?' tam.",
         },
@@ -6331,6 +6424,7 @@ export const nycDay0Hotel: BundledLesson = {
             "(appreciate it)",
             "(what time is checkout)",
           ],
+          model_answers: ["What time is checkout?"],
           hint_tr:
             "Kapanış soru: 'What time is checkout?' Türk: 'When checkout?' eksik, 'What time is checkout?' net.",
         },
@@ -6638,6 +6732,7 @@ export const nycDay1Bodega: BundledLesson = {
             "(coffee)(,)? (black|with milk|light and sweet)",
             "(an |one )?(iced |hot )?(coffee)",
           ],
+          model_answers: ["Regular coffee, please."],
           hint_tr:
             "'Whatcha need?' = 'What do you need?' Hızlı tepki: 'Regular coffee, please.' Türk: 'I want one coffee' uzun, 'Regular, please' yeterli.",
         },
@@ -6653,6 +6748,7 @@ export const nycDay1Bodega: BundledLesson = {
             "(small|tall)(,)? thanks",
             "(go large|large works)",
           ],
+          model_answers: ["Large, please."],
           hint_tr:
             "Tek kelime: 'Large, please.' Türk: 'I want large' uzun, 'Large, thanks' kısa.",
         },
@@ -6669,6 +6765,7 @@ export const nycDay1Bodega: BundledLesson = {
             "(can i get (a (bagel|muffin)))",
             "(on a (roll|bagel))",
           ],
+          model_answers: ["On a roll"],
           hint_tr:
             "'BEC' = bacon egg and cheese (NYC bodega sandwich). 'On a roll' = ekmekte. Türk: 'No thanks' veya 'Let's do it' samimi.",
         },
@@ -6685,6 +6782,7 @@ export const nycDay1Bodega: BundledLesson = {
             "(everything|the (whole )?works)",
             "(just (cheese|salt))",
           ],
+          model_answers: ["The works"],
           hint_tr:
             "'The works' = tam (her şey ile). Türk: 'Yes all' düz, 'The works' bodega ifadesi, samimi.",
         },
@@ -6700,6 +6798,7 @@ export const nycDay1Bodega: BundledLesson = {
             "(can i tap|contactless)",
             "(do you take apple pay)",
           ],
+          model_answers: ["Card, please."],
           hint_tr:
             "Hızlı ödeme: 'Card, please.' Türk: 'I pay card' eksik, tek kelime yeter.",
         },
@@ -7005,6 +7104,7 @@ export const nycDay1TimesSquare: BundledLesson = {
             "(could you (help|point me) (to|toward) (the )?empire state)",
             "(hi)(,)? (i'?m a bit lost)",
           ],
+          model_answers: ["Excuse me, how do I get to the Empire State?"],
           hint_tr:
             "Açılış: 'Excuse me, how do I get to the Empire State?' Türk: 'Where is' eksik, 'How do I get to' yol için doğru.",
         },
@@ -7020,8 +7120,9 @@ export const nycDay1TimesSquare: BundledLesson = {
             "(let me|could you) (repeat|say that again)",
             "(which way is south)",
             "(six blocks)(,)? thanks",
-            "(i'?ll )?(repeat|make sure)(,)? south on seventh)?",
+            "(i'?ll )?(repeat|make sure)(,)? south on seventh?",
           ],
+          model_answers: ["South on 7th, then east on 34th."],
           hint_tr:
             "Tekrar et: 'South on 7th, then east on 34th.' Türk: 'I don't understand' düz, 'Which way is south?' net.",
         },
@@ -7039,6 +7140,7 @@ export const nycDay1TimesSquare: BundledLesson = {
             "(thanks )?(so much|a lot)",
             "(appreciate it)",
           ],
+          model_answers: ["Got it — how long is the walk?"],
           hint_tr:
             "Onay + bonus soru: 'Got it — how long is the walk?' Türk: 'How much time' eksik, 'How long' zaman/mesafe için.",
         },
@@ -7054,6 +7156,7 @@ export const nycDay1TimesSquare: BundledLesson = {
             "(appreciate it)",
             "(thanks )?(for the help)",
           ],
+          model_answers: ["Thanks, have a good day!"],
           hint_tr:
             "Kapanış: 'Thanks, have a good day!' Türk: 'OK bye' düz, 'Thanks, have a good day' kibar veda.",
         },
@@ -7068,6 +7171,7 @@ export const nycDay1TimesSquare: BundledLesson = {
             "(will do|i will)",
             "(you too|take care)",
           ],
+          model_answers: ["Will do!"],
           hint_tr:
             "Tepki: 'Will do!' = öyle yapacağım. Türk: 'OK' düz, 'Will do!' samimi.",
         },
@@ -7377,6 +7481,7 @@ export const nycDay2Museum: BundledLesson = {
             "(could you (look up|check) (by name|by email))",
             "(one second|hold on)",
           ],
+          model_answers: ["My QR isn't loading — can you check by email?"],
           hint_tr:
             "Sorunu söyle: 'My QR isn't loading — can you check by email?' Türk: 'It doesn't work' yetersiz, sorun + çözüm öner.",
         },
@@ -7393,6 +7498,7 @@ export const nycDay2Museum: BundledLesson = {
             "([a-z]+ at gmail|outlook|hotmail)",
             "(it'?s under (the name )?[a-z]+)",
           ],
+          model_answers: ["Let me spell it."],
           hint_tr:
             "Email yazımı: 'Let me spell it.' Türk: '@' = 'at'. Harfleri yavaş ve net söyle.",
         },
@@ -7410,6 +7516,7 @@ export const nycDay2Museum: BundledLesson = {
             "(one|two) audio guides",
             "(is it in english only|do you have (turkish|other languages))",
           ],
+          model_answers: ["Is it included?"],
           hint_tr:
             "'Is it included?' = dahil mi? Türk: 'Is free?' eksik, 'Is it included?' tam.",
         },
@@ -7427,6 +7534,7 @@ export const nycDay2Museum: BundledLesson = {
             "(one english one (mandarin|spanish))",
             "(any (turkish|german))",
           ],
+          model_answers: ["Two in English, please."],
           hint_tr:
             "Karar: 'Two in English, please.' Türk: 'I want two English' eksik, 'Two in English' tam.",
         },
@@ -7443,6 +7551,7 @@ export const nycDay2Museum: BundledLesson = {
             "(have a (good|nice) day)",
             "(thanks )?(for sorting (it|that) out)",
           ],
+          model_answers: ["Thanks for sorting that out!"],
           hint_tr:
             "Kapanış: 'Thanks for sorting that out!' Türk: 'Thanks' yeterli ama 'Thanks for sorting it out' sorunu çözdüğünü vurgular, samimi.",
         },
@@ -7753,6 +7862,7 @@ export const nycDay2Dinner: BundledLesson = {
             "(what do you (recommend|suggest))",
             "(any (signatures|standouts|favorites))",
           ],
+          model_answers: ["Yes, first time — that'd be great."],
           hint_tr:
             "Açılış: 'Yes, first time — that'd be great.' Türk: 'OK tell' eksik, 'That'd be great' kibar onay.",
         },
@@ -7770,6 +7880,7 @@ export const nycDay2Dinner: BundledLesson = {
             "(is there a (vegetarian|seafood) option)",
             "(let me|we'?ll) (think for a sec|talk it over)",
           ],
+          model_answers: ["How long does the tasting take?"],
           hint_tr:
             "Soru: 'How long does the tasting take?' Türk: 'How much time?' eksik, 'How long' süre için.",
         },
@@ -7787,6 +7898,7 @@ export const nycDay2Dinner: BundledLesson = {
             "(let me|we'?ll) (think for one (sec|minute))",
             "(actually )?(we'?ll do à la carte)",
           ],
+          model_answers: ["Let's do the tasting with the wine pairing."],
           hint_tr:
             "Karar: 'Let's do the tasting with the wine pairing.' Türk: 'OK we eat tasting' eksik, 'Let's do' karar verme kalıbı.",
         },
@@ -7804,6 +7916,7 @@ export const nycDay2Dinner: BundledLesson = {
             "(she doesn'?t eat (mushrooms|seafood))",
             "(all good|we'?re open to everything)",
           ],
+          model_answers: ["I don't eat pork"],
           hint_tr:
             "'I don't eat pork' = domuz yemiyorum (Türk için yaygın). Türk: 'I cannot' veya 'I don't eat' tam.",
         },
@@ -7820,6 +7933,7 @@ export const nycDay2Dinner: BundledLesson = {
             "(one each|one of each)",
             "(tap (water )?is fine)",
           ],
+          model_answers: ["Sparkling, please."],
           hint_tr:
             "Su: 'Sparkling, please.' Türk: 'Gas water' yanlış, 'Sparkling' doğru.",
         },
@@ -7835,6 +7949,7 @@ export const nycDay2Dinner: BundledLesson = {
             "(can'?t wait)",
             "(thanks)(,)? (for the walkthrough|for explaining)",
           ],
+          model_answers: ["Can't wait!"],
           hint_tr:
             "Kapanış: 'Can't wait!' Türk: 'OK' düz, 'Looking forward to it' veya 'Can't wait' enerji gösterir.",
         },
@@ -8142,6 +8257,7 @@ export const nycDay3Subway: BundledLesson = {
             "(does the 1 (stop here|run here))",
             "(quick (question|one))",
           ],
+          model_answers: ["Is this the uptown 1?"],
           hint_tr:
             "Net soru: 'Is this the uptown 1?' Türk: 'This way uptown?' eksik, 'Is this the uptown 1?' tam.",
         },
@@ -8159,6 +8275,7 @@ export const nycDay3Subway: BundledLesson = {
             "(can i (cross over|switch sides))",
             "(thanks )?(for the help)",
           ],
+          model_answers: ["Got it, do I need to swipe again?"],
           hint_tr:
             "Onay: 'Got it, do I need to swipe again?' Türk: 'I pay again?' eksik, 'Do I need to swipe again?' tam.",
         },
@@ -8176,6 +8293,7 @@ export const nycDay3Subway: BundledLesson = {
             "(appreciate it)",
             "(have a (good|nice) day)",
           ],
+          model_answers: ["You're a lifesaver!"],
           hint_tr:
             "Minnet: 'You're a lifesaver!' Türk: 'Thanks' yeterli ama 'You saved me a swipe' renkli/samimi.",
         },
@@ -8190,6 +8308,7 @@ export const nycDay3Subway: BundledLesson = {
             "(thanks|cheers)",
             "(take care)",
           ],
+          model_answers: ["You too!"],
           hint_tr:
             "Veda: 'You too!' Türk: 'OK bye' kuru, 'You too' samimi.",
         },
@@ -8204,6 +8323,7 @@ export const nycDay3Subway: BundledLesson = {
             "(noted|good to know)",
             "(thanks )?(for the heads(-| )?up)",
           ],
+          model_answers: ["Mind the gap"],
           hint_tr:
             "'Mind the gap' = boşluğa dikkat. Türk: 'Watch the gap' düz, 'mind the gap' yaygın metro ifadesi.",
         },
@@ -8514,6 +8634,7 @@ export const nycDay4Mike: BundledLesson = {
             "(thanks for (coming out|making the time))",
             "(i'?ve heard a lot too)",
           ],
+          model_answers: ["Good to finally meet you!"],
           hint_tr:
             "Selam: 'Good to finally meet you!' Türk: 'Nice to meet you' resmi, 'Good to finally meet you' samimi (uzun beklenmiş tanışma).",
         },
@@ -8531,6 +8652,7 @@ export const nycDay4Mike: BundledLesson = {
             "(what do you recommend)",
             "(let me )?(check the menu|see what'?s on tap)",
           ],
+          model_answers: ["What are you drinking?"],
           hint_tr:
             "Geri ver: 'What are you drinking?' Türk: 'I drink beer' düz, 'What's good here?' bilgi alma.",
         },
@@ -8548,6 +8670,7 @@ export const nycDay4Mike: BundledLesson = {
             "(make it two|same for me)",
             "(actually )?(i'?ll go with (a beer|something lighter))",
           ],
+          model_answers: ["Sounds fancy — I'm in."],
           hint_tr:
             "Heyecan: 'Sounds fancy — I'm in.' Türk: 'OK I take' düz, 'I'm in' veya 'Let's do it' karar gösterir.",
         },
@@ -8565,6 +8688,7 @@ export const nycDay4Mike: BundledLesson = {
             "(some things (surprise|shock) me)",
             "(have to ask you about (the subway|the prices|the speed))",
           ],
+          model_answers: ["It's been wild — loving it."],
           hint_tr:
             "Hisset cevap: 'It's been wild — loving it.' Türk: 'It is good' yüzeysel, 'wild', 'intense', 'amazing' enerji.",
         },
@@ -8577,11 +8701,12 @@ export const nycDay4Mike: BundledLesson = {
           speaker: "user",
           acceptable_patterns: [
             "(how (loud|fast|expensive) everything is)",
-            "(tipping|the tipping culture))",
+            "(tipping|the tipping culture)",
             "(small talk|how friendly strangers are)",
             "(portion sizes|the food portions)",
             "(no one (sits down|walks slow))",
           ],
+          model_answers: ["Tipping culture is wild."],
           hint_tr:
             "Türk kültür şoku: 'Tipping culture is wild.' Türk: 'Everything different' soyut, somut örnek ver.",
         },
@@ -8599,6 +8724,7 @@ export const nycDay4Mike: BundledLesson = {
             "(food first|i'?m starving)",
             "(your call|lead the way)",
           ],
+          model_answers: ["You're the local — you tell me."],
           hint_tr:
             "Yerel lider: 'You're the local — you tell me.' Türk: 'I don't know' kapalı, 'You tell me' yerel rehbere güven.",
         },
@@ -8903,12 +9029,13 @@ export const nycDay5Uber: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(i'?m (at|by|right by)) (the corner of|fifth and|23rd and))",
+            "(i'?m (at|by|right by)) (the corner of|fifth and|23rd and)",
             "(under the awning|by the (deli|starbucks|drugstore))",
             "(in front of (a |the )?(starbucks|cvs|bodega))",
             "(near|next to|across from) (the (deli|bank|hotel))",
             "(i'?ll wave at you|i'?m wearing (a red jacket|black coat))",
           ],
+          model_answers: ["I'm by the corner of 5th and 23rd — in front of the Starbucks."],
           hint_tr:
             "Lokasyon: 'I'm by the corner of 5th and 23rd — in front of the Starbucks.' Türk: 'I am here' eksik, sokak + landmark ver.",
         },
@@ -8926,6 +9053,7 @@ export const nycDay5Uber: BundledLesson = {
             "(i can cross over|i'?ll come to you)",
             "(by the (uptown|downtown) side)",
           ],
+          model_answers: ["The east side, by the Starbucks."],
           hint_tr:
             "Yön: 'The east side, by the Starbucks.' Türk: 'This side' eksik, 'east/west side' veya landmark.",
         },
@@ -8942,6 +9070,7 @@ export const nycDay5Uber: BundledLesson = {
             "(i see (the car|a black camry))",
             "(should i walk to (you|the corner))",
           ],
+          model_answers: ["Got it, looking for the black Camry."],
           hint_tr:
             "Onay + pratik: 'Got it, looking for the black Camry.' Türk: 'OK I see' eksik, 'I'll watch for it' aktif bekleme.",
         },
@@ -8956,6 +9085,7 @@ export const nycDay5Uber: BundledLesson = {
             "(walking toward you|on my way)",
             "(one second|hold on)",
           ],
+          model_answers: ["I see you — coming over."],
           hint_tr:
             "Hareket: 'I see you — coming over.' Türk: 'I come' eksik, 'Coming over' veya 'On my way' tam.",
         },
@@ -8971,6 +9101,7 @@ export const nycDay5Uber: BundledLesson = {
             "(thanks for waiting|sorry to keep you)",
             "(how'?s your night going)",
           ],
+          model_answers: ["Hey, thanks for waiting!"],
           hint_tr:
             "Binince: 'Hey, thanks for waiting!' Türk: 'OK go' eksik, 'Thanks for waiting' kibar başlangıç.",
         },
@@ -9280,6 +9411,7 @@ export const nycDay5Pharmacy: BundledLesson = {
             "(do you (carry|have) (melatonin|sleep aids))",
             "(it'?s my (fourth|fifth) day and i'?m still wrecked)",
           ],
+          model_answers: ["Hi, do you have something for jet lag?"],
           hint_tr:
             "Açılış: 'Hi, do you have something for jet lag?' Türk: 'I need medicine' eksik, 'Something for jet lag' net.",
         },
@@ -9296,6 +9428,7 @@ export const nycDay5Pharmacy: BundledLesson = {
             "(i'?ve been here (four|five) days)",
             "(falling asleep at (8|9) and (waking|up) at 3)",
           ],
+          model_answers: ["Istanbul — seven hours difference."],
           hint_tr:
             "Bilgi ver: 'Istanbul — seven hours difference.' Türk: 'I come from Turkey' tam, 'seven hours difference' ek bilgi.",
         },
@@ -9313,6 +9446,7 @@ export const nycDay5Pharmacy: BundledLesson = {
             "(is it (strong|drowsy(-| )?making))",
             "(no thanks|just that)",
           ],
+          model_answers: ["Any side effects?"],
           hint_tr:
             "Akıllı soru: 'Any side effects?' Türk: 'Is it good?' yüzeysel, 'Any side effects?' bilinçli müşteri.",
         },
@@ -9329,6 +9463,7 @@ export const nycDay5Pharmacy: BundledLesson = {
             "(where do i (find it|pay))",
             "(is it (over there|in this aisle))",
           ],
+          model_answers: ["Got it, thanks for the advice."],
           hint_tr:
             "Onay: 'Got it, thanks for the advice.' Türk: 'OK' eksik, 'Thanks for the advice' minnet.",
         },
@@ -9344,6 +9479,7 @@ export const nycDay5Pharmacy: BundledLesson = {
             "(have a (good|nice) (evening|night))",
             "(thanks )?(for the help)",
           ],
+          model_answers: ["Feel better"],
           hint_tr:
             "'Feel better' = geçmiş olsun. Türk: 'Thanks' yeterli, 'Appreciate it' samimi.",
         },
@@ -9654,6 +9790,7 @@ export const nycDay6Souvenir: BundledLesson = {
             "(any chance of a discount)",
             "(what'?s your best price)",
           ],
+          model_answers: ["Can you do better for cash?"],
           hint_tr:
             "Pazarlık girişi: 'Can you do better for cash?' Türk: 'Cheaper please' kaba, 'Can you do better?' kibar standart.",
         },
@@ -9671,6 +9808,7 @@ export const nycDay6Souvenir: BundledLesson = {
             "(let me think|let me look around)",
             "(deal|done|sold)",
           ],
+          model_answers: ["How about forty?"],
           hint_tr:
             "Karşı teklif: 'How about forty?' Türk: 'OK 40' düz, 'Meet me at forty' pazarlık dili.",
         },
@@ -9688,6 +9826,7 @@ export const nycDay6Souvenir: BundledLesson = {
             "(alright|fine)",
             "(let'?s do it)",
           ],
+          model_answers: ["Deal!"],
           hint_tr:
             "Kapanış: 'Deal!' Türk: 'OK I take' eksik, 'Deal' kararlı pazarlık sonu.",
         },
@@ -9705,6 +9844,7 @@ export const nycDay6Souvenir: BundledLesson = {
             "(can i mix designs)",
             "(let me pick)",
           ],
+          model_answers: ["Two medium, one large."],
           hint_tr:
             "Beden + tasarım: 'Two medium, one large.' Türk: 'I want medium' eksik, sayı + beden + tasarım.",
         },
@@ -9720,6 +9860,7 @@ export const nycDay6Souvenir: BundledLesson = {
             "(do you (have change|take card))",
             "(let me grab it)",
           ],
+          model_answers: ["Yes, cash — here you go."],
           hint_tr:
             "Onay: 'Yes, cash — here you go.' Türk: 'Cash' tek, 'Here you go' ile beraber tam.",
         },
@@ -10025,6 +10166,7 @@ export const nycDay6JFK: BundledLesson = {
             "(what (do i|should i) do)",
             "(please help|i'?m flying in (an hour|two hours))",
           ],
+          model_answers: ["Hi, I think I've lost my passport — what do I do?"],
           hint_tr:
             "Panik kontrol: 'Hi, I think I've lost my passport — what do I do?' Türk: 'Help' eksik, sorun + zaman baskısı ekle.",
         },
@@ -10038,10 +10180,11 @@ export const nycDay6JFK: BundledLesson = {
           acceptable_patterns: [
             "(this morning|at the hotel)",
             "(at (security|the airbnb|the cab))",
-            "(i used it (at the bar|to (check out|sign up))",
+            "(i used it (at the bar|to (check out|sign up)))",
             "(i don'?t remember (exactly|the last time))",
             "(maybe (an hour|two hours) ago)",
           ],
+          model_answers: ["At the hotel this morning."],
           hint_tr:
             "Son hatırlama: 'At the hotel this morning.' Türk: 'I don't know' kaçma, son net hatırlama ver.",
         },
@@ -10059,6 +10202,7 @@ export const nycDay6JFK: BundledLesson = {
             "(can i (dump|empty) (my bag|the contents))",
             "(i'?m (sure|positive) it'?s not (in|here))",
           ],
+          model_answers: ["Yes, three times — let me check once more."],
           hint_tr:
             "Detaylı kontrol: 'Yes, three times — let me check once more.' Türk: 'Yes I check' eksik, 'three times' detay panik gerçek.",
         },
@@ -10076,6 +10220,7 @@ export const nycDay6JFK: BundledLesson = {
             "(how long does the consulate take)",
             "(can i (rebook|change) my flight)",
           ],
+          model_answers: ["Let me call them right now."],
           hint_tr:
             "Aksiyon planı: 'Let me call them right now.' Türk: 'No' tek, 'Not yet — I'll call them right now' aktif.",
         },
@@ -10093,6 +10238,7 @@ export const nycDay6JFK: BundledLesson = {
             "(i'?ll be (right back|five minutes))",
             "(thank you for understanding)",
           ],
+          model_answers: ["Thank you so much — you're saving me!"],
           hint_tr:
             "Minnet: 'Thank you so much — you're saving me!' Türk: 'Thanks' yetersiz, 'you're saving me' duygu yüklü.",
         },
@@ -10109,6 +10255,7 @@ export const nycDay6JFK: BundledLesson = {
             "(thank you|appreciate it)",
             "(wish me luck)",
           ],
+          model_answers: ["On it!"],
           hint_tr:
             "Hızlı: 'On it!' Türk: 'OK I go' uzun, 'On it' veya 'Running' enerji + aciliyet.",
         },
@@ -10424,6 +10571,7 @@ export const ieltsDay1: BundledLesson = {
             "([a-z]+ [a-z]+)",
             "(sure|of course)(,)? (it'?s [a-z]+)",
           ],
+          model_answers: ["My full name is [first] [last]."],
           hint_tr:
             "Tam isim ver: 'My full name is [first] [last].' Türk: tek kelime cevap puanı düşürür, tam cümle kur.",
         },
@@ -10440,6 +10588,7 @@ export const ieltsDay1: BundledLesson = {
             "(i was born and raised in [a-z]+)",
             "(it'?s (a |the )?(largest|capital|coastal) city)",
           ],
+          model_answers: ["I'm from Istanbul, the largest city in Turkey."],
           hint_tr:
             "Kalıp: 'I'm from Istanbul, the largest city in Turkey.' Türk: 'I from Istanbul' eksik, 'I'm from + context' Band 6+.",
         },
@@ -10457,6 +10606,7 @@ export const ieltsDay1: BundledLesson = {
             "(it'?s (a |the )?(perfect mix|melting pot) of)",
             "(the (energy|atmosphere|vibe) is (unmatched|incredible))",
           ],
+          model_answers: ["The thing I enjoy most is the food culture — it's unmatched."],
           hint_tr:
             "Detay + sıfat: 'The thing I enjoy most is the food culture — it's unmatched.' Türk: 'I like food' yetersiz, 'unmatched', 'melting pot' Band 7.",
         },
@@ -10473,6 +10623,7 @@ export const ieltsDay1: BundledLesson = {
             "(i'?m an? (engineer|doctor|teacher|developer|designer))",
             "(i'?m (between jobs|in transition|finishing my degree))",
           ],
+          model_answers: ["I work as an engineer."],
           hint_tr:
             "Cevap: 'I'm currently studying...' veya 'I work as an engineer.' Türk: 'Yes I work' eksik, 'I work as' + ünvan.",
         },
@@ -10490,6 +10641,7 @@ export const ieltsDay1: BundledLesson = {
             "(i wanted (a career|something) (that|where))",
             "(honestly|to be honest)(,)? (it found me)",
           ],
+          model_answers: ["I chose it because it combines logic and creativity."],
           hint_tr:
             "Sebep: 'I chose it because it combines logic and creativity.' Türk: 'I like it' yüzeysel, sebep + 2 cümle açıklama Band 7.",
         },
@@ -10507,6 +10659,7 @@ export const ieltsDay1: BundledLesson = {
             "(i felt (rusty|confident|nervous))",
             "(can'?t wait for the feedback)",
           ],
+          model_answers: ["Thanks — how did I sound?"],
           hint_tr:
             "Kapanış: 'Thanks — how did I sound?' Türk: 'Thanks' yetersiz, geri bildirim iste, coach beğenir.",
         },
@@ -10818,6 +10971,7 @@ export const ieltsDay2: BundledLesson = {
             "(i can take it|let'?s hear it)",
             "(of course|please do)",
           ],
+          model_answers: ["Give it to me straight."],
           hint_tr:
             "Olgun yetişkin: 'Give it to me straight.' Türk: 'OK tell' düz, 'No sugarcoating' samimi açıklık.",
         },
@@ -10835,6 +10989,7 @@ export const ieltsDay2: BundledLesson = {
             "(could you (point|show) (me )?which sentences)",
             "(i need to (drill|practice) (that|tenses))",
           ],
+          model_answers: ["That's my classic — Turkish issue."],
           hint_tr:
             "Sahiplenme: 'That's my classic — Turkish issue.' Türk: 'OK' kabul etmemek, sahiplen + plan iste.",
         },
@@ -10852,6 +11007,7 @@ export const ieltsDay2: BundledLesson = {
             "(can we drill this all week)",
             "(i need (more examples|context))",
           ],
+          model_answers: ["Present perfect connects to now — past simple is closed."],
           hint_tr:
             "Anladığını göster: 'Present perfect connects to now — past simple is closed.' Türk: ezber kural söyle, ilişkilendir.",
         },
@@ -10869,6 +11025,7 @@ export const ieltsDay2: BundledLesson = {
             "(let'?s go|i'?m ready)",
             "(can you also (give|throw in) (some )?(writing|reading) (practice|examples))",
           ],
+          model_answers: ["Deal — when do you want them?"],
           hint_tr:
             "Plan kabul: 'Deal — when do you want them?' Türk: 'OK I do' düz, 'Deal' + soru tam profesyonel.",
         },
@@ -10886,6 +11043,7 @@ export const ieltsDay2: BundledLesson = {
             "(i appreciate (the structure|this))",
             "(see you (tomorrow|same time))",
           ],
+          model_answers: ["Perfect — locked in."],
           hint_tr:
             "Onay: 'Perfect — locked in.' Türk: 'OK' kuru, 'Locked in' + minnet samimi.",
         },
@@ -11198,6 +11356,7 @@ export const ieltsDay4: BundledLesson = {
             "(structure)(,)? (who|what|why|how)",
             "(ready when you are)",
           ],
+          model_answers: ["Let me jot down points: who, what they did, why it mattered."],
           hint_tr:
             "Hazırlık sesli: 'Let me jot down points: who, what they did, why it mattered.' Türk: sessizlik puanı düşürür, prep'ini sesli yap.",
         },
@@ -11215,6 +11374,7 @@ export const ieltsDay4: BundledLesson = {
             "(what (made|set) her apart was)",
             "(growing up|when i was younger)",
           ],
+          model_answers: ["The person who shaped me the most was my grandmother."],
           hint_tr:
             "Açılış: 'The person who shaped me the most was my grandmother.' Türk: 'I will talk about' düz, 'The person who shaped me' Band 7 dil.",
         },
@@ -11232,6 +11392,7 @@ export const ieltsDay4: BundledLesson = {
             "(she had (a way|this habit) of)",
             "(despite (the difficulty|her circumstances))",
           ],
+          model_answers: ["Every Sunday, she'd take me to..."],
           hint_tr:
             "Eylem + örnek: 'Every Sunday, she'd take me to...' Türk: 'She is good' yetersiz, somut hatıra ver.",
         },
@@ -11249,6 +11410,7 @@ export const ieltsDay4: BundledLesson = {
             "(it (shaped|defined) (the way i|how i))",
             "(to this day|even now)",
           ],
+          model_answers: ["I still carry those lessons."],
           hint_tr:
             "Kapanış: 'I still carry those lessons.' Türk: 'It was good' yüzeysel, 'shaped how I see' Band 7+.",
         },
@@ -11266,6 +11428,7 @@ export const ieltsDay4: BundledLesson = {
             "(let'?s do another)",
             "(any other (notes|feedback))",
           ],
+          model_answers: ["Where did I slip?"],
           hint_tr:
             "Geri bildirim sor: 'Where did I slip?' Türk: 'OK' yetersiz, hatayı net bul.",
         },
@@ -11578,6 +11741,7 @@ export const ieltsDay6: BundledLesson = {
             "(it depends on (whether|how))",
             "(broadly speaking|in principle)",
           ],
+          model_answers: ["I'd argue governments should — at least partially."],
           hint_tr:
             "Açılış pozisyon: 'I'd argue governments should — at least partially.' Türk: 'I think yes' yetersiz, 'I'd argue + condition' Band 7.",
         },
@@ -11595,6 +11759,7 @@ export const ieltsDay6: BundledLesson = {
             "(public goods|cultural heritage)",
             "(if we left it to (the market|profit alone))",
           ],
+          model_answers: ["That's a fair point, however the market alone fails cultural goods."],
           hint_tr:
             "Kabul + counter: 'That's a fair point, however the market alone fails cultural goods.' Türk: 'No' düz, kabul + 'however' Band 7-8.",
         },
@@ -11612,6 +11777,7 @@ export const ieltsDay6: BundledLesson = {
             "(specifically|narrowly defined)",
             "(things (whose value|that) (extends beyond|outlives))",
           ],
+          model_answers: ["By cultural good I mean things whose value outlives a single generation."],
           hint_tr:
             "Tanımlama: 'By cultural good I mean things whose value outlives a single generation.' Türk: 'It means' düz, 'By X I mean' akademik.",
         },
@@ -11629,6 +11795,7 @@ export const ieltsDay6: BundledLesson = {
             "(the criterion should be)",
             "(this is where the (real|tough) debate lies)",
           ],
+          model_answers: ["Neither extreme works — a tiered approach."],
           hint_tr:
             "Nüans: 'Neither extreme works — a tiered approach.' Türk: 'Both' yüzeysel, 'tiered approach' veya 'graduated' Band 8.",
         },
@@ -11646,6 +11813,7 @@ export const ieltsDay6: BundledLesson = {
             "(you (could argue|might say) basic needs come first)",
             "(but cutting culture entirely (risks|loses))",
           ],
+          model_answers: ["The trade-offs shift in developing contexts."],
           hint_tr:
             "Bağlam fark: 'The trade-offs shift in developing contexts.' Türk: 'It is different' yüzeysel, 'trade-offs shift' Band 8.",
         },
@@ -11663,6 +11831,7 @@ export const ieltsDay6: BundledLesson = {
             "(i felt stronger today)",
             "(let'?s drill another)",
           ],
+          model_answers: ["That pushed me — could you flag any slips?"],
           hint_tr:
             "Kapanış: 'That pushed me — could you flag any slips?' Türk: 'Thanks' yetersiz, push'u anla + iyileştir.",
         },
@@ -11975,6 +12144,7 @@ export const ieltsDay8: BundledLesson = {
             "(where exactly should it go)",
             "(i (skipped|forgot) it)",
           ],
+          model_answers: ["What should the overview contain?"],
           hint_tr:
             "Soru: 'What should the overview contain?' Türk: 'OK I forgot' kabul, açıklama iste.",
         },
@@ -11992,6 +12162,7 @@ export const ieltsDay8: BundledLesson = {
             "(let me (try|write) one now)",
             "(thanks for clarifying)",
           ],
+          model_answers: ["Highest trends and biggest contrast — no numbers."],
           hint_tr:
             "Tekrar: 'Highest trends and biggest contrast — no numbers.' Türk: 'OK' eksik, kuralı tekrar et + örnek iste.",
         },
@@ -12009,6 +12180,7 @@ export const ieltsDay8: BundledLesson = {
             "(i'?ll (vary|mix) it up next time)",
             "(any (other|common) trap words)",
           ],
+          model_answers: ["rise, grow, climb, surge."],
           hint_tr:
             "Sinonim list: 'rise, grow, climb, surge.' Türk: aynı kelimeyi 5 kez = Band 5. Variety = Band 7.",
         },
@@ -12026,6 +12198,7 @@ export const ieltsDay8: BundledLesson = {
             "(this is (very )?helpful)",
             "(can you (also )?(send|share) (a Task 2 prompt))",
           ],
+          model_answers: ["Will do — also can you send a Task 2 prompt?"],
           hint_tr:
             "Kabul + sonraki: 'Will do — also can you send a Task 2 prompt?' Türk: 'OK' düz, plan + ek iste proaktif.",
         },
@@ -12336,6 +12509,7 @@ export const ieltsDay10: BundledLesson = {
             "(i (know|hear) it)(,)? (just slipped out)",
             "(i'?m wired to say it)",
           ],
+          model_answers: ["Because Turkish katılıyorum feels like a state."],
           hint_tr:
             "Sebep: 'Because Turkish katılıyorum feels like a state.' Türk: 'I don't know' eksik, sebebini anla + kabul.",
         },
@@ -12353,6 +12527,7 @@ export const ieltsDay10: BundledLesson = {
             "(while i agree (in part|broadly))",
             "(i (couldn'?t|would) agree more)",
           ],
+          model_answers: ["I agree with you. I agree partly. I couldn't agree more."],
           hint_tr:
             "Üç cümle: 'I agree with you. I agree partly. I couldn't agree more.' Türk: tek cümle yetersiz, varyasyon göster.",
         },
@@ -12370,6 +12545,7 @@ export const ieltsDay10: BundledLesson = {
             "(i am (tired|hungry|a student))",
             "(am with state|verb without am)",
           ],
+          model_answers: ["I am + adjective/noun, but verb alone."],
           hint_tr:
             "Kural: 'I am + adjective/noun, but verb alone.' Türk: 'I am think' yanlış, 'I think' doğru. Drill kalıp.",
         },
@@ -12386,6 +12562,7 @@ export const ieltsDay10: BundledLesson = {
             "(i'?m ready|fire away)",
             "(can'?t wait)",
           ],
+          model_answers: ["Hit me!"],
           hint_tr:
             "Drill kabul: 'Hit me!' Türk: 'OK' düz, 'Bring it on' veya 'Hit me' enerji.",
         },
@@ -12402,6 +12579,7 @@ export const ieltsDay10: BundledLesson = {
             "(wrong tense)(,)? (should be present perfect)",
             "(needs (present perfect|have lived))",
           ],
+          model_answers: ["I've lived in Istanbul for ten years."],
           hint_tr:
             "Düzeltme: 'I've lived in Istanbul for ten years.' Türk: süreklilik = present perfect, 'I am living' yanlış.",
         },
@@ -12714,6 +12892,7 @@ export const ieltsDay13: BundledLesson = {
             "(i wasn'?t sure (where|whether) to)",
             "(makes sense|got it)",
           ],
+          model_answers: ["In Turkish essays we build up to the thesis."],
           hint_tr:
             "Sebep + kabul: 'In Turkish essays we build up to the thesis.' Türk: yapı farkını anla, İngilizce direkt.",
         },
@@ -12731,6 +12910,7 @@ export const ieltsDay13: BundledLesson = {
             "(should i (use|memorize) a template)",
             "(can you (give|share) a sample intro)",
           ],
+          model_answers: ["Topic + thesis in intro."],
           hint_tr:
             "Yapı kabul: 'Topic + thesis in intro.' Türk: yapı kuralını ezberle, Band 7 için zorunlu.",
         },
@@ -12748,6 +12928,7 @@ export const ieltsDay13: BundledLesson = {
             "(this is (golden|gold|huge))",
             "(thanks )?(for the template)",
           ],
+          model_answers: ["Locked in — let me redraft."],
           hint_tr:
             "Şablon kabul: 'Locked in — let me redraft.' Türk: 'OK' düz, şablonu hemen uygula.",
         },
@@ -12765,6 +12946,7 @@ export const ieltsDay13: BundledLesson = {
             "(any (good )?paraphrase (techniques|tricks))",
             "(noted)",
           ],
+          model_answers: ["Synonyms and sentence flip."],
           hint_tr:
             "Paraphrase: 'Synonyms and sentence flip.' Türk: aynı cümle tekrar = Band 5. Paraphrase = Band 7.",
         },
@@ -12781,6 +12963,7 @@ export const ieltsDay13: BundledLesson = {
             "(thanks for being (thorough|detailed))",
             "(this is (clicking|landing)|i (get|see) it now)",
           ],
+          model_answers: ["Will do — this is clicking now."],
           hint_tr:
             "Kapanış: 'Will do — this is clicking now.' Türk: 'OK' kuru, 'This is clicking' anladığını gösterir.",
         },
@@ -13093,6 +13276,7 @@ export const ieltsDay15: BundledLesson = {
             "(stronger in (speaking|reading))",
             "(want to push (writing|harder))",
           ],
+          model_answers: ["Better than day one, but still shaky on writing."],
           hint_tr:
             "Açık: 'Better than day one, but still shaky on writing.' Türk: 'Good' yetersiz, alan bazında dürüst.",
         },
@@ -13110,6 +13294,7 @@ export const ieltsDay15: BundledLesson = {
             "(what would it take)",
             "(i don'?t want to (settle|undershoot))",
           ],
+          model_answers: ["Absolutely — what would it take?"],
           hint_tr:
             "Hedef: 'Absolutely — what would it take?' Türk: 'OK' düz, 'What would it take?' aktif strateji.",
         },
@@ -13127,6 +13312,7 @@ export const ieltsDay15: BundledLesson = {
             "(what specifically blocks the 6.5)",
             "(give me the (top 3|priority) (fixes|issues))",
           ],
+          model_answers: ["Let's double down on writing — top 3 fixes?"],
           hint_tr:
             "Aksiyon: 'Let's double down on writing — top 3 fixes?' Türk: 'OK we do' düz, somut sayı + priority.",
         },
@@ -13144,6 +13330,7 @@ export const ieltsDay15: BundledLesson = {
             "(let'?s start (tonight|tomorrow))",
             "(daily check(-| )?ins)",
           ],
+          model_answers: ["Got it — daily check-ins?"],
           hint_tr:
             "Kabul: 'Got it — daily check-ins?' Türk: 'OK' yetersiz, 'daily check-ins' yapı iste.",
         },
@@ -13161,6 +13348,7 @@ export const ieltsDay15: BundledLesson = {
             "(15 days)(,)? (let'?s (gun|hit) it)",
             "(no settling)",
           ],
+          model_answers: ["No settling — let's gun it."],
           hint_tr:
             "Motivasyon: 'No settling — let's gun it.' Türk: 'OK' düz, 'Let's gun it' kararlılık + samimi.",
         },
@@ -13473,6 +13661,7 @@ export const ieltsDay17: BundledLesson = {
             "(if i had to (sum it up|describe))",
             "(the (vibrant|chaotic) energy|the (clash|blend) of (old and new))",
           ],
+          model_answers: ["I'd describe Istanbul as a unique blend of old and new."],
           hint_tr:
             "Gelişmiş açılış: 'I'd describe Istanbul as a unique blend of old and new.' Türk: 'It is nice' yetersiz, 'unique blend' Band 7.",
         },
@@ -13487,9 +13676,10 @@ export const ieltsDay17: BundledLesson = {
             "(what (captivates|draws) me is)",
             "(the (thing|aspect) i (love|cherish) most is)",
             "(i'?m (drawn to|fascinated by))",
-            "(beyond the obvious (food|culture)) (it'?s|there'?s))",
+            "(beyond the obvious (food|culture)) (it'?s|there'?s)",
             "(if i had to (pick|narrow it down))",
           ],
+          model_answers: ["What captivates me is..."],
           hint_tr:
             "'What captivates me is...' Türk: 'I like X' düz, 'What captivates me' Band 7+.",
         },
@@ -13503,10 +13693,11 @@ export const ieltsDay17: BundledLesson = {
           acceptable_patterns: [
             "(i'?m currently (working|studying) (as |in ))",
             "(i (split my time|balance) between)",
-            "(at the moment|right now))",
+            "(at the moment|right now)",
             "(my (field|role|focus) is)",
             "(i (happen to|currently) work as)",
           ],
+          model_answers: ["I'm currently working as an engineer, focused on backend systems."],
           hint_tr:
             "Detay: 'I'm currently working as an engineer, focused on backend systems.' Türk: 'I work' yetersiz, alan ekle.",
         },
@@ -13524,6 +13715,7 @@ export const ieltsDay17: BundledLesson = {
             "(less (filler|um|uh))",
             "(this feels (real|earned))",
           ],
+          model_answers: ["I hear it — feels earned."],
           hint_tr:
             "Onay: 'I hear it — feels earned.' Türk: 'Yes' yetersiz, neyi duyduğunu söyle (vocabulary, flow).",
         },
@@ -13541,6 +13733,7 @@ export const ieltsDay17: BundledLesson = {
             "(let'?s keep (drilling|going))",
             "(13 days|two weeks)(,)? (let'?s do this)",
           ],
+          model_answers: ["No slipping — let's keep drilling."],
           hint_tr:
             "Kararlılık: 'No slipping — let's keep drilling.' Türk: 'OK' düz, 'No slipping' aktif sahip.",
         },
@@ -13851,6 +14044,7 @@ export const ieltsDay20: BundledLesson = {
             "(make)",
             "(make a mistake)",
           ],
+          model_answers: ["make a mistake."],
           hint_tr:
             "Kural: 'make a mistake.' Türk: 'do' eğilimi yanlış. 'Make' = yaratma, 'do' = eylem.",
         },
@@ -13866,6 +14060,7 @@ export const ieltsDay20: BundledLesson = {
             "(do)",
             "(do my homework)",
           ],
+          model_answers: ["do homework."],
           hint_tr:
             "'do homework.' Türk: 'make homework' yanlış (yaygın), 'do homework' doğru.",
         },
@@ -13881,6 +14076,7 @@ export const ieltsDay20: BundledLesson = {
             "(make a call)",
             "(make)",
           ],
+          model_answers: ["make a call."],
           hint_tr:
             "'make a call.' Türk: 'do call' yanlış, 'make a call' doğru.",
         },
@@ -13896,6 +14092,7 @@ export const ieltsDay20: BundledLesson = {
             "(make)",
             "(make progress)",
           ],
+          model_answers: ["make progress."],
           hint_tr:
             "'make progress.' Türk: 'do progress' yanlış. 'Make' = oluşturma.",
         },
@@ -13911,6 +14108,7 @@ export const ieltsDay20: BundledLesson = {
             "(make)",
             "(make an effort)",
           ],
+          model_answers: ["make an effort."],
           hint_tr:
             "'make an effort.' Türk: 'do effort' yanlış, 'make' doğru.",
         },
@@ -13926,6 +14124,7 @@ export const ieltsDay20: BundledLesson = {
             "(do)",
             "(do your best)",
           ],
+          model_answers: ["do your best."],
           hint_tr:
             "'do your best.' Türk: 'make best' yanlış, 'do your best' doğru.",
         },
@@ -13943,6 +14142,7 @@ export const ieltsDay20: BundledLesson = {
             "(individuals do their best to)",
             "(making (a decision|the right call) requires)",
           ],
+          model_answers: ["Governments should make an effort to address..."],
           hint_tr:
             "Cümle yapımı: 'Governments should make an effort to address...' Türk: collocation + akademik fiil = Band 7.",
         },
@@ -14255,6 +14455,7 @@ export const ieltsDay23: BundledLesson = {
             "(let me check|let me count)",
             "(slightly (over|under) target)",
           ],
+          model_answers: ["About 287."],
           hint_tr:
             "Sayı: 'About 287.' Türk: 'I don't know' kabul edilemez, kelime sayma alışkanlığı şart.",
         },
@@ -14272,6 +14473,7 @@ export const ieltsDay23: BundledLesson = {
             "(i (jot|jotted) down (3|four) points)",
             "(structured (intro|thesis) first)",
           ],
+          model_answers: ["I planned for 3 minutes — outlined."],
           hint_tr:
             "Plan kabul: 'I planned for 3 minutes — outlined.' Türk: 'I just wrote' eksik, plan = Band 7.",
         },
@@ -14289,6 +14491,7 @@ export const ieltsDay23: BundledLesson = {
             "(picked (the )?stronger evidence)",
             "(easier to find (data|examples) for)",
           ],
+          model_answers: ["Side I could defend with stronger examples."],
           hint_tr:
             "Strateji: 'Side I could defend with stronger examples.' Türk: 'I agree' duygu, strateji ile seç.",
         },
@@ -14306,6 +14509,7 @@ export const ieltsDay23: BundledLesson = {
             "(quick proofread on (conjugations|subject(-| )?verb))",
             "(could have (used|spared) (2|three) more minutes)",
           ],
+          model_answers: ["Yes, quick scan for tense errors."],
           hint_tr:
             "Dürüst: 'Yes, quick scan for tense errors.' Türk: 'No' düz, dürüst + ne yaptığını söyle.",
         },
@@ -14323,6 +14527,7 @@ export const ieltsDay23: BundledLesson = {
             "(thanks for (the rule|drilling that))",
             "(plan + write + proof)",
           ],
+          model_answers: ["3 minutes sacred for proofreading."],
           hint_tr:
             "Kural: '3 minutes sacred for proofreading.' Türk: 'OK' düz, rule içselleştir + tekrar.",
         },
@@ -14635,6 +14840,7 @@ export const ieltsDay27: BundledLesson = {
             "(what (it was|why hard|how it ended))",
             "(ready)",
           ],
+          model_answers: ["I'll talk about deciding to leave my old job — what, why hard, outcome."],
           hint_tr:
             "Prep sesli: 'I'll talk about deciding to leave my old job — what, why hard, outcome.' Türk: sessiz prep puan düşürür.",
         },
@@ -14652,6 +14858,7 @@ export const ieltsDay27: BundledLesson = {
             "(i was (faced with|forced to choose) between)",
             "(it (came down to|boiled down to))",
           ],
+          model_answers: ["The most difficult decision I've made was leaving my job."],
           hint_tr:
             "Açılış: 'The most difficult decision I've made was leaving my job.' Türk: 'I will talk' düz, 'The most difficult' Band 7+.",
         },
@@ -14669,6 +14876,7 @@ export const ieltsDay27: BundledLesson = {
             "(the (stakes|trade-offs|consequences) were)",
             "(i had (no guarantee|to weigh))",
           ],
+          model_answers: ["I was torn — on one hand, on the other."],
           hint_tr:
             "Çelişki: 'I was torn — on one hand, on the other.' Türk: 'It was hard' yüzeysel, çelişkiyi sahnele.",
         },
@@ -14686,6 +14894,7 @@ export const ieltsDay27: BundledLesson = {
             "(it (opened doors|changed everything))",
             "(if i could (go back|do it again))",
           ],
+          model_answers: ["In hindsight, it was the right call."],
           hint_tr:
             "Sonuç: 'In hindsight, it was the right call.' Türk: 'It was good' yetersiz, 'in hindsight' Band 7.",
         },
@@ -14698,11 +14907,12 @@ export const ieltsDay27: BundledLesson = {
           speaker: "user",
           acceptable_patterns: [
             "(it depends on (the stakes|the type))",
-            "(in general|broadly speaking))",
+            "(in general|broadly speaking)",
             "(input (helps|broadens perspective)) (but )?(too much (becomes|creates))",
-            "(at the end of the day|when push comes to shove))",
+            "(at the end of the day|when push comes to shove)",
             "(the decision (rests|lands) on you)",
           ],
+          model_answers: ["It depends — input broadens, but the decision rests on you."],
           hint_tr:
             "Nüans: 'It depends — input broadens, but the decision rests on you.' Türk: 'Both' yetersiz, conditional + nuance Band 8.",
         },
@@ -14720,6 +14930,7 @@ export const ieltsDay27: BundledLesson = {
             "(what to drill (these|the next) two days)",
             "(see you (in two days|sunday))",
           ],
+          model_answers: ["Holding 7 — what to drill?"],
           hint_tr:
             "Kapanış: 'Holding 7 — what to drill?' Türk: 'Thanks' yeterli ama 'what to drill' aksiyon.",
         },
@@ -15026,12 +15237,13 @@ export const ieltsDay30: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(nervous|anxious|jittery))",
-            "(a bit shaky|stomach in knots))",
+            "(nervous|anxious|jittery)",
+            "(a bit shaky|stomach in knots)",
             "(weirdly calm|surprisingly okay)",
             "(both (excited and terrified|nervous and ready))",
             "(can'?t sleep|haven'?t slept (much|well))",
           ],
+          model_answers: ["Stomach in knots — but ready."],
           hint_tr:
             "Dürüst: 'Stomach in knots — but ready.' Türk: 'OK' düz, gerçek hisset, coach destekler.",
         },
@@ -15049,6 +15261,7 @@ export const ieltsDay30: BundledLesson = {
             "(got it|locked in)",
             "(repeat (the drills|what works))",
           ],
+          model_answers: ["No new vocabulary — drilled templates only."],
           hint_tr:
             "Kural 1: 'No new vocabulary — drilled templates only.' Türk: yeni kelime denemek = risk.",
         },
@@ -15066,6 +15279,7 @@ export const ieltsDay30: BundledLesson = {
             "(use the (drilled phrase|interesting question line))",
             "(noted|got it)",
           ],
+          model_answers: ["Filler + breathe."],
           hint_tr:
             "Kural 2: 'Filler + breathe.' Türk: panik = sessizlik = puan düşer. Filler kazanır zaman.",
         },
@@ -15083,6 +15297,7 @@ export const ieltsDay30: BundledLesson = {
             "(the rule from day 23)",
             "(will do)",
           ],
+          model_answers: ["Three minutes proofread — sacred."],
           hint_tr:
             "Kural 3: 'Three minutes proofread — sacred.' Türk: 'OK' düz, 'sacred' = kutsal, mutlak.",
         },
@@ -15100,6 +15315,7 @@ export const ieltsDay30: BundledLesson = {
             "(this (month|journey) (changed|leveled up) (me|my english))",
             "(see you on the other side)",
           ],
+          model_answers: ["Trust the prep — see you on the other side."],
           hint_tr:
             "Kapanış: 'Trust the prep — see you on the other side.' Türk: 'Thanks' yetersiz, 30 günü tamamlamış güven.",
         },
@@ -15117,6 +15333,7 @@ export const ieltsDay30: BundledLesson = {
             "(here we go)",
             "(see you in a few hours)",
           ],
+          model_answers: ["Seven incoming — will text you."],
           hint_tr:
             "Veda: 'Seven incoming — will text you.' Türk: 'OK bye' düz, 'Seven incoming' kararlılık + samimi.",
         },

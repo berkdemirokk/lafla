@@ -99,6 +99,7 @@ export const tippingLesson_6_1: BundledLesson = {
             "(is )?(twenty|18|20|fifteen|18|20) percent (good|okay|standard)",
             "i'?ll (add|do) (twenty|18|20|fifteen) percent",
           ],
+          model_answers: ["What's a typical tip?"],
           hint_tr:
             "Standart soru: 'What's a typical tip?' veya direkt 'I'll add 20%'.",
         },
@@ -115,6 +116,7 @@ export const tippingLesson_6_1: BundledLesson = {
             "(go with|i'?ll do) twenty",
             "(could|can) you add (twenty|18|20|fifteen) percent",
           ],
+          model_answers: ["I'll do 20%"],
           hint_tr: "Karar: 'I'll do 20%' veya 'Add 20%'.",
         },
         {
@@ -132,6 +134,7 @@ export const tippingLesson_6_1: BundledLesson = {
             "(let'?s )?keep it (as is|the same)",
             "round (it )?to fifty( please)?",
           ],
+          model_answers: ["Round it up to fifty"],
           hint_tr:
             "Yuvarla: 'Round it up to fifty' veya bırak: 'Leave it as is'. Türk: 'üstü kalsın' kart varyasyonu için 'round it up' kullanılır.",
         },
@@ -150,6 +153,7 @@ export const tippingLesson_6_1: BundledLesson = {
             "(printed|paper) (one |copy )?(please|works)",
             "(could|can) i (just )?get a paper (one|copy)",
           ],
+          model_answers: ["Emailed, please"],
           hint_tr:
             "Fiş: 'Emailed, please' veya 'Printed, please'. ABD'de çoğu yerde her ikisi de seçenek. Türk: 'fiş' = receipt, 'fatura' = invoice (farklı).",
         },
@@ -168,6 +172,7 @@ export const tippingLesson_6_1: BundledLesson = {
             "(no complaints|all good|loved it)",
             "(it was|tonight was) (lovely|fantastic|wonderful)",
           ],
+          model_answers: ["Everything was great, thanks"],
           hint_tr:
             "Pozitif kapanış: 'Everything was great, thanks' veya 'We loved it'. Negatif feedback için: 'It was okay, but the soup was cold'.",
         },
@@ -622,6 +627,7 @@ export const tippingLesson_6_2: BundledLesson = {
             "(thanks|thank you)",
             "(what'?s|how much) (the |is the )?standard (tip|gratuity)( here)?",
           ],
+          model_answers: ["Is service included?"],
           hint_tr:
             "Sor: 'Is service included?' veya 'What's standard here?'",
         },
@@ -640,6 +646,7 @@ export const tippingLesson_6_2: BundledLesson = {
             "(no )?thanks,? (that'?s fine|leave it|keep it)",
             "(round |let'?s round )up to (\\d+|forty|fifty|sixty)",
           ],
+          model_answers: ["That's fine, keep it."],
           hint_tr:
             "Tut: 'That's fine, keep it.' İndir: 'Could you remove it?'",
         },
@@ -1103,6 +1110,7 @@ export const tippingLesson_6_3: BundledLesson = {
             "(i'?ll )?leave (the )?tip in cash",
             "card for (the )?bill,? cash (for )?(the )?tip",
           ],
+          model_answers: ["Card for the bill, cash for the tip"],
           hint_tr:
             "Karar: 'Card please' veya 'Card for the bill, cash for the tip'.",
         },
@@ -1121,6 +1129,7 @@ export const tippingLesson_6_3: BundledLesson = {
             "(no )?just (run|charge) (it for )?forty-?eight",
             "(could|can) you (run|charge) (it )?for (fifty|sixty|\\d+)",
           ],
+          model_answers: ["Cash on the table"],
           hint_tr:
             "Seçenek 1: 'Add 20% on the card'. Seçenek 2: 'Cash on the table'. Seçenek 3: 'Run it for $58' (toplam yuvarla).",
         },
@@ -1556,6 +1565,7 @@ export const tippingLesson_6_4: BundledLesson = {
             "(round|round it) up to (twenty|twenty-?two|\\d+)",
             "keep the change",
           ],
+          model_answers: ["Here's a twenty — keep the rest"],
           hint_tr:
             "Klasik: 'Make it twenty, keep the change' veya 'Here's a twenty — keep the rest'.",
         },
@@ -1571,6 +1581,7 @@ export const tippingLesson_6_4: BundledLesson = {
             "(thanks )?for the ride",
             "(thank you|thanks),? have a (good|great) (one|night|day)",
           ],
+          model_answers: ["Thanks, have a good one"],
           hint_tr:
             "Kibar kapanış: 'Thanks, have a good one' veya 'Thanks for the ride'.",
         },
@@ -2001,6 +2012,7 @@ export const tippingLesson_6_5: BundledLesson = {
             "(thanks )?for (the help|bringing them up)",
             "(no )?that'?s (it|all),? thanks",
           ],
+          model_answers: ["Thanks for bringing them up — this is for you"],
           hint_tr:
             "Kibar: 'Thanks, here's a five' veya 'Thanks for bringing them up — this is for you'. Nakit uzat.",
         },
@@ -2017,6 +2029,7 @@ export const tippingLesson_6_5: BundledLesson = {
             "(thanks|thank you) (so much|very much)",
             "appreciate it",
           ],
+          model_answers: ["Thank you, have a good one"],
           hint_tr:
             "Kapan: 'Thanks, will do' veya 'Thank you, have a good one'.",
         },
@@ -2447,6 +2460,7 @@ export const tippingLesson_6_6: BundledLesson = {
             "(that'?s |sounds )(fine|good|fair)",
             "(thanks|thank you),? (that'?s )(fine|good|all)",
           ],
+          model_answers: ["Do I need to leave anything extra?"],
           hint_tr:
             "Doğrula: 'Do I need to leave anything extra?' veya 'Is any extra tip needed?'",
         },
@@ -2464,6 +2478,7 @@ export const tippingLesson_6_6: BundledLesson = {
             "(thanks )(for letting me know|for the help)",
             "(cheers|brilliant)",
           ],
+          model_answers: ["Cheers"],
           hint_tr:
             "Kapan: 'Great, thanks — that's all set' veya UK için 'Cheers'.",
         },

@@ -23,7 +23,7 @@ export const workStandupLesson_33_1: BundledLesson = {
       word_or_phrase: "Yesterday I wrapped up",
       tr_translation: "Dun bitirdim",
       example: "Yesterday I wrapped up the auth refactor and opened the PR.",
-      example_tr: "Dun auth refactor'unu bitirdim ve PR actim.",
+      example_tr: "Dün auth refactor'unu bitirdim ve PR açtım.",
     },
     {
       id: "ex.wst33.1.2",
@@ -39,7 +39,7 @@ export const workStandupLesson_33_1: BundledLesson = {
         "Login flow shipped yesterday, unit tests today, nothing blocking me.",
       ],
       tr_hint:
-        "Klasik yapi: Yesterday → Today → Blockers. Spesifik + kisa. 'Nothing blocking' = blocker yok.",
+        "Klasik yapı: Yesterday → Today → Blockers. Spesifik + kısa. 'Nothing blocking' = blocker yok.",
     },
     {
       id: "ex.wst33.1.3",
@@ -49,7 +49,7 @@ export const workStandupLesson_33_1: BundledLesson = {
       answer: "working",
       distractors: ["work", "to work", "doing"],
       tr_hint:
-        "'I'm working on X' = X uzerine calisiyorum. Standup'in 'Today' kismi standart kalibi.",
+        "'I'm working on X' = X üzerine çalışıyorum. Standup'ın 'Today' kısmı standart kalıbı.",
     },
     {
       id: "ex.wst33.1.4",
@@ -63,7 +63,7 @@ export const workStandupLesson_33_1: BundledLesson = {
         "end",
       ],
       correct_sentence: "No blockers on my end",
-      tr_translation: "Benim tarafimda blocker yok.",
+      tr_translation: "Benim tarafımda blocker yok.",
     },
     {
       id: "ex.wst33.1.5",
@@ -74,7 +74,7 @@ export const workStandupLesson_33_1: BundledLesson = {
       correct_sentence:
         "Yesterday: auth refactor PR is up. Today: unit tests. No blockers.",
       tr_explanation:
-        "Standup = 30 saniye, hikaye degil. Yesterday/Today/Blockers — kisa baslik formati. Detay = ayri kanal/thread.",
+        "Standup = 30 saniye, hikaye değil. Yesterday/Today/Blockers — kısa başlık formatı. Detay = ayrı kanal/thread.",
     },
     {
       id: "ex.wst33.1.6",
@@ -99,8 +99,9 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(no blockers|nothing blocking|all clear|smooth sailing|good on my end)",
             "(pr (is )?up|review needed|waiting on (review|qa))",
           ],
+          model_answers: ["Yesterday wrapped X. Today on Y. No blockers."],
           hint_tr:
-            "Klasik: 'Yesterday wrapped X. Today on Y. No blockers.' Kisa + net.",
+            "Klasik: 'Yesterday wrapped X. Today on Y. No blockers.' Kısa + net.",
         },
         {
           speaker: "npc",
@@ -116,6 +117,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(i'?ll )?(drop|post) (it|details) (in (the )?thread|in slack)",
             "(no worries|nothing else|that'?s it)",
           ],
+          model_answers: ["Thanks — actually one quick FYI: I'll drop details in the thread."],
           hint_tr:
             "Onay/ek not: 'Thanks — actually one quick FYI: I'll drop details in the thread.'",
         },
@@ -134,6 +136,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(no|nope)(,)? (i'?m good|all good)",
             "(actually|honestly) (yes|yeah)(,)? (would appreciate|that'?d help)",
           ],
+          model_answers: ["No, I'm good for now"],
           hint_tr:
             "Cevap: 'Yeah, would appreciate any eyes' veya 'No, I'm good for now'.",
         },
@@ -151,6 +154,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(thanks|thank you)(,)? (i'?ll )?(message|ping) (her|maya)",
             "(great|perfect)(,)? thanks",
           ],
+          model_answers: ["Perfect, I'll ping her after standup"],
           hint_tr:
             "Teşekkür: 'Thanks, appreciate it' veya 'Perfect, I'll ping her after standup'.",
         },
@@ -168,6 +172,7 @@ export const workStandupLesson_33_1: BundledLesson = {
             "(all clear|all good|that'?s a wrap)",
             "(actually )?one more thing(,)? (.+)",
           ],
+          model_answers: ["No, that's it on my end"],
           hint_tr:
             "Bitir: 'No, that's it on my end' veya 'All good, thanks'.",
         },
@@ -193,7 +198,7 @@ export const workStandupLesson_33_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Y/T/B = standup'in DNA'si. Diger her sey: thread'e, 1:1'e, PR'a tasinir.",
+            "Y/T/B = standup'in DNA'si. Diğer her şey: thread'e, 1:1'e, PR'a taşınır.",
         },
         {
           question: "Standup'ta IDEAL update suresi?",
@@ -205,7 +210,7 @@ export const workStandupLesson_33_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "8 kisilik standup × 5 dakika = 40 dakika. Time-box yok = standup teorisi bos. Kisa = saygidir.",
+            "8 kişilik standup × 5 dakika = 40 dakika. Time-box yok = standup teorisi boş. Kısa = saygıdır.",
         },
         {
           question: "'No blockers on my end' kalibinin gucu?",
@@ -217,7 +222,7 @@ export const workStandupLesson_33_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Native kapanis. 'On my end' = benim tarafimda. Update'in bittigini anons eder.",
+            "Native kapanış. 'On my end' = benim tarafımda. Update'in bittiğini anons eder.",
         },
       ],
     },
@@ -229,7 +234,7 @@ export const workStandupLesson_33_1: BundledLesson = {
         "Yesterday I wrapped up the login flow, today I'm on unit tests, no blockers.",
       ipa: "/ˈjɛstədeɪ aɪ ræpt ʌp ðə ˈlɒɡɪn fləʊ təˈdeɪ aɪm ɒn ˈjuːnɪt tɛsts nəʊ ˈblɒkəz/",
       tr_hint:
-        "Standup ritmi — uc kısa baslik, virgul arasi nefes. 'Wrapped up' bağlı, 'no blockers' kararli kapanis.",
+        "Standup ritmi — üç kısa başlık, virgül arası nefes. 'Wrapped up' bağlı, 'no blockers' kararlı kapanış.",
     },
     {
       id: "ex.wst33.1.9",
@@ -239,7 +244,7 @@ export const workStandupLesson_33_1: BundledLesson = {
         "Yesterday: shipped the auth refactor. Today: starting on payment integration. No blockers on my end.",
       voice_hint: "neutral_us",
       tr_hint:
-        "Y/T/B baslik formati — her bolum kisa nefesle. Iki nokta ust uste vurguyu degistirir.",
+        "Y/T/B başlık formatı — her bölüm kısa nefesle. İki nokta üst üste vurguyu değiştirir.",
     },
     {
       id: "ex.wst33.1.10",
@@ -250,7 +255,7 @@ export const workStandupLesson_33_1: BundledLesson = {
       transcription_target:
         "Alright, who wants to go next? Berk, want to take it?",
       tr_hint:
-        "Scrum master'in sira soru sorusu. 'Take it' = sirayi al. Standup'in klasik gecis cumlesi.",
+        "Scrum master'ın sıra soru sorusu. 'Take it' = sırayı al. Standup'ın klasik geçiş cümlesi.",
     },
     {
       id: "ex.wst33.1.11",
@@ -258,11 +263,11 @@ export const workStandupLesson_33_1: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "PR is up for review",
-      tr_translation: "PR review icin acik",
+      tr_translation: "PR review için açık",
       example:
         "Yesterday: PR is up for review. Today: starting on the next ticket.",
       example_tr:
-        "Dun: PR review icin acik. Bugun: bir sonraki ticket'a basliyorum.",
+        "Dün: PR review için açık. Bugün: bir sonraki ticket'a başlıyorum.",
     },
     {
       id: "ex.wst33.1.12",
@@ -273,7 +278,7 @@ export const workStandupLesson_33_1: BundledLesson = {
       correct_sentence:
         "Yesterday: shipped auth refactor. Today: unit tests. No blockers.",
       tr_explanation:
-        "'I do many works' tense + kelime sayisi yanlis ('works' bu baglamda 'work'). 'Maybe blocker' belirsiz — Standup'ta blocker varsa SOMUT soyle, yoksa 'no blockers'. Y/T/B = kesin baslik formati.",
+        "'I do many works' tense + kelime sayısı yanlış ('works' bu bağlamda 'work'). 'Maybe blocker' belirsiz — Standup'ta blocker varsa SOMUT söyle, yoksa 'no blockers'. Y/T/B = kesin başlık formatı.",
     },
     {
       id: "ex.wst33.1.sp1",
@@ -562,9 +567,9 @@ export const workStandupLesson_33_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "I'm stuck on",
-      tr_translation: "Su konuda takildim",
+      tr_translation: "Şu konuda takıldım",
       example: "I'm stuck on the webhook retry logic — anyone seen this before?",
-      example_tr: "Webhook retry logic'inde takildim — bunu daha once goren var mi?",
+      example_tr: "Webhook retry logic'inde takıldım — bunu daha önce gören var mı?",
     },
     {
       id: "ex.wst33.2.2",
@@ -580,7 +585,7 @@ export const workStandupLesson_33_2: BundledLesson = {
         "Need a second pair of eyes on Stripe webhooks — 20 minutes?",
       ],
       tr_hint:
-        "'Stuck on X' + spesifik sure ('20 min') = pair istegi olcekli. 'Pair' fiil olarak kullanilir.",
+        "'Stuck on X' + spesifik süre ('20 min') = pair isteği ölçekli. 'Pair' fiil olarak kullanılır.",
     },
     {
       id: "ex.wst33.2.3",
@@ -590,7 +595,7 @@ export const workStandupLesson_33_2: BundledLesson = {
       answer: "eyes",
       distractors: ["hands", "minds", "ears"],
       tr_hint:
-        "'Second pair of eyes' = ikinci goz. Native review/yardim istegi kalibi.",
+        "'Second pair of eyes' = ikinci göz. Native review/yardım isteği kalıbı.",
     },
     {
       id: "ex.wst33.2.4",
@@ -605,7 +610,7 @@ export const workStandupLesson_33_2: BundledLesson = {
         "standup",
       ],
       correct_sentence: "Let's take this offline after standup",
-      tr_translation: "Bunu standup sonrasi ayri konusalim.",
+      tr_translation: "Bunu standup sonrası ayrı konuşalım.",
     },
     {
       id: "ex.wst33.2.5",
@@ -616,7 +621,7 @@ export const workStandupLesson_33_2: BundledLesson = {
       correct_sentence:
         "I'm blocked on the auth flow — specifically the token refresh. Can anyone pair after standup?",
       tr_explanation:
-        "Genel sikayet = yardim alamazsin. Spesifik blocker + sure + cagri = aksiyon alinabilir. 'Pair' net istek.",
+        "Genel şikayet = yardım alamazsın. Spesifik blocker + süre + çağrı = aksiyon alınabilir. 'Pair' net istek.",
     },
     {
       id: "ex.wst33.2.6",
@@ -642,8 +647,9 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(could use|need) (a pair|some help|a second pair of eyes)",
             "(can (anyone|someone) pair|anyone free to pair)",
           ],
+          model_answers: ["Blocked on token refresh — could use a pair after standup."],
           hint_tr:
-            "Spesifik + cagri: 'Blocked on token refresh — could use a pair after standup.'",
+            "Spesifik + çağrı: 'Blocked on token refresh — could use a pair after standup.'",
         },
         {
           speaker: "npc",
@@ -660,8 +666,9 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(i'?ll )?(drop|post|share) (the (error|trace|log)|details) (in (the )?thread|in slack)",
             "(see you (then|after|in a bit))",
           ],
+          model_answers: ["Appreciate it — let's take it offline. I'll drop the trace in the thread."],
           hint_tr:
-            "Onay + offline'a tasi: 'Appreciate it — let's take it offline. I'll drop the trace in the thread.'",
+            "Onay + offline'a taşı: 'Appreciate it — let's take it offline. I'll drop the trace in the thread.'",
         },
         {
           speaker: "npc",
@@ -679,6 +686,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(hopefully|probably) (today|by tonight|by tomorrow)",
             "(let me know after pair|after our pair i'?ll have a better estimate)",
           ],
+          model_answers: ["EOD if pair goes well, otherwise tomorrow morning"],
           hint_tr:
             "Tahmin ver: 'EOD if pair goes well, otherwise tomorrow morning'. 'EOD' = End Of Day standartı. Belirsizlikten kaçma — somut zaman ver, kötü ihtimal de söyle.",
         },
@@ -698,6 +706,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(might )?(need to|have to) (sync about|talk about) .{0,40}",
             "(rest of the sprint |the rest )(is |looks |seems )?(fine|clear|smooth)",
           ],
+          model_answers: ["Stripe migration might get tricky — keeping an eye on it"],
           hint_tr:
             "Riskleri önceden flag'le: 'Stripe migration might get tricky — keeping an eye on it' veya 'Everything else looks fine'. Türk öğrenci 'risk yok' direkt çeviri yapar — burada 'no risks' garip; 'on track' veya 'clear' kullan.",
         },
@@ -717,6 +726,7 @@ export const workStandupLesson_33_2: BundledLesson = {
             "(no worries|noted|copy that)",
             "(see you (in a bit|after standup|then))",
           ],
+          model_answers: ["Got it, see you after standup"],
           hint_tr:
             "Kısa onay: 'Will do — thanks again' veya 'Got it, see you after standup'. Türk: 'tamamdır' = 'got it / will do'. 'OK' tek başına yeterli ama soğuk; ekle.",
         },
@@ -742,7 +752,7 @@ export const workStandupLesson_33_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Help' = belirsiz, kimse hareket etmez. 'Pair on token refresh, 20 min after standup' = anlik karar verilir.",
+            "'Help' = belirsiz, kimse hareket etmez. 'Pair on token refresh, 20 min after standup' = anlık karar verilir.",
         },
         {
           question: "'Take it offline' ne demek standup baglaminda?",
@@ -754,7 +764,7 @@ export const workStandupLesson_33_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Standup time-box. 'Offline' = standup disinda, ayri kanalda. Sadece ilgili kisilerle.",
+            "Standup time-box. 'Offline' = standup dışında, ayrı kanalda. Sadece ilgili kişilerle.",
         },
         {
           question: "Standup'ta blocker SAKLAMAK riski?",
@@ -766,7 +776,7 @@ export const workStandupLesson_33_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Standup blocker icin var. Sakla = bir hafta sonra kasari + ekibe surpriz. Erken bayrak = saglikli.",
+            "Standup blocker için var. Sakla = bir hafta sonra kasarı + ekibe sürpriz. Erken bayrak = sağlıklı.",
         },
       ],
     },
@@ -799,7 +809,7 @@ export const workStandupLesson_33_2: BundledLesson = {
       transcription_target:
         "I can jump on right after this. Have you tried checking the refresh endpoint logs?",
       tr_hint:
-        "Lead'in ('jump on right after') yardim teklifi + ilk diagnostic sorusu. 'Endpoint logs' = teknik kelime.",
+        "Lead'in ('jump on right after') yardım teklifi + ilk diagnostic sorusu. 'Endpoint logs' = teknik kelime.",
     },
     {
       id: "ex.wst33.2.11",
@@ -807,11 +817,11 @@ export const workStandupLesson_33_2: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "Spinning my wheels",
-      tr_translation: "Yerimde sayiyorum (ilerlemeden)",
+      tr_translation: "Yerimde sayıyorum (ilerlemeden)",
       example:
         "Been spinning my wheels on this race condition for an hour — anyone seen something similar?",
       example_tr:
-        "Bir saattir bu race condition'da yerimde sayiyorum — buna benzer gören var mi?",
+        "Bir saattir bu race condition'da yerimde sayıyorum — buna benzer gören var mı?",
     },
     {
       id: "ex.wst33.2.12",
@@ -822,7 +832,7 @@ export const workStandupLesson_33_2: BundledLesson = {
       correct_sentence:
         "Stuck on the token refresh — could anyone pair after standup for 20 minutes?",
       tr_explanation:
-        "'Have problem' = belirsiz + genel. 'Please help me now' = baski + zaman zorlamasi. Doğru: spesifik konu + spesifik sure + kibar cagri. Ekipte herkes karar verir kim 20 dakika ayirabilir.",
+        "'Have problem' = belirsiz + genel. 'Please help me now' = baskı + zaman zorlaması. Doğru: spesifik konu + spesifik süre + kibar çağrı. Ekipte herkes karar verir kim 20 dakika ayırabilir.",
     },
     {
       id: "ex.wst33.2.sp1",
@@ -981,9 +991,9 @@ export const workStandupLesson_33_3: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "ICYMI",
-      tr_translation: "Kacirdiysan (In Case You Missed It)",
+      tr_translation: "Kaçırdıysan (In Case You Missed It)",
       example: "ICYMI — I dropped the staging URL in #eng yesterday.",
-      example_tr: "Kacirdiysan — staging URL'sini dun #eng kanalina attim.",
+      example_tr: "Kaçırdıysan — staging URL'sini dün #eng kanalına attım.",
     },
     {
       id: "ex.wst33.3.2",
@@ -999,7 +1009,7 @@ export const workStandupLesson_33_3: BundledLesson = {
         "Y: auth merged | T: onboarding | B: needs design review, @ali pinged",
       ],
       tr_hint:
-        "Async format: Y/T/B kisaltma + @mention etiketle = takip kolay. Emoji ile gorsellestir.",
+        "Async format: Y/T/B kısaltma + @mention etiketle = takip kolay. Emoji ile görselleştir.",
     },
     {
       id: "ex.wst33.3.3",
@@ -1009,7 +1019,7 @@ export const workStandupLesson_33_3: BundledLesson = {
       answer: "thread",
       distractors: ["DM", "channel", "doc"],
       tr_hint:
-        "'In a thread' = thread'e at. Async kulturde 'keep the channel clean' = ana kanali kalabalik etme.",
+        "'In a thread' = thread'e at. Async kültürde 'keep the channel clean' = ana kanalı kalabalık etme.",
     },
     {
       id: "ex.wst33.3.4",
@@ -1023,7 +1033,7 @@ export const workStandupLesson_33_3: BundledLesson = {
         "visibility",
       ],
       correct_sentence: "Looping in @ali for visibility",
-      tr_translation: "Goruluk olsun diye @ali'yi de ekliyorum.",
+      tr_translation: "Görülük olsun diye @ali'yi de ekliyorum.",
     },
     {
       id: "ex.wst33.3.5",
@@ -1034,7 +1044,7 @@ export const workStandupLesson_33_3: BundledLesson = {
       correct_sentence:
         ":white_check_mark: Y: auth PR shipped\n:construction: T: onboarding flow\n:no_entry: B: blocked on design review (@ali)",
       tr_explanation:
-        "Async standup = taranabilir olmali. Cumle paragrafi = kimse okumaz. Emoji + Y/T/B + @mention = 2 saniyede parse edilir.",
+        "Async standup = taranabilir olmalı. Cümle paragrafı = kimse okumaz. Emoji + Y/T/B + @mention = 2 saniyede parse edilir.",
     },
     {
       id: "ex.wst33.3.6",
@@ -1056,8 +1066,9 @@ export const workStandupLesson_33_3: BundledLesson = {
             "(waiting on|blocked on|need (review|input))",
             "(cc @|@mention|loop in @|fyi @)",
           ],
+          model_answers: ["✅ Shipped auth. 🚧 Working on payments. ⚠️ Waiting on review from @Mia."],
           hint_tr:
-            "Y/T/B + emoji + @mention. Kisa baslik formati — paragraf yazma.",
+            "Y/T/B + emoji + @mention. Örnek: '✅ Shipped auth. 🚧 Working on payments. ⚠️ Waiting on review from @Mia.'",
         },
         {
           speaker: "npc",
@@ -1074,8 +1085,9 @@ export const workStandupLesson_33_3: BundledLesson = {
             "(dropped|posted|added) (it|details|the (link|url|repro)) (in (the )?thread|above)",
             "(let'?s (move|continue) (this )?(in (the )?thread|offline))",
           ],
+          model_answers: ["Thanks — taking a look now. Continuing in thread."],
           hint_tr:
-            "Onay + thread'e tasi: 'Thanks — taking a look now. Continuing in thread.'",
+            "Onay + thread'e taşı: 'Thanks — taking a look now. Continuing in thread.'",
         },
         {
           speaker: "npc",
@@ -1096,6 +1108,7 @@ export const workStandupLesson_33_3: BundledLesson = {
             "(no )?(nothing else|all good|that'?s it)( on my end)?",
             "(@\\w+|owner)(,)? (any chance|could you) (.+)",
           ],
+          model_answers: ["Yeah — blocked on design review from @maya, could use it by EOD tomorrow."],
           hint_tr:
             "Specific blocker + ask + owner: 'Yeah — blocked on design review from @maya, could use it by EOD tomorrow.' Veya 'Nothing else, all good.' Async'te @mention = aksiyon alabilir format.",
         },
@@ -1116,7 +1129,7 @@ export const workStandupLesson_33_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Async = remote/distributed team superpower. Format degisir: emoji status + Y/T/B + @mention. Paragraf = kimse okumaz.",
+            "Async = remote/distributed team superpower. Format değişir: emoji status + Y/T/B + @mention. Paragraf = kimse okumaz.",
         },
         {
           question: "Thread kullanma kuralı?",
@@ -1128,7 +1141,7 @@ export const workStandupLesson_33_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Keep the channel clean' = native async kuralı. Ana mesaj baslik, thread = derinlik. Mention'lar thread'e ekleyene gider.",
+            "'Keep the channel clean' = native async kuralı. Ana mesaj başlık, thread = derinlik. Mention'lar thread'e ekleyene gider.",
         },
         {
           question: "'ICYMI' ne zaman kullanilir?",
@@ -1140,7 +1153,7 @@ export const workStandupLesson_33_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ICYMI = In Case You Missed It. 'Daha once de soyledim' demeden, kibarca yeniden gundeme getirir.",
+            "ICYMI = In Case You Missed It. 'Daha önce de söyledim' demeden, kibarca yeniden gündeme getirir.",
         },
       ],
     },
@@ -1152,7 +1165,7 @@ export const workStandupLesson_33_3: BundledLesson = {
         "Looping in Ali for visibility — dropping the details in a thread.",
       ipa: "/ˈluːpɪŋ ɪn ˈɑːli fər ˌvɪzɪˈbɪləti — ˈdrɒpɪŋ ðə ˈdiːteɪlz ɪn ə θrɛd/",
       tr_hint:
-        "'Looping in' = sik kullanilan async fiil. 'For visibility' birleşik söyle. 'Thread' icinde 'th' net.",
+        "'Looping in' = sık kullanılan async fiil. 'For visibility' birleşik söyle. 'Thread' içinde 'th' net.",
     },
     {
       id: "ex.wst33.3.9",
@@ -1162,7 +1175,7 @@ export const workStandupLesson_33_3: BundledLesson = {
         "Quick async note — auth PR merged yesterday, on onboarding flow today, blocked on the design review. Looping in Ali.",
       voice_hint: "neutral_us",
       tr_hint:
-        "Loom kayit ritmi — temposlu, taranabilir. Her cumlecik kisa nefes. 'Async note' acilis kalibi.",
+        "Loom kayıt ritmi — temposlu, taranabilir. Her cümlecik kısa nefes. 'Async note' açılış kalıbı.",
     },
     {
       id: "ex.wst33.3.10",
@@ -1173,7 +1186,7 @@ export const workStandupLesson_33_3: BundledLesson = {
       transcription_target:
         "Saw the auth PR — left a comment about the token expiry edge case.",
       tr_hint:
-        "Async cevap. 'Edge case' = sinir durumu, sik teknik kelime. 'Token expiry' = token sona ermesi.",
+        "Async cevap. 'Edge case' = sınır durumu, sık teknik kelime. 'Token expiry' = token sona ermesi.",
     },
     {
       id: "ex.wst33.3.11",
@@ -1181,11 +1194,11 @@ export const workStandupLesson_33_3: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "Posting in thread to keep the channel clean",
-      tr_translation: "Kanali kalabalik etmemek icin thread'e yaziyorum",
+      tr_translation: "Kanalı kalabalık etmemek için thread'e yazıyorum",
       example:
         "Posting the details in thread to keep the channel clean — tag me if you need a deeper dive.",
       example_tr:
-        "Ana kanali kalabalik etmemek icin detaylari thread'e yaziyorum — derinlesirsen beni tag'le.",
+        "Ana kanalı kalabalık etmemek için detayları thread'e yazıyorum — derinleşirsen beni tag'le.",
     },
     {
       id: "ex.wst33.3.12",
@@ -1355,9 +1368,9 @@ export const workStandupLesson_33_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "For context",
-      tr_translation: "Konuyu acmak icin",
+      tr_translation: "Konuyu açmak için",
       example: "For context — this ties back to the migration we shipped last week.",
-      example_tr: "Konuyu acmak icin — bu gecen hafta yaptigimiz migration'la baglantili.",
+      example_tr: "Konuyu açmak için — bu geçen hafta yaptığımız migration'la bağlantılı.",
     },
     {
       id: "ex.wst33.4.2",
@@ -1373,7 +1386,7 @@ export const workStandupLesson_33_4: BundledLesson = {
         "Going to suggest we take this offline so we can wrap standup on time.",
       ],
       tr_hint:
-        "'Take it offline' + neden ('keep standup moving') = kibarca yarida kesme. 'Rabbit hole' = derin tartisma metaforu.",
+        "'Take it offline' + neden ('keep standup moving') = kibarca yarıda kesme. 'Rabbit hole' = derin tartışma metaforu.",
     },
     {
       id: "ex.wst33.4.3",
@@ -1383,7 +1396,7 @@ export const workStandupLesson_33_4: BundledLesson = {
       answer: "circle",
       distractors: ["come", "get", "go"],
       tr_hint:
-        "'Circle back' = sonra tekrar gel. Native phrasal verb — konuyu ertelerken sik kullanilir.",
+        "'Circle back' = sonra tekrar gel. Native phrasal verb — konuyu ertelerken sık kullanılır.",
     },
     {
       id: "ex.wst33.4.4",
@@ -1400,7 +1413,7 @@ export const workStandupLesson_33_4: BundledLesson = {
         "topic",
       ],
       correct_sentence: "Quick interruption — are we still on topic",
-      tr_translation: "Hizli bir mudahale — hala konumuzda miyiz?",
+      tr_translation: "Hızlı bir müdahale — hala konumuzda miyiz?",
     },
     {
       id: "ex.wst33.4.5",
@@ -1411,7 +1424,7 @@ export const workStandupLesson_33_4: BundledLesson = {
       correct_sentence:
         "Hate to interrupt — should we park this and circle back? Want to make sure everyone gets a chance.",
       tr_explanation:
-        "Sert kesme = ekip moralini bozar. Yumusak kesme + sebep ('everyone gets a chance') = saygili time-keeping = lider sinyali.",
+        "Sert kesme = ekip moralini bozar. Yumuşak kesme + sebep ('everyone gets a chance') = saygılı time-keeping = lider sinyali.",
     },
     {
       id: "ex.wst33.4.6",
@@ -1437,8 +1450,9 @@ export const workStandupLesson_33_4: BundledLesson = {
             "(want to make sure|so we can) (everyone gets|hear from everyone)",
             "(can we (set up|schedule) a (sync|follow[- ]up|deep dive))",
           ],
+          model_answers: ["Hate to interrupt — great convo, but let's circle back so we can hear from everyone."],
           hint_tr:
-            "Yumusak kesme: 'Hate to interrupt — great convo, but let's circle back so we can hear from everyone.'",
+            "Yumuşak kesme: 'Hate to interrupt — great convo, but let's circle back so we can hear from everyone.'",
         },
         {
           speaker: "npc",
@@ -1454,8 +1468,9 @@ export const workStandupLesson_33_4: BundledLesson = {
             "(let'?s (move on|keep moving|finish up))",
             "(back to (standup|the queue)|who'?s up next)",
           ],
+          model_answers: ["Perfect — I'll drop a calendar invite today. Back to standup — who's next?"],
           hint_tr:
-            "Cozum + ileri: 'Perfect — I'll drop a calendar invite today. Back to standup — who's next?'",
+            "Çözüm + ileri: 'Perfect — I'll drop a calendar invite today. Back to standup — who's next?'",
         },
         {
           speaker: "npc",
@@ -1471,6 +1486,7 @@ export const workStandupLesson_33_4: BundledLesson = {
             "(15|20|30) (min|minutes) (should do it|tops)",
             "(if you can|could you) (drop|send) (the (repro|error|details)) (in dms?|in slack)",
           ],
+          model_answers: ["Yeah — happy to. 2pm works, drop the repro in DMs first, 20 min should do it."],
           hint_tr:
             "Yardım teklifi + when + scope: 'Yeah — happy to. 2pm works, drop the repro in DMs first, 20 min should do it.' Spesifik zaman + scope = saygılı yardım.",
         },
@@ -1491,7 +1507,7 @@ export const workStandupLesson_33_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kesme = lider sinyali. 'Hate to interrupt — let's take it offline' = ekip vaktine saygi gostermek.",
+            "Kesme = lider sinyali. 'Hate to interrupt — let's take it offline' = ekip vaktine saygı göstermek.",
         },
         {
           question: "'Circle back' ne demek?",
@@ -1503,7 +1519,7 @@ export const workStandupLesson_33_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Circle back' = ileride tekrar bakacagiz sozu. Konuyu kapatma degil, erteleme. Profesyonel native ifade.",
+            "'Circle back' = ileride tekrar bakacağız sözü. Konuyu kapatma değil, erteleme. Profesyonel native ifade.",
         },
         {
           question: "'For context' niye guclu acilis?",
@@ -1515,7 +1531,7 @@ export const workStandupLesson_33_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'For context' = 1 cumlede arkaplan ver, sonra ana mesaja gec. Standup'ta 'hatirlatma + nokta' formati.",
+            "'For context' = 1 cümlede arkaplan ver, sonra ana mesaja geç. Standup'ta 'hatırlatma + nokta' formatı.",
         },
       ],
     },
@@ -1537,7 +1553,7 @@ export const workStandupLesson_33_4: BundledLesson = {
         "Great conversation — in the interest of time, let's park this and set up a follow-up sync this week.",
       voice_hint: "neutral_us",
       tr_hint:
-        "Diplomatik moderator tonu — saygi + zaman bilinci. 'In the interest of time' kalibinin ritmini yakala.",
+        "Diplomatik moderator tonu — saygı + zaman bilinci. 'In the interest of time' kalıbının ritmini yakala.",
     },
     {
       id: "ex.wst33.4.10",
@@ -1548,7 +1564,7 @@ export const workStandupLesson_33_4: BundledLesson = {
       transcription_target:
         "Fair, fair. Yeah, let's set up a separate sync. I'll drop a calendar hold today.",
       tr_hint:
-        "Diger katilimcinin kabul cevabi. 'Calendar hold' = takvime tutucu randevu koymak. Native ofis dili.",
+        "Diğer katılımcının kabul cevabı. 'Calendar hold' = takvime tutucu randevu koymak. Native ofis dili.",
     },
     {
       id: "ex.wst33.4.11",
@@ -1556,11 +1572,11 @@ export const workStandupLesson_33_4: BundledLesson = {
       difficulty: 4,
       cefr_band: "B2",
       word_or_phrase: "In the interest of time",
-      tr_translation: "Zaman icin (zamani kısitlı tutmak adına)",
+      tr_translation: "Zaman için (zamanı kısıtlı tutmak adına)",
       example:
         "In the interest of time, let's table this and bring it back Thursday with data.",
       example_tr:
-        "Zaman acisindan, bunu erteleyelim ve Persembe veriyle birlikte geri getirelim.",
+        "Zaman açısından, bunu erteleyelim ve Perşembe veriyle birlikte geri getirelim.",
     },
     {
       id: "ex.wst33.4.12",
@@ -1571,7 +1587,7 @@ export const workStandupLesson_33_4: BundledLesson = {
       correct_sentence:
         "Hate to interrupt — great topic, but let's circle back so we can hear from everyone.",
       tr_explanation:
-        "'Stop talking' + 'Move next person' = sert + saygisiz, ekipte morali dusurur. Doğru: kibar kesme + sebep + alternatif. Lider time-keeping yumusaktir, sert degil.",
+        "'Stop talking' + 'Move next person' = sert + saygısız, ekipte morali düşürür. Doğru: kibar kesme + sebep + alternatif. Lider time-keeping yumuşaktır, sert değil.",
     },
     {
       id: "ex.wst33.4.sp1",
@@ -1730,9 +1746,9 @@ export const workStandupLesson_33_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Quick update",
-      tr_translation: "Hizli update",
+      tr_translation: "Hızlı update",
       example: "Quick update: shipped the search endpoint, on caching today, no blockers.",
-      example_tr: "Hizli update: dun search endpoint'i ship ettim, bugun caching, blocker yok.",
+      example_tr: "Hızlı update: dün search endpoint'i ship ettim, bugün caching, blocker yok.",
     },
     {
       id: "ex.wst33.5.2",
@@ -1748,7 +1764,7 @@ export const workStandupLesson_33_5: BundledLesson = {
         "Y: search endpoint shipped. T: caching. B: none.",
       ],
       tr_hint:
-        "'Quick update' acilis kalibi = 'kisa olacak' sinyali verir. Baslik formati, hikaye degil. 'Shipped' past simple.",
+        "'Quick update' açılış kalıbı = 'kısa olacak' sinyali verir. Başlık formatı, hikaye değil. 'Shipped' past simple.",
     },
     {
       id: "ex.wst33.5.3",
@@ -1758,7 +1774,7 @@ export const workStandupLesson_33_5: BundledLesson = {
       answer: "Shipped",
       distractors: ["I shipped", "Shipping", "I have shipped"],
       tr_hint:
-        "Standup baslik formatinda 'I' duser. 'Shipped X' = past simple, kisa. Cumle degil baslik.",
+        "Standup başlık formatında 'I' düşer. 'Shipped X' = past simple, kısa. Cümle değil başlık.",
     },
     {
       id: "ex.wst33.5.4",
@@ -1773,7 +1789,7 @@ export const workStandupLesson_33_5: BundledLesson = {
         "today",
       ],
       correct_sentence: "Shipped X yesterday on Y today",
-      tr_translation: "Dun X'i ship ettim, bugun Y uzerine.",
+      tr_translation: "Dün X'i ship ettim, bugün Y üzerine.",
     },
     {
       id: "ex.wst33.5.5",
@@ -1784,7 +1800,7 @@ export const workStandupLesson_33_5: BundledLesson = {
       correct_sentence:
         "Shipped search endpoint. On caching today. No blockers.",
       tr_explanation:
-        "'I worked on' + 'I was working' + 'I will continue working' = uc kez ayni fiil, sifir bilgi. Doğru: 'shipped' (sonuc) + 'on' (sonra ne) + 'no blockers' (durum). Past simple > past continuous standup'ta.",
+        "'I worked on' + 'I was working' + 'I will continue working' = üç kez aynı fiil, sıfır bilgi. Doğru: 'shipped' (sonuç) + 'on' (sonra ne) + 'no blockers' (durum). Past simple > past continuous standup'ta.",
     },
     {
       id: "ex.wst33.5.6",
@@ -1808,8 +1824,9 @@ export const workStandupLesson_33_5: BundledLesson = {
             "(on|working on|focused on|tackling) \\w+ (today)?",
             "(no blockers|nothing blocking|all clear|good on my end|nothing on my end)",
           ],
+          model_answers: ["Shipped X. On Y today. No blockers."],
           hint_tr:
-            "Baslik formati: 'Shipped X. On Y today. No blockers.' Cumle saymayi birak — baslik say.",
+            "Başlık formatı: 'Shipped X. On Y today. No blockers.' Cümle saymayı bırak — başlık say.",
         },
         {
           speaker: "npc",
@@ -1826,8 +1843,9 @@ export const workStandupLesson_33_5: BundledLesson = {
             "(i'?ll )?(drop|post) (the link|details) (in (the )?thread|in slack)",
             "(that'?s it|nothing else|good for now)",
           ],
+          model_answers: ["All good — actually, could use a quick review on the PR if anyone has a sec."],
           hint_tr:
-            "Hayir/Evet+kucuk istek: 'All good — actually, could use a quick review on the PR if anyone has a sec.'",
+            "Hayır/Evet+küçük istek: 'All good — actually, could use a quick review on the PR if anyone has a sec.'",
         },
         {
           speaker: "npc",
@@ -1843,6 +1861,7 @@ export const workStandupLesson_33_5: BundledLesson = {
             "(could use|need) (.+) (review|input|approval)",
             "(@\\w+|need (.+) from)(,)? (any chance|when (you'?re|you are) free)",
           ],
+          model_answers: ["Actually — blocked on the design review, need it from @maya by EOD."],
           hint_tr:
             "Specific blocker + ask + owner (veya temiz): 'Actually — blocked on the design review, need it from @maya by EOD.' Standup'ta sessizlik = sürpriz, erken bayrak = sağlıklı.",
         },
@@ -1863,7 +1882,7 @@ export const workStandupLesson_33_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Time-box yok = 1 kisi 5 dakika konusur, geri kalan herkes dikkati kaybeder. 30 saniye = kasli yazma.",
+            "Time-box yok = 1 kişi 5 dakika konuşur, geri kalan herkes dikkati kaybeder. 30 saniye = kaslı yazma.",
         },
         {
           question: "'Quick update:' acilis kalibinin fonksiyonu?",
@@ -1875,7 +1894,7 @@ export const workStandupLesson_33_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mikro-kontrat: 'quick' diyince 30 saniye verirler. Bunu asarsan tutmazsin = guvenilirlik kaybi. Sozune sadik kal.",
+            "Mikro-kontrat: 'quick' diyince 30 saniye verirler. Bunu aşarsan tutmazsın = güvenilirlik kaybı. Sözüne sadık kal.",
         },
         {
           question: "Past simple ('shipped') vs past continuous ('was working on') — standup'ta hangisi?",
@@ -1887,7 +1906,7 @@ export const workStandupLesson_33_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Shipped' = is bitti, sonuc var. 'Was working on' = hala devam ediyor, belirsiz. Standup sonuc raporlar, hikaye anlatmaz.",
+            "'Shipped' = iş bitti, sonuç var. 'Was working on' = hala devam ediyor, belirsiz. Standup sonuç raporlar, hikaye anlatmaz.",
         },
       ],
     },
@@ -1899,7 +1918,7 @@ export const workStandupLesson_33_5: BundledLesson = {
         "Quick update: shipped search yesterday, on caching today, no blockers.",
       ipa: "/kwɪk ˌʌpˈdeɪt ʃɪpt sɜːtʃ ˈjɛstədeɪ ɒn ˈkæʃɪŋ təˈdeɪ nəʊ ˈblɒkəz/",
       tr_hint:
-        "Baslik ritmi — her bolum kisa nefes. 'Shipped' sert 'd', 'no blockers' yumusak kapanis. Tempo: hizli ama net.",
+        "Başlık ritmi — her bölüm kısa nefes. 'Shipped' sert 'd', 'no blockers' yumuşak kapanış. Tempo: hızlı ama net.",
     },
     {
       id: "ex.wst33.5.sp1",
@@ -2058,9 +2077,9 @@ export const workStandupLesson_33_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Anyone have bandwidth",
-      tr_translation: "Vakti olan var mi",
+      tr_translation: "Vakti olan var mı",
       example: "I'm blocked on the OAuth callback — anyone have bandwidth for a quick pair?",
-      example_tr: "OAuth callback'inde takildim — hizli bir pair icin vakti olan var mi?",
+      example_tr: "OAuth callback'inde takıldım — hızlı bir pair için vakti olan var mı?",
     },
     {
       id: "ex.wst33.6.2",
@@ -2076,7 +2095,7 @@ export const workStandupLesson_33_6: BundledLesson = {
         "OAuth callback is blocking me — 15 min from anyone would unblock.",
       ],
       tr_hint:
-        "'Bandwidth' = bos vakit/kapasite (tech jargon). Spesifik sure ('15 min') = karar vermesi kolay.",
+        "'Bandwidth' = boş vakit/kapasite (tech jargon). Spesifik süre ('15 min') = karar vermesi kolay.",
     },
     {
       id: "ex.wst33.6.3",
@@ -2086,7 +2105,7 @@ export const workStandupLesson_33_6: BundledLesson = {
       answer: "blocked",
       distractors: ["block", "blocking", "blocker"],
       tr_hint:
-        "'I'm blocked on X' = X'te tikandim (passive). 'Blocker' = isim, 'blocked' = sifat. Yaygin Turk hatasi.",
+        "'I'm blocked on X' = X'te tıkandım (passive). 'Blocker' = isim, 'blocked' = sıfat. Yaygın Türk hatası.",
     },
     {
       id: "ex.wst33.6.4",
@@ -2102,7 +2121,7 @@ export const workStandupLesson_33_6: BundledLesson = {
         "pair",
       ],
       correct_sentence: "Anyone have bandwidth for a quick pair",
-      tr_translation: "Hizli bir pair icin vakti olan var mi?",
+      tr_translation: "Hızlı bir pair için vakti olan var mı?",
     },
     {
       id: "ex.wst33.6.5",
@@ -2139,6 +2158,7 @@ export const workStandupLesson_33_6: BundledLesson = {
             "(anyone have bandwidth|anyone (got|free)|could use (some )?help|need a pair)",
             "(15|20|30) (min|minutes)",
           ],
+          model_answers: ["On migration today, but blocked on the rollback step — anyone have bandwidth for 20?"],
           hint_tr:
             "Today + blocker + spesifik konu + bandwidth + sure: 'On migration today, but blocked on the rollback step — anyone have bandwidth for 20?'",
         },
@@ -2156,8 +2176,9 @@ export const workStandupLesson_33_6: BundledLesson = {
             "(i'?ll )?(drop|post|share) (the (trace|log|repro|details)|repro steps) (in (the )?thread|in slack|in your dms?)",
             "(after lunch works|ping me when (you'?re|ur) free|just (lmk|let me know))",
           ],
+          model_answers: ["Perfect — it's throwing 401 on refresh. I'll drop the trace in your DMs, ping me after lunch."],
           hint_tr:
-            "Kabul + ozet + ipuclari thread'e: 'Perfect — it's throwing 401 on refresh. I'll drop the trace in your DMs, ping me after lunch.'",
+            "Kabul + özet + ipuçları thread'e: 'Perfect — it's throwing 401 on refresh. I'll drop the trace in your DMs, ping me after lunch.'",
         },
         {
           speaker: "npc",
@@ -2173,6 +2194,7 @@ export const workStandupLesson_33_6: BundledLesson = {
             "(scope[- ]?wise|just on)(,)? (the (refresh|callback|token) (part|step|piece))",
             "(20|30) (min|minutes) (should (do it|be enough)|tops)",
           ],
+          model_answers: ["Thanks — seriously helpful. 1pm works, just on the token refresh piece. 20 min tops."],
           hint_tr:
             "Thanks + when + scope: 'Thanks — seriously helpful. 1pm works, just on the token refresh piece. 20 min tops.' Yardımı kabul ederken kapsam belirt = yardımcının zamanına saygı.",
         },
@@ -2193,7 +2215,7 @@ export const workStandupLesson_33_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bandwidth = vakit/kapasite metaforu. 'Anyone' = baskimi yok, gonullu cagrisi. Hem kibar hem net.",
+            "Bandwidth = vakit/kapasite metaforu. 'Anyone' = baskımı yok, gönüllü çağrısı. Hem kibar hem net.",
         },
         {
           question: "Blocker bildirirken spesifik olmak niye kritik?",
@@ -2205,7 +2227,7 @@ export const workStandupLesson_33_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I'm stuck' = kimse hareket etmez. 'Stuck on OAuth callback, specifically token refresh' = OAuth bilen direkt el kaldirir. Spesifiklik = hiz.",
+            "'I'm stuck' = kimse hareket etmez. 'Stuck on OAuth callback, specifically token refresh' = OAuth bilen direkt el kaldırır. Spesifiklik = hız.",
         },
         {
           question: "Blocker'a 'sure' ('15 min') eklemenin faydasi?",
@@ -2217,7 +2239,7 @@ export const workStandupLesson_33_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Help me' = belirsiz commitment = kimse evet demez. '15 min' = sinirli istek = 'olur' deme kolay. Pazarlik 101.",
+            "'Help me' = belirsiz commitment = kimse evet demez. '15 min' = sınırlı istek = 'olur' deme kolay. Pazarlık 101.",
         },
       ],
     },
@@ -2229,7 +2251,7 @@ export const workStandupLesson_33_6: BundledLesson = {
         "Blocked on the OAuth callback — anyone have bandwidth for fifteen minutes?",
       ipa: "/blɒkt ɒn ði ˈəʊɔːθ ˈkɔːlbæk ˈɛniwʌn hæv ˈbændwɪdθ fə fɪfˈtiːn ˈmɪnɪts/",
       tr_hint:
-        "'OAuth' = 'oh-auth' iki heceli. 'Bandwidth' = 'BAND-width' ilk hece vurgulu. Kapanis sorusu hafif yukseliyor.",
+        "'OAuth' = 'oh-auth' iki heceli. 'Bandwidth' = 'BAND-width' ilk hece vurgulu. Kapanış sorusu hafif yükseliyor.",
     },
     {
       id: "ex.wst33.6.sp1",
@@ -2388,16 +2410,16 @@ export const workStandupLesson_33_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Happy to demo",
-      tr_translation: "Memnuniyetle gosteririm",
+      tr_translation: "Memnuniyetle gösteririm",
       example: "Wrapped up the new dashboard — happy to demo in 5 if anyone wants.",
-      example_tr: "Yeni dashboard'u bitirdim — isteyen olursa 5 dakikada memnuniyetle gosteririm.",
+      example_tr: "Yeni dashboard'u bitirdim — isteyen olursa 5 dakikada memnuniyetle gösteririm.",
     },
     {
       id: "ex.wst33.7.2",
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Yeni dashboard'u bitirdim — isteyen olursa 5 dakikada memnuniyetle gosteririm.",
+      source: "Yeni dashboard'u bitirdim — isteyen olursa 5 dakikada memnuniyetle gösteririm.",
       target: "Wrapped up the new dashboard — happy to demo in 5 if anyone wants.",
       accepted_variants: [
         "Just wrapped the new dashboard — happy to demo if folks want a quick look.",
@@ -2406,7 +2428,7 @@ export const workStandupLesson_33_7: BundledLesson = {
         "Dashboard's shipped — happy to show it off in 5 if anyone wants.",
       ],
       tr_hint:
-        "'Happy to' = memnuniyetle (resmi degil, sicak). 'If anyone wants' = isteyen olursa (baski yok). Davetkar + tevazu.",
+        "'Happy to' = memnuniyetle (resmi değil, sıcak). 'If anyone wants' = isteyen olursa (baskı yok). Davetkar + tevazu.",
     },
     {
       id: "ex.wst33.7.3",
@@ -2416,7 +2438,7 @@ export const workStandupLesson_33_7: BundledLesson = {
       answer: "wrapped",
       distractors: ["finish", "done", "shipped"],
       tr_hint:
-        "'Wrapped up' = bitirdim (phrasal verb). 'Shipped' tek basina kullanilir, 'shipped up' yok. 'Finish'/'done' burada gramerce yanlis.",
+        "'Wrapped up' = bitirdim (phrasal verb). 'Shipped' tek başına kullanılır, 'shipped up' yok. 'Finish'/'done' burada gramerce yanlış.",
     },
     {
       id: "ex.wst33.7.4",
@@ -2433,7 +2455,7 @@ export const workStandupLesson_33_7: BundledLesson = {
         "wants",
       ],
       correct_sentence: "Happy to demo in 5 if anyone wants",
-      tr_translation: "Isteyen olursa 5 dakikada memnuniyetle gosteririm.",
+      tr_translation: "İsteyen olursa 5 dakikada memnuniyetle gösteririm.",
     },
     {
       id: "ex.wst33.7.5",
@@ -2444,7 +2466,7 @@ export const workStandupLesson_33_7: BundledLesson = {
       correct_sentence:
         "Wrapped up the dashboard — happy to demo in 5 if anyone wants a look.",
       tr_explanation:
-        "'Very good' = ovgu (kibirli). 'Must come and see' = emir (kaba). Doğru: olgu ('wrapped up') + davet ('happy to') + opsiyonel ('if anyone wants'). Buyukluk taslayarak degil, paylasarak ilan et.",
+        "'Very good' = övgü (kibirli). 'Must come and see' = emir (kaba). Doğru: olgu ('wrapped up') + davet ('happy to') + opsiyonel ('if anyone wants'). Büyüklük taslayarak değil, paylaşarak ilan et.",
     },
     {
       id: "ex.wst33.7.6",
@@ -2469,8 +2491,9 @@ export const workStandupLesson_33_7: BundledLesson = {
             "((in|takes about) (3|5|10)|quick (5|3|two|3-?minute|5-?minute))",
             "(if (anyone|folks|people) (wants|are interested|want a look)|let me know if)",
           ],
+          model_answers: ["Yeah — wrapped the dashboard. Happy to demo in 5 if folks want a look."],
           hint_tr:
-            "Olgu + davet + sure: 'Yeah — wrapped the dashboard. Happy to demo in 5 if folks want a look.'",
+            "Olgu + davet + süre: 'Yeah — wrapped the dashboard. Happy to demo in 5 if folks want a look.'",
         },
         {
           speaker: "npc",
@@ -2486,6 +2509,7 @@ export const workStandupLesson_33_7: BundledLesson = {
             "(grab|stay on|hang back|stick around)",
             "(it'?s )?(not much|nothing fancy|quick win|small win)",
           ],
+          model_answers: ["Sounds good — I'll share my screen right after we wrap. Nothing fancy, just a quick look."],
           hint_tr:
             "Kabul + plan: 'Sounds good — I'll share my screen right after we wrap. Nothing fancy, just a quick look.'",
         },
@@ -2503,6 +2527,7 @@ export const workStandupLesson_33_7: BundledLesson = {
             "(@\\w+|design|qa|product)(,)? (any chance|when you'?re free)",
             "(by (eod|tomorrow|friday)|this week)",
           ],
+          model_answers: ["All good — actually, could use design sign-off from @sarah by Friday on the next iteration."],
           hint_tr:
             "Specific blocker + ask + owner: 'All good — actually, could use design sign-off from @sarah by Friday on the next iteration.' Demo'dan sonra sıradaki adımın blocker'ını flag'le.",
         },
@@ -2523,7 +2548,7 @@ export const workStandupLesson_33_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'I will demo' = ben yapacagim (zorla). 'Happy to demo' = isterseniz yapariz (davetkar). Ekip kulturune saygi.",
+            "'I will demo' = ben yapacağım (zorla). 'Happy to demo' = isterseniz yaparız (davetkar). Ekip kültürüne saygı.",
         },
         {
           question: "Demo teklifinde 'if anyone wants' eklemenin amaci?",
@@ -2535,7 +2560,7 @@ export const workStandupLesson_33_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'If anyone wants' = saygili exit kapisi. Birinin vaktinde dayatma yok. Ilgili kalir, digerleri 'bu sefer atlasin' der. Sicak ofis kulturu.",
+            "'If anyone wants' = saygılı exit kapısı. Birinin vaktinde dayatma yok. İlgili kalır, diğerleri 'bu sefer atlasın' der. Sıcak ofis kültürü.",
         },
         {
           question: "Demo'da '5 dakika' / 'quick look' belirtmenin gucu?",
@@ -2547,7 +2572,7 @@ export const workStandupLesson_33_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Demo' = 30 dakika sananabilir. '5 minutes' = kucuk yatirim. 'Quick look' = atistirmalik. Erisilebilirlik artar.",
+            "'Demo' = 30 dakika sananabilir. '5 minutes' = küçük yatırım. 'Quick look' = atıştırmalık. Erişilebilirlik artar.",
         },
       ],
     },
@@ -2559,7 +2584,7 @@ export const workStandupLesson_33_7: BundledLesson = {
         "Wrapped up the dashboard — happy to demo in five if anyone wants a look.",
       ipa: "/ræpt ʌp ðə ˈdæʃbɔːd ˈhæpi tə ˈdɛməʊ ɪn faɪv ɪf ˈɛniwʌn wɒnts ə lʊk/",
       tr_hint:
-        "'Wrapped up' baglı, 't' duser. 'Happy to' sicak ton — gulumseyerek soyle. 'Demo' = 'DEM-oh', ilk hece.",
+        "'Wrapped up' bağlı, 't' düşer. 'Happy to' sıcak ton — gülümseyerek söyle. 'Demo' = 'DEM-oh', ilk hece.",
     },
     {
       id: "ex.wst33.7.sp1",
@@ -2718,9 +2743,9 @@ export const workStandupLesson_33_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Dropping update in Slack",
-      tr_translation: "Slack'e update atiyorum",
+      tr_translation: "Slack'e update atıyorum",
       example: "Skipping standup today — dropping a written update in #eng in 10 min.",
-      example_tr: "Bugun standup'a katilamiyorum — 10 dakika icinde #eng kanalina yazili update atiyorum.",
+      example_tr: "Bugün standup'a katılamıyorum — 10 dakika içinde #eng kanalına yazılı update atıyorum.",
     },
     {
       id: "ex.wst33.8.2",
@@ -2736,7 +2761,7 @@ export const workStandupLesson_33_8: BundledLesson = {
         "Out for standup today — Slack update incoming, no blockers.",
       ],
       tr_hint:
-        "'Skipping' (atliyorum) + sebep gerekmez + soz ('dropping update'). Asla bos kayma — yerine ne koydugunu soyle.",
+        "'Skipping' (atlıyorum) + sebep gerekmez + söz ('dropping update'). Asla boş kayma — yerine ne koyduğunu söyle.",
     },
     {
       id: "ex.wst33.8.3",
@@ -2772,7 +2797,7 @@ export const workStandupLesson_33_8: BundledLesson = {
       correct_sentence:
         "Skipping standup today — dropping an async update in #eng. No blockers.",
       tr_explanation:
-        "'Sorry I will not come' = ozur dileme tonu (gereksiz suclu hissi). 'Very busy + many things' = mazeret listesi. Doğru: olgu ('skipping') + alternatif ('async update') + durum ('no blockers'). Kisa + sozune sahip.",
+        "'Sorry I will not come' = özür dileme tonu (gereksiz suçlu hissi). 'Very busy + many things' = mazeret listesi. Doğru: olgu ('skipping') + alternatif ('async update') + durum ('no blockers'). Kısa + sözüne sahip.",
     },
     {
       id: "ex.wst33.8.6",
@@ -2792,8 +2817,9 @@ export const workStandupLesson_33_8: BundledLesson = {
             "(dropping|posting|sending) (an? )?(async )?update (in (slack|#eng|the channel)|to the channel)",
             "(no blockers|nothing blocking|all clear|will flag if anything comes up)",
           ],
+          model_answers: ["Heads up — skipping standup, focus block. Dropping async update in #eng. No blockers."],
           hint_tr:
-            "Heads-up + sebep (opsiyonel) + soz: 'Heads up — skipping standup, focus block. Dropping async update in #eng. No blockers.'",
+            "Heads-up + sebep (opsiyonel) + söz: 'Heads up — skipping standup, focus block. Dropping async update in #eng. No blockers.'",
         },
         {
           speaker: "npc",
@@ -2808,6 +2834,7 @@ export const workStandupLesson_33_8: BundledLesson = {
             "(the (update|details) covers it|it'?s all in the slack update)",
             "(thanks|appreciate it|thx) (for (the )?flex|for understanding)?",
           ],
+          model_answers: ["Nothing urgent — will ping if anything comes up. Thanks for the flex."],
           hint_tr:
             "Yok + safety net: 'Nothing urgent — will ping if anything comes up. Thanks for the flex.'",
         },
@@ -2825,6 +2852,7 @@ export const workStandupLesson_33_8: BundledLesson = {
             "(20|30) (min|minutes) (tops|should do it)",
             "(i'?ll )?(drop|share|send) (the (repro|details|trace)) (in (dms?|slack)) (first|before)",
           ],
+          model_answers: ["Seriously appreciate it — after lunch works. Just on the rollback step, 30 min tops. I'll drop details in DMs first."],
           hint_tr:
             "Thanks + when + scope: 'Seriously appreciate it — after lunch works. Just on the rollback step, 30 min tops. I'll drop details in DMs first.' Async kaçtım ama hala erişilebilirim sinyali.",
         },
@@ -2845,7 +2873,7 @@ export const workStandupLesson_33_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Standup ekip ritualidir. Sessizce atla = ekip seni bekler/sorar. Heads-up + alternatif = ekip akisi bozulmaz.",
+            "Standup ekip ritualidir. Sessizce atla = ekip seni bekler/sorar. Heads-up + alternatif = ekip akışı bozulmaz.",
         },
         {
           question: "'Skipping' vs 'I will not come' farki?",
@@ -2857,7 +2885,7 @@ export const workStandupLesson_33_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Skipping' = profesyonel karar verici dili. 'Won't come' = okul cocugu mazereti tonu. Ust-duzey native sicim: tek kelime, ozurelemeden.",
+            "'Skipping' = profesyonel karar verici dili. 'Won't come' = okul çocuğu mazereti tonu. Üst-düzey native sicim: tek kelime, özürelemeden.",
         },
         {
           question: "'Will ping if anything comes up' niye guclu kapanis?",
@@ -2869,7 +2897,7 @@ export const workStandupLesson_33_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yokluk = belirsizlik. 'Will ping if X' = somut ulasilabilirlik kanali. Standup yok ama sen ortadasin.",
+            "Yokluk = belirsizlik. 'Will ping if X' = somut ulaşılabilirlik kanalı. Standup yok ama sen ortadasın.",
         },
       ],
     },
@@ -2881,7 +2909,7 @@ export const workStandupLesson_33_8: BundledLesson = {
         "Skipping standup today — dropping an async update in Slack, no blockers.",
       ipa: "/ˈskɪpɪŋ ˈstændʌp təˈdeɪ ˈdrɒpɪŋ ən ˌeɪˈsɪŋk ˈʌpdeɪt ɪn slæk nəʊ ˈblɒkəz/",
       tr_hint:
-        "'Skipping' net 'sk' baslangici. 'Async' = 'AY-sink' (Brit) ya da 'A-sink' (US) — kisaltma hissi. Kapanis 'no blockers' kararli.",
+        "'Skipping' net 'sk' başlangıcı. 'Async' = 'AY-sink' (Brit) ya da 'A-sink' (US) — kısaltma hissi. Kapanış 'no blockers' kararlı.",
     },
     {
       id: "ex.wst33.8.sp1",

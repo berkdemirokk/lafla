@@ -6,7 +6,7 @@
 // CSS only and targets a dark, brand-yellow accented look so email clients
 // (Gmail/iCloud/Outlook) render consistently without external stylesheets.
 //
-// Voice rules (recap of lib/coach.ts):
+// Voice rules (shared product copy contract):
 //   - Warm but professional, like a personal coach
 //   - 1-2 short paragraphs body, no walls of text
 //   - Address user by name when {name} is available

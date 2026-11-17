@@ -169,7 +169,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
         "Sorry, do you know the way to Central Park?",
       ],
       tr_hint:
-        "'Sorry to bother you' = saygili acilis. 'How do I get to X' = standart yol sorma.",
+        "'Sorry to bother you' = saygılı açılış. 'How do I get to X' = standart yol sorma.",
     },
     {
       id: "ex.dd16.1.3",
@@ -179,7 +179,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
       answer: "in",
       distractors: ["to", "at", "for"],
       tr_hint:
-        "'Point in the right direction' = dogru yone yonlendir. Yol sorma kalibi.",
+        "'Point in the right direction' = doğru yöne yönlendir. Yol sorma kalıbı.",
     },
     {
       id: "ex.dd16.1.4",
@@ -225,8 +225,9 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(empire state|times square|grand central)",
             "(walking distance|how far|on foot)",
           ],
+          model_answers: ["Excuse me — could you point me toward Empire State?"],
           hint_tr:
-            "Saygili ac: 'Excuse me — could you point me toward Empire State?'",
+            "Saygılı aç: 'Excuse me — could you point me toward Empire State?'",
         },
         {
           speaker: "npc",
@@ -242,8 +243,9 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(should i (take the|consider)|is it faster to (subway|cab))",
             "(thank you|thanks (so much|a lot)|appreciate (it|the help))",
           ],
+          model_answers: ["Got it — south on 7th, 10 blocks. Thanks!"],
           hint_tr:
-            "Onayla + tesekkur: 'Got it — south on 7th, 10 blocks. Thanks!'",
+            "Onayla + teşekkür: 'Got it — south on 7th, 10 blocks. Thanks!'",
         },
         {
           speaker: "npc",
@@ -261,6 +263,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(do i need a (metrocard|ticket)|how do i pay)",
             "(walk sounds (fine|good)|i'?ll walk it)",
           ],
+          model_answers: ["Oh, that's easier — N or R, got it"],
           hint_tr:
             "Subway alternatif: 'Oh, that's easier — N or R, got it' veya 'Walk sounds fine, thanks'. Türk: 'metro' kelimesi NYC'de 'subway'; Londra'da 'tube' veya 'underground'. ABD'de 'metro' Washington DC dışında yaygın değil.",
         },
@@ -280,6 +283,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(any (good )?(food|coffee) (spots|places)) (nearby|near (there|empire))",
             "(should i walk or take the subway|honestly which is faster)",
           ],
+          model_answers: ["Yes, I see it — perfect, thanks!"],
           hint_tr:
             "Onay + ek soru: 'Yes, I see it — perfect, thanks!' veya 'Any good coffee spots near Empire State?'. Türk öğrenci 'görüyorum' direkt çevirisi 'I'm seeing' yapay; doğal: 'I see it' (simple).",
         },
@@ -299,6 +303,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
             "(weather'?s perfect|the weather'?s holding)( so i'?ll walk)?",
             "(walk it is)(,)? (thanks (so much|again))",
           ],
+          model_answers: ["Walk it is then — thanks so much, have a good day"],
           hint_tr:
             "Kapanış: 'Walk it is then — thanks so much, have a good day' veya 'Appreciate the help'. Türk: 'iyi günler' kapanış için 'have a good one' veya 'have a good day' (ABD); UK'de 'cheers' da olur.",
         },
@@ -324,7 +329,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yabanci insan sosyal protocol bekler. Direkt soru = saygisiz hissi.",
+            "Yabancı insan sosyal protocol bekler. Direkt soru = saygısız hissi.",
         },
         {
           question: "'Could you point me toward X' niye iyi?",
@@ -336,7 +341,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Show me' = tam detay. 'Point toward' = sadece yon. Daha az enerji isteme.",
+            "'Show me' = tam detay. 'Point toward' = sadece yön. Daha az enerji isteme.",
         },
         {
           question: "Yon aldiktan sonra NE yapilmali?",
@@ -348,7 +353,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Got it — south on 7th, 10 blocks. Thanks!' = anladim sinyali + kapanis.",
+            "'Got it — south on 7th, 10 blocks. Thanks!' = anladım sinyali + kapanış.",
         },
       ],
     },
@@ -447,7 +452,7 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
       ],
       think_seconds: 3,
       tr_hint:
-        "Yabanci yön verdi — kısa teşekkür + onay. 'Got it, thanks!' veya 'Just to confirm — straight then left?' Türk öğrenci sessiz kalır — onay = nezaket.",
+        "Yabancı yön verdi — kısa teşekkür + onay. 'Got it, thanks!' veya 'Just to confirm — straight then left?' Türk öğrenci sessiz kalır — onay = nezaket.",
       ideal_response: "Got it — thank you so much!",
     },
     {
@@ -690,7 +695,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
         "Maps glitching — old-school directions please?",
       ],
       tr_hint:
-        "'Walk me through it' = adim adim tarif et. Tech failure kalibi.",
+        "'Walk me through it' = adım adım tarif et. Tech failure kalıbı.",
     },
     {
       id: "ex.dd16.2.3",
@@ -700,7 +705,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
       answer: "at",
       distractors: ["on", "in", "by"],
       tr_hint:
-        "'Turn left at the lights' = sinyalde sola don. Yol tarifi kalibi.",
+        "'Turn left at the lights' = sinyalde sola dön. Yol tarifi kalıbı.",
     },
     {
       id: "ex.dd16.2.4",
@@ -724,7 +729,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
       correct_sentence:
         "Go three blocks down, turn left at the lights, it's on your right.",
       tr_explanation:
-        "'Go that way and turn' = belirsiz = kayip kalmaya devam. Doğru: spesifik mesafe + nokta + yon.",
+        "'Go that way and turn' = belirsiz = kayıp kalmaya devam. Doğru: spesifik mesafe + nokta + yön.",
     },
     {
       id: "ex.dd16.2.6",
@@ -745,8 +750,9 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
             "(could you (walk me|describe the route|help me))",
             "(coming from|currently at)",
           ],
+          model_answers: ["Hi — staying at your hotel. Maps isn't working — could you walk me through directions?"],
           hint_tr:
-            "Net ac: 'Hi — staying at your hotel. Maps isn't working — could you walk me through directions?'",
+            "Net aç: 'Hi — staying at your hotel. Maps isn't working — could you walk me through directions?'",
         },
         {
           speaker: "npc",
@@ -763,6 +769,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
             "(landmark|sign|store)",
             "(how far|how long)",
           ],
+          model_answers: ["Near Grand Central — by the big clock."],
           hint_tr:
             "Konum ver: 'Near Grand Central — by the big clock.'",
         },
@@ -788,7 +795,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Three blocks (mesafe) at the lights (nokta) turn left (yon)' = net tarif.",
+            "'Three blocks (mesafe) at the lights (nokta) turn left (yön)' = net tarif.",
         },
         {
           question: "Yon tarifi sirasinda landmark NE saglar?",
@@ -800,7 +807,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Past the deli, before the gas station' = blok numarasi degil, gercek isaret.",
+            "'Past the deli, before the gas station' = blok numarası değil, gerçek işaret.",
         },
         {
           question: "Maps acilmadiginda PANIK olmamak icin?",
@@ -812,7 +819,7 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Insan yardimi = backup. Kaliplari ezbersem kayip degil maceradayim.",
+            "İnsan yardımı = backup. Kalıpları ezbersem kayıp değil maceradayım.",
         },
       ],
     },
@@ -1159,7 +1166,7 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
         "Where am I exactly? Took a wrong turn.",
       ],
       tr_hint:
-        "'Turned around' = kayip durum. 'What's this street called' = kendi konumunu netlestir.",
+        "'Turned around' = kayıp durum. 'What's this street called' = kendi konumunu netleştir.",
     },
     {
       id: "ex.dd16.3.3",
@@ -1169,7 +1176,7 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
       answer: "point",
       distractors: ["put", "set", "show"],
       tr_hint:
-        "'Point back on track' = beni tekrar yola dondur. Kayip kurtarma kalibi.",
+        "'Point back on track' = beni tekrar yola döndür. Kayıp kurtarma kalıbı.",
     },
     {
       id: "ex.dd16.3.4",
@@ -1216,8 +1223,9 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
             "(am i (close|near|far)|how far)",
             "(could you (help me|put me back on track|set me right))",
           ],
+          model_answers: ["Excuse me — turned around, trying to find Times Square."],
           hint_tr:
-            "Saygili ac: 'Excuse me — turned around, trying to find Times Square.'",
+            "Saygılı aç: 'Excuse me — turned around, trying to find Times Square.'",
         },
         {
           speaker: "npc",
@@ -1234,8 +1242,9 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
             "(thank you|thanks so much)",
             "(life saver|so helpful)",
           ],
+          model_answers: ["Appreciate that — which way do I walk back?"],
           hint_tr:
-            "Cozum sor: 'Appreciate that — which way do I walk back?'",
+            "Çözüm sor: 'Appreciate that — which way do I walk back?'",
         },
         {
           speaker: "npc",
@@ -1259,7 +1268,7 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Konum tespit edemezsen yardim alamazsin. Sokak adi + isaret = baslangic noktasi.",
+            "Konum tespit edemezsen yardım alamazsın. Sokak adı + işaret = başlangıç noktası.",
         },
         {
           question: "'I'm a bit turned around' niye iyi acilis?",
@@ -1271,7 +1280,7 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'I'm lost' = drama. 'Turned around' = hafif = casual yardim cagrisi.",
+            "'I'm lost' = drama. 'Turned around' = hafif = casual yardım çağrısı.",
         },
         {
           question: "Yon aldiktan sonra HALA kaybolunca?",
@@ -1283,7 +1292,7 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Konum degisti = ayri biri belki daha kesin biliyordur. Yardim israr = sosyal yorgunluk.",
+            "Konum değişti = ayrı biri belki daha kesin biliyordur. Yardım ısrar = sosyal yorgunluk.",
         },
       ],
     },
@@ -1689,6 +1698,7 @@ export const dailyDirectionsLesson_16_5: BundledLesson = {
             "(point me|tell me|help me|show me|direct me)",
             "(brooklyn bridge|the bridge|to the bridge)",
           ],
+          model_answers: ["Excuse me — my GPS is sending me in circles. Could you point me to Brooklyn Bridge?"],
           hint_tr:
             "Saygılı aç + sorun belirt: 'Excuse me — my GPS is sending me in circles. Could you point me to Brooklyn Bridge?'",
         },
@@ -1706,6 +1716,7 @@ export const dailyDirectionsLesson_16_5: BundledLesson = {
             "(any (landmark|sign)|how (do i|will i) know)",
             "(thanks|thank you|appreciate)",
           ],
+          model_answers: ["Three blocks down — and then? Do I turn somewhere?"],
           hint_tr:
             "Onayla + detay iste: 'Three blocks down — and then? Do I turn somewhere?'",
         },
@@ -1722,6 +1733,7 @@ export const dailyDirectionsLesson_16_5: BundledLesson = {
             "(thanks (so much|a lot|a million)|appreciate (it|the help)|life saver)",
             "(have a (good|nice|great) (one|day))",
           ],
+          model_answers: ["Duane Reade, then left — thanks so much, you're a life saver!"],
           hint_tr:
             "Tekrarla + içten teşekkür: 'Duane Reade, then left — thanks so much, you're a life saver!'",
         },
@@ -2139,6 +2151,7 @@ export const dailyDirectionsLesson_16_6: BundledLesson = {
             "(turn|take a) (right|left)",
             "(at the (light|intersection|corner|stop sign))",
           ],
+          model_answers: ["Sure! Go straight three blocks, then take a right at the light."],
           hint_tr:
             "Net + adım adım: 'Sure! Go straight three blocks, then take a right at the light.'",
         },
@@ -2155,6 +2168,7 @@ export const dailyDirectionsLesson_16_6: BundledLesson = {
             "(across from|next to|right by)",
             "(can'?t miss it|hard to miss|big building)",
           ],
+          model_answers: ["You'll see a big CVS sign on your left — can't miss it!"],
           hint_tr:
             "Landmark ver: 'You'll see a big CVS sign on your left — can't miss it!'",
         },
@@ -2170,6 +2184,7 @@ export const dailyDirectionsLesson_16_6: BundledLesson = {
             "(have a (good|nice|great) (one|day))",
             "(good luck|enjoy)",
           ],
+          model_answers: ["No problem — have a good one!"],
           hint_tr:
             "Sıcak kapanış: 'No problem — have a good one!'",
         },
@@ -2583,6 +2598,7 @@ export const dailyDirectionsLesson_16_7: BundledLesson = {
             "(atm|cash machine|cashpoint)",
             "(nearby|around here|close by|within walking distance)",
           ],
+          model_answers: ["Hi — quick question, is there an ATM nearby?"],
           hint_tr:
             "Kibar aç + spesifik sor: 'Hi — quick question, is there an ATM nearby?'",
         },
@@ -2599,6 +2615,7 @@ export const dailyDirectionsLesson_16_7: BundledLesson = {
             "(coffee shop|starbucks|cafe|place (to|for) coffee)",
             "(nearby|around here|close|in this area)",
           ],
+          model_answers: ["Perfect — and is there a coffee shop nearby?"],
           hint_tr:
             "Geçiş yap + ikinci ihtiyaç: 'Perfect — and is there a coffee shop nearby?'",
         },
@@ -2615,6 +2632,7 @@ export const dailyDirectionsLesson_16_7: BundledLesson = {
             "(better coffee|nicer|quieter|local one)",
             "(thanks|thank you|appreciate it)",
           ],
+          model_answers: ["Which one do you recommend? Thanks so much!"],
           hint_tr:
             "Tavsiye iste + teşekkür: 'Which one do you recommend? Thanks so much!'",
         },
@@ -3025,6 +3043,7 @@ export const dailyDirectionsLesson_16_8: BundledLesson = {
             "(do i (take|need)|should i take|goes)",
             "(to (brooklyn|williamsburg|coney island)|for brooklyn)",
           ],
+          model_answers: ["Excuse me, which train do I take to Brooklyn?"],
           hint_tr:
             "Net + kibar: 'Excuse me, which train do I take to Brooklyn?'",
         },
@@ -3040,6 +3059,7 @@ export const dailyDirectionsLesson_16_8: BundledLesson = {
             "(i'?m (going|headed) to|trying to get to)",
             "(my stop is|the address is)",
           ],
+          model_answers: ["I'm going to Williamsburg — Bedford Avenue."],
           hint_tr:
             "Konum spesifik ver: 'I'm going to Williamsburg — Bedford Avenue.'",
         },
@@ -3057,6 +3077,7 @@ export const dailyDirectionsLesson_16_8: BundledLesson = {
             "(downtown|uptown)",
             "(thanks|thank you|appreciate it)",
           ],
+          model_answers: ["Downtown L, direct — which platform? Thanks!"],
           hint_tr:
             "Detayla onayla: 'Downtown L, direct — which platform? Thanks!'",
         },

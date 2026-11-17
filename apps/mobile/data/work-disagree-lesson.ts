@@ -22,9 +22,9 @@ export const workDisagreeLesson_34_1: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "I see it differently",
-      tr_translation: "Ben farkli goruyorum (yumusak karsi cikis)",
+      tr_translation: "Ben farklı görüyorum (yumuşak karşı çıkış)",
       example: "I see it differently — can I share my thinking?",
-      example_tr: "Ben farkli goruyorum — dusuncemi paylasabilir miyim?",
+      example_tr: "Ben farklı görüyorum — düşüncemi paylaşabilir miyim?",
     },
     {
       id: "ex.wd34.1.2",
@@ -40,7 +40,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
         "Pushing back a little — can I share where I'm coming from?",
       ],
       tr_hint:
-        "'Push back' = karsi cikma (saglikli). Soru formati = saygi. Manager hala karar verir.",
+        "'Push back' = karşı çıkma (sağlıklı). Soru formatı = saygı. Manager hala karar verir.",
     },
     {
       id: "ex.wd34.1.3",
@@ -50,7 +50,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
       answer: "push",
       distractors: ["pull", "hold", "step"],
       tr_hint:
-        "'Push back' = saglikli karsi cikis kalibi. 'Pull back' = geri cekilmek (yanlis).",
+        "'Push back' = sağlıklı karşı çıkış kalıbı. 'Pull back' = geri çekilmek (yanlış).",
     },
     {
       id: "ex.wd34.1.4",
@@ -66,7 +66,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
         "why",
       ],
       correct_sentence: "I see it differently — here's why",
-      tr_translation: "Ben farkli goruyorum — sebebi su.",
+      tr_translation: "Ben farklı görüyorum — sebebi şu.",
     },
     {
       id: "ex.wd34.1.5",
@@ -76,7 +76,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
       correct_sentence:
         "I see it differently — can I share why? Worried about the rollback path if this goes wrong.",
       tr_explanation:
-        "'You are wrong' = saldiri = manager defansif olur. Dogru: kendi perspektifin + spesifik endise = saglikli debat.",
+        "'You are wrong' = saldırı = manager defansif olur. Doğru: kendi perspektifin + spesifik endişe = sağlıklı debat.",
     },
     {
       id: "ex.wd34.1.6",
@@ -101,8 +101,9 @@ export const workDisagreeLesson_34_1: BundledLesson = {
             "(open to (hearing|being wrong)|hear me out)",
             "(worried about|concern is|risk i see)",
           ],
+          model_answers: ["I'd push back a bit — can I share my thinking?"],
           hint_tr:
-            "Saygili acilis: 'I'd push back a bit — can I share my thinking?'",
+            "Saygılı açılış: 'I'd push back a bit — can I share my thinking?'",
         },
         {
           speaker: "npc",
@@ -118,6 +119,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
             "(rather (finish|wrap up|land) (auth|payment))",
             "(visibility (later|once done)|stronger story)",
           ],
+          model_answers: ["Auth migration is blocking 3 teams — dashboard is visible but less urgent."],
           hint_tr:
             "Spesifik trade-off: 'Auth migration is blocking 3 teams — dashboard is visible but less urgent.'",
         },
@@ -135,8 +137,9 @@ export const workDisagreeLesson_34_1: BundledLesson = {
             "(happy to (run|own|tackle) either)",
             "(let me know|sleep on it|whenever)",
           ],
+          model_answers: ["Thanks for hearing me out — your call ultimately. Happy to run either."],
           hint_tr:
-            "Kapanis: 'Thanks for hearing me out — your call ultimately. Happy to run either.'",
+            "Kapanış: 'Thanks for hearing me out — your call ultimately. Happy to run either.'",
         },
         {
           speaker: "npc",
@@ -160,7 +163,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Manager hierarchically yetkili — onun kararini almazsan iliski biter. Saygili pushback = iyi calisan sinyali.",
+            "Manager hierarchically yetkili — onun kararını almazsan ilişki biter. Saygılı pushback = iyi çalışan sinyali.",
         },
         {
           question: "'I'd push back on that' tabiri nicin guclu?",
@@ -172,7 +175,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tech/finance/consulting'de 'push back' = saglikli debat sinyali. Sus ve saldiri arasi orta yol.",
+            "Tech/finance/consulting'de 'push back' = sağlıklı debat sinyali. Sus ve saldırı arası orta yol.",
         },
         {
           question: "Karsi cikis bittikten sonra NE soylemeli?",
@@ -184,7 +187,7 @@ export const workDisagreeLesson_34_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Goruslerini soyle ama manager'i otoritesinden mahrum birakma. Karar onun.",
+            "Görüşlerini söyle ama manager'i otoritesinden mahrum bırakma. Karar onun.",
         },
       ],
     },
@@ -488,7 +491,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
       word_or_phrase: "minor nit",
       tr_translation: "kucuk takinti (isteğe bagli)",
       example: "minor nit: have you considered using Map here instead?",
-      example_tr: "kucuk: bunda Map kullanmayi dusundun mu?",
+      example_tr: "küçük: bunda Map kullanmayı düşündün mü?",
     },
     {
       id: "ex.wd34.2.2",
@@ -504,7 +507,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
         "I'd push back here — this creates N+1. Could we batch instead?",
       ],
       tr_hint:
-        "Karsi cikis = sebep + alternatif. 'Because' kelimesi argument'i guclendiriyor.",
+        "Karşı çıkış = sebep + alternatif. 'Because' kelimesi argument'i güçlendiriyor.",
     },
     {
       id: "ex.wd34.2.3",
@@ -514,7 +517,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
       answer: "considered",
       distractors: ["thought", "checked", "looked"],
       tr_hint:
-        "'Have you considered' = alternatif sunarken davet edici acilis.",
+        "'Have you considered' = alternatif sunarken davet edici açılış.",
     },
     {
       id: "ex.wd34.2.4",
@@ -530,7 +533,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
         "because",
       ],
       correct_sentence: "I'd push back on this approach because",
-      tr_translation: "Bu yaklasima karsi cikiyorum cunku...",
+      tr_translation: "Bu yaklaşıma karşı çıkıyorum çünkü...",
     },
     {
       id: "ex.wd34.2.5",
@@ -540,7 +543,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
       correct_sentence:
         "I'd push back on this approach — it creates N+1. Have you considered batched fetch instead?",
       tr_explanation:
-        "'This is bad use mine' = saldiri + ego. Dogru: spesifik teknik endise (N+1) + alternatif teklif (batched).",
+        "'This is bad use mine' = saldırı + ego. Doğru: spesifik teknik endişe (N+1) + alternatif teklif (batched).",
     },
     {
       id: "ex.wd34.2.6",
@@ -566,8 +569,9 @@ export const workDisagreeLesson_34_2: BundledLesson = {
             "(have you considered|what about|wondering about)",
             "(context (provider|api)|hook (pattern)?|composition)",
           ],
+          model_answers: ["Pushing back here — singleton breaks test isolation. Have you considered a context provider?"],
           hint_tr:
-            "Net karsi cikis: 'Pushing back here — singleton breaks test isolation. Have you considered a context provider?'",
+            "Net karşı çıkış: 'Pushing back here — singleton breaks test isolation. Have you considered a context provider?'",
         },
         {
           speaker: "npc",
@@ -584,8 +588,9 @@ export const workDisagreeLesson_34_2: BundledLesson = {
             "(team (convention|style|preference))",
             "(rest of the codebase|how we (do|handle) (state|auth))",
           ],
+          model_answers: ["Fair, but reset teardown adds overhead — and rest of codebase uses contexts. Consistency win?"],
           hint_tr:
-            "Karsi argumana yanit: 'Fair, but reset teardown adds overhead — and rest of codebase uses contexts. Consistency win?'",
+            "Karşı argümana yanıt: 'Fair, but reset teardown adds overhead — and rest of codebase uses contexts. Consistency win?'",
         },
         {
           speaker: "npc",
@@ -609,7 +614,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Saldiri = defansif yanit. Sebep + alternatif = saglikli muhendislik debati.",
+            "Saldırı = defansif yanıt. Sebep + alternatif = sağlıklı mühendislik debati.",
         },
         {
           question: "'Have you considered X?' tabiri nicin guclu?",
@@ -621,7 +626,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Soru formu = saldiri sinyali yok = reviewer rahat dusunur + dogru karar olusur.",
+            "Soru formu = saldırı sinyali yok = reviewer rahat düşünür + doğru karar oluşur.",
         },
         {
           question: "'minor nit' prefiksi NE icin?",
@@ -633,7 +638,7 @@ export const workDisagreeLesson_34_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'minor nit:' = 'fix etmesen de OK'. 'must fix' yorumlardan ayirir = inceleme akiş bozulmaz.",
+            "'minor nit:' = 'fix etmesen de OK'. 'must fix' yorumlardan ayırır = inceleme akış bozulmaz.",
         },
       ],
     },
@@ -834,9 +839,9 @@ export const workDisagreeLesson_34_3: BundledLesson = {
       difficulty: 4,
       cefr_band: "C1",
       word_or_phrase: "let's steelman both sides",
-      tr_translation: "Iki tarafin EN GUCLU haline argumen kuralim",
+      tr_translation: "İki tarafın EN GÜÇLÜ haline argüman kuralım",
       example: "Before we vote — let's steelman both sides for a minute.",
-      example_tr: "Oylamadan once — bir dakika iki tarafa en guclu argumeni kuralim.",
+      example_tr: "Oylamadan önce — bir dakika iki tarafa en güçlü argümeni kuralım.",
     },
     {
       id: "ex.wd34.3.2",
@@ -852,7 +857,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
         "Playing devil's advocate: what if we got X wrong?",
       ],
       tr_hint:
-        "'Devil's advocate' = kasten karsi pozisyon savunmak. Tartismayi derinlestirir.",
+        "'Devil's advocate' = kasten karşı pozisyon savunmak. Tartışmayı derinleştirir.",
     },
     {
       id: "ex.wd34.3.3",
@@ -862,7 +867,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
       answer: "steelman",
       distractors: ["strawman", "soften", "ignore"],
       tr_hint:
-        "'Steelman' = en guclu argumeni kurmak. 'Strawman' = zayif argumeni curutmek (zit).",
+        "'Steelman' = en güçlü argümeni kurmak. 'Strawman' = zayıf argümeni çürütmek (zıt).",
     },
     {
       id: "ex.wd34.3.4",
@@ -878,7 +883,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
         "retention",
       ],
       correct_sentence: "What if we're wrong about user retention",
-      tr_translation: "Ya kullanici retention konusunda yaniliyorsak?",
+      tr_translation: "Ya kullanıcı retention konusunda yanılıyorsak?",
     },
     {
       id: "ex.wd34.3.5",
@@ -888,7 +893,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
       correct_sentence:
         "Let me steelman your view: assuming customers care most about price, X follows. But I'm not sure that's the right assumption — data shows speed matters more.",
       tr_explanation:
-        "'You don't understand' = saldiri = savunma. Steelman: karsi gorusu en guclu haline kur, sonra spesifik veriyle curut.",
+        "'You don't understand' = saldırı = savunma. Steelman: karşı görüşü en güçlü haline kur, sonra spesifik veriyle çürüt.",
     },
     {
       id: "ex.wd34.3.6",
@@ -913,8 +918,9 @@ export const workDisagreeLesson_34_3: BundledLesson = {
             "(assuming|if we (accept|take))",
             "(margin (story|bleed)|cost (per user|of retention))",
           ],
+          model_answers: ["Let me steelman your view — assuming free tier bleeds margin without converting, then yes, kill it."],
           hint_tr:
-            "Once steelman: 'Let me steelman your view — assuming free tier bleeds margin without converting, then yes, kill it.'",
+            "Önce steelman: 'Let me steelman your view — assuming free tier bleeds margin without converting, then yes, kill it.'",
         },
         {
           speaker: "npc",
@@ -931,8 +937,9 @@ export const workDisagreeLesson_34_3: BundledLesson = {
             "(without free tier|kill it and|trade-off)",
             "(cac (will|would) spike|paid channels?)",
           ],
+          model_answers: ["What if we're wrong about conversion being the right metric? Free tier feeds organic acquisition — CAC would spike."],
           hint_tr:
-            "Karsit: 'What if we're wrong about conversion being the right metric? Free tier feeds organic acquisition — CAC would spike.'",
+            "Karşıt: 'What if we're wrong about conversion being the right metric? Free tier feeds organic acquisition — CAC would spike.'",
         },
         {
           speaker: "npc",
@@ -947,8 +954,9 @@ export const workDisagreeLesson_34_3: BundledLesson = {
             "(then (revisit|reconvene|decide)|next week|after data)",
             "(open to (either|killing it|whatever)|let the data decide)",
           ],
+          model_answers: ["Sounds good — let's pull CAC by channel, then revisit. Open to either path."],
           hint_tr:
-            "Kapanis: 'Sounds good — let's pull CAC by channel, then revisit. Open to either path.'",
+            "Kapanış: 'Sounds good — let's pull CAC by channel, then revisit. Open to either path.'",
         },
         {
           speaker: "npc",
@@ -972,7 +980,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Strawman = kotuye yorum + curut. Steelman = en iyiye yorum + curutmeye calis. Ikincisi gercek ogrenme yaratir.",
+            "Strawman = kötüye yorum + çürüt. Steelman = en iyiye yorum + çürütmeye çalış. İkincisi gerçek öğrenme yaratır.",
         },
         {
           question: "'What if we're wrong about X?' sorusu nicin guclu?",
@@ -984,7 +992,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Goz ardi edilen varsayimlari sorgular. 'Wrong' kelimesi grup egoyu cozer.",
+            "Göz ardı edilen varsayımları sorgular. 'Wrong' kelimesi grup egoyu çözer.",
         },
         {
           question: "'Devil's advocate' rolune girince NE soylemeli?",
@@ -996,7 +1004,7 @@ export const workDisagreeLesson_34_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sinyallemezsen 'sen mi karsi cikiyorsun' algilanir. Acikla = takim rahat tartisir.",
+            "Sinyallemezsen 'sen mi karşı çıkıyorsun' algılanır. Açıkla = takım rahat tartışır.",
         },
       ],
     },
@@ -1197,9 +1205,9 @@ export const workDisagreeLesson_34_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "let me sit with this",
-      tr_translation: "Bunu biraz sindireyim (anlik karar vermeyeyim)",
+      tr_translation: "Bunu biraz sindireyim (anlık karar vermeyeyim)",
       example: "Let me sit with this overnight and circle back tomorrow.",
-      example_tr: "Bunu bir gece sindireyim, yarin tekrar konusalim.",
+      example_tr: "Bunu bir gece sindireyim, yarın tekrar konuşalım.",
     },
     {
       id: "ex.wd34.4.2",
@@ -1215,7 +1223,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
         "We may have to park this — I'm open to a different view though.",
       ],
       tr_hint:
-        "'Agree to disagree' = anlasmama anlasmasi (iliski korunur). 'Open to changing my mind' = ego yok sinyali.",
+        "'Agree to disagree' = anlaşmama anlaşması (ilişki korunur). 'Open to changing my mind' = ego yok sinyali.",
     },
     {
       id: "ex.wd34.4.3",
@@ -1225,7 +1233,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
       answer: "open",
       distractors: ["close", "near", "ready"],
       tr_hint:
-        "'Open to' = aciksiniz/hazirsiniz. Fikir degistirmeye acik = guclu profesyonel sinyali.",
+        "'Open to' = açıksınız/hazırsınız. Fikir değiştirmeye açık = güçlü profesyonel sinyali.",
     },
     {
       id: "ex.wd34.4.4",
@@ -1241,7 +1249,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
         "eyes",
       ],
       correct_sentence: "Let's reconvene next week with fresh eyes",
-      tr_translation: "Hafta sonra taze bakisla tekrar bulusalim.",
+      tr_translation: "Hafta sonra taze bakışla tekrar buluşalım.",
     },
     {
       id: "ex.wd34.4.5",
@@ -1251,7 +1259,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
       correct_sentence:
         "I see where we're stuck — let's agree to disagree for now. I'm open to changing my mind if you bring new data.",
       tr_explanation:
-        "'Whatever' = pasif aggresif = iliski yipranır. Dogru: anlasmama'yi sahiplen + iliski koru + ileri yol bırak.",
+        "'Whatever' = pasif aggresif = ilişki yıpranır. Doğru: anlaşmama'yı sahiplen + ilişki koru + ileri yol bırak.",
     },
     {
       id: "ex.wd34.4.6",
@@ -1276,6 +1284,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
             "(open to (changing|reconsidering)|happy to be wrong)",
             "(if you (bring|see|find)|when new data)",
           ],
+          model_answers: ["Let me sit with this — looks like we're at an impasse. Agree to disagree for now, open to changing my mind."],
           hint_tr:
             "Park: 'Let me sit with this — looks like we're at an impasse. Agree to disagree for now, open to changing my mind.'",
         },
@@ -1294,8 +1303,9 @@ export const workDisagreeLesson_34_4: BundledLesson = {
             "(load test|benchmark|prod data)",
             "(would (shift|flip|change) (me|my view))",
           ],
+          model_answers: ["If we hit X scale, or deploy coupling becomes the bottleneck — that'd shift me."],
           hint_tr:
-            "Spesifik kanit: 'If we hit X scale, or deploy coupling becomes the bottleneck — that'd shift me.'",
+            "Spesifik kanıt: 'If we hit X scale, or deploy coupling becomes the bottleneck — that'd shift me.'",
         },
         {
           speaker: "npc",
@@ -1311,8 +1321,9 @@ export const workDisagreeLesson_34_4: BundledLesson = {
             "(appreciate the (back and forth|debate|honesty))",
             "(beer|coffee|lunch)?",
           ],
+          model_answers: ["Sounds good. Appreciate the back and forth — let's grab coffee this week regardless."],
           hint_tr:
-            "Iliski koru: 'Sounds good. Appreciate the back and forth — let's grab coffee this week regardless.'",
+            "İlişki koru: 'Sounds good. Appreciate the back and forth — let's grab coffee this week regardless.'",
         },
         {
           speaker: "npc",
@@ -1336,7 +1347,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Anlasmama'yi sahiplen = pasif aggresif degil. Reconvene = konu olu kalmaz.",
+            "Anlaşmama'yı sahiplen = pasif aggresif değil. Reconvene = konu ölü kalmaz.",
         },
         {
           question: "'I'm open to changing my mind' tabiri nicin guclu?",
@@ -1348,7 +1359,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Inatcı = aptal. Acik fikirlilik = zeki + olgun sinyali. Karsi taraf da gercek arguman getirir.",
+            "İnatcı = aptal. Açık fikirlilik = zeki + olgun sinyali. Karşı taraf da gerçek argüman getirir.",
         },
         {
           question: "'Let me sit with this' niye etkili?",
@@ -1360,7 +1371,7 @@ export const workDisagreeLesson_34_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Caldigin an'da verdigin karar genelde kotudur. 'Sit with it' = bilincli profesyonel davranis.",
+            "Çaldığın an'da verdiğin karar genelde kötüdür. 'Sit with it' = bilinçli profesyonel davranış.",
         },
       ],
     },
@@ -1561,9 +1572,9 @@ export const workDisagreeLesson_34_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "I see where you're coming from",
-      tr_translation: "Nereden geldigini anliyorum (empati once, karsi sonra)",
+      tr_translation: "Nereden geldiğini anlıyorum (empati önce, karşı sonra)",
       example: "I see where you're coming from, but I'd offer a different angle.",
-      example_tr: "Nereden geldigini anliyorum, ama farkli bir aci sunmak istiyorum.",
+      example_tr: "Nereden geldiğini anlıyorum, ama farklı bir açı sunmak istiyorum.",
     },
     {
       id: "ex.wd34.5.2",
@@ -1579,7 +1590,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
         "I see your point, but let me push back gently — different angle here.",
       ],
       tr_hint:
-        "'I see where you're coming from' = once empati = karsi taraf defansif olmaz. Sonra 'but' + alternatif.",
+        "'I see where you're coming from' = önce empati = karşı taraf defansif olmaz. Sonra 'but' + alternatif.",
     },
     {
       id: "ex.wd34.5.3",
@@ -1589,7 +1600,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
       answer: "offer",
       distractors: ["give", "make", "tell"],
       tr_hint:
-        "'Offer an angle' = sabit kalip = sunmak/teklif etmek. 'Give' cok dogrudan, 'tell' yanlis kullanim.",
+        "'Offer an angle' = sabit kalıp = sunmak/teklif etmek. 'Give' çok doğrudan, 'tell' yanlış kullanım.",
     },
     {
       id: "ex.wd34.5.4",
@@ -1605,7 +1616,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
         "but",
       ],
       correct_sentence: "I see where you're coming from but",
-      tr_translation: "Nereden geldigini anliyorum, ama...",
+      tr_translation: "Nereden geldiğini anlıyorum, ama...",
     },
     {
       id: "ex.wd34.5.5",
@@ -1615,7 +1626,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
       correct_sentence:
         "I see where you're coming from, but let me offer a different angle — I think the bottleneck is actually onboarding, not pricing.",
       tr_explanation:
-        "'I am not agree' yanlis dilbilgisi ('I disagree' veya 'I don't agree'). 'Your idea is not good' = saldiri = savunmaya gecer. Dogru: empati once + spesifik alternatif sebep.",
+        "'I am not agree' yanlış dilbilgisi ('I disagree' veya 'I don't agree'). 'Your idea is not good' = saldırı = savunmaya geçer. Doğru: empati önce + spesifik alternatif sebep.",
     },
     {
       id: "ex.wd34.5.6",
@@ -1640,8 +1651,9 @@ export const workDisagreeLesson_34_5: BundledLesson = {
             "(onboarding|signup|first-time user) (bug|issue|drop-off)",
             "(churning|losing users|drop-off)",
           ],
+          model_answers: ["I see where you're coming from, but let me offer a different angle — onboarding bug is bleeding users."],
           hint_tr:
-            "Once empati: 'I see where you're coming from, but let me offer a different angle — onboarding bug is bleeding users.'",
+            "Önce empati: 'I see where you're coming from, but let me offer a different angle — onboarding bug is bleeding users.'",
         },
         {
           speaker: "npc",
@@ -1658,8 +1670,9 @@ export const workDisagreeLesson_34_5: BundledLesson = {
             "(retention|funnel|drop-off) (drop|spike|hit)",
             "(few hundred|silent users)",
           ],
+          model_answers: ["Fair point — but silent churn is bigger than vocal users. Numbers show 30% drop at onboarding."],
           hint_tr:
-            "Karsit veri: 'Fair point — but silent churn is bigger than vocal users. Numbers show 30% drop at onboarding.'",
+            "Karşıt veri: 'Fair point — but silent churn is bigger than vocal users. Numbers show 30% drop at onboarding.'",
         },
         {
           speaker: "npc",
@@ -1674,8 +1687,9 @@ export const workDisagreeLesson_34_5: BundledLesson = {
             "(dark mode (next sprint|right after|queued up))",
             "(ship both|sequence them|tag-team)",
           ],
+          model_answers: ["Appreciate you hearing me out — dark mode goes right after, promise."],
           hint_tr:
-            "Kapanis + iliski: 'Appreciate you hearing me out — dark mode goes right after, promise.'",
+            "Kapanış + ilişki: 'Appreciate you hearing me out — dark mode goes right after, promise.'",
         },
       ],
     },
@@ -1694,7 +1708,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi tarafin pozisyonunu duydugunu sinyalle = ego korunur. Bu olmadan 'but' = saldiri algisi yapilir.",
+            "Karşı tarafın pozisyonunu duyduğunu sinyalle = ego korunur. Bu olmadan 'but' = saldırı algısı yapılır.",
         },
         {
           question: "'Let me offer a different angle' nicin guclu?",
@@ -1706,7 +1720,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'You're wrong' yerine 'different angle' = iki goruse esit deger atanir = grup rahat duser.",
+            "'You're wrong' yerine 'different angle' = iki görüşe eşit değer atanır = grup rahat düşer.",
         },
         {
           question: "Turk kulturunde hierarchi neden kibar push back zorlasiyor?",
@@ -1718,7 +1732,7 @@ export const workDisagreeLesson_34_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Anglo iş kulturunde sus = fikir yok = guvenilmez sinyali. Saygili push back = profesyonel sinyali.",
+            "Anglo iş kültüründe sus = fikir yok = güvenilmez sinyali. Saygılı push back = profesyonel sinyali.",
         },
       ],
     },
@@ -1888,7 +1902,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
       word_or_phrase: "Hear me out",
       tr_translation: "Beni dinle (sonuna kadar) — karşıt görüşü sunmadan önce alan açma",
       example: "Hear me out — I think we should reconsider the architecture call.",
-      example_tr: "Beni dinle — mimari karari yeniden gozden gecirmemiz gerek bence.",
+      example_tr: "Beni dinle — mimari kararı yeniden gözden geçirmemiz gerek bence.",
     },
     {
       id: "ex.wd34.6.2",
@@ -1904,7 +1918,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
         "Hear me out — might be missing something, but this architecture feels risky long-term.",
       ],
       tr_hint:
-        "'I might be missing something' = ego korumali acilis = senior duyabilir. 'But' + spesifik endise = net karsi cikis.",
+        "'I might be missing something' = ego korumalı açılış = senior duyabilir. 'But' + spesifik endişe = net karşı çıkış.",
     },
     {
       id: "ex.wd34.6.3",
@@ -1914,7 +1928,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
       answer: "missing",
       distractors: ["losing", "forgetting", "skipping"],
       tr_hint:
-        "'Missing something' = sabit kalip = 'belki bilmedigim bir context var'. Senior'in bilgisine saygi ederken yine de karsi cikma.",
+        "'Missing something' = sabit kalıp = 'belki bilmediğim bir context var'. Senior'ın bilgisine saygı ederken yine de karşı çıkma.",
     },
     {
       id: "ex.wd34.6.4",
@@ -1931,7 +1945,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
         "wrong",
       ],
       correct_sentence: "Hear me out — I might be wrong",
-      tr_translation: "Beni dinle — yaniliyor olabilirim.",
+      tr_translation: "Beni dinle — yanılıyor olabilirim.",
     },
     {
       id: "ex.wd34.6.5",
@@ -1941,7 +1955,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
       correct_sentence:
         "Hear me out — I might be missing context, but I'm worried this decision has a blind spot around scale.",
       tr_explanation:
-        "'You don't know what you talk about' = senior'a saldiri = kariyer hatasi. 'This is wrong decision' yine saldiri. Dogru: ego korumali acilis ('I might be missing') + spesifik teknik endise (blind spot around scale).",
+        "'You don't know what you talk about' = senior'a saldırı = kariyer hatası. 'This is wrong decision' yine saldırı. Doğru: ego korumalı açılış ('I might be missing') + spesifik teknik endişe (blind spot around scale).",
     },
     {
       id: "ex.wd34.6.6",
@@ -1966,8 +1980,9 @@ export const workDisagreeLesson_34_6: BundledLesson = {
             "(worried about|concern (is|about)|risk i see)",
             "(transaction|joins?|consistency|acid|relational)",
           ],
+          model_answers: ["Hear me out — I might be missing context, but I'm worried about the transactional consistency story."],
           hint_tr:
-            "Acilis: 'Hear me out — I might be missing context, but I'm worried about the transactional consistency story.'",
+            "Açılış: 'Hear me out — I might be missing context, but I'm worried about the transactional consistency story.'",
         },
         {
           speaker: "npc",
@@ -1984,6 +1999,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
             "(months? to (migrate|move|rewrite))",
             "(scale (problem|issue) (is|might be) (read|elsewhere))",
           ],
+          model_answers: ["Fair — but billing has 7 cross-collection joins. Mongo joins are 10x slower at scale. Plus team learning curve."],
           hint_tr:
             "Spesifik teknik veri: 'Fair — but billing has 7 cross-collection joins. Mongo joins are 10x slower at scale. Plus team learning curve.'",
         },
@@ -2002,8 +2018,9 @@ export const workDisagreeLesson_34_6: BundledLesson = {
             "(before we commit|first|let me run)",
             "(your call (ultimately|in the end)|final call yours)",
           ],
+          model_answers: ["Appreciate you asking — I'd benchmark read replicas + sharding on Postgres first. Your call ultimately."],
           hint_tr:
-            "Alternatif + saygi: 'Appreciate you asking — I'd benchmark read replicas + sharding on Postgres first. Your call ultimately.'",
+            "Alternatif + saygı: 'Appreciate you asking — I'd benchmark read replicas + sharding on Postgres first. Your call ultimately.'",
         },
         {
           speaker: "npc",
@@ -2027,7 +2044,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Senior'a saldiri = guc hierarşisinde sen kaybedersin. Empati + spesifik teknik endise = saygili pushback.",
+            "Senior'a saldırı = güç hierarşisinde sen kaybedersin. Empati + spesifik teknik endişe = saygılı pushback.",
         },
         {
           question: "'I might be missing something' acilisi nicin GUCLU?",
@@ -2039,7 +2056,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Alcakgonullu acilis = senior'in defansini dusurur = sonraki net argumen duyulur. Yetiskin yetiskine konusma sinyali.",
+            "Alçakgönüllü açılış = senior'ın defansını düşürür = sonraki net argümen duyulur. Yetişkin yetişkine konuşma sinyali.",
         },
         {
           question: "Senior 'no my decision is final' dedi — ne yapilir?",
@@ -2051,7 +2068,7 @@ export const workDisagreeLesson_34_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Belgeleme = paper trail = ileride 'flag etmistim' kayidi. Ama saldiri DEGIL — saygili kapanis. 'I told you so' = profesyonel intihari.",
+            "Belgeleme = paper trail = ileride 'flag etmiştim' kayıdı. Ama saldırı DEĞİL — saygılı kapanış. 'I told you so' = profesyonel intiharı.",
         },
       ],
     },
@@ -2219,9 +2236,9 @@ export const workDisagreeLesson_34_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "hard agree",
-      tr_translation: "Kesin katiliyorum (vurgulu kalip)",
+      tr_translation: "Kesin katılıyorum (vurgulu kalıp)",
       example: "Hard agree on the timeline, less sure on the scope.",
-      example_tr: "Zaman cizelgesine kesin katiliyorum, kapsam konusunda emin degilim.",
+      example_tr: "Zaman çizelgesine kesin katılıyorum, kapsam konusunda emin değilim.",
     },
     {
       id: "ex.wd34.7.2",
@@ -2237,7 +2254,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
         "Agree 100% on the first, less convinced on the second — alternative idea?",
       ],
       tr_hint:
-        "'Hard agree on X, less sure on Y' = nuanced sinyali = takdir + endise birlikte. Sonra 'what if' = soru formu = davet.",
+        "'Hard agree on X, less sure on Y' = nuanced sinyali = takdir + endişe birlikte. Sonra 'what if' = soru formu = davet.",
     },
     {
       id: "ex.wd34.7.3",
@@ -2247,7 +2264,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
       answer: "tried",
       distractors: ["did", "made", "took"],
       tr_hint:
-        "'What if we tried X' = sabit kalip = teklif + davet. 'Did' cok genel, 'made' yanlis, 'took' anlam farkli.",
+        "'What if we tried X' = sabit kalıp = teklif + davet. 'Did' çok genel, 'made' yanlış, 'took' anlam farklı.",
     },
     {
       id: "ex.wd34.7.4",
@@ -2265,7 +2282,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
         "Y",
       ],
       correct_sentence: "Hard agree on X — less sure on Y",
-      tr_translation: "X'e kesin katiliyorum — Y konusunda emin degilim.",
+      tr_translation: "X'e kesin katılıyorum — Y konusunda emin değilim.",
     },
     {
       id: "ex.wd34.7.5",
@@ -2275,7 +2292,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
       correct_sentence:
         "Hard agree on the user research direction, less sure on the pricing call — what if we A/B tested two price points instead?",
       tr_explanation:
-        "'I agree some things but not all things' = mugla + 'you should change' = emir. Dogru: spesifik agree noktasi + spesifik less-sure noktasi + soru formati ('what if') alternatif.",
+        "'I agree some things but not all things' = muğla + 'you should change' = emir. Doğru: spesifik agree noktası + spesifik less-sure noktası + soru formatı ('what if') alternatif.",
     },
     {
       id: "ex.wd34.7.6",
@@ -2300,6 +2317,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
             "(push (notification|notif)|email blast|campaign)",
             "(timing|same week|stacking|all at once)",
           ],
+          model_answers: ["Hard agree on dark mode launch, less sure on stacking push + email blast same week."],
           hint_tr:
             "Nuanced: 'Hard agree on dark mode launch, less sure on stacking push + email blast same week.'",
         },
@@ -2318,6 +2336,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
             "(data shows|last campaign|q1 data)",
             "(what if|could we|how about) (we )?(spaced|staggered|sequenced)",
           ],
+          model_answers: ["Fair, but notification fatigue is real — Q1 data showed unsubscribe spike. What if we staggered them?"],
           hint_tr:
             "Veri + alternatif: 'Fair, but notification fatigue is real — Q1 data showed unsubscribe spike. What if we staggered them?'",
         },
@@ -2335,6 +2354,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
             "(before (the next|email)|in between)",
             "(thanks for (the )?(flex|listening|adapting))",
           ],
+          model_answers: ["Exactly. Measure engagement after each push — thanks for the flex on timing."],
           hint_tr:
             "Onay + minnet: 'Exactly. Measure engagement after each push — thanks for the flex on timing.'",
         },
@@ -2355,7 +2375,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Onerinin tamamini reddetmek yerine spesifik kismina karsi cik = karsı taraf savunmaya gecmez = islem birlikte ilerler.",
+            "Önerinin tamamını reddetmek yerine spesifik kısmına karşı çık = karşı taraf savunmaya geçmez = işlem birlikte ilerler.",
         },
         {
           question: "'What if we tried Z instead?' soru formati nicin?",
@@ -2367,7 +2387,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi taraf alternatifi kendisi 'kabul' etmis hisseder = uygulama hizli olur. Emir = direnis = mucadele uzar.",
+            "Karşı taraf alternatifi kendisi 'kabul' etmiş hisseder = uygulama hızlı olur. Emir = direniş = mücadele uzar.",
         },
         {
           question: "Yapici karsi cikis NE ZAMAN saglikli olur?",
@@ -2379,7 +2399,7 @@ export const workDisagreeLesson_34_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yapici = ileri yol acan. Endisseyi sun ama cozum olmadan birakma = problem cikarici degil cozum getirici sinyali.",
+            "Yapıcı = ileri yol açan. Endişseyi sun ama çözüm olmadan bırakma = problem çıkarıcı değil çözüm getirici sinyali.",
         },
       ],
     },
@@ -2547,9 +2567,9 @@ export const workDisagreeLesson_34_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "find common ground",
-      tr_translation: "Ortak zemin bulmak (tartisma cozme kalibi)",
+      tr_translation: "Ortak zemin bulmak (tartışma çözme kalıbı)",
       example: "Let's find common ground — what do we both agree on?",
-      example_tr: "Ortak zemin bulalim — ikimiz neye katiliyoruz?",
+      example_tr: "Ortak zemin bulalım — ikimiz neye katılıyoruz?",
     },
     {
       id: "ex.wd34.8.2",
@@ -2565,7 +2585,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
         "We can table this — what if we circled back tomorrow with fresh eyes?",
       ],
       tr_hint:
-        "'Find common ground' = ortak zemin ara. 'Table this' = erteleme. 'Circle back' = geri donme. Uc kalip da is yerinde standart.",
+        "'Find common ground' = ortak zemin ara. 'Table this' = erteleme. 'Circle back' = geri dönme. Üç kalıp da iş yerinde standart.",
     },
     {
       id: "ex.wd34.8.3",
@@ -2575,7 +2595,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
       answer: "table",
       distractors: ["close", "delete", "end"],
       tr_hint:
-        "'Table this' = sabit is kalibi = erteleme (kotu degil). 'Close' = bitirme (kesin), 'delete' yanlis kullanim.",
+        "'Table this' = sabit iş kalıbı = erteleme (kötü değil). 'Close' = bitirme (kesin), 'delete' yanlış kullanım.",
     },
     {
       id: "ex.wd34.8.4",
@@ -2591,7 +2611,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
         "forward",
       ],
       correct_sentence: "Let's find common ground and move forward",
-      tr_translation: "Ortak zemin bulalim ve ilerleyelim.",
+      tr_translation: "Ortak zemin bulalım ve ilerleyelim.",
     },
     {
       id: "ex.wd34.8.5",
@@ -2601,7 +2621,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
       correct_sentence:
         "Looks like we're stuck — let's find common ground. We can table this and circle back tomorrow with fresh eyes.",
       tr_explanation:
-        "'You stop this fighting' = suclayici + kotu dilbilgisi. Dogru: 'we' (birlikte) + 'find common ground' (yapici) + 'table + circle back' (somut ileri yol). Karsi taraf savunmaya gecmez.",
+        "'You stop this fighting' = suçlayıcı + kötü dilbilgisi. Doğru: 'we' (birlikte) + 'find common ground' (yapıcı) + 'table + circle back' (somut ileri yol). Karşı taraf savunmaya geçmez.",
     },
     {
       id: "ex.wd34.8.6",
@@ -2626,8 +2646,9 @@ export const workDisagreeLesson_34_8: BundledLesson = {
             "(business (need|impact)|marketing (lock|window))",
             "(real|legit|valid)",
           ],
+          model_answers: ["Let's find common ground — we both want quality AND we both feel the marketing pressure. Both legit."],
           hint_tr:
-            "Kopru kur: 'Let's find common ground — we both want quality AND we both feel the marketing pressure. Both legit.'",
+            "Köprü kur: 'Let's find common ground — we both want quality AND we both feel the marketing pressure. Both legit.'",
         },
         {
           speaker: "npc",
@@ -2644,6 +2665,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
             "(48 hours|2 days|buffer)",
             "(table the (debate|details|specifics)|park (the )?details)",
           ],
+          model_answers: ["What if we shipped behind a feature flag Friday — 10% rollout, full launch Monday after weekend monitoring?"],
           hint_tr:
             "Alternatif: 'What if we shipped behind a feature flag Friday — 10% rollout, full launch Monday after weekend monitoring?'",
         },
@@ -2661,8 +2683,9 @@ export const workDisagreeLesson_34_8: BundledLesson = {
             "(fresh eyes|after sleep|with coffee)",
             "(walk away (aligned|with)|good (place|spot) to (stop|leave))",
           ],
+          model_answers: ["Exactly. Let's table the rollout details and circle back tomorrow with fresh eyes."],
           hint_tr:
-            "Kapanis + iliski: 'Exactly. Let's table the rollout details and circle back tomorrow with fresh eyes.'",
+            "Kapanış + ilişki: 'Exactly. Let's table the rollout details and circle back tomorrow with fresh eyes.'",
         },
         {
           speaker: "npc",
@@ -2686,7 +2709,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Iki taraf da kazanir mantigi = ortak hedefi yuzeye cikar. Kazan-kaybet'ten kazan-kazan'a gec.",
+            "İki taraf da kazanır mantığı = ortak hedefi yüzeye çıkar. Kazan-kaybet'ten kazan-kazan'a geç.",
         },
         {
           question: "'Table this — circle back tomorrow' nicin guclu?",
@@ -2698,7 +2721,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yorgun beyin kotu karar verir. 'Table + circle back' = bilincli pause = anlasmazlik olmez, daha iyi cozum bulunur.",
+            "Yorgun beyin kötü karar verir. 'Table + circle back' = bilinçli pause = anlaşmazlık olmaz, daha iyi çözüm bulunur.",
         },
         {
           question: "Bridge kalibinda NE yapilmamasi gerekir?",
@@ -2710,7 +2733,7 @@ export const workDisagreeLesson_34_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yapay 'compromise' = pasif aggresif birikim. Somut middle path olmadan kopru kurma = sorun ertelenir, cozulmez.",
+            "Yapay 'compromise' = pasif aggresif birikim. Somut middle path olmadan köprü kurma = sorun ertelenir, çözülmez.",
         },
       ],
     },

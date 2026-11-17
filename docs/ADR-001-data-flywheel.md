@@ -41,8 +41,6 @@ Kabul edilebilir çünkü:
 
 ## Ne Zaman Yeniden Değerlendiririz
 
-Beta verisinde >%20 novel input oranı görürsek:
-- Opsiyonel "AI tutor" tier (kullanıcı kendi API key'ini getirir VEYA lokal Ollama'ya bağlanır)
-- Per-request embedding fallback (yüksek kaliteli modele)
-
-Ama default: **runtime'da LLM çağrısı yok**.
+Beta verisinde >%20 novel input oranı görürsek rule/blueprint coverage'ını,
+yerel intent sözlüğünü ve gözden geçirilmiş cevap bankasını genişletiriz.
+Runtime sözleşmesi değişmez: **LLM çağrısı yok**.

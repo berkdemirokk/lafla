@@ -104,6 +104,7 @@ export const careerB1Lesson_1: BundledLesson = {
             "currently (based|working|on)",
             "(looking|hoping) to (move|transition|shift)",
           ],
+          model_answers: ["I'm a backend engineer with four years of experience, currently at X. Looking to move into Y."],
           hint_tr:
             "Formül: rol + süre + şu anki iş + ne arıyorsun. 'I'm a backend engineer with four years of experience, currently at X. Looking to move into Y.'",
         },
@@ -120,6 +121,7 @@ export const careerB1Lesson_1: BundledLesson = {
             "want to (work|grow) (in|on|with) (product|fintech|ai|ml|startups?)",
             "(international|global|remote) (team|exposure|work)",
           ],
+          model_answers: ["want to grow in product"],
           hint_tr:
             "Neden değişim: 'looking for more scope', 'want to grow in product', 'ready for the next step'.",
         },
@@ -135,6 +137,7 @@ export const careerB1Lesson_1: BundledLesson = {
             "(early|growth) stage|series [abc]",
             "(impact|ownership|autonomy)",
           ],
+          model_answers: ["strong ownership culture"],
           hint_tr:
             "İdeal rol: 'remote-first team', 'product-focused engineering role', 'strong ownership culture'.",
         },
@@ -509,6 +512,7 @@ export const careerB1Lesson_2: BundledLesson = {
             "(stood out|drew me|drawn to|attracted)",
             "(your|the) (mission|product|culture|stage|growth)",
           ],
+          model_answers: ["Three reasons — I use the product, I follow your engineering blog, and your stage is a strong fit."],
           hint_tr:
             "3 sebep ver. 'Three reasons — I use the product, I follow your engineering blog, and your stage is a strong fit.'",
         },
@@ -526,6 +530,7 @@ export const careerB1Lesson_2: BundledLesson = {
             "(autonomy|ownership|trust)",
             "shipping (quickly|fast)|small teams",
           ],
+          model_answers: ["your strong documentation culture"],
           hint_tr:
             "Kültür somut özellik: 'your async-first setup', 'your strong documentation culture', 'small teams with ownership'.",
         },
@@ -542,6 +547,7 @@ export const careerB1Lesson_2: BundledLesson = {
             "(then|after that|once i'm ramped)",
             "(scope|own|lead) (a|the) (project|workstream|area)",
           ],
+          model_answers: ["Ramp up + ship small wins early + then own a workstream."],
           hint_tr:
             "İlk 6 ay planı: 'Ramp up + ship small wins early + then own a workstream.'",
         },
@@ -785,6 +791,7 @@ export const careerB1Lesson_3: BundledLesson = {
             "(after that|then|next|from there)",
             "(spent|was there for|stayed) (\\d+|one|two|three|four|five) years?",
           ],
+          model_answers: ["I started at X, spent two years there. From there I moved to Y, and I'm currently at Z."],
           hint_tr:
             "Kronolojik anlat: 'I started at X, spent two years there. From there I moved to Y, and I'm currently at Z.'",
         },
@@ -801,6 +808,7 @@ export const careerB1Lesson_3: BundledLesson = {
             "(end-to-end|from scratch|from day one)",
             "(\\d+%|percent|x)",
           ],
+          model_answers: ["I owned the onboarding flow end-to-end. Cut drop-off by 30 percent."],
           hint_tr:
             "Past tense + somut: 'I owned the onboarding flow end-to-end. Cut drop-off by 30 percent.'",
         },
@@ -817,6 +825,7 @@ export const careerB1Lesson_3: BundledLesson = {
             "(growth|learning) (slowed|stopped|plateaued)",
             "(no|few) bad feelings|on (good|great) terms",
           ],
+          model_answers: ["I felt ready for the next step"],
           hint_tr:
             "Diplomatik: 'I felt ready for the next step', 'growth had slowed', 'I wanted broader scope'. Eski ekibe sövme.",
         },
@@ -833,6 +842,7 @@ export const careerB1Lesson_3: BundledLesson = {
             "(set up|introduced|started) (the|a)",
             "(documentation|standards|practice|process)",
           ],
+          model_answers: ["I introduced our code review standards"],
           hint_tr:
             "Bonus impact: 'I mentored two junior engineers' veya 'I introduced our code review standards'.",
         },
@@ -1096,6 +1106,7 @@ export const careerB1Lesson_4: BundledLesson = {
             "i('d| would) (love|like|prefer) to (learn|understand|hear)",
             "what (range|number)",
           ],
+          model_answers: ["I'd love to learn more first. What range do you have in mind?"],
           hint_tr:
             "İki seçenek: (1) Aralık ver — 'I'm targeting 70-85K base.' (2) Ertele — 'I'd love to learn more first. What range do you have in mind?'",
         },
@@ -1112,6 +1123,7 @@ export const careerB1Lesson_4: BundledLesson = {
             "base (matters|is important|comes first)",
             "depends on",
           ],
+          model_answers: ["Base matters first, but I'm open on equity/bonus."],
           hint_tr:
             "'I look at total comp, not just base.' veya 'Base matters first, but I'm open on equity/bonus.'",
         },
@@ -1128,6 +1140,7 @@ export const careerB1Lesson_4: BundledLesson = {
             "depends on (the rest|equity|bonus|scope)",
             "if (the|equity|scope|role) (is right|works)",
           ],
+          model_answers: ["I have some flexibility — it depends on the total package and the scope."],
           hint_tr:
             "'I have some flexibility — it depends on the total package and the scope.'",
         },
@@ -1373,6 +1386,7 @@ export const careerB1Lesson_5: BundledLesson = {
             "(turning|breaking down|scoping|simplifying)",
             "(for example|last quarter|recently)",
           ],
+          model_answers: ["My strength is breaking ambiguity into plans. Last quarter, I scoped a migration into three-week chunks."],
           hint_tr:
             "Strength + örnek: 'My strength is breaking ambiguity into plans. Last quarter, I scoped a migration into three-week chunks.'",
         },
@@ -1390,6 +1404,7 @@ export const careerB1Lesson_5: BundledLesson = {
             "(broke down|split|scoped|delivered|shipped)",
             "(\\d+|three|four|six) (weeks|months|sprints)",
           ],
+          model_answers: ["6 ay önce X durumu vardı, ben Y yaptım, sonuç Z."],
           hint_tr:
             "Mini hikaye: ne durum + ne yaptın + sonuç. '6 ay önce X durumu vardı, ben Y yaptım, sonuç Z.'",
         },
@@ -1406,6 +1421,7 @@ export const careerB1Lesson_5: BundledLesson = {
             "(used to|tendency to|in the past)",
             "(now|these days|started) (i|to)",
           ],
+          model_answers: ["Delegating earlier — I now time-box reviews to 30 minutes."],
           hint_tr:
             "Formül: zayıflık + 've been working on it' + somut aksiyon. 'Delegating earlier — I now time-box reviews to 30 minutes.'",
         },
@@ -1651,6 +1667,7 @@ export const careerB1Lesson_6: BundledLesson = {
             "(scope|impact|challenge|exposure|responsibility)",
             "on (good|great) terms",
           ],
+          model_answers: ["Three great years, learned a lot, but I'm ready for broader scope."],
           hint_tr:
             "Pozitif çerçeve: 'Three great years, learned a lot, but I'm ready for broader scope.' Şikayet yok.",
         },
@@ -1668,6 +1685,7 @@ export const careerB1Lesson_6: BundledLesson = {
             "(not much room|limited) (to grow|for growth)",
             "(want|looking for) (international|cross-functional|remote|async)",
           ],
+          model_answers: ["small team — I'm ready for broader scope"],
           hint_tr:
             "Spesifik ama suçlama yok: 'Growth has slowed', 'limited international exposure', 'small team — I'm ready for broader scope'.",
         },
@@ -1685,6 +1703,7 @@ export const careerB1Lesson_6: BundledLesson = {
             "not (yet|until|before)",
             "(want|need) (a signed offer|a real offer) first",
           ],
+          model_answers: ["Not yet — I want a signed offer first."],
           hint_tr:
             "İki dürüst seçenek: (a) 'Yes, my manager knows and is supportive.' (b) 'Not yet — I want a signed offer first.'",
         },
@@ -1930,6 +1949,7 @@ export const careerB1Lesson_7: BundledLesson = {
             "(typical|average) (week|day|month)",
             "(biggest|main) challenge",
           ],
+          model_answers: ["What does success look like in the first six months?"],
           hint_tr:
             "Açılış: 'Yes, a few questions actually.' Sonra: 'What does success look like in the first six months?'",
         },
@@ -1947,6 +1967,7 @@ export const careerB1Lesson_7: BundledLesson = {
             "(how|what) does (the team|engineering|cross-functional) (work|collaborate)",
             "what (do you|does the team) wish",
           ],
+          model_answers: ["How does the team make decisions when there's disagreement?"],
           hint_tr:
             "Soru #2: ekip dinamiği. 'How does the team make decisions when there's disagreement?' veya 'What's something the team wishes worked better?'",
         },
@@ -1963,6 +1984,7 @@ export const careerB1Lesson_7: BundledLesson = {
             "(when|what) (would be|are) the next (steps|rounds)",
             "(rest of the|hiring) process",
           ],
+          model_answers: ["What are the next steps from here, and what's the timeline?"],
           hint_tr:
             "Soru #3: süreç. 'What are the next steps from here, and what's the timeline?'",
         },
@@ -2207,6 +2229,7 @@ export const careerB1Lesson_8: BundledLesson = {
             "(learned a lot|interesting|insightful)",
             "(looking forward|excited to hear|next steps)",
           ],
+          model_answers: ["Thanks so much for the time. I really enjoyed the conversation and I'm looking forward to next steps."],
           hint_tr:
             "Sözlü kapanış: 'Thanks so much for the time. I really enjoyed the conversation and I'm looking forward to next steps.'",
         },
@@ -2222,6 +2245,7 @@ export const careerB1Lesson_8: BundledLesson = {
             "(have a (great|good) (day|rest of the day|week))",
             "(talk soon|speak soon|until then)",
           ],
+          model_answers: ["Sounds good, thanks! Have a great rest of the day."],
           hint_tr:
             "Kapanış: 'Sounds good, thanks! Have a great rest of the day.'",
         },
@@ -2239,6 +2263,7 @@ export const careerB1Lesson_8: BundledLesson = {
             "(happy|excited|keen) to (move forward|continue)",
             "(open|available) for (the next round|technical|onsite)",
           ],
+          model_answers: ["Conversation reinforced my interest. Particularly the part about [topic]. Happy to move forward whenever."],
           hint_tr:
             "E-posta sonrası mesaj: 'Conversation reinforced my interest. Particularly the part about [topic]. Happy to move forward whenever.'",
         },
@@ -2501,6 +2526,7 @@ export const careerB1Lesson_9: BundledLesson = {
             "(few days|24 hours|by friday|by monday) to (review|think|consider)",
             "(could|can) you send (the|me the) (details|written|offer)",
           ],
+          model_answers: ["Thanks so much — really excited. Could I have 48 hours to review the written offer?"],
           hint_tr:
             "İlk reaksiyon: minnettarlık + zaman iste. 'Thanks so much — really excited. Could I have 48 hours to review the written offer?'",
         },
@@ -2517,6 +2543,7 @@ export const careerB1Lesson_9: BundledLesson = {
             "(by|on) (friday|monday|tomorrow|the end of)",
             "(appreciate|thank you|thanks)",
           ],
+          model_answers: ["Perfect — I'll get back to you by Friday. Appreciate the flexibility."],
           hint_tr:
             "Plan ver: 'Perfect — I'll get back to you by Friday. Appreciate the flexibility.'",
         },
@@ -2535,6 +2562,7 @@ export const careerB1Lesson_9: BundledLesson = {
             "(hope|hopefully) (we|our paths) (cross|meet|stay)",
             "(start|begin) on ([a-z]+ ?\\d+|monday|the \\d+)",
           ],
+          model_answers: ["After careful consideration, I've decided to go with another opportunity. Genuinely grateful."],
           hint_tr:
             "İki seçenek: (a) Kabul — 'I'm thrilled to accept. Could we set a start date?' (b) Ret — 'After careful consideration, I've decided to go with another opportunity. Genuinely grateful.'",
         },
@@ -2789,6 +2817,7 @@ export const careerB1Lesson_10: BundledLesson = {
             "(based|out of|in) (istanbul|ankara|izmir|berlin|london|remote)",
             "looking forward",
           ],
+          model_answers: ["Hi everyone, I'm X. Just joined the backend team. Based in Istanbul. Last three years in fintech. Looking forward to working with you."],
           hint_tr:
             "Formül: 'Hi everyone, I'm X. Just joined the backend team. Based in Istanbul. Last three years in fintech. Looking forward to working with you.'",
         },
@@ -2805,6 +2834,7 @@ export const careerB1Lesson_10: BundledLesson = {
             "(onboarding|first|pair) (doc|with|tasks)",
             "(getting to know|meeting) (the team|people|teammates)",
           ],
+          model_answers: ["I'd like to get familiar with the codebase first, and meet the team one-on-one."],
           hint_tr:
             "Pratik öncelik: 'I'd like to get familiar with the codebase first, and meet the team one-on-one.'",
         },
@@ -2821,6 +2851,7 @@ export const careerB1Lesson_10: BundledLesson = {
             "(send|drop|share) (a|the|me a) (calendar|invite|link|time)",
             "(thursday|friday|tomorrow|wednesday|next week)",
           ],
+          model_answers: ["Absolutely — that'd be great. Could you drop a calendar invite? I'm pretty open Thursday and Friday."],
           hint_tr:
             "Pozitif kabul: 'Absolutely — that'd be great. Could you drop a calendar invite? I'm pretty open Thursday and Friday.'",
         },
@@ -3077,6 +3108,7 @@ export const careerB1Lesson_11: BundledLesson = {
             "(\\d+|two|three|four|five) years? of experience",
             "(in|with) (fintech|e-commerce|saas|payments|ai)",
           ],
+          model_answers: ["Results-driven backend engineer with three years of experience in fintech."],
           hint_tr:
             "Formül: 'sıfat + rol + N years of experience in X.' Örnek: 'Results-driven backend engineer with three years of experience in fintech.'",
         },
@@ -3093,6 +3125,7 @@ export const careerB1Lesson_11: BundledLesson = {
             "(api design|payment systems|distributed systems|microservices)",
             "(and|,)",
           ],
+          model_answers: ["Skilled in Python, payment systems, and API design."],
           hint_tr:
             "'Skilled in X, Y, and Z.' İki-üç somut yetenek. 'Skilled in Python, payment systems, and API design.'",
         },
@@ -3109,6 +3142,7 @@ export const careerB1Lesson_11: BundledLesson = {
             "(\\d+%|percent|x|m|million|k)",
             "(team of|users|customers|requests)",
           ],
+          model_answers: ["Have built a payment service handling 10M requests per day."],
           hint_tr:
             "Somut başarı + present perfect: 'Have built a payment service handling 10M requests per day.' Sayı ekle.",
         },
@@ -3370,6 +3404,7 @@ export const careerB1Lesson_12: BundledLesson = {
             "(backend|frontend|product|data) (engineer|manager|analyst)",
             "(role|position|opening|opportunity)",
           ],
+          model_answers: ["Dear hiring manager, I am writing to apply for the [Role] position."],
           hint_tr:
             "Standart açılış: 'Dear hiring manager, I am writing to apply for the [Role] position.'",
         },
@@ -3386,6 +3421,7 @@ export const careerB1Lesson_12: BundledLesson = {
             "(i (am|'m) confident|i believe|i can)",
             "(contribute|add value|hit the ground running|ramp up)",
           ],
+          model_answers: ["With X years of experience in Y, I am confident I can contribute to your team."],
           hint_tr:
             "Formül: 'With X years of experience in Y, I am confident I can contribute to your team.' Somut deneyim + güvenli ton.",
         },
@@ -3401,6 +3437,7 @@ export const careerB1Lesson_12: BundledLesson = {
             "(would love|would welcome|look forward) (the chance|the opportunity|to discuss|to hearing)",
             "(best regards|kind regards|sincerely|best)",
           ],
+          model_answers: ["Thank you for your time. I would welcome the opportunity to discuss further. Best regards, [Name]."],
           hint_tr:
             "Kapanış: 'Thank you for your time. I would welcome the opportunity to discuss further. Best regards, [Name].'",
         },
@@ -3661,8 +3698,9 @@ export const careerB1Lesson_13: BundledLesson = {
             "(\\d+|two|three|four|five) years",
             "currently (at|on|working|based)",
           ],
+          model_answers: ["I am a backend engineer with three years of experience, currently working at a fintech company."],
           hint_tr:
-            "Telefon screen formülü: rol + N years + şu anki iş + ne arıyorsun. Kısa ve net — 60 saniye.",
+            "Telefon screen formülü: rol + deneyim + mevcut iş. Örnek: 'I am a backend engineer with three years of experience, currently working at a fintech company.'",
         },
         {
           speaker: "npc",
@@ -3677,6 +3715,7 @@ export const careerB1Lesson_13: BundledLesson = {
             "(culture|engineering|product) (of|with)",
             "(grow|develop|stretch|learn)",
           ],
+          model_answers: ["Looking for broader scope and a strong ownership culture. That's where I see myself growing."],
           hint_tr:
             "'Looking for broader scope and a strong ownership culture. That's where I see myself growing.'",
         },
@@ -3693,6 +3732,7 @@ export const careerB1Lesson_13: BundledLesson = {
             "(could|would) (start|begin|join)",
             "(\\d+ )?(weeks|month)s? from",
           ],
+          model_answers: ["I have a one-month notice period, so I could start about four weeks from signing."],
           hint_tr:
             "Logistik: 'I have a one-month notice period, so I could start about four weeks from signing.'",
         },
@@ -3956,6 +3996,7 @@ export const careerB1Lesson_14: BundledLesson = {
             "(look forward|looking forward) to",
             "(when|what) (would|are|is) (the|next)",
           ],
+          model_answers: ["Thank you so much — I'm thrilled to accept. Looking forward to joining the team. When would you like me to start?"],
           hint_tr:
             "Kabul formülü: 'Thank you so much — I'm thrilled to accept. Looking forward to joining the team. When would you like me to start?'",
         },
@@ -3972,6 +4013,7 @@ export const careerB1Lesson_14: BundledLesson = {
             "(could|would) (start|join|begin)",
             "(from|after) (signing|the offer|today)",
           ],
+          model_answers: ["I have a one-month notice, so I could start about four weeks from signing."],
           hint_tr:
             "Notice period belirt: 'I have a one-month notice, so I could start about four weeks from signing.'",
         },
@@ -3988,6 +4030,7 @@ export const careerB1Lesson_14: BundledLesson = {
             "(another|other) (offer|opportunity|role)",
             "(stay in touch|reach out|cross paths|future)",
           ],
+          model_answers: ["After careful consideration, I'll have to decline — I've accepted another opportunity. I'd love to stay in touch for the future."],
           hint_tr:
             "Decline formülü: 'After careful consideration, I'll have to decline — I've accepted another opportunity. I'd love to stay in touch for the future.'",
         },

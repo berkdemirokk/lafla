@@ -1,0 +1,213 @@
+appId: com.lafla.app
+name: Lafla screens tour (screenshots for the daily-words feature)
+# Visual tour, not an assertion suite. Run in CI via .github/workflows/ios-screens.yml.
+# Path: clean install -> auth skip -> onboarding (interests, level) -> first
+# intro scene (abandoned by relaunch) -> notify opt-in -> Today -> daily words
+# (learn x10, check x10) -> done. Uses testIDs only, so it is language agnostic
+# (except the system-alert regexes, which cover EN + TR).
+#
+# Why relaunch: finishing onboarding routes into /scenario/<id>?intro=true, a full
+# roleplay. Skipping it is not possible in-UI; relaunching (state kept) goes
+# auth -> "skip" -> /today, and /today redirects once to /notify-opt-in because
+# the opt-in was never offered (getTodayNotifyOptInRoute).
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible:
+      id: "auth-skip"
+    timeout: 30000
+- tapOn:
+    id: "auth-skip"
+- extendedWaitUntil:
+    visible:
+      id: "onboarding-screen"
+    timeout: 15000
+- extendedWaitUntil:
+    visible:
+      id: "interest-chip-.*"
+    timeout: 15000
+    optional: true
+- takeScreenshot: 01-onboarding-interests
+
+# Interests: pick two chips, continue.
+- tapOn:
+    id: "interest-chip-daily"
+    optional: true
+- tapOn:
+    id: "interest-chip-work"
+    optional: true
+- tapOn:
+    id: "onboarding-interests-continue"
+
+# CEFR level step. Pick B1 (self-report path, no placement test).
+- extendedWaitUntil:
+    visible:
+      id: "level-card-B1"
+    timeout: 15000
+- takeScreenshot: 02-onboarding-level
+- tapOn:
+    id: "level-card-B1"
+
+# finalizeOnboarding() may show the ATT prompt before navigating.
+- extendedWaitUntil:
+    visible: "Ask App Not to Track|Uygulamanın İzlememesini İste"
+    timeout: 10000
+    optional: true
+- runFlow:
+    when:
+      visible: "Ask App Not to Track|Uygulamanın İzlememesini İste"
+    commands:
+      - tapOn: "Ask App Not to Track|Uygulamanın İzlememesini İste"
+
+# Now on /scenario/<id>?intro=true. Give it time to render.
+- extendedWaitUntil:
+    notVisible:
+      id: "level-card-B1"
+    timeout: 30000
+    optional: true
+- takeScreenshot: 03-intro-scene-abandoned
+
+# Relaunch WITHOUT clearing state: auth-skip -> /today -> redirect to notify opt-in.
+- launchApp
+- runFlow:
+    when:
+      visible: "Ask App Not to Track|Uygulamanın İzlememesini İste"
+    commands:
+      - tapOn: "Ask App Not to Track|Uygulamanın İzlememesini İste"
+- extendedWaitUntil:
+    visible:
+      id: "auth-skip"
+    timeout: 30000
+- tapOn:
+    id: "auth-skip"
+- runFlow:
+    when:
+      visible: "Ask App Not to Track|Uygulamanın İzlememesini İste"
+    commands:
+      - tapOn: "Ask App Not to Track|Uygulamanın İzlememesini İste"
+
+# Notification opt-in screen (may not show if the app decided not to offer it).
+- extendedWaitUntil:
+    visible:
+      id: "notify-opt-in-screen"
+    timeout: 20000
+    optional: true
+- takeScreenshot: 04-notify-opt-in
+- tapOn:
+    id: "notify-opt-in-skip"
+    optional: true
+# Defensive: if the system notification dialog ever shows, dismiss it.
+- runFlow:
+    when:
+      visible: "Don.t Allow|İzin Verme"
+    commands:
+      - tapOn: "Don.t Allow|İzin Verme"
+- runFlow:
+    when:
+      visible: "Allow|İzin Ver"
+    commands:
+      - tapOn: "Allow|İzin Ver"
+
+# Today
+- extendedWaitUntil:
+    visible:
+      id: "today-screen"
+    timeout: 30000
+    optional: true
+# First-run tutorial modal (shown because the intro scene was never completed).
+- extendedWaitUntil:
+    visible:
+      id: "tutorial-start"
+    timeout: 8000
+    optional: true
+- takeScreenshot: 05-today-tutorial
+- runFlow:
+    when:
+      visible:
+        id: "tutorial-start"
+    commands:
+      - tapOn:
+          id: "tutorial-start"
+- takeScreenshot: 06-today-top
+- scrollUntilVisible:
+    element:
+      id: "daily-words-card"
+    direction: DOWN
+    timeout: 30000
+    optional: true
+- takeScreenshot: 07-today-daily-words-card
+- tapOn:
+    id: "daily-words-card"
+
+# Daily words: learn phase
+- extendedWaitUntil:
+    visible:
+      id: "daily-words-learn-card"
+    timeout: 20000
+    optional: true
+- takeScreenshot: 08-daily-words-learn
+- repeat:
+    times: 9
+    commands:
+      - tapOn:
+          id: "daily-words-next"
+          optional: true
+- tapOn:
+    id: "daily-words-start-check"
+    optional: true
+
+# Check phase: 10 questions. First one gets before/after screenshots.
+- extendedWaitUntil:
+    visible:
+      id: "daily-words-option-0"
+    timeout: 20000
+    optional: true
+- takeScreenshot: 09-daily-words-check-before
+- tapOn:
+    id: "daily-words-option-0"
+    optional: true
+- takeScreenshot: 10-daily-words-check-after
+- tapOn:
+    id: "daily-words-continue"
+    optional: true
+- repeat:
+    times: 8
+    commands:
+      - tapOn:
+          id: "daily-words-option-0"
+          optional: true
+      - tapOn:
+          id: "daily-words-continue"
+          optional: true
+- tapOn:
+    id: "daily-words-option-0"
+    optional: true
+- tapOn:
+    id: "daily-words-finish"
+    optional: true
+
+# Done screen
+- extendedWaitUntil:
+    visible:
+      id: "daily-words-done"
+    timeout: 20000
+    optional: true
+# The in-app review prompt can pop up ~1.2s after finishing.
+- extendedWaitUntil:
+    visible: "Not Now|Şimdi Değil"
+    timeout: 4000
+    optional: true
+- runFlow:
+    when:
+      visible: "Not Now|Şimdi Değil"
+    commands:
+      - tapOn: "Not Now|Şimdi Değil"
+- takeScreenshot: 11-daily-words-done-top
+- scrollUntilVisible:
+    element:
+      id: "daily-words-share"
+    direction: DOWN
+    timeout: 20000
+    optional: true
+- takeScreenshot: 12-daily-words-done-share

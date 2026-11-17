@@ -89,29 +89,46 @@ function pickDailyQuests(seed: string): QuestId[] {
   return [...new Set(picked)].slice(0, 3);
 }
 
-export async function getDailyQuests(): Promise<DailyQuestState> {
+function isDailyQuestState(value: unknown): value is DailyQuestState {
+  if (!isObject(value) || typeof value.date !== "string") return false;
+  if (!Array.isArray(value.quests) || value.quests.length === 0) return false;
+  const seen = new Set<string>();
+  return value.quests.every((quest) => {
+    if (!isObject(quest)) return false;
+    const validId = QUEST_POOL.some((definition) => definition.id === quest.id);
+    if (!validId || seen.has(String(quest.id))) return false;
+    seen.add(String(quest.id));
+    return (
+      typeof quest.progress === "number" &&
+      Number.isFinite(quest.progress) &&
+      quest.progress >= 0 &&
+      typeof quest.claimed === "boolean"
+    );
+  });
+}
+
+let questMutationChain: Promise<unknown> = Promise.resolve();
+
+function serializeQuestMutation<T>(work: () => Promise<T>): Promise<T> {
+  const job = questMutationChain.then(work, work);
+  questMutationChain = job.catch(() => undefined);
+  return job;
+}
+
+async function getDailyQuestsInner(): Promise<DailyQuestState> {
   const today = todayStr();
   // 2026-05-25 (B-EDGE-5) — parseSafe ile defensive JSON; corrupte storage
   // crash etmesin (try/catch yuttuğunda yine fresh üretir ama parseSafe
   // ile Sentry breadcrumb da bırakırız).
-  try {
-    const raw = await AsyncStorage.getItem(K_QUESTS);
-    const parsed = parseSafe<Partial<DailyQuestState>>(
-      raw,
-      {},
-      isObject,
-      { source: "daily-quests.getDailyQuests" },
-    );
-    if (
-      parsed &&
-      typeof parsed.date === "string" &&
-      Array.isArray(parsed.quests) &&
-      parsed.date === today
-    ) {
-      return { date: parsed.date, quests: parsed.quests };
-    }
-  } catch {
-    // fall through
+  const raw = await AsyncStorage.getItem(K_QUESTS);
+  const parsed = parseSafe<DailyQuestState | null>(
+    raw,
+    null,
+    (value) => value === null || isDailyQuestState(value),
+    { source: "daily-quests.getDailyQuests" },
+  );
+  if (parsed && parsed.date === today) {
+    return parsed;
   }
 
   // Generate today's quests
@@ -120,30 +137,34 @@ export async function getDailyQuests(): Promise<DailyQuestState> {
     date: today,
     quests: ids.map((id) => ({ id, progress: 0, claimed: false })),
   };
-  await AsyncStorage.setItem(K_QUESTS, JSON.stringify(fresh)).catch(() => {});
+  await AsyncStorage.setItem(K_QUESTS, JSON.stringify(fresh));
   return fresh;
+}
+
+export function getDailyQuests(): Promise<DailyQuestState> {
+  return serializeQuestMutation(getDailyQuestsInner);
 }
 
 export async function progressQuest(
   matcher: (id: QuestId) => number,
 ): Promise<DailyQuestState> {
-  const state = await getDailyQuests();
-  let changed = false;
-  for (const q of state.quests) {
-    // QUEST_POOL'da olmayan quest id'leri (eski versiyondan stored state)
-    // sessizce atla — `find()!` non-null assert'i crash bombasıydı.
-    const def = QUEST_POOL.find((p) => p.id === q.id);
-    if (!def) continue;
-    const delta = matcher(q.id);
-    if (delta > 0 && q.progress < def.target) {
-      q.progress = Math.min(q.progress + delta, def.target);
-      changed = true;
+  return serializeQuestMutation(async () => {
+    const state = await getDailyQuestsInner();
+    let changed = false;
+    for (const q of state.quests) {
+      const def = QUEST_POOL.find((p) => p.id === q.id);
+      if (!def) continue;
+      const delta = matcher(q.id);
+      if (Number.isFinite(delta) && delta > 0 && q.progress < def.target) {
+        q.progress = Math.min(q.progress + delta, def.target);
+        changed = true;
+      }
     }
-  }
-  if (changed) {
-    await AsyncStorage.setItem(K_QUESTS, JSON.stringify(state)).catch(() => {});
-  }
-  return state;
+    if (changed) {
+      await AsyncStorage.setItem(K_QUESTS, JSON.stringify(state));
+    }
+    return state;
+  });
 }
 
 export async function recordLessonCompletion(args: {
@@ -168,13 +189,15 @@ export async function recordLessonCompletion(args: {
 }
 
 export async function claimQuest(id: QuestId): Promise<number | null> {
-  const state = await getDailyQuests();
-  const q = state.quests.find((q) => q.id === id);
-  const def = QUEST_POOL.find((p) => p.id === id);
-  if (!q || !def) return null;
-  if (q.claimed) return null;
-  if (q.progress < def.target) return null;
-  q.claimed = true;
-  await AsyncStorage.setItem(K_QUESTS, JSON.stringify(state)).catch(() => {});
-  return def.xpReward;
+  return serializeQuestMutation(async () => {
+    const state = await getDailyQuestsInner();
+    const q = state.quests.find((quest) => quest.id === id);
+    const def = QUEST_POOL.find((definition) => definition.id === id);
+    if (!q || !def || q.claimed || q.progress < def.target) return null;
+    q.claimed = true;
+    // Reward is returned only after the claim is durably persisted. This
+    // prevents retries or double taps from minting the same XP repeatedly.
+    await AsyncStorage.setItem(K_QUESTS, JSON.stringify(state));
+    return def.xpReward;
+  });
 }

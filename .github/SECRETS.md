@@ -59,6 +59,7 @@ GitHub Actions secret'larına ek olarak, app.config.ts içinden `process.env.EXP
 | `EXPO_PUBLIC_SUPABASE_URL` | **Evet** | Auth + hesap silme edge function |
 | `EXPO_PUBLIC_SUPABASE_ANON_KEY` | **Evet** | Aynı |
 | `EXPO_PUBLIC_SENTRY_DSN` | **Evet (submission'dan önce)** | Privacy Nutrition Label "Crash Data" deklare ediyor; DSN olmadan Sentry no-op, label'a yalan söylemiş oluruz. **App Store submission'dan önce mutlaka set edin.** |
+| `SENTRY_AUTH_TOKEN` | **Evet (production build)** | Sentry source map yüklemesi; eksikse TestFlight workflow'u build başlamadan durur. |
 | `EXPO_PUBLIC_POSTHOG_KEY` | Opsiyonel | ATT metni artık PostHog'a referans vermediği için zorunlu değil. Product analytics istiyorsan set et. |
 | `EXPO_PUBLIC_POSTHOG_HOST` | Opsiyonel | Default `https://eu.i.posthog.com` |
 | `EXPO_PUBLIC_TTS_ENDPOINT` | Opsiyonel | ElevenLabs proxy; boşsa expo-speech fallback |
@@ -93,7 +94,7 @@ EAS build başladıktan sonra `app.config.ts` log'una bak — env değerleri gö
 - [ ] App Store Connect API Key oluşturulmuş (Admin yetkisi)
 - [ ] Expo Token alınmış
 - [ ] 5 GitHub Actions secret'ı repo'ya eklenmiş
-- [ ] EAS Secret olarak `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_ANON_KEY`, **`EXPO_PUBLIC_SENTRY_DSN`** tanımlı (`eas secret:list` ile doğrula)
+- [ ] EAS Secret olarak `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_ANON_KEY`, **`EXPO_PUBLIC_SENTRY_DSN`** ve **`SENTRY_AUTH_TOKEN`** tanımlı (`eas secret:list` ile doğrula)
 - [ ] Privacy policy ve App Privacy Nutrition Label canlı SDK'larla uyumlu (AdMob, Sentry, PostHog dahil)
 - [ ] ATT promptu sadece reklam framing'i içeriyor (PostHog kelimesi yok)
 - [ ] Workflow manuel olarak 1 kez test edilmiş (preview profile)

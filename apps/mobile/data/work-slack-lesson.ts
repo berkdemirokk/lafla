@@ -39,7 +39,7 @@ export const workSlackLesson_9_1: BundledLesson = {
         "Hello! Berk here, just started on frontend. Hope to meet you all soon.",
       ],
       tr_hint:
-        "Standard format: isim + rol + heyecan + acik davet. Slack kulturune uygun samimi.",
+        "Standard format: isim + rol + heyecan + açık davet. Slack kültürüne uygun samimi.",
     },
     {
       id: "ex.ws9.1.3",
@@ -49,7 +49,7 @@ export const workSlackLesson_9_1: BundledLesson = {
       answer: "working",
       distractors: ["work", "worked", "works"],
       tr_hint:
-        "'Looking forward to + ing' = -mek icin sabirsizim. Standart kalip.",
+        "'Looking forward to + ing' = -mek için sabırsızım. Standart kalıp.",
     },
     {
       id: "ex.ws9.1.4",
@@ -94,6 +94,7 @@ export const workSlackLesson_9_1: BundledLesson = {
             "(excited|happy|stoked|looking forward) (to (be here|meet|work))",
             "(hit me up|dm me|reach out)",
           ],
+          model_answers: ["Hey all — Berk here, new on frontend. Excited to meet you!"],
           hint_tr:
             "Klasik intro: 'Hey all — Berk here, new on frontend. Excited to meet you!'",
         },
@@ -111,6 +112,7 @@ export const workSlackLesson_9_1: BundledLesson = {
             "(working|on a) (utc|cet|gmt) (time|hours|schedule)",
             "(would love to|happy to) (chat|grab a virtual coffee|connect)",
           ],
+          model_answers: ["Thanks! Based in Istanbul, working CET. You?"],
           hint_tr:
             "Cevap ver + soru sor: 'Thanks! Based in Istanbul, working CET. You?'",
         },
@@ -129,6 +131,7 @@ export const workSlackLesson_9_1: BundledLesson = {
             "(would love to|happy to) (pair|shadow|sit in on)",
             "(open to (anything|whatever)|wherever the team needs)",
           ],
+          model_answers: ["Mostly frontend, but happy to dig wherever the team needs me."],
           hint_tr:
             "Bir-iki ilgi alanı + açıklık: 'Mostly frontend, but happy to dig wherever the team needs me.'",
         },
@@ -149,7 +152,7 @@ export const workSlackLesson_9_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Slack kulturu = casual + sicak. 2-3 cumle yeterli. Kisi cagirmaya acik biti.",
+            "Slack kültürü = casual + sıcak. 2-3 cümle yeterli. Kişi çağırmaya açık biti.",
         },
         {
           question: "'Hit me up' / 'DM me' niye iyi?",
@@ -161,7 +164,7 @@ export const workSlackLesson_9_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pasif intro = unutulur. Aktif davet = iliski kurma sansi.",
+            "Pasif intro = unutulur. Aktif davet = ilişki kurma şansı.",
         },
         {
           question: "Slack'te 'Dear Team' veya 'To Whom It May Concern' kullanmali mi?",
@@ -173,7 +176,7 @@ export const workSlackLesson_9_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Slack = sohbet uygulamasi. Email tonunu kullanmak = yabancilastiriyor.",
+            "Slack = sohbet uygulaması. Email tonunu kullanmak = yabancılaştırıyor.",
         },
       ],
     },
@@ -184,7 +187,7 @@ export const workSlackLesson_9_1: BundledLesson = {
       phrase: "Excited to be on the team.",
       ipa: "/ɪkˈsaɪtɪd tu bi ɑn ðə tiːm/",
       tr_articulation_hint:
-        "'Excited' = ik-say-tıd (vurgu ortada). 'To be on the team' birlestir, akici oku. Samimi tonla — yapay olmasin.",
+        "'Excited' = ik-say-tıd (vurgu ortada). 'To be on the team' birleştir, akıcı oku. Samimi tonla — yapay olmasın.",
     },
     {
       id: "ex.ws9.1.9",
@@ -193,7 +196,7 @@ export const workSlackLesson_9_1: BundledLesson = {
       native_text: "Hey all — just joined the frontend team, excited to meet everyone!",
       voice_hint: "male_us",
       tr_hint:
-        "'Hey all' samimi, hizli ac. 'Just joined' net, gecmis zaman vurgu yok. 'Excited to meet everyone' = enerjik kapanis. Slack mesaj ritmi.",
+        "'Hey all' samimi, hızlı aç. 'Just joined' net, geçmiş zaman vurgu yok. 'Excited to meet everyone' = enerjik kapanış. Slack mesaj ritmi.",
     },
     {
       id: "ex.ws9.1.10",
@@ -203,7 +206,7 @@ export const workSlackLesson_9_1: BundledLesson = {
       transcription_target:
         "Welcome aboard! Feel free to DM me if you need anything.",
       tr_hint:
-        "'Welcome aboard' deyim = aramiza hosgeldin. 'Feel free' = cekinme, davet. 'DM me' = direkt mesaj at — Slack jargon.",
+        "'Welcome aboard' deyim = aramıza hoşgeldin. 'Feel free' = çekinme, davet. 'DM me' = direkt mesaj at — Slack jargon.",
     },
     {
       id: "ex.ws9.1.11",
@@ -213,7 +216,7 @@ export const workSlackLesson_9_1: BundledLesson = {
       word_or_phrase: "based out of",
       tr_translation: "Merkezli / ... şehrinden",
       example_en: "I'm based out of Istanbul, working CET hours.",
-      example_tr: "Istanbul merkezliyim, CET saatlerinde calisiyorum.",
+      example_tr: "İstanbul merkezliyim, CET saatlerinde çalışıyorum.",
     },
     {
       id: "ex.ws9.1.12",
@@ -222,7 +225,7 @@ export const workSlackLesson_9_1: BundledLesson = {
       incorrect_sentence: "I am very happy with knowing all of you.",
       correct_sentence: "Excited to get to know everyone!",
       tr_explanation:
-        "'Happy with knowing' kirik yapi — gerund yanlis. 'Get to know' deyim = tanimak. Slack intro = enerji + sicaklik.",
+        "'Happy with knowing' kırık yapı — gerund yanlış. 'Get to know' deyim = tanımak. Slack intro = enerji + sıcaklık.",
     },
     {
       id: "ex.ws9.1.sp1",
@@ -527,7 +530,7 @@ export const workSlackLesson_9_2: BundledLesson = {
         "Quick one — token refresh location in auth.ts? Async whenever.",
       ],
       tr_hint:
-        "'Hi' demek + beklemek = anti-pattern. Direkt soru + 'no rush' = bos zamansiz Slack normu.",
+        "'Hi' demek + beklemek = anti-pattern. Direkt soru + 'no rush' = boş zamansız Slack normu.",
     },
     {
       id: "ex.ws9.2.3",
@@ -537,7 +540,7 @@ export const workSlackLesson_9_2: BundledLesson = {
       answer: "a",
       distractors: ["the", "any", "some"],
       tr_hint:
-        "'When you have a sec' = bir saniyen oldugunda. Async iletisim kalibi.",
+        "'When you have a sec' = bir saniyen olduğunda. Async iletişim kalıbı.",
     },
     {
       id: "ex.ws9.2.4",
@@ -560,7 +563,7 @@ export const workSlackLesson_9_2: BundledLesson = {
       correct_sentence:
         "Hey — quick question about the deploy script. Got 10 minutes today?",
       tr_explanation:
-        "'Hi' tek basina = bekleme cagrisi = anti-pattern. Doğru: tum baglami ilk mesajda paylas.",
+        "'Hi' tek başına = bekleme çağrısı = anti-pattern. Doğru: tüm bağlamı ilk mesajda paylaş.",
     },
     {
       id: "ex.ws9.2.6",
@@ -581,6 +584,7 @@ export const workSlackLesson_9_2: BundledLesson = {
             "(working on|stuck on|debugging) (the (auth|api|deploy))",
             "(can'?t figure out|getting an error|not sure how)",
           ],
+          model_answers: ["Hey — quick Q about auth tokens. No rush!"],
           hint_tr:
             "Direkt + nazik: 'Hey — quick Q about auth tokens. No rush!'",
         },
@@ -599,6 +603,7 @@ export const workSlackLesson_9_2: BundledLesson = {
             "(wondering|thinking|hoping) (if you|that you'?d know)",
             "(want me to|should i) (huddle|jump on a call|share screen)",
           ],
+          model_answers: ["Thanks! Token refresh throws 401 — tried docs, no luck."],
           hint_tr:
             "Spesifik sor: 'Thanks! Token refresh throws 401 — tried docs, no luck.'",
         },
@@ -616,6 +621,7 @@ export const workSlackLesson_9_2: BundledLesson = {
             "(share (my )?screen|screen share) (when (we|you) jump|once we'?re on)",
             "(ready when you are|standing by|jumping in now)",
           ],
+          model_answers: ["Yep — logs and stack trace ready. Will share screen when we hop on."],
           hint_tr:
             "Hazırlık sinyali: 'Yep — logs and stack trace ready. Will share screen when we hop on.'",
         },
@@ -636,7 +642,7 @@ export const workSlackLesson_9_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Async kultur = tum baglam tek mesajda. Diger taraf kendi zamaninda cevaplar.",
+            "Async kültür = tüm bağlam tek mesajda. Diğer taraf kendi zamanında cevaplar.",
         },
         {
           question: "DM mesajinin EN iyi formati?",
@@ -648,7 +654,7 @@ export const workSlackLesson_9_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Hizli ac + tam soru + zaman baski yok = perfect async DM.",
+            "Hızlı aç + tam soru + zaman baskı yok = perfect async DM.",
         },
         {
           question: "Senior dev'e takildigin yer sorduğunda NE eklemeli?",
@@ -660,7 +666,7 @@ export const workSlackLesson_9_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Tried X, didn't work' = saygi sinyali. Hicbir sey denemeden sormak = tembellik.",
+            "'Tried X, didn't work' = saygı sinyali. Hiçbir şey denemeden sormak = tembellik.",
         },
       ],
     },
@@ -671,7 +677,7 @@ export const workSlackLesson_9_2: BundledLesson = {
       phrase: "No rush — whenever you get a sec.",
       ipa: "/noʊ rʌʃ ˌwɛnˈɛvər ju ɡɛt ə sɛk/",
       tr_articulation_hint:
-        "'No rush' kisa + kararli. 'Whenever' uc heceli, vurgu ortada. 'Get a sec' birlesik = 'ge-tı-sek'. Rahatlatici tonla.",
+        "'No rush' kısa + kararlı. 'Whenever' üç heceli, vurgu ortada. 'Get a sec' birleşik = 'ge-tı-sek'. Rahatlatıcı tonla.",
     },
     {
       id: "ex.ws9.2.9",
@@ -680,7 +686,7 @@ export const workSlackLesson_9_2: BundledLesson = {
       native_text: "Quick Q — do you know where the deploy script lives? No rush.",
       voice_hint: "male_us",
       tr_hint:
-        "'Quick Q' = quick question kisaltma, casual Slack ritmi. 'Lives' = where the code 'is located' (jargon). 'No rush' sona ekleyerek baski kaldir.",
+        "'Quick Q' = quick question kısaltma, casual Slack ritmi. 'Lives' = where the code 'is located' (jargon). 'No rush' sona ekleyerek baskı kaldır.",
     },
     {
       id: "ex.ws9.2.10",
@@ -690,7 +696,7 @@ export const workSlackLesson_9_2: BundledLesson = {
       transcription_target:
         "Let me huddle with you real quick — easier than typing it all out.",
       tr_hint:
-        "'Huddle' = Slack icindeki hizli ses gorusmesi (jargon). 'Real quick' deyim = cabucak. 'Type it all out' = uzun uzun yaz.",
+        "'Huddle' = Slack içindeki hızlı ses görüşmesi (jargon). 'Real quick' deyim = çabucak. 'Type it all out' = uzun uzun yaz.",
     },
     {
       id: "ex.ws9.2.11",
@@ -700,7 +706,7 @@ export const workSlackLesson_9_2: BundledLesson = {
       word_or_phrase: "ping me",
       tr_translation: "Bana mesaj at / haber ver",
       example_en: "Ping me when you're back at your desk.",
-      example_tr: "Masana dondugunde bana mesaj at.",
+      example_tr: "Masana döndüğünde bana mesaj at.",
     },
     {
       id: "ex.ws9.2.12",
@@ -710,7 +716,7 @@ export const workSlackLesson_9_2: BundledLesson = {
       correct_sentence:
         "Hey — quick question about the API. Whenever works for you.",
       tr_explanation:
-        "'Are you there? Answer fast' = baskici + saygisiz. Async Slack norm: konteksti hemen ver + baski koyma.",
+        "'Are you there? Answer fast' = baskıcı + saygısız. Async Slack norm: konteksti hemen ver + baskı koyma.",
     },
     {
       id: "ex.ws9.2.sp1",
@@ -885,7 +891,7 @@ export const workSlackLesson_9_3: BundledLesson = {
         "Y: shipped API. T: writing tests. B: waiting on design.",
       ],
       tr_hint:
-        "Standup formati: Yesterday / Today / Blockers. Kisa + tarama-friendly + emojiyle desteklenebilir.",
+        "Standup formatı: Yesterday / Today / Blockers. Kısa + tarama-friendly + emojiyle desteklenebilir.",
     },
     {
       id: "ex.ws9.3.3",
@@ -895,7 +901,7 @@ export const workSlackLesson_9_3: BundledLesson = {
       answer: "on",
       distractors: ["by", "in", "for"],
       tr_hint:
-        "'Blocked on X' = X'in beklemesi nedeniyle engelliyim. Standart engel kalibi.",
+        "'Blocked on X' = X'in beklemesi nedeniyle engelliyim. Standart engel kalıbı.",
     },
     {
       id: "ex.ws9.3.4",
@@ -919,7 +925,7 @@ export const workSlackLesson_9_3: BundledLesson = {
       correct_sentence:
         "Yesterday: shipped the login flow. Today: starting on settings. No blockers.",
       tr_explanation:
-        "'I worked on stuff' = belirsiz, gostermez. Doğru: Spesifik kazanim + bugunun plani + engel durumu.",
+        "'I worked on stuff' = belirsiz, göstermez. Doğru: Spesifik kazanım + bugünün planı + engel durumu.",
     },
     {
       id: "ex.ws9.3.6",
@@ -940,8 +946,9 @@ export const workSlackLesson_9_3: BundledLesson = {
             "(working on|starting|continuing)",
             "(no blockers|none|nothing|all clear|blocked on)",
           ],
+          model_answers: ["Yesterday I shipped auth. Today I am starting payments. No blockers."],
           hint_tr:
-            "Y: shipped X | T: starting Y | B: none.",
+            "Y/T/B formatı. Örnek: 'Yesterday I shipped auth. Today I am starting payments. No blockers.'",
         },
         {
           speaker: "npc",
@@ -958,6 +965,7 @@ export const workSlackLesson_9_3: BundledLesson = {
             "(let me know|tag me|happy to discuss)",
             "(will (update|ping|circle back)|i'?ll keep you posted)",
           ],
+          model_answers: ["On track if design review comes back today. Will keep you posted."],
           hint_tr:
             "Net cevap: 'On track if design review comes back today. Will keep you posted.'",
         },
@@ -975,6 +983,7 @@ export const workSlackLesson_9_3: BundledLesson = {
             "(by (noon|lunch|eod|end of day))",
             "(let me know|tag me) (if (anyone'?s|you'?re) missing)",
           ],
+          model_answers: ["Yep — tagging design in the thread now, will link the Figma too."],
           hint_tr:
             "Onay + zaman: 'Yep — tagging design in the thread now, will link the Figma too.'",
         },
@@ -995,7 +1004,7 @@ export const workSlackLesson_9_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Industry standart. Dun ne yaptin / bugun ne yapacaksin / yolundeki engeller.",
+            "Industry standart. Dün ne yaptın / bugün ne yapacaksın / yolundaki engeller.",
         },
         {
           question: "'Blocker' / 'Blocked on X' niye onemli?",
@@ -1007,7 +1016,7 @@ export const workSlackLesson_9_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sessiz kalmak = engel buyur. Bagiran tekerlek yaglanir.",
+            "Sessiz kalmak = engel büyür. Bağıran tekerlek yağlanır.",
         },
         {
           question: "'Circle back' ifadesinin anlami?",
@@ -1019,7 +1028,7 @@ export const workSlackLesson_9_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Will circle back after lunch' = ogleden sonra donerim. Async cevap erteleme kalibi.",
+            "'Will circle back after lunch' = öğleden sonra dönerim. Async cevap erteleme kalıbı.",
         },
       ],
     },
@@ -1030,7 +1039,7 @@ export const workSlackLesson_9_3: BundledLesson = {
       phrase: "Blocked on design review.",
       ipa: "/blɑkt ɑn dɪˈzaɪn rɪˈvjuː/",
       tr_articulation_hint:
-        "'Blocked' tek hece, geniz t. 'On' kisa, hizla gec. 'Design review' iki vurgu — sade ve net. Standup ritmi: dakikalik.",
+        "'Blocked' tek hece, geniz t. 'On' kısa, hızla geç. 'Design review' iki vurgu — sade ve net. Standup ritmi: dakikalık.",
     },
     {
       id: "ex.ws9.3.9",
@@ -1039,7 +1048,7 @@ export const workSlackLesson_9_3: BundledLesson = {
       native_text: "Yesterday: shipped the API. Today: writing tests. No blockers.",
       voice_hint: "female_us",
       tr_hint:
-        "Standup ritmi — uc kisa cumle, virgulden sonra kisa duraklama. Dakika icinde bilgi yogun. 'Shipped' past, 'writing' progressive.",
+        "Standup ritmi — üç kısa cümle, virgülden sonra kısa duraklama. Dakika içinde bilgi yoğun. 'Shipped' past, 'writing' progressive.",
     },
     {
       id: "ex.ws9.3.10",
@@ -1059,7 +1068,7 @@ export const workSlackLesson_9_3: BundledLesson = {
       word_or_phrase: "carry over",
       tr_translation: "Sonraki güne devret / aktar",
       example_en: "Carrying over the auth ticket to tomorrow.",
-      example_tr: "Auth biletini yarina aktariyorum.",
+      example_tr: "Auth biletini yarına aktarıyorum.",
     },
     {
       id: "ex.ws9.3.12",
@@ -1069,7 +1078,7 @@ export const workSlackLesson_9_3: BundledLesson = {
       correct_sentence:
         "Today: finishing the login flow and starting on settings page.",
       tr_explanation:
-        "'Continue to work on stuff' = belirsiz + uzun. Standup = spesifik + kisa. 'Today: [aksiyon] + [aksiyon]' format.",
+        "'Continue to work on stuff' = belirsiz + uzun. Standup = spesifik + kısa. 'Today: [aksiyon] + [aksiyon]' format.",
     },
     {
       id: "ex.ws9.3.sp1",
@@ -1216,7 +1225,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Channel-friendly",
-      tr_translation: "Kanal dostu (kanali kirletmeyen)",
+      tr_translation: "Kanal dostu (kanalı kirletmeyen)",
       example: "Keeping this channel-friendly — long version in thread.",
       example_tr: "Bunu kanal dostu tutuyorum — uzun versiyon thread'de.",
     },
@@ -1244,7 +1253,7 @@ export const workSlackLesson_9_4: BundledLesson = {
         "Going to take this to a thread!",
       ],
       tr_hint:
-        "Thread = uzun konusmalari main channel'dan ayirmanin yolu. Kultur kuralı.",
+        "Thread = uzun konuşmaları main channel'dan ayırmanın yolu. Kültür kuralı.",
     },
     {
       id: "ex.ws9.4.3",
@@ -1254,7 +1263,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       answer: "thread",
       distractors: ["chat", "DM", "channel"],
       tr_hint:
-        "'Reply in thread' = mesaj'a tikla, alt-konusma yap. Kanali bos tutar.",
+        "'Reply in thread' = mesaj'a tıkla, alt-konuşma yap. Kanalı boş tutar.",
     },
     {
       id: "ex.ws9.4.4",
@@ -1280,7 +1289,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       correct_sentence:
         "✅ — adding eyes emoji and will circle back in thread by EOD.",
       tr_explanation:
-        "Slack kulturunde 'Yes I will do it' uzun = noise. Emoji + thread = signal.",
+        "Slack kültüründe 'Yes I will do it' uzun = noise. Emoji + thread = signal.",
     },
     {
       id: "ex.ws9.4.6",
@@ -1300,8 +1309,9 @@ export const workSlackLesson_9_4: BundledLesson = {
             "(stand by|standby|one sec|hold on)",
             "(will|gonna) (circle back|reply|drop notes) (in thread|below)",
           ],
+          model_answers: ["Taking this to a thread — long answer coming."],
           hint_tr:
-            "Ana kanali kirletme: 'Taking this to a thread — long answer coming.'",
+            "Ana kanalı kirletme: 'Taking this to a thread — long answer coming.'",
         },
         {
           speaker: "npc",
@@ -1317,6 +1327,7 @@ export const workSlackLesson_9_4: BundledLesson = {
             "(tldr|tl;dr|short version) (in thread|below)",
             "(let me know|tag me) (if (you need|more details))",
           ],
+          model_answers: ["NP — full breakdown in thread. TLDR there too."],
           hint_tr:
             "Devam: 'NP — full breakdown in thread. TLDR there too.'",
         },
@@ -1335,6 +1346,7 @@ export const workSlackLesson_9_4: BundledLesson = {
             "(they'?ll want|going to need) (the (steps|repro|env))",
             "(no need|not yet|probably not) (until (we|i) (confirm|repro))",
           ],
+          model_answers: ["Good call — tagging QA in the thread once I write up the repro steps."],
           hint_tr:
             "Karar + aksiyon: 'Good call — tagging QA in the thread once I write up the repro steps.'",
         },
@@ -1355,7 +1367,7 @@ export const workSlackLesson_9_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Thread olmadan = herkes her konusmayi okumak zorunda = burnout. Thread = kultur kuralı.",
+            "Thread olmadan = herkes her konuşmayı okumak zorunda = burnout. Thread = kültür kuralı.",
         },
         {
           question: "Emoji reaksiyon (👀, ✅) niye kullanilir?",
@@ -1367,7 +1379,7 @@ export const workSlackLesson_9_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "👀 = okuyorum/takipteyim. ✅ = halletim. Sessiz async iletisim.",
+            "👀 = okuyorum/takipteyim. ✅ = halletim. Sessiz async iletişim.",
         },
         {
           question: "'Reply in thread' istegi nin saygisizlik mi?",
@@ -1379,7 +1391,7 @@ export const workSlackLesson_9_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tum takimin dikkati = degerli kaynak. Thread = o kaynagi koru.",
+            "Tüm takımın dikkati = değerli kaynak. Thread = o kaynağı koru.",
         },
       ],
     },
@@ -1390,7 +1402,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       phrase: "Let's take this to a thread.",
       ipa: "/lɛts teɪk ðɪs tu ə θrɛd/",
       tr_articulation_hint:
-        "'Let's' = lets, hızla gec. 'Thread' = thret (th: dili dislere koy). 'To a thread' birlesik. Yumusak ama yonlendirici ton.",
+        "'Let's' = lets, hızla geç. 'Thread' = thret (th: dili dişlere koy). 'To a thread' birleşik. Yumuşak ama yönlendirici ton.",
     },
     {
       id: "ex.ws9.4.9",
@@ -1399,7 +1411,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       native_text: "Dropping an eyes emoji — will get back to you in thread by EOD.",
       voice_hint: "male_us",
       tr_hint:
-        "'Dropping' = ekliyor, casual. 'Eyes emoji' bilesik. 'EOD' (end of day) = harf harf oku ya da 'mesai sonu'. Slack jargon ritmi.",
+        "'Dropping' = ekliyor, casual. 'Eyes emoji' bileşik. 'EOD' (end of day) = harf harf oku ya da 'mesai sonu'. Slack jargon ritmi.",
     },
     {
       id: "ex.ws9.4.10",
@@ -1409,7 +1421,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       transcription_target:
         "Appreciate the heads up — keeping the channel clean helps everyone.",
       tr_hint:
-        "'Appreciate' = degerli buluyor (resmi olmayan tesekkur). 'Heads up' = uyari, idiom. 'Keeping clean' progressive form. PM tonu.",
+        "'Appreciate' = değerli buluyor (resmi olmayan teşekkür). 'Heads up' = uyarı, idiom. 'Keeping clean' progressive form. PM tonu.",
     },
     {
       id: "ex.ws9.4.11",
@@ -1419,7 +1431,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       word_or_phrase: "noise in the channel",
       tr_translation: "Kanalda gürültü / dağınıklık",
       example_en: "Threading these so we don't add noise in the channel.",
-      example_tr: "Bunlari thread'e koyuyorum ki kanali kirletmesin.",
+      example_tr: "Bunları thread'e koyuyorum ki kanalı kirletmesin.",
     },
     {
       id: "ex.ws9.4.12",
@@ -1428,7 +1440,7 @@ export const workSlackLesson_9_4: BundledLesson = {
       incorrect_sentence: "I will reply you in private message.",
       correct_sentence: "I'll follow up with you in DM.",
       tr_explanation:
-        "'Reply you' yanlis — 'reply' transitive degil: 'reply TO you'. 'In private message' yerine 'in DM' Slack norm. 'Follow up' = takip et.",
+        "'Reply you' yanlış — 'reply' transitive değil: 'reply TO you'. 'In private message' yerine 'in DM' Slack norm. 'Follow up' = takip et.",
     },
     {
       id: "ex.ws9.4.sp1",
@@ -1547,7 +1559,7 @@ export const workSlackLesson_9_5: BundledLesson = {
       word_or_phrase: "EOD",
       tr_translation: "Mesai sonu (End Of Day)",
       example: "Will push the PR by EOD — let me know if anything urgent.",
-      example_tr: "PR'i mesai sonuna kadar yollarim — acil bir sey varsa haber ver.",
+      example_tr: "PR'i mesai sonuna kadar yollarım — acil bir şey varsa haber ver.",
     },
     {
       id: "ex.ws9.5.1a",
@@ -1603,7 +1615,7 @@ export const workSlackLesson_9_5: BundledLesson = {
         "Yesterday: OAuth merged. Today: review + cache. No blockers.",
       ],
       tr_hint:
-        "'Y:/T:/B:' kisaltma standart. 'Wrapped' = bitirdim (casual). 'Kicking off' = baslamak. Belirsiz 'studying' tarzi anti-pattern.",
+        "'Y:/T:/B:' kısaltma standart. 'Wrapped' = bitirdim (casual). 'Kicking off' = başlamak. Belirsiz 'studying' tarzı anti-pattern.",
     },
     {
       id: "ex.ws9.5.3",
@@ -1613,7 +1625,7 @@ export const workSlackLesson_9_5: BundledLesson = {
       answer: "up",
       distractors: ["on", "in", "out"],
       tr_hint:
-        "'Heads up' deyim = onceden uyari. Standup'ta risk sinyali vermek icin standart.",
+        "'Heads up' deyim = önceden uyarı. Standup'ta risk sinyali vermek için standart.",
     },
     {
       id: "ex.ws9.5.4",
@@ -1637,7 +1649,7 @@ export const workSlackLesson_9_5: BundledLesson = {
       correct_sentence:
         "Y: ramped up on auth module. T: starting the password reset task. B: none.",
       tr_explanation:
-        "'I was studying' = belirsiz + uzun. Standup = scannable. 'Ramped up' = ogrenip hazirlandim (jargon). Format = Y:/T:/B:.",
+        "'I was studying' = belirsiz + uzun. Standup = scannable. 'Ramped up' = öğrenip hazırlandım (jargon). Format = Y:/T:/B:.",
     },
     {
       id: "ex.ws9.5.6",
@@ -1658,8 +1670,9 @@ export const workSlackLesson_9_5: BundledLesson = {
             "(working on|starting|continuing|kicking off|picking up)",
             "(none|no blockers|all clear|nothing|n/a|clear)",
           ],
+          model_answers: ["Y: shipped X. T: starting Y. B: none."],
           hint_tr:
-            "Format: 'Y: shipped X. T: starting Y. B: none.' Üç satir, scannable.",
+            "Format: 'Y: shipped X. T: starting Y. B: none.' Üç satır, scannable.",
         },
         {
           speaker: "npc",
@@ -1676,6 +1689,7 @@ export const workSlackLesson_9_5: BundledLesson = {
             "(might|may) (need to|have to) (push|deprioritize|shift)",
             "(let me know|tag me|ping me) (if (priorities|things) shift)",
           ],
+          model_answers: ["On it — will squeeze in before EOD. Tagging you when done."],
           hint_tr:
             "Net cevap: 'On it — will squeeze in before EOD. Tagging you when done.'",
         },
@@ -1694,6 +1708,7 @@ export const workSlackLesson_9_5: BundledLesson = {
             "(will (flag|update|surface) (in (\\#)?(standup|the channel)|in writing))",
             "(no surprises|nothing the pm doesn'?t already know)",
           ],
+          model_answers: ["One risk — QA cycle still pending. Have a fallback if it slips. Will flag in standup."],
           hint_tr:
             "Risk netleştir: 'One risk — QA cycle still pending. Have a fallback if it slips. Will flag in standup.'",
         },
@@ -1714,7 +1729,7 @@ export const workSlackLesson_9_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Async kultur = herkes kendi zamani okur. 3 satir = saygi. Roman yazmak = saygisizlik.",
+            "Async kültür = herkes kendi zamanı okur. 3 satır = saygı. Roman yazmak = saygısızlık.",
         },
         {
           question: "'Heads up' kalıbı NE icin?",
@@ -1726,7 +1741,7 @@ export const workSlackLesson_9_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Heads up: deploy might slip' = surpriz olmasin diye onceden bildirim. Profesyonel sinyal.",
+            "'Heads up: deploy might slip' = sürpriz olmasın diye önceden bildirim. Profesyonel sinyal.",
         },
         {
           question: "Niye 'I was studying' standup'ta KOTU?",
@@ -1738,7 +1753,7 @@ export const workSlackLesson_9_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tech lider 'studying' okuyor = '8 saat ne yapti?' diye dusunuyor. 'Ramped up on X' = somut + olcumlenebilir.",
+            "Tech lider 'studying' okuyor = '8 saat ne yaptı?' diye düşünüyor. 'Ramped up on X' = somut + ölçümlenebilir.",
         },
       ],
     },
@@ -1749,7 +1764,7 @@ export const workSlackLesson_9_5: BundledLesson = {
       phrase: "Heads up — might slip to tomorrow.",
       ipa: "/hɛdz ʌp maɪt slɪp tu təˈmɑroʊ/",
       tr_articulation_hint:
-        "'Heads up' birlesik (hed-zap). 'Might slip' = belki gecikir, nazik bayrak. 'To tomorrow' yumusak ge-cis. Endise yok, sade uyari tonu.",
+        "'Heads up' birleşik (hed-zap). 'Might slip' = belki gecikir, nazik bayrak. 'To tomorrow' yumuşak ge-çiş. Endişe yok, sade uyarı tonu.",
     },
     {
       id: "ex.ws9.5.sp1",
@@ -1868,7 +1883,7 @@ export const workSlackLesson_9_6: BundledLesson = {
       word_or_phrase: "Got 5 min?",
       tr_translation: "5 dakikan var mi?",
       example: "Hey — got 5 min later today to chat about my Q2 goals?",
-      example_tr: "Selam — bugun Q2 hedeflerim icin 5 dakikan olur mu?",
+      example_tr: "Selam — bugün Q2 hedeflerim için 5 dakikan olur mu?",
     },
     {
       id: "ex.ws9.6.1a",
@@ -1924,7 +1939,7 @@ export const workSlackLesson_9_6: BundledLesson = {
         "Hi! Hoping to bring up a PTO request in tomorrow's 1:1 — any prep notes you'd want?",
       ],
       tr_hint:
-        "'Dear Manager' / 'Saygilarimla' yazmak = yabancilastirma. Slack = 'Hey + isim'. Saygi NETLIK ile gosterilir.",
+        "'Dear Manager' / 'Saygılarımla' yazmak = yabancılaştırma. Slack = 'Hey + isim'. Saygı NETLİK ile gösterilir.",
     },
     {
       id: "ex.ws9.6.3",
@@ -1934,7 +1949,7 @@ export const workSlackLesson_9_6: BundledLesson = {
       answer: "touch",
       distractors: ["take", "make", "get"],
       tr_hint:
-        "'Touch base' deyim = kisa goruşmek, durum sormak. Yoneticiyle iletisim icin natural.",
+        "'Touch base' deyim = kısa görüşmek, durum sormak. Yöneticiyle iletişim için natural.",
     },
     {
       id: "ex.ws9.6.4",
@@ -1958,7 +1973,7 @@ export const workSlackLesson_9_6: BundledLesson = {
       correct_sentence:
         "Hey Mike — got 10 min this week to chat about my growth plan? No rush on timing.",
       tr_explanation:
-        "'Dear Sir' + 'I am sending you' = email-1950 tonu. ABD startup Slack = 'Hey + isim'. Asiri formalite = yabanci + bot gibi gelir.",
+        "'Dear Sir' + 'I am sending you' = email-1950 tonu. ABD startup Slack = 'Hey + isim'. Aşırı formalite = yabancı + bot gibi gelir.",
     },
     {
       id: "ex.ws9.6.6",
@@ -1974,14 +1989,15 @@ export const workSlackLesson_9_6: BundledLesson = {
           acceptable_patterns: [
             "(hey|hi) (mike|sarah|name)",
             "(quick (heads up|note|one)|wanted to (flag|let you know))",
-            "(taking|planning to take|out) (thursday|friday|next (week|tuesday)) (and|through))?",
+            "(taking|planning to take|out) (thursday|friday|next (week|tuesday)) (and|through)?",
             "(ooo|out of office|off|pto) (on|next week|those days)",
             "(personal (stuff|matter|reason)|family (thing|matter))",
             "(handed off|prepped|covered|delegated) (to|with) ",
             "(any concerns|anything blocking|let me know)",
           ],
+          model_answers: ["Hey Mike — heads up, OOO Thu-Fri next week (personal). Anything blocking?"],
           hint_tr:
-            "Net + saygili: 'Hey Mike — heads up, OOO Thu-Fri next week (personal). Anything blocking?'",
+            "Net + saygılı: 'Hey Mike — heads up, OOO Thu-Fri next week (personal). Anything blocking?'",
         },
         {
           speaker: "npc",
@@ -1998,8 +2014,9 @@ export const workSlackLesson_9_6: BundledLesson = {
             "(slack on mute|signed out|ooo on slack) (otherwise|but)",
             "(no fires|nothing urgent|all under control)",
           ],
+          model_answers: ["Rachel covering the deploy. Text for true emergencies only."],
           hint_tr:
-            "Hand-off + acil iletisim: 'Rachel covering the deploy. Text for true emergencies only.'",
+            "Hand-off + acil iletişim: 'Rachel covering the deploy. Text for true emergencies only.'",
         },
         {
           speaker: "npc",
@@ -2016,6 +2033,7 @@ export const workSlackLesson_9_6: BundledLesson = {
             "(auto-?responder|out of office reply) (on|set up|enabled)",
             "(back monday|return monday)",
           ],
+          model_answers: ["Yep — setting status now, calendar blocked too. Back Monday."],
           hint_tr:
             "Onay: 'Yep — setting status now, calendar blocked too. Back Monday.'",
         },
@@ -2036,7 +2054,7 @@ export const workSlackLesson_9_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turk sirket kulturu = formal hierarşi. ABD startup = first-name basis + casual ton. Yoneticini 'Sir' diye cagirmak = uyumsuz + asiri mesafe.",
+            "Türk şirket kültürü = formal hierarşi. ABD startup = first-name basis + casual ton. Yöneticini 'Sir' diye çağırmak = uyumsuz + aşırı mesafe.",
         },
         {
           question: "Yoneticine saygi NASIL Slack'te gosterilir?",
@@ -2048,7 +2066,7 @@ export const workSlackLesson_9_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yoneticinin en degerli kaynagi = zaman. 3 satir net DM = saygi. Roman = saygisizlik.",
+            "Yöneticinin en değerli kaynağı = zaman. 3 satır net DM = saygı. Roman = saygısızlık.",
         },
         {
           question: "'Touch base' ne demek?",
@@ -2060,7 +2078,7 @@ export const workSlackLesson_9_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Wanted to touch base on X' = X hakkinda kisa konusalim. Yoneticiyle 1:1 baslangic kalibi.",
+            "'Wanted to touch base on X' = X hakkında kısa konuşalım. Yöneticiyle 1:1 başlangıç kalıbı.",
         },
       ],
     },
@@ -2071,7 +2089,7 @@ export const workSlackLesson_9_6: BundledLesson = {
       phrase: "Got 5 min later today?",
       ipa: "/ɡɑt faɪv mɪn ˈleɪtər təˈdeɪ/",
       tr_articulation_hint:
-        "'Got 5 min' = gat-faiv-min, hizla bagla. Soru yukselen tonu sonda. Yapay degil, rahat ton — yoneticiyle dahi casual.",
+        "'Got 5 min' = gat-faiv-min, hızla bağla. Soru yükselen tonu sonda. Yapay değil, rahat ton — yöneticiyle dahi casual.",
     },
     {
       id: "ex.ws9.6.sp1",
@@ -2190,7 +2208,7 @@ export const workSlackLesson_9_7: BundledLesson = {
       word_or_phrase: "FYI",
       tr_translation: "Bilgine sunmak / haberin olsun (For Your Information)",
       example: "FYI: pushed the hotfix — no action needed from your end.",
-      example_tr: "Haberin olsun: hotfix yollandi — senden bir sey gerekmiyor.",
+      example_tr: "Haberin olsun: hotfix yollandı — senden bir şey gerekmiyor.",
     },
     {
       id: "ex.ws9.7.1a",
@@ -2218,7 +2236,7 @@ export const workSlackLesson_9_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Full breakdown",
-      tr_translation: "Detaylı döküm / tam aciklama",
+      tr_translation: "Detaylı döküm / tam açıklama",
       example: "Headline above — full breakdown in thread.",
       example_tr: "Başlık yukarıda — detaylı döküm thread'de.",
     },
@@ -2246,7 +2264,7 @@ export const workSlackLesson_9_7: BundledLesson = {
         "Going to thread the long version — channel-friendly.",
       ],
       tr_hint:
-        "'Sending you this' = Turk hatasi (ceviri sendromu). 'Threading this' / 'FYI:' = native, action-first.",
+        "'Sending you this' = Türk hatası (çeviri sendromu). 'Threading this' / 'FYI:' = native, action-first.",
     },
     {
       id: "ex.ws9.7.3",
@@ -2256,7 +2274,7 @@ export const workSlackLesson_9_7: BundledLesson = {
       answer: "DR",
       distractors: ["LR", "DC", "DM"],
       tr_hint:
-        "'TLDR' = Too Long Didn't Read — kisa ozet etiketi. Uzun mesajdan once kullanilir.",
+        "'TLDR' = Too Long Didn't Read — kısa özet etiketi. Uzun mesajdan önce kullanılır.",
     },
     {
       id: "ex.ws9.7.4",
@@ -2281,7 +2299,7 @@ export const workSlackLesson_9_7: BundledLesson = {
       correct_sentence:
         "FYI: production bug from yesterday's deploy. Full breakdown in thread.",
       tr_explanation:
-        "Turk klasiği: 'I am sending you' + roman cumle = email tonu, asiri uzun. Doğru: 'FYI:' etiket + headline + thread'e tasi.",
+        "Türk klasiği: 'I am sending you' + roman cümle = email tonu, aşırı uzun. Doğru: 'FYI:' etiket + headline + thread'e taşı.",
     },
     {
       id: "ex.ws9.7.6",
@@ -2302,8 +2320,9 @@ export const workSlackLesson_9_7: BundledLesson = {
             "(tldr|tl;dr|short version)",
             "(no action needed|need eyes|need help|low priority)",
           ],
+          model_answers: ["FYI: caught a prod bug. Full details in thread 👇"],
           hint_tr:
-            "Headline + thread isareti: 'FYI: caught a prod bug. Full details in thread 👇'",
+            "Headline + thread işareti: 'FYI: caught a prod bug. Full details in thread 👇'",
         },
         {
           speaker: "npc",
@@ -2319,6 +2338,7 @@ export const workSlackLesson_9_7: BundledLesson = {
             "(happy to (huddle|hop on|jump on a call))",
             "(no rush|whenever) (on (reading|replying))",
           ],
+          model_answers: ["NP — TLDR up top. Happy to huddle if it's faster."],
           hint_tr:
             "Devam: 'NP — TLDR up top. Happy to huddle if it's faster.'",
         },
@@ -2337,6 +2357,7 @@ export const workSlackLesson_9_7: BundledLesson = {
             "(would (recommend|lean toward)|leaning toward) (hotfix|next deploy)",
             "(repro is (clean|consistent)|happy to draft (a fix|the patch))",
           ],
+          model_answers: ["Low impact — edge case only. Fine to wait for next deploy. Happy to draft the fix though."],
           hint_tr:
             "Triage: 'Low impact — edge case only. Fine to wait for next deploy. Happy to draft the fix though.'",
         },
@@ -2357,7 +2378,7 @@ export const workSlackLesson_9_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Ana kanal = grup dikkati. 10-satirlik mesaj = herkesin dakikalarini calar. Thread = isteyenlerin okumasi.",
+            "Ana kanal = grup dikkati. 10-satırlık mesaj = herkesin dakikalarını çalar. Thread = isteyenlerin okuması.",
         },
         {
           question: "'FYI:' niye Turk yazilimcilari icin faydali?",
@@ -2369,7 +2390,7 @@ export const workSlackLesson_9_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turkce'den ceviri = uzun giris. 'FYI:' = etiket ile ne tur mesaj oldugunu hemen soyler — daha az kelime, daha cok netlik.",
+            "Türkçe'den çeviri = uzun giriş. 'FYI:' = etiket ile ne tür mesaj olduğunu hemen söyler — daha az kelime, daha çok netlik.",
         },
         {
           question: "TLDR ne ise yarar?",
@@ -2381,7 +2402,7 @@ export const workSlackLesson_9_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'TLDR: deploy is green' = 30 saniye okuma vs 3 dakika. Yogun PM/lead'lar bu kisaltmayi takdir eder.",
+            "'TLDR: deploy is green' = 30 saniye okuma vs 3 dakika. Yoğun PM/lead'lar bu kısaltmayı takdir eder.",
         },
       ],
     },
@@ -2392,7 +2413,7 @@ export const workSlackLesson_9_7: BundledLesson = {
       phrase: "Putting this in a thread to keep the channel clean.",
       ipa: "/ˈpʊtɪŋ ðɪs ɪn ə θrɛd tu kip ðə ˈtʃænəl klin/",
       tr_articulation_hint:
-        "'Putting this' = put-ting-this, kisa duraklama. 'In a thread' birlesik. 'Channel clean' iki vurguyla. Aciklayici, kibirli olmayan ton.",
+        "'Putting this' = put-ting-this, kısa duraklama. 'In a thread' birleşik. 'Channel clean' iki vurguyla. Açıklayıcı, kibirli olmayan ton.",
     },
     {
       id: "ex.ws9.7.sp1",
@@ -2509,9 +2530,9 @@ export const workSlackLesson_9_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "ack",
-      tr_translation: "Onay / aldim sinyali (acknowledge kisaltma)",
+      tr_translation: "Onay / aldım sinyali (acknowledge kısaltma)",
       example: "Just need an ack — 👀 or 👍 works.",
-      example_tr: "Sadece bir 'aldim' sinyali yeter — 👀 ya da 👍 olur.",
+      example_tr: "Sadece bir 'aldım' sinyali yeter — 👀 ya da 👍 olur.",
     },
     {
       id: "ex.ws9.8.1a",
@@ -2577,7 +2598,7 @@ export const workSlackLesson_9_8: BundledLesson = {
       answer: "up",
       distractors: ["on", "in", "out"],
       tr_hint:
-        "'Thumbs up' = 👍 emojisinin yazili karsiligi. Onay sinyali.",
+        "'Thumbs up' = 👍 emojisinin yazılı karşılığı. Onay sinyali.",
     },
     {
       id: "ex.ws9.8.4",
@@ -2602,7 +2623,7 @@ export const workSlackLesson_9_8: BundledLesson = {
       correct_sentence:
         "Pushing back on the timeline — Q3 ship is tight given the design review delay. Can we discuss?",
       tr_explanation:
-        "Tartismali bir karara 👍 atmak = pasif onay + sonra anlasmazlik. Karar/risk/itiraz icin YAZILI cevap sart. Emoji = acknowledgement only.",
+        "Tartışmalı bir karara 👍 atmak = pasif onay + sonra anlaşmazlık. Karar/risk/itiraz için YAZILI cevap şart. Emoji = acknowledgement only.",
     },
     {
       id: "ex.ws9.8.6",
@@ -2623,8 +2644,9 @@ export const workSlackLesson_9_8: BundledLesson = {
             "(can we|could we) (discuss|huddle|talk through|jump on a call)",
             "(taking this to (a thread|dm)|in thread)",
           ],
+          model_answers: ["Hey — quick flag before we lock this. Concerned about scope."],
           hint_tr:
-            "Pasif 👍 yerine yazili itiraz: 'Hey — quick flag before we lock this. Concerned about scope.'",
+            "Pasif 👍 yerine yazılı itiraz: 'Hey — quick flag before we lock this. Concerned about scope.'",
         },
         {
           speaker: "npc",
@@ -2641,6 +2663,7 @@ export const workSlackLesson_9_8: BundledLesson = {
             "(happy to (write up|share|jump on))",
             "(thread|huddle|1:1) (to (go deeper|dig in|cover))",
           ],
+          model_answers: ["Design review still pending — no buffer if it slips. Could we add a week?"],
           hint_tr:
             "Spesifik risk: 'Design review still pending — no buffer if it slips. Could we add a week?'",
         },
@@ -2658,6 +2681,7 @@ export const workSlackLesson_9_8: BundledLesson = {
             "(before (we |the )?huddle|by (2|the call|then))",
             "(includes|with) (mitigations|fallback (options|plans)|de-?scope (ideas|options))",
           ],
+          model_answers: ["On it — three bullets in the thread before the huddle, with mitigations."],
           hint_tr:
             "Yazılı sahiplenme: 'On it — three bullets in the thread before the huddle, with mitigations.'",
         },
@@ -2678,7 +2702,7 @@ export const workSlackLesson_9_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Manager 'lunch order?' = 🍕 yeter. Manager 'shipping Friday, all good?' = risk varsa YAZ. Pasif onay = sonra 'soylemedi' suclamasi.",
+            "Manager 'lunch order?' = 🍕 yeter. Manager 'shipping Friday, all good?' = risk varsa YAZ. Pasif onay = sonra 'söylemedi' suçlaması.",
         },
         {
           question: "'👀' (eyes emoji) NE icin?",
@@ -2690,7 +2714,7 @@ export const workSlackLesson_9_8: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "👀 = 'gordum, takipteyim, sonra donerim'. PR review beklerken ya da uzun mesaja signal vermek icin altın deger.",
+            "👀 = 'gördüm, takipteyim, sonra dönerim'. PR review beklerken ya da uzun mesaja signal vermek için altın değer.",
         },
         {
           question: "Sessiz kalmak vs pasif 👍?",
@@ -2702,7 +2726,7 @@ export const workSlackLesson_9_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Turk kulturu = sessiz onaylama. ABD startup = yazili itiraz beklenir, takdir edilir. Pasif 👍 atip sonra 'olmaz' demek = kotu sinyal.",
+            "Türk kültürü = sessiz onaylama. ABD startup = yazılı itiraz beklenir, takdir edilir. Pasif 👍 atıp sonra 'olmaz' demek = kötü sinyal.",
         },
       ],
     },
@@ -2713,7 +2737,7 @@ export const workSlackLesson_9_8: BundledLesson = {
       phrase: "A thumbs up works for me.",
       ipa: "/ə θʌmz ʌp wɜrks fɔr mi/",
       tr_articulation_hint:
-        "'Thumbs up' = thamz-ap, th uzerinde dil dislere. 'Works for me' birlesik (works-fır-mi). Onay tonu, soru tonu degil.",
+        "'Thumbs up' = thamz-ap, th üzerinde dil dişlere. 'Works for me' birleşik (works-fır-mi). Onay tonu, soru tonu değil.",
     },
     {
       id: "ex.ws9.8.sp1",

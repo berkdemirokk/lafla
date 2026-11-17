@@ -7,7 +7,7 @@
 > **2026-05-20 update — global pivot reddedildi.**
 > 2026-05-18'de "Speak English. For real life. For real exams." global iki-track
 > (Daily Life + Exam Prep) pivot'u denendi; onboarding 5 adıma çıktı, paywall
-> Exam Pass ($99 one-time) ile genişletildi, content olarak academic/testprep/
+> Exam Pass one-time tier ile genişletildi, content olarak academic/testprep/
 > sport/health/travel modları eklendi. **2026-05-20'de iptal edildi**: 5 günde
 > üç kimlik (Türk-first → global → Türk-first) karar yorgunluğu yarattı, content
 > bundle 8MB'a şişti, Exam Pass IAP product hiç konfigüre edilmedi. ADR-003

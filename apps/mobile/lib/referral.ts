@@ -29,6 +29,7 @@ const K_REDEEMED_CODE = "lafla.referral.redeemedCode";
 
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no 0/O/1/I confusion
 const CODE_LENGTH = 6;
+const CODE_PATTERN = new RegExp(`^[${CODE_ALPHABET}]{${CODE_LENGTH}}$`);
 
 function generateCode(): string {
   let out = "";
@@ -69,7 +70,7 @@ export async function getMyReferralCode(): Promise<string> {
   } catch {
     // ignore
   }
-  void trackEvent("referral_code_generated", { code }).catch(() => {});
+  void trackEvent("referral_code_generated").catch(() => {});
   return code;
 }
 
@@ -80,7 +81,7 @@ export async function getMyReferralCode(): Promise<string> {
  */
 export async function redeemReferralCode(code: string): Promise<boolean> {
   const trimmed = code.trim().toUpperCase();
-  if (trimmed.length < 4) return false;
+  if (!CODE_PATTERN.test(trimmed)) return false;
 
   // Self-redeem korumasi: kendi kodunu sen redeem edemezsin.
   try {
@@ -98,28 +99,28 @@ export async function redeemReferralCode(code: string): Promise<boolean> {
     // ignore
   }
 
-  try {
-    await AsyncStorage.setItem(K_REDEEMED_CODE, trimmed);
-  } catch {
-    // best effort
-  }
-
-  // Supabase: hem kendi profile'ına hem referrer'a sinyal ver. Server-side
-  // bir trigger (veya manuel script) bunu yakalayıp award eder.
+  // The backend is authoritative. Do not consume local one-time state before
+  // the server accepts the code, or an offline attempt becomes unrecoverable.
   try {
     const { data } = await supabase.auth.getUser();
     const userId = data?.user?.id;
-    if (userId) {
-      await supabase
-        .from("profiles")
-        .update({ redeemed_referral_code: trimmed })
-        .eq("id", userId);
-    }
+    if (!userId) return false;
+    const { error } = await supabase
+      .from("profiles")
+      .update({ redeemed_referral_code: trimmed })
+      .eq("id", userId);
+    if (error) return false;
   } catch {
-    // ignore
+    return false;
   }
 
-  void trackEvent("referral_redeemed", { code: trimmed }).catch(() => {});
+  try {
+    await AsyncStorage.setItem(K_REDEEMED_CODE, trimmed);
+  } catch {
+    // The backend already accepted it; do not invite a duplicate redemption.
+  }
+
+  void trackEvent("referral_redeemed").catch(() => {});
   return true;
 }
 

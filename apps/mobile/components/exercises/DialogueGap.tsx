@@ -26,6 +26,7 @@ import {
   matchAgainstPatterns,
   type ExerciseResult,
 } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface Turn {
   speaker: "npc" | "user";
@@ -49,6 +50,7 @@ export function DialogueGap({
   ideal_answer,
   onComplete,
 }: Props) {
+  const { t, locale } = useTranslation();
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
   const scrollRef = useRef<ScrollView>(null);
@@ -80,8 +82,8 @@ export function DialogueGap({
       correct: matched,
       score,
       feedback: matched
-        ? "Doğru tepki!"
-        : `Örnek cevap: "${ideal_answer}"`,
+        ? t("exercise.feedback.correct_response")
+        : t("exercise.example_answer", { answer: ideal_answer }),
     };
     setResult(r);
     hapticForScore(score);
@@ -90,7 +92,7 @@ export function DialogueGap({
   // Render: bütün turn'leri sırayla göster; missing_at boş bubble (input).
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Boşluğu doldur</Text>
+      <Text style={styles.prompt}>{t("exercise.dialogue_gap.title")}</Text>
 
       <ScrollView
         ref={scrollRef}
@@ -98,7 +100,7 @@ export function DialogueGap({
         contentContainerStyle={styles.chatContent}
         showsVerticalScrollIndicator={false}
       >
-        {turns.map((t, i) => {
+        {turns.map((turn, i) => {
           if (i === missing_at) {
             return (
               <Animated.View
@@ -133,15 +135,15 @@ export function DialogueGap({
                     </Text>
                   ) : (
                     <Text style={styles.bubbleMissingPlaceholder}>
-                      ___ senin sıran ___
+                      {t("exercise.dialogue_gap.your_turn")}
                     </Text>
                   )}
                 </View>
               </Animated.View>
             );
           }
-          if (!t.text) return null;
-          const isUser = t.speaker === "user";
+          if (!turn.text) return null;
+          const isUser = turn.speaker === "user";
           return (
             <View
               key={`t-${i}`}
@@ -162,7 +164,7 @@ export function DialogueGap({
                     isUser ? styles.bubbleTextUser : styles.bubbleTextNpc,
                   ]}
                 >
-                  {t.text}
+                  {turn.text}
                 </Text>
               </View>
             </View>
@@ -173,18 +175,18 @@ export function DialogueGap({
       {!result && (
         <View style={styles.inputBlock}>
           <Text style={styles.inputLabel}>
-            💡 {tr_hint}
+            💡 {locale === "tr" ? tr_hint : t("learning.hint_fallback_en")}
           </Text>
           <TextInput
             style={styles.input}
             value={input}
             onChangeText={setInput}
-            placeholder="İngilizce cevap yaz..."
+            placeholder={t("exercise.write_english_answer")}
             placeholderTextColor={tokens.text.tertiary}
             multiline
             autoCapitalize="sentences"
             autoCorrect={false}
-            accessibilityLabel="Diyalog boşluğu için cevap"
+            accessibilityLabel={t("exercise.dialogue_gap.answer_label")}
           />
         </View>
       )}
@@ -203,7 +205,7 @@ export function DialogueGap({
           </Text>
           {!result.correct && (
             <>
-              <Text style={styles.feedbackExampleLabel}>İdeal cevap</Text>
+              <Text style={styles.feedbackExampleLabel}>{t("exercise.ideal_answer")}</Text>
               <Text style={styles.feedbackExample}>{ideal_answer}</Text>
             </>
           )}
@@ -212,7 +214,7 @@ export function DialogueGap({
 
       <View style={styles.footer}>
         <Button
-          label={result ? "Devam et →" : "Kontrol et"}
+          label={result ? `${t("common.continue")} →` : t("exercise.check")}
           onPress={result ? () => onComplete(result) : submit}
           disabled={!result && !input.trim()}
         />

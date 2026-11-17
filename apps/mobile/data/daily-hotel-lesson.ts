@@ -179,7 +179,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
       answer: "high",
       distractors: ["tall", "big", "above"],
       tr_hint:
-        "'High-floor room' = ust katta oda. 'Low-floor' = alt katta. Tercih sorma.",
+        "'High-floor room' = üst katta oda. 'Low-floor' = alt katta. Tercih sorma.",
     },
     {
       id: "ex.dh20.1.4",
@@ -224,6 +224,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
             "(\\d+ nights?|until \\w+)",
             "(early check-in)",
           ],
+          model_answers: ["Hi, checking in — reservation under Yilmaz, two nights."],
           hint_tr:
             "Net: 'Hi, checking in — reservation under Yilmaz, two nights.'",
         },
@@ -241,6 +242,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
             "(wifi password|breakfast (hours|time)|gym (hours|location))",
             "(thanks|appreciate it)",
           ],
+          model_answers: ["Here you go. Any chance high floor + quiet?"],
           hint_tr:
             "Ekstra istek: 'Here you go. Any chance high floor + quiet?'",
         },
@@ -266,7 +268,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "ID = kimligini dogrula. Credit card = oda hasari icin deposit.",
+            "ID = kimliğini doğrula. Credit card = oda hasarı için deposit.",
         },
         {
           question: "Erken check-in IS NE zaman olur?",
@@ -278,7 +280,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Oda hazirsa ucretsiz. Yoksa bekleme + bagaj birakma teklif edilir.",
+            "Oda hazırsa ücretsiz. Yoksa bekleme + bagaj bırakma teklif edilir.",
         },
         {
           question: "'Quiet room' niye iyi soru?",
@@ -290,7 +292,7 @@ export const dailyHotelLesson_20_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Quiet side' isteyince front desk acilis yapamayanlardan secer. Free upgrade.",
+            "'Quiet side' isteyince front desk açılış yapamayanlardan seçer. Free upgrade.",
         },
       ],
     },
@@ -635,7 +637,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
         "No AC — maintenance please?",
       ],
       tr_hint:
-        "'Send someone up' = birini yukari yolla. 'Maintenance' = bakim.",
+        "'Send someone up' = birini yukarı yolla. 'Maintenance' = bakım.",
     },
     {
       id: "ex.dh20.2.3",
@@ -645,7 +647,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
       answer: "different",
       distractors: ["new", "other", "second",],
       tr_hint:
-        "'Different room' = baska oda. Sorun cozulemezse alternatif.",
+        "'Different room' = başka oda. Sorun çözülemezse alternatif.",
     },
     {
       id: "ex.dh20.2.4",
@@ -672,7 +674,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
       correct_sentence:
         "Sorry to bother — the AC won't turn on. Could maintenance take a look?",
       tr_explanation:
-        "'Room broken bad' = belirsiz + grammatik degil. Doğru: spesifik problem + cozum istegi.",
+        "'Room broken bad' = belirsiz + grammatik değil. Doğru: spesifik problem + çözüm isteği.",
     },
     {
       id: "ex.dh20.2.6",
@@ -693,6 +695,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
             "(ac|hot water|wifi|tv|outlet)",
             "(could you|would you mind) (send|fix|swap)",
           ],
+          model_answers: ["Hi, this is room 405 — key card stopped working and AC's broken."],
           hint_tr:
             "Spesifik: 'Hi, this is room 405 — key card stopped working and AC's broken.'",
         },
@@ -711,6 +714,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
             "(thanks for|grateful for) (the (urgency|response))",
             "(no rush|in your time)",
           ],
+          model_answers: ["Thanks. If not fixable, could we switch rooms?"],
           hint_tr:
             "Plan B: 'Thanks. If not fixable, could we switch rooms?'",
         },
@@ -736,7 +740,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Bir sorun var' belirsiz. 'AC won't turn on' = personel ne yapacagini bilir.",
+            "'Bir sorun var' belirsiz. 'AC won't turn on' = personel ne yapacağını bilir.",
         },
         {
           question: "'Could we switch rooms?' niye sorulmali?",
@@ -748,7 +752,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Saatlerce maintenance beklemekten iyidir. Otel oda degisikligi yapar.",
+            "Saatlerce maintenance beklemekten iyidir. Otel oda değişikliği yapar.",
         },
         {
           question: "Otel sorunlarinin yaygın 3'lusu?",
@@ -760,7 +764,7 @@ export const dailyHotelLesson_20_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Iklim + sicak su + yan oda gurultu = otel review'larin yarisi.",
+            "İklim + sıcak su + yan oda gürültü = otel review'ların yarısı.",
         },
       ],
     },
@@ -1109,7 +1113,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
         "Mind walking through the bill? Minibar seems off.",
       ],
       tr_hint:
-        "'Review the bill' = hesabi gozden gecir. 'Seem off / wrong' = kusurlu.",
+        "'Review the bill' = hesabı gözden geçir. 'Seem off / wrong' = kusurlu.",
     },
     {
       id: "ex.dh20.3.3",
@@ -1119,7 +1123,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
       answer: "bags",
       distractors: ["stuff", "things", "luggage",],
       tr_hint:
-        "'Leave my bags' = bagajimi birak. Cikis sonrasi sehirde dolasma kalibi.",
+        "'Leave my bags' = bagajımı bırak. Çıkış sonrası şehirde dolaşma kalıbı.",
     },
     {
       id: "ex.dh20.3.4",
@@ -1145,7 +1149,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
       correct_sentence:
         "Checking out — room 405, last name Yilmaz. Could I get a receipt?",
       tr_explanation:
-        "'I leave bye' = grammatik degil + cikis prosedursuz. Doğru: 'Checking out' + isim + fis istegi.",
+        "'I leave bye' = grammatik değil + çıkış prosedürsüz. Doğru: 'Checking out' + isim + fiş isteği.",
     },
     {
       id: "ex.dh20.3.6",
@@ -1166,8 +1170,9 @@ export const dailyHotelLesson_20_3: BundledLesson = {
             "(2pm|3pm|later)",
             "(flight isn'?t until)",
           ],
+          model_answers: ["Hi, checking out — room 405. Any chance of late checkout till 2?"],
           hint_tr:
-            "Net ac: 'Hi, checking out — room 405. Any chance of late checkout till 2?'",
+            "Net aç: 'Hi, checking out — room 405. Any chance of late checkout till 2?'",
         },
         {
           speaker: "npc",
@@ -1184,6 +1189,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
             "(receipt|copy of the bill|email a copy)",
             "(thanks|appreciate (it|everything))",
           ],
+          model_answers: ["Perfect. Could I leave bags after? And email me the receipt."],
           hint_tr:
             "Tam paket: 'Perfect. Could I leave bags after? And email me the receipt.'",
         },
@@ -1209,7 +1215,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Yanlis ucretler sonradan bulurken zor. Receipt = expense report icin gerek.",
+            "Yanlış ücretler sonradan bulurken zor. Receipt = expense report için gerek.",
         },
         {
           question: "Bagaj birakma genelde NE zaman gereklidir?",
@@ -1221,7 +1227,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Otel cikis 12 PM, ucak 6 PM = 6 saat sehirde. Bagaj birakma = standart hizmet.",
+            "Otel çıkış 12 PM, uçak 6 PM = 6 saat şehirde. Bagaj bırakma = standart hizmet.",
         },
         {
           question: "Late checkout NE icin?",
@@ -1233,7 +1239,7 @@ export const dailyHotelLesson_20_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Standart 11AM/12PM. Otel bos varsa 1-2 saat ucretsiz. Sorunca verir.",
+            "Standart 11AM/12PM. Otel boş varsa 1-2 saat ücretsiz. Sorunca verir.",
         },
       ],
     },
@@ -1584,7 +1590,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
         "I don't mind waiting — could you hold my bags for now?",
       ],
       tr_hint:
-        "'I'll happily wait' = memnuniyetle bekleyebilirim (baskı kurmuyorsun). 'In the meantime' = bu arada. Otelin sana yardim etme istegini artirir.",
+        "'I'll happily wait' = memnuniyetle bekleyebilirim (baskı kurmuyorsun). 'In the meantime' = bu arada. Otelin sana yardım etme isteğini artırır.",
     },
     {
       id: "ex.dh20.4.3",
@@ -1594,7 +1600,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
       answer: "6am",
       distractors: ["sleep", "tired", "long"],
       tr_hint:
-        "'Got in at 6am' = sabah 6 indik. Sebep + 'up all night' = uyumadik. Empati uyandirir.",
+        "'Got in at 6am' = sabah 6 indik. Sebep + 'up all night' = uyumadık. Empati uyandırır.",
     },
     {
       id: "ex.dh20.4.4",
@@ -1619,7 +1625,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
       correct_sentence:
         "Any chance of an early check-in? I'll happily wait if nothing's ready.",
       tr_explanation:
-        "'I want ... immediately' = emir + Turkce'den birebir ceviri. Ingilizce otel kulturunde 'Any chance of...?' + 'happily wait' = kibar olasilik sorma. Resepsiyon istek varsa esnek davranir; emir alirsa katilasir.",
+        "'I want ... immediately' = emir + Türkçe'den birebir çeviri. İngilizce otel kültüründe 'Any chance of...?' + 'happily wait' = kibar olasılık sorma. Resepsiyon istek varsa esnek davranır; emir alırsa katılaşır.",
     },
     {
       id: "ex.dh20.4.6",
@@ -1639,6 +1645,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
             "(flight (just|finally) landed|been (up|traveling) all night|long flight)",
             "(\\w+)",
           ],
+          model_answers: ["Hi, checking in under Yilmaz. Any chance of early check-in? Flight just landed."],
           hint_tr:
             "Aç + sebep: 'Hi, checking in under Yilmaz. Any chance of early check-in? Flight just landed.'",
         },
@@ -1656,6 +1663,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
             "(in the meantime|while we wait|until then|until (the )?room'?s ready)",
             "(grab (coffee|breakfast)|walk around|see (the )?city)",
           ],
+          model_answers: ["No worries — happy to wait. Could I leave my bags while we grab coffee?"],
           hint_tr:
             "Plan B: 'No worries — happy to wait. Could I leave my bags while we grab coffee?'",
         },
@@ -1671,6 +1679,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
             "(thank(s| you) (so much)?|really appreciate (it|that))",
             "(see you (at|around) (noon|then|later)|catch you later)",
           ],
+          model_answers: ["Perfect, thanks so much — see you around noon!"],
           hint_tr:
             "Kapat: 'Perfect, thanks so much — see you around noon!'",
         },
@@ -1691,7 +1700,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Any chance' = baski yok + sebep (flight) = empati. Resepsiyon olasilik varsa yardim eder. Emir = otomatik 'standart saat 3pm'.",
+            "'Any chance' = baskı yok + sebep (flight) = empati. Resepsiyon olasılık varsa yardım eder. Emir = otomatik 'standart saat 3pm'.",
         },
         {
           question: "Erken oda yoksa NE yapmalisin?",
@@ -1703,7 +1712,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Her otel ucretsiz 'bag storage' sunar. Sehri gez, oda 12-14 arasi hazir olur, mesaj atarlar.",
+            "Her otel ücretsiz 'bag storage' sunar. Şehri gez, oda 12-14 arası hazır olur, mesaj atarlar.",
         },
         {
           question: "'I'll happily wait' niye onemli?",
@@ -1715,7 +1724,7 @@ export const dailyHotelLesson_20_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mucadeleci olmayan musteri = personel ekstra cabaliyor. Hosting ekonomisi: tatlilik = upgrade.",
+            "Mücadeleci olmayan müşteri = personel ekstra çabalıyor. Hosting ekonomisi: tatlılık = upgrade.",
         },
       ],
     },
@@ -2024,7 +2033,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
         "Bit noisy here near the elevator — could you move us somewhere quieter?",
       ],
       tr_hint:
-        "'A bit loud' = soft sikayet (= 'cok kotu' degil, 'biraz'). 'Quieter room' = comparative form. Spesifik sebep + cozum.",
+        "'A bit loud' = soft şikayet (= 'çok kötü' değil, 'biraz'). 'Quieter room' = comparative form. Spesifik sebep + çözüm.",
     },
     {
       id: "ex.dh20.5.3",
@@ -2034,7 +2043,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
       answer: "another",
       distractors: ["one", "other", "second"],
       tr_hint:
-        "'Another room' = baska bir oda (= farkli bir tane). 'Other room' yanlis cunku 'the other' tek diger demek (iki varsa).",
+        "'Another room' = başka bir oda (= farklı bir tane). 'Other room' yanlış çünkü 'the other' tek diğer demek (iki varsa).",
     },
     {
       id: "ex.dh20.5.4",
@@ -2061,7 +2070,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
       correct_sentence:
         "Would it be possible to switch rooms? It's a bit loud near the elevator.",
       tr_explanation:
-        "'I want room change' = Turkce'den dogrudan, agresif. 'Very bad noise' grammatik degil. Dogru kalip: 'Would it be possible to switch rooms?' (= en kibar istek) + spesifik sebep ('a bit loud near the elevator'). Personel oda degisikligini hizla yapar.",
+        "'I want room change' = Türkçe'den doğrudan, agresif. 'Very bad noise' grammatik değil. Doğru kalıp: 'Would it be possible to switch rooms?' (= en kibar istek) + spesifik sebep ('a bit loud near the elevator'). Personel oda değişikliğini hızla yapar.",
     },
     {
       id: "ex.dh20.5.6",
@@ -2082,8 +2091,9 @@ export const dailyHotelLesson_20_5: BundledLesson = {
             "(loud|noisy) (near|by) (the )?elevator",
             "(would it be possible|any chance|could we) (to (switch|change) rooms|get another room)",
           ],
+          model_answers: ["Hi, this is room 312 — AC isn't working and it's loud by the elevator. Would it be possible to switch rooms?"],
           hint_tr:
-            "Spesifik + cozum: 'Hi, this is room 312 — AC isn't working and it's loud by the elevator. Would it be possible to switch rooms?'",
+            "Spesifik + çözüm: 'Hi, this is room 312 — AC isn't working and it's loud by the elevator. Would it be possible to switch rooms?'",
         },
         {
           speaker: "npc",
@@ -2099,8 +2109,9 @@ export const dailyHotelLesson_20_5: BundledLesson = {
             "(king bed|same bed type|two beds)",
             "(no preference|whatever (works|you have)|surprise me)",
           ],
+          model_answers: ["Higher floor if possible, away from elevator. Same bed type would be great."],
           hint_tr:
-            "Tercih net soyle: 'Higher floor if possible, away from elevator. Same bed type would be great.'",
+            "Tercih net söyle: 'Higher floor if possible, away from elevator. Same bed type would be great.'",
         },
         {
           speaker: "npc",
@@ -2115,6 +2126,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
             "(we'?ll be (ready|packed) in (\\d+|a few) (minutes?|min))",
             "(thank(s| you) (so much)?|appreciate (it|the (quick )?fix))",
           ],
+          model_answers: ["Perfect, yes please — we'll be ready in 10. Thanks for the quick fix!"],
           hint_tr:
             "Kapat: 'Perfect, yes please — we'll be ready in 10. Thanks for the quick fix!'",
         },
@@ -2135,7 +2147,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Would it be possible' = en kibar form. Spesifik sebep (klima/gurultu) = personel ne fix edecegini bilir. Direkt emir = direnc.",
+            "'Would it be possible' = en kibar form. Spesifik sebep (klima/gürültü) = personel ne fix edeceğini bilir. Direkt emir = direnç.",
         },
         {
           question: "Tercih belirtirken NE etkili?",
@@ -2147,7 +2159,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Vague: 'iyi oda' = personel rastgele secer. Spesifik: 'higher floor + quiet side' = uygun oda taranir, ucretsiz upgrade ihtimali artar.",
+            "Vague: 'iyi oda' = personel rastgele seçer. Spesifik: 'higher floor + quiet side' = uygun oda taranır, ücretsiz upgrade ihtimali artar.",
         },
         {
           question: "'A bit loud' niye 'very loud' yerine tercih edilir?",
@@ -2159,7 +2171,7 @@ export const dailyHotelLesson_20_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Abartili sikayet = personel 'standart' der. 'A bit' = makul sikayet = empati + cozum. Iletim sanati.",
+            "Abartılı şikayet = personel 'standart' der. 'A bit' = makul şikayet = empati + çözüm. İletim sanatı.",
         },
       ],
     },
@@ -2468,7 +2480,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
         "Mind if we check out late? Any solid lunch spots close by?",
       ],
       tr_hint:
-        "Iki istek tek kalipta. 'Late checkout possible?' = kisa, dogal. 'Anything good for lunch' = tavsiye soran standart kalip.",
+        "İki istek tek kalıpta. 'Late checkout possible?' = kısa, doğal. 'Anything good for lunch' = tavsiye soran standart kalıp.",
     },
     {
       id: "ex.dh20.6.3",
@@ -2478,7 +2490,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
       answer: "be",
       distractors: ["get", "go", "leave"],
       tr_hint:
-        "'Be out by' = ... saatinde cikmis olmak (= deadline). 'Get out' kaba — sanki kovuluyorsun gibi. 'Be out by 2' = '2'ye kadar cikmis olmam lazim'.",
+        "'Be out by' = ... saatinde çıkmış olmak (= deadline). 'Get out' kaba — sanki kovuluyorsun gibi. 'Be out by 2' = '2'ye kadar çıkmış olmam lazım'.",
     },
     {
       id: "ex.dh20.6.4",
@@ -2504,7 +2516,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
       correct_sentence:
         "Got any lunch recs nearby? We've got a couple of hours before our flight.",
       tr_explanation:
-        "'Tell me' = emir; 'I need go fast' grammatik degil. Dogru: 'Got any recs?' (informal, dostane) + sebep ('hours before flight') = personel etrafa uygun yer onerir (uzak degil, hizli olan).",
+        "'Tell me' = emir; 'I need go fast' grammatik değil. Doğru: 'Got any recs?' (informal, dostane) + sebep ('hours before flight') = personel etrafa uygun yer önerir (uzak değil, hızlı olan).",
     },
     {
       id: "ex.dh20.6.6",
@@ -2524,6 +2536,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
             "(flight (isn'?t|is) (until|at) \\d+|don'?t fly out (until|till) \\d+)",
             "(\\w+)",
           ],
+          model_answers: ["Hi! Any chance of late checkout? Flight isn't until 5."],
           hint_tr:
             "Aç + sebep: 'Hi! Any chance of late checkout? Flight isn't until 5.'",
         },
@@ -2541,6 +2554,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
             "(anything good for|any (recs?|recommendations?) for|where do you (eat|go) for) (lunch|brunch|food)",
             "(nearby|around here|close by|walking distance)",
           ],
+          model_answers: ["2pm works, thanks! While I'm here — anything good for lunch nearby?"],
           hint_tr:
             "Zinciri uzat: '2pm works, thanks! While I'm here — anything good for lunch nearby?'",
         },
@@ -2558,6 +2572,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
             "(busy (now|at lunch)|crowded)",
             "(thank(s| you) (so much)?|appreciate (it|the tip))",
           ],
+          model_answers: ["Joe's sounds great! Walking distance? Need a reservation?"],
           hint_tr:
             "Detay sor: 'Joe's sounds great! Walking distance? Need a reservation?'",
         },
@@ -2578,7 +2593,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sebep + saat = otel doluluk planlar. Ucak saati genelde otel 1-2 saat ucretsiz gec cikis verir. Ekstra saat = kucuk ucret.",
+            "Sebep + saat = otel doluluk planlar. Uçak saati genelde otel 1-2 saat ücretsiz geç çıkış verir. Ekstra saat = küçük ücret.",
         },
         {
           question: "Yerel tavsiye icin EN iyi soru?",
@@ -2590,7 +2605,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Otel personeli her gun yerli + turist gorur. 'Locals eat' = otantik + makul fiyat. Yardimsever olduklari icin gercek tavsiye verirler.",
+            "Otel personeli her gün yerli + turist görür. 'Locals eat' = otantik + makul fiyat. Yardımsever oldukları için gerçek tavsiye verirler.",
         },
         {
           question: "Tavsiye + onemli detay?",
@@ -2602,7 +2617,7 @@ export const dailyHotelLesson_20_6: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Sehirde 2 saat varsa: uzak yemekevi = ulasim derdi. Reservation gerekli = beklersin. Iki soru = zaman tasarrufu.",
+            "Şehirde 2 saat varsa: uzak yemekevi = ulaşım derdi. Reservation gerekli = beklersin. İki soru = zaman tasarrufu.",
         },
       ],
     },
@@ -2912,7 +2927,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
         "When do I need to get going — including traffic?",
       ],
       tr_hint:
-        "'Factor in' = hesaba kat. 'Head out' = yola cik (informal). NYC/London konsiyerjler trafik patternlerini bilir — gerek = ucaga / show'a kacirma riski.",
+        "'Factor in' = hesaba kat. 'Head out' = yola çık (informal). NYC/London konsiyerjler trafik patternlerini bilir — gerek = uçağa / show'a kaçırma riski.",
     },
     {
       id: "ex.dh20.7.3",
@@ -2922,7 +2937,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
       answer: "call",
       distractors: ["bring", "find", "take"],
       tr_hint:
-        "'Call us a cab' = bize taksi cagir (standart konsiyerj hizmeti). 'Order a cab' da olur. 'Bring' yanlis cunku taksi getirilemez, cagrilir.",
+        "'Call us a cab' = bize taksi çağır (standart konsiyerj hizmeti). 'Order a cab' da olur. 'Bring' yanlış çünkü taksi getirilemez, çağrılır.",
     },
     {
       id: "ex.dh20.7.4",
@@ -2948,7 +2963,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
       correct_sentence:
         "Could you book us a table for tonight, say around 8? Two people.",
       tr_explanation:
-        "'You make it' = emir, kaba. Konsiyerj iliskisi = profesyonel + dostane. Dogru kalip: 'Could you book...?' + zaman ('around 8') + kisi sayisi. Konsiyerj telefon eder, otomatik halleder.",
+        "'You make it' = emir, kaba. Konsiyerj ilişkisi = profesyonel + dostane. Doğru kalıp: 'Could you book...?' + zaman ('around 8') + kişi sayısı. Konsiyerj telefon eder, otomatik halleder.",
     },
     {
       id: "ex.dh20.7.6",
@@ -2968,6 +2983,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
             "(us a table|a table for (\\d+|two|us)|reservation)",
             "(tonight|this evening|at \\d+|around \\d+)",
           ],
+          model_answers: ["Hi, hoping you could help — could you book us a table for tonight around 8?"],
           hint_tr:
             "Aç: 'Hi, hoping you could help — could you book us a table for tonight around 8?'",
         },
@@ -2985,6 +3001,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
             "(walking distance|nearby|close by)",
             "(\\w+)",
           ],
+          model_answers: ["Open to suggestions — something mid-range, walking distance ideal."],
           hint_tr:
             "Tercih ver: 'Open to suggestions — something mid-range, walking distance ideal.'",
         },
@@ -3003,6 +3020,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
             "(factoring in traffic|with traffic|including traffic)",
             "(tip(ping)?|how much (to|do (i|we)) tip)",
           ],
+          model_answers: ["Perfect — what time should I leave? Also any tips on tipping the staff here?"],
           hint_tr:
             "Zincir: 'Perfect — what time should I leave? Also any tips on tipping the staff here?'",
         },
@@ -3023,7 +3041,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Konsiyerj = profesyonel + dostane. 'Hoping you could help' = kibar acilis. Spesifik istek (tarih, saat, kisi) = konsiyerj direkt arar.",
+            "Konsiyerj = profesyonel + dostane. 'Hoping you could help' = kibar açılış. Spesifik istek (tarih, saat, kişi) = konsiyerj direkt arar.",
         },
         {
           question: "ABD'de konsiyerj tipping standardi?",
@@ -3035,7 +3053,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "ABD'de konsiyerj tipping kulturu var (Turkiye'de yok). Zor rezervasyon, son dakika bilet = $10-20. Standart hizmet = $2-5. Cikislarda toplu ($20-50) da olur.",
+            "ABD'de konsiyerj tipping kültürü var (Türkiye'de yok). Zor rezervasyon, son dakika bilet = $10-20. Standart hizmet = $2-5. Çıkışlarda toplu ($20-50) da olur.",
         },
         {
           question: "Trafik + kalkis saati niye sor?",
@@ -3047,7 +3065,7 @@ export const dailyHotelLesson_20_7: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "NYC/London/Istanbul gibi sehirlerde trafik patterni cok degisken. Konsiyerj 'Pazartesi 5pm Brooklyn'e 1 saat' der — Uber tahminden daha guvenilir.",
+            "NYC/London/Istanbul gibi şehirlerde trafik patterni çok değişken. Konsiyerj 'Pazartesi 5pm Brooklyn'e 1 saat' der — Uber tahminden daha güvenilir.",
         },
       ],
     },

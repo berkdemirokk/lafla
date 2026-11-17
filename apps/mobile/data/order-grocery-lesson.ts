@@ -101,6 +101,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
             "where (can I find|do you keep|is) (the )?tahini",
             "which aisle (has|is) (the )?tahini( in)?",
           ],
+          model_answers: ["Where can I find the tahini?"],
           hint_tr:
             "Ürünü söyle: 'I'm looking for tahini' veya 'Where can I find the tahini?'",
         },
@@ -119,6 +120,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
             "(yeah|yes),? (please|if you can|if you don'?t mind)",
             "(aisle )?seven,? (got it|thanks|thank you)",
           ],
+          model_answers: ["No, that's okay — I'll find it. Thanks!"],
           hint_tr:
             "Kabul: 'Yes, please' veya 'Sure, thanks'. Red: 'No, that's okay — I'll find it. Thanks!'",
         },
@@ -137,6 +139,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
             "(no|nope),? (that('s|s)|i'?m) (it|good|fine|all set)",
             "(i'?m |that('s|s) )?good( thanks)?",
           ],
+          model_answers: ["Actually, where can I find the [X]?"],
           hint_tr:
             "Başka bir şey gerekiyorsa: 'Actually, where can I find the [X]?' Gerekmiyorsa: 'No, that's it — thanks!'",
         },
@@ -156,6 +159,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
             "(what'?s |which is )?(more |the )?fresh(er)?",
             "(fresh )?(if you have it|would be great)",
           ],
+          model_answers: ["Fresh, please"],
           hint_tr:
             "Taze mi paketli mi? 'Fresh, please' veya 'Pre-packaged works'. Türk: 'taze ekmek' = 'fresh bread', süpermarkette bakery section'da bulunur.",
         },
@@ -174,6 +178,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
             "(actually )?(both )?(hummus and feta) please",
             "(no )?(that'?s |i'?m )?all (set|good)( thanks)?",
           ],
+          model_answers: ["Sure, some hummus, please"],
           hint_tr:
             "Yan ürün öner: 'Sure, some hummus, please' veya 'Just the pita, thanks'. Türk: 'humus' kelimesi aynı ama vurgu farklı: 'HUM-əs'.",
         },
@@ -192,6 +197,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
             "(no)(,)? (i'?m )?(good|all set|fine)( thanks)?",
             "(basket )?would be (great|helpful|nice)",
           ],
+          model_answers: ["I'm all set, thanks"],
           hint_tr:
             "Sepet ister misin? 'A basket, please' veya 'I'm all set, thanks'. Türk: market sepeti = basket, alışveriş arabası = cart (US) / trolley (UK).",
         },
@@ -246,7 +252,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       phrase: "Which aisle is the rice in?",
       ipa: "/wɪtʃ aɪl ɪz ðə raɪs ɪn/",
       tr_articulation_hint:
-        "'Aisle' = 'ayl' (s sessiz). 'Which' = 'wiç'. 'In' sonda yukseliyor — soru tonu.",
+        "'Aisle' = 'ayl' (s sessiz). 'Which' = 'wiç'. 'In' sonda yükseliyor — soru tonu.",
     },
     {
       id: "ex.og46.1.9",
@@ -255,7 +261,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       native_text: "Hey, do you know where the soy sauce is?",
       voice_hint: "female_us",
       tr_hint:
-        "'Do you know where' birlestir, hizli oku. 'Soy sauce' = 'soy sos'. Sicak ve rahat ton, market personeline normal hız.",
+        "'Do you know where' birleştir, hızlı oku. 'Soy sauce' = 'soy sos'. Sıcak ve rahat ton, market personeline normal hız.",
     },
     {
       id: "ex.og46.1.10",
@@ -264,7 +270,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       audio_text: "It's all the way down at the end of aisle twelve.",
       transcription_target: "It's all the way down at the end of aisle twelve.",
       tr_hint:
-        "'All the way down' = ta dipte, yon tarifi deyimi. 'Aisle twelve' = 'ayl twelv' — 'aisle' icindeki s yutulur.",
+        "'All the way down' = ta dipte, yön tarifi deyimi. 'Aisle twelve' = 'ayl twelv' — 'aisle' içindeki s yutulur.",
     },
     {
       id: "ex.og46.1.11",
@@ -272,9 +278,9 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       difficulty: 2,
       cefr_band: "B1",
       word_or_phrase: "stocked up on",
-      tr_translation: "Stogunda var / bol miktarda var",
+      tr_translation: "Stoğunda var / bol miktarda var",
       example_en: "Are you guys stocked up on tahini?",
-      example_tr: "Tahin stogunuz var mi?",
+      example_tr: "Tahin stoğunuz var mı?",
     },
     {
       id: "ex.og46.1.12",
@@ -283,7 +289,7 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       incorrect_sentence: "Where is exist the rice?",
       correct_sentence: "Where can I find the rice?",
       tr_explanation:
-        "'Where is exist' Turkce 'var mi?' yapisinin direkt cevirisi — Ingilizce'de 'exist' bu baglamda kullanilmaz. 'Where can I find [X]?' standart sorudur.",
+        "'Where is exist' Türkçe 'var mı?' yapısının direkt çevirisi — İngilizce'de 'exist' bu bağlamda kullanılmaz. 'Where can I find [X]?' standart sorudur.",
     },
     {
       id: "ex.og46.1.sp1",
@@ -567,6 +573,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
             "(could|can) I (get|have) (some )?(turkey|ham|roast beef)( please)?",
             "(i'd|i would) like (half a pound|a pound) of (turkey|ham|roast beef)",
           ],
+          model_answers: ["Could I get half a pound of turkey, please?"],
           hint_tr:
             "Miktar + ürün: 'Could I get half a pound of turkey, please?'",
         },
@@ -585,6 +592,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
             "(as )?thin as (you can|possible)( please)?",
             "sandwich (thin|style)( please)?",
           ],
+          model_answers: ["Could you slice it thin?"],
           hint_tr:
             "Kalınlığı söyle: 'Thin, please' veya 'Could you slice it thin?'",
         },
@@ -602,6 +610,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
             "(no )?(that's |thats )?(it|all)(,? )?(thanks|thank you)?",
             "(i'?m |that('s|s) )?good( thanks)?",
           ],
+          model_answers: ["Yes, could I get a quarter pound of Swiss cheese?"],
           hint_tr:
             "Devam et: 'Yes, could I get a quarter pound of Swiss cheese?' Bitir: 'That's it, thanks.'",
         },
@@ -618,6 +627,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
             "(no thanks|no thank you|i'?m good)( thanks)?",
             "(yeah|sure)(,? )?why not",
           ],
+          model_answers: ["Sure, that'd be great, thanks!"],
           hint_tr:
             "Kabul: 'Sure, that'd be great, thanks!' Red: 'No thanks, I'm good.'",
         },
@@ -672,7 +682,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       phrase: "Could you trim the fat, please?",
       ipa: "/kʊd ju trɪm ðə fæt pliːz/",
       tr_articulation_hint:
-        "'Trim' = 'trim' (kisa i). 'Fat' = 'fæt' — agzi yana ac. 'Could you' birlesir: 'kudju'.",
+        "'Trim' = 'trim' (kısa i). 'Fat' = 'fæt' — ağzı yana aç. 'Could you' birleşir: 'kudju'.",
     },
     {
       id: "ex.og46.2.9",
@@ -681,7 +691,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       native_text: "I'll take half a pound of turkey, sliced thin please.",
       voice_hint: "male_us",
       tr_hint:
-        "Tek nefeste oku. 'Half a pound' = 'hæfə paund'. Virgulden sonra hafif duraklama, sonra 'sliced thin' net.",
+        "Tek nefeste oku. 'Half a pound' = 'hæfə paund'. Virgülden sonra hafif duraklama, sonra 'sliced thin' net.",
     },
     {
       id: "ex.og46.2.10",
@@ -690,7 +700,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       audio_text: "The salmon came in this morning — it's good to go.",
       transcription_target: "The salmon came in this morning — it's good to go.",
       tr_hint:
-        "'Good to go' = idiom, 'sorunsuz/hazir' demek. 'Salmon' icindeki l yutulur — 'sæmən'. 'Came in' = stok geldi.",
+        "'Good to go' = idiom, 'sorunsuz/hazır' demek. 'Salmon' içindeki l yutulur — 'sæmən'. 'Came in' = stok geldi.",
     },
     {
       id: "ex.og46.2.11",
@@ -700,7 +710,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       word_or_phrase: "wild-caught",
       tr_translation: "Doğal avlanmış (çiftlik degil)",
       example_en: "Is this salmon wild-caught or farm-raised?",
-      example_tr: "Bu somon dogadan mi yoksa ciftlik mi?",
+      example_tr: "Bu somon doğadan mı yoksa çiftlik mi?",
     },
     {
       id: "ex.og46.2.12",
@@ -710,7 +720,7 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       correct_sentence:
         "Could I get about two pounds of fish, deboned please?",
       tr_explanation:
-        "ABD marketlerinde kg yok — pound. 'No bones in' kirik gramer, 'deboned' tek kelime is gorur. 'I want' yerine 'Could I get' kibar.",
+        "ABD marketlerinde kg yok — pound. 'No bones in' kırık gramer, 'deboned' tek kelime iş görür. 'I want' yerine 'Could I get' kibar.",
     },
     {
       id: "ex.og46.2.sp1",
@@ -987,6 +997,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
             "(actually )?(no|not quite),? (i can'?t find|i couldn'?t find) (the )?[a-z ]+",
             "(good|great|alright|not bad)(,? )?(thanks|thank you)?",
           ],
+          model_answers: ["Good, thanks — how about you?"],
           hint_tr:
             "Standart cevap: 'Good, thanks — how about you?' veya 'Yeah, I found everything, thanks!'",
         },
@@ -1005,6 +1016,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
             "(can|could) I (sign up|get one|join)( now|today)?",
             "(no thanks|no thank you|that'?s okay)",
           ],
+          model_answers: ["No, I don't have one, thanks."],
           hint_tr:
             "Varsa: 'Yes, the phone number is [...]'. Yoksa: 'No, I don't have one, thanks.' Kayıt olmak istersen: 'Can I sign up?'",
         },
@@ -1022,6 +1034,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
             "(oh,? )?(thanks for catching that|good catch)(,? )?(please|yes|apply it)?",
             "(yes|yeah) (please|thank you)",
           ],
+          model_answers: ["Oh, thanks for catching that — yes please."],
           hint_tr:
             "Onayla: 'Yes, please apply it.' Veya: 'Oh, thanks for catching that — yes please.'",
         },
@@ -1039,6 +1052,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
             "(no bag|i don'?t need a bag|none)(,? )?(thanks|thank you)?",
             "(just |only )?(one|two) bag(s)?( please)?",
           ],
+          model_answers: ["I brought my own bags, thanks."],
           hint_tr:
             "Kağıt: 'Paper, please.' Kendi torbam var: 'I brought my own bags, thanks.'",
         },
@@ -1098,7 +1112,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       phrase: "Did you find everything okay?",
       ipa: "/dɪd ju faɪnd ˈɛvriθɪŋ oʊˈkeɪ/",
       tr_articulation_hint:
-        "'Did you' birlesir = 'dɪdʒə'. 'Everything' uc heceli — 'ev-ri-thing'. Tonlama sonda yukseliyor.",
+        "'Did you' birleşir = 'dɪdʒə'. 'Everything' üç heceli — 'ev-ri-thing'. Tonlama sonda yükseliyor.",
     },
     {
       id: "ex.og46.3.9",
@@ -1107,7 +1121,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       native_text: "I brought my own bags, thanks.",
       voice_hint: "female_us",
       tr_hint:
-        "'Brought' past tense — geniz t hafif. 'Thanks' sonda inice ton — nazik kapanis. Kayar gibi soyle.",
+        "'Brought' past tense — geniz t hafif. 'Thanks' sonda inice ton — nazik kapanış. Kayar gibi söyle.",
     },
     {
       id: "ex.og46.3.10",
@@ -1116,7 +1130,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       audio_text: "Your total comes to twenty-three eighty-six.",
       transcription_target: "Your total comes to twenty-three eighty-six.",
       tr_hint:
-        "Dolar miktari: $23.86 = 'twenty-three eighty-six'. 'Comes to' = toplam yapiyor (sabit kalip). 'Twenty-three' bagli telaffuz.",
+        "Dolar miktarı: $23.86 = 'twenty-three eighty-six'. 'Comes to' = toplam yapıyor (sabit kalıp). 'Twenty-three' bağlı telaffuz.",
     },
     {
       id: "ex.og46.3.11",
@@ -1126,7 +1140,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       word_or_phrase: "tap to pay",
       tr_translation: "Temassız öde (kart/telefon)",
       example_en: "Can I just tap to pay with my phone?",
-      example_tr: "Telefonumla temassiz odeyebilir miyim?",
+      example_tr: "Telefonumla temassız ödeyebilir miyim?",
     },
     {
       id: "ex.og46.3.12",
@@ -1135,7 +1149,7 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       incorrect_sentence: "I will pay with the cash.",
       correct_sentence: "I'll pay with cash, thanks.",
       tr_explanation:
-        "Genel kavramlarda 'the' kullanilmaz — 'with cash' veya 'in cash' standart. 'I'll' kasilma sozlu Ingilizce'de daha dogal.",
+        "Genel kavramlarda 'the' kullanılmaz — 'with cash' veya 'in cash' standart. 'I'll' kasılma sözlü İngilizce'de daha doğal.",
     },
     {
       id: "ex.og46.3.sp1",
@@ -1429,6 +1443,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
             "(could|can) you help me\\??( with (the |this )?(scale|produce|avocados))?",
             "(it'?s|its) (not |won'?t )(working|scanning|reading)",
           ],
+          model_answers: ["I'm trying to weigh the avocados but it's not working."],
           hint_tr:
             "Hatayı tarif et: 'It keeps saying unexpected item in the bagging area' veya 'I'm trying to weigh the avocados but it's not working.'",
         },
@@ -1447,6 +1462,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
             "(awesome|great|perfect),? thanks?",
             "(thank you|thanks)(,? )?(i'?ll know for next time|good to know)",
           ],
+          model_answers: ["Got it, thank you."],
           hint_tr:
             "Teşekkür: 'Thanks so much!' veya 'Got it, thank you.'",
         },
@@ -1464,6 +1480,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
             "(no )?(that's |thats )?(it|all),? thanks?",
             "(i('ve|ll) )?got it (from here|now),? thanks?",
           ],
+          model_answers: ["Actually, could I get a price check on this?"],
           hint_tr:
             "Devam: 'Actually, could I get a price check on this?' Bitir: 'I'm good from here, thanks!'",
         },
@@ -1532,7 +1549,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       native_text: "Excuse me, could you do a price check on this?",
       voice_hint: "female_us",
       tr_hint:
-        "'Excuse me' yumusak ac. 'Price check' birlestir = 'praɪs tʃɛk' — tek isim gibi. 'On this' sonda hafif yukseliyor.",
+        "'Excuse me' yumuşak aç. 'Price check' birleştir = 'praɪs tʃɛk' — tek isim gibi. 'On this' sonda hafif yükseliyor.",
     },
     {
       id: "ex.og46.4.10",
@@ -1542,7 +1559,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       transcription_target:
         "You're gonna want to look up the PLU code for the avocados.",
       tr_hint:
-        "'Gonna' = casual 'going to'. 'Look up' = bul/ara (idiom). 'PLU code' = sebze-meyve kodu (4 haneli). Hizli akan sokak Ingilizcesi.",
+        "'Gonna' = casual 'going to'. 'Look up' = bul/ara (idiom). 'PLU code' = sebze-meyve kodu (4 haneli). Hızlı akan sokak İngilizcesi.",
     },
     {
       id: "ex.og46.4.11",
@@ -1550,9 +1567,9 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "void this item",
-      tr_translation: "Bu urunu iptal et (kasada)",
+      tr_translation: "Bu ürünü iptal et (kasada)",
       example_en: "Could you void this item? I changed my mind.",
-      example_tr: "Bu urunu iptal eder misin? Fikrimi degistirdim.",
+      example_tr: "Bu ürünü iptal eder misin? Fikrimi değiştirdim.",
     },
     {
       id: "ex.og46.4.12",
@@ -1562,7 +1579,7 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       correct_sentence:
         "The machine isn't scanning properly — could you help me out?",
       tr_explanation:
-        "'Not working good' yanlis — sifat degil zarf gerekli: 'well' veya 'properly'. Ayrica spesifik problem belirt: 'isn't scanning'.",
+        "'Not working good' yanlış — sıfat değil zarf gerekli: 'well' veya 'properly'. Ayrıca spesifik problem belirt: 'isn't scanning'.",
     },
     {
       id: "ex.og46.4.sp1",
@@ -1851,6 +1868,7 @@ export const orderGroceryLesson_46_5: BundledLesson = {
             "(i'?m |i am )?looking for (pomegranate )?molasses",
             "(yeah|hi),? where would i find (the )?(pomegranate )?molasses",
           ],
+          model_answers: ["Yeah, I've been looking everywhere for pomegranate molasses"],
           hint_tr:
             "Aradığın ürünü söyle: 'Yeah, I've been looking everywhere for pomegranate molasses' veya 'Do you guys happen to carry pomegranate molasses?'",
         },
@@ -1869,6 +1887,7 @@ export const orderGroceryLesson_46_5: BundledLesson = {
             "(actually|no)(,? )?(i('ll|ll) )?(go )?(check|look)( the international aisle| there)?( myself)?",
             "(awesome|perfect|great),? thanks?",
           ],
+          model_answers: ["Yes please, that'd be great — thanks!"],
           hint_tr:
             "Kabul: 'Yes please, that'd be great — thanks!' Kendin bakmak istersen: 'No, that's okay, I'll go check.'",
         },
@@ -1886,6 +1905,7 @@ export const orderGroceryLesson_46_5: BundledLesson = {
             "(actually|yeah),? (any )?(substitute|alternative)( would be (great|fine|okay))?\\??",
             "(what|which) (would|do) you recommend\\??",
           ],
+          model_answers: ["Actually, what would you recommend as a substitute?"],
           hint_tr:
             "Tarifi söyle: 'Yeah, it's for muhammara' veya 'I'm making a salad dressing.' Alternatif iste: 'Actually, what would you recommend as a substitute?'",
         },
@@ -2234,6 +2254,7 @@ export const orderGroceryLesson_46_6: BundledLesson = {
             "(could|can) I (get|have) ground beef(,? )?(two pounds|2 pounds|about two pounds)?",
             "(i'?d like|i would like) (two pounds|2 lbs|2 pounds) of ground beef",
           ],
+          model_answers: ["Could I get about two pounds of ground beef, please?"],
           hint_tr:
             "Miktar pound olarak: 'Could I get about two pounds of ground beef, please?' Kıyma = ground beef.",
         },
@@ -2251,6 +2272,7 @@ export const orderGroceryLesson_46_6: BundledLesson = {
             "(what('s|s) )?(the )?(difference|leaner)\\??",
             "(which )?(is leaner|do you recommend)\\??",
           ],
+          model_answers: ["Whichever's fine, thanks."],
           hint_tr:
             "Yağ oranı: '80/20' (eighty-twenty) = standart kıyma, %20 yağ. '90/10' daha yağsız. 'Whichever's fine, thanks.' de geçer.",
         },
@@ -2267,6 +2289,7 @@ export const orderGroceryLesson_46_6: BundledLesson = {
             "(yeah|yes),? (also |and )?(a pound|1 lb) of turkey",
             "(yeah|yes),? (i'?d like|i would like) (a pound|one pound) of turkey,? sliced thin",
           ],
+          model_answers: ["Yes, could I also get a pound of turkey, sliced thin please?"],
           hint_tr:
             "İkinci ürün: 'Yes, could I also get a pound of turkey, sliced thin please?'",
         },
@@ -2284,6 +2307,7 @@ export const orderGroceryLesson_46_6: BundledLesson = {
             "(just |only )?the meat(,? )?thanks?",
             "(i'?m |that('s|s) )?good( thanks)?",
           ],
+          model_answers: ["Yes, half a pound of Swiss, please."],
           hint_tr:
             "Devam: 'Yes, half a pound of Swiss, please.' Bitir: 'No, that's it — thanks!'",
         },
@@ -2622,6 +2646,7 @@ export const orderGroceryLesson_46_7: BundledLesson = {
             "(sorry|hey),? (this|the item|the barcode) won'?t scan",
             "(yeah|hi),? (i'?m having (trouble|an issue)|i can'?t get) (with )?(this|the scanner)",
           ],
+          model_answers: ["The machine won't read this item."],
           hint_tr:
             "Problemi net tarif et: 'Yeah, this barcode isn't scanning' veya 'The machine won't read this item.'",
         },
@@ -2640,6 +2665,7 @@ export const orderGroceryLesson_46_7: BundledLesson = {
             "(no )?(that('s|s) |that is )?(it|all)(,? )?(thanks|thank you)?",
             "(actually |yeah )?(i think |i)('m| am) (also |having trouble (with|getting)) [a-z ]+",
           ],
+          model_answers: ["Yeah, it also keeps saying unexpected item in the bagging area."],
           hint_tr:
             "Başka problem varsa: 'Yeah, it also keeps saying unexpected item in the bagging area.' Yoksa: 'No, that's it — thanks!'",
         },
@@ -2657,6 +2683,7 @@ export const orderGroceryLesson_46_7: BundledLesson = {
             "(it )?(worked|went through)(,? )?(thanks|thank you)( so much)?",
             "(thanks|appreciate it)(,? )?(i'?ll )?(let you know )?(if it )?happens again",
           ],
+          model_answers: ["Thanks, let me try again."],
           hint_tr:
             "Teşekkür et + deneyeceğini söyle: 'Thanks, let me try again.' Çalışırsa: 'It worked, thanks so much!'",
         },
@@ -3010,6 +3037,7 @@ export const orderGroceryLesson_46_8: BundledLesson = {
             "(hold on|wait),? (i think|did )(the |my )?coupon (apply|go through)\\??",
             "(sorry|hi),? before you ring (me|that) up — i (had|have) a coupon",
           ],
+          model_answers: ["Actually, I think you missed my coupon for the cereal."],
           hint_tr:
             "Yumuşak itiraz: 'Actually, I think you missed my coupon for the cereal.' Veya: 'Sorry, could you check — I had a coupon for the cereal.'",
         },
@@ -3027,6 +3055,7 @@ export const orderGroceryLesson_46_8: BundledLesson = {
             "(the expiration|exp(iration)?(\\.)? date) (is|says) [a-z ]+",
             "(i think|maybe) (the date|it'?s) [a-z ]+ — (it shouldn'?t be|that('s|s) not) expired",
           ],
+          model_answers: ["Actually, this coupon's still valid — it doesn't expire until next week."],
           hint_tr:
             "İtiraz et nazikçe: 'Actually, this coupon's still valid — it doesn't expire until next week.' Veya: 'It says it's good until [tarih].'",
         },
@@ -3044,6 +3073,7 @@ export const orderGroceryLesson_46_8: BundledLesson = {
             "(actually|yeah),? (the milk )?rang up (wrong|at)( the wrong price| three ninety-nine)",
             "(no )?(that('s|s) |i think that'?s )?(it|all)(,? )?(thanks|thank you)?",
           ],
+          model_answers: ["No, that's it — thanks!"],
           hint_tr:
             "İkinci itiraz: 'Yeah, also the milk rang up wrong — the shelf price said $3.49, not $3.99.' Yoksa: 'No, that's it — thanks!'",
         },
@@ -3061,6 +3091,7 @@ export const orderGroceryLesson_46_8: BundledLesson = {
             "(of course|sure)(,? )?(no rush|take your time)",
             "(perfect|great),? thanks?",
           ],
+          model_answers: ["Appreciate it, take your time."],
           hint_tr:
             "Teşekkür + sabır: 'Thanks, no rush!' veya 'Appreciate it, take your time.'",
         },

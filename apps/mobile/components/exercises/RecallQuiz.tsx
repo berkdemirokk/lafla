@@ -17,6 +17,7 @@ import { Button } from "../Button";
 import { tokens } from "../../theme";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { type ExerciseResult } from "../../lib/engine";
+import { useTranslation } from "../../lib/i18n";
 
 interface RecallItem {
   q: string;
@@ -36,6 +37,7 @@ interface ItemResult {
 }
 
 export function RecallQuiz({ items, onComplete }: Props) {
+  const { t, locale } = useTranslation();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [results, setResults] = useState<ItemResult[]>([]);
@@ -99,14 +101,17 @@ export function RecallQuiz({ items, onComplete }: Props) {
       exercise_type: "recall_quiz",
       correct: score >= 80,
       score,
-      feedback: `${correctCount}/${total} hatırladın.`,
+      feedback: t("exercise.recall.remembered", {
+        correct: String(correctCount),
+        total: String(total),
+      }),
     });
   };
 
   if (finished) {
     return (
       <View style={styles.container}>
-        <Text style={styles.prompt}>Hatırlama testi</Text>
+        <Text style={styles.prompt}>{t("exercise.recall.title")}</Text>
         <Animated.View
           entering={FadeInDown.duration(420)}
           style={[
@@ -117,18 +122,21 @@ export function RecallQuiz({ items, onComplete }: Props) {
           <Text style={styles.finalEmoji}>{score >= 80 ? "✓" : "—"}</Text>
           <Text style={styles.finalScore}>{score}/100</Text>
           <Text style={styles.finalSummary}>
-            {correctCount}/{total} doğru
+            {t("exercise.recall.correct_count", {
+              correct: String(correctCount),
+              total: String(total),
+            })}
           </Text>
           <Text style={styles.finalCaption}>
             {score >= 80
-              ? "Harika — bu sahneyi gerçekten içselleştirdin."
+              ? t("exercise.recall.great")
               : score >= 50
-                ? "Fena değil. Bazı kalıpları tekrar edebilirsin."
-                : "Bu sahneyi yakında tekrar edelim."}
+                ? t("exercise.recall.okay")
+                : t("exercise.recall.repeat")}
           </Text>
         </Animated.View>
         <View style={styles.footer}>
-          <Button label="Devam et →" onPress={handleContinue} />
+          <Button label={`${t("common.continue")} →`} onPress={handleContinue} />
         </View>
       </View>
     );
@@ -139,7 +147,7 @@ export function RecallQuiz({ items, onComplete }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.prompt}>Hatırlama testi</Text>
+        <Text style={styles.prompt}>{t("exercise.recall.title")}</Text>
         <Text style={styles.progressLabel}>
           {currentIdx + 1}/{total}
         </Text>
@@ -175,7 +183,10 @@ export function RecallQuiz({ items, onComplete }: Props) {
                   styles.optionDim,
               ]}
               accessibilityRole="button"
-              accessibilityLabel={`${i + 1}. seçenek: ${opt}`}
+              accessibilityLabel={t("exercise.numbered_option", {
+                number: String(i + 1),
+                option: opt,
+              })}
               accessibilityState={{ selected: isPicked }}
             >
               <Text
@@ -199,8 +210,12 @@ export function RecallQuiz({ items, onComplete }: Props) {
           entering={FadeInDown.duration(280)}
           style={styles.explanationBox}
         >
-          <Text style={styles.explanationLabel}>Neden</Text>
-          <Text style={styles.explanationText}>{current.tr_explanation}</Text>
+          <Text style={styles.explanationLabel}>{t("exercise.why")}</Text>
+          <Text style={styles.explanationText}>
+            {locale === "tr"
+              ? current.tr_explanation
+              : t("learning.explanation_fallback_en")}
+          </Text>
         </Animated.View>
       )}
     </View>

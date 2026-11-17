@@ -11,17 +11,34 @@ import {
   BannerAdSize,
 } from "react-native-google-mobile-ads";
 
-import { isPremium, subscribePremiumChange } from "../lib/iap";
-import { getBannerUnitId } from "../lib/ads";
+import { getPremiumStatus, subscribePremiumChange } from "../lib/iap";
+import {
+  getBannerUnitId,
+  isAdsInitialized,
+  subscribeAdsInitialized,
+} from "../lib/ads";
+import { useTranslation } from "../lib/i18n";
 
 export function AdBanner() {
+  const { t } = useTranslation();
   const [show, setShow] = useState<boolean | null>(null);
+  // 2026-11-16 — SDK initialize (ATT sırasından sonra) olana kadar banner
+  // reklam isteği atmaz.
+  const [adsReady, setAdsReady] = useState<boolean>(isAdsInitialized());
+
+  useEffect(() => {
+    if (adsReady) return;
+    const unsub = subscribeAdsInitialized(() => setAdsReady(true));
+    // Subscribe ile mount arasında init bitmiş olabilir.
+    if (isAdsInitialized()) setAdsReady(true);
+    return unsub;
+  }, [adsReady]);
 
   useEffect(() => {
     let cancelled = false;
     const refresh = async () => {
-      const premium = await isPremium().catch(() => false);
-      if (!cancelled) setShow(!premium);
+      const premium = await getPremiumStatus().catch(() => "unknown" as const);
+      if (!cancelled) setShow(premium === "inactive");
     };
     refresh();
     // 2026-05-25 (B-PAY-3) — purchase/rewarded grant sonrası global notify
@@ -34,10 +51,10 @@ export function AdBanner() {
     };
   }, []);
 
-  if (show !== true) return null;
+  if (show !== true || !adsReady) return null;
 
   return (
-    <View accessibilityLabel="Reklam alanı (Lafla Pro ile kalkar)">
+    <View accessibilityLabel={t("ads.banner_label")}>
       <BannerAd
         unitId={getBannerUnitId()}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}

@@ -54,9 +54,9 @@ line before shipping.
   sign-out — every event carries the Supabase user id (and email, if set).
 - **React crashes**: `components/ErrorBoundary.tsx` reports caught render
   errors with a component stack.
-- **LLM router**: every provider exception in `lib/llm-router.ts` is
-  reported with a `provider` tag, plus one aggregate event when all
-  providers fail.
+- **Local conversation tools**: unexpected screen/runtime exceptions are
+  captured by the normal React error boundary. User-entered conversation text
+  is not attached to events.
 - **IAP**: RevenueCat configure() failures in `lib/iap.ts` are reported so
   silent demotion to the mock plan doesn't go unnoticed in production.
 

@@ -35,9 +35,18 @@ export interface TrackedMistake {
    * Persisted so progress survives app restarts.
    */
   consecutiveCorrect: number;
+  /** Recent occurrence timestamps used by the rolling Mistake DNA window. */
+  recentOccurrences?: string[];
 }
 
 type Store = Record<string, TrackedMistake>;
+let mistakeWriteChain: Promise<unknown> = Promise.resolve();
+
+function enqueueMistakeWrite<T>(work: () => Promise<T>): Promise<T> {
+  const job = mistakeWriteChain.then(work, work);
+  mistakeWriteChain = job.catch(() => undefined);
+  return job;
+}
 
 // ---------------------------------------------------------------------------
 // Read / write the whole map atomically. The map is small enough that we
@@ -77,6 +86,13 @@ export async function recordUserText(text: string): Promise<{
   newMistakes: string[];
   totalActive: number;
 }> {
+  return enqueueMistakeWrite(() => recordUserTextInner(text));
+}
+
+async function recordUserTextInner(text: string): Promise<{
+  newMistakes: string[];
+  totalActive: number;
+}> {
   const hits = detectMistakes(text);
   if (hits.length === 0) {
     const store = await readStore();
@@ -99,6 +115,7 @@ export async function recordUserText(text: string): Promise<{
         examples: [hit.matchedSubstring],
         resolved: false,
         consecutiveCorrect: 0,
+        recentOccurrences: [now],
       };
       newMistakes.push(hit.patternId);
       void trackEvent("mistake_detected", {
@@ -124,6 +141,9 @@ export async function recordUserText(text: string): Promise<{
         examples,
         resolved: false,
         consecutiveCorrect: 0,
+        recentOccurrences: [...(existing.recentOccurrences ?? []), now].slice(
+          -30,
+        ),
       };
     }
   }
@@ -137,6 +157,7 @@ export async function recordUserText(text: string): Promise<{
 // ---------------------------------------------------------------------------
 
 export async function getActiveMistakes(): Promise<TrackedMistake[]> {
+  await mistakeWriteChain.catch(() => undefined);
   const store = await readStore();
   return Object.values(store)
     .filter((m) => !m.resolved && getPattern(m.patternId))
@@ -165,7 +186,11 @@ export async function getTopMistakes(n: number): Promise<TrackedMistake[]> {
 // the mistake is auto-resolved (won't surface in future drills).
 // ---------------------------------------------------------------------------
 
-export async function markCorrectAttempt(patternId: string): Promise<void> {
+export function markCorrectAttempt(patternId: string): Promise<void> {
+  return enqueueMistakeWrite(() => markCorrectAttemptInner(patternId));
+}
+
+async function markCorrectAttemptInner(patternId: string): Promise<void> {
   const store = await readStore();
   const existing = store[patternId];
   if (!existing) return; // nothing to mark
@@ -175,7 +200,6 @@ export async function markCorrectAttempt(patternId: string): Promise<void> {
     ...existing,
     consecutiveCorrect: nextStreak,
     resolved,
-    lastSeenAt: new Date().toISOString(),
   };
   await writeStore(store);
 }
@@ -184,7 +208,11 @@ export async function markCorrectAttempt(patternId: string): Promise<void> {
  * Called when the user fumbles the drill for `patternId`. Resets the streak
  * so they need a fresh CONSECUTIVE_CORRECT_TO_RESOLVE run to graduate.
  */
-export async function markIncorrectAttempt(patternId: string): Promise<void> {
+export function markIncorrectAttempt(patternId: string): Promise<void> {
+  return enqueueMistakeWrite(() => markIncorrectAttemptInner(patternId));
+}
+
+async function markIncorrectAttemptInner(patternId: string): Promise<void> {
   const store = await readStore();
   const existing = store[patternId];
   if (!existing) return;
@@ -193,6 +221,10 @@ export async function markIncorrectAttempt(patternId: string): Promise<void> {
     consecutiveCorrect: 0,
     resolved: false,
     lastSeenAt: new Date().toISOString(),
+    recentOccurrences: [
+      ...(existing.recentOccurrences ?? []),
+      new Date().toISOString(),
+    ].slice(-30),
   };
   await writeStore(store);
 }
@@ -201,7 +233,11 @@ export async function markIncorrectAttempt(patternId: string): Promise<void> {
  * Manual clear for the settings screen or a "I understand it now" tap.
  * Deletes the row entirely so it never resurfaces in the active list.
  */
-export async function clearMistake(patternId: string): Promise<void> {
+export function clearMistake(patternId: string): Promise<void> {
+  return enqueueMistakeWrite(() => clearMistakeInner(patternId));
+}
+
+async function clearMistakeInner(patternId: string): Promise<void> {
   const store = await readStore();
   if (!store[patternId]) return;
   delete store[patternId];
@@ -209,12 +245,14 @@ export async function clearMistake(patternId: string): Promise<void> {
 }
 
 /** Wipe everything — used by "Reset Coach" in settings. */
-export async function clearAllMistakes(): Promise<void> {
-  try {
-    await AsyncStorage.removeItem(K_MISTAKES);
-  } catch {
-    // ignore
-  }
+export function clearAllMistakes(): Promise<void> {
+  return enqueueMistakeWrite(async () => {
+    try {
+      await AsyncStorage.removeItem(K_MISTAKES);
+    } catch {
+      // ignore
+    }
+  });
 }
 
 // ---------------------------------------------------------------------------

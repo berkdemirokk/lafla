@@ -17,9 +17,10 @@ import {
 } from "react-native";
 
 import { tokens } from "../theme";
+import { useTranslation } from "../lib/i18n";
 
 export interface ShareCardProps {
-  score: number;
+  assessment: string;
   cefrLevel: string | null;
   cefrProgress: number;
   sceneTitle: string;
@@ -38,14 +39,14 @@ const MODE_EMOJI: Record<string, string> = {
   ielts: "🎓",
 };
 
-const MODE_LABEL: Record<string, string> = {
-  flirt: "Flört",
-  work: "İş",
-  bar: "Bar",
-  airport: "Havaalanı",
-  daily: "Günlük",
-  order: "Sipariş",
-  ielts: "IELTS",
+const MODE_LABEL_KEYS: Record<string, string> = {
+  flirt: "mode.flirt",
+  work: "mode.work",
+  bar: "mode.bar",
+  airport: "mode.airport",
+  daily: "mode.daily",
+  order: "mode.order",
+  ielts: "mode.ielts",
 };
 
 /**
@@ -55,30 +56,32 @@ const MODE_LABEL: Record<string, string> = {
  * çıktı 1080×1920'e yakın olur.
  */
 export const ShareCard = forwardRef<View, ShareCardProps>(function ShareCard(
-  { score, cefrLevel, cefrProgress, sceneTitle, sceneMode, userName, style },
+  { assessment, cefrLevel, cefrProgress, sceneTitle, sceneMode, userName, style },
   ref,
 ) {
+  const { t } = useTranslation();
   const emoji = MODE_EMOJI[sceneMode] ?? "🎯";
-  const modeLabel = MODE_LABEL[sceneMode] ?? sceneMode;
+  const modeLabel = MODE_LABEL_KEYS[sceneMode]
+    ? t(MODE_LABEL_KEYS[sceneMode])
+    : sceneMode;
   const cefrDisplay = cefrLevel
     ? `${cefrLevel}+${cefrProgress.toFixed(2)}`
     : "—";
   // 2026-05-24 — fallback "Berk" → "Sen" (dev'in adı production'a sızıyordu).
-  const name = userName?.trim() || "Sen";
+  const name = userName?.trim() || t("share_card.you");
 
   return (
     <View ref={ref} style={[styles.card, style]} collapsable={false}>
       {/* Top — Lafla wordmark + tagline */}
       <View style={styles.topBar}>
         <Text style={styles.wordmark}>Lafla</Text>
-        <Text style={styles.tagline}>Donma. Konuş.</Text>
+        <Text style={styles.tagline}>{t("tagline")}</Text>
       </View>
 
       {/* Hero — büyük skor + CEFR */}
       <View style={styles.hero}>
         <Text style={styles.heroEmoji}>{emoji}</Text>
-        <Text style={styles.scoreNum}>{score}</Text>
-        <Text style={styles.scoreOf}>/ 100</Text>
+        <Text style={styles.assessment}>{assessment}</Text>
         <View style={styles.cefrPill}>
           <Text style={styles.cefrText}>{cefrDisplay}</Text>
         </View>
@@ -95,7 +98,7 @@ export const ShareCard = forwardRef<View, ShareCardProps>(function ShareCard(
       {/* Footer — kişisel mesaj + CTA */}
       <View style={styles.footer}>
         <Text style={styles.userName}>— {name}</Text>
-        <Text style={styles.cta}>İngilizce konuşurken donmadın mı?{"\n"}lafla.app</Text>
+        <Text style={styles.cta}>{t("share_card.cta")}{"\n"}lafla.app</Text>
       </View>
     </View>
   );
@@ -147,22 +150,17 @@ const styles = StyleSheet.create({
     fontSize: 56,
     marginBottom: 8,
   },
-  scoreNum: {
-    fontSize: 96,
+  assessment: {
+    fontSize: 32,
     fontWeight: tokens.weight.black,
     color: tokens.brand.primary,
-    letterSpacing: -4,
+    letterSpacing: -1,
     fontFamily: tokens.font.display,
-    lineHeight: 96,
+    lineHeight: 38,
+    textAlign: "center",
     textShadowColor: tokens.brand.primary,
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 18,
-  },
-  scoreOf: {
-    fontSize: 18,
-    color: tokens.text.tertiary,
-    fontWeight: tokens.weight.bold,
-    marginTop: -8,
   },
   cefrPill: {
     marginTop: 14,

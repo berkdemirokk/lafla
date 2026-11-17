@@ -23,7 +23,7 @@ import {
   Platform,
   type ViewStyle,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { ThemedStatusBar } from "./ThemedStatusBar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Animated, {
   Easing,
@@ -43,6 +43,8 @@ import { Icon } from "./Icon";
 import { tokens } from "../theme";
 import { hapticImpact, hapticSuccess } from "../lib/feedback";
 import { trackEvent } from "../lib/analytics";
+import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 interface Props {
   visible: boolean;
@@ -54,51 +56,60 @@ interface Props {
 
 interface MilestoneCopy {
   /** Modal hero title (büyük) */
-  title: string;
+  titleKey: string;
   /** Subtitle (küçük) */
-  subtitle: string;
+  subtitleKey: string;
   /** Share card slogan satırı */
-  shareSlogan: string;
+  shareSloganKey: string;
   /** Icon name (Icon component'inden) */
   iconName: "streak" | "trending";
 }
 
-function copyFor(days: number): MilestoneCopy {
+function copyKeysFor(days: number): MilestoneCopy {
   if (days >= 100) {
     return {
-      title: "100 GÜN ŞAMPİYONU",
-      subtitle: "Yüz gün üst üste pratik. Bu seri efsane.",
-      shareSlogan: "Lafla'da 100 günlük seri",
+      titleKey: "streak.milestone.100_title",
+      subtitleKey: "streak.milestone.100_subtitle",
+      shareSloganKey: "streak.milestone.100_share",
       iconName: "trending",
     };
   }
   if (days >= 30) {
     return {
-      title: "1 AY ARALIKSIZ",
-      subtitle: "Otuz gün üst üste pratik. Alışkanlık tutmuş.",
-      shareSlogan: "Lafla'da 30 günlük seri",
+      titleKey: "streak.milestone.30_title",
+      subtitleKey: "streak.milestone.30_subtitle",
+      shareSloganKey: "streak.milestone.30_share",
       iconName: "trending",
     };
   }
   if (days >= 7) {
     return {
-      title: "1 HAFTA SERİ",
-      subtitle: "Yedi gün üst üste pratik. Yolda başladı.",
-      shareSlogan: "Lafla'da 7 günlük seri",
+      titleKey: "streak.milestone.7_title",
+      subtitleKey: "streak.milestone.7_subtitle",
+      shareSloganKey: "streak.milestone.7_share",
       iconName: "streak",
     };
   }
   // Fallback — düşük gün için modal kullanılmamalı ama defensive
   return {
-    title: `${days} GÜN ARALIKSIZ`,
-    subtitle: `${days} gün üst üste pratik.`,
-    shareSlogan: `Lafla'da ${days} günlük seri`,
+    titleKey: "streak.milestone.default_title",
+    subtitleKey: "streak.milestone.default_subtitle",
+    shareSloganKey: "streak.milestone.default_share",
     iconName: "streak",
   };
 }
 
 export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
-  const copy = copyFor(streakDays);
+  const { t } = useTranslation();
+  const reduceMotion = useReduceMotionPreference();
+  const copyKeys = copyKeysFor(streakDays);
+  const vars = { days: String(streakDays) };
+  const copy = {
+    iconName: copyKeys.iconName,
+    title: t(copyKeys.titleKey, vars),
+    subtitle: t(copyKeys.subtitleKey, vars),
+    shareSlogan: t(copyKeys.shareSloganKey, vars),
+  };
   const shareCardRef = useRef<View | null>(null);
   const [sharing, setSharing] = useState(false);
   // 2026-05-26 (P1 audit fix) — Parent re-render'da visible=true ve aynı
@@ -136,7 +147,16 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       firedRef.current = null;
       return;
     }
-    // Halo loop
+    if (reduceMotion) {
+      cancelAnimation(haloPulse);
+      haloPulse.value = 0;
+      numberScale.value = 1;
+      numberOpacity.value = 1;
+      titleOpacity.value = 1;
+      titleTranslate.value = 0;
+      subtitleOpacity.value = 1;
+      ctaOpacity.value = 1;
+    } else {
     haloPulse.value = withRepeat(
       withSequence(
         withTiming(1, { duration: 1400, easing: Easing.inOut(Easing.sin) }),
@@ -170,6 +190,7 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       520,
       withTiming(1, { duration: 380, easing: Easing.out(Easing.cubic) }),
     );
+    }
 
     // 2026-05-26 (P1 audit fix) — haptic + analytics idempotency. Parent
     // re-render'da visible=true sabit kalsa bile aynı streak için tek bir
@@ -188,6 +209,7 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
   }, [
     visible,
     streakDays,
+    reduceMotion,
     haloPulse,
     numberScale,
     numberOpacity,
@@ -262,7 +284,7 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       onRequestClose={onClose}
     >
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-        <StatusBar style="light" />
+        <ThemedStatusBar />
         <View style={styles.body}>
           {/* Cyan halo arka plan — breathing */}
           <Animated.View
@@ -280,7 +302,7 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
               color={tokens.brand.tertiary}
             />
             <Text style={styles.streakNumber}>{streakDays}</Text>
-            <Text style={styles.streakDaysLabel}>GÜN</Text>
+            <Text style={styles.streakDaysLabel}>{t("streak.days")}</Text>
           </Animated.View>
 
           {/* Title */}
@@ -304,11 +326,11 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
                 sharing && styles.shareCtaDisabled,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Streak'i paylaş"
+              accessibilityLabel={t("streak.share_label")}
             >
               <Icon name="share" size={18} color={tokens.text.primary} />
               <Text style={styles.shareCtaText}>
-                {sharing ? "Hazırlanıyor..." : "Paylaş"}
+                {sharing ? t("streak.preparing") : t("streak.share")}
               </Text>
             </Pressable>
 
@@ -322,9 +344,9 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
                 pressed && styles.continueCtaPressed,
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Devam et"
+              accessibilityLabel={t("common.continue")}
             >
-              <Text style={styles.continueCtaText}>Devam et</Text>
+              <Text style={styles.continueCtaText}>{t("common.continue")}</Text>
             </Pressable>
           </Animated.View>
         </View>
@@ -355,6 +377,7 @@ interface StreakShareCardProps {
 
 const StreakShareCard = forwardRef<View, StreakShareCardProps>(
   function StreakShareCard({ streakDays, slogan, style }, ref) {
+    const { t } = useTranslation();
     return (
       <View ref={ref} style={[shareStyles.card, style]} collapsable={false}>
         {/* Glow halo */}
@@ -363,13 +386,13 @@ const StreakShareCard = forwardRef<View, StreakShareCardProps>(
         {/* Top — wordmark */}
         <View style={shareStyles.topBar}>
           <Text style={shareStyles.wordmark}>Lafla</Text>
-          <Text style={shareStyles.tagline}>Donma. Konuş.</Text>
+          <Text style={shareStyles.tagline}>{t("tagline")}</Text>
         </View>
 
         {/* Hero — streak number */}
         <View style={shareStyles.hero}>
           <Text style={shareStyles.numberBig}>{streakDays}</Text>
-          <Text style={shareStyles.numberSub}>GÜN ARALIKSIZ</Text>
+          <Text style={shareStyles.numberSub}>{t("streak.days_unbroken")}</Text>
         </View>
 
         {/* Footer — slogan + URL */}

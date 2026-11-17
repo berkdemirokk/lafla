@@ -7,11 +7,79 @@ on:
       - "lafla-v*"
 
 jobs:
+  database-tests:
+    uses: ./.github/workflows/supabase-test.yml
+
+  ios-e2e:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+          run_install: false
+      - name: Select latest Xcode
+        run: |
+          XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode*.app" | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE_APP/Contents/Developer"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Generate iOS project
+        working-directory: apps/mobile
+        run: pnpm exec expo prebuild --platform ios --clean --no-install
+      - name: Install CocoaPods
+        working-directory: apps/mobile/ios
+        run: pod install
+      - name: Build simulator app
+        working-directory: apps/mobile
+        run: |
+          xcodebuild \
+            -workspace ios/Lafla.xcworkspace \
+            -scheme Lafla \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath "$RUNNER_TEMP/lafla-derived" \
+            CODE_SIGNING_ALLOWED=NO \
+            -quiet
+      - name: Boot iOS Simulator
+        run: |
+          DEVICE_ID=$(xcrun simctl list devices available --json | jq -r '[.devices[] | .[] | select(.isAvailable and (.name | startswith("iPhone")))] | last | .udid')
+          test -n "$DEVICE_ID"
+          test "$DEVICE_ID" != "null"
+          echo "IOS_SIMULATOR_UDID=$DEVICE_ID" >> "$GITHUB_ENV"
+          xcrun simctl boot "$DEVICE_ID"
+          open -a Simulator
+          xcrun simctl bootstatus "$DEVICE_ID" -b
+          APP_PATH=$(find "$RUNNER_TEMP/lafla-derived/Build/Products/Release-iphonesimulator" -maxdepth 1 -name '*.app' | head -n 1)
+          test -n "$APP_PATH"
+          xcrun simctl install "$DEVICE_ID" "$APP_PATH"
+      - name: Install Maestro
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+      - name: Run Maestro iOS smoke
+        env:
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 300000
+        run: |
+          "$HOME/.maestro/bin/maestro" --version
+          "$HOME/.maestro/bin/maestro" --device "$IOS_SIMULATOR_UDID" test apps/mobile/.maestro/smoke.yaml
+
   build-and-upload:
+    needs: [database-tests, ios-e2e]
     runs-on: macos-latest
     timeout-minutes: 90
     env:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      PROJECT_REF: dljlqmzjfewevoxibdlh
       # 2026-05-20: GitHub Actions Node 20 deprecation kicks in 2026-06-02.
       # All upstream actions used here (actions/checkout@v4, setup-node@v4,
       # cache@v4, upload-artifact@v4, apple-actions/upload-testflight-build@v3,
@@ -24,6 +92,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify release secrets
+        shell: bash
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          ASC_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
+          SENTRY_DSN: ${{ secrets.EXPO_PUBLIC_SENTRY_DSN }}
+          REVENUECAT_KEY: ${{ secrets.EXPO_PUBLIC_REVENUECAT_IOS_KEY }}
+          POSTHOG_KEY: ${{ secrets.EXPO_PUBLIC_POSTHOG_KEY }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          for name in EXPO_TOKEN APPLE_TEAM_ID ASC_KEY_ID ASC_ISSUER_ID ASC_PRIVATE_KEY SUPABASE_ACCESS_TOKEN SUPABASE_DB_PASSWORD SUPABASE_URL SUPABASE_KEY SENTRY_DSN REVENUECAT_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Required release secret is missing: $name"
+              exit 1
+            fi
+          done
+          [ -n "$POSTHOG_KEY" ] || echo "::warning::EXPO_PUBLIC_POSTHOG_KEY is missing; product analytics will be disabled"
+          [ -n "$SENTRY_AUTH_TOKEN" ] || echo "::warning::SENTRY_AUTH_TOKEN is missing; source-map upload will be skipped"
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -32,6 +126,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
+          version: 9.0.0
           run_install: false
 
       - name: Get pnpm store directory
@@ -63,6 +158,91 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Run mobile tests
+        run: pnpm --filter @lafla/mobile test -- --runInBand
+
+      - name: Audit roleplay content
+        run: pnpm --filter @lafla/mobile qa:content
+
+      - name: Verify linguist review sample
+        run: pnpm --filter @lafla/mobile qa:linguist:check
+
+      - name: Audit scene visuals
+        run: pnpm --filter @lafla/mobile qa:visual
+
+      - name: Run mobile performance budget
+        run: pnpm --filter @lafla/mobile qa:perf
+
+      - name: Verify TestFlight smoke checklist
+        run: pnpm --filter @lafla/mobile qa:smoke
+
+      - name: Verify Expo dependencies
+        run: pnpm --filter @lafla/mobile expo:check && pnpm dlx expo-doctor@latest apps/mobile
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Run Edge Function Deno tests
+        run: deno test --allow-read supabase/functions/
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: 2.107.0
+
+      - name: Deploy Supabase migrations
+        shell: bash
+        run: |
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN secret is missing"
+            exit 1
+          fi
+          if [ -z "$SUPABASE_DB_PASSWORD" ]; then
+            echo "::error::SUPABASE_DB_PASSWORD secret is missing"
+            exit 1
+          fi
+          supabase link \
+            --project-ref "$PROJECT_REF" \
+            --password "$SUPABASE_DB_PASSWORD" \
+            --yes
+          supabase db push \
+            --linked \
+            --include-all \
+            --password "$SUPABASE_DB_PASSWORD" \
+            --yes
+
+      - name: Deploy Supabase Edge Functions
+        shell: bash
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: |
+          if [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; then
+            supabase secrets set \
+              AZURE_SPEECH_KEY="$AZURE_SPEECH_KEY" \
+              AZURE_SPEECH_REGION="$AZURE_SPEECH_REGION" \
+              --project-ref "$PROJECT_REF"
+          else
+            echo "::warning::Azure Speech secrets are missing; acoustic pronunciation will use the on-device fallback"
+          fi
+          echo "=== Deploying llm-chat ==="
+          supabase functions deploy llm-chat --project-ref "$PROJECT_REF" --no-verify-jwt=false
+          echo "=== Deploying delete-account ==="
+          supabase functions deploy delete-account --project-ref "$PROJECT_REF" --no-verify-jwt=false
+          echo "=== Deploying apple-token-exchange ==="
+          supabase functions deploy apple-token-exchange --project-ref "$PROJECT_REF" --no-verify-jwt=false
+          echo "=== Deploying revenuecat-webhook ==="
+          supabase functions deploy revenuecat-webhook --project-ref "$PROJECT_REF" --no-verify-jwt
+          echo "=== Deploying revenuecat-sync ==="
+          supabase functions deploy revenuecat-sync --project-ref "$PROJECT_REF" --no-verify-jwt=false
+          echo "=== Deploying pronunciation-assess ==="
+          supabase functions deploy pronunciation-assess --project-ref "$PROJECT_REF" --no-verify-jwt=false
+
       - name: Write App Store Connect API key
         run: |
           API_KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
@@ -87,6 +267,9 @@ jobs:
           EXPO_PUBLIC_POSTHOG_KEY: ${{ secrets.EXPO_PUBLIC_POSTHOG_KEY }}
           EXPO_PUBLIC_POSTHOG_HOST: ${{ secrets.EXPO_PUBLIC_POSTHOG_HOST }}
           EXPO_PUBLIC_TTS_ENDPOINT: ${{ secrets.EXPO_PUBLIC_TTS_ENDPOINT }}
+          EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
+          EXPO_PUBLIC_REVENUECAT_IOS_KEY: ${{ secrets.EXPO_PUBLIC_REVENUECAT_IOS_KEY }}
           # Sourcemap upload için — runtime'a değmez, sadece sentry-cli kullanır.
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
@@ -106,9 +289,34 @@ jobs:
           retention-days: 30
 
       - name: Upload to TestFlight
-        uses: apple-actions/upload-testflight-build@v3
-        with:
-          app-path: ${{ runner.temp }}/lafla.ipa
-          issuer-id: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-          api-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
-          api-private-key: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        shell: bash
+        env:
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: |
+          KEY_DIR="$HOME/.appstoreconnect/private_keys"
+          mkdir -p "$KEY_DIR"
+          cp "$API_KEY_PATH" "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
+          chmod 600 "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
+          trap 'rm -f "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"' EXIT
+
+          set +e
+          UPLOAD_OUTPUT=$(xcrun altool \
+            --output-format xml \
+            --upload-app \
+            --file "$RUNNER_TEMP/lafla.ipa" \
+            --type ios \
+            --apiKey "$ASC_KEY_ID" \
+            --apiIssuer "$ASC_ISSUER_ID" 2>&1)
+          UPLOAD_STATUS=$?
+          set -e
+          printf '%s\n' "$UPLOAD_OUTPUT"
+
+          if [ "$UPLOAD_STATUS" -ne 0 ] || printf '%s' "$UPLOAD_OUTPUT" | grep -Eqi 'UPLOAD FAILED|Validation failed|STATE_ERROR|The bundle is invalid|Invalid Pre-Release Train'; then
+            echo "::error::Apple rejected the TestFlight upload"
+            exit 1
+          fi
+          if ! printf '%s' "$UPLOAD_OUTPUT" | grep -Eqi 'UPLOAD SUCCEEDED|No errors uploading'; then
+            echo "::error::Apple upload did not return an explicit success marker"
+            exit 1
+          fi

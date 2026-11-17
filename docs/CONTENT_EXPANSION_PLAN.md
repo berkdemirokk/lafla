@@ -118,7 +118,7 @@ Her agent commit attığında bu dosyayı güncelle:
 
 - v0.9.8 tag → TestFlight build
 - ASC metadata refresh (yeni "10 dakikalık deep practice" copy)
-- Yıllık fiyat indirimi konuşması (₺999 → ₺699-799)
+- Yıllık fiyat ₺999/yıl korunur; indirim yerine 7 günlük intro offer A/B testi konuşulur.
 - Soft launch
 
 ---
@@ -178,7 +178,7 @@ Her agent commit attığında bu dosyayı güncelle:
   user'ın Stitch mockup'ından onaylandı. theme/index.ts'e light variant +
   useColorScheme switch.
 - ASC metadata refresh (yeni "10 dakikalık deep practice" copy).
-- Yıllık fiyat indirimi konuşması (₺999 → ₺699-799).
+- Yıllık fiyat ₺999/yıl korunur; indirim yerine 7 günlük intro offer A/B testi konuşulur.
 - ASC: 7-day free trial intro offer (paywall pill otomatik canlanır).
 
 ## KULLANICI PRENSİPLERİ (UYULSUN)

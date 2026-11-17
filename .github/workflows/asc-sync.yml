@@ -38,6 +38,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
+          version: 9.0.0
           run_install: false
 
       - name: Install workspace deps
@@ -63,7 +64,7 @@ jobs:
           CONTACT_LAST_NAME: ${{ secrets.CONTACT_LAST_NAME }}
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
-        run: pnpm exec tsx scripts/asc-sync.ts
+        run: pnpm asc:sync
 
       - name: Run asc-sync (apply)
         if: ${{ inputs.apply == true }}
@@ -77,4 +78,4 @@ jobs:
           CONTACT_LAST_NAME: ${{ secrets.CONTACT_LAST_NAME }}
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
-        run: pnpm exec tsx scripts/asc-sync.ts -- --apply
+        run: pnpm asc:sync:apply

@@ -39,7 +39,7 @@ export const workEmailLesson_11_1: BundledLesson = {
         "Hi Sarah, mind sharing access to the Q3 data?",
       ],
       tr_hint:
-        "Email = email 'soldaki ust' kismi: Hi + isim, gobek: spesifik istek, alt: tesekkur.",
+        "Email = email 'soldaki üst' kısmı: Hi + isim, göbek: spesifik istek, alt: teşekkür.",
     },
     {
       id: "ex.we11.1.3",
@@ -49,7 +49,7 @@ export const workEmailLesson_11_1: BundledLesson = {
       answer: "up",
       distractors: ["in", "on", "back"],
       tr_hint:
-        "'Following up' = takip mesaji. Standart business kalip.",
+        "'Following up' = takip mesajı. Standart business kalıp.",
     },
     {
       id: "ex.we11.1.4",
@@ -73,7 +73,7 @@ export const workEmailLesson_11_1: BundledLesson = {
       correct_sentence:
         "Hi Sarah — quick ask: could I get access to the Q3 data? Thanks!",
       tr_explanation:
-        "'Hi. Need access. Send it.' = robotic + saygisiz. Doğru: greeting + neyi istedigin + kibarlik.",
+        "'Hi. Need access. Send it.' = robotic + saygısız. Doğru: greeting + neyi istediğin + kibarlık.",
     },
     {
       id: "ex.we11.1.6",
@@ -94,8 +94,9 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(quick (ask|question|update)|short note)",
             "(would (love|appreciate)|could (you|i) get)",
           ],
+          model_answers: ["Hi Manager, wanted to share quick update + ask."],
           hint_tr:
-            "Acilis: Subject + 'Hi Manager, wanted to share quick update + ask.'",
+            "Açılış: Subject + 'Hi Manager, wanted to share quick update + ask.'",
         },
         {
           speaker: "npc",
@@ -112,8 +113,9 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(impact|to (hit|meet) (deadline|deliverable))",
             "(let me|can i) (send you|drop) (the proposal|details|the doc)",
           ],
+          model_answers: ["Working on Q4 launch — need extra eng for 2 weeks to hit deadline."],
           hint_tr:
-            "Cumlede neyi neden istediginimi: 'Working on Q4 launch — need extra eng for 2 weeks to hit deadline.'",
+            "Cümlede neyi neden istediğinimi: 'Working on Q4 launch — need extra eng for 2 weeks to hit deadline.'",
         },
         {
           speaker: "npc",
@@ -130,6 +132,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(launch would|we'?d have to) (slip|push back)",
             "(realistically )?(.+) (would slip|gets delayed)",
           ],
+          model_answers: ["We'd need to cut scope on the dashboard"],
           hint_tr:
             "Etki: 'We'd likely slip launch by two weeks' veya 'We'd need to cut scope on the dashboard'.",
         },
@@ -148,6 +151,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(if (we|i) can|i can) (rebalance|reshuffle)",
             "(everyone is)?( pretty )?(loaded|busy)",
           ],
+          model_answers: ["Team is already stretched thin"],
           hint_tr:
             "Bandwidth: 'Team is already stretched thin' veya 'No slack left this sprint'.",
         },
@@ -165,6 +169,7 @@ export const workEmailLesson_11_1: BundledLesson = {
             "(sending|drafting) (it )?now",
             "(thanks|thank you) for (your time|the time|considering it)",
           ],
+          model_answers: ["Will do — sending it before EOD. Thanks!"],
           hint_tr:
             "Kapanış: 'Will do — sending it before EOD. Thanks!'",
         },
@@ -190,7 +195,7 @@ export const workEmailLesson_11_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Subject = email'in metin onizleme. 'Hi' = anlatmaz. 'Q3 data — request' = pro.",
+            "Subject = email'in metin önizleme. 'Hi' = anlatmaz. 'Q3 data — request' = pro.",
         },
         {
           question: "Profesyonel email TEMEL yapi?",
@@ -202,7 +207,7 @@ export const workEmailLesson_11_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Karsi taraf zamanini saymak = email kuralı. Az kelime = profesyonel.",
+            "Karşı taraf zamanını saymak = email kuralı. Az kelime = profesyonel.",
         },
         {
           question: "'Hope this finds you well' niye standart?",
@@ -214,7 +219,7 @@ export const workEmailLesson_11_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tanidigin orta seviye kisilerde standart. Asin samimi degil, asin resmi degil = orta yol.",
+            "Tanıdığın orta seviye kişilerde standart. Aşın samimi değil, aşın resmi değil = orta yol.",
         },
       ],
     },
@@ -225,7 +230,7 @@ export const workEmailLesson_11_1: BundledLesson = {
       phrase: "Hope this finds you well.",
       ipa: "/hoʊp ðɪs faɪndz ju wɛl/",
       tr_articulation_hint:
-        "'Hope this' birlesir = 'houp-this'. 'Finds you well' yumusak ritm. Sicakkanli tonla — email aciliminin standart ifadesi.",
+        "'Hope this' birleşir = 'houp-this'. 'Finds you well' yumuşak ritm. Sıcakkanlı tonla — email açılımının standart ifadesi.",
     },
     {
       id: "ex.we11.1.9",
@@ -234,7 +239,7 @@ export const workEmailLesson_11_1: BundledLesson = {
       native_text: "Hi Sarah, hope your week's going well — quick ask on the Q3 data.",
       voice_hint: "female_us",
       tr_hint:
-        "'Hope your week's going well' = casual hatir sorma. 'Quick ask' = kisa istek (jargon). Email diline donus — virgulden sonra ana konu.",
+        "'Hope your week's going well' = casual hatır sorma. 'Quick ask' = kısa istek (jargon). Email diline dönüş — virgülden sonra ana konu.",
     },
     {
       id: "ex.we11.1.10",
@@ -243,7 +248,7 @@ export const workEmailLesson_11_1: BundledLesson = {
       audio_text: "Could you loop me in on the Q4 planning thread?",
       transcription_target: "Could you loop me in on the Q4 planning thread?",
       tr_hint:
-        "'Loop me in' deyim = beni dahil et. 'Q4' = harf+rakam, 'kiu-for'. 'Thread' = email zinciri/Slack. Profesyonel istem kalibi.",
+        "'Loop me in' deyim = beni dahil et. 'Q4' = harf+rakam, 'kiu-for'. 'Thread' = email zinciri/Slack. Profesyonel istem kalıbı.",
     },
     {
       id: "ex.we11.1.11",
@@ -254,7 +259,7 @@ export const workEmailLesson_11_1: BundledLesson = {
       tr_translation: "Geri dönüş yapmak / tekrar iletişim kurmak",
       example_en:
         "Will circle back with you once design lands.",
-      example_tr: "Tasarim gelince sana geri donus yapacagim.",
+      example_tr: "Tasarım gelince sana geri dönüş yapacağım.",
     },
     {
       id: "ex.we11.1.12",
@@ -263,7 +268,7 @@ export const workEmailLesson_11_1: BundledLesson = {
       incorrect_sentence: "Dear Mr Sarah, I want the data immediately.",
       correct_sentence: "Hi Sarah — quick ask: could I get access to the Q3 data?",
       tr_explanation:
-        "'Dear Mr Sarah' yanlis (Sarah kadin ismi, ayrica modern is emaili formal degil). 'Immediately' baskici. Modern is dili: 'Hi + isim' + kibar istek.",
+        "'Dear Mr Sarah' yanlış (Sarah kadın ismi, ayrıca modern iş emaili formal değil). 'Immediately' baskıcı. Modern iş dili: 'Hi + isim' + kibar istek.",
     },
     {
       id: "ex.we11.1.sp1",
@@ -569,7 +574,7 @@ export const workEmailLesson_11_2: BundledLesson = {
         "Wanted to follow up — is Friday a reasonable target?",
       ],
       tr_hint:
-        "'Bumping' / 'Nudge' / 'Circle back' = takip kaliplari. Saldirgan olmadan upweight.",
+        "'Bumping' / 'Nudge' / 'Circle back' = takip kalıpları. Saldırgan olmadan upweight.",
     },
     {
       id: "ex.we11.2.3",
@@ -579,7 +584,7 @@ export const workEmailLesson_11_2: BundledLesson = {
       answer: "nudge",
       distractors: ["push", "pull", "kick"],
       tr_hint:
-        "'Quick nudge' = hafif hatirlatma. 'Push' / 'kick' = cok agir takip kelimeleri.",
+        "'Quick nudge' = hafif hatırlatma. 'Push' / 'kick' = çok ağır takip kelimeleri.",
     },
     {
       id: "ex.we11.2.4",
@@ -603,7 +608,7 @@ export const workEmailLesson_11_2: BundledLesson = {
       correct_sentence:
         "Bumping this up — in case it got buried. Any update?",
       tr_explanation:
-        "'Why no answer?' = suclayici = iliski zarari. Doğru: sebep olarak 'buried email' tasi.",
+        "'Why no answer?' = suçlayıcı = ilişki zararı. Doğru: sebep olarak 'buried email' taşı.",
     },
     {
       id: "ex.we11.2.6",
@@ -623,6 +628,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(in case (this|it) got (buried|lost|missed))",
             "(any update|where (we|things) stand|where you (landed|are))",
           ],
+          model_answers: ["Hi Sarah — checking in on my last note. Any update?"],
           hint_tr:
             "Klasik: 'Hi Sarah — checking in on my last note. Any update?'",
         },
@@ -640,8 +646,9 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(end of (week|day|monday)) (would (be )?great|works)",
             "(let me know|tag me) (if you need (anything|context))",
           ],
+          model_answers: ["No worries — happens to us all. End of week would be great if possible."],
           hint_tr:
-            "Mac yap: 'No worries — happens to us all. End of week would be great if possible.'",
+            "Maç yap: 'No worries — happens to us all. End of week would be great if possible.'",
         },
         {
           speaker: "npc",
@@ -659,6 +666,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(here you go|attached|linked) (above|below|here)",
             "(give me a sec)(,)? (sending now|just sharing)",
           ],
+          model_answers: ["Of course — linking the latest spec here"],
           hint_tr:
             "Link/dosya gönder: 'Of course — linking the latest spec here' veya 'Just re-sent, latest version'. Türk: 'tekrar gönderdim' = 'just re-sent'. 'Spec' = teknik şartname (kısaca).",
         },
@@ -678,6 +686,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(if it'?s not too much)(,)? .{0,40}",
             "(end of (week|day)) would (be )?(ideal|perfect|huge)",
           ],
+          model_answers: ["This is blocking the launch — end of week would be huge"],
           hint_tr:
             "Aciliyet sinyali: 'This is blocking the launch — end of week would be huge' veya 'No rush, whenever you can'. Türk: 'acil' direkt 'urgent' ama email'de overused; 'blocking me' daha net.",
         },
@@ -697,6 +706,7 @@ export const workEmailLesson_11_2: BundledLesson = {
             "(also|one more thing)(,)? .{0,40}",
             "(no )?(other than that|otherwise)(,)? (we'?re good|all good)",
           ],
+          model_answers: ["While you're there, the Q3 numbers could use a look"],
           hint_tr:
             "Ek istek veya kapat: 'While you're there, the Q3 numbers could use a look' veya 'No, that's it — thanks!'. Türk: 'değdin değdiğine' = 'while you're there'; modern iş İngilizcesi.",
         },
@@ -722,7 +732,7 @@ export const workEmailLesson_11_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "'Why no answer' = iliski zedeler. Sebep olarak 'gomuldu' / 'kaybolmus olabilir' tasidi.",
+            "'Why no answer' = ilişki zedeler. Sebep olarak 'gömüldü' / 'kaybolmuş olabilir' taşıdı.",
         },
         {
           question: "Niye 1. mail'den 2-3 gun sonra takip iyi?",
@@ -734,7 +744,7 @@ export const workEmailLesson_11_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "1 gun = baski. 7+ gun = momentum kayip. 2-3 gun = standard sweet spot.",
+            "1 gün = baskı. 7+ gün = momentum kayıp. 2-3 gün = standard sweet spot.",
         },
         {
           question: "'Just checking in' niye guclu acilis?",
@@ -746,7 +756,7 @@ export const workEmailLesson_11_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Saglikli profesyonel norm. 'Just' kelimesi acilkayi yumusatir.",
+            "Sağlıklı profesyonel norm. 'Just' kelimesi acilkayi yumuşatır.",
         },
       ],
     },
@@ -757,7 +767,7 @@ export const workEmailLesson_11_2: BundledLesson = {
       phrase: "Just bumping this up.",
       ipa: "/dʒʌst ˈbʌmpɪŋ ðɪs ʌp/",
       tr_articulation_hint:
-        "'Just' = casti, hafif. 'Bumping' = bam-ping, vurgu basta. 'Up' kisa. Hafif + utangaci olmayan ton — hatirlatma.",
+        "'Just' = casti, hafif. 'Bumping' = bam-ping, vurgu başta. 'Up' kısa. Hafif + utangaçı olmayan ton — hatırlatma.",
     },
     {
       id: "ex.we11.2.9",
@@ -766,7 +776,7 @@ export const workEmailLesson_11_2: BundledLesson = {
       native_text: "Quick nudge on this — wondering if you've had a chance to look.",
       voice_hint: "female_us",
       tr_hint:
-        "'Quick nudge' = nazik hatirlatma. 'Had a chance' = firsatin oldu mu (kibar). Baskici degil, anlayisli. Email takibinin altin standardi.",
+        "'Quick nudge' = nazik hatırlatma. 'Had a chance' = fırsatın oldu mu (kibar). Baskıcı değil, anlayışlı. Email takibinin altın standardı.",
     },
     {
       id: "ex.we11.2.10",
@@ -775,7 +785,7 @@ export const workEmailLesson_11_2: BundledLesson = {
       audio_text: "Sorry, this slipped my mind — looking into it now.",
       transcription_target: "Sorry, this slipped my mind — looking into it now.",
       tr_hint:
-        "'Slipped my mind' deyim = aklimdan cikti. 'Looking into' = inceliyor (jargon). Kibar geri donus tonu — savunma yapmadan kabul.",
+        "'Slipped my mind' deyim = aklımdan çıktı. 'Looking into' = inceliyor (jargon). Kibar geri dönüş tonu — savunma yapmadan kabul.",
     },
     {
       id: "ex.we11.2.11",
@@ -785,7 +795,7 @@ export const workEmailLesson_11_2: BundledLesson = {
       word_or_phrase: "any traction on",
       tr_translation: "... konusunda ilerleme var mı?",
       example_en: "Any traction on the design review?",
-      example_tr: "Tasarim incelemesinde ilerleme var mi?",
+      example_tr: "Tasarım incelemesinde ilerleme var mı?",
     },
     {
       id: "ex.we11.2.12",
@@ -795,7 +805,7 @@ export const workEmailLesson_11_2: BundledLesson = {
       correct_sentence:
         "Following up on my note from earlier this week — any update when you can?",
       tr_explanation:
-        "'Waiting your answer' yanlis: 'wait FOR'. 'Since 3 days' yanlis: 'for 3 days'. Suclayici ton agir — yumusak takip standardi: 'Following up... when you can'.",
+        "'Waiting your answer' yanlış: 'wait FOR'. 'Since 3 days' yanlış: 'for 3 days'. Suçlayıcı ton ağır — yumuşak takip standardı: 'Following up... when you can'.",
     },
     {
       id: "ex.we11.2.sp1",
@@ -971,7 +981,7 @@ export const workEmailLesson_11_3: BundledLesson = {
         "Owning the missed Friday delivery — laying out the recovery plan.",
       ],
       tr_hint:
-        "Ozur formati: Sahiplen + sebep + cozum. Bahane yok, baska kisi suclama yok.",
+        "Özür formatı: Sahiplen + sebep + çözüm. Bahane yok, başka kişi suçlama yok.",
     },
     {
       id: "ex.we11.3.3",
@@ -981,7 +991,7 @@ export const workEmailLesson_11_3: BundledLesson = {
       answer: "up",
       distractors: ["in", "to", "out"],
       tr_hint:
-        "'Own up' = sahiplenmek, sorumlu olmak. Hata yonetiminin temeli.",
+        "'Own up' = sahiplenmek, sorumlu olmak. Hata yönetiminin temeli.",
     },
     {
       id: "ex.we11.3.4",
@@ -1008,7 +1018,7 @@ export const workEmailLesson_11_3: BundledLesson = {
       correct_sentence:
         "Missed the deadline — owning that. Here's the recovery plan + ETA.",
       tr_explanation:
-        "'QA was slow' = baska kisi sucla = guvensiz. Doğru: sahiplen + plan = liderlik.",
+        "'QA was slow' = başka kişi suçla = güvensiz. Doğru: sahiplen + plan = liderlik.",
     },
     {
       id: "ex.we11.3.6",
@@ -1029,8 +1039,9 @@ export const workEmailLesson_11_3: BundledLesson = {
             "(here'?s (what happened|the context|the plan))",
             "(recovery plan|fix|eta) (below|attached|next)",
           ],
+          model_answers: ["Apologies for the slip — owning it. Recovery plan + ETA below."],
           hint_tr:
-            "Ozur ile: 'Apologies for the slip — owning it. Recovery plan + ETA below.'",
+            "Özür ile: 'Apologies for the slip — owning it. Recovery plan + ETA below.'",
         },
         {
           speaker: "npc",
@@ -1047,6 +1058,7 @@ export const workEmailLesson_11_3: BundledLesson = {
             "(will (send|share|update)) (daily|every morning|mondays)",
             "(let me know if|happy to (jump on a call|sync))",
           ],
+          model_answers: ["Thursday EOD. Adding buffer + daily updates to prevent recurrence."],
           hint_tr:
             "Spesifik plan: 'Thursday EOD. Adding buffer + daily updates to prevent recurrence.'",
         },
@@ -1064,6 +1076,7 @@ export const workEmailLesson_11_3: BundledLesson = {
             "(if (something|anything) shifts|if i (need to|miss one))(,)? (i'?ll )?(flag (it )?early|let you know)",
             "(slack (.+)|drop (it )?in (slack|the channel))",
           ],
+          model_answers: ["First one tomorrow by 9am — daily after that. If something shifts I'll flag early."],
           hint_tr:
             "Realistic ETA + opt-out: 'First one tomorrow by 9am — daily after that. If something shifts I'll flag early.' Türk öğrenci 'as soon as possible' der; somut zaman ver + esneklik ekle.",
         },
@@ -1084,7 +1097,7 @@ export const workEmailLesson_11_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sahiplenme = guven. Sebep = context. Cozum = aksiyon. Uc ayagi olmali.",
+            "Sahiplenme = güven. Sebep = context. Çözüm = aksiyon. Üç ayağı olmalı.",
         },
         {
           question: "Niye 'someone else's fault' DEMEMELI?",
@@ -1096,7 +1109,7 @@ export const workEmailLesson_11_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Sucu bolmek = kucultur. Sahiplen + duzelt = buyutur. Sonraki sefere baskaya delege etmenin sansi.",
+            "Suçu bölmek = küçültür. Sahiplen + düzelt = büyütür. Sonraki sefere başkaya delege etmenin şansı.",
         },
         {
           question: "Hata sonrasi 'preventing recurrence' planı niye kritik?",
@@ -1108,7 +1121,7 @@ export const workEmailLesson_11_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sadece ozur = bir kez. Ozur + sistem duzeltme = guven kazanmak.",
+            "Sadece özür = bir kez. Özür + sistem düzeltme = güven kazanmak.",
         },
       ],
     },
@@ -1119,7 +1132,7 @@ export const workEmailLesson_11_3: BundledLesson = {
       phrase: "I want to own this.",
       ipa: "/aɪ wɑnt tu oʊn ðɪs/",
       tr_articulation_hint:
-        "'Own' = oun, uzun o. 'Want to' birlesir = 'wana'. Kararli, kosumayan ton — sahiplenme dolaysiz olmali.",
+        "'Own' = oun, uzun o. 'Want to' birleşir = 'wana'. Kararlı, koşumayan ton — sahiplenme dolaysız olmalı.",
     },
     {
       id: "ex.we11.3.9",
@@ -1128,7 +1141,7 @@ export const workEmailLesson_11_3: BundledLesson = {
       native_text: "Apologies for the slip — owning that, and here's the recovery plan.",
       voice_hint: "male_us",
       tr_hint:
-        "'Slip' kisa, hata icin yumusak kelime. 'Owning' kararli — savunma yok. 'Recovery plan' net + somut. Profesyonel ozur tonu.",
+        "'Slip' kısa, hata için yumuşak kelime. 'Owning' kararlı — savunma yok. 'Recovery plan' net + somut. Profesyonel özür tonu.",
     },
     {
       id: "ex.we11.3.10",
@@ -1150,7 +1163,7 @@ export const workEmailLesson_11_3: BundledLesson = {
       example_en:
         "Course-correcting now — building in QA buffer for next cycle.",
       example_tr:
-        "Simdi yolu duzeltiyorum — bir sonraki donemde QA tampon ekliyorum.",
+        "Şimdi yolu düzeltiyorum — bir sonraki dönemde QA tampon ekliyorum.",
     },
     {
       id: "ex.we11.3.12",
@@ -1160,7 +1173,7 @@ export const workEmailLesson_11_3: BundledLesson = {
       correct_sentence:
         "Apologies for the miss — owning it. Here's the recovery plan + steps to prevent recurrence.",
       tr_explanation:
-        "Cok kez ozur dile = panik + zayif. Profesyonel ozur: tek sahiplenme + somut plan. 'I promise' fazlaca duygusal — aksiyon kanitlamak yeterli.",
+        "Çok kez özür dile = panik + zayıf. Profesyonel özür: tek sahiplenme + somut plan. 'I promise' fazlaca duygusal — aksiyon kanıtlamak yeterli.",
     },
     {
       id: "ex.we11.3.sp1",
@@ -1346,7 +1359,7 @@ export const workEmailLesson_11_4: BundledLesson = {
       answer: "forward",
       distractors: ["after", "around", "ahead"],
       tr_hint:
-        "'Looking forward to' = sabirsizlikla bekliyorum. Email closing kalibi.",
+        "'Looking forward to' = sabırsızlıkla bekliyorum. Email closing kalıbı.",
     },
     {
       id: "ex.we11.4.4",
@@ -1392,6 +1405,7 @@ export const workEmailLesson_11_4: BundledLesson = {
             "(thanks|cheers|best|all the best)",
             "(berk|name)",
           ],
+          model_answers: ["Let me know if questions — happy to chat. Cheers, Berk"],
           hint_tr:
             "Tipik kapanis: 'Let me know if questions — happy to chat. Cheers, Berk'",
         },
@@ -1408,6 +1422,7 @@ export const workEmailLesson_11_4: BundledLesson = {
             "(here(?! is)|standby|stand by) (if (you need|anything))",
             "(have a (great|good) (week|day|evening))",
           ],
+          model_answers: ["Perfect — appreciate the quick turnaround. Have a great week!"],
           hint_tr:
             "Sonra: 'Perfect — appreciate the quick turnaround. Have a great week!'",
         },
@@ -1425,6 +1440,7 @@ export const workEmailLesson_11_4: BundledLesson = {
             "(ping me|tag me) (if (anything|something) changes (on your end)?)",
             "(thanks for|appreciate) (the flexibility|being flexible|the patience)",
           ],
+          model_answers: ["Anytime — I'll keep you posted. Let's sync Monday to confirm scope. Ping me if anything shifts on your end."],
           hint_tr:
             "Next-step + check-in: 'Anytime — I'll keep you posted. Let's sync Monday to confirm scope. Ping me if anything shifts on your end.' Modern email = ileri bakan kapanış.",
         },
@@ -1445,7 +1461,7 @@ export const workEmailLesson_11_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tech kultur = sicak + samimi. Klasik 'Sincerely' / 'Yours faithfully' = bankalar.",
+            "Tech kültür = sıcak + samimi. Klasik 'Sincerely' / 'Yours faithfully' = bankalar.",
         },
         {
           question: "'Cheers' kullanimina dikkat: NE zaman?",
@@ -1457,7 +1473,7 @@ export const workEmailLesson_11_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "UK / Avustralya = norm. ABD finans = resmi degil. Tech ABD = orta.",
+            "UK / Avustralya = norm. ABD finans = resmi değil. Tech ABD = orta.",
         },
         {
           question: "'Happy to jump on a call' niye guclu kapanis?",
@@ -1469,7 +1485,7 @@ export const workEmailLesson_11_4: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Mail her seyi cozemez. Telefonda bes dakikada cozulebilir. Bu kapi = saglikli.",
+            "Mail her şeyi çözemez. Telefonda beş dakikada çözülebilir. Bu kapı = sağlıklı.",
         },
       ],
     },
@@ -1480,7 +1496,7 @@ export const workEmailLesson_11_4: BundledLesson = {
       phrase: "Looking forward to hearing from you.",
       ipa: "/ˈlʊkɪŋ ˈfɔrwərd tu ˈhɪrɪŋ frʌm ju/",
       tr_articulation_hint:
-        "'Looking forward to' birlesik akici. 'Hearing from you' sicak ton — sabirsiz degil ama umutlu. Email kapanis melodyasi.",
+        "'Looking forward to' birleşik akıcı. 'Hearing from you' sıcak ton — sabırsız değil ama umutlu. Email kapanış melodyası.",
     },
     {
       id: "ex.we11.4.9",
@@ -1489,7 +1505,7 @@ export const workEmailLesson_11_4: BundledLesson = {
       native_text: "Happy to hop on a call if it's easier — Cheers, Berk.",
       voice_hint: "male_us",
       tr_hint:
-        "'Hop on a call' = telefonda hizli gorus (idiom, 'jump' yerine 'hop' daha samimi). 'Cheers' UK/tech kapanisi — yumusak ve sicak.",
+        "'Hop on a call' = telefonda hızlı görüş (idiom, 'jump' yerine 'hop' daha samimi). 'Cheers' UK/tech kapanışı — yumuşak ve sıcak.",
     },
     {
       id: "ex.we11.4.10",
@@ -1498,7 +1514,7 @@ export const workEmailLesson_11_4: BundledLesson = {
       audio_text: "Talk soon — let me know if anything else comes up.",
       transcription_target: "Talk soon — let me know if anything else comes up.",
       tr_hint:
-        "'Talk soon' = casual kapanis, gorusuruz. 'Comes up' deyim = cikar/ortaya cikar. Casual email final cumlesi.",
+        "'Talk soon' = casual kapanış, görüşürüz. 'Comes up' deyim = çıkar/ortaya çıkar. Casual email final cümlesi.",
     },
     {
       id: "ex.we11.4.11",
@@ -1510,7 +1526,7 @@ export const workEmailLesson_11_4: BundledLesson = {
       example_en:
         "Will keep you posted; in the meantime, let me know if questions.",
       example_tr:
-        "Sizi haberdar edecegim; bu arada sorulariniz olursa bana bildirin.",
+        "Sizi haberdar edeceğim; bu arada sorularınız olursa bana bildirin.",
     },
     {
       id: "ex.we11.4.12",
@@ -1519,7 +1535,7 @@ export const workEmailLesson_11_4: BundledLesson = {
       incorrect_sentence: "Bye bye thanks see you",
       correct_sentence: "Thanks for your time — Best, Berk.",
       tr_explanation:
-        "'Bye bye see you' email kapanisi olarak cocuksu + dagiltik. Standart: tek bir kapanis ifadesi + signoff + isim.",
+        "'Bye bye see you' email kapanışı olarak çocuksu + dağıltık. Standart: tek bir kapanış ifadesi + signoff + isim.",
     },
     {
       id: "ex.we11.4.sp1",
@@ -1637,9 +1653,9 @@ export const workEmailLesson_11_5: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "I'm reaching out because",
-      tr_translation: "Sana ulasma sebebim... (cold email standart aciliş)",
+      tr_translation: "Sana ulaşma sebebim... (cold email standart açılış)",
       example: "I'm reaching out because I saw your post on AI evals.",
-      example_tr: "Sana ulasma sebebim — AI evals hakkindaki paylasimini gordum.",
+      example_tr: "Sana ulaşma sebebim — AI evals hakkındaki paylaşımını gördüm.",
     },
     {
       id: "ex.we11.5.1a",
@@ -1695,7 +1711,7 @@ export const workEmailLesson_11_5: BundledLesson = {
         "Hey Alex! Saw your Stripe background — wondering if you'd be up for a quick 15-min chat about payments.",
       ],
       tr_hint:
-        "Cold email formulu: Hi + isim + neden yaziyorum (1 cumle) + spesifik kucuk istek (15 dk). Uzun degil!",
+        "Cold email formülü: Hi + isim + neden yazıyorum (1 cümle) + spesifik küçük istek (15 dk). Uzun değil!",
     },
     {
       id: "ex.we11.5.3",
@@ -1705,7 +1721,7 @@ export const workEmailLesson_11_5: BundledLesson = {
       answer: "across",
       distractors: ["over", "into", "by"],
       tr_hint:
-        "'Came across' = tesaduf goz attim. Cold email'in 'spy' olmayan acilis kalibi. 'Stalked' deme!",
+        "'Came across' = tesadüf göz attım. Cold email'in 'spy' olmayan açılış kalıbı. 'Stalked' deme!",
     },
     {
       id: "ex.we11.5.4",
@@ -1720,7 +1736,7 @@ export const workEmailLesson_11_5: BundledLesson = {
         "brain",
       ],
       correct_sentence: "Would love to pick your brain",
-      tr_translation: "Aklindan biraz fikir almak isterim. (deyim)",
+      tr_translation: "Aklından biraz fikir almak isterim. (deyim)",
     },
     {
       id: "ex.we11.5.5",
@@ -1730,7 +1746,7 @@ export const workEmailLesson_11_5: BundledLesson = {
       correct_sentence:
         "Hi Alex — saw your post on payments infra. I'm a backend eng working on a similar problem; open to a 15-min chat next week?",
       tr_explanation:
-        "Turk profesyonel hatasi: 'Dear Sir/Madam' + 'esteemed company' + 'at your earliest convenience' = ITHALAT mektubu, 1995 tonu. ABD/UK startup'lari kisa + net + insan istiyor. Hi + isim + neden + 15 dk istegi yeter.",
+        "Türk profesyonel hatası: 'Dear Sir/Madam' + 'esteemed company' + 'at your earliest convenience' = İTHALAT mektubu, 1995 tonu. ABD/UK startup'ları kısa + net + insan istiyor. Hi + isim + neden + 15 dk isteği yeter.",
     },
     {
       id: "ex.we11.5.6",
@@ -1755,6 +1771,7 @@ export const workEmailLesson_11_5: BundledLesson = {
             "(similar to|comparable to|reminded me of) (what you|your)",
             "(would love|happy|open) to (hear|share|trade notes)",
           ],
+          model_answers: ["Thanks for the quick reply! Short version: I'm building checkout infra — reminded me of your post. Would love to trade notes."],
           hint_tr:
             "Slack'te: 'Thanks for the quick reply! Short version: I'm building checkout infra — reminded me of your post. Would love to trade notes.'",
         },
@@ -1771,6 +1788,7 @@ export const workEmailLesson_11_5: BundledLesson = {
             "(my (calendly|calendar)|here'?s my (calendly|link))",
             "(thanks again|appreciate (it|the time)|looking forward)",
           ],
+          model_answers: ["Tuesday works! Sending a Calendly link — pick any 20-min slot. Appreciate the time!"],
           hint_tr:
             "Onayla + somut: 'Tuesday works! Sending a Calendly link — pick any 20-min slot. Appreciate the time!'",
         },
@@ -1788,6 +1806,7 @@ export const workEmailLesson_11_5: BundledLesson = {
             "(if (the slot|none) (doesn'?t work|works)|if nothing fits)(,)? (.+) (lmk|let me know)",
             "(grateful|thanks) (for (.+)|again)",
           ],
+          model_answers: ["Sending it in 5 min — if no slot works, just let me know your preferred window. Thanks again!"],
           hint_tr:
             "Realistic ETA + opt-out: 'Sending it in 5 min — if no slot works, just let me know your preferred window. Thanks again!' Soğuk email follow-up'ta net ETA = profesyonel.",
         },
@@ -1808,7 +1827,7 @@ export const workEmailLesson_11_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Inbox doluyken karsi taraf 5 sn karar verir. 1 ekran = okur. 3 ekran = sil.",
+            "Inbox doluyken karşı taraf 5 sn karar verir. 1 ekran = okur. 3 ekran = sil.",
         },
         {
           question: "'Dear Sir/Madam' modern tech sektorunde?",
@@ -1820,7 +1839,7 @@ export const workEmailLesson_11_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "1995 banka mektubu tonu. Modern email = ismi bul + 'Hi Sarah'. Isim bulamadiysan 'Hi team' bile daha iyi.",
+            "1995 banka mektubu tonu. Modern email = ismi bul + 'Hi Sarah'. İsim bulamadıysan 'Hi team' bile daha iyi.",
         },
         {
           question: "Cold email'de 'ne istiyorum' kismi?",
@@ -1832,7 +1851,7 @@ export const workEmailLesson_11_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kucuk istek = yes orani yuksek. '15 min' / 'quick look' = saygili. 'Beni ise al' ilk emailde = hayir.",
+            "Küçük istek = yes oranı yüksek. '15 min' / 'quick look' = saygılı. 'Beni işe al' ilk emailde = hayır.",
         },
       ],
     },
@@ -1843,7 +1862,7 @@ export const workEmailLesson_11_5: BundledLesson = {
       phrase: "I'm reaching out because I saw your post.",
       ipa: "/aɪm ˈriːtʃɪŋ aʊt bɪˈkɔz aɪ sɔ jʊr poʊst/",
       tr_articulation_hint:
-        "'Reaching out' birlesik = ri-ching-aut. 'Because' = bi-kaz, kisa. Sicak + kendine guvenli ton — utangaci sesle 'rahatsiz ediyorum' yapma. Dolaysiz acilis.",
+        "'Reaching out' birleşik = ri-ching-aut. 'Because' = bi-kaz, kısa. Sıcak + kendine güvenli ton — utangacı sesle 'rahatsız ediyorum' yapma. Dolaysız açılış.",
     },
     {
       id: "ex.we11.5.sp1",
@@ -1961,9 +1980,9 @@ export const workEmailLesson_11_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B1",
       word_or_phrase: "Following up on my previous email",
-      tr_translation: "Onceki emailimi takip ediyorum (standart 2. takip)",
+      tr_translation: "Önceki emailimi takip ediyorum (standart 2. takip)",
       example: "Following up on my previous email — any thoughts on the proposal?",
-      example_tr: "Onceki emailimi takip ediyorum — teklif hakkinda dusuncen var mi?",
+      example_tr: "Önceki emailimi takip ediyorum — teklif hakkında düşüncen var mı?",
     },
     {
       id: "ex.we11.6.1a",
@@ -2019,7 +2038,7 @@ export const workEmailLesson_11_6: BundledLesson = {
         "Wanted to bump my last note. No pressure — happy to close the loop if this isn't relevant.",
       ],
       tr_hint:
-        "2. takipte ALTIN kural: 'opt-out' yolu ac. 'Hayir' demek kolaylastir = saygili = iliski korunur.",
+        "2. takipte ALTIN kural: 'opt-out' yolu aç. 'Hayır' demek kolaylaştır = saygılı = ilişki korunur.",
     },
     {
       id: "ex.we11.6.3",
@@ -2029,7 +2048,7 @@ export const workEmailLesson_11_6: BundledLesson = {
       answer: "pressure",
       distractors: ["worry", "problem", "stress"],
       tr_hint:
-        "'No pressure' = baski yok. Cold/follow-up'da en guclu kibarlik sinyali. Karsi tarafa 'reddedebilirsin' diyor.",
+        "'No pressure' = baskı yok. Cold/follow-up'da en güçlü kibarlık sinyali. Karşı tarafa 'reddedebilirsin' diyor.",
     },
     {
       id: "ex.we11.6.4",
@@ -2044,7 +2063,7 @@ export const workEmailLesson_11_6: BundledLesson = {
         "here",
       ],
       correct_sentence: "Happy to close the loop here",
-      tr_translation: "Bu konuyu kapatmaya hazirim. (deyim, 'donguyu kapat')",
+      tr_translation: "Bu konuyu kapatmaya hazırım. (deyim, 'döngüyü kapat')",
     },
     {
       id: "ex.we11.6.5",
@@ -2054,7 +2073,7 @@ export const workEmailLesson_11_6: BundledLesson = {
       correct_sentence:
         "Bumping this once more — totally understand if timing's off. Happy to close the loop if not relevant.",
       tr_explanation:
-        "Suclayici + duygusal = profesyonel iliski olmus biter. Cift soru isareti = panik. Doğru ton: kabullen + opt-out sun. 'Ignoring me' deme — 'timing's off' de.",
+        "Suçlayıcı + duygusal = profesyonel ilişki olmuş biter. Çift soru işareti = panik. Doğru ton: kabullen + opt-out sun. 'Ignoring me' deme — 'timing's off' de.",
     },
     {
       id: "ex.we11.6.6",
@@ -2074,6 +2093,7 @@ export const workEmailLesson_11_6: BundledLesson = {
             "(no (pressure|rush|worries|stress)|totally (get|understand) if)",
             "(timing'?s (off|bad)|not a (priority|fit)|not the right (time|moment))",
           ],
+          model_answers: ["Hey Alex — quick nudge on my last email. No pressure if timing's off, just wanted to surface it once more."],
           hint_tr:
             "'Hey Alex — quick nudge on my last email. No pressure if timing's off, just wanted to surface it once more.'",
         },
@@ -2091,6 +2111,7 @@ export const workEmailLesson_11_6: BundledLesson = {
             "(when (you have|things calm)|whenever (works|you can))",
             "(ping me|tag me|let me know) (if (questions|anything))",
           ],
+          model_answers: ["Totally get it — launch mode is brutal. Resending now. Ping me whenever, no rush."],
           hint_tr:
             "'Totally get it — launch mode is brutal. Resending now. Ping me whenever, no rush.'",
         },
@@ -2111,6 +2132,7 @@ export const workEmailLesson_11_6: BundledLesson = {
             "(slide \\d+|page \\d+|the (pricing|timeline|scope))",
             "(any (thoughts|feedback)|let me know what)",
           ],
+          model_answers: ["Thanks — no rush. Specifically curious on the pricing slide. Any thoughts welcome."],
           hint_tr:
             "Cevap: 'Thanks — no rush. Specifically curious on the pricing slide. Any thoughts welcome.'",
         },
@@ -2131,7 +2153,7 @@ export const workEmailLesson_11_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'No pressure' / 'totally get if not a fit' = inbox baskisi yok demek. Reddetmek kolaylasinca uzun vadeli iliski korunur.",
+            "'No pressure' / 'totally get if not a fit' = inbox baskısı yok demek. Reddetmek kolaylaşınca uzun vadeli ilişki korunur.",
         },
         {
           question: "Kac follow-up sonra durmali?",
@@ -2143,7 +2165,7 @@ export const workEmailLesson_11_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Cok takip = spam tonu. 3. mesaj 'kapatma' olmali: 'Closing this out — happy to revisit later.' Top zaten karsida.",
+            "Çok takip = spam tonu. 3. mesaj 'kapatma' olmalı: 'Closing this out — happy to revisit later.' Top zaten karşıda.",
         },
         {
           question: "'Why are you ignoring me?' email tonu?",
@@ -2155,7 +2177,7 @@ export const workEmailLesson_11_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Suclayici dil = oz savunmaya iter. Bunun yerine 'bumping in case buried' = nedeni inbox'a yikla, kisiye degil.",
+            "Suçlayıcı dil = öz savunmaya iter. Bunun yerine 'bumping in case buried' = nedeni inbox'a yükle, kişiye değil.",
         },
       ],
     },
@@ -2166,7 +2188,7 @@ export const workEmailLesson_11_6: BundledLesson = {
       phrase: "No pressure if now's not the right time.",
       ipa: "/noʊ ˈprɛʃər ɪf naʊz nɑt ðə raɪt taɪm/",
       tr_articulation_hint:
-        "'No pressure' = no-presher, sicak ton. 'Now's not' birlesik = nauz-nat. Rahat + samimi ton — utangaclik degil, oz guven. 'Sana baski yok' diyorsun.",
+        "'No pressure' = no-presher, sıcak ton. 'Now's not' birleşik = nauz-nat. Rahat + samimi ton — utangaçlık değil, öz güven. 'Sana baskı yok' diyorsun.",
     },
     {
       id: "ex.we11.6.sp1",
@@ -2284,9 +2306,9 @@ export const workEmailLesson_11_7: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "OOO from X to Y",
-      tr_translation: "X-Y tarihleri arasinda ofis disindayim",
+      tr_translation: "X-Y tarihleri arasında ofis dışındayım",
       example: "I'm OOO from Dec 23 to Jan 3 with limited email access.",
-      example_tr: "23 Aralik - 3 Ocak arasi ofis disindayim, kisitli email erisimim olacak.",
+      example_tr: "23 Aralık - 3 Ocak arası ofis dışındayım, kısıtlı email erişimim olacak.",
     },
     {
       id: "ex.we11.7.1a",
@@ -2342,7 +2364,7 @@ export const workEmailLesson_11_7: BundledLesson = {
         "Currently OOO, returning Feb 21. Urgent matters → Sarah (sarah@x.com). I'll reply in order when I'm back.",
       ],
       tr_hint:
-        "OOO 3 parca: (1) ne zamana kadar yokum, (2) acilse kim alternatif, (3) ne zaman cevap verecegim. 5 satirdan az!",
+        "OOO 3 parça: (1) ne zamana kadar yokum, (2) acilse kim alternatif, (3) ne zaman cevap vereceğim. 5 satırdan az!",
     },
     {
       id: "ex.we11.7.3",
@@ -2352,7 +2374,7 @@ export const workEmailLesson_11_7: BundledLesson = {
       answer: "contact",
       distractors: ["catch", "find", "reach"],
       tr_hint:
-        "'Please contact' = standart OOO yonlendirme. 'Reach out to' da olur ama 'reach' tek basina yanlis.",
+        "'Please contact' = standart OOO yönlendirme. 'Reach out to' da olur ama 'reach' tek başına yanlış.",
     },
     {
       id: "ex.we11.7.4",
@@ -2366,7 +2388,7 @@ export const workEmailLesson_11_7: BundledLesson = {
         "return",
       ],
       correct_sentence: "I'll respond upon my return",
-      tr_translation: "Donusumde cevap verecegim. (formal OOO kalibi)",
+      tr_translation: "Dönüşümde cevap vereceğim. (formal OOO kalıbı)",
     },
     {
       id: "ex.we11.7.5",
@@ -2376,7 +2398,7 @@ export const workEmailLesson_11_7: BundledLesson = {
       correct_sentence:
         "OOO through Aug 15 with limited email access. For urgent matters, contact Mehmet (mehmet@x.com). Otherwise, I'll respond upon return.",
       tr_explanation:
-        "Turk OOO hatalari: (1) 'Hello dear sender' = robotik (2) 'on a long vacation' = kisisel detay paylasma (Antalya'da olman karsidakini ilgilendirmez) (3) 'be patient' = baski. Doğru: tarih + alternatif kisi + donus = bitti.",
+        "Türk OOO hataları: (1) 'Hello dear sender' = robotik (2) 'on a long vacation' = kişisel detay paylaşma (Antalya'da olman karşıdakini ilgilendirmez) (3) 'be patient' = baskı. Doğru: tarih + alternatif kişi + dönüş = bitti.",
     },
     {
       id: "ex.we11.7.6",
@@ -2402,8 +2424,9 @@ export const workEmailLesson_11_7: BundledLesson = {
             "(ping|loop in|reach out to|try) (sarah|mehmet|the team)",
             "(she|he|they) (can (help|cover|jump in)|owns (it|that area))",
           ],
+          model_answers: ["Hey! I'm OOO through Friday — for deploys, ping Sarah, she owns that area. Back Monday!"],
           hint_tr:
-            "Slack ozeti: 'Hey! I'm OOO through Friday — for deploys, ping Sarah, she owns that area. Back Monday!'",
+            "Slack özeti: 'Hey! I'm OOO through Friday — for deploys, ping Sarah, she owns that area. Back Monday!'",
         },
         {
           speaker: "npc",
@@ -2417,6 +2440,7 @@ export const workEmailLesson_11_7: BundledLesson = {
             "(catch up|circle back|sync) (when (i'?m )?back|on monday|next week)",
             "(have a (great|good) (week|one)|tag me) (if (anything|something) (blows up|urgent))",
           ],
+          model_answers: ["Thanks! Will circle back Monday — tag me if something blows up."],
           hint_tr:
             "'Thanks! Will circle back Monday — tag me if something blows up.'",
         },
@@ -2434,6 +2458,7 @@ export const workEmailLesson_11_7: BundledLesson = {
             "(otherwise|barring (emergencies|fires)) monday (morning|first thing)",
             "(no commitment|can'?t guarantee) (turnaround|reply) (before|until) monday",
           ],
+          model_answers: ["If truly urgent, ping Sarah — she's covering. Otherwise Monday first thing. I won't promise weekend turnaround."],
           hint_tr:
             "Realistic ETA + opt-out: 'If truly urgent, ping Sarah — she's covering. Otherwise Monday first thing. I won't promise weekend turnaround.' OOO'da net sınır = saygılı.",
         },
@@ -2454,7 +2479,7 @@ export const workEmailLesson_11_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Bu 3 bilgi karsi tarafa karar verdirir: bekleyebilirim, baska kisiye gidebilirim, ya da sabredebilirim.",
+            "Bu 3 bilgi karşı tarafa karar verdirir: bekleyebilirim, başka kişiye gidebilirim, ya da sabredebilirim.",
         },
         {
           question: "'Tatil yerini' yazmali misin?",
@@ -2466,7 +2491,7 @@ export const workEmailLesson_11_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'On vacation in Antalya' karsidakini ilgilendirmez + adres bilgisi olur. 'OOO' / 'on leave' yeter.",
+            "'On vacation in Antalya' karşıdakini ilgilendirmez + adres bilgisi olur. 'OOO' / 'on leave' yeter.",
         },
         {
           question: "OOO icin 'EOD', 'EOW', 'PTO' ne demek?",
@@ -2478,7 +2503,7 @@ export const workEmailLesson_11_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Buyuk Amerikan/UK firma jargonu. 'Reply by EOD Friday' = Cuma is bitiminden once cevap. 'On PTO next week' = gelecek hafta izinde.",
+            "Büyük Amerikan/UK firma jargonu. 'Reply by EOD Friday' = Cuma iş bitiminden önce cevap. 'On PTO next week' = gelecek hafta izinde.",
         },
       ],
     },
@@ -2489,7 +2514,7 @@ export const workEmailLesson_11_7: BundledLesson = {
       phrase: "I'm OOO from Monday to Friday.",
       ipa: "/aɪm ˌoʊ oʊ ˈoʊ frʌm ˈmʌndeɪ tu ˈfraɪdeɪ/",
       tr_articulation_hint:
-        "'OOO' = harf harf 'oh-oh-oh' (uc kez). Hizli telaffuz: hafif yukselen ton. Ya da 'out of office' tam soyle. 'From X to Y' yapisinda tarihler vurgulu.",
+        "'OOO' = harf harf 'oh-oh-oh' (üç kez). Hızlı telaffuz: hafif yükselen ton. Ya da 'out of office' tam söyle. 'From X to Y' yapısında tarihler vurgulu.",
     },
     {
       id: "ex.we11.7.sp1",
@@ -2607,9 +2632,9 @@ export const workEmailLesson_11_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "I'm not the right person for this",
-      tr_translation: "Bu konuda dogru kisi ben degilim (kibar reddetme)",
+      tr_translation: "Bu konuda doğru kişi ben değilim (kibar reddetme)",
       example: "I'm not the right person for this — try Sarah, she owns the data layer.",
-      example_tr: "Bu konuda dogru kisi ben degilim — Sarah'a sor, data katmanini o yonetiyor.",
+      example_tr: "Bu konuda doğru kişi ben değilim — Sarah'a sor, data katmanını o yönetiyor.",
     },
     {
       id: "ex.we11.8.1a",
@@ -2665,7 +2690,7 @@ export const workEmailLesson_11_8: BundledLesson = {
         "Need to bow out of this meeting — too many conflicts. Can we move it async with a quick doc?",
       ],
       tr_hint:
-        "Toplantı reddi formulu: (1) hayir + sebep (calendar dolu) (2) alternatif (async, doc, sonra) (3) hala yardimci olmaya hazirim sinyali.",
+        "Toplantı reddi formülü: (1) hayır + sebep (calendar dolu) (2) alternatif (async, doc, sonra) (3) hala yardımcı olmaya hazırım sinyali.",
     },
     {
       id: "ex.we11.8.3",
@@ -2675,7 +2700,7 @@ export const workEmailLesson_11_8: BundledLesson = {
       answer: "async",
       distractors: ["live", "soon", "later"],
       tr_hint:
-        "'Async' = asenkron, ayni anda olmayan iletisim. 'Toplantı yerine yazili haberlesme' jargon kelimesi. Modern uzaktan calisma standardi.",
+        "'Async' = asenkron, aynı anda olmayan iletişim. 'Toplantı yerine yazılı haberleşme' jargon kelimesi. Modern uzaktan çalışma standardı.",
     },
     {
       id: "ex.we11.8.4",
@@ -2691,7 +2716,7 @@ export const workEmailLesson_11_8: BundledLesson = {
         "one",
       ],
       correct_sentence: "I'd have to pass on this one",
-      tr_translation: "Bu sefer pas gecmem gerekecek. (kibar reddetme deyimi)",
+      tr_translation: "Bu sefer pas geçmem gerekecek. (kibar reddetme deyimi)",
     },
     {
       id: "ex.we11.8.5",
@@ -2701,7 +2726,7 @@ export const workEmailLesson_11_8: BundledLesson = {
       correct_sentence:
         "Going to have to pass on this one — not the right fit for my scope. Try Sarah, she owns this area.",
       tr_explanation:
-        "Turk profesyonel sik hatasi: dogrudan 'istemiyorum' = saldirgan + iliski yikar. Doğru: (1) kibar dil ('have to pass') (2) sebep ('not in my scope') (3) yonlendirme (baska kisi). 'Not my problem' KESINLIKLE deme — buyuk hata.",
+        "Türk profesyonel sık hatası: doğrudan 'istemiyorum' = saldırgan + ilişki yıkar. Doğru: (1) kibar dil ('have to pass') (2) sebep ('not in my scope') (3) yönlendirme (başka kişi). 'Not my problem' KESİNLİKLE deme — büyük hata.",
     },
     {
       id: "ex.we11.8.6",
@@ -2727,6 +2752,7 @@ export const workEmailLesson_11_8: BundledLesson = {
             "(try|loop in|ping|tag) (sarah|mehmet|name)",
             "(she|he|they) (owns|covers|leads) (that|checkout|this area)",
           ],
+          model_answers: ["Thanks for the loop in! Going to have to pass — checkout isn't really my scope. Loop in Sarah, she owns that area."],
           hint_tr:
             "'Thanks for the loop in! Going to have to pass — checkout isn't really my scope. Loop in Sarah, she owns that area.'",
         },
@@ -2744,8 +2770,9 @@ export const workEmailLesson_11_8: BundledLesson = {
             "(async|written) (update|recap|notes) (works|in between|otherwise)",
             "(tag me|ping me) (if (specific|anything) (comes up|blockers))",
           ],
+          model_answers: ["Monthly could work — weekly is a lot for my bandwidth. Async update in between? Tag me if specific blockers."],
           hint_tr:
-            "Esnek karsi teklif: 'Monthly could work — weekly is a lot for my bandwidth. Async update in between? Tag me if specific blockers.'",
+            "Esnek karşı teklif: 'Monthly could work — weekly is a lot for my bandwidth. Async update in between? Tag me if specific blockers.'",
         },
         {
           speaker: "npc",
@@ -2761,6 +2788,7 @@ export const workEmailLesson_11_8: BundledLesson = {
             "(once (the )?first monthly (lands|happens))(,)? (.+) (check in|revisit)",
             "(ping me|tag me) (when|the moment) (you (have|need)|design (.+))",
           ],
+          model_answers: ["Happy to — let's sync next Monday, I'll drop a calendar hold. After the first monthly, we'll revisit cadence."],
           hint_tr:
             "Next-step + check-in: 'Happy to — let's sync next Monday, I'll drop a calendar hold. After the first monthly, we'll revisit cadence.' Reddi yumuşat + ileri bakan plan.",
         },
@@ -2781,7 +2809,7 @@ export const workEmailLesson_11_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Yalin 'hayir' = saldirgan. Reddet + sebep + cikis yolu = iliski korunur. 'Try X' yonlendirmesi en guclu kapanis.",
+            "Yalın 'hayır' = saldırgan. Reddet + sebep + çıkış yolu = ilişki korunur. 'Try X' yönlendirmesi en güçlü kapanış.",
         },
         {
           question: "'Let's connect async' niye guclu alternatif?",
@@ -2793,7 +2821,7 @@ export const workEmailLesson_11_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tech sektoru = 'meeting culture' karsiti. Async = 'sen de zamanini koru, ben de'. 'Lazy' degil, profesyonel sinyal.",
+            "Tech sektörü = 'meeting culture' karşıtı. Async = 'sen de zamanını koru, ben de'. 'Lazy' değil, profesyonel sinyal.",
         },
         {
           question: "'Not my problem' demek?",
@@ -2805,7 +2833,7 @@ export const workEmailLesson_11_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Not my problem' = umurumda degil tonu. Doğru: 'not in my scope' (sorumluluk alanim disinda) + yonlendirme. Cumlenin esi yapilari onemli.",
+            "'Not my problem' = umurumda değil tonu. Doğru: 'not in my scope' (sorumluluk alanım dışında) + yönlendirme. Cümlenin eşi yapıları önemli.",
         },
       ],
     },
@@ -2816,7 +2844,7 @@ export const workEmailLesson_11_8: BundledLesson = {
       phrase: "I'd have to pass on this one.",
       ipa: "/aɪd hæv tu pæs ɑn ðɪs wʌn/",
       tr_articulation_hint:
-        "'I'd have to' birlesik = ayd-haf-tu, hizli. 'Pass on' iki kelimeli vurgu — pas geciyorum. Uzgunluk degil, kararli + kibar ton. 'Hayir ama saygiliyim' diyorsun.",
+        "'I'd have to' birleşik = ayd-haf-tu, hızlı. 'Pass on' iki kelimeli vurgu — pas geçiyorum. Üzgünlük değil, kararlı + kibar ton. 'Hayır ama saygılıyım' diyorsun.",
     },
     {
       id: "ex.we11.8.sp1",

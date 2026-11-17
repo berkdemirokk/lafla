@@ -5,9 +5,16 @@
 // web UI'ye girip 18 alana copy-paste yapmaktan kurtaran chore automation.
 //
 // NE YAPAR (otomatik):
-//   • App name / subtitle / promo text (TR + EN locale)
-//   • Description / keywords / what's new (TR + EN)
+//   • Description / keywords / promo text / what's new / URLs (TR + EN)
+//     → appStoreVersionLocalizations
+//   • App name / subtitle (TR + EN) → appInfoLocalizations — SADECE
+//     --app-info flag'i ile (opt-in; normal run canlı app'in adını değiştirmez)
+//   • Review detail (demo account + contact + notes)
 //   • Latest TestFlight build'i bir App Store version'a attach
+//
+// PRE-FLIGHT: Her çalıştırmada (ağ çağrısından ÖNCE) Apple karakter
+// limitleri doğrulanır (name/subtitle ≤30, keywords ≤100, promo ≤170,
+// description/whatsNew ≤4000). Aşan alan varsa script abort eder.
 //
 // NE YAPMAZ (kasıtlı; user/Apple constraint):
 //   • Submit for Review (irreversible — sen tıklarsın)
@@ -29,6 +36,8 @@
 // KULLANIM:
 //   pnpm --filter mobile run asc:sync          # dry-run, print diff
 //   pnpm --filter mobile run asc:sync -- --apply  # gerçek push
+//   pnpm --filter mobile run asc:sync -- --app-info           # + name/subtitle diff (dry-run)
+//   pnpm --filter mobile run asc:sync -- --apply --app-info   # + name/subtitle push
 //
 // VEYA GitHub Actions:
 //   gh workflow run asc-sync.yml
@@ -60,109 +69,108 @@ const APP_STORE_PUBLIC_URL = "https://berkdemirokk.github.io/lafla/";
 // kaynağı, docs review/onboarding kaynağı.
 // ─────────────────────────────────────────────────────────────────
 
-const METADATA = {
+export const METADATA = {
   bundleId: "com.lafla.app",
   // Apple "App Store Connect" version string (CFBundleShortVersionString).
   // app.json'daki version ile aynı olmalı.
-  appStoreVersion: "1.0.3",
+  appStoreVersion: "1.0.7",
 
   // tr-TR primary
   tr: {
-    name: "Lafla: İngilizce Konuşma",
-    subtitle: "Donma. Konuş.",
+    name: "Lafla: İngilizce Konuşma Öğren",
+    subtitle: "Günlük 10 Kelime, Sesli Pratik",
     promotionalText:
-      `Lafla geldi. ${MODE_COUNT_DISPLAY} mod, ${SCENE_COUNT_DISPLAY} sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçeye özel hata feedback. Flörtten mülakata, donma. Konuş.`,
+      "Yeni: Bugünün 10 Kelimesi! Her gün seviyene uygun 10 kelime, sesli okunuş ve 2 dakikalık test. Gerçek sahnelerle konuşma pratiği; tamamen algoritmik.",
     description: [
-      "Yabancıyla İngilizce konuşurken donmak yok. Lafla, Türkçe düşünen birine göre tasarlanmış konuşma pratiği uygulaması.",
+      "İngilizceyi okuyorsun ama konuşma anı gelince donuyor musun? Lafla, Türkçe düşünen biri için tasarlanmış İngilizce konuşma pratiği ve günlük kelime uygulaması. Her gün 10 yeni kelime öğren, gerçek sahnelerde sesli pratik yap, hatalarını Türkçe açıklamalarla düzelt.",
       "",
-      "Her sahne 60 saniyenin altında. Telefonun kasarsa kasasın — Lafla beklemiyor, anında geri bildirim veriyor.",
+      "YENİ: BUGÜNÜN 10 KELİMESİ",
       "",
-      "✨ NE BULURSUN",
+      "• Her gün seviyene uygun 10 yeni İngilizce kelime",
+      "• Her kelime için örnek cümle, Türkçe anlam ve sesli okunuş",
+      "• 2 dakikalık hızlı testle pekiştir; kelimeler otomatik olarak tekrar listene eklenir",
+      "• Unutmaya başladığın kelimeleri aralıklı tekrarla yeniden sorar",
+      "• Günlük kelimeleri bitirmek serini korur; istersen akşam hatırlatması alırsın",
       "",
-      `🎯 ${MODE_COUNT_DISPLAY} mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking`,
-      `🎬 ${SCENE_COUNT_DISPLAY} gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası`,
-      "🎙️ Phoneme Drill — Türk kulağı için zor sesleri (th, æ, v/w) targetli alıştırmalar",
-      "🎧 Dinleme + yazım modu — sessiz ortamda da pratik yap",
-      "🇹🇷 Türkçeye özel hata yakalama — article eksik, \"I am go\" hatası, \"make picture\" tuzakları",
-      "⚡ 3 saniyenin altında geri bildirim — donduğunda Lafla zaten yanıt vermiş",
-      "🧠 Akıllı konuşma — NPC karakterler doğal \"Hmm, evet,...\" başlangıçlarla cevap veriyor",
-      "💭 Voice Journal — kendi sesini kaydet, 1 hafta sonraki sesinle karşılaştır",
-      "🎨 Karanlık, premium tasarım — gözünüzü yormaz, gece de çalışır",
+      "İNGİLİZCE KONUŞMA PRATİĞİ",
       "",
-      "🤔 BU UYGULAMA NEDİR?",
+      `• ${MODE_COUNT_DISPLAY} mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking`,
+      `• ${SCENE_COUNT_DISPLAY} gerçek sahne, A1 başlangıçtan C2 ileri seviyeye CEFR haritası`,
+      "• Her sahne 60 saniyenin altında; 3 saniyenin altında geri bildirim",
+      "• Telaffuz pratiği: Türk kulağının zorlandığı sesler (th, æ, v/w) için hedefli alıştırmalar",
+      "• Dinleme pratiği: cümleyi dinle, duyduğunu yaz; sessiz ortamda da çalışır",
+      "• Sesli günlük: kendi sesini kaydet, gelişimini zamanla dinle (kayıtlar cihazında kalır)",
+      "• Doğal diyaloglar: karakterler gerçek bir sohbetteki gibi cevap verir",
+      "• Açık ve koyu tema",
       "",
-      `Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — ${SCENE_COUNT_DISPLAY} gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Hiçbir cevabın internete gönderilmiyor.`,
+      "TÜRKLERE ÖZEL HATA YAKALAMA",
       "",
-      "🚀 NEDEN LAFLA?",
-      "",
-      "Çoğu uygulama İngilizceyi çeviri olarak öğretir. Lafla, Türk düşünce yapısının nerede tıkandığını bilir:",
+      "Çoğu uygulama İngilizceyi çeviri olarak öğretir. Lafla, Türkçe düşünce yapısının nerede tıkandığını bilir:",
       "",
       "• \"Want make appointment\" → \"I'd like to make an appointment\"",
       "• \"I have problem\" → \"I'm having an issue with...\"",
       "• \"I am go to home\" → \"I'm going home\"",
       "",
-      "Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açıklamalı — \"neden hata olduğunu\" anla, ezberleme.",
+      "Her düzeltme Türkçe açıklamalı: ezberleme, nedenini anla.",
       "",
-      "🎓 IELTS Speaking moduyla Part 1, 2, 3 simulasyonu — band 7+ için gerekli yapıyı kazan.",
+      "IELTS VE SINAVLARA HAZIRLIK",
       "",
-      "💎 LAFLA PRO ÜYELİK",
+      "IELTS Speaking modu Part 1, 2 ve 3 yapısını çalıştırır. Günlük kelime setleri; IELTS, TOEFL ve YDS gibi sınavlara hazırlanırken kelime dağarcığını düzenli büyütmene yardımcı olur.",
       "",
-      `Tüm ${SCENE_COUNT_DISPLAY} sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.`,
+      "GÜVENİLİR VE ÖZEL",
       "",
-      "📋 Fiyat: ₺99/ay veya ₺999/yıl (yıllık planda %16 tasarruf)",
-      "🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin",
-      "⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir",
-      "📜 Şartlar: https://berkdemirokk.github.io/lafla/terms.html · Gizlilik: https://berkdemirokk.github.io/lafla/privacy.html",
+      `${SCENE_COUNT_DISPLAY} senaryonun tamamı önceden yazılmıştır; uydurma cevap yok, pratik tamamen algoritmiktir, üretken yapay zekâ kullanılmaz. Cevapların Lafla sunucularına gönderilmez; sesli giriş iOS konuşma tanıma sistemi tarafından işlenebilir.`,
+      "",
+      "LAFLA PRO ÜYELİK",
+      "",
+      `Tüm ${SCENE_COUNT_DISPLAY} sahneye erişim, sınırsız tekrar, yönlendirmeli telaffuz pratiği, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.`,
+      "",
+      "• Aylık ve yıllık planlar mevcut. App Store satın alma ekranı onaydan önce kesin yerel fiyatı ve faturalama dönemini gösterir.",
+      "• Abonelik, iptal etmediğin sürece dönem sonunda otomatik yenilenir.",
+      "• İstediğin zaman iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden iptal edebilirsin.",
+      "• Şartlar: https://berkdemirokk.github.io/lafla/terms.html",
+      "• Gizlilik: https://berkdemirokk.github.io/lafla/privacy.html",
       "",
       "Destek: berkkdemirok@gmail.com",
     ].join("\n"),
     keywords:
-      "ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz,akıcı,fonem",
+      "ielts,yds,yökdil,toefl,speaking,english,telaffuz,ezber,sohbet,dil,yabancı,akıcı,mülakat,dinleme",
     whatsNew: [
-      "Lafla — ilk sürüm. Donma. Konuş.",
-      "",
-      `🎯 ${MODE_COUNT_DISPLAY} mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS`,
-      `🎬 ${SCENE_COUNT_DISPLAY} oynanabilir sahne — A1'den C1'e CEFR ile haritalı`,
-      "🎙️ Phoneme Drill — Türk kulağı için zor sesleri targetli alıştır",
-      "🎧 Dinle + yaz modu — sessiz ortamda da pratik",
-      "🇹🇷 Türkçeye özel hata geri bildirimi (article, doğrudan çeviri tuzakları)",
-      "⚡ Sub-3-saniye geri bildirim — donduğunda Lafla zaten cevap vermiş",
-      "🧠 Akıllı konuşma — NPC karakterler doğal başlangıçlarla konuşuyor",
-      "💭 Voice Journal — kendi sesini kaydet, ilerlemeyi duy",
-      "🌙 Neon Noir tema — premium, gece dostu",
-      "",
-      "Geri bildirim: berkkdemirok@gmail.com",
+      "Daha temiz Türkçe: derslerdeki binlerce açıklama ve çeviride Türkçe karakterler düzeltildi.",
+      "• Günün 10 kelimesi daha net: yarım ifadeler ve tekrar eden çeviriler ayıklandı.",
+      "• Hata düzeltmeleri ve performans iyileştirmeleri.",
     ].join("\n"),
   },
 
   // en-US secondary
   en: {
-    name: "Lafla: English Speaking",
-    subtitle: "Stop freezing. Speak.",
+    name: "Lafla: Learn English Speaking",
+    subtitle: "Daily 10 Words, Voice Practice",
     promotionalText:
-      `Lafla just launched. ${MODE_COUNT_DISPLAY} modes, ${SCENE_COUNT_DISPLAY} scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.`,
+      "New: Today's 10 Words! Ten fresh words a day at your level, with audio and a quick 2-minute check. Real-scene speaking practice, fully algorithmic.",
     description: [
-      "Stop freezing when you have to speak English. Lafla is built for Turkish speakers who can read English but lock up the moment a conversation starts.",
+      "Can you read English but freeze the moment you have to speak? Lafla is an English speaking practice and daily vocabulary app built for Turkish speakers. Learn 10 new words every day, practice out loud in real scenes, and get every mistake explained in Turkish.",
       "",
-      "Every scene runs under 60 seconds. Real moments, real corrections, sub-3-second feedback.",
+      "NEW: TODAY'S 10 WORDS",
       "",
-      "✨ WHAT YOU GET",
+      "• Ten new English words a day, matched to your level",
+      "• Example sentence, Turkish meaning and audio for every word",
+      "• A quick 2-minute check, then every word joins your review list automatically",
+      "• Spaced review brings words back right when you start to forget them",
+      "• Finishing your daily words keeps your streak alive; optional evening reminder",
       "",
-      `🎯 ${MODE_COUNT_DISPLAY} modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking`,
-      `🎬 ${SCENE_COUNT_DISPLAY} real scenarios — CEFR-mapped from A1 to C1`,
-      "🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse (th, æ, v/w)",
-      "🎧 Listen & Transcribe — practice in silent environments too",
-      "🇹🇷 Turkish-tailored error feedback — dropped articles, \"I am go\" mistakes, \"make picture\" traps",
-      "⚡ Sub-3-second feedback loop — corrections land before the freeze sets in",
-      "🧠 Smart conversation — NPCs reply with natural \"Hmm, yes,...\" openers; less scripted feel",
-      "💭 Voice Journal — record yourself, compare your voice from a week ago",
-      "🎨 Dark, premium design — readable at night, no eye fatigue",
+      "ENGLISH SPEAKING PRACTICE",
       "",
-      "🤔 WHAT IS THIS?",
+      `• ${MODE_COUNT_DISPLAY} modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking`,
+      `• ${SCENE_COUNT_DISPLAY} real scenarios, CEFR-mapped from A1 to C2`,
+      "• Every scene runs under 60 seconds, with sub-3-second feedback",
+      "• Pronunciation practice for sounds Turkish ears confuse (th, æ, v/w)",
+      "• Listen & Transcribe: hear a sentence, type what you heard; works in silent places",
+      "• Voice Journal: record yourself and hear your progress over time (recordings stay on your device)",
+      "• Natural dialogues: characters reply the way a real conversation partner would",
+      "• Light and dark themes",
       "",
-      `Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — ${SCENE_COUNT_DISPLAY} real scenarios, all pre-authored, zero runtime AI hallucination. Nothing you type or say leaves your device.`,
-      "",
-      "🚀 WHY LAFLA?",
+      "BUILT FOR TURKISH SPEAKERS",
       "",
       "Most apps teach English as translation. Lafla knows where Turkish thinking gets stuck:",
       "",
@@ -170,37 +178,34 @@ const METADATA = {
       "• \"I have problem\" → \"I'm having an issue with...\"",
       "• \"I am go to home\" → \"I'm going home\"",
       "",
-      "Every scene targets these specific traps. Every correction is explained in Turkish — understand the \"why,\" don't just memorize.",
+      "Every correction is explained in Turkish: understand the why, don't just memorize.",
       "",
-      "🎓 IELTS Speaking mode covers Parts 1, 2, and 3 — the structure you need for band 7+.",
+      "IELTS AND EXAM PREP",
       "",
-      "💎 LAFLA PRO MEMBERSHIP",
+      "IELTS Speaking mode drills the structure of Parts 1, 2 and 3. Daily word sets help you grow your vocabulary steadily while preparing for IELTS, TOEFL or YDS.",
       "",
-      `All ${SCENE_COUNT_DISPLAY} scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.`,
+      "PRIVATE AND PREDICTABLE",
       "",
-      "📋 Pricing: ₺99/month or ₺999/year (16% savings on annual)",
-      "🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions",
-      "⏰ Renewal continues at the end of each period unless cancelled",
-      "📜 Terms: https://berkdemirokk.github.io/lafla/terms.html · Privacy: https://berkdemirokk.github.io/lafla/privacy.html",
+      `All ${SCENE_COUNT_DISPLAY} scenarios are pre-authored and practice is fully algorithmic; no generative AI, no made-up answers. Answers are not sent to Lafla servers; voice input may be processed by iOS Speech Recognition.`,
+      "",
+      "LAFLA PRO MEMBERSHIP",
+      "",
+      `All ${SCENE_COUNT_DISPLAY} scenes unlocked, unlimited replays, guided pronunciation practice, IELTS Band estimate, personal weakness report, advanced progress dashboard.`,
+      "",
+      "• Monthly and yearly plans are available. The App Store purchase sheet shows the exact localized price and billing period before confirmation.",
+      "• Subscriptions auto-renew at the end of each period unless cancelled.",
+      "• Cancel anytime in iPhone Settings → Apple ID → Subscriptions.",
+      "• Terms: https://berkdemirokk.github.io/lafla/terms.html",
+      "• Privacy: https://berkdemirokk.github.io/lafla/privacy.html",
       "",
       "Support: berkkdemirok@gmail.com",
     ].join("\n"),
     keywords:
-      "speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation,interview",
+      "ielts,toefl,turkish,esl,vocabulary,vocab,pronunciation,fluency,conversation,interview,accent,cefr",
     whatsNew: [
-      "Lafla — first launch. Stop freezing. Speak.",
-      "",
-      `🎯 ${MODE_COUNT_DISPLAY} modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS`,
-      `🎬 ${SCENE_COUNT_DISPLAY} scenarios playable at launch — CEFR-mapped A1 to C1`,
-      "🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse",
-      "🎧 Listen & Transcribe — practice in silent environments",
-      "🇹🇷 Turkish-tailored error feedback (articles, direct-translation traps)",
-      "⚡ Sub-3-second feedback loop",
-      "🧠 Smart conversation — NPCs reply with natural openers",
-      "💭 Voice Journal — record yourself, hear your progress",
-      "🌙 Neon Noir theme — premium, night-friendly",
-      "",
-      "Feedback: berkkdemirok@gmail.com",
+      "Cleaner Turkish: Turkish characters fixed in thousands of lesson hints and translations.",
+      "• Clearer Today's 10 Words: fragments and self-revealing translations removed.",
+      "• Bug fixes and performance improvements.",
     ].join("\n"),
   },
 } as const;
@@ -307,6 +312,85 @@ function stripEmojis(s: string): string {
       .replace(/^\s+$/gm, "")
       .trim()
   );
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Locale mapping + pre-flight validation (Apple karakter limitleri).
+// Ağ çağrısından ÖNCE çalışır; limit aşımı = abort, yarım push yok.
+// ─────────────────────────────────────────────────────────────────
+
+type LocaleKey = "tr" | "en";
+type LocaleMetadata = Record<
+  "name" | "subtitle" | "keywords" | "promotionalText" | "description" | "whatsNew",
+  string
+>;
+
+/** ASC locale kodu (tr, tr-TR, en-US, en-GB…) → METADATA anahtarı. */
+export function localeKeyFor(locale: string): LocaleKey | null {
+  if (locale.startsWith("tr")) return "tr";
+  if (locale.startsWith("en")) return "en";
+  return null;
+}
+
+export const APPLE_LIMITS = {
+  name: 30,
+  subtitle: 30,
+  keywords: 100,
+  promotionalText: 170,
+  description: 4000,
+  whatsNew: 4000,
+} as const;
+
+/** Apple karakter sayımı ≈ Unicode code point (NFC). "İ" tek karakter. */
+export function appleLength(value: string): number {
+  return Array.from(value.normalize("NFC")).length;
+}
+
+/** Push edilecek (emoji-stripped) değerlerin limitlerini kontrol eder. */
+export function validateMetadataLimits(
+  metadata: Record<LocaleKey, LocaleMetadata> = METADATA,
+): string[] {
+  const errors: string[] = [];
+  for (const key of ["tr", "en"] as const) {
+    const m = metadata[key];
+    const pushed: Record<keyof typeof APPLE_LIMITS, string> = {
+      name: m.name,
+      subtitle: m.subtitle,
+      keywords: m.keywords,
+      promotionalText: stripEmojis(m.promotionalText),
+      description: stripEmojis(m.description),
+      whatsNew: stripEmojis(m.whatsNew),
+    };
+    for (const field of Object.keys(APPLE_LIMITS) as Array<keyof typeof APPLE_LIMITS>) {
+      const length = appleLength(pushed[field]);
+      const limit = APPLE_LIMITS[field];
+      if (length === 0) {
+        errors.push(`${key}.${field} boş`);
+      } else if (length > limit) {
+        errors.push(`${key}.${field} ${length}/${limit} karakter (limit aşıldı): "${pushed[field].slice(0, 60)}"`);
+      }
+    }
+  }
+  return errors;
+}
+
+export interface AppInfoChange {
+  field: "name" | "subtitle";
+  from: string;
+  to: string;
+}
+
+/** ASC'deki mevcut name/subtitle ile METADATA arasındaki fark (sadece değişenler). */
+export function diffAppInfo(
+  current: { name?: unknown; subtitle?: unknown },
+  target: { name: string; subtitle: string },
+): AppInfoChange[] {
+  const changes: AppInfoChange[] = [];
+  for (const field of ["name", "subtitle"] as const) {
+    const from = typeof current[field] === "string" ? (current[field] as string) : "";
+    if (from !== target[field]) changes.push({ field, from, to: target[field] });
+  }
+  return changes;
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -460,6 +544,123 @@ async function patchVersionWhatsNew(
 }
 
 // ─────────────────────────────────────────────────────────────────
+// App Info — name + subtitle appInfoLocalizations'da yaşar (version
+// localization'da DEĞİL). Akış:
+//   GET /apps/{id}/appInfos → düzenlenebilir appInfo (PREPARE_FOR_SUBMISSION
+//   vb.; READY_FOR_DISTRIBUTION = canlı, read-only)
+//   GET /appInfos/{id}/appInfoLocalizations
+//   PATCH /appInfoLocalizations/{id} { name, subtitle }
+// Opt-in: --app-info. Değişiklik bir sonraki version release'iyle canlıya çıkar.
+// ─────────────────────────────────────────────────────────────────
+
+const EDITABLE_APP_INFO_STATES = new Set([
+  "PREPARE_FOR_SUBMISSION",
+  "DEVELOPER_REJECTED",
+  "REJECTED",
+  "METADATA_REJECTED",
+]);
+
+async function findEditableAppInfo(
+  token: string,
+  appId: string,
+): Promise<string | null> {
+  const list = (await ascFetch(
+    token,
+    `/apps/${appId}/appInfos?limit=10`,
+  )) as JsonApiList;
+  // `state` yeni attribute; `appStoreState` deprecated ama eski cevaplarda var.
+  const stateOf = (info: Resource) =>
+    String(info.attributes?.state ?? info.attributes?.appStoreState ?? "unknown");
+  const states = list.data?.map((info) => `${info.id}:${stateOf(info)}`).join(", ");
+  if (states) console.log(`  appInfos: ${states}`);
+  const editable = list.data?.find((info) => EDITABLE_APP_INFO_STATES.has(stateOf(info)));
+  if (editable) console.log(`  editable appInfo: ${editable.id} (${stateOf(editable)})`);
+  return editable?.id ?? null;
+}
+
+async function findAppInfoLocalizations(
+  token: string,
+  appInfoId: string,
+): Promise<Resource[]> {
+  const list = (await ascFetch(
+    token,
+    `/appInfos/${appInfoId}/appInfoLocalizations?limit=50`,
+  )) as JsonApiList;
+  return list.data ?? [];
+}
+
+async function patchAppInfoLocalization(
+  token: string,
+  locId: string,
+  attrs: Partial<Record<AppInfoChange["field"], string>>,
+): Promise<void> {
+  try {
+    await ascFetch(token, `/appInfoLocalizations/${locId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        data: { id: locId, type: "appInfoLocalizations", attributes: attrs },
+      }),
+    });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (msg.includes("409")) {
+      console.error(
+        "  ❌ ASC 409 — isim başka bir app tarafından kullanılıyor olabilir veya appInfo kilitli. ASC web UI → App Information'da kontrol et.",
+      );
+    }
+    throw err;
+  }
+  console.log(`  ✅ PATCH appInfoLocalization ${locId} → ${Object.keys(attrs).join(", ")}`);
+}
+
+export async function syncAppInfo(
+  token: string,
+  appId: string,
+  dryRun: boolean,
+): Promise<void> {
+  console.log(`\n[app-info] Sync app name + subtitle (appInfoLocalizations)`);
+  const appInfoId = await findEditableAppInfo(token, appId);
+  if (!appInfoId) {
+    console.log(
+      "  ⚠️  Düzenlenebilir appInfo yok (sadece READY_FOR_DISTRIBUTION). Önce ASC'de yeni bir version yarat, sonra tekrar çalıştır.",
+    );
+    return;
+  }
+
+  const locs = await findAppInfoLocalizations(token, appInfoId);
+  const seen = new Set<LocaleKey>();
+  for (const loc of locs) {
+    const locale = String(loc.attributes?.locale ?? "");
+    const key = localeKeyFor(locale);
+    if (!key) {
+      console.log(`  ⏭️  Skipping ${locale} (not TR or EN)`);
+      continue;
+    }
+    seen.add(key);
+    const changes = diffAppInfo(loc.attributes ?? {}, METADATA[key]);
+    console.log(`\n[${key.toUpperCase()}] appInfoLocalization ${loc.id} (${locale}):`);
+    if (changes.length === 0) {
+      console.log("  = name/subtitle zaten güncel, PATCH yok");
+      continue;
+    }
+    for (const c of changes) {
+      console.log(`  ${c.field}: "${c.from}" → "${c.to}" (${appleLength(c.to)}/${APPLE_LIMITS[c.field]})`);
+    }
+    if (dryRun) {
+      console.log(`  [dry-run] PATCH appInfoLocalization ${loc.id} →`, changes.map((c) => c.field));
+      continue;
+    }
+    const attrs = Object.fromEntries(changes.map((c) => [c.field, c.to]));
+    await patchAppInfoLocalization(token, loc.id, attrs);
+  }
+  for (const key of ["tr", "en"] as const) {
+    if (!seen.has(key)) {
+      console.log(`  ⚠️  ${key} appInfoLocalization bulunamadı — ASC'de locale'i ekle (script yaratmaz).`);
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
 // App Store Review Detail — demo account + contact + reviewer notes
 // ─────────────────────────────────────────────────────────────────
 
@@ -472,7 +673,7 @@ const REVIEW_NOTES = [
   "",
   "Two iOS permissions (Microphone, Speech Recognition) are requested lazily — only when the user first taps a voice exercise. Denying either still leaves the rest of the app usable; we present a graceful 'go to Settings' prompt.",
   "",
-  "Two In-App Purchases ship: lafla.premium.monthly (₺99/mo) and lafla.premium.yearly (₺999/yr) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.",
+  "Two In-App Purchases ship: lafla.premium.monthly and lafla.premium.yearly — both via RevenueCat. The App Store purchase sheet shows the exact localized price and billing period before confirmation. Restore Purchases is reachable from both the paywall and Settings.",
   "",
   "App Tracking Transparency (ATT) prompt is shown on first launch, as soon as the app becomes foreground-active. AdMob initialization is sequenced AFTER the ATT response, and PostHog analytics are gated by ATT — users who deny tracking get zero tracking and the IDFA is never read before the user responds to the prompt.",
   "",
@@ -483,7 +684,7 @@ const REVIEW_NOTES = [
   "",
   "Account deletion: Settings → Hesabımı Sil → type 'SİL' → immediate deletion via Supabase edge function. Apple Sign-In refresh_token is revoked server-side (POST appleid.apple.com/auth/revoke) before auth.users deletion. No 30-day grace.",
   "",
-  "No runtime LLM. All NPC dialogue and feedback is pre-authored TypeScript; runtime 'smart conversation' uses a deterministic mini-Markov for bridge phrases (lib/npc-bridge.ts), not an external API. Voice Journal audio never leaves the device.",
+  "The 971 guided scenarios are pre-authored and scored on-device. Free Chat, Emergency English, and custom-scenario generation also run on-device with deterministic intent, entity, and conversation-state rules. Text entered in those tools is not sent to an AI provider or Lafla server. Input/output safety filters are applied locally. Voice Journal audio remains local.",
   "",
   "IELTS Band Estimator displays a clear in-app disclaimer that it is Lafla's internal scoring model, NOT an official IELTS score (not affiliated with British Council/IDP/Cambridge English Assessment).",
   "",
@@ -733,10 +934,22 @@ async function syncBuildAttach(
 
 async function main(): Promise<void> {
   const apply = process.argv.includes("--apply");
+  const syncAppInfoFlag = process.argv.includes("--app-info");
   const dryRun = !apply;
   console.log(
-    `[asc-sync] ${dryRun ? "DRY-RUN (no writes)" : "APPLY (will push)"} ${METADATA.appStoreVersion}`,
+    `[asc-sync] ${dryRun ? "DRY-RUN (no writes)" : "APPLY (will push)"} ${METADATA.appStoreVersion}` +
+      (syncAppInfoFlag ? " +app-info (name/subtitle)" : ""),
   );
+
+  // Pre-flight — ağ/auth'tan önce. Limit aşımı varsa hiçbir şey push edilmez.
+  const limitErrors = validateMetadataLimits();
+  if (limitErrors.length > 0) {
+    console.error("\n❌ Pre-flight validation failed — App Store karakter limitleri:");
+    for (const e of limitErrors) console.error(`  • ${e}`);
+    console.error("  METADATA'yı scripts/asc-sync.ts içinde kısalt ve tekrar çalıştır.");
+    process.exit(1);
+  }
+  console.log("[asc-sync] Pre-flight OK (name/subtitle ≤30, keywords ≤100, promo ≤170, description/whatsNew ≤4000)");
 
   const cfg = loadConfig();
   const token = generateJwt(cfg);
@@ -806,6 +1019,15 @@ async function main(): Promise<void> {
     }
   }
 
+  // ─── App name + subtitle (appInfoLocalizations) — opt-in ───
+  if (syncAppInfoFlag) {
+    await syncAppInfo(token, appId, dryRun);
+  } else {
+    console.log(
+      "\n[app-info] skipped — name/subtitle sync için --app-info ekle (canlı app adını değiştirir).",
+    );
+  }
+
   // ─── App Store Review Detail (demo account + contact + notes) ───
   await syncReviewDetail(token, versionId, dryRun);
 
@@ -826,7 +1048,11 @@ async function main(): Promise<void> {
   console.log("  • Submit for Review — irreversible, sen tıklarsın");
 }
 
-main().catch((err) => {
-  console.error("\n❌ asc-sync failed:", err.message ?? err);
-  process.exit(1);
-});
+// Sadece CLI olarak çalıştırılınca main() — test import'u ağa/auth'a dokunmaz.
+const invokedAsScript = /asc-sync\.[cm]?[jt]s$/.test(process.argv[1] ?? "");
+if (invokedAsScript) {
+  main().catch((err) => {
+    console.error("\n❌ asc-sync failed:", err.message ?? err);
+    process.exit(1);
+  });
+}

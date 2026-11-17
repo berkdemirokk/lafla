@@ -96,6 +96,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
             "(this is|getting) (too complicated|too much) to type",
             "(would it be weird|is it weird) to (voice|send a voice)",
           ],
+          model_answers: ["Mind if I send a voice note? Easier than typing."],
           hint_tr:
             "İzin iste: 'Mind if I send a voice note? Easier than typing.'",
         },
@@ -113,6 +114,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
             "(let me|gonna) (record|do this) now",
             "(brace yourself|fair warning)",
           ],
+          model_answers: ["Cool, one sec"],
           hint_tr:
             "Teşekkür et + bekle: 'Cool, one sec' veya 'Sending now'.",
         },
@@ -131,6 +133,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
             "(born and raised in )?(turkey|istanbul)",
             "(haha thanks|aw thanks)(,)? (turkey|istanbul)",
           ],
+          model_answers: ["Thanks! Originally from Turkey, Istanbul"],
           hint_tr:
             "Teşekkür + cevap: 'Thanks! Originally from Turkey, Istanbul'.",
         },
@@ -149,6 +152,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
             "(planning to stay|might stay|will see)",
             "(this is|it'?s) my (first |second )?(year|semester)",
           ],
+          model_answers: ["Yeah, on Erasmus for the year"],
           hint_tr:
             "Cevap: 'Yeah, on Erasmus for the year' veya 'Doing my master's, so maybe two years'.",
         },
@@ -167,6 +171,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
             "(coming from turkey|in turkey we|back home)",
             "(too many to count|where do i start)",
           ],
+          model_answers: ["Honestly, the tipping — in Turkey we don't tip 20%"],
           hint_tr:
             "Klasik kültür şoku: 'Honestly, the tipping — in Turkey we don't tip 20%' veya 'How much small talk strangers do'.",
         },
@@ -238,7 +243,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
         "Quick heads up — about to send a voice note, totally cool if you'd rather I just type it.",
       voice_hint: "warm_us",
       tr_hint:
-        "Etiket-bilinçli ton. 'Heads up' bağlı uyari. 'Totally cool if you'd rather' tek nefes — esneklik.",
+        "Etiket-bilinçli ton. 'Heads up' bağlı uyarı. 'Totally cool if you'd rather' tek nefes — esneklik.",
     },
     {
       id: "ex.fv3.1.10",
@@ -249,7 +254,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
       transcription_target:
         "Sure, go for it — I'll do the same back if it makes sense.",
       tr_hint:
-        "Match'in voice'a yesil isigi. 'Go for it' = at git. 'Do the same back' = ayni sekilde geri donerim.",
+        "Match'in voice'a yeşil ışığı. 'Go for it' = at git. 'Do the same back' = aynı şekilde geri dönerim.",
     },
     {
       id: "ex.fv3.1.11",
@@ -257,11 +262,11 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Hate to text-bomb you",
-      tr_translation: "Sana mesaj yagmuru atmaktan nefret ederim",
+      tr_translation: "Sana mesaj yağmuru atmaktan nefret ederim",
       example:
         "Hate to text-bomb you — mind if I voice this instead?",
       example_tr:
-        "Sana mesaj yagmuru atmaktan nefret ederim — bunu sesli atsam olur mu?",
+        "Sana mesaj yağmuru atmaktan nefret ederim — bunu sesli atsam olur mu?",
     },
     {
       id: "ex.fv3.1.12",
@@ -496,6 +501,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
             "(don'?t mind|hope this isn'?t weird) the (voice|audio)",
             "(this is|first time) (sending )?(my voice|a voice note)",
           ],
+          model_answers: ["Hey, quick voice note — easier to say than type."],
           hint_tr:
             "Aç: 'Hey, quick voice note — easier to say than type.'",
         },
@@ -514,6 +520,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
             "(let me know|tell me) (if it'?s )?(weird|too long|crap)",
             "(thanks for being patient|appreciate it)",
           ],
+          model_answers: ["Okay, here it goes — no judgment."],
           hint_tr:
             "Devam: 'Okay, here it goes — no judgment.'",
         },
@@ -534,6 +541,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
             "(my voice|i'?m) (sounds )?(better|nicer)( in person)?",
             "(see\\?|told you|right\\?)",
           ],
+          model_answers: ["Glad you liked it — might keep sending these."],
           hint_tr:
             "Cevap: 'Glad you liked it — might keep sending these.'",
         },
@@ -600,7 +608,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
         "Okay so I've been thinking about what you said earlier — and honestly, it stuck with me more than I expected.",
       voice_hint: "warm_us",
       tr_hint:
-        "Düşünceli ton — samimi, agir degil. 'Stuck with me' = aklimda kaldi idiom. Akıcı, doğal.",
+        "Düşünceli ton — samimi, ağır değil. 'Stuck with me' = aklımda kaldı idiom. Akıcı, doğal.",
     },
     {
       id: "ex.fv3.2.10",
@@ -611,7 +619,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
       transcription_target:
         "Whoa, first voice note from you — send it, I'm listening.",
       tr_hint:
-        "Match'in voice'a heyecanli karsiligi. 'Whoa' = sasirma. 'I'm listening' = dinliyorum, devam et.",
+        "Match'in voice'a heyecanlı karşılığı. 'Whoa' = şaşırma. 'I'm listening' = dinliyorum, devam et.",
     },
     {
       id: "ex.fv3.2.11",
@@ -619,11 +627,11 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Tone is hard to read over text",
-      tr_translation: "Yazidan ton anlamak zor",
+      tr_translation: "Yazıdan ton anlamak zor",
       example:
         "Sending a voice — tone is hard to read over text, didn't want this coming out flat.",
       example_tr:
-        "Sesli atiyorum — yazidan ton anlamak zor, kuru gözükmesini istemedim.",
+        "Sesli atıyorum — yazıdan ton anlamak zor, kuru gözükmesini istemedim.",
     },
     {
       id: "ex.fv3.2.12",
@@ -922,6 +930,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
             "(replying with )?(my own )?voice (memo|note)( now)?",
             "(this is |the |that ending|that story is )(killing me|too much|so good)",
           ],
+          model_answers: ["Okay your voice is so much warmer than I imagined — story was wild."],
           hint_tr:
             "Reaksiyon + iltifat: 'Okay your voice is so much warmer than I imagined — story was wild.'",
         },
@@ -940,6 +949,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
             "(in a |yeah in a )good way",
             "(i don'?t know what i expected|honestly no idea)",
           ],
+          model_answers: ["Honestly yes — in a good way. Less stiff than texts suggest."],
           hint_tr:
             "Cevap: 'Honestly yes — in a good way. Less stiff than texts suggest.'",
         },
@@ -1006,7 +1016,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
         "Okay replying with a voice memo because typing wouldn't do that story justice — bear with me.",
       voice_hint: "warm_us",
       tr_hint:
-        "Voice-for-voice ritmi — kararli, casual. 'Do justice to' kalip. 'Bear with me' = sabret-soyle.",
+        "Voice-for-voice ritmi — kararlı, casual. 'Do justice to' kalıp. 'Bear with me' = sabret-söyle.",
     },
     {
       id: "ex.fv3.3.10",
@@ -1017,7 +1027,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       transcription_target:
         "Glad you liked it — were you expecting me to sound completely different?",
       tr_hint:
-        "Voice gönderen match'in geri soru cevabi. 'Sound different' = farklı ses cikar beklemek. Casual mirror sorusu.",
+        "Voice gönderen match'in geri soru cevabı. 'Sound different' = farklı ses çıkar beklemek. Casual mirror sorusu.",
     },
     {
       id: "ex.fv3.3.11",
@@ -1025,11 +1035,11 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Sounds way less stiff than your texts",
-      tr_translation: "Yazidan çok daha akici çikiyor sesin",
+      tr_translation: "Yazıdan çok daha akıcı çıkıyor sesin",
       example:
         "You sound way less stiff than your texts — like a different person, in a good way.",
       example_tr:
-        "Yazidan çok daha akici çikiyor sesin — iyi anlamda baska bir insan gibisin.",
+        "Yazıdan çok daha akıcı çıkıyor sesin — iyi anlamda başka bir insan gibisin.",
     },
     {
       id: "ex.fv3.3.12",
@@ -1039,7 +1049,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       correct_sentence:
         "Just listened twice — your laugh is killing me, especially that ending.",
       tr_explanation:
-        "'Ok heard. Cool. Anyway.' = sifir yatirim, voice atan kişiye saygisiz. Doğru: spesifik tepki + ne hosuna gitti. Modern dating: yatirim simetrik olmali = devam = ilgi.",
+        "'Ok heard. Cool. Anyway.' = sıfır yatırım, voice atan kişiye saygısız. Doğru: spesifik tepki + ne hoşuna gitti. Modern dating: yatırım simetrik olmalı = devam = ilgi.",
     },
     {
       id: "ex.fv3.3.sp1",
@@ -1324,6 +1334,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
             "(when are we|when do we) (calling|video|facetiming)",
             "(quick |brief )?call (sometime|later|today|tonight)\\??",
           ],
+          model_answers: ["Free for a quick FaceTime later? This typing is exhausting."],
           hint_tr:
             "Teklif: 'Free for a quick FaceTime later? This typing is exhausting.'",
         },
@@ -1342,6 +1353,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
             "(can'?t wait|looking forward)",
             "(maybe 10|how about 10|10 better)",
           ],
+          model_answers: ["9 works — text me when you're free."],
           hint_tr:
             "Onayla: '9 works — text me when you're free.'",
         },
@@ -1359,6 +1371,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
             "(see you|talk later|tonight)",
             "(don'?t you )?(judge|expect too much)",
           ],
+          model_answers: ["Haha equally nervous — see you tonight."],
           hint_tr:
             "Bitir: 'Haha equally nervous — see you tonight.'",
         },
@@ -1436,7 +1449,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       transcription_target:
         "Hahaha you read my mind — tonight after nine?",
       tr_hint:
-        "Match'in olumlu cevabi. 'You read my mind' = aklimi okudun. 'After nine' = dokuzdan sonra.",
+        "Match'in olumlu cevabı. 'You read my mind' = aklımı okudun. 'After nine' = dokuzdan sonra.",
     },
     {
       id: "ex.fv3.4.11",
@@ -1444,11 +1457,11 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "Save us both the typing",
-      tr_translation: "Ikimizi de yazma derdinden kurtaralim",
+      tr_translation: "İkimizi de yazma derdinden kurtaralım",
       example:
         "Wanna just FaceTime tonight? Save us both the typing.",
       example_tr:
-        "Bu aksam FaceTime yapalim mi? Ikimizi de yazma derdinden kurtaralim.",
+        "Bu akşam FaceTime yapalım mı? İkimizi de yazma derdinden kurtaralım.",
     },
     {
       id: "ex.fv3.4.12",
@@ -1458,7 +1471,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       correct_sentence:
         "Free for a quick FaceTime tonight, or is later this week easier?",
       tr_explanation:
-        "'Now I want see you face' = komut + sahiplenme + yapı bozuk. Modern dating'te urgent + transactional = unmatch tetigi. Doğru: 'free for X' (esnek) + alternatif zaman = saygi + secim hakki.",
+        "'Now I want see you face' = komut + sahiplenme + yapı bozuk. Modern dating'te urgent + transactional = unmatch tetiği. Doğru: 'free for X' (esnek) + alternatif zaman = saygı + seçim hakkı.",
     },
     {
       id: "ex.fv3.4.sp1",
@@ -1746,6 +1759,7 @@ export const flirtVoiceLesson_3_5: BundledLesson = {
             "(would you mind|how (would you feel|do you feel)) (about )?(a )?(quick )?(vm|voice memo)",
             "(thinking of|might) (sending|sharing) (a )?(short |quick )?(vm|voice memo)",
           ],
+          model_answers: ["Would it be too early to send a quick VM?"],
           hint_tr:
             "Zamanlama sor: 'Would it be too early to send a quick VM?'",
         },
@@ -1764,6 +1778,7 @@ export const flirtVoiceLesson_3_5: BundledLesson = {
             "(thanks|appreciate) (the|for the) (green light|heads.?up)",
             "(coming|incoming|sending|on its way) (soon|now|in a sec)",
           ],
+          model_answers: ["30 seconds max — promise."],
           hint_tr:
             "Süre vaadi: '30 seconds max — promise.'",
         },
@@ -2116,6 +2131,7 @@ export const flirtVoiceLesson_3_6: BundledLesson = {
             "(text for now|typing for now|words for now)",
             "(in kind|voice for voice) (later|when i can|tonight)",
           ],
+          model_answers: ["Loved it — on the subway, will VM back in an hour."],
           hint_tr:
             "Durum açıkla + söz ver: 'Loved it — on the subway, will VM back in an hour.'",
         },
@@ -2134,6 +2150,7 @@ export const flirtVoiceLesson_3_6: BundledLesson = {
             "(too )?(thoughtful|good) (to |for) (text|typing)",
             "(home in|back in|free in) (an hour|a bit|thirty)",
           ],
+          model_answers: ["Replying in kind is non-negotiable — home in an hour."],
           hint_tr:
             "Reciprocity vurgula: 'Replying in kind is non-negotiable — home in an hour.'",
         },
@@ -2478,6 +2495,7 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
             "(something about|the way) (your voice|you sound) (in (that|the) prompt)?",
             "(stuck in my head|been replaying) (your )?(prompt|audio|voice)",
           ],
+          model_answers: ["Loved your voice prompt — your laugh at the end got me."],
           hint_tr:
             "Spesifik prompt iltifatı: 'Loved your voice prompt — your laugh at the end got me.'",
         },
@@ -2496,6 +2514,7 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
             "(your voice|the tone) (does the work|sells it|hits different)",
             "(too )?(busy|impatient) people (miss out|lose)",
           ],
+          model_answers: ["Their loss — voice tells you way more than a written bio."],
           hint_tr:
             "Devam: 'Their loss — voice tells you way more than a written bio.'",
         },
@@ -2514,6 +2533,7 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
             "(less calming than|less smooth than|nothing like) (yours|your prompt)",
             "(brace yourself|fair warning)",
           ],
+          model_answers: ["Only one way to find out — VM later?"],
           hint_tr:
             "Eğlenceli teklif: 'Only one way to find out — VM later?'",
         },
@@ -2857,6 +2877,7 @@ export const flirtVoiceLesson_3_8: BundledLesson = {
             "(no pressure|no worries|totally fine) (if|whether) (you'?d rather|not your thing)",
             "(break the ice|warm up) (over|with a) (call|facetime)",
           ],
+          model_answers: ["Wanna FaceTime first? Quick vibe check, no pressure if not your thing."],
           hint_tr:
             "Teklif + opt-out: 'Wanna FaceTime first? Quick vibe check, no pressure if not your thing.'",
         },
@@ -2875,6 +2896,7 @@ export const flirtVoiceLesson_3_8: BundledLesson = {
             "(short and sweet|under (15|fifteen|20|twenty))",
             "(can'?t wait|looking forward)",
           ],
+          model_answers: ["Friday works — 9pm? Short and sweet."],
           hint_tr:
             "Onayla + zaman ayarla: 'Friday works — 9pm? Short and sweet.'",
         },
@@ -2893,6 +2915,7 @@ export const flirtVoiceLesson_3_8: BundledLesson = {
             "(saving )?(the full glam|the effort) (for saturday|for the date|in person)",
             "(can'?t wait|excited|stoked) (now)?",
           ],
+          model_answers: ["Deal — saving the effort for Saturday. See you Friday at 9."],
           hint_tr:
             "Bitir: 'Deal — saving the effort for Saturday. See you Friday at 9.'",
         },

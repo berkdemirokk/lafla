@@ -228,6 +228,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(corner of|between) \\w+ and \\w+",
             "(the (hotel|airport|station))",
           ],
+          model_answers: ["Take me to JFK, please"],
           hint_tr:
             "Net adres veya landmark: 'Take me to JFK, please' veya '350 Fifth Avenue'.",
         },
@@ -244,6 +245,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(no preference|up to you)",
             "(through|via) (the )?(park|bridge|tunnel)",
           ],
+          model_answers: ["I'm running late — as fast as you can"],
           hint_tr:
             "'Fastest, please' veya 'I'm running late — as fast as you can'.",
         },
@@ -262,6 +264,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(do (we|i) have time to (stop|grab))",
             "(okay (let'?s )?go|let'?s do it)",
           ],
+          model_answers: ["Any chance it's faster?"],
           hint_tr:
             "Onayla: 'Sounds good, thanks' veya pazarlık: 'Any chance it's faster?'",
         },
@@ -280,6 +283,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(credit card|debit card)( please)?",
             "(card if (that'?s|thats) ok)",
           ],
+          model_answers: ["Apple Pay if you take it"],
           hint_tr:
             "Ödeme: 'Card, please' veya 'Apple Pay if you take it'. NYC taksilerde kart standart.",
         },
@@ -297,6 +301,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
             "(thanks for letting me know|appreciate the heads[- ]up)",
             "(perfect|great)(,)? thanks",
           ],
+          model_answers: ["Thanks for the heads-up"],
           hint_tr:
             "Onayla: 'Got it, thanks' veya 'Thanks for the heads-up'.",
         },
@@ -365,7 +370,7 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
       native_text: "I'm running late, as fast as you can please.",
       voice_hint: "male_us",
       tr_hint:
-        "'Running late' = gecikmis. 'As fast as you can' = elinden gelen hizla. Saygili aciliyet.",
+        "'Running late' = gecikmiş. 'As fast as you can' = elinden gelen hızla. Saygılı aciliyet.",
     },
     {
       id: "ex.dx32.1.10",
@@ -739,6 +744,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
             "(can i (check|confirm|see) the (plate|license plate))",
             "(double[- ]check)",
           ],
+          model_answers: ["Hey, you here for Berk? Can I check the plate?"],
           hint_tr:
             "Güvenli aç: 'Hey, you here for Berk? Can I check the plate?'",
         },
@@ -756,6 +762,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
             "(estimated (time|arrival)|eta)",
             "(any way to (avoid|skip) (traffic|the bridge|the highway))",
           ],
+          model_answers: ["Perfect, that matches. How's the traffic looking?"],
           hint_tr:
             "Onayla + sor: 'Perfect, that matches. How's the traffic looking?'",
         },
@@ -815,7 +822,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
       phrase: "Are you the Uber for Berk?",
       ipa: "ɑːr juː ði ˈuːbər fɔːr bɜːrk",
       tr_hint:
-        "Güvenlik dogrulama. 'Are you' bağlanır → 'ər-yu'. 'Uber for Berk' net vurgular.",
+        "Güvenlik doğrulama. 'Are you' bağlanır → 'ər-yu'. 'Uber for Berk' net vurgular.",
     },
     {
       id: "ex.dx32.2.9",
@@ -824,7 +831,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
       native_text: "Can I double-check the license plate?",
       voice_hint: "male_us",
       tr_hint:
-        "Güvenlik kalibi. 'Double-check' = tekrar dogrula. 'License plate' birleşik vurgu.",
+        "Güvenlik kalıbı. 'Double-check' = tekrar doğrula. 'License plate' birleşik vurgu.",
     },
     {
       id: "ex.dx32.2.10",
@@ -853,7 +860,7 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
       correct_sentence:
         "Hi, are you here for Berk? Mind if I confirm the plate before I get in?",
       tr_explanation:
-        "Belirsiz + güvensiz. Doğru: isim sor + plaka dogrula (sahte Uber riski gercek).",
+        "Belirsiz + güvensiz. Doğru: isim sor + plaka doğrula (sahte Uber riski gerçek).",
     },
     {
       id: "ex.dx32.2.sp1",
@@ -1206,6 +1213,7 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
             "(i think we'?re going (a bit )?out of the way|going out of the way)",
             "(i'?d rather you followed the gps|mind following the gps)",
           ],
+          model_answers: ["Excuse me, I'd prefer if we stuck to the GPS route, please."],
           hint_tr:
             "GPS'te kalmayı tercih ettiğini kibarca belirt: 'Excuse me, I'd prefer if we stuck to the GPS route, please.'",
         },
@@ -1221,6 +1229,7 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
             "(i'?d still (prefer|rather) (if )?we (followed|stick to) the gps)",
             "(please (just )?follow the gps|could you please follow the gps anyway)",
           ],
+          model_answers: ["I understand, but I'm in a rush — could you please just follow the GPS anyway?"],
           hint_tr:
             "Şoförü anladığını belirt ama GPS'e sadık kalmasını iste: 'I understand, but I'm in a rush — could you please just follow the GPS anyway?'",
         },
@@ -1298,7 +1307,7 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
       audio_text: "Traffic looks pretty bad on the bridge today.",
       transcription_target: "Traffic looks pretty bad on the bridge today.",
       tr_hint:
-        "Soför yorumu. 'Pretty bad' = oldukca kötü. 'On the bridge' = koprude. Alternatif rota sinyali.",
+        "Şoför yorumu. 'Pretty bad' = oldukça kötü. 'On the bridge' = köprüde. Alternatif rota sinyali.",
     },
     {
       id: "ex.dx32.3.11",
@@ -1673,6 +1682,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
             "(let('s| us) (do|go with)) (card|cash)",
             "(by card|in cash)",
           ],
+          model_answers: ["Cash, here you go."],
           hint_tr:
             "Net cevap: 'Card, please' veya 'Cash, here you go.'",
         },
@@ -1689,6 +1699,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
             "i('ll| will) (do|add) (15|18|20)",
             "(round it up to|make it) \\$?\\d+",
           ],
+          model_answers: ["20 percent"],
           hint_tr:
             "Standart: '20 percent' veya 'Round it up to forty.'",
         },
@@ -1705,6 +1716,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
             "(email|text|paper) (one|receipt|copy)",
             "(no thanks|i('m| am) good|all set)",
           ],
+          model_answers: ["Yes, please"],
           hint_tr:
             "'Yes, please' veya 'Could you email me one?'",
         },
@@ -1773,7 +1785,7 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
       native_text: "I'll add a twenty percent tip, please.",
       voice_hint: "female_us",
       tr_hint:
-        "Kart kalibi. 'I'll add' = ekleyeyim. 'Twenty percent' birleşik vurgu. ABD standardi.",
+        "Kart kalibi. 'I'll add' = ekleyeyim. 'Twenty percent' birleşik vurgu. ABD standardı.",
     },
     {
       id: "ex.dx32.4.10",
@@ -2099,7 +2111,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
         "Hey, just spotted you on the map. I'm at the side entrance with a blue jacket.",
       ],
       tr_hint:
-        "Türk hatasi: 'Driver where you?' — yerine kendini konumla tanit. Net konum + kıyafet = şoför bulur.",
+        "Türk hatası: 'Driver where you?' — yerine kendini konumla tanıt. Net konum + kıyafet = şoför bulur.",
     },
     {
       id: "ex.dx32.5.3",
@@ -2134,7 +2146,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
       correct_sentence:
         "Hi, I see you on the map — I'm at the side entrance, wearing a blue jacket. I'll wave.",
       tr_explanation:
-        "'Driver where you?' = grammatik yok + sucluyor. Doğru: 'I see you on the map' (sakin) + kendi konumun + kıyafet. Şoför zaten harita kullaniyor, sen kendini tanit.",
+        "'Driver where you?' = grammatik yok + suçluyor. Doğru: 'I see you on the map' (sakin) + kendi konumun + kıyafet. Şoför zaten harita kullanıyor, sen kendini tanıt.",
     },
     {
       id: "ex.dx32.5.6",
@@ -2158,6 +2170,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
             "(i('ll| will) (come around|walk over|head to the front))",
             "(give me (a sec|a minute|30 seconds))",
           ],
+          model_answers: ["I'm at the side entrance — I'll walk around."],
           hint_tr:
             "Yanlış kapı sorununu çöz: 'I'm at the side entrance — I'll walk around.'",
         },
@@ -2174,6 +2187,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
             "(by the (lamppost|sign|door|tree|bench))",
             "(rolling a (suitcase|bag))",
           ],
+          model_answers: ["Blue jacket, by the lamppost — I'll wave."],
           hint_tr:
             "Net kıyafet + jest: 'Blue jacket, by the lamppost — I'll wave.'",
         },
@@ -2233,7 +2247,7 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
       phrase: "I'm at the side entrance, blue jacket.",
       ipa: "aɪm æt ðə saɪd ˈɛntrəns bluː ˈdʒækɪt",
       tr_hint:
-        "Pickup tanitim. 'Side entrance' = yan giris. 'Blue jacket' = mavi ceket. Net + kisa = şoför bulur.",
+        "Pickup tanıtım. 'Side entrance' = yan giriş. 'Blue jacket' = mavi ceket. Net + kısa = şoför bulur.",
     },
     {
       id: "ex.dx32.5.sp1",
@@ -2564,7 +2578,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       correct_sentence:
         "Sorry — change of plans. Could you drop me at the next corner instead? The meter can keep running.",
       tr_explanation:
-        "Emir kipi + panik = kaba ve şoförü germez. Doğru: 'Sorry' (yumuşat) + 'change of plans' (açıkla) + 'meter can keep running' (para kaybi yok). Saygı + sebep + güvence.",
+        "Emir kipi + panik = kaba ve şoförü germez. Doğru: 'Sorry' (yumuşat) + 'change of plans' (açıkla) + 'meter can keep running' (para kaybı yok). Saygı + sebep + güvence.",
     },
     {
       id: "ex.dx32.6.6",
@@ -2585,6 +2599,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
             "(grab (an? )?(umbrella|water|snack|something)|pick up)",
             "(five minutes (tops|max)|won't be long|two minutes)",
           ],
+          model_answers: ["Any chance of a quick stop at pharmacy? Need an umbrella — two minutes tops."],
           hint_tr:
             "Kibar mola iste: 'Any chance of a quick stop at pharmacy? Need an umbrella — two minutes tops.'",
         },
@@ -2602,6 +2617,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
             "(at the (next |the )?corner|on \\d+(st|nd|rd|th) street|by the (subway|deli))",
             "(instead|change of plans|change my mind)",
           ],
+          model_answers: ["Totally fine. Actually, could you drop me at the corner instead?"],
           hint_tr:
             "Onayla + ek değişiklik: 'Totally fine. Actually, could you drop me at the corner instead?'",
         },
@@ -2661,7 +2677,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       phrase: "Drop me at the corner instead.",
       ipa: "drɑːp mi æt ðə ˈkɔːrnər ɪnˈstɛd",
       tr_hint:
-        "Rota değiştir. 'Drop me' baglanir → 'drap-mi'. 'Instead' son hece vurgulu: in-STED.",
+        "Rota değiştir. 'Drop me' bağlanır → 'drap-mi'. 'Instead' son hece vurgulu: in-STED.",
     },
     {
       id: "ex.dx32.6.sp1",
@@ -2969,7 +2985,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
       answer: "running",
       distractors: ["working", "moving", "open"],
       tr_hint:
-        "'Meter running' = sayaç islemekte. 'Flat rate' = sabit ücret. İkisi farkli mantik.",
+        "'Meter running' = sayaç işlemekte. 'Flat rate' = sabit ücret. İkisi farklı mantık.",
     },
     {
       id: "ex.dx32.7.4",
@@ -3018,6 +3034,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
             "(or is (it|this) a flat rate)",
             "(what('s| is) (the|a rough|an?) estimate)",
           ],
+          model_answers: ["JFK. Quick question — is the meter running, or flat rate?"],
           hint_tr:
             "Önce kontrol: 'JFK. Quick question — is the meter running, or flat rate?'",
         },
@@ -3035,6 +3052,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
             "(let('s| us) (do it|go|head out))",
             "(card okay|do you (take|accept) (card|credit))",
           ],
+          model_answers: ["Sounds fair. Plus tolls? And do you take card?"],
           hint_tr:
             "Onayla + son detay: 'Sounds fair. Plus tolls? And do you take card?'",
         },
@@ -3094,7 +3112,7 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
       phrase: "Is the meter running?",
       ipa: "ɪz ðə ˈmiːtər ˈrʌnɪŋ",
       tr_hint:
-        "Dolandirici filtre. 'Meter' = sayaç (mee-ter). 'Running' = islemek (run-ing). Net soru tonu.",
+        "Dolandırıcı filtre. 'Meter' = sayaç (mee-ter). 'Running' = işlemek (run-ing). Net soru tonu.",
     },
     {
       id: "ex.dx32.7.sp1",
@@ -3426,7 +3444,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
       correct_sentence:
         "How's your shift going? Crazy traffic out there today, huh?",
       tr_explanation:
-        "Türk hatasi: hemen kişisel sorular = ABD'de garip + rahatsiz. Aile/maaş = tabu. Doğru: shift + hava + trafik = güvenli zon. Driver privacy = saygı göster.",
+        "Türk hatası: hemen kişisel sorular = ABD'de garip + rahatsız. Aile/maaş = tabu. Doğru: shift + hava + trafik = güvenli zon. Driver privacy = saygı göster.",
     },
     {
       id: "ex.dx32.8.6",
@@ -3446,6 +3464,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
             "(crazy|wild|brutal|nuts) (traffic|out there|today)",
             "(been driving long|new to this)",
           ],
+          model_answers: ["How's your shift going? Crazy traffic today, huh?"],
           hint_tr:
             "Güvenli açılış: 'How's your shift going? Crazy traffic today, huh?'",
         },
@@ -3462,6 +3481,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
             "(first time in (\\w+|town)|love the city)",
             "(can('t| not) wait to (eat|get home|relax))",
           ],
+          model_answers: ["Long shift! I'm heading to dinner — first time in NYC."],
           hint_tr:
             "Empati + kendi planın: 'Long shift! I'm heading to dinner — first time in NYC.'",
         },
@@ -3479,6 +3499,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
             "(pizza|burgers|tacos|ramen|deli)",
             "(local (favorite|spot|place))",
           ],
+          model_answers: ["A few on my list. Any local favorites you'd recommend?"],
           hint_tr:
             "Soruyu geri çevir = doğal sohbet: 'A few on my list. Any local favorites you'd recommend?'",
         },
@@ -3538,7 +3559,7 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
       phrase: "How's your shift going so far?",
       ipa: "haʊz jɔːr ʃɪft ˈɡoʊɪŋ soʊ fɑːr",
       tr_hint:
-        "Small talk acici. 'How's your' baglanir → 'hauz-yor'. 'So far' = simdiye kadar (so-FAR vurgu).",
+        "Small talk açıcı. 'How's your' bağlanır → 'hauz-yor'. 'So far' = şimdiye kadar (so-FAR vurgu).",
     },
     {
       id: "ex.dx32.8.sp1",

@@ -24,14 +24,13 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Animated,
-  Dimensions,
   Easing,
-  Image,
   PanResponder,
   Pressable,
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
   type GestureResponderEvent,
   type PanResponderGestureState,
 } from "react-native";
@@ -43,16 +42,19 @@ const AnimatedExpoImage = Animated.createAnimatedComponent(ExpoImage);
 
 import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
-import { getSceneVisualImage } from "../lib/scene-visual-theme";
+import { getSceneCoverSpec } from "../lib/scene-cover-source";
+import { getSceneDisplayMinutes } from "../lib/scene-duration";
 import { tokens } from "../theme";
 import AnimatedGradientOverlay from "./AnimatedGradientOverlay";
 import FloatingParticles from "./FloatingParticles";
+import { useTranslation } from "../lib/i18n";
+import { useReduceMotionPreference } from "../lib/use-reduce-motion-preference";
 
 // ---------------------------------------------------------------------------
 // Layout constants
 // ---------------------------------------------------------------------------
 
-const SCREEN = Dimensions.get("window");
+type CoverStage = "primary" | "fallback" | "gradient";
 
 // Horizontal swipe thresholds. We require either a fairly long drag OR
 // a high-velocity flick so accidental thumb shifts don't trigger nav.
@@ -84,22 +86,34 @@ const MODE_ACCENT: Record<SceneMode, { fill: string; text: string }> = {
   ielts:   { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
 };
 
-const MODE_LABEL: Record<SceneMode, string> = {
-  flirt:   "Flört",
-  work:    "İş",
-  bar:     "Bar",
-  airport: "Havaalanı",
-  daily:   "Günlük",
-  order:   "Sipariş",
-  ielts:   "IELTS",
+const MODE_LABEL_KEYS: Record<SceneMode, string> = {
+  flirt: "mode.flirt",
+  work: "mode.work",
+  bar: "mode.bar",
+  airport: "mode.airport",
+  daily: "mode.daily",
+  order: "mode.order",
+  ielts: "mode.ielts",
 };
 
-// ---------------------------------------------------------------------------
-// Deterministic visual asset selection. Theme matching lives in lib so it can
-// be tested without importing React Native.
-// ---------------------------------------------------------------------------
-function getDeterministicImage(scene: Scene): string {
-  return getSceneVisualImage(scene);
+function getCardPromiseKey(scene: Scene, completed: boolean): string {
+  if (completed) {
+    return "scene_card.promise.completed";
+  }
+
+  switch (scene.cefrLevel) {
+    case "A1":
+    case "A2":
+      return "scene_card.promise.beginner";
+    case "B1":
+      return "scene_card.promise.intermediate";
+    case "B2":
+    case "C1":
+    case "C2":
+      return "scene_card.promise.advanced";
+    default:
+      return "scene_card.promise.default";
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -132,10 +146,15 @@ function SwipeSceneCardImpl({
   onSkip,
   isActive = true,
 }: SwipeSceneCardProps) {
-  // BUG-7 FIX: fallback when Unsplash images fail to load (offline/network)
-  const [imgFailed, setImgFailed] = useState(false);
-  // Reset on scene change so recycled cards retry
-  useEffect(() => { setImgFailed(false); }, [scene.id]);
+  const { t } = useTranslation();
+  const { width } = useWindowDimensions();
+  const reduceMotion = useReduceMotionPreference();
+  const coverSpec = useMemo(() => getSceneCoverSpec(scene), [scene]);
+  const cardPromise = t(getCardPromiseKey(scene, completed));
+  // Remote theme image → local fallback → branded gradient. Recycled cards
+  // must retry from the primary image when the scene changes.
+  const [coverStage, setCoverStage] = useState<CoverStage>("primary");
+  useEffect(() => { setCoverStage("primary"); }, [scene.id]);
   // Horizontal pan offset — drives card translate, opacity, and edge glow.
   const translateX = useRef(new Animated.Value(0)).current;
   // Entrance animation (fade + slight upward translate). Replays whenever
@@ -150,7 +169,7 @@ function SwipeSceneCardImpl({
   const kenBurnsAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (!isActive) {
+    if (!isActive || reduceMotion) {
       // Reset to start and stop
       kenBurnsAnim.setValue(0);
       return;
@@ -170,7 +189,7 @@ function SwipeSceneCardImpl({
     return () => {
       loop.stop();
     };
-  }, [isActive, scene.id, kenBurnsAnim]);
+  }, [isActive, scene.id, kenBurnsAnim, reduceMotion]);
 
   useEffect(() => {
     // Reset & replay the entrance animation for this scene.
@@ -224,7 +243,7 @@ function SwipeSceneCardImpl({
             // Fling the card off-screen then fire the action so the user
             // sees a clear visual response before the route swap.
             Animated.timing(translateX, {
-              toValue: direction * SCREEN.width * 1.2,
+              toValue: direction * width * 1.2,
               duration: 180,
               useNativeDriver: true,
             }).start(() => {
@@ -264,7 +283,7 @@ function SwipeSceneCardImpl({
           }).start();
         },
       }),
-    [onEnter, onSkip, scene.lessonId, translateX],
+    [onEnter, onSkip, scene.lessonId, translateX, width],
   );
 
   // -------------------------------------------------------------------------
@@ -272,50 +291,50 @@ function SwipeSceneCardImpl({
   // -------------------------------------------------------------------------
 
   const rotate = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    inputRange: [-width, 0, width],
     outputRange: ["-6deg", "0deg", "6deg"],
     extrapolate: "clamp",
   });
   const rotateY = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    inputRange: [-width, 0, width],
     outputRange: ["15deg", "0deg", "-15deg"],
     extrapolate: "clamp",
   });
   const imageScale = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
-    outputRange: [1.35, 1.25, 1.35],
+    inputRange: [-width, 0, width],
+    outputRange: [1.16, 1.08, 1.16],
     extrapolate: "clamp",
   });
   const imageTranslateX = translateX.interpolate({
-    inputRange: [-SCREEN.width, 0, SCREEN.width],
-    outputRange: [SCREEN.width * 0.12, 0, -SCREEN.width * 0.12],
+    inputRange: [-width, 0, width],
+    outputRange: [width * 0.06, 0, -width * 0.06],
     extrapolate: "clamp",
   });
 
-  // Ken Burns interpolations - zoom, pan and tilt made clearly visible
+  // Ken Burns interpolations stay subtle so the subject remains visible.
   const kbScale = kenBurnsAnim.interpolate({
     inputRange: [0, 0.5, 1],
-    outputRange: [1, 1.15, 1],
+    outputRange: [1, 1.06, 1],
   });
   const kbTranslateX = kenBurnsAnim.interpolate({
     inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: [0, -35, 35, -35, 0],
+    outputRange: [0, -14, 14, -14, 0],
   });
   const kbTranslateY = kenBurnsAnim.interpolate({
     inputRange: [0, 0.33, 0.66, 1],
-    outputRange: [0, -25, 25, 0],
+    outputRange: [0, -10, 10, 0],
   });
 
   // Combine swipe and ambient transforms
   const combinedScale = Animated.multiply(imageScale, kbScale);
   const combinedTranslateX = Animated.add(imageTranslateX, kbTranslateX);
   const rightGlowOpacity = translateX.interpolate({
-    inputRange: [0, SCREEN.width * 0.4],
+    inputRange: [0, width * 0.4],
     outputRange: [0, 1],
     extrapolate: "clamp",
   });
   const leftGlowOpacity = translateX.interpolate({
-    inputRange: [-SCREEN.width * 0.4, 0],
+    inputRange: [-width * 0.4, 0],
     outputRange: [1, 0],
     extrapolate: "clamp",
   });
@@ -364,6 +383,15 @@ function SwipeSceneCardImpl({
     onSkip(scene.lessonId);
   }, [skipCtaScale, onSkip, scene.lessonId]);
 
+  const handleCoverError = useCallback(() => {
+    setCoverStage((stage) => {
+      if (stage === "primary" && coverSpec.fallbackSource) {
+        return "fallback";
+      }
+      return "gradient";
+    });
+  }, [coverSpec.fallbackSource]);
+
   // -------------------------------------------------------------------------
   // Derived display strings
   // -------------------------------------------------------------------------
@@ -373,10 +401,17 @@ function SwipeSceneCardImpl({
   // so we flatten newlines but preserve the source string elsewhere.
   const displayTitle = scene.title.replace(/\n/g, " ");
   const accent = MODE_ACCENT[scene.mode];
-  const modeLabel = MODE_LABEL[scene.mode];
+  const modeLabel = t(MODE_LABEL_KEYS[scene.mode]);
+  const displayMinutes = getSceneDisplayMinutes(scene);
+  const activeCoverSource =
+    coverStage === "primary"
+      ? coverSpec.source
+      : coverStage === "fallback"
+        ? coverSpec.fallbackSource
+        : undefined;
 
   return (
-    <View style={[styles.outer, { height: cardHeight }]}>
+    <View style={[styles.outer, { width, height: cardHeight }]}>
       {/* Edge glow hints — fade in while dragging. Right side = enter (pink),
           left side = skip (neutral white). Pure visual feedback, no touch. */}
       <Animated.View
@@ -405,10 +440,11 @@ function SwipeSceneCardImpl({
         {...panResponder.panHandlers}
       >
         {/* Full background live image with overlay & top inner glow highlight */}
-        {!imgFailed ? (
+        {activeCoverSource ? (
           <AnimatedExpoImage
-            source={{ uri: getDeterministicImage(scene) }}
-            cachePolicy="disk"
+            source={activeCoverSource}
+            cachePolicy="memory-disk"
+            transition={150}
             style={[
               StyleSheet.absoluteFillObject,
               {
@@ -420,10 +456,10 @@ function SwipeSceneCardImpl({
               },
             ]}
             contentFit="cover"
-            onError={() => setImgFailed(true)}
+            onError={handleCoverError}
           />
         ) : (
-          /* BUG-7 FIX: gradient fallback when image fails to load (offline) */
+          /* Gradient fallback when both remote and local covers fail/offline. */
           <LinearGradient
             colors={[tokens.bg.surfaceContainer, accent.fill, tokens.bg.app]}
             start={{ x: 0, y: 0 }}
@@ -443,6 +479,7 @@ function SwipeSceneCardImpl({
         <FloatingParticles
           accentColor={accent.text}
           isActive={isActive}
+          particleCount={3}
         />
 
         <View style={styles.cardInnerHighlight} pointerEvents="none" />
@@ -454,7 +491,7 @@ function SwipeSceneCardImpl({
         <View
           style={styles.body}
           accessibilityRole="text"
-          accessibilityLabel={`Sahne: ${displayTitle}. Konuş butonuna basarak başla, sağa kaydırarak da girilebilir.`}
+          accessibilityLabel={t("scene_card.accessibility", { title: displayTitle })}
         >
           {/* Floating overlays — mode + CEFR + completion */}
           <View style={styles.overlayTop}>
@@ -471,7 +508,7 @@ function SwipeSceneCardImpl({
               ) : null}
               {scene.isNew && !completed ? (
                 <View style={styles.newBadge}>
-                  <Text style={styles.newBadgeText}>YENİ</Text>
+                  <Text style={styles.newBadgeText}>{t("scene_card.new")}</Text>
                 </View>
               ) : null}
               {/* Native audio rozeti — Adım 9 (2026-05-20).
@@ -480,7 +517,7 @@ function SwipeSceneCardImpl({
                   rozet otomatik gözükmeye başlar. */}
               {hasNativeAudio(scene.lessonId) ? (
                 <View style={styles.nativeBadge}>
-                  <Text style={styles.nativeBadgeText}>🎙️ NATIVE</Text>
+                  <Text style={styles.nativeBadgeText}>{t("scene_card.native")}</Text>
                 </View>
               ) : null}
               {completed ? (
@@ -496,22 +533,32 @@ function SwipeSceneCardImpl({
 
           {/* Middle — big title */}
           <View style={styles.titleArea}>
-            <Text style={styles.title} numberOfLines={3}>
+            <Text style={styles.title} numberOfLines={4}>
               {displayTitle}
             </Text>
-            <Text style={styles.description} numberOfLines={3}>
+            <Text style={styles.description} numberOfLines={4}>
               {scene.description}
             </Text>
+            <View style={styles.promiseBox}>
+              <Text style={styles.promiseKicker}>
+                {completed
+                  ? t("scene_card.repeat_flow")
+                  : t("scene_card.low_pressure_flow")}
+              </Text>
+              <Text style={styles.promiseText} numberOfLines={2}>
+                {cardPromise}
+              </Text>
+            </View>
           </View>
 
           {/* Lower — meta line (duration / progress) */}
           <View style={styles.metaArea}>
-            <Text style={styles.metaText}>
-              {scene.durationMin} dk
+            <Text style={styles.metaText} numberOfLines={1}>
+              {t("scene_card.minutes", { count: String(displayMinutes) })} · {coverSpec.label}
               {scene.progressLabel ? ` · ${scene.progressLabel}` : ""}
             </Text>
             <Text style={styles.hintText}>
-              ⇡ Sonraki  ·  → Konuş  ·  ← Atla
+              {t("scene_card.gesture_hint")}
             </Text>
           </View>
         </View>
@@ -524,7 +571,7 @@ function SwipeSceneCardImpl({
             onPress={handleSkipPress}
             style={styles.skipBtn}
             accessibilityRole="button"
-            accessibilityLabel="Bu sahneyi atla"
+            accessibilityLabel={t("scene_card.skip_label")}
             hitSlop={12}
           >
             <Text style={styles.skipBtnText}>✕</Text>
@@ -537,9 +584,9 @@ function SwipeSceneCardImpl({
             onPress={handleEnterPress}
             style={styles.enterBtn}
             accessibilityRole="button"
-            accessibilityLabel="Konuşmaya başla"
+            accessibilityLabel={t("scene_card.start_label")}
           >
-            <Text style={styles.enterBtnText}>Konuş ▶</Text>
+            <Text style={styles.enterBtnText}>{t("scene_card.start_cta")}</Text>
           </Pressable>
         </Animated.View>
       </View>
@@ -555,7 +602,6 @@ export const SwipeSceneCard = memo(SwipeSceneCardImpl);
 
 const styles = StyleSheet.create({
   outer: {
-    width: SCREEN.width,
     backgroundColor: tokens.bg.app,
     overflow: "hidden",
   },
@@ -708,7 +754,7 @@ const styles = StyleSheet.create({
     lineHeight: 34,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
-    letterSpacing: -0.9,
+    letterSpacing: 0,
     textAlign: "center",
   },
   description: {
@@ -717,6 +763,30 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: tokens.weight.medium,
     color: tokens.text.secondary,
+    textAlign: "center",
+  },
+  promiseBox: {
+    marginTop: 14,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 16,
+    backgroundColor: "rgba(0, 0, 0, 0.36)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.14)",
+    gap: 4,
+  },
+  promiseKicker: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 1.2,
+    textAlign: "center",
+  },
+  promiseText: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
     textAlign: "center",
   },
 

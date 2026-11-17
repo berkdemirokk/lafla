@@ -1,4 +1,9 @@
-import { getRelevantLevels, getStretchLevel, adjustLevel } from "../cefr-level";
+import {
+  getRelevantLevels,
+  getComfortLevels,
+  getStretchLevel,
+  adjustLevel,
+} from "../cefr-level";
 
 describe("CEFR Level Management Tests", () => {
   describe("getRelevantLevels", () => {
@@ -15,6 +20,14 @@ describe("CEFR Level Management Tests", () => {
     it("should return correct relevant levels for C2 edge level", () => {
       const result = getRelevantLevels("C2");
       expect(result).toEqual(["B2", "C1", "C2"]);
+    });
+  });
+
+  describe("getComfortLevels", () => {
+    it("does not put stretch content into the daily success loop", () => {
+      expect(getComfortLevels("A1")).toEqual(["A1"]);
+      expect(getComfortLevels("B1")).toEqual(["A2", "B1"]);
+      expect(getComfortLevels("C2")).toEqual(["B2", "C1", "C2"]);
     });
   });
 

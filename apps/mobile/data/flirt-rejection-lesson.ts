@@ -39,7 +39,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
         "I like you a lot as a person but not romantically.",
       ],
       tr_hint:
-        "Reddetmek = ovgu + durustluk + saygi. Uctan biri eksikse acitir.",
+        "Reddetmek = övgü + dürüstlük + saygı. Üçten biri eksikse acıtır.",
     },
     {
       id: "ex.fr7.1.3",
@@ -49,7 +49,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
       answer: "the",
       distractors: ["a", "my", "your"],
       tr_hint:
-        "'Wish you the best' = sana en iyisini dilerim. Saygili kapanis.",
+        "'Wish you the best' = sana en iyisini dilerim. Saygılı kapanış.",
     },
     {
       id: "ex.fr7.1.4",
@@ -95,8 +95,9 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
             "(wanted to|need to) (be (honest|upfront|fair))",
             "(it'?s not|it isn'?t) (about you|anything about you|you)",
           ],
+          model_answers: ["Wanted to be honest — not feeling that romantic spark."],
           hint_tr:
-            "Yumusak ac: 'Wanted to be honest — not feeling that romantic spark.'",
+            "Yumuşak aç: 'Wanted to be honest — not feeling that romantic spark.'",
         },
         {
           speaker: "npc",
@@ -112,6 +113,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
             "(no hard feelings|hope no hard feelings|hope it'?s okay)",
             "(take care|all the best)",
           ],
+          model_answers: ["Thank you for being chill. You're great — wish you the best."],
           hint_tr:
             "Kapat: 'Thank you for being chill. You're great — wish you the best.'",
         },
@@ -130,6 +132,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
             "(just (a |the )(feeling|vibe|chemistry|connection)) (wasn'?t there|i couldn'?t force)",
             "(appreciate (you|asking)|thanks for asking)",
           ],
+          model_answers: ["Honestly, more of a feeling — nothing about you. Just chemistry wasn't quite there."],
           hint_tr:
             "Empati + dürüst sebep (suçlamadan). 'Honestly, more of a feeling — nothing about you. Just chemistry wasn't quite there.'",
         },
@@ -155,7 +158,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pozitif aci (saygi) + durustluk (net hayir) + saygili kapanis (iyi dilek) = saglikli ret.",
+            "Pozitif açı (saygı) + dürüstlük (net hayır) + saygılı kapanış (iyi dilek) = sağlıklı ret.",
         },
         {
           question: "Reddi GECIKTIRMEK niye zararli?",
@@ -167,7 +170,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Erken net hayir = karsi taraf icin de kazanc. Belirsizlik en buyuk acidir.",
+            "Erken net hayır = karşı taraf için de kazanç. Belirsizlik en büyük acıdır.",
         },
         {
           question: "'Ghosting' (sessizce kaybolma) niye KOTU bir cozum?",
@@ -179,7 +182,7 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Tek satirlik durust mesaj = ghost'lamaktan daima daha saygili.",
+            "Tek satırlık dürüst mesaj = ghost'lamaktan daima daha saygılı.",
         },
       ],
     },
@@ -394,7 +397,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
         "Means a lot you said it directly. All the best.",
       ],
       tr_hint:
-        "Reddedilince saygili tepki = sosyal sermaye. Drama kaybeden, saygi kazandiran.",
+        "Reddedilince saygılı tepki = sosyal sermaye. Drama kaybeden, saygı kazandıran.",
     },
     {
       id: "ex.fr7.2.3",
@@ -404,7 +407,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
       answer: "hard",
       distractors: ["bad", "wrong", "mean"],
       tr_hint:
-        "'No hard feelings' = kirgin değilim. Olgun reaksiyon sinyali.",
+        "'No hard feelings' = kırgın değilim. Olgun reaksiyon sinyali.",
     },
     {
       id: "ex.fr7.2.4",
@@ -428,7 +431,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
       correct_sentence:
         "Appreciate you saying that. No hard feelings — take care.",
       tr_explanation:
-        "'Whatever you'll regret it' = ego + tehdit = kotu gorunur. Doğru: olgun kabul + saygili kapanis.",
+        "'Whatever you'll regret it' = ego + tehdit = kötü görünür. Doğru: olgun kabul + saygılı kapanış.",
     },
     {
       id: "ex.fr7.2.6",
@@ -448,8 +451,9 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
             "(better |i'?d rather )?(know now|know than wonder|hear it)",
             "(i'?ll take it|fair enough|that'?s fair)",
           ],
+          model_answers: ["Appreciate you saying it directly — respect that."],
           hint_tr:
-            "Olgun ac: 'Appreciate you saying it directly — respect that.'",
+            "Olgun aç: 'Appreciate you saying it directly — respect that.'",
         },
         {
           speaker: "npc",
@@ -465,6 +469,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
             "(genuinely|honestly) (great|nice) (meeting|talking to) you",
             "(if anything changes|if you ever change your mind) (you )(know)",
           ],
+          model_answers: ["Genuinely great meeting you — take care."],
           hint_tr:
             "Kapat: 'Genuinely great meeting you — take care.'",
         },
@@ -482,6 +487,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
             "(takes one to know one|right back at you)",
             "(thanks for|appreciate) (the (lift|kindness|message))",
           ],
+          model_answers: ["That means a lot, honestly. Right back at you."],
           hint_tr:
             "Sıcak kabul: 'That means a lot, honestly. Right back at you.' İltifatı kabul et, drama yapma.",
         },
@@ -507,7 +513,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Olgun ret = arkadas cevren bunu duyar. Drama = senin reputation'a zarar.",
+            "Olgun ret = arkadaş çevren bunu duyar. Drama = senin reputation'a zarar.",
         },
         {
           question: "'No hard feelings' diyince NE iletiyorsun?",
@@ -519,7 +525,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Olgunluk + ego kontrolu = en cekici niteliklerden biri. Ret'i kabullenebilmek = guc.",
+            "Olgunluk + ego kontrolü = en çekici niteliklerden biri. Ret'i kabullenebilmek = güç.",
         },
         {
           question: "Reddi 'cevirme' (geri kazanma) cabasi RISKI?",
@@ -531,7 +537,7 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karari saygiyla kabul = en cekici tepki. Israr = saygisizlik.",
+            "Kararı saygıyla kabul = en çekici tepki. Israr = saygısızlık.",
         },
       ],
     },
@@ -808,7 +814,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
         "Whatever you're feeling — no expectations.",
       ],
       tr_hint:
-        "'No pressure' = baski yok. Yumusak belki'leri net hayir'a donusturmenin yumusak yolu.",
+        "'No pressure' = baskı yok. Yumuşak belki'leri net hayır'a dönüştürmenin yumuşak yolu.",
     },
     {
       id: "ex.fr7.3.3",
@@ -818,7 +824,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
       answer: "weight",
       distractors: ["thing", "load", "stress"],
       tr_hint:
-        "'Take the weight off' = yuku kaldir. Bu cumlede: 'fair to assume no' der gibi.",
+        "'Take the weight off' = yükü kaldır. Bu cümlede: 'fair to assume no' der gibi.",
     },
     {
       id: "ex.fr7.3.4",
@@ -844,7 +850,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
       correct_sentence:
         "Hey, no pressure — if this isn't the right time, totally understand.",
       tr_explanation:
-        "'Why didn't you answer?' = sicakkanli + suclayici. Doğru: cikis yolu sun, karsi taraf rahatlasin.",
+        "'Why didn't you answer?' = sıcakkanlı + suçlayıcı. Doğru: çıkış yolu sun, karşı taraf rahatlasın.",
     },
     {
       id: "ex.fr7.3.6",
@@ -865,8 +871,9 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
             "(if (this isn'?t|its not) the right (time|moment))",
             "(give you an out|easy out|easy way out)",
           ],
+          model_answers: ["No pressure — if this isn't the right time, totally get it."],
           hint_tr:
-            "Cikis yolu sun: 'No pressure — if this isn't the right time, totally get it.'",
+            "Çıkış yolu sun: 'No pressure — if this isn't the right time, totally get it.'",
         },
         {
           speaker: "npc",
@@ -883,6 +890,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
             "(no worries|all good)",
             "(take care|all the best)",
           ],
+          model_answers: ["Thanks for being real — wish you the best."],
           hint_tr:
             "Olgun kapat: 'Thanks for being real — wish you the best.'",
         },
@@ -901,6 +909,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
             "(no need to (apologize|feel bad)|all good on my end)",
             "(door'?s open (for friendship)|always open for a hi)",
           ],
+          model_answers: ["Honestly, it's okay — harder than it looks. Appreciate you coming back to say it. Door's open if life calms down."],
           hint_tr:
             "Empati + sağlıklı sınır: 'Honestly, it's okay — harder than it looks. Appreciate you coming back to say it. Door's open if life calms down.'",
         },
@@ -926,7 +935,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "2-3 kacamak = yumusak ret. Saygili cikis yolu = ikiniz icin de kurtulus.",
+            "2-3 kaçamak = yumuşak ret. Saygılı çıkış yolu = ikiniz için de kurtuluş.",
         },
         {
           question: "'Give someone an out' niye guclu?",
@@ -938,7 +947,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sosyal zekanin zirvesi. Suclamaz ama netlestirir. Iliski (arkadaslik) bile yasanabilir.",
+            "Sosyal zekanın zirvesi. Suçlamaz ama netleştirir. İlişki (arkadaşlık) bile yaşanabilir.",
         },
         {
           question: "Yumusak belki'yi NETLESTIRMEK niye iyi?",
@@ -950,7 +959,7 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "Belirsizlik en yikici durum. Netlik = ya yola devam ya yeni yon bul = pozitif.",
+            "Belirsizlik en yıkıcı durum. Netlik = ya yola devam ya yeni yön bul = pozitif.",
         },
       ],
     },
@@ -1208,9 +1217,9 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
       difficulty: 2,
       cefr_band: "B2",
       word_or_phrase: "I just started seeing someone",
-      tr_translation: "Yeni birisiyle gorusmeye basladim",
+      tr_translation: "Yeni birisiyle görüşmeye başladım",
       example: "Thank you, that's sweet — but I just started seeing someone.",
-      example_tr: "Tesekkurler, cok tatli — ama yeni birisiyle gorusmeye basladim.",
+      example_tr: "Teşekkürler, çok tatlı — ama yeni birisiyle görüşmeye başladım.",
     },
     {
       id: "ex.fr7.5.2",
@@ -1226,7 +1235,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
         "Flattering message, but I just started something with someone else.",
       ],
       tr_hint:
-        "Formul: pozitif onay ('thanks/lovely') + net sebep ('seeing someone') + kapanis ('though/anyway'). Suclulukla degil, durustlukle.",
+        "Formül: pozitif onay ('thanks/lovely') + net sebep ('seeing someone') + kapanış ('though/anyway'). Suçlulukla değil, dürüstlükle.",
     },
     {
       id: "ex.fr7.5.3",
@@ -1236,7 +1245,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
       answer: "but",
       distractors: ["and", "so", "also"],
       tr_hint:
-        "'Flattered, but...' = gururumu oksadi ama... Klasik kibar reddetme kalibi.",
+        "'Flattered, but...' = gururumu okşadı ama... Klasik kibar reddetme kalıbı.",
     },
     {
       id: "ex.fr7.5.4",
@@ -1252,7 +1261,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
         "now",
       ],
       correct_sentence: "Thanks but I'm with someone right now",
-      tr_translation: "Tesekkurler ama su an birisiyle birlikteyim.",
+      tr_translation: "Teşekkürler ama şu an birisiyle birlikteyim.",
     },
     {
       id: "ex.fr7.5.5",
@@ -1262,7 +1271,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
       correct_sentence:
         "Thank you, but I'm seeing someone — wish you the best out there.",
       tr_explanation:
-        "'Sorry I have boyfriend leave me alone' = sert + kirik gramer + saldirgan kapanis. Doğru: 'Thank you' (saygi) + 'seeing someone' (net sebep) + 'wish you the best' (sicak kapanis). Ozur DILEMENE gerek yok — kibar net olabilirsin.",
+        "'Sorry I have boyfriend leave me alone' = sert + kırık gramer + saldırgan kapanış. Doğru: 'Thank you' (saygı) + 'seeing someone' (net sebep) + 'wish you the best' (sıcak kapanış). Özür DİLEMENE gerek yok — kibar net olabilirsin.",
     },
     {
       id: "ex.fr7.5.6",
@@ -1282,8 +1291,9 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
             "(it'?s |things are )?(new|early|fresh) (but|and) (going well|good)",
             "(thank you|thanks) (though|anyway|for understanding)",
           ],
+          model_answers: ["Thank you, that's sweet — but I just started seeing someone."],
           hint_tr:
-            "Yumusak ac: 'Thank you, that's sweet — but I just started seeing someone.'",
+            "Yumuşak aç: 'Thank you, that's sweet — but I just started seeing someone.'",
         },
         {
           speaker: "npc",
@@ -1299,6 +1309,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
             "(no hard feelings|all good|all the best)",
             "(take care|stay great|good luck out there)",
           ],
+          model_answers: ["Thanks for being chill — wish you the best out there."],
           hint_tr:
             "Kapat: 'Thanks for being chill — wish you the best out there.'",
         },
@@ -1317,6 +1328,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
             "(appreciate the (thought|interest)|that'?s kind)(,)? but",
             "(wish you (well|the best) (out there|finding someone))",
           ],
+          model_answers: ["Honestly, I plan to stay invested in this — not really the move to leave that door open. Wish you well out there."],
           hint_tr:
             "Sağlıklı sınır: 'Honestly, I plan to stay invested in this — not really the move to leave that door open. Wish you well out there.'",
         },
@@ -1342,7 +1354,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Net sebep verir, karsi taraf reddi 'kisisel' algilamaz — saglikli sinir.",
+            "Net sebep verir, karşı taraf reddi 'kişisel' algılamaz — sağlıklı sınır.",
         },
         {
           question: "'I'm flattered, but...' ne anlama gelir?",
@@ -1354,7 +1366,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Pozitif onay + net ret = ego korur + sinir cizer. Klasik kalip.",
+            "Pozitif onay + net ret = ego korur + sınır çizer. Klasik kalıp.",
         },
         {
           question: "Birisiyle gorusurken gelen mesaja niye ozur DILEMEN gerekMEZ?",
@@ -1366,7 +1378,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Suclulukla reddetmek = saglikli degil. 'Thank you, but...' = saygili + suclu hissetmeden.",
+            "Suçlulukla reddetmek = sağlıklı değil. 'Thank you, but...' = saygılı + suçlu hissetmeden.",
         },
       ],
     },
@@ -1377,7 +1389,7 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
       phrase: "I just started seeing someone, but thank you.",
       ipa: "aɪ dʒʌst ˈstɑːtɪd ˈsiːɪŋ ˈsʌmwʌn bʌt θæŋk juː",
       tr_hint:
-        "'Just started' bagli, hizli. 'Seeing someone' = SEE-ing SUM-wun, yumusak. 'Thank you' sonda sicak iniş — saygiyla kapanis.",
+        "'Just started' bağlı, hızlı. 'Seeing someone' = SEE-ing SUM-wun, yumuşak. 'Thank you' sonda sıcak iniş — saygıyla kapanış.",
     },
     {
       id: "ex.fr7.5.sp1",
@@ -1586,9 +1598,9 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "I don't think we're a match",
-      tr_translation: "Bence uyumlu degiliz",
+      tr_translation: "Bence uyumlu değiliz",
       example: "I appreciate the message, but I don't think we're a match.",
-      example_tr: "Mesaj icin tesekkurler ama bence uyumlu degiliz.",
+      example_tr: "Mesaj için teşekkürler ama bence uyumlu değiliz.",
     },
     {
       id: "ex.fr7.6.2",
@@ -1604,7 +1616,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
         "Flattered, but I'd respectfully decline — not the right match for me.",
       ],
       tr_hint:
-        "'Not a match / not the right fit' = uyumsuz. Kimseyi suclamaz, sebep belirsiz birakir — kibarca.",
+        "'Not a match / not the right fit' = uyumsuz. Kimseyi suçlamaz, sebep belirsiz bırakır — kibarca.",
     },
     {
       id: "ex.fr7.6.3",
@@ -1614,7 +1626,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
       answer: "respectfully",
       distractors: ["quickly", "totally", "kindly"],
       tr_hint:
-        "'Respectfully decline' = saygiyla reddet. Resmi + olgun + net kalip.",
+        "'Respectfully decline' = saygıyla reddet. Resmi + olgun + net kalıp.",
     },
     {
       id: "ex.fr7.6.4",
@@ -1629,7 +1641,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
         "me",
       ],
       correct_sentence: "Not the right fit for me",
-      tr_translation: "Bana uygun degil.",
+      tr_translation: "Bana uygun değil.",
     },
     {
       id: "ex.fr7.6.5",
@@ -1639,7 +1651,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
       correct_sentence:
         "I appreciate the message, but I don't think we're a match — thank you though.",
       tr_explanation:
-        "'Sorry, I don't want' = Turkce'den direkt cevirme + sert + eksik. Doğru: 'I appreciate the message' (saygi) + 'don't think we're a match' (yumusak sebep) + 'thank you though' (sicak kapanis). 'Want' yerine 'a match/fit' kullan — kisi degil, uyum sorunu.",
+        "'Sorry, I don't want' = Türkçe'den direkt çevirme + sert + eksik. Doğru: 'I appreciate the message' (saygı) + 'don't think we're a match' (yumuşak sebep) + 'thank you though' (sıcak kapanış). 'Want' yerine 'a match/fit' kullan — kişi değil, uyum sorunu.",
     },
     {
       id: "ex.fr7.6.6",
@@ -1659,8 +1671,9 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
             "(it'?s|that'?s) (not (the right )?(fit|match|connection)) (for me|here)",
             "(respectfully (decline|pass)|gonna (pass|decline))",
           ],
+          model_answers: ["Appreciate the message, but I don't think we're a match."],
           hint_tr:
-            "Yumusak ac: 'Appreciate the message, but I don't think we're a match.'",
+            "Yumuşak aç: 'Appreciate the message, but I don't think we're a match.'",
         },
         {
           speaker: "npc",
@@ -1676,6 +1689,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
             "(take care|all the best|good luck out there)",
             "(genuinely|really) (appreciate|respect) (you|that)",
           ],
+          model_answers: ["Thanks for understanding — wish you the best."],
           hint_tr:
             "Kapat: 'Thanks for understanding — wish you the best.'",
         },
@@ -1694,6 +1708,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
             "(taking care of (myself|me)|focused on (myself|my own thing)) (right now|these days)",
             "(thanks (again|for the kindness))",
           ],
+          model_answers: ["Appreciate the offer, but don't think I'll be changing my mind. Hope you find the right fit out there."],
           hint_tr:
             "Sağlıklı sınır + sıcaklık: 'Appreciate the offer, but don't think I'll be changing my mind. Hope you find the right fit out there.'",
         },
@@ -1719,7 +1734,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Match/fit' = iliski matematigi sorunu, kisilik degil. Karsi tarafa zarar vermez.",
+            "'Match/fit' = ilişki matematiği sorunu, kişilik değil. Karşı tarafa zarar vermez.",
         },
         {
           question: "'Respectfully decline' formal ama niye guzel?",
@@ -1731,7 +1746,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Profesyonel + romantik kontekstlerde ise yarar. Saygiya saygi gosterir.",
+            "Profesyonel + romantik kontekstlerde işe yarar. Saygıya saygı gösterir.",
         },
         {
           question: "Reddederken UZUN aciklama niye gereksiz?",
@@ -1743,7 +1758,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Kisa + net = guvenli sinir. Uzun savunma = belirsizlik + acilik.",
+            "Kısa + net = güvenli sınır. Uzun savunma = belirsizlik + acılık.",
         },
       ],
     },
@@ -1754,7 +1769,7 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
       phrase: "I appreciate the message, but I don't think we're a match.",
       ipa: "aɪ əˈpriːʃieɪt ðə ˈmesɪdʒ bʌt aɪ dəʊnt θɪŋk wɪər ə mætʃ",
       tr_hint:
-        "'Appreciate' = ə-PREE-shee-ate, vurgu 'PREE'de. 'Match' kisa + net son. Sicak ama net ton.",
+        "'Appreciate' = ə-PREE-shee-ate, vurgu 'PREE'de. 'Match' kısa + net son. Sıcak ama net ton.",
     },
     {
       id: "ex.fr7.6.sp1",
@@ -1962,9 +1977,9 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
       difficulty: 2,
       cefr_band: "B2",
       word_or_phrase: "All good, take care",
-      tr_translation: "Her sey yolunda, kendine iyi bak",
+      tr_translation: "Her şey yolunda, kendine iyi bak",
       example: "All good, take care — wish you the best!",
-      example_tr: "Her sey yolunda, kendine iyi bak — sana en iyisini dilerim!",
+      example_tr: "Her şey yolunda, kendine iyi bak — sana en iyisini dilerim!",
     },
     {
       id: "ex.fr7.7.2",
@@ -1980,7 +1995,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
         "That's totally fair — thanks for being honest with me.",
       ],
       tr_hint:
-        "Olgun kabul = 3 sinyal: anlayis ('understand/get it') + saygi ('thanks/appreciate') + sicak kapanis ('take care/best'). Israr YOK.",
+        "Olgun kabul = 3 sinyal: anlayış ('understand/get it') + saygı ('thanks/appreciate') + sıcak kapanış ('take care/best'). Israr YOK.",
     },
     {
       id: "ex.fr7.7.3",
@@ -1990,7 +2005,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
       answer: "good",
       distractors: ["fine", "great", "well"],
       tr_hint:
-        "'All good' = problem yok / sorun degil. Olgun kabul sinyali, drama yok.",
+        "'All good' = problem yok / sorun değil. Olgun kabul sinyali, drama yok.",
     },
     {
       id: "ex.fr7.7.4",
@@ -2006,7 +2021,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
         "honest",
       ],
       correct_sentence: "Totally get it thanks for being honest",
-      tr_translation: "Tamamen anliyorum, durust oldugun icin tesekkurler.",
+      tr_translation: "Tamamen anlıyorum, dürüst olduğun için teşekkürler.",
     },
     {
       id: "ex.fr7.7.5",
@@ -2016,7 +2031,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
       correct_sentence:
         "All good — thanks for being honest. Take care!",
       tr_explanation:
-        "'But why? You didn't even try' = savunmaci + sorgulayici + ego yarasi gosteriyor. Doğru: kisa 'all good' + tesekkur + sicak kapanis. Net = guc, israr = zayiflik. Karsi tarafa 'aciklama borcu' yuklemek saygisizlik.",
+        "'But why? You didn't even try' = savunmacı + sorgulayıcı + ego yarası gösteriyor. Doğru: kısa 'all good' + teşekkür + sıcak kapanış. Net = güç, ısrar = zayıflık. Karşı tarafa 'açıklama borcu' yüklemek saygısızlık.",
     },
     {
       id: "ex.fr7.7.6",
@@ -2036,8 +2051,9 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
             "(no (need to |hard )?explain|don'?t (need to|gotta) explain)",
             "(rather (know|hear it) (now|than wonder))",
           ],
+          model_answers: ["All good — thanks for being honest with me."],
           hint_tr:
-            "Olgun ac: 'All good — thanks for being honest with me.'",
+            "Olgun aç: 'All good — thanks for being honest with me.'",
         },
         {
           speaker: "npc",
@@ -2053,6 +2069,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
             "(stay (great|cool|awesome))",
             "(no hard feelings|nothing but (good vibes|respect))",
           ],
+          model_answers: ["Genuinely nice chatting — take care!"],
           hint_tr:
             "Kapat: 'Genuinely nice chatting — take care!'",
         },
@@ -2071,6 +2088,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
             "(not in a place|not ready)( for that)? right now",
             "(take care|wishing you well|truly)",
           ],
+          model_answers: ["Appreciate that — probably best if we give each other a clean slate. Truly wishing you well."],
           hint_tr:
             "Saygılı sınır: 'Appreciate that — probably best if we give each other a clean slate. Truly wishing you well.' Net + sıcak çıkış.",
         },
@@ -2096,7 +2114,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Karsi taraf hayir dedi = hakki var, aciklama borcu yok. Sormak = saygisizlik + acilik isareti.",
+            "Karşı taraf hayır dedi = hakkı var, açıklama borcu yok. Sormak = saygısızlık + acılık işareti.",
         },
         {
           question: "'All good, take care' niye en guclu kapanis?",
@@ -2108,7 +2126,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Olgun kabul = arkasindan kalabalik konusulur. Drama yok = saglikli + cekici.",
+            "Olgun kabul = arkasından kalabalık konuşulur. Drama yok = sağlıklı + çekici.",
         },
         {
           question: "Reddedildikten sonra ISRARLA ikna etmeye calismak?",
@@ -2120,7 +2138,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Hayir' bir cumledir — pazarlik degil. Israr = karsi tarafin sinirini gormeden ezme.",
+            "'Hayır' bir cümledir — pazarlık değil. Israr = karşı tarafın sınırını görmeden ezme.",
         },
       ],
     },
@@ -2131,7 +2149,7 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
       phrase: "All good, take care!",
       ipa: "ɔːl ɡʊd teɪk keə",
       tr_hint:
-        "'All good' = AWL-good, akici. 'Take care' = vurgu 'CARE'de, sicak. Hizli + dostca + drama'siz ton.",
+        "'All good' = AWL-good, akıcı. 'Take care' = vurgu 'CARE'de, sıcak. Hızlı + dostça + drama'sız ton.",
     },
     {
       id: "ex.fr7.7.sp1",
@@ -2340,9 +2358,9 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
       difficulty: 3,
       cefr_band: "B2",
       word_or_phrase: "I've said no — please respect that",
-      tr_translation: "Hayir dedim — lutfen buna saygi goster",
+      tr_translation: "Hayır dedim — lütfen buna saygı göster",
       example: "I've said no — please respect that. I'm not going to change my mind.",
-      example_tr: "Hayir dedim — lutfen buna saygi goster. Fikrimi degistirmeyecegim.",
+      example_tr: "Hayır dedim — lütfen buna saygı göster. Fikrimi değiştirmeyeceğim.",
     },
     {
       id: "ex.fr7.8.2",
@@ -2358,7 +2376,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
         "I've made my position clear — please don't push.",
       ],
       tr_hint:
-        "Sinir cumlesi 3 parca: net olgu ('said no') + rica ('respect that') + kesinlik ('won't change'). Bagirmadan, suclamadan.",
+        "Sınır cümlesi 3 parça: net olgu ('said no') + rica ('respect that') + kesinlik ('won't change'). Bağırmadan, suçlamadan.",
     },
     {
       id: "ex.fr7.8.3",
@@ -2368,7 +2386,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
       answer: "respect",
       distractors: ["accept", "hear", "know"],
       tr_hint:
-        "'Respect my answer' = cevabima saygi goster. Sinir koruma kalibinin merkezi.",
+        "'Respect my answer' = cevabıma saygı göster. Sınır koruma kalıbının merkezi.",
     },
     {
       id: "ex.fr7.8.4",
@@ -2393,7 +2411,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
       correct_sentence:
         "I've said no — please respect that. The answer isn't going to change.",
       tr_explanation:
-        "'Maybe later okay don't be angry' = belirsiz ('maybe') + ozur diler tonda ('don't be angry') = sinir yok, kapi acik kaliyor. Doğru: net 'said no' + 'respect that' (saygili rica) + kesinlik. Sinir korumak suc degil — saglikli + gerekli. Karsi tarafi kizdirmamak icin belirsiz birakma.",
+        "'Maybe later okay don't be angry' = belirsiz ('maybe') + özür diler tonda ('don't be angry') = sınır yok, kapı açık kalıyor. Doğru: net 'said no' + 'respect that' (saygılı rica) + kesinlik. Sınır korumak suç değil — sağlıklı + gerekli. Karşı tarafı kızdırmamak için belirsiz bırakma.",
     },
     {
       id: "ex.fr7.8.6",
@@ -2413,8 +2431,9 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
             "(not (going|gonna)) (change my mind|reconsider)",
             "(i'?ve been clear|i've made (it|my position) clear)",
           ],
+          model_answers: ["I've said no — please respect that. The answer isn't going to change."],
           hint_tr:
-            "Net + saygili: 'I've said no — please respect that. The answer isn't going to change.'",
+            "Net + saygılı: 'I've said no — please respect that. The answer isn't going to change.'",
         },
         {
           speaker: "npc",
@@ -2431,8 +2450,9 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
             "(going to (step|move) away|ending (this|the conversation) now)",
             "(i (wish you|hope you) well|take care of yourself)",
           ],
+          model_answers: ["My answer stands — please stop asking. Wish you well."],
           hint_tr:
-            "Sinirini netlestir: 'My answer stands — please stop asking. Wish you well.'",
+            "Sınırını netleştir: 'My answer stands — please stop asking. Wish you well.'",
         },
         {
           speaker: "npc",
@@ -2449,6 +2469,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
             "(going to (block|step away)|ending this here)",
             "(take care|wish you the best)",
           ],
+          model_answers: ["My decision is mine — no isn't up for debate. Wishing you well, ending this here."],
           hint_tr:
             "Kararlı + sakin sınır: 'My decision is mine — no isn't up for debate. Wishing you well, ending this here.' Tartışmaya GİRME.",
         },
@@ -2474,7 +2495,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Sinir = net + saygili + kesin. Drama'siz ama tartisma kabul etmez. Saglikli + olgun.",
+            "Sınır = net + saygılı + kesin. Drama'sız ama tartışma kabul etmez. Sağlıklı + olgun.",
         },
         {
           question: "Israr edildiginde 'maybe later' demek niye RISKLI?",
@@ -2486,7 +2507,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Maybe' = umut veriyor. Sinir koruyamiyorsan israr durmaz. Kibarlik = belirsizlik degil.",
+            "'Maybe' = umut veriyor. Sınır koruyamıyorsan ısrar durmaz. Kibarlık = belirsizlik değil.",
         },
         {
           question: "Sinir korumak NIYE saygili olabilir?",
@@ -2498,7 +2519,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Net sinir = kendine ve karsi tarafa saygi. 'Belki' belirsizligi = kendi sinirina saygisizlik. Hayir demek ayip degil — saglikli.",
+            "Net sınır = kendine ve karşı tarafa saygı. 'Belki' belirsizliği = kendi sınırına saygısızlık. Hayır demek ayıp değil — sağlıklı.",
         },
       ],
     },
@@ -2509,7 +2530,7 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
       phrase: "I've said no — please respect that.",
       ipa: "aɪv sed nəʊ pliːz rɪˈspekt ðæt",
       tr_hint:
-        "'Said no' net + yavas — agirlik ver. 'Please' yumusak ama kararli. 'Respect that' vurgu 'SPECT'te. Sakin, kararli — bagirma yok, geri adim yok.",
+        "'Said no' net + yavaş — ağırlık ver. 'Please' yumuşak ama kararlı. 'Respect that' vurgu 'SPECT'te. Sakin, kararlı — bağırma yok, geri adım yok.",
     },
     {
       id: "ex.fr7.8.sp1",
