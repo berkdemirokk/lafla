@@ -34,7 +34,10 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"row_limit": 1}')
           echo "HTTP $code"
-          if [ "$code" != "200" ]; then
+          # get_leaderboard is granted to signed-in users only, so the anon key
+          # gets Postgres error 42501. That error comes from the database
+          # itself, which is the activity we need, so it counts as awake.
+          if [ "$code" != "200" ] && ! grep -q '"42501"' /tmp/body; then
             echo "::error::Supabase did not answer the keep-alive query (HTTP $code). The project may be paused."
             head -c 300 /tmp/body
             exit 1
