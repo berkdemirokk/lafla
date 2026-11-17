@@ -73,7 +73,7 @@ export const METADATA = {
   bundleId: "com.lafla.app",
   // Apple "App Store Connect" version string (CFBundleShortVersionString).
   // app.json'daki version ile aynı olmalı.
-  appStoreVersion: "1.0.6",
+  appStoreVersion: "1.0.7",
 
   // tr-TR primary
   tr: {
@@ -136,13 +136,9 @@ export const METADATA = {
     keywords:
       "ielts,yds,yökdil,toefl,speaking,english,telaffuz,ezber,sohbet,dil,yabancı,akıcı,mülakat,dinleme",
     whatsNew: [
-      "Yeni: Bugünün 10 Kelimesi",
-      "",
-      "• Her gün seviyene göre 10 yeni kelime, örnek cümle ve sesli okunuş",
-      "• 2 dakikalık hızlı testle pekiştir, kelimeler tekrar listene eklensin",
-      "• Günlük kelimeleri bitirmek serini korur",
-      "• Akşam hatırlatması: kelimeler bitmediyse haber veririz",
-      "• Genel performans ve kararlılık iyileştirmeleri",
+      "Daha temiz Türkçe: derslerdeki binlerce açıklama ve çeviride Türkçe karakterler düzeltildi.",
+      "• Günün 10 kelimesi daha net: yarım ifadeler ve tekrar eden çeviriler ayıklandı.",
+      "• Hata düzeltmeleri ve performans iyileştirmeleri.",
     ].join("\n"),
   },
 
@@ -207,13 +203,9 @@ export const METADATA = {
     keywords:
       "ielts,toefl,turkish,esl,vocabulary,vocab,pronunciation,fluency,conversation,interview,accent,cefr",
     whatsNew: [
-      "New: Today's 10 Words",
-      "",
-      "• Ten new words a day at your level, with example sentences and audio",
-      "• A 2-minute quick check, then every word joins your review list",
-      "• Finishing your daily words keeps your streak alive",
-      "• Evening reminder if today's words are still waiting",
-      "• General performance and stability improvements",
+      "Cleaner Turkish: Turkish characters fixed in thousands of lesson hints and translations.",
+      "• Clearer Today's 10 Words: fragments and self-revealing translations removed.",
+      "• Bug fixes and performance improvements.",
     ].join("\n"),
   },
 } as const;

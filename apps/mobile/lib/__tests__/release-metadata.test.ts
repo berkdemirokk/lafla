@@ -27,7 +27,7 @@ describe("release metadata", () => {
   it("uses remote build numbers without a conflicting local buildNumber", () => {
     const app = JSON.parse(read("apps/mobile/app.json"));
     expect(app.expo.ios.buildNumber).toBeUndefined();
-    expect(app.expo.version).toBe("1.0.6");
+    expect(app.expo.version).toBe("1.0.7");
   });
 
   it("ships localized iOS permission prompts through Expo's native locale pipeline", () => {
